@@ -1,0 +1,155 @@
+# Logfile created on Tue Feb 02 16:43:23 +0100 2010 by logger.rb/85
+Starting process ...
+yaml config file /home/notroot/git/Piper_Nigrum/PN_project_structure/builders/etl/2_translation_rule/script/build_translator_date.rb.yml succesfully open
+Error message: (eval):1:in `build_profile': compile error
+(eval):1: syntax error, unexpected ';', expecting ')'
+...e(infield[:pol_birth_date_dt];european_date = '%m/%Y';data =...
+                              ^
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/Piper_Nigrum/PN_project_structure/builders/etl/2_translation_rule/script/build_translator_date.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2008-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2010-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2010-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_dt-1977-11-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2008-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2010-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2008-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2009-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_dt-1975-11-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2010-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_dt-1970-11-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_dt-1974-11-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2010-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_dt-1974-11-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2010-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2008-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_dt-1974-11-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2010-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2010-01-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2006-01-29' for key 1
+Starting process ...
+yaml config file /home/notroot/git/Piper_Nigrum/PN_project_structure/builders/etl/2_translation_rule/script/build_translator_date.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_month_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_month_str-01' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_day_str-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_day_str-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_month_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_month_str-01' for key 1
+Starting process ...
+yaml config file /home/notroot/git/Piper_Nigrum/PN_project_structure/builders/etl/2_translation_rule/script/build_translator_date.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_month_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_year_num-1977' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_month_str-01' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_year_num-2008' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_day_str-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_day_str-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_month_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_year_num-1975' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_month_str-01' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_year_num-2010' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_day_str-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_day_str-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_month_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_year_num-1969' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_month_str-01' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_day_str-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_day_str-29' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_birth_date_month_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_month_str-01' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_year_num-2010' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'quixa-sect_1-quixa-pol_matriculation_date_dt-2010-01-29' for key 1

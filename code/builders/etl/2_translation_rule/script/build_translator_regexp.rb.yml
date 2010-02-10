@@ -1,0 +1,26 @@
+--- 
+app_settings:
+  as_select_stmt_profile: "SELECT * FROM translated_fields"
+  as_select_stmt_input: "SELECT driv_job_str, veh_make_str, veh_model_str, veh_set_up_str FROM insurance_profiles"
+  as_select_stmt_mapping: "SELECT field_name_str, ruby_function_str FROM regexp_mapping WHERE field_name_str= ? and key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ?  "
+  as_insert_stmt_profile: "INSERT INTO translated_fields (key_provider_id_str, key_sector_id_str, key_company_id_str, field_name_str, field_value_str) VALUES (?,?,?,?,?)"
+  as_update_stmt_profile: "UPDATE translated_fields SET target_value_str = ? WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND field_name_str = ? AND field_value_str = ?"
+  as_select_stmt_company: "SELECT key_company_id_str FROM companies WHERE key_companies_group_id_str = ?"
+  as_provider_id: "quixa"
+  as_sector_id: "sect_1"
+  as_companies_group_id: "all_quixa"
+  as_company_id: "quixa"
+  as_working_set_id: "quixa_20100101"
+
+logger_settings: 
+  ls_device: "/home/notroot/git/Piper_Nigrum/PN_project_structure/builders/log/build_translator_regexp.log"
+  ls_level: 0
+  ls_shift_age: = "weekly"
+  ls_shift_size: = 1024000
+  ls_datetime_format: = "%Y-%m-%d %H:%M:%S"
+database_settings:
+  ds_engine_type: "MYSQL"
+  ds_db_host: "localhost"
+  ds_conn_user: "root"
+  ds_conn_pwd: "kub01d"
+  ds_db_default: "piper_nigrum_technical"

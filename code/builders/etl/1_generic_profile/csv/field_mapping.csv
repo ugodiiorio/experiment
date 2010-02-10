@@ -1,0 +1,244 @@
+quixa#sect_1#pol_record_id_str#pol_record_id_str#infield[:pol_record_id_str]
+quixa#sect_1#driv_birth_province_str#driv_birth_province_str#infield[:pol_residence_province_str]
+quixa#sect_1#driv_birth_place_str#driv_birth_place_str#infield[:pol_residence_str]
+quixa#sect_1#driv_birth_state_str#driv_birth_state_str#infield[:driv_citizenship_str]
+quixa#sect_1#driv_citizenship_str#driv_citizenship_str#infield[:driv_citizenship_str]
+quixa#sect_1#driv_civil_status_str#driv_civil_status_str#"Coniugato senza figli"
+quixa#sect_1#driv_driver_sex_str#driv_driver_sex_str#x = infield[:driv_driver_sex_str].slice(0,1); x=='S' ? x='C': x=x
+quixa#sect_1#driv_driving_license_points_str#driv_driving_license_points_str#20
+quixa#sect_1#driv_driving_license_type_str#driv_driving_license_type_str#"B"
+quixa#sect_1#driv_driving_license_year_of_issue_str#driv_driving_license_year_of_issue_str#(DateTime::now - infield[:driv_driver_sex_str].slice(1, 2).to_i.years-2.months + 18.years).strftime('%G')
+quixa#sect_1#driv_driving_license_yrs_str#driv_driving_license_yrs_str#(infield[:driv_driver_sex_str].slice(1, 2).to_i - 18).to_s
+quixa#sect_1#driv_heir_str#driv_heir_str#"no"
+quixa#sect_1#driv_italian_residence_starting_yrs_num#driv_italian_residence_starting_yrs_num#(DateTime::now - 5.years).strftime('%Y')
+quixa#sect_1#driv_job_2_str#driv_job_2_str#"campo tecnico per genertel"
+quixa#sect_1#driv_job_str#driv_job_str#infield[:driv_job_str] == '' ? nil : infield[:driv_job_str]
+quixa#sect_1#driv_residence_same_as_home_address_str#driv_residence_same_as_home_address_str#"si"
+quixa#sect_1#driv_studies_str#driv_studies_str#"Diploma"
+quixa#sect_1#own_owner_sex_str#driv_driver_sex_str#infield[:driv_driver_sex_str].slice(0,1)
+quixa#sect_1#own_owner_specification_str#driv_driver_sex_str#infield[:driv_driver_sex_str].slice(0,1)
+quixa#sect_1#own_owner_zip_code_str#own_owner_zip_code_str#infield[:pol_driver_zip_code_str]
+quixa#sect_1#pol_act_of_vandalism_code_str#pol_act_of_vandalism_code_str#
+quixa#sect_1#pol_additional_drivers_less_than_26_yrs_str#pol_additional_drivers_less_than_26_yrs_str#infield[:pol_additional_drivers_less_than_26_yrs_str]
+quixa#sect_1#pol_already_benefit_from_bersani_str#pol_already_benefit_from_bersani_str#"no"
+quixa#sect_1#pol_bersani_policy_expiring_date_str#pol_bersani_policy_expiring_date_str#(DateTime::now + 3.months).strftime('%F')
+quixa#sect_1#pol_bersani_ref_car_already_insured_with_company_str#pol_bersani_ref_car_already_insured_with_company_str#"no"
+quixa#sect_1#pol_bersani_ref_vehicle_insured_with_company_str#pol_bersani_ref_vehicle_insured_with_company_str#"no"
+quixa#sect_1#pol_bersani_ref_vehicle_number_plate_str#pol_bersani_ref_vehicle_number_plate_str#"ab123cd"
+quixa#sect_1#pol_bersani_str#pol_bersani_str#infield[:pol_bersani_str]
+quixa#sect_1#pol_birth_date_str#pol_birth_date_str#(DateTime::now - infield[:driv_driver_sex_str].slice(1, 2).to_i.years-2.months).strftime('%F')
+quixa#sect_1#pol_birth_date_year_num#pol_birth_date_year_num#(DateTime::now - infield[:driv_driver_sex_str].slice(1 ,2).to_i.years-2.months).strftime('%F').slice(0,4).to_i
+quixa#sect_1#pol_birth_date_month_str#pol_birth_date_month_str#(DateTime::now - infield[:driv_driver_sex_str].slice(1 ,2).to_i.years-2.months).strftime('%F').slice(5,2)
+quixa#sect_1#pol_birth_date_day_str#pol_birth_date_day_str#(DateTime::now - infield[:driv_driver_sex_str].slice(1 ,2).to_i.years-2.months).strftime('%F').slice(8,2)
+quixa#sect_1#pol_residence_str#pol_residence_str#infield[:pol_residence_str]
+quixa#sect_1#pol_residence_province_str#pol_residence_province_str#infield[:pol_residence_province_str]
+quixa#sect_1#pol_BM_assigned_str#pol_BM_assigned_str#infield[:pol_BM_assigned_str]
+quixa#sect_1#pol_car_already_insured_with_company_str#pol_car_already_insured_with_company_str#"no"
+quixa#sect_1#pol_claims_total_number_str#pol_claims_total_number_str#infield[:pol_claims_total_number_str]
+quixa#sect_1#pol_client_type_str#driv_driver_sex_str#infield[:driv_driver_sex_str].slice(0,1)
+quixa#sect_1#pol_cohabiting_children_str#pol_cohabiting_children_str#"si"
+quixa#sect_1#pol_coming_from_BM_num#pol_coming_from_BM_num#bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; if claimsyear.to_i > 0;  bm= bm.to_i - 2  else  bm = bm.to_i + 1 end
+quixa#sect_1#pol_coming_from_company_str#pol_coming_from_company_str#"generali"
+quixa#sect_1#pol_current_policy_guarantee_str#pol_current_policy_guarantee_str#"nessuna"
+quixa#sect_1#pol_defined_drive_str#pol_defined_drive_str#if infield[:pol_driver_less_than_26_yrs_str]=='N'; x= "si" else x= "no" end
+quixa#sect_1#pol_driver_is_owner_str#pol_driver_is_owner_str#if infield[:own_owner_sex_str]=='C'; x= "si" else x= "no" end
+quixa#sect_1#pol_driver_less_25_yrs_license_less_2_yrs_str#pol_driver_less_25_yrs_license_less_2_yrs_str#infield[:pol_driver_less_than_26_yrs_str]
+quixa#sect_1#pol_driver_less_than_26_yrs_str#pol_driver_less_than_26_yrs_str#infield[:pol_driver_less_than_26_yrs_str]
+quixa#sect_1#pol_driver_zip_code_str#pol_driver_zip_code_str#infield[:pol_driver_zip_code_str]
+quixa#sect_1#pol_driving_license_suspension_str#pol_driving_license_suspension_str#"no"
+quixa#sect_1#pol_driving_license_withdrawal_indemnity_limit_str#pol_driving_license_withdrawal_indemnity_limit_str#infield[:pol_driving_license_withdrawal_indemnity_limit_str]
+quixa#sect_1#pol_driving_type_str#pol_driving_type_str#if infield[:pol_driver_less_than_26_yrs_str]=='N' ; x= 'esperta' else x= 'libera' end
+quixa#sect_1#pol_drunkenness_fine_str#pol_drunkenness_fine_str#"no"
+quixa#sect_1#pol_exclusive_drive_str#pol_exclusive_drive_str#"no"
+quixa#sect_1#pol_family_car_num#pol_family_car_num#1
+quixa#sect_1#pol_family_members_insured_with_company_str#pol_family_members_insured_with_company_str#0
+quixa#sect_1#pol_free_drive_str#pol_free_drive_str#if infield[:pol_driver_less_than_26_yrs_str]=='N'; x= "si" else x= "no" end
+quixa#sect_1#pol_how_do_you_know_the_company_str#pol_how_do_you_know_the_company_str#"passaparola"
+quixa#sect_1#pol_instalment_str#pol_instalment_str#infield[:pol_instalment_str]
+quixa#sect_1#pol_insurance_situation_str#pol_insurance_situation_str#a=infield[:pol_insurance_situation_str];b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" );
+quixa#sect_1#pol_leasing_str#pol_leasing_str#"no"
+quixa#sect_1#pol_matriculation_date_str#pol_matriculation_date_str#ageveh = infield[:pol_matriculation_date_str].to_i;  if  ageveh > 0 ;  (DateTime::now - ageveh.years).strftime('%F') else   (DateTime::now).strftime('%F')  end
+quixa#sect_1#pol_matriculation_date_year_num#pol_matriculation_date_year_num# ageveh = infield[:pol_matriculation_date_str].to_i;  if  ageveh > 0 ;  (DateTime::now - ageveh.years).strftime('%F').slice(0,4).to_i else   (DateTime::now).strftime('%F').slice(0,4).to_i  end
+quixa#sect_1#pol_matriculation_date_month_str#pol_matriculation_date_month_str# ageveh = infield[:pol_matriculation_date_str].to_i;  if  ageveh > 0 ;  (DateTime::now - ageveh.years).strftime('%F').slice(5,2) else   (DateTime::now).strftime('%F').slice(5,2) end
+quixa#sect_1#pol_matriculation_date_day_str#pol_matriculation_date_day_str# ageveh = infield[:pol_matriculation_date_str].to_i;  if  ageveh > 0  ; (DateTime::now - ageveh.years).strftime('%F').slice(8,2) else  (DateTime::now).strftime('%F').slice(8,2) end
+quixa#sect_1#pol_minikasko_str#pol_minikasko_str#"no"
+quixa#sect_1#pol_motorcycle_driving_ability_str#pol_motorcycle_driving_ability_str#"si 1000"
+quixa#sect_1#pol_natural_events_act_of_vandalism_str#pol_natural_events_act_of_vandalism_str# 
+quixa#sect_1#pol_nr_of_goods_claims_1_yr_str#pol_nr_of_goods_claims_1_yr_str#
+quixa#sect_1#pol_nr_of_goods_claims_2_yr_str#pol_nr_of_goods_claims_2_yr_str#
+quixa#sect_1#pol_nr_of_goods_claims_3_yr_str#pol_nr_of_goods_claims_3_yr_str#
+quixa#sect_1#pol_nr_of_goods_claims_4_yr_str#pol_nr_of_goods_claims_4_yr_str#
+quixa#sect_1#pol_nr_of_goods_claims_5_yr_str#pol_nr_of_goods_claims_5_yr_str#
+quixa#sect_1#pol_nr_of_goods_claims_this_yr_str#pol_nr_of_goods_claims_this_yr_str#
+quixa#sect_1#pol_nr_of_paid_claims_1_yr_str#pol_nr_of_paid_claims_1_yr_str#yearscert= infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]; claimscert=infield[:pol_claims_total_number_str]; claimslastyr = infield[:pol_nr_of_paid_claims_this_yr_str]; if yearscert.to_i == 5 && claimscert.to_i == 2 &&  claimslastyr.to_i == 2; x="1"   else x="0" end
+quixa#sect_1#pol_nr_of_paid_claims_2_yr_str#pol_nr_of_paid_claims_2_yr_str#yearscert= infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str];claimscert=infield[:pol_claims_total_number_str];claimslastyr = infield[:pol_nr_of_paid_claims_this_yr_str]; if yearscert.to_i < 2; x="N/A"  elsif yearscert.to_i == 2; x="0"  elsif yearscert.to_i == 3; if claimscert.to_i == 2 &&  claimslastyr.to_i == 0  or claimscert.to_i == 1 &&  claimslastyr.to_i == 0 ; x="1" else  x="0" end ;  elsif yearscert.to_i == 4; if claimscert.to_i == 1 &&  claimslastyr.to_i == 0; x="1" else  x="0" end ;   elsif yearscert.to_i == 5; if claimscert.to_i == 2 &&  claimslastyr.to_i == 0 or claimscert.to_i == 2 &&  claimslastyr.to_i == 1 or claimscert.to_i == 1 &&  claimslastyr.to_i == 0; x="1" else  x="0" end ;end
+quixa#sect_1#pol_nr_of_paid_claims_3_yr_str#pol_nr_of_paid_claims_3_yr_str#yearscert= infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]; claimscert=infield[:pol_claims_total_number_str]; if yearscert.to_i < 3; x="N/A" else if claimscert.to_i == 2; x="1" else x="0" end end
+quixa#sect_1#pol_nr_of_paid_claims_4_yr_str#pol_nr_of_paid_claims_4_yr_str#yearscert= infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]; if yearscert.to_i== 5 or yearscert.to_i == 4 ; x=  "0"   else   x="N/A"   end
+quixa#sect_1#pol_nr_of_paid_claims_5_yr_str#pol_nr_of_paid_claims_5_yr_str#yearscert= infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]; if yearscert.to_i== 5 ;  x=  "0"   else   x="N/A"   end
+quixa#sect_1#pol_nr_of_paid_claims_this_yr_str#pol_nr_of_paid_claims_this_yr_str#
+quixa#sect_1#pol_nr_of_persons_claims_1_yr_str#pol_nr_of_persons_claims_1_yr_str#
+quixa#sect_1#pol_nr_of_persons_claims_2_yr_str#pol_nr_of_persons_claims_2_yr_str#
+quixa#sect_1#pol_nr_of_persons_claims_3_yr_str#pol_nr_of_persons_claims_3_yr_str#
+quixa#sect_1#pol_nr_of_persons_claims_4_yr_str#pol_nr_of_persons_claims_4_yr_str#
+quixa#sect_1#pol_nr_of_persons_claims_5_yr_str#pol_nr_of_persons_claims_5_yr_str#
+quixa#sect_1#pol_nr_of_persons_claims_this_yr_str#pol_nr_of_persons_claims_this_yr_str#infield[:pol_nr_of_persons_claims_this_yr_str]
+quixa#sect_1#pol_nr_of_yrs_insured_in_the_last_5_yrs_str#pol_nr_of_yrs_insured_in_the_last_5_yrs_str#infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]
+quixa#sect_1#pol_nr_of_yrs_without_claims_str#pol_nr_of_yrs_without_claims_str#infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str].to_i - infield[:pol_claims_total_number_str].to_i
+quixa#sect_1#pol_number_of_NI_NA_yrs_during_5_yrs_str#pol_number_of_NI_NA_yrs_during_5_yrs_str#(5 - infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str].to_i).to_s
+quixa#sect_1#pol_number_plate_type_str#pol_number_plate_type_str#"definitiva"
+quixa#sect_1#pol_other_vehicle_use_str#pol_other_vehicle_use_str#"no"
+quixa#sect_1#pol_partner_garages_str#pol_partner_garages_str#"no"
+quixa#sect_1#pol_passenger_str#pol_passenger_str#"si"
+quixa#sect_1#pol_payment_str#pol_payment_str#"carta di credito"
+quixa#sect_1#pol_policy_starting_date_str#pol_policy_starting_date_str#"si calcola runtime"
+quixa#sect_1#pol_policy_starting_date_year_num#pol_policy_starting_date_year_num#1876
+quixa#sect_1#pol_policy_starting_date_month_str#pol_policy_starting_date_month_str#"si calcola runtime"
+quixa#sect_1#pol_policy_starting_date_day_str#pol_policy_starting_date_day_str#"si calcola runtime"
+quixa#sect_1#pol_privacy_1_str#pol_privacy_1_str#"id elemento web1"
+quixa#sect_1#pol_privacy_2_str#pol_privacy_2_str#"id elemento web2"
+quixa#sect_1#pol_privacy_3_str#pol_privacy_3_str#"id elemento web3"
+quixa#sect_1#pol_property_type_to_be_insured_str#pol_property_type_to_be_insured_str#"autovettura"
+quixa#sect_1#pol_public_liability_exemption_str#pol_public_liability_exemption_str#"no"
+quixa#sect_1#pol_public_liability_indemnity_limit_str#pol_public_liability_indemnity_limit_str#infield[:pol_public_liability_indemnity_limit_str]
+quixa#sect_1#pol_public_liability_type_str#pol_public_liability_type_str#
+quixa#sect_1#pol_quotation_str#pol_quotation_str#"bonus/malus"
+quixa#sect_1#pol_renounce_compensation_str#pol_renounce_compensation_str#"si"
+quixa#sect_1#pol_risk_certificate_str#pol_risk_certificate_str#"si"
+quixa#sect_1#pol_road_assistance_indemnity_limit_str#pol_road_assistance_indemnity_limit_str#
+quixa#sect_1#pol_road_assistance_type_str#pol_road_assistance_type_str#
+quixa#sect_1#pol_second_driver_str#pol_second_driver_str#"no"
+quixa#sect_1#pol_social_political_and_natural_events_str#pol_social_political_and_natural_events_str#
+quixa#sect_1#pol_subscriber_is_driver_str#pol_subscriber_is_driver_str#"si"
+quixa#sect_1#pol_subscriber_is_holder_str#pol_subscriber_is_holder_str#"si"
+quixa#sect_1#pol_subscriber_is_owner_str#pol_subscriber_is_owner_str#if infield[:own_owner_sex_str]=='C'; x= "si" else x= "no" end
+quixa#sect_1#pol_theft_fire_coverage_code_str#pol_theft_fire_coverage_code_str#
+quixa#sect_1#pol_on_off_theft_fire_coverage_str#pol_on_off_theft_fire_coverage_str#
+quixa#sect_1#pol_theft_fire_coverage_web_id_str#pol_theft_fire_coverage_web_id_str#
+quixa#sect_1#pol_theft_fire_coverage_premium_id_str#pol_theft_fire_coverage_premium_id_str#
+quixa#sect_1#pol_theft_fire_minimum_uncoverage_exemption_str#pol_theft_fire_minimum_uncoverage_exemption_str#
+quixa#sect_1#pol_type_of_contract_str#pol_type_of_contract_str#"bonus/malus"
+quixa#sect_1#pol_vehicle_continuous_use_no_of_mths_str#pol_vehicle_continuous_use_no_of_mths_str#"piu di 24"
+quixa#sect_1#veh_abs_str#veh_abs_str#"si"
+quixa#sect_1#veh_accesories_value_str#veh_accesories_value_str#0
+quixa#sect_1#veh_airbag_str#veh_airbag_str#"si"
+quixa#sect_1#veh_alarm_str#veh_alarm_str#"immobilizer"
+quixa#sect_1#veh_antiskid_str#veh_antiskid_str#"no"
+quixa#sect_1#veh_bersani_reference_vehicle_str#veh_bersani_reference_vehicle_str#"no"
+quixa#sect_1#veh_capacity_num#veh_capacity_num#infield[:veh_capacity_num]
+quixa#sect_1#veh_corrosive_oily_gas_liquid_transportation_str#veh_corrosive_oily_gas_liquid_transportation_str#"da decidere"
+quixa#sect_1#veh_fuel_str#veh_fuel_str#infield[:veh_fuel_str]
+quixa#sect_1#veh_full_load_total_weight_num#veh_full_load_total_weight_num#infield[:veh_full_load_total_weight_num]
+quixa#sect_1#veh_gas_methane_supply_str#veh_gas_methane_supply_str#"no"
+quixa#sect_1#veh_gprs_str#veh_gprs_str#"no"
+quixa#sect_1#veh_habitual_vehicle_use_str#veh_habitual_vehicle_use_str#infield[:veh_habitual_vehicle_use_str]
+quixa#sect_1#veh_home_delivery_str#veh_home_delivery_str#"no"
+quixa#sect_1#veh_hook_str#veh_hook_str#infield[:veh_hook_str]
+quixa#sect_1#veh_inflammable_liquid_transportation_str#veh_inflammable_liquid_transportation_str#infield[:veh_inflammable_liquid_transportation_str]
+quixa#sect_1#veh_km_per_yr_num#veh_km_per_yr_num#15000
+quixa#sect_1#veh_kw_num#veh_kw_num#infield[:veh_kw_num]
+quixa#sect_1#veh_liquid_fuel_transportation_str#veh_liquid_fuel_transportation_str#"da decidere"
+quixa#sect_1#veh_loading_unloading_str#veh_loading_unloading_str#"no"
+quixa#sect_1#veh_make_str#veh_make_str#a=infield[:veh_make_str]; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" );
+quixa#sect_1#veh_marble_blocks_str#veh_marble_blocks_str#"da decidere"
+quixa#sect_1#veh_model_str#veh_model_str#a=infield[:veh_model_str]; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" );
+quixa#sect_1#veh_modification_made_str#veh_modification_made_str#"no"
+quixa#sect_1#veh_new_used_vehicle_str#veh_new_used_vehicle_str#if infield[:pol_matriculation_date_str].to_i > 0 ; x= 'U' else x= 'N' end
+quixa#sect_1#veh_passenger_transportation_str#veh_passenger_transportation_str#"si"
+quixa#sect_1#veh_product_sector_str#veh_product_sector_str#infield[:veh_product_sector_str]
+quixa#sect_1#veh_purchase_date_str#veh_purchase_date_str# ageveh= infield[:pol_matriculation_date_str].to_i; sitass=infield[:pol_insurance_situation_str];  if sitass=~/1°*\s*[(A-Za-z0-9)*(\s)*]*/ ;  (DateTime::now - 2.months).strftime('%F') else (DateTime::now - ageveh.years).strftime('%F') end
+quixa#sect_1#veh_purchase_date_year_num#veh_purchase_date_year_num# ageveh= infield[:pol_matriculation_date_str].to_i; sitass=infield[:pol_insurance_situation_str];  if sitass=~/1°*\s*[(A-Za-z0-9)*(\s)*]*/ ;  (DateTime::now - 2.months).strftime('%F').slice(0, 1).to_i else (DateTime::now - ageveh.years).strftime('%F').slice(0,1).to_i end
+quixa#sect_1#veh_purchase_date_month_str#veh_purchase_date_month_str# ageveh= infield[:pol_matriculation_date_str].to_i; sitass=infield[:pol_insurance_situation_str];  if sitass=~/1°*\s*[(A-Za-z0-9)*(\s)*]*/ ;  (DateTime::now - 2.months).strftime('%F').slice(5, 2)  else (DateTime::now - ageveh.years).strftime('%F').slice(5, 2) end
+quixa#sect_1#veh_purchase_date_day_str#veh_purchase_date_day_str# ageveh= infield[:pol_matriculation_date_str].to_i; sitass=infield[:pol_insurance_situation_str];  if sitass=~/1°*\s*[(A-Za-z0-9)*(\s)*]*/ ; (DateTime::now - 2.months).strftime('%F').slice(8, 2)  else (DateTime::now - ageveh.years).strftime('%F').slice(8, 2) end
+quixa#sect_1#veh_radioactive_substances_transportation_str#veh_radioactive_substances_transportation_str#"da decidere"
+quixa#sect_1#veh_rent_str#veh_rent_str#"no"
+quixa#sect_1#veh_rent_with_driver_str#veh_rent_with_driver_str#"no"
+quixa#sect_1#veh_set_up_str#veh_set_up_str#a=infield[:veh_set_up_str]; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" );
+quixa#sect_1#veh_stabilizer_str#veh_stabilizer_str#"no"
+quixa#sect_1#veh_third_party_str#veh_third_party_str#infield[:veh_third_party_str]
+quixa#sect_1#veh_tow_hook_str#veh_tow_hook_str#"no"
+quixa#sect_1#veh_toxic_gas_explosive_transportation_str#veh_toxic_gas_explosive_transportation_str#"da decidere"
+quixa#sect_1#veh_transportation_of_dangerous_goods_A_str#veh_transportation_of_dangerous_goods_A_str#"da decidere"
+quixa#sect_1#veh_transportation_of_dangerous_goods_B_str#veh_transportation_of_dangerous_goods_B_str#"da decidere"
+quixa#sect_1#veh_transportation_type_str#veh_transportation_type_str#infield[:veh_transportation_type_str]
+quixa#sect_1#veh_truck_tractor_weight_num#veh_truck_tractor_weight_num#"da decidere"
+quixa#sect_1#veh_use_for_shops_str#veh_use_for_shops_str#"no"
+quixa#sect_1#veh_vehicle_for_disabled_str#veh_vehicle_for_disabled_str#"no"
+quixa#sect_1#veh_vehicle_shelter_str#veh_vehicle_shelter_str#"box privato"
+quixa#sect_1#veh_vehicle_type_str#veh_vehicle_type_str#"autovettura"
+quixa#sect_1#veh_vehicle_use_str#veh_vehicle_use_str#"privato"
+quixa#sect_1#veh_vehicle_value_str#veh_vehicle_value_str#5000
+quixa#sect_1#veh_weight_to_be_towed_num#veh_weight_to_be_towed_num#"da decidere"
+quixa#sect_1#pol_act_of_vandalism_minimum_uncoverage_str#pol_act_of_vandalism_minimum_uncoverage_str#
+quixa#sect_1#pol_act_of_vandalism_str#pol_act_of_vandalism_str#
+quixa#sect_1#pol_on_off_act_of_vandalism_str#pol_on_off_act_of_vandalism_str#
+quixa#sect_1#pol_act_of_vandalisme_web_id_str#pol_act_of_vandalisme_web_id_str#
+quixa#sect_1#pol_act_of_vandalism_premium_id_str#pol_act_of_vandalism_premium_id_str#
+quixa#sect_1#pol_assistance_str#pol_assistance_str#
+quixa#sect_1#pol_on_off_assistance_str#pol_on_off_assistance_str#
+quixa#sect_1#pol_assistance_web_id_str#pol_assistance_web_id_str#
+quixa#sect_1#pol_assistance_premium_id_str#pol_assistance_premium_id_str#
+quixa#sect_1#pol_athmospheric_events_str#pol_athmospheric_events_str#
+quixa#sect_1#pol_on_off_athmospheric_events_str#pol_on_off_athmospheric_events_str#
+quixa#sect_1#pol_athmospheric_events_web_id_str#pol_athmospheric_events_web_id_str#
+quixa#sect_1#pol_athmospheric_events_premium_id_str#pol_athmospheric_events_premium_id_str#
+quixa#sect_1#pol_blukasko_str#pol_blukasko_str#
+quixa#sect_1#pol_on_off_blukasko_str#pol_on_off_blukasko_str#
+quixa#sect_1#pol_blukasko_web_id_str#pol_blukasko_web_id_str#
+quixa#sect_1#pol_blukasko_premium_id_str#pol_blukasko_premium_id_str#
+quixa#sect_1#pol_kasko_minimum_uncoverage_str#pol_kasko_minimum_uncoverage_str#
+quixa#sect_1#pol_contingency_protection_str#pol_contingency_protection_str#
+quixa#sect_1#pol_on_off_contingency_protection_str#pol_on_off_contingency_protection_str#
+quixa#sect_1#pol_contingency_protection_web_id_str#pol_contingency_protection_web_id_str#
+quixa#sect_1#pol_contingency_protection_premium_id_str#pol_contingency_protection_premium_id_str#
+quixa#sect_1#pol_driver_accident_coverage_str#pol_driver_accident_coverage_str#
+quixa#sect_1#pol_on_off_driver_accident_coverage_str#pol_on_off_driver_accident_coverage_str#
+quixa#sect_1#pol_driver_accident_coverage_web_id_str#pol_driver_accident_coverage_web_id_str#
+quixa#sect_1#pol_driver_accident_coverage_premium_id_str#pol_driver_accident_coverage_premium_id_str#
+quixa#sect_1#pol_driver_accident_indemnity_limit_str#pol_driver_accident_indemnity_limit_str#
+quixa#sect_1#pol_driving_licence_withdrawal_guarantee_str#pol_driving_licence_withdrawal_guarantee_str#
+quixa#sect_1#pol_on_off_driving_licence_withdrawal_guarantee_str#pol_on_off_driving_licence_withdrawal_guarantee_str#
+quixa#sect_1#pol_driving_licence_withdrawal_guarantee_web_id_str#pol_driving_licence_withdrawal_guarantee_web_id_str#
+quixa#sect_1#pol_driving_licence_withdrawal_guarantee_premium_id_str#pol_driving_licence_withdrawal_guarantee_premium_id_str#
+quixa#sect_1#pol_easy_driver_str#pol_easy_driver_str#
+quixa#sect_1#pol_on_off_easy_driver_str#pol_on_off_easy_driver_str#
+quixa#sect_1#pol_easy_driver_web_id_str#pol_easy_driver_web_id_str#
+quixa#sect_1#pol_easy_driver_premium_id_str#pol_easy_driver_premium_id_str#
+quixa#sect_1#pol_glasses_minimum_uncovered_str#pol_glasses_minimum_uncovered_str#
+quixa#sect_1#pol_glasses_str#pol_glasses_str#
+quixa#sect_1#pol_on_off_glasses_str#pol_on_off_glasses_str#
+quixa#sect_1#pol_glasses_web_id_str#pol_glasses_web_id_str#
+quixa#sect_1#pol_glasses_premium_id_str#pol_glasses_premium_id_str#
+quixa#sect_1#pol_kasko_minimum_uncoverage#pol_kasko_minimum_uncoverage#
+quixa#sect_1#pol_kasko_str#pol_kasko_str#
+quixa#sect_1#pol_on_off_kasko_str#pol_on_off_kasko_str#
+quixa#sect_1#pol_kasko_web_id_str#pol_kasko_web_id_str#
+quixa#sect_1#pol_kasko_premium_id_str#pol_kasko_premium_id_str#
+quixa#sect_1#pol_legal_assistance_str#pol_legal_assistance_str#
+quixa#sect_1#pol_on_off_legal_assistance_str#pol_on_off_legal_assistance_str#
+quixa#sect_1#pol_legal_assistance_web_id_str#pol_legal_assistance_web_id_str#
+quixa#sect_1#pol_legal_assistance_premium_id_str#pol_legal_assistance_premium_id_str#
+quixa#sect_1#pol_natural_events_act_of_vandalism_minimum_uncoverage_str#pol_natural_events_act_of_vandalism_minimum_uncoverage_str#
+quixa#sect_1#pol_natural_events_act_of_vandalism#pol_natural_events_act_of_vandalism#
+quixa#sect_1#pol_on_off_natural_events_act_of_vandalism_str#pol_on_off_natural_events_act_of_vandalism_str#
+quixa#sect_1#pol_natural_events_act_of_vandalism_web_id_str#pol_natural_events_act_of_vandalism_web_id_str#
+quixa#sect_1#pol_natural_events_act_of_vandalism_premium_id_str#pol_natural_events_act_of_vandalism_premium_id_str#
+quixa#sect_1#pol_natural_events_str#pol_natural_events_str#
+quixa#sect_1#pol_on_off_natural_events_str#pol_on_off_natural_events_str#
+quixa#sect_1#pol_natural_events_web_id_str#pol_natural_events_web_id_str#
+quixa#sect_1#pol_natural_events_premium_id_str#pol_natural_events_premium_id_str#
+quixa#sect_1#pol_road_assistance_str#pol_road_assistance_str#
+quixa#sect_1#pol_on_off_road_assistance_str#pol_on_off_road_assistance_str#
+quixa#sect_1#pol_road_assistance_web_id_str#pol_road_assistance_web_id_str#
+quixa#sect_1#pol_road_assistance_premium_id_str#pol_road_assistance_premium_id_str#
+quixa#sect_1#pol_social_political_and_natural_events#pol_social_political_and_natural_events#
+quixa#sect_1#pol_on_off_social_political_and_natural_events_str#pol_on_off_social_political_and_natural_events_str#
+quixa#sect_1#pol_social_political_and_natural_events_web_id_str#pol_social_political_and_natural_events_web_id_str#
+quixa#sect_1#pol_social_political_and_natural_events_premium_id_str#pol_social_political_and_natural_events_premium_id_str#
+quixa#sect_1#pol_social_political_events_str#pol_social_political_events_str#
+quixa#sect_1#pol_on_off_social_political_events_str#pol_on_off_social_political_events_str#
+quixa#sect_1#pol_social_political_events_web_id_str#pol_social_political_events_web_id_str#
+quixa#sect_1#pol_social_political_events_premium_id_str#pol_social_political_events_premium_id_str#
+quixa#sect_1#pol_supplementary_coverage_str#pol_supplementary_coverage_str#
+quixa#sect_1#pol_on_off_supplementary_coverage_str#pol_on_off_supplementary_coverage_str#
+quixa#sect_1#pol_supplementary_coverage_web_id_str#pol_supplementary_coverage_web_id_str#
+quixa#sect_1#pol_supplementary_coverage_premium_id_str#pol_supplementary_coverage_premium_id_str#

@@ -1,0 +1,28 @@
+quixa#sect_1#quixa#driv_birth_place_str#CASALE CORTE CERRO#CASALE CORTE CERRO
+quixa#sect_1#quixa#driv_birth_province_str#VB#VERBANO CUSIO OSSOLA
+quixa#sect_1#quixa#driv_citizenship_str#ITALIA#ITALIA
+quixa#sect_1#quixa#driv_driver_sex_str#M#ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_0
+quixa#sect_1#quixa#pol_additional_drivers_less_than_26_yrs_str#N#ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_btnAge26Group_1
+quixa#sect_1#quixa#pol_BM_assigned_str#-1#1 da più di un anno
+quixa#sect_1#quixa#pol_coming_from_company_str#generali#ASSICURAZIONI GENERALI
+quixa#sect_1#quixa#pol_instalment_str#ANNUALE#Annuale
+quixa#sect_1#quixa#pol_insurance_situation_str#veicolo gia assicurato con atr#veicolo gia assicurato con attestato di rischio
+quixa#sect_1#quixa#pol_leasing_str#no#ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtLeasingNo
+quixa#sect_1#quixa#pol_nr_of_paid_claims_1_yr_str#0#0
+quixa#sect_1#quixa#pol_nr_of_paid_claims_2_yr_str#0#0
+quixa#sect_1#quixa#pol_nr_of_paid_claims_3_yr_str#0#0
+quixa#sect_1#quixa#pol_nr_of_paid_claims_4_yr_str#0#0
+quixa#sect_1#quixa#pol_nr_of_paid_claims_5_yr_str#0#0
+quixa#sect_1#quixa#pol_nr_of_persons_claims_this_yr_str#0#0
+quixa#sect_1#quixa#pol_payment_str#carta di credito#Carta di Credito
+quixa#sect_1#quixa#pol_public_liability_indemnity_limit_str#6000000#6.000.000 € - 5.000.000 € - 1.000.000 €
+quixa#sect_1#quixa#pol_residence_province_str#VB#VERBANO CUSIO OSSOLA
+quixa#sect_1#quixa#pol_residence_str#CASALE CORTE CERRO#CASALE CORTE CERRO
+quixa#sect_1#quixa#veh_alarm_str#immobilizer#ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_rbtSatelliteLocationNo
+quixa#sect_1#quixa#veh_capacity_num#1399#1399
+quixa#sect_1#quixa#veh_fuel_str#D#Diesel
+quixa#sect_1#quixa#veh_habitual_vehicle_use_str#Casa-Lavoro Tempo libero#Casa-Lavoro e Tempo libero
+quixa#sect_1#quixa#veh_km_per_yr_num#15000#10.000 – 20.000
+quixa#sect_1#quixa#veh_kw_num#50#50
+quixa#sect_1#quixa#veh_vehicle_value_str#5000#5000
+quixa#sect_1#quixa#pol_nr_of_yrs_insured_in_the_last_5_yrs_str#5#5

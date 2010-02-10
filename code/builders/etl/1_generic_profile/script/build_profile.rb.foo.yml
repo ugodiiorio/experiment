@@ -1,0 +1,24 @@
+--- 
+app_settings:
+  as_select_stmt_profile: "SELECT * FROM profiles"
+  as_select_stmt_input: "SELECT * FROM file_input LIMIT 0,4"
+  as_select_stmt_mapping: "SELECT * FROM mapping"
+  as_insert_stmt_profile: "INSERT INTO profiles (key_insurance_profiles_id_num, key_provider_id_str, key_sector_id_str, key_companies_group_id_str, key_working_set_id_str) VALUES (?,?,?,?,?)"
+  as_update_stmt_profile: "UPDATE profiles SET @@profile_field@@ = ? WHERE key_insurance_profiles_id_num = ?"
+  as_provider_id: "quixa"
+  as_sector_id: "sect_1"
+  as_company_id: "all_quixa"
+  as_working_set_id: "quixa_20100101"
+
+logger_settings: 
+  ls_device: "/home/notroot/projects/Ruby/mysql/logs/build_profile.log"
+  ls_level: 0
+  ls_shift_age: = "weekly"
+  ls_shift_size: = 1024000
+  ls_datetime_format: = "%Y-%m-%d %H:%M:%S"
+database_settings:
+  ds_engine_type: "MYSQL"
+  ds_db_host: "localhost"
+  ds_conn_user: "testuser"
+  ds_conn_pwd: "testpass"
+  ds_db_default: "test"
