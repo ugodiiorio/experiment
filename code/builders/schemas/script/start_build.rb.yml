@@ -5,7 +5,7 @@ app_settings:
 
 
 logger_settings: 
-  ls_device: "/home/notroot/git/Piper_Nigrum/PN_project_structure/builders/log/schemas.log"
+  ls_device: "/home/notroot/git/KTE/code/builders/log/schemas.log"
   ls_level: 0
   ls_shift_age: = "weekly"
   ls_shift_size: = 1024000

@@ -13,7 +13,7 @@ app_settings:
   as_working_set_id: "quixa_20100101"
 
 logger_settings: 
-  ls_device: "/home/notroot/git/piper_nigrum/builders/log/etl.log"
+  ls_device: "/home/notroot/git/KTE/code/builders/log/etl.log"
   ls_level: 0
   ls_datetime_format: = "%Y-%m-%d %H:%M:%S"
 database_settings:
