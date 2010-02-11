@@ -3,7 +3,6 @@
 require "rubygems"
 require "date.rb"
 require "date/format.rb"
-#require 'chronic'
 require "yaml"
 require 'logger'
 require "mysql"
@@ -201,8 +200,6 @@ def build_profile()
 
   @dbh.query_with_result = true
   infield = {}
-  mapfield = {}
-
 
   stmt_companies = @dbh.prepare(@stmt_sel_company)
   stmt_companies.execute(@companies_group_id)
@@ -224,9 +221,7 @@ def build_profile()
       stmt_ins = @dbh.prepare(@stmt_ins_profile)
       stmt_ins.execute(@provider_id, @sector_id, @company_id, @field_name, @field_value)
       rescue Mysql::Error => e
-        if e.errno.to_s == '1062'
-        else raise e
-        end
+        raise e unless e.errno.to_s == '1062'
         @logger.error(__FILE__) {"Error code: #{e.errno}"}
         @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
         @logger.error(__FILE__) {"Error message: #{e.error}"}
@@ -237,31 +232,20 @@ def build_profile()
       stmt_reg = @dbh.prepare(@stmt_sel_mapping)
       stmt_reg.execute(@field_name,@provider_id, @sector_id, @company_id)
       while res_map = stmt_reg.fetch do
-          name = res_map[0].to_s
           eval_out = res_map[1].to_s
-      
-          #      map.collect { |key, value| mapfield[key.to_s.to_sym] = value }
-          #      target_field = mapfield[:output_field]
-          #      eval_out = mapfield[:output_eval].to_s
-          #      value = @fieldnum[profile_field.to_s.to_sym] ? @dbh.escape_string(eval(eval_out).to_s).to_s : "'" + @dbh.escape_string(eval(eval_out).to_s).to_s + "'"
-          #      value = @dbh.escape_string(eval(eval_out).to_s).to_s
           value = eval(eval_out).to_s
 
           stmt_upd = @dbh.prepare(@stmt_upd_profile)
           stmt_upd.execute(value.to_s, @provider_id, @sector_id, @company_id, @field_name, @field_value)
           #      puts "Number of profile rows updated: #{stmt.affected_rows}"
 
-#          res_map.free
-         
         end
       end
     end
-#        stmt.close
-
 
 #  puts "Number of file rows returned: #{res_file.num_rows}"
-@row_num += res_file.num_rows.to_i
-res_file.free
+  @row_num += res_file.num_rows.to_i
+  res_file.free
 
   end
 end
@@ -298,9 +282,9 @@ begin
 
   connect()
 
-  create_schema() # uncomment to create and use dummy tables with foo data
+#  create_schema() # uncomment to create and use dummy tables with foo data
 
-  #  get_column_info() # not yet used
+#  get_column_info() # not yet used
 
   build_profile()
 

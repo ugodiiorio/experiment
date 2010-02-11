@@ -1,8 +1,8 @@
-quixa#sect_1#quixa#pol_birth_date_str#data= Date.parse(infield[:pol_birth_date_str]);european_date = '%d/%m/%Y';data = data.strftime(european_date).to_s
-quixa#sect_1#quixa#pol_birth_date_year_num#data= Date.parse(infield[:pol_birth_date_str]);european_date = '%Y';data = data.strftime(european_date).to_s
-quixa#sect_1#quixa#pol_birth_date_month_str#data= Date.parse(infield[:pol_birth_date_str]);european_date = '%m';data = data.strftime(european_date).to_s
-quixa#sect_1#quixa#pol_birth_date_day_str#data= Date.parse(infield[:pol_birth_date_str]);european_date = '%d';data = data.strftime(european_date).to_s
-quixa#sect_1#quixa#pol_matriculation_date_str#data= Date.parse(infield[:pol_matriculation_date_str]);european_date = '%m/%Y';data = data.strftime(european_date).to_s
-quixa#sect_1#quixa#pol_matriculation_date_year_num#data= Date.parse(infield[:pol_matriculation_date_str]);european_date = '%Y';data = data.strftime(european_date).to_s
-quixa#sect_1#quixa#pol_matriculation_date_month_str#data= Date.parse(infield[:pol_matriculation_date_str]);european_date = '%m';data = data.strftime(european_date).to_s
-quixa#sect_1#quixa#pol_matriculation_date_day_str#data= Date.parse(infield[:pol_matriculation_date_str]);european_date = '%d';data = data.strftime(european_date).to_s
+provider_1#sect_1#quixa#pol_birth_date_str#data= Date.parse(infield[:pol_birth_date_str]);european_date = '%d/%m/%Y';data = data.strftime(european_date).to_s
+provider_1#sect_1#quixa#pol_birth_date_year_num#data= Date.parse(infield[:pol_birth_date_str]);european_date = '%Y';data = data.strftime(european_date).to_s
+provider_1#sect_1#quixa#pol_birth_date_month_str#data= Date.parse(infield[:pol_birth_date_str]);european_date = '%m';data = data.strftime(european_date).to_s
+provider_1#sect_1#quixa#pol_birth_date_day_str#data= Date.parse(infield[:pol_birth_date_str]);european_date = '%d';data = data.strftime(european_date).to_s
+provider_1#sect_1#quixa#pol_matriculation_date_str#data= Date.parse(infield[:pol_matriculation_date_str]);european_date = '%m/%Y';data = data.strftime(european_date).to_s
+provider_1#sect_1#quixa#pol_matriculation_date_year_num#data= Date.parse(infield[:pol_matriculation_date_str]);european_date = '%Y';data = data.strftime(european_date).to_s
+provider_1#sect_1#quixa#pol_matriculation_date_month_str#data= Date.parse(infield[:pol_matriculation_date_str]);european_date = '%m';data = data.strftime(european_date).to_s
+provider_1#sect_1#quixa#pol_matriculation_date_day_str#data= Date.parse(infield[:pol_matriculation_date_str]);european_date = '%d';data = data.strftime(european_date).to_s
