@@ -1,0 +1,362 @@
+ConTe
+
+conoscenza compagnia
+<option value="1">Aeroporti</option>
+<option value="5">Internet</option>
+<option value="6">Affisioni</option>
+<option value="7">Mezzi Pubblici</option>
+<option value="8">Non Ricordo</option>
+<option value="12">Passaparola</option>
+<option value="16">Radio</option>
+<option value="18">TV</option>
+<option value="21">Stampa - Quattroruote</option>
+<option value="22">Stampa - Al volante</option>
+<option value="23">Stampa - Altro</option>
+
+attuale situazione assicurativa
+page:situazione_1:0 = prima polizza
+
+page:situazione_2:0 = veicolo nuovo
+page:situazione_2:1 = veicolo usato
+
+page:situazione_1:1 = già assicurato
+
+data copertura assicurativa
+page:dataEffetto = 30/12/2009
+
+data immatricolazione
+Gennaio 2000
+(riportato esattamente mese maiuscolo)
+
+anno acquisto
+page:anno_acquisto = 2007
+
+alimentazione
+<option value="1">Benzina</option>
+<option value="2">Diesel</option>
+<option value="3">Elettrica</option>
+<option value="4">GPL</option>
+<option value="5">Metano</option>
+
+ricovero notturno
+<option value="1">Box</option>
+<option value="2">Viale di accesso</option>
+<option value="3">Parcheggio custodito</option>
+<option value="4">Parcheggio incustodito</option>
+<option value="5">Strada</option>
+<option value="6">Altro</option>
+<option value="7">Garage custodito</option>
+
+antifurto
+<option value="1">Satellitare/GPS</option>
+<option value="2">Altri tipi di antifurto</option>
+<option value="3">No antifurto</option>
+<option value="4">Immobilizer</option>
+
+uso dell'auto
+<option value="1">Affari</option>
+<option value="2">Tempo Libero</option>
+<option value="3">Tragitto Casa-Lavoro</option>
+
+km medi/annuo
+page:km_anno
+option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option selected="selected" value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+<option value="32">32</option>
+<option value="33">33</option>
+<option value="34">34</option>
+<option value="35">35</option>
+<option value="36">36</option>
+<option value="37">37</option>
+<option value="38">38</option>
+<option value="39">39</option>
+<option value="40">40</option>
+<option value="41">41</option>
+<option value="42">42</option>
+<option value="43">43</option>
+<option value="44">44</option>
+<option value="45">45</option>
+<option value="46">46</option>
+<option value="47">47</option>
+<option value="48">48</option>
+<option value="49">49</option>
+<option value="50">50</option>
+<option value="51">51</option>
+<option value="52">52</option>
+<option value="53">53</option>
+<option value="54">54</option>
+<option value="55">55</option>
+<option value="56">56</option>
+<option value="57">57</option>
+<option value="58">58</option>
+<option value="59">59</option>
+<option value="60">60</option>
+<option value="61">61</option>
+<option value="62">62</option>
+<option value="63">63</option>
+<option value="64">64</option>
+<option value="65">65</option>
+<option value="66">66</option>
+<option value="67">67</option>
+<option value="68">68</option>
+<option value="69">69</option>
+<option value="70">70</option>
+(le migliaia sono già espresse con 3 zeri)
+
+modifiche effettuate al veicolo
+page:ajaxModificheVeicoloAuto
+page:modifiche_scelta:1 = No
+(rispondendo si si apre altra finestra con le opzioni per le modifiche apportate)
+
+Clsse bonus malus
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option selected="selected" value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+sei il proprietario del veicolo
+page:contraente_proprietario:0 = si
+page:contraente_proprietario:1 = no
+
+rispondendo "no" lo step successivo é:
+il proprietario è
+page:relazione_contraente_proprietario_passo1:0 = persona fisica
+
+se rispondi persona fisica, le seguenti opzioni:
+page:relazione_contraente_proprietario:0 = coniugato o convivente
+page:relazione_contraente_proprietario:1 = familiari primo grado (genitore, fratello, ecc)
+page:relazione_contraente_proprietario:2 = altro
+
+risposta diversa da persona fisica non ha le opzioni precedenti
+
+page:relazione_contraente_proprietario_passo1:1 = persona giuridica
+page:relazione_contraente_proprietario_passo1:2 = società di leasing
+
+conducente principale
+page:conducente_principale:0 = si
+page:conducente_principale:1 = no
+
+rispondendo no gli step successivi sono
+
+- Il conducente principale è:
+page:relazione_contraente_conducente:0 = coniugato/a o convivente
+page:relazione_contraente_conducente:1 = familairi primo grado
+page:relazione_contraente_conducente:2 = altro
+
+sesso
+page:conducente_principale_sesso:0 = maschio
+page:conducente_principale_sesso:1 = femmina
+
+data nascita
+01/01/1960 (barrette separatrici in automatico)
+
+professione
+page:professione_conducente_principale
+(scrivendo le prima lettere della professione, compaiono tutte le opzioni possibili)
+
+stato civile
+<option value="1">Coniugato/Coniugata</option>
+<option value="2">Convivente</option>
+<option value="3">Single</option>
+<option value="4">Altro</option>
+
+figli minori di 17 anni
+page:figli_minori:0 = si
+page:figli_minori:1 = no
+
+età conseguimento patente
+page:eta_conseguimento_patente (dato da immettere manualmente)
+
+tipo patente
+<option value="1">A+B (auto e moto)</option>
+<option value="2">B (auto)</option>
+<option value="3">C (autocarri)</option>
+<option value="4">D (autobus)</option>
+<option value="5">A+C (auto, moto e autocarri)</option>
+<option value="6">A+D (auto, moto, autocarri e autobus)</option>
+<option value="7">Altro paese della UE</option>
+<option value="8">Paese extra UE</option>
+<option value="9">Altro tipo</option>
+
+punti patente
+<option value="5">Più di 20</option>
+<option value="4">16 - 20</option>
+<option value="3">11 - 15</option>
+<option value="2">6 - 10</option>
+<option value="1">0 - 5</option>
+
+multe in stato di ebbrezza
+page:multe_ebrezza_contraente:0 = si
+
+a questa risposta si apre opzione:
+quante
+page:numero_multe_ebrezza_contraente
+
+page:multe_ebrezza_contraente:1 = no
+
+
+sospensione patente
+page:sospensione_patente_contraente:0 = si
+
+a questa risposta si apre opzione:
+page:numero_sospensione_patente_contraente = quante volte
+page:numero_mesi_sospensione_patente_contraente = nr mesi totali
+
+page:sospensione_patente_contraente:1 = no
+
+utilizzo altro veicolo
+page:altro_veicolo:0 = si
+page:altro_veicolo:1 = no
+
+sinistri con colpa negli ultimi 3 anni
+page:sinistri_cc:0 = si
+
+quanti
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option> 
+
+page:sinistri_cc:1 = no
+
+sinistri senza colpa negli ultimi 3 anni
+page:sinistri_sc:0 = si
+
+quanti
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+
+page:sinistri_sc:1 = no
+
+copertura scelta
+page:radioGuidatori:0 = lista guidatori
+page:radioGuidatori:1 = guidatori maggiori di 28 anni
+page:radioGuidatori:2 = tutti i guidatori
+
+con opzione 1 (lista guidatori) indicare il numero
+page:quantiGuidatori:0 = nessuno
+page:quantiGuidatori:1 = 1
+page:quantiGuidatori:2 = 2
+page:quantiGuidatori:3 = 3
+page:quantiGuidatori:4 = 4
+
+si apre finestra per dati guidatore aggiuntivo (dati anagrafici)
+
+metodo pagamento
+page:metodoDiPagamento:0 = carta credito
+page:metodoDiPagamento:1 = bonifico
+(La terza opzione è Bolletino postale, ma impossibile scegliere)
+
+tipo RCA
+<option value="1" disabled="disabled">Garantito</option>
+<option value="2" disabled="disabled">Protetto</option>
+<option value="3" selected="selected">Base</option>
+
+massimale
+<option value="775000">775.000</option>
+<option value="1000000">1.000.000</option>
+<option value="1500000">1.500.000</option>
+<option value="2500000" selected="selected">2.500.000</option>
+<option value="5000000">5.000.000</option>
+<option value="10000000">10.000.000</option>
+<option value="15000000">15.000.000</option>
+<option value="25000000">25.000.000</option>
+<option value="50000000">50.000.000</option>
+
+furto e incendio (scoperto/minimo)
+<option value="8">10% - minimo 250 E</option>
+<option value="9">15% - minimo 375 E</option>
+
+mini kasko
+<option value="1500" selected="selected">1.500</option>
+<option value="2500">2.500</option>
+
+scoperto/minimo
+<option value="13" selected="selected">150 E</option>
+(è un valore fisso sia per 1.500 che per 2.500)
+
+kasko
+<option value="8">10% - minimo 250 E</option>
+<option value="9">15% - minimo 375 E</option>
+<option value="10">20% - minimo 500 E</option>
+<option value="11">25% - minimo 625 E</option>
+<option value="12">30% - minimo 750 E</option>
+
+infortuni al conducente
+<option value="6" selected="selected">M. 25000 E, S. 250 E</option>
+<option value="7">M. 75000 E, S. 500 E</option>
+
+assistenza stradale
+<option value="1" selected="selected">Normal</option>
+<option value="2">Plus</option>
+
+tutela legale
+<option value="1" selected="selected">Normal</option>
+<option value="2">Plus</option>
+
+quota scoperto atti vandalici
+<option value="1" selected="selected">10% - 300 E</option>
+
+quota scoperto eventi naturali
+<option value="1" selected="selected">10% - 300 E</option>
+
+
+

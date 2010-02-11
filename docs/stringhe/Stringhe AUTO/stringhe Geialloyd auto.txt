@@ -1,0 +1,143 @@
+Genialloyd
+
+situazione assicurativa
+situazione1 = con polizza inscadenza o scaduta
+situazione2 = auto appena acquistata senza attestato di rischio
+situazione3 = auto nuova con uso attestato di rischio in base a legge Bersani
+
+tipologia intestatario
+tipologia1 = maschio
+tipologia2 = femmina
+tipologia3 = più di una persona
+tipologia4 = società
+
+data nascita
+03/02/1969 (separatori autom)
+
+tipo guida
+guida1 = esperta (guidatore abituale + persone maggiori di 23 anni e almeno 2 di patente)
+guida2 = guidatore unico 
+guida3 = guida libera (autorizzati minori di 23 anni con pat meno 2 anni)
+
+km anno
+<option value="01">0 - 10.000</option>
+<option selected="selected" value="02">10.000 - 20.000</option>
+<option value="03">20.000 - 30.000</option>
+<option value="04">oltre 30.000</option>
+
+auto custodita in box
+box1 = si
+box2 = no
+
+conoscenza genialloyd
+<option value="1237">Altro</option>
+<option value="1326">Articoli di giornale</option>
+<option value="1229">Preventivatore unico</option>
+<option value="1235">Pubblicità affissione</option>
+<option value="1231">Pubblicità su Internet</option>
+<option value="1027">Pubblicita' su periodici</option>
+<option value="1327">Pubblicità su quotidiani</option>
+<option value="1234">Pubblicità su radio</option>
+<option value="1094">Pubblicità su Televisione</option>
+<option value="1009">Passaparola</option>
+
+mese e anno immatricolazione
+Dicembre 2008
+
+alimentazione anche gas o metano
+radiogpl1 = si
+radiogpl2 = no
+
+antifurto
+<option value="03">Antifurto Satellitare</option>
+<option value="02">Immobilizer/Elettronico</option>
+<option value="01">Nessuno/Meccanico</option>
+
+km anno
+<option value="01">0 - 10.000</option>
+<option selected="selected" value="02">10.000 - 20.000</option>
+<option value="03">20.000 - 30.000</option>
+<option value="04">oltre 30.000</option>
+
+auto in box
+radio3 = si
+radio4 = no
+
+uso dell'auto
+radio5 = privato
+radio6 = altri usi
+radio7 = targhe speciali
+
+classe bonus malus
+<option value="S5">1 B/M da almeno cinque anni</option>
+<option value="S4">1 B/M da almeno quattro anni</option>
+<option value="S3">1 B/M da almeno tre anni</option>
+<option value="S2">1 B/M da almeno due anni</option>
+<option value="S1">1 B/M da almeno un anno</option>
+<option value="1">1 B/M</option>
+<option value="2">2 B/M</option>
+<option value="3">3 B/M</option>
+<option value="4">4 B/M</option>
+<option value="5">5 B/M</option>
+<option value="6">6 B/M</option>
+<option value="7">7 B/M</option>
+<option value="8">8 B/M</option>
+<option value="9">9 B/M</option>
+<option value="10">10 B/M</option>
+<option value="11">11 B/M</option>
+<option value="12">12 B/M</option>
+<option value="13">13 B/M</option>
+<option value="14">14 B/M</option>
+<option value="15">15 B/M</option>
+<option value="16">16 B/M</option>
+<option value="17">17 B/M</option>
+<option value="18">18 B/M</option>
+
+legge Bersani
+radio8 = si
+radio9 = no
+
+nr sinistri con colpa
+<option value="00">Nessuno</option>
+<option value="01">Uno</option>
+<option value="02">Due</option>
+<option value="03">Tre</option>
+<option value="04">Quattro</option>
+<option value="05">Piu' di quattro</option>
+
+negli ultimi 2 anni
+<option value="00">Nessuno</option>
+<option value="01">Uno</option>
+<option value="02">Due</option>
+<option value="03">Piu' di due</option>
+
+data nuova polizza
+30/12/2009 (da calendario)
+
+RCA massimale
+<option value="0055">6 Mil. - 6 Mil.</option>
+<option value="0063">20 Mil. - 20 Mil.</option>
+<option value="0051">50 Mil. - 50 Mil.</option>
+
+scoperto incendio e furto
+<option selected="selected" value="0002">250,00 - 10%</option>
+<option value="0006">500,00 - 10%</option>
+
+infortuni al conducente
+<option selected="selected" value="0015">50.000</option>
+<option value="0016">100.000</option>
+<option value="0017">200.000</option
+
+scoperto
+<option selected="selected" value="0018">3%</option>
+<option value="0017">10%</option>
+
+sospensione patente
+<option selected="selected" value="0006">15</option>
+<option value="0007">25</option>
+<option value="0008">50</option>
+
+
+
+
+

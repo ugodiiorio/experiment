@@ -1,0 +1,115 @@
+Generali Ciclomotori
+
+Data decorrenza
+20/01/2010 (sep in automatico)
+
+Stato assicurativo
+<option id="STATO_ASSICURATIVO_OPT" value="" selected="">Selezionare...</option>
+<option id="STATO_ASSICURATIVO_0" value="A">Prima Immatricolazione</option>
+<option id="STATO_ASSICURATIVO_1" value="B">Prima polizza dopo voltura al P.R.A.</option>
+<option id="STATO_ASSICURATIVO_2" value="C">Gia' assicurato con Bonus/Malus</option>
+<option id="STATO_ASSICURATIVO_3" value="D">Gia' assicurato con Franchigia</option>
+<option id="STATO_ASSICURATIVO_4" value="E">Gia' assicurato con altra forma tariffaria</option>
+<option id="STATO_ASSICURATIVO_5" value="F">Gia' assicurato Generali con Bonus/Malus</option>
+<option id="STATO_ASSICURATIVO_6" value="G">Gia' assicurato Generali con Bonus/Malus Generali</option>
+<option id="STATO_ASSICURATIVO_7" value="H">Gia' assicurato Generali con NoClaimDiscount Generali</option>
+<option id="STATO_ASSICURATIVO_8" value="I">Gia' assicurato Generali con Franchigia</option>
+<option id="STATO_ASSICURATIVO_9" value="L">Gia' assicurato Generali con altra forma tariffaria</option>
+<option id="STATO_ASSICURATIVO_10" value="M">Gia' assicurato Generali con Bonus/Malus con Franchigia Generali</option>
+<option id="STATO_ASSICURATIVO_11" value="Z">Veicolo senza attestazione o con attestazione non valida</option>
+
+Tipo cliente
+<option value="P">Persona Fisica</option>
+<option value="A">Persona Giuridica</option>
+
+Durata polizza
+RB_POLIZZA_ANNUALE = annuale
+RB_POLIZZA_TMP = temporanea (max 6 mesi)
+
+Sesso
+<option value="M" selected="">Maschio</option>
+<option value="F">Femmina</option>
+
+Data nascita
+(idem)
+
+Precedenti assicurativi
+TIPO_DICH_ATTESTAZIONE = assicurato in precedenza con polizza NON inf 1 anno
+
+TIPO_DICH_TEMPORANEA = Inf a 1 anno (temp)
+
+Sinistrosità pregressa
+NUM_SIN_PAGATI_1 = sestultimo anno
+<option value="NA">Non Assicurato</option>
+<option value="ND">Non Disponibile</option>
+<option value="00">0 sinistri</option>
+<option value="01">1 sinistro</option>
+<option value="02">2 sinistri</option>
+<option value="03">3 sinistri</option>
+<option value="04">4 o più sinistri</option>
+
+Per 6 anni
+
+Prima data imm
+Idem
+
+Uso
+VAL_PARAMETRO_SELECT_1
+
+<option id="VAL_PARAMETRO_SELECT_1_0" value="L"> Locazione senza conducente</option>
+<option id="VAL_PARAMETRO_SELECT_1_1" value="P"> Privato</option>
+
+Alimentazione
+VAL_PARAMETRO_SELECT_2
+
+<option id="VAL_PARAMETRO_SELECT_2_0" value="B"> Benzina (motore solo a benzina)</option>
+<option id="VAL_PARAMETRO_SELECT_2_1" value="D"> Diesel</option>
+<option id="VAL_PARAMETRO_SELECT_2_2" value="E"> Elettrica</option>
+<option id="VAL_PARAMETRO_SELECT_2_3" value="G"> GPL</option>
+<option id="VAL_PARAMETRO_SELECT_2_4" value="H"> Benzina / GPL</option>
+<option id="VAL_PARAMETRO_SELECT_2_5" value="I"> Ibrida</option>
+<option id="VAL_PARAMETRO_SELECT_2_6" value="M"> Metano</option>
+<option id="VAL_PARAMETRO_SELECT_2_7" value="N"> Benzina / Metano</option>
+
+cilindrata
+VAL_PARAMETRO_INPUT_3 (valore a mano)
+
+Cl CU assegnazione
+VAL_PARAMETRO_CT_1_1
+
+<option id="VAL_PARAMETRO_CT_1_1_0" value="01"> 1</option>
+<option id="VAL_PARAMETRO_CT_1_1_1" value="02"> 2</option>
+<option id="VAL_PARAMETRO_CT_1_1_2" value="03"> 3</option>
+<option id="VAL_PARAMETRO_CT_1_1_3" value="04"> 4</option>
+<option id="VAL_PARAMETRO_CT_1_1_4" value="05"> 5</option>
+<option id="VAL_PARAMETRO_CT_1_1_5" value="06"> 6</option>
+<option id="VAL_PARAMETRO_CT_1_1_6" value="07"> 7</option>
+<option id="VAL_PARAMETRO_CT_1_1_7" value="08"> 8</option>
+<option id="VAL_PARAMETRO_CT_1_1_8" value="09"> 9</option>
+<option id="VAL_PARAMETRO_CT_1_1_9" value="10"> 10</option>
+<option id="VAL_PARAMETRO_CT_1_1_10" value="11"> 11</option>
+<option id="VAL_PARAMETRO_CT_1_1_11" value="12"> 12</option>
+<option id="VAL_PARAMETRO_CT_1_1_12" value="13"> 13</option>
+<option id="VAL_PARAMETRO_CT_1_1_13" value="14"> 14</option>
+<option id="VAL_PARAMETRO_CT_1_1_14" value="15"> 15</option>
+<option id="VAL_PARAMETRO_CT_1_1_15" value="16"> 16</option>
+<option id="VAL_PARAMETRO_CT_1_1_16" value="17"> 17</option>
+<option id="VAL_PARAMETRO_CT_1_1_17" value="18"> 18</option>
+
+Massimale
+VAL_PARAMETRO_UEP_1_1
+
+<option id="VAL_PARAMETRO_UEP_1_1_0" value="25">2500000/500000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_1" value="A2"> 3000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_2" value="A3"> 4000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_3" value="A4"> 6000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_4" value="A6"> 8000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_5" value="A7"> 12000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_6" value="A8"> 15000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_7" value="A9"> 20000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_8" value="B0"> 26000000</option>
+
+
+
+
+

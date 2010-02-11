@@ -1,0 +1,86 @@
+Zurich connect Ciclomotori
+
+forma contrattuale
+<option selected="" value="3">BONUS MALUS</option>
+
+tipo persona
+TIP_PERS_F = fisica
+TIP_PERS_G = gisuridica
+
+sesso
+COD_SESS_M = maschio
+COD_SESS_F = femmina
+
+data nascita
+01 01 1971 (man a tendina)
+
+tipo contratto
+COD_TMOV_N = polizza nuova attualmente NON con Zurich
+COD_TMOV_S = rinnovo
+
+dichiarazione contraente
+<option selected="" value="1">Proveniente da altra Compagnia</option>
+<option value="2">Prima Immatricolazione</option>
+<option value="3">Voltura/Cessione Contratto</option>
+<option value="7">Attestato del rischio non disponibile</option>
+<option value="9">Veicolo precedentemente assicurato con Zurich</option>
+<option value="F">Miglior classe b/m altra Compagnia (CU) del nucleo familiare per acquisto veicolo - Legge n.40 del 2 aprile 2007</option>
+<option value="G">Miglior classe b/m Zurich del nucleo familiare per acquisto veicolo - Legge n.40 del 2 aprile 2007</option>
+
+eredi legittimi - coniuge in separazione beni
+CLA_ERLE_S = si
+CLA_ERLE_N = no
+
+proveniente da attestato
+CODPRO71_1 = scaduto da meno 5 anni
+CODPRO71_2 = scaduto da più 5 anni
+CODPRO71_9 = non proveniente da attestato
+
+proveniente da temporanea
+CODPRO67_1 = scaduto da mebno 18 mesi
+CODPRO67_2 = scaduto da più 18 mesi
+CODPRO67_9 = non da temporanea
+
+classe CU
+<option selected="" value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+nr sinistri quinquennio
+NUM_SINI = immettere nr man
+
+di cui sinistri anno prec + corrente
+SINANN86 = idem
+
+nr anni senza sinistri
+NUM_ANNI = idem
+
+classe di merito
+<option selected="" value="05">05</option>
+</select> = come CU
+
+alimentazione
+COD_TCMB_B = benzina
+COD_TCMB_E = elettrica
+
+massimale
+<option value="MINIMO DI LEGGE">MINIMO DI LEGGE</option>
+<option value="3.000.000,00">3.000.000 EURO </option>
+<option value="6.000.000,00">6.000.000 EURO </option>
+<option value="10.000.000,00">10.000.000 EURO </option>
+<option value="15.000.000,00">15.000.000 EURO </option>
+<option value="26.000.000,00">26.000.000 EURO </option>
+
+

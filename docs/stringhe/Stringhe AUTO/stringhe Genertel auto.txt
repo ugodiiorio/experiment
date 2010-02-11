@@ -1,0 +1,292 @@
+GENERTEL
+
+
+SITUAZIONE ASSICURATIVA
+/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div/div/div/img  = già assicurato
+/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div[2]/div/div/img  = polizza nuova auto nuova
+/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div[3]/div/div/img  = polizza nuova auto usata
+
+
+SINISTRI CON COLPA ULTIMI 3 ANNI
+
+
+CLASSE UNIVERSALE DI ASSEGNAZIONE
+
+
+CLASSE 1 DA ALMENO UN ANNO
+
+
+FURTO E INCENDIO
+/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div/div[6]/div[2]/div/div/div/img
+
+KASKO
+/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div/div[6]/div[3]/div/div/div/img
+
+
+ATTI VANDALICI E ATMOSFERICI
+/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div/div[6]/div[4]/div/div/div/img
+
+
+NESSUNA
+/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div/div[6]/div[5]/div/div/div/img
+
+
+BERSANI (solo per polizze nuove auto nuove o polizze nuove auto usate)
+
+/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/img =no
+/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div/div/div/img  = si
+
+DATA DECORRENZA
+22/01/2010
+
+
+LEASING
+/html/body/form[3]/div/div/div[2]/div[4]/div[5]/div[2]/div[2]/div/div/div/div/img =si
+/html/body/form[3]/div/div/div[2]/div[4]/div[5]/div[2]/div[2]/div/div[2]/div/div/img = no
+
+ANNO IMMATRICOLAZIONE
+2005
+
+MARCA
+
+
+MODELLO
+
+
+ALLESTIMENTO
+
+
+
+VALORE VEICOLO
+<input id="NBXXDVEXValoreVeicolo" class=" x-form-text x-form-field x-form-num-field NORMAL" type="text" name="NBX_DVE_ValoreVeicolo" autocomplete="off" size="20"/>
+EX: 5000
+
+
+
+TIPO ANTIFURTO
+<div id="ext-gen470" class="x-combo-list-inner" style="overflow: auto; width: 183px; height: 173px;">
+<div class="x-combo-list-item ">Seleziona...</div>
+<div class="x-combo-list-item x-combo-selected">Nessun antifurto</div>
+<div class="x-combo-list-item">Meccanico</div>
+<div class="x-combo-list-item">Allarme</div>
+<div class="x-combo-list-item">Vetri marchiati</div>
+<div class="x-combo-list-item ">Immobilizzatore senza allarme</div>
+<div class="x-combo-list-item">Immobilizzatore con allarme</div>
+<div class="x-combo-list-item">Satellitare</div>
+
+
+AIRBAG
+/html/body/form[2]/div/div/div[2]/div[4]/div[11]/div[2]/div/div[2]/div/div/img = NO
+/html/body/form[2]/div/div/div[2]/div[4]/div[11]/div[2]/div/div/div/div/img  =SI
+
+
+ABS
+/html/body/form[2]/div/div/div[2]/div[4]/div[12]/div[2]/div/div[2]/div/div/img  = NO
+/html/body/form[2]/div/div/div[2]/div[4]/div[12]/div[2]/div/div/div/div/img  =SI
+
+
+RICOVERO NOTTURNO
+/html/body/form[2]/div/div/div[2]/div[4]/div[13]/div[2]/div/div[2]/div/div/img = NO
+/html/body/form[2]/div/div/div[2]/div[4]/div[13]/div[2]/div/div/div/div/img  = SI
+
+
+USO
+<div id="ext-gen516" class="x-combo-list-inner" style="overflow: auto; width: 213px; height: 151px;">
+<div class="x-combo-list-item ">Privato</div>
+<div class="x-combo-list-item ">Targa prova</div>
+<div class="x-combo-list-item x-combo-selected">Veicolo d'epoca iscritto ASI o FMI</div>
+<div class="x-combo-list-item">Croce Rossa Italiana</div>
+<div class="x-combo-list-item">Noleggio senza conducente</div>
+<div class="x-combo-list-item">Noleggio con conducente</div>
+<div class="x-combo-list-item">Scuola guida</div>
+
+KM/ANNO
+/html/body/form[2]/div/div/div[2]/div[4]/div[15]/div[2]/div/input 
+EX: 15000
+
+CONTRAENTE è
+/html/body/form[3]/div/div/div[2]/div[4]/div/div/div[2]/div/div/div/div/img = persona fisica
+/html/body/form[3]/div/div/div[2]/div[4]/div/div/div[2]/div/div[2]/div/div/img = azienda
+
+
+NOME 
+
+
+COGNOME
+
+
+SESSO
+/html/body/form[3]/div/div/div[2]/div[4]/div/div[4]/div[2]/div/div/div/div/img = m
+/html/body/form[3]/div/div/div[2]/div[4]/div/div[4]/div[2]/div/div[2]/div/div/img = f
+
+
+
+DATA NASCITA
+
+
+LUOGO NASCITA
+
+
+PROFESSIONE (DUE TENDINE)
+<div id="ext-gen240" class="x-combo-list-inner" style="overflow: auto; width: 157px; height: 300px;">
+<div class="x-combo-list-item">Seleziona...</div>
+<div class="x-combo-list-item">Impiegato/a</div>
+<div class="x-combo-list-item ">Operaio/a</div>
+<div class="x-combo-list-item ">Funzionario/quadro</div>
+<div class="x-combo-list-item ">Dirigente</div>
+<div class="x-combo-list-item ">Libero professionista</div>
+<div class="x-combo-list-item x-combo-selected">Imprenditore</div>
+<div class="x-combo-list-item">Commerciante/esercente</div>
+<div class="x-combo-list-item">Artigiano/a</div>
+<div class="x-combo-list-item">Agente/rappresentante</div>
+<div class="x-combo-list-item">Insegnante</div>
+<div class="x-combo-list-item">Scrittore - giornalista</div>
+<div class="x-combo-list-item">Agricoltore/allevatore</div>
+<div class="x-combo-list-item">Artista</div>
+<div class="x-combo-list-item">Pensionato/a</div>
+<div class="x-combo-list-item ">Casalinga/o</div>
+<div class="x-combo-list-item">Studente</div>
+<div class="x-combo-list-item">Non occupato/a</div>
+<div class="x-combo-list-item">Forze dell'ordine</div>
+<div class="x-combo-list-item">Forze armate</div>
+<div class="x-combo-list-item">Magistrato</div>
+<div class="x-combo-list-item">Sportivo/a professionista</div>
+<div class="x-combo-list-item">Benestante/possidente</div>
+<div class="x-combo-list-item">Religioso/a</div>
+<div class="x-combo-list-item">Altro</div>
+
+
+
+CONTRAENTE è PROPRIETARIO
+/html/body/form[3]/div/div/div[2]/div[4]/div/div[11]/div[2]/div/div/div/div/img =si
+/html/body/form[3]/div/div/div[2]/div[4]/div/div[11]/div[2]/div/div[2]/div/div/img = no
+
+
+
+INDIRIZZO: 
+1) TIPO STRADA   id="CBXXRSDXCodTopo"
+<div class="x-combo-list-item">Via</div>
+<div class="x-combo-list-item">Viale</div>
+<div class="x-combo-list-item ">Piazza</div>
+<div class="x-combo-list-item">Corso</div>
+<div class="x-combo-list-item">Strada</div>
+<div class="x-combo-list-item ">Vicolo</div>
+<div class="x-combo-list-item">Contrada</div>
+<div class="x-combo-list-item ">Largo</div>
+<div class="x-combo-list-item ">Piazzale</div>
+<div class="x-combo-list-item ">Localita'</div>
+<div class="x-combo-list-item ">Salita</div>
+<div class="x-combo-list-item ">Circonvallazione</div>
+<div class="x-combo-list-item ">Traversa</div>
+<div class="x-combo-list-item x-combo-selected">Borgo</div>
+<div class="x-combo-list-item">Frazione</div>
+<div class="x-combo-list-item">Lungotevere</div>
+<div class="x-combo-list-item">Sestriere</div>
+<div class="x-combo-list-item">Villaggio</div>
+<div class="x-combo-list-item">Piazzetta</div>
+<div class="x-combo-list-item">Galleria</div>
+<div class="x-combo-list-item">Viottolo</div>
+2) NOME VIA  id="TBXXRSDXIndirizzo"
+3) NUM CIVICO  id="TBXXRSDXNCiv"
+4)COMUNE id="TBXXRSDXComune"
+5)PROVINCIA id="CBXXRSDXProv"
+6) CAP  id="TBXXRSDXCAP"
+
+TELEFONO
+1)TIPO TELEFONO  id="CBXXRECXTipo1"
+<div class="x-combo-list-item x-combo-selected">Cellulare</div>
+<div class="x-combo-list-item">Fisso</div>
+2)NUM TELEFONO
+id="TBXXRECXPrefisso1" = prefisso
+id="TBXXRECXNumero1" = numero
+
+E-MAIL
+id="TBXXRECXEmail"
+
+
+(SE CONTRAENTE è AZIENDA SI CHIEDE)
+RAGIONE SOCIALE:
+1) NOME
+2)TIPO SOCIETà
+3) PARTITA IVA
+(RESIDENZA E RECAPITI COME FOSSE UNA PERSONA FISICA)
+
+se il contraente non è proprietario poi si chiedono gli stessi dati per il proprietario (tipo persona, nome, cognome, sesso, data nascita, luogo nascita, codice fiscale
+
+UN CONDUCENTE ABITUALE
+1)CONDUCENTE è CONTRAENTE
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[2]/div[2]/div/div/div/div/img = SI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[2]/div[2]/div/div[2]/div/div/img = NO
+2) FIGLI CONVIVENTI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[4]/div[2]/div/div/div/div/img = SI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[4]/div[2]/div/div[2]/div/div/img = NO
+3) PATENTE DA PIù DI DUE ANNI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[5]/div[2]/div/div/div/div/img = SI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div[3]/div[2]/div/div[2]/div/div/img = NO
+
+DUE CONDUCENTI ABITUALI (INSERIRE DATI CONDUCENTE PIù GIOVANE)
+1) CONDUCENTE è CONTRAENTE
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[2]/div[2]/div/div[2]/div/div/img = NO
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[2]/div[2]/div/div/div/div/img = SI
+2) FIGLI CONVIVENTI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[4]/div[2]/div/div/div/div/img = SI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[4]/div[2]/div/div[2]/div/div/img = NO
+3) PATENTE DA PIù DI DUE ANNI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[5]/div[2]/div/div/div/div/img = SI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[5]/div[2]/div/div[2]/div/div/img = NO
+4)GUIDATORI OCCASIONALI < 25 O CON PATENTE < 2 ANNI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div[3]/div[2]/div/div/div/div/img = SI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div[3]/div[2]/div/div[2]/div/div/img= NO
+
+PIU CONDUCENTI ABITUALI
+1) I CONDUCENTI SONO <25 ANNI O HANNO PATENTE < 2 ANNI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div[2]/div/div[2]/div/div/div/div/img = TUTTI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div[2]/div/div[2]/div/div[2]/div/div/img = ALCUNI
+/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div[2]/div/div[2]/div/div[3]/div/div/img = NESSUNO
+
+
+CONOSCENZA COMPAGNIA
+<div id="ext-gen101" class="x-combo-list-inner" style="overflow: auto; width: 178px; height: 300px;">
+<div class="x-combo-list-item ">Seleziona...</div>
+<div class="x-combo-list-item">Pubblicità su Stampa Quotidiana</div>
+<div class="x-combo-list-item">Pubblicità su Stampa Periodica</div>
+<div class="x-combo-list-item">Pubblicità su Internet</div>
+<div class="x-combo-list-item">Motori di Ricerca su Internet</div>
+<div class="x-combo-list-item">Social Network</div>
+<div class="x-combo-list-item">Blog - Forum - Newsgroup</div>
+<div class="x-combo-list-item">Radio</div>
+<div class="x-combo-list-item">SMS</div>
+<div class="x-combo-list-item ">TV</div>
+<div class="x-combo-list-item ">Amici/parenti</div>
+<div class="x-combo-list-item">E' già nostro Cliente</div>
+<div class="x-combo-list-item x-combo-selected">Notizie di Stampa</div>
+<div class="x-combo-list-item ">Convenzioni</div>
+<div class="x-combo-list-item">Promotori SIM</div>
+<div class="x-combo-list-item">Preventivatore ISVAP</div>
+<div class="x-combo-list-item">Altro</div>
+(SELEZIONARE UNA VOCE CHE ON PREVEDA DI DOVER SELEZIONARE UN'ALTRA COMBO, AD EX: "BLOG-FORUM-NEWSGROUP", "SMS", "AMICI/PARENTI", "NOTIZIE DI STAMPA", "CONEVNZIONI", "Preventivatore ISVAP", "Altro")
+
+
+ATTENZIONE AI TAB: SI PARONO TARIFFE WEB CLASSIC, DONNA, SLOW COST (CHE HA FRANCHIGIA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

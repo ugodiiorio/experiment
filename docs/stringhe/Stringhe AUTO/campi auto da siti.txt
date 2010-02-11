@@ -1,0 +1,440 @@
+QUIXA
+marca
+mm/yyyy immatricolazione
+modello
+allestimento
+valore assicurato
+alimentazione
+km/anno
+utilizzo veicolo
+antifurto satellitare
+leasing
+tipologia contraente
+provincia residenza
+comune
+cittadinanza
+sesso
+data nascita
+professione
+situazione assicurativa
+data decorrenza polizza
+bersani (no, sì secondo veicolo, si parente/convivente)
+BM
+numero sinistri ultimi anni (dal 2005 a anno corrente) 
+altri conducenti <26 anni
+massimale
+assistenza
+incendio e furto
+If scoperto e minimo
+kasko
+kasko scoperto e minimo
+copertura integrativa
+eventi naturali e atti vandalici
+ev nat att van scoperto e minimo
+cristalli
+cristalli scoperto e minimo
+tutela legale
+infortuni conducente
+infortuni conducente massimale
+frazionamento
+
+GENERTEL
+situazione assicurativa
+- auto già assicurata
+  sinistri con colpa ultimi 3 anni
+  BM
+  garanzie presenti nella polizza attuale: furto e incendio
+                                           kasko
+                                           atti vandalici ed eventi atmosferici
+                                           nessuna
+- prima polizza veicolo nuovo
+  bersani
+  targa veicolo familiare convivente
+  BM familiare convivente
+
+
+- prima polizza veicolo usato
+  bersani
+  targa veicolo familiare convivente
+  BM familiare convivente
+(se bersani sì poi chiederà i dati anagrafici del familiare:ATT non distingue tra bersani sì veicolo e bersani sì convivente)
+leasing
+anno immatricolazione
+marca
+modello allestimento
+valore veicolo
+tipo antifurto
+airbag 
+abs
+ricovero veicolo
+uso 
+km/anno
+tipologia contraente
+ragione sociale
+tipo società
+partita iva
+nome
+cognome
+sesso
+data nascita (gg/mm/aaaa)
+luogo nascita
+codice fiscale
+professione
+specilizzazione professione
+contraente è proprietario
+tipo strada
+nome via
+num civico
+comune
+provincia
+cap
+tipo telefono
+prefisso
+numero tel
+email
+-un conducente abituale
+ conducente abituale è contraente
+ conducente abituale ha figli conviventi
+ conducente abituale ha patente da più di due anni
+ veicolo guidato occasionalemnte da <25 o con patente <2 anni
+-due conducenti abituali (dati del più giovane)
+ conducente abituale è contraente
+ conducente abituale ha figli conviventi
+ conducente abituale ha patente da più di due anni
+ veicolo guidato occasionalemnte da <25 o con patente <2 anni
+-più di due conducenti abituali 
+ conducenti abituali sono < 25 o hanno patente da meno di due anni
+ veicolo guidato occasionalemnte da <25 o con patente <2 anni
+autorizzazione privacy 1
+autorizzazione privacy 2
+autorizzazione privacy 3
+conoscenza compagnia
+massimale RCA 
+franchigia RCA
+assistenza stradale
+tipo assistenza stradale (ex:estesa,base, top)
+assistenza legale
+infortuni al conducente
+infortuni al conducente somma assicurata
+protezione imprevisti
+minikasko
+frazionamento
+
+GENIALLOYD
+situazione assicurativa
+(se bersani sì) auto di famiglia già assicurata
+                targa dell'auto già assicurata
+
+tipologia contraente
+cap
+località
+data nascita(gg/mm/aaaa) 
+cittadinanza
+professione
+tipo guida
+km/anno
+ricovero auto
+conoscenza compagnia
+e-mail
+mese immatricolazione
+anno immatricolazione
+marca modello 
+allestimento
+alimentazione anche a gas o metano
+antifurto
+uso auto
+bm
+già usufruito di bersani
+numero sinistri totali
+numero sinistri ultimi 2 anni
+massimale RCA
+frazionamento
+
+DIALOGO
+conoscenza compagnia
+uso veicolo
+situazione assicurativa
+data decorrenza
+BM di assegnazione
+numero sinistri ultimi 4 anni
+bersani
+BM familiare grazie a cui usufruisci bersani
+tipo guida
+contraente è conducente
+contraente è prprietario
+veicolo cointestato (già compilato default=no)
+
+- se contraente non è conducente
+  tipologia proprietario 
+  proprietario è conducente (autocompilato a no se proprietario è società)
+  anni possesso patente ( se diverso da società)
+  professione ( se diverso da società)
+  cittadinanza
+  cap 
+  data nascita conducente
+  anni possesso patente conducente
+  sesso conducente
+  professione conducente
+
+- se contraente  è conducente
+  tipologia proprietario 
+  proprietario è conducente (autocompilato a si in virtù di quanto compilato prima)
+  anni possesso patente 
+  professione 
+  cittadinanza
+  cap 
+  data nascita conducente
+
+mese e anno di immatricolazione
+marca
+modello
+allestimento
+km annui
+valore veicolo
+gancio traino
+ricovero veicolo
+targa speciale
+massimale RCA
+franchigia RCA
+assistenza
+tutela legale
+infortuni al conducente 
+massimale infortuni al conducente
+incendio e furto
+incendio e furto scoperto e minimo
+eventi socio politici e naturali
+cristalli
+easy driver
+frazionamento
+
+DIRECTLINE
+situazione assicurativa
+bersani
+data decorrenza
+conoscenza compagnia
+data nascita contraente (dd/mm/yyyy) 
+sesso (non gestisce società)
+stato civile
+professione
+anni patente
+cap
+contraente è conducente
+contraente è proprietario
+data nascita conducente abituale (dd/mm/yyyy) 
+sesso (non gestisce società)
+stato civile
+professione
+anni patente
+cap
+conducente è proprietario (autocompilato in base a quanto indicato precedentemente)
+data nascita proprietario (dd/mm/yyyy) 
+sesso (non gestisce società)
+stato civile
+professione
+anni patente
+cap
+proprietario è parente conducente abituale
+altri conducenti <26
+auto possedute dal nucleo familiare
+familiari già assicurati con DL
+data immatricolazione (mm/yyyy)
+anno acquisto
+marca 
+modello
+allestimento
+familiari con BM <14 grazie a cui si usufruisce di bersani
+sinistri ultimo anno
+classe di merito polizza già attiva
+uso abituale auto
+km anno
+uso  auto
+antifurto
+ricovero
+massimale RCA
+scoperto/franchigia RCA
+infortuni al conducente
+assistenza
+tutela giudiziaria
+franzionamento
+
+LINEAR
+situazione assicurativa
+data decorrenza ( giorno, mese e anno)
+classe BM
+frazionamento
+numero sinistri ultimi 5 anni
+numero sinistri ultimo anno
+veicolo di riferimento già assicurato con linear
+targa veicolo di riferimento bersani
+mese e anno immatricolazione
+marca
+modello
+allestimento
+antifurto
+ricovero
+utilizzo
+km anno
+valore
+valore accessori
+leasing
+data nascita conducente
+stato nascita conducente
+sesso 
+comune residenza
+patente
+mese anno rilascio patente
+conducenti < 26
+conducente è proprietario 
+tipo proprietario (persona fisica/giuridica)
+data nascita proprietario
+stato nascita 
+sesso
+comune residenza
+possesso patente
+mese e anno rilascio patente
+conoscenza compagnia
+massimale RCA
+bonus protetto
+incendio e furto
+eventi atmosferici
+eventi socio politici
+tutela giudiziaria
+infortuni conducente
+massimale infortuni conducente
+mini kasko
+(scoperto e franchigia non sono selezionabili ma assegnati di default)
+
+
+ZURICH CONNECT
+conoscenza compagnia
+familiari assicurati
+situazione assicurativa
+bersani
+auto di riferimento già assicurata con zc (autocompilato a no)
+data decorrenza polizza
+contraente è proprietario
+numero proprietari veicolo (autocompilato di default a 1)
+sesso contraente (se persona giuridica autocompila lui i campi sottostanti ad eccezione del cap con data nascita la data corrente e professione "persone giuridiche)
+data nascita
+cittadinanza
+stato civile
+titolo di studio
+professione
+cap 
+alimentazione
+mese e anno immatricolazione
+marca 
+modello
+allestimento
+antifurto
+valore
+valore accessori
+antipattinamento
+airbag
+abs
+stabilizzatore
+gancio traino
+BM
+numero sinistri ultimi 5 anni e nell'anno corrente
+numero anni assicurato ultimo quinquennio
+massimale RCA
+furto e incendio
+massimale FI
+cristalli
+eventi socio politici
+eventi naturali
+infortuni al conducente
+massimale inf al cond
+non gestisce società stradale
+massimale ass stradale
+tutela legale
+ritiro patente
+massimale ritiro patente
+blukasko
+kask
+
+CONTE
+conoscenza compagnia
+situazione assicurativa
+veicolo nuovo/usato
+autorizzazione privacy 1
+data decorrenza
+data immatricolazione
+anno acquisto
+alimentazione
+marca
+modello
+allestimento
+valore veicolo
+ricovero 
+antifurto
+uso abituale
+km/anno
+modifiche effettuate (utocompilato a no)
+bersani
+BM di assegnazione
+contraente è proprietario
+tipologia proprietario
+contraente è conducente
+sesso conducente
+data nascita
+nazione nascita
+specializzazione nazione nascita
+anno inizio residenza in italia
+provincia nascita
+comune nascita
+provincia residenza
+comune residenza
+tipo strada
+via
+num civico
+cap
+residenza è recapito (autocompilato di default a si)
+professione
+stato civile
+figli <17 anni
+età patente
+tipo patente
+punti patente
+multe stato di ebbrezza (autocompilato a no)
+patente sospesa ultimi 5 anni (autocompilato a no)
+utilizzo altro veicolo (auto compilato a no)
+tipo guida (lista guidatori, guidatori > 28, tutti i guidatori)
+(nel caso si scelga lista di guidatori) numero guidatori da assicurare
+massimale RCA
+incendio e furto
+scoperto minimo IF
+mini Kasko
+massimale minikasko
+scoperto minimo minikasko
+Kasko
+scoperto miimo kasko
+atti vandalici 
+scoperto minimo attivandalici
+eventi naturali
+scoperto minimo eventi naturali
+cristalli
+infortuni al conducente
+tipologia infortuni al conducente (ex: M 25000 E, S.250 E)
+assistenza stradale 
+tipo assistenza stradale (normal, plus)
+tutela legale
+tipo tutela legale (normal, plus)
+frazionamento
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

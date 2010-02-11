@@ -1,0 +1,166 @@
+Direct Line moto
+
+stato assicurativo
+id_radio_bm = già assicurata con attestato di rischio
+
+<input type="radio" onclick="Javascript:nascondiDivTipoBM();cambiaMsgDec(this.value);" tabindex="2" value="MN" name="tipoPolizza"/> = prima polizza
+
+<input type="radio" onclick="Javascript:nascondiDivTipoBM();cambiaMsgDec(this.value);" tabindex="2" value="NA" name="tipoPolizza"/> = sprovvista di attestato di rischio
+
+
+legge Bersani
+id_radio_tipo_bm_1 = si
+id_radio_tipo_bm_2 = no
+
+data polizza
+30/12/2009 (tutto manualmente)
+
+tipo veicolo
+<option value="MBKE">Motociclo</option>
+<option value="MPED">Ciclomotore (fino a 50 CC)</option>
+</select>
+
+conoscenza compagnia
+<option value="06 ">  ELENCHI TELEFONICI</option>
+<option value="09 "> TELEVIDEO/MEDIAVIDEO</option>
+<option value="13 "> INTERNET</option>
+<option value="00 "> RADIO</option>
+<option value="31 "> GIORNALI</option>
+<option value="01 "> TV</option>
+<option value="33 "> AMICI E PARENTI</option>
+<option value="28 "> SMS/MMS</option>
+<option value="34 "> E-MAIL</option>
+<option value="30 "> CAMION</option>
+<option value="32 "> CENTRO COMMERCIALE</option>
+<option value="35 "> GIA' CLIENTE</option>
+
+data nascita 
+01/01/1960 (tutto manuale)
+
+stato civile
+<option value="M ">Sposato/a</option>
+<option value="L ">Convivente</option>
+<option value="D ">Divorziato/a</option>
+<option value="P ">Separato/a</option>
+<option value="S ">Single</option>
+<option value="W ">Vedovo/a</option>
+<option value="N ">Non dichiarato</option>
+
+sesso
+<input type="radio" value="M" name="sessoContraente" tabindex="2"/> = maschio
+
+<input type="radio" value="F" tabindex="2" name="sessoContraente"/> = femmina
+
+nr anni patente
+<option value="1 ">Si, da meno di 1 anno</option>
+<option value="2 ">Si, da 1 anno</option>
+<option value="3 ">Si, da 2 anni</option>
+<option value="4 ">Si, da 3 anni</option>
+<option value="5 ">Si, da oltre 3 anni</option>
+
+contraente anche conducente
+<input type="radio" checked="" tabindex="7" value="true" name="FlagConducenteAbituale"/> = si
+
+<input type="radio" tabindex="7" value="false" name="FlagConducenteAbituale"/> = no
+
+contraente anche proprietario
+<input type="radio" checked="" tabindex="8" value="true" name="FlagIntestatario"/> = si
+
+<input type="radio" tabindex="8" value="false" name="FlagIntestatario"/> = no
+
+altri conducenti minori di 26 anni
+<option value="0">Nessuno</option>
+<option value="1">Un conducente</option>
+</select>
+
+classe bonus malus provenienza
+<option value="04 ">Classe 04</option>
+<option value="05 ">Classe 05</option>
+<option value="06 ">Classe 06</option>
+<option value="07 ">Classe 07</option>
+<option value="08 ">Classe 08</option>
+<option value="09 ">Classe 09</option>
+<option value="10 ">Classe 10</option>
+<option value="11 ">Classe 11</option>
+<option value="12 ">Classe 12</option>
+<option value="13 ">Classe 13</option>
+<option value="14 ">Classe 14</option>
+<option value="15 ">Classe 15</option>
+<option value="16 ">Classe 16</option>
+<option value="17 ">Classe 17</option>
+<option value="18 ">Classe 18</option>
+
+classe bonus malus assegnazione
+<option value="03 ">Classe 03</option>
+<option value="04 ">Classe 04</option>
+<option value="05 ">Classe 05</option>
+<option value="06 ">Classe 06</option>
+<option value="07 ">Classe 07</option>
+<option value="08 ">Classe 08</option>
+<option value="09 ">Classe 09</option>
+<option value="10 ">Classe 10</option>
+<option value="11 ">Classe 11</option>
+<option value="12 ">Classe 12</option>
+<option value="13 ">Classe 13</option>
+<option value="14 ">Classe 14</option>
+<option value="15 ">Classe 15</option>
+<option value="16 ">Classe 16</option>
+<option value="17 ">Classe 17</option>
+<option value="18 ">Classe 18</option>
+
+assicurato per 5 anni di seguito
+<input type="radio" value="T" tabindex="3" name="Assic5a"/> = si
+<input type="radio" value="F" tabindex="3" name="Assic5a"/> = no
+
+sinistri causati nel periodo di assicurazione
+<input type="radio" value="F" tabindex="4" name="Sinistri5a"/> = si
+<input type="radio" value="T" tabindex="4" name="Sinistri5a"/> = no
+
+data immatricolazione
+12/2007 (manuale)
+
+anno acquisto
+2008
+
+cilindrata
+<input class="Paragrafo" value="0" size="6" name="cilindrata" tabindex="1" maxlength="5"/> (inserire manualmente)
+
+uso della moto
+<option value="B "> Affari</option>
+<option value="P "> Tempo libero</option>
+<option value="C "> Tragitto Casa-Lavoro/Tempo libero</option>
+
+km/anno
+8 (.000 in automatico e fuori dalla casellina)
+
+uso
+<input type="radio" checked="" value="PR" name="CodUsoPra" tabindex="5"/> = privato
+
+<input type="radio" value="MX" tabindex="5" name="CodUsoPra"/> = promiscuo
+
+ricovero veicolo
+<option value="B ">  Box privato </option>
+<option value="G "> Garage </option>
+<option value="O "> In strada </option>
+<option value="P "> Proprieta privata </option>
+
+RC massimale 
+<option value="0">2.500.000/ 500.000</option>
+<option selected="" value="1">2.500.000/1.000.000</option>
+
+franchigia
+<option selected="" value="0">nessuno</option>
+<option value="1">258,00</option>
+<option value="2">516,00</option>
+
+infortuni conducente
+<option selected="" value="0">  51.646,00 </option>
+
+assistenza
+<option selected="" value="0">  Deluxe </option>
+
+tutela legale
+<option selected="" value="0">  Base </option>
+
+
+

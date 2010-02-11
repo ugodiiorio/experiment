@@ -1,0 +1,184 @@
+zurich
+
+conoscenza compagnia
+<option value="0">Seleziona una voce</option>
+<option value="A1 ">Passaparola </option>
+<option value="A2 ">Pagine Gialle/elenchi telefonici </option>
+<option value="A3 ">Televideo </option>
+<option value="A4 ">Quotidiani </option>
+<option value="A5 ">Riviste </option>
+<option value="A6 ">Radio </option>
+<option value="B3 ">Televisione </option>
+<option value="A7 ">Sms su cellulare </option>
+<option value="A8 ">E-mail </option>
+<option value="A9 ">Banner/motori di ricerca </option>
+<option value="B1 ">Convenzioni </option>
+<option value="B2 ">Altro </option>
+
+familiare assicurato
+<option value="NO" selected="selected">NO</option>
+<option value="SI">SI</option>
+
+situazione assicurtiva
+<option value="0">Seleziona una voce</option>
+<option value="1000" selected="selected">L'automobile e' gia' assicurata con un contratto in Bonus/Malus</option>
+<option value="1050">Sto acquistando un'auto usata e mi assicuro per la prima volta</option>
+<option value="1040">Sto acquistando un'auto nuova e mi assicuro per la prima volta</option>
+
+
+data decorrenza
+30/12/2009
+
+contraente prosprietario
+<option value="SI" selected="selected">SI</option>
+<option value="NO">NO</option>
+
+
+nr proprietari veicolo
+<option value="1" selected="selected">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+
+sesso
+Maschio =maschio
+Femmina = femmina
+PersonaGiuridica = persona giuridica
+
+data nascita
+01/01/1960
+
+stato civile
+<option value="M ">Coniugato con figli <=13 anni </option>
+<option value="C ">Coniugato senza figli </option>
+<option value="D ">Divorziato </option>
+<option value="S ">Separato </option>
+<option value="G ">Single </option>
+<option value="V ">Vedovo </option>
+<option value="N " selected="selected">Non dichiarato </option>
+<option value="F ">Coniugato con figli > 13 anni </option>
+
+titolo studio
+<option value="M ">Coniugato con figli <=13 anni </option>
+<option value="C ">Coniugato senza figli </option>
+<option value="D ">Divorziato </option>
+<option value="S ">Separato </option>
+<option value="G ">Single </option>
+<option value="V ">Vedovo </option>
+<option value="N " selected="selected">Non dichiarato </option>
+<option value="F ">Coniugato con figli > 13 anni </option>
+
+alimentazione
+<option value="B ">BENZINA </option>
+<option value="D ">DIESEL </option>
+<option value="E ">ELETTRICA </option>
+<option value="G ">GPL </option>
+<option value="M ">METANO </option>
+
+immatricolazione
+gennaio 2001
+
+antifurto
+<option value="Z ">ALTRO </option>
+<option value="A ">ASSENTE </option>
+<option value="I ">IMMOBILIZER </option>
+<option value="S ">SATELLITARE </option>
+
+antipattinamento
+<option value="S " selected="selected">Antipattinamento </option>
+<option value="N ">Assente </option>
+
+airbag
+<option value="G ">Airbag lato guida </option>
+<option value="GP ">Airbag lato guida + passeggero </option>
+<option value="L " selected="selected">Airbag lato guida + passeggero e laterali </option>
+<option value="GL ">Airbag lato guida e laterali </option>
+<option value="N ">Assente </option>
+
+abs
+<option value="NO ">ABS assente </option>
+<option value="JES " selected="selected">ABS presente </option>
+
+stabilizzatore
+<option value="0">NO</option>
+<option value="1" selected="selected">SI</option>
+
+gancio traino
+<option value="GPRE">Con gancio traino </option>
+<option value="GASS" selected="selected">Senza gancio traino </option>
+</select>
+
+bonus malus
+<option value="0">Seleziona una voce</option>
+<option value="01">1</option>
+<option value="02">2</option>
+<option value="03">3</option>
+<option value="04">4</option>
+<option value="05">5</option>
+<option value="06">6</option>
+<option value="07">7</option>
+<option value="08">8</option>
+<option value="09">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+nr sinistri ultimi 5 anni
+<option value="0 " selected="selected">Nessun sinistro </option>
+<option value="1 ">1 sinistro </option>
+<option value="2 ">2 sinistri </option>
+<option value="3 ">3 sinistri </option>
+<option value="99 ">4 sinistri e oltre </option>
+
+sinistri ultimo biennio
+<option value="NO">NO</option>
+<option value="SI">SI</option>
+
+assicurato ultimo quinquennio
+<option value="1">1 anno</option>
+<option value="2">2 anni</option>
+<option value="3">3 anni</option>
+<option value="4">4 anni</option>
+<option value="5" selected="selected">5 anni</option>
+</select>
+
+tipo guida
+<option value="ZURESMTN" selected="selected">Guida Esperta</option>
+<option value="ZURESMTE">Guida Esclusiva</option>
+<option value="ZURESMTS">Guida Libera</option>
+</select>
+
+massimali
+<option value="RCPUNTI035" selected="selected">2.500.000 - 500.000 </option>
+<option value="RCPUNTI060">4.000.000 UNICO </option>
+<option value="RCPUNTI100">6.000.000 UNICO </option>
+<option value="RCPUNTI200">20.000.000 UNICO </option>
+<option value="RCPUNTI500">50.000.000 UNICO </option>
+</select>
+
+furto e incendio
+<option value="ZURINOSCOP">No Scop.</option>
+<option value="ZURI10-300" selected="selected">10% 150eur</option>
+<option value="ZURI15-1ML">15% 500eur</option>
+
+infortuni conducente
+<option value="COMB01 ">CON DIARIA DA RICOVERO </option>
+<option value="COMB02 " selected="selected">SENZA DIARIA DA RICOVERO </option>
+
+assistenza stradale
+<option value="ASSIST02 " selected="selected">CLASSIC </option>
+<option value="ASSIST03 ">TOP </option>
+</select>
+
+ritiro patente
+<option value="ZURRP100 ">Indennita 50 Euro </option>
+<option value="ZURRP200 ">Indennita 100 Euro </option>
+
+

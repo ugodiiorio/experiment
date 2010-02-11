@@ -1,0 +1,245 @@
+zurich
+
+
+tipo veicolo
+<option value="8||91||34||0">ALISCAFO USO DIPORTO</option>
+<option value="8||91||01||0">ALISCAFO USO PRIVATO</option>
+<option value="4||09||15||0">AUTOAMBULANZA / AUTOLETTIGA / ECC.</option>
+<option value="4||05||02||0">AUTOARTICOLATO TRASP. CONTO PROPRIO</option>
+<option value="4||05||03||0">AUTOARTICOLATO TRASP. CONTO TERZI</option>
+<option value="4||09||18||0">AUTOBETONIERA</option>
+<option value="3||02||26||0">AUTOBUS SCUOLA GUIDA</option>
+<option value="3||02||13||0">AUTOBUS SERV.ALBERGHI,ENTI,AZIENDE,ECC.</option>
+<option value="3||02||11||0">AUTOBUS SERV.LINEA EXTRAURB./TURISMO/ECC</option>
+<option value="3||02||12||02">AUTOBUS SERV.PUB. URBANO DA 80.000 A 300.000</option>
+<option value="3||02||12||01">AUTOBUS SERV.PUBBLICO URBANO FINO 80.000</option>
+<option value="3||02||01||0">AUTOBUS USO PRIVATO</option>
+<option value="4||04||02||0">AUTOCARRO CON RIMORCHIO CONTO PROPRIO</option>
+<option value="4||04||03||0">AUTOCARRO CON RIMORCHIO CONTO TERZI</option>
+<option value="4||04||04||0">AUTOCARRO CON RIMORCHIO LOCAZIONE</option>
+<option value="4||04||05||0">AUTOCARRO CON RIMORCHIO NOLEGGIO</option>
+<option value="4||04||26||0">AUTOCARRO CON RIMORCHIO SCUOLA GUIDA</option>
+<option value="4||03||04||0">AUTOCARRO LOCAZIONE</option>
+<option value="4||03||05||0">AUTOCARRO NOLEGGIO </option>
+<option value="3||03||08||0">AUTOCARRO PER TRASPORTO DIPENDENTI</option>
+<option value="4||03||26||0">AUTOCARRO SCUOLA GUIDA</option>
+<option value="3||03||09||0">AUTOCARRO TRASP. DIP. NON CONTEMP. A COSE</option>
+<option value="4||03||02||0">AUTOCARRO TRASP.COSE CONTO PROPRIO</option>
+<option value="4||03||03||0">AUTOCARRO TRASP.COSE CONTO TERZI</option>
+<option value="3||03||06||0">AUTOCARRO TRASPORTO CONTINUATIVO PERSONE</option>
+<option value="4||09||19||0">AUTOSCALA</option>
+<option value="3||06||11||0">AUTOSNODATO EXTRA URBANO</option>
+<option value="4||06||02||0">AUTOSNODATO TRASP. CONTO PROPRIO</option>
+<option value="4||06||03||0">AUTOSNODATO TRASP. CONTO TERZI</option>
+<option value="2||01||14||0">AUTOTASSAMETRO</option>
+<option value="1||08||00||0">AUTOVEICOLO PROMISCUO</option>
+<option value="1||08||04||0">AUTOVEICOLO PROMISCUO IN LOCAZIONE</option>
+<option value="1||01||04||0">AUTOVETTURA LOCAZIONE</option>
+<option value="1||01||05||0">AUTOVETTURA NOLEGGIO</option>
+<option value="1||01||26||0">AUTOVETTURA SCUOLA GUIDA</option>
+<option selected="" value="1||01||01||0">AUTOVETTURA SERVIZIO PRIVATO</option>
+<option value="4||09||40||0">CAMPER</option>
+<option value="7||73||02||0">CARRELLO PORTA TRATTRICE C.P.</option>
+<option value="7||73||03||0">CARRELLO PORTA TRATTRICE C.T.</option>
+<option value="6||51||00||0">CARRELLO TRATTORE </option>
+<option value="4||09||16||0">CARRO ATTREZZI / OFFICINA MOBILE / ECC.</option>
+<option value="5||30||04||0">CICLOMOTORE LOCAZIONE</option>
+<option value="4||35||02||0">CICLOMOTORE TRASP. COSE CONTO PROPRIO</option>
+<option value="4||35||03||0">CICLOMOTORE TRASP. COSE CONTO TERZI</option>
+<option value="4||35||04||0">CICLOMOTORE TRASPORTO COSE USO LOCAZIONE</option>
+<option value="4||35||05||0">CICLOMOTORE TRASPORTO COSE USO NOLEGGIO</option>
+<option value="5||30||01||0">CICLOMOTORE USO PRIVATO</option>
+<option value="6||09||21||0">GATTO DELLE NEVI (SOLO BATTITURA NEVE)</option>
+<option value="6||09||22||0">GATTO DELLE NEVI (TRASPORTO PERS./COSE)</option>
+<option value="7||74||02||0">GENERATORE DI ENERGIA C.P.</option>
+<option value="4||09||20||0">GRU AUTOCARRATA</option>
+<option value="7||72||02||0">MACCHINA OPERATRICE AGRICOLA CONTO PROP.</option>
+<option value="7||72||03||0">MACCHINA OPERATRICE AGRICOLA CONTO TERZI</option>
+<option value="6||60||24||0">MACCHINA OPERATRICE SEMOVENTE </option>
+<option value="6||60||23||0">MEZZO SGOMBRANEVE</option>
+<option value="8||90||32||0">MOTO ACQUATICA USO PRIVATO</option>
+<option value="7||75||02||0">MOTO AGRICOLA C.P.</option>
+<option value="7||75||03||0">MOTO AGRICOLA C.T.</option>
+<option value="4||32||02||0">MOTOCARRO TRASP. COSE CONTO PROPRIO</option>
+<option value="4||32||03||0">MOTOCARRO TRASP. COSE CONTO TERZI</option>
+<option value="4||32||04||0">MOTOCARRO TRASP. COSE USO LOCAZIONE</option>
+<option value="4||32||05||0">MOTOCARRO TRASP. COSE USO NOLEGGIO</option>
+<option value="4||34||19||0">MOTOCARRO USO AUTOSCALA</option>
+<option value="4||34||16||0">MOTOCARRO USO CARRO ATTREZZI / OFFICINA</option>
+<option value="4||34||17||0">MOTOCARRO USO CINEMA / TEATRO / ECC.</option>
+<option value="5||31||04||0">MOTOCICLO LOCAZIONE</option>
+<option value="5||31||05||0">MOTOCICLO NOLEGGIO</option>
+<option value="5||31||26||0">MOTOCICLO SCUOLA GUIDA</option>
+<option value="5||31||01||0">MOTOCICLO USO PRIVATO</option>
+<option value="8||92||01||0">MOTORE AMOVIBILE</option>
+<option value="8||92||04||0">MOTORE AMOVIBILE LOCAZIONE</option>
+<option value="8||92||05||0">MOTORE AMOVIBILE NOLEGGIO</option>
+<option value="8||92||26||0">MOTORE AMOVIBILE PER SCUOLA GUIDA</option>
+<option value="8||92||34||0">MOTORE AMOVIBILE USO DIPORTO</option>
+<option value="8||90||04||0">NATANTE LOCAZIONE</option>
+<option value="8||90||05||0">NATANTE NOLEGGIO</option>
+<option value="8||90||26||0">NATANTE SCUOLA GUIDA</option>
+<option value="8||90||34||0">NATANTE USO DIPORTO</option>
+<option value="8||90||01||0">NATANTE USO PRIVATO</option>
+<option value="5||38||04||0">QUADRICICLO USO LOCAZIONE</option>
+<option value="5||38||05||0">QUADRICICLO USO NOLEGGIO</option>
+<option value="5||38||01||0">QUADRICICLO USO PRIVATO</option>
+<option value="6||52||02||0">RIMORCHI DI CARRELLI CONTO PROPRIO</option>
+<option value="6||52||03||0">RIMORCHI DI CARRELLI CONTO TERZI</option>
+<option value="7||76||00||0">RIMORCHIO AGRICOLO</option>
+<option value="4||43||18||0">RIMORCHIO AUTOBETONIERA</option>
+<option value="3||40||11||0">RIMORCHIO AUTOBUS SERV.LINEA EXTRAURBANO</option>
+<option value="4||43||16||0">RIMORCHIO CARRO ATTREZZI</option>
+<option value="4||43||20||0">RIMORCHIO GRU AUTOCARRATA</option>
+<option value="4||41||04||0">RIMORCHIO LOCAZIONE</option>
+<option value="4||41||05||0">RIMORCHIO NOLEGGIO</option>
+<option value="3||40||01||0">RIMORCHIO PER AUTOBUS USO PRIVATO</option>
+<option value="1||44||00||0">RIMORCHIO PER AUTOVETTURA</option>
+<option value="4||41||26||0">RIMORCHIO SCUOLA GUIDA</option>
+<option value="3||40||06||0">RIMORCHIO TRASP. CONT. PERSONE</option>
+<option value="4||41||02||0">RIMORCHIO TRASP. COSE CONTO PROPRIO</option>
+<option value="4||41||03||0">RIMORCHIO TRASP. COSE CONTO TERZI</option>
+<option value="3||40||31||0">RIMORCHIO TRENINO LILLIPUZIANO</option>
+<option value="4||43||19||0">RIMORCHIO USO AUTOSCALA</option>
+<option value="4||43||17||0">RIMORCHIO USO CINEMA / TEATRO / ECC.</option>
+<option value="4||43||28||0">RIMORCHIO USO CIRCHI EQUESTRI</option>
+<option value="4||43||29||0">RIMORCHIO USO SPETTACOLI VIAGGIANTI</option>
+<option value="6||60||25||0">RULLO, COMPRESSORE</option>
+<option value="7||70||00||0">TARGA PROVA MACCHINA AGRICOLA</option>
+<option value="6||50||00||0">TARGA PROVA MACCHINA OPERATRICE</option>
+<option value="8||90||00||0">TARGA PROVA NATANTI</option>
+<option value="4||32||00||0">TARGA PROVA PER MOTOVEICOLI</option>
+<option value="4||03||00||0">TARGA PROVA PER VEICOLO GENERICO</option>
+<option value="4||40||00||0">TARGA PROVA RIMORCHI</option>
+<option value="4||07||02||0">TRATTORE STRADALE C.P. CON GANCIO</option>
+<option value="4||07||03||0">TRATTORE STRADALE C.T. CON GANCIO</option>
+<option value="7||70||02||0">TRATTRICE AGRIC.C.P. CON TRAINO RIMORCHIO</option>
+<option value="7||71||02||0">TRATTRICE AGRIC.C.P. SENZA TRAINO RIMORCHIO</option>
+<option value="7||70||03||0">TRATTRICE AGRIC.C.T. CON TRAINO RIMORCHIO</option>
+<option value="7||71||03||0">TRATTRICE AGRIC.C.T. SENZA TRAINO RIMORCHIO</option>
+<option value="3||09||31||0">TRENINO LILLIPUZIANO</option>
+<option value="4||09||17||0">VEIC.CINEMA-TEATRO-TELEV</option>
+<option value="4||09||28||0">VEICOLO PER CIRCHI EQUESTRI</option>
+<option value="4||09||29||0">VEICOLO PER SPETTACOLI VIAGGIANTI</option>
+
+forma contrattuale
+<option value="1">BONUS MALUS</option>
+
+tipo persona
+TIP_PERS_F = fisica
+TIP_PERS_G = giuridica
+
+
+sesso
+Maschio = maschio
+Femmina = femmina
+
+data di nascita
+01 01 1960
+
+tipo contratto
+COD_TMOV_N = polizza nuova con zurich
+COD_TMOV_S = rinnovo polizza zurich
+
+dichiarazione contraente
+<option selected="" value="1">Proveniente da altra Compagnia</option>
+<option value="2">Prima Immatricolazione</option>
+<option value="3">Voltura/Cessione Contratto</option>
+<option value="5">Proveniente da altra Compagnia in franchigia</option>
+<option value="7">Attestato del rischio non disponibile</option>
+<option value="9">Veicolo precedentemente assicurato con Zurich</option>
+<option value="F">Miglior classe b/m altra Compagnia (CU) del nucleo familiare per acquisto veicolo - Legge n.40 del 2 aprile 2007</option>
+<option value="G">Miglior classe b/m Zurich del nucleo familiare per acquisto veicolo - Legge n.40 del 2 aprile 2007</option>
+
+Eredi legittimi - coniuge in separazione beni
+CLA_ERLE_S = si
+CLA_ERLE_N = No
+
+proveniente da attestato
+CODPRO71_1 = scaduto da meno di 5 anni
+CODPRO71_2 = scaduto da più di 5 anni
+CODPRO71_9 = non proveniente da attestato
+
+proveniente da temporanea
+CODPRO67_1 = scaduto da meno di 18 mesi
+CODPRO67_2 = scaduto da più di 18 mesi
+CODPRO67_9 = nob proveniente da temporanea
+
+classe di conversione CU
+<option selected="" value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+numero sinistri nel quinquennio
+NUM_SINI = numero sin quinquennio
+(in base a compilazione)
+
+sinistri anno corrente e precedente
+SINANN86
+(in base a compilazione)
+
+nr anni senza sinistri
+NUM_ANNI
+(in base a compilazione precedente)
+
+anni nel quinquennio uguali a ND e NA
+COD_LIM1
+(in base a compilazioni precedenti)
+
+classe di merito
+COD_CLASDomini
+(autocompilazione)
+
+tipo alimentazone in automatico
+
+massimale per sinistro
+<option value="MINIMO DI LEGGE">MINIMO DI LEGGE</option>
+<option value="3.000.000,00">3.000.000 EURO </option>
+<option value="6.000.000,00">6.000.000 EURO </option>
+<option value="10.000.000,00">10.000.000 EURO </option>
+<option value="15.000.000,00">15.000.000 EURO </option>
+<option value="26.000.000,00">26.000.000 EURO </option>
+<option value="50.000.000,00">50.000.000 EURO </option>
+
+Guida definita (conducenti di età maggiore o inferiore a 25 anni)
+GUI_DEFINI_S = si
+GUI_DEFINI_N = no
+
+guida esclusiva
+autocompilazione in base al precedente
+
+guida libera (consentita a qualsiasi altro conducente)
+autocompilazione in base a compilazione precedente
+
+auto gancio traino rimorchio
+<input id="CODVER23_S" type="radio" value="S" name="CODVER23"/>
+<label for="CODVER23_S" style="margin-right: 20px;">Sì</label>
+<input id="CODVER23_N" type="radio" value="N" name="CODVER23"/>
+<label for="CODVER23_N" style="margin-right: 20px;">No</label>
+
+data prima immatricolazione
+01 12 2007
+
+data nascita del più giovane conducente minore di 25 anni
+- possibilità di selezione solo in base alla compilazione precedente ma formato data uguale ad immatricolazione
+es: 22 12 1987
+
+Non chiedere di immettere altri dati, oltre ai massimali per sinistri (es infortunio al conducente, ecc)
+
+
+

@@ -1,0 +1,186 @@
+Dialogo
+
+conoscenza 
+<option value="38">Affissioni</option>
+<option value="60">Banner Internet</option>
+<option value="22">Convenzioni Aziendali</option>
+<option value="32">E-Mail</option>
+<option value="102">Motori di ricerca</option>
+<option value="59">Passaparola</option>
+<option value="94">Periodici</option>
+<option value="92">Preventivatore ISVAP</option>
+<option value="3">Quotidiani</option>
+<option value="2">Radio</option>
+<option value="99">Teletxt</option>
+<option value="1">Televisione</option>
+
+uso dell'auto
+<input type="radio" tabindex="44" onkeyup="hideShowVehicleUsage()" onclick="hideShowVehicleUsage()" onblur="hideShowVehicleUsage()" value="01" name="contentSubView:contentForm:vehicleUsage" checked=""/>
+Uso Privato
+<input type="radio" tabindex="44" onkeyup="hideShowVehicleUsage()" onclick="hideShowVehicleUsage()" onblur="hideShowVehicleUsage()" value="other" name="contentSubView:contentForm:vehicleUsage"/>
+Altri Usi
+
+con l'ultima opzione (altri usi) scegliere:
+<option value="00">Promiscuo</option>
+<option value="02">Noleggio senza Conducente</option>
+<option value="03">Noleggio con Conducente</option>
+<option value="82">Privato Guida/trasporto disabili</option>
+</select>
+
+attuale situazione assicurativa
+<input type="radio" tabindex="50" onclick="checkSituation(this); errorHighlight(this); showScript3()" onchange="checkSituation(this); errorHighlight(this);showScript3()" value="3" name="contentSubView:contentForm:attualeSituazione"/>
+Il Veicolo E' GIA' ASSICURATO con contratto in BONUS/MALUS
+
+<input type="radio" tabindex="50" onclick="checkSituation(this); errorHighlight(this); showScript3()" onchange="checkSituation(this); errorHighlight(this);showScript3()" value="1" name="contentSubView:contentForm:attualeSituazione"/>
+E' la PRIMA POLIZZA dopo l'acquisto di UN VEICOLO NUOVO
+
+<input type="radio" tabindex="50" onclick="checkSituation(this); errorHighlight(this); showScript3()" onchange="checkSituation(this); errorHighlight(this);showScript3()" value="2" name="contentSubView:contentForm:attualeSituazione"/>
+E' la PRIMA POLIZZA dopo l'acquisto di UN VEICOLO USATO
+
+<input type="radio" tabindex="50" onclick="checkSituation(this); errorHighlight(this); showScript3()" onchange="checkSituation(this); errorHighlight(this);showScript3()" value="0" name="contentSubView:contentForm:attualeSituazione"/>
+Il Veicolo e' GIA' ASSICURATO con contratto DIVERSO DA BONUS/MALUS
+
+data decorrenza
+30/12/2009 (separatori in automatico)
+
+classe bonus malus
+<option value="1 da almeno un anno">1 da almeno un anno</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+sinistri con colpa negli ultimni 4 anni
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3 o più</option>
+
+conducente
+<input type="radio" tabindex="10" onclick="partial = true; errorHighlight(this);ruleConstrains( this.name);mainRuleConstrains( );" onchange="partial = true; ruleConstrains( this.name);errorHighlight(this);mainRuleConstrains( );" value="EX" name="contentSubView:contentForm:chooseAuto:casoAss"/>
+Un unico conducente (CONDUCENTE ESCLUSIVO)
+
+<input type="radio" tabindex="10" onclick="partial = true; errorHighlight(this);ruleConstrains( this.name);mainRuleConstrains( );" onchange="partial = true; ruleConstrains( this.name);errorHighlight(this);mainRuleConstrains( );" value="HE" name="contentSubView:contentForm:chooseAuto:casoAss"/>
+Piu' conducenti, tutti con eta' maggiore di 25 (GUIDA ESPERTA)
+
+<input type="radio" tabindex="10" onclick="partial = true; errorHighlight(this);ruleConstrains( this.name);mainRuleConstrains( );" onchange="partial = true; ruleConstrains( this.name);errorHighlight(this);mainRuleConstrains( );" value="HNE" name="contentSubView:contentForm:chooseAuto:casoAss"/>
+Piu' conducenti, tra cui anche minori di 25 anni (CONDUCENTE ABITUALE)
+
+contraente anche conducente
+<input type="radio" tabindex="30" onclick="resetIdentitiesData(); ruleConstrains( this.name) ; mainRuleConstrains( ); errorHighlight(this);" onchange="ruleConstrains( this.name); mainRuleConstrains( ); errorHighlight(this)" value="Y" name="contentSubView:contentForm:chooseAuto:contrIsDriv"/>
+Si
+<input type="radio" tabindex="30" onclick="resetIdentitiesData(); ruleConstrains( this.name) ; mainRuleConstrains( ); errorHighlight(this);" onchange="ruleConstrains( this.name); mainRuleConstrains( ); errorHighlight(this)" value="N" name="contentSubView:contentForm:chooseAuto:contrIsDriv"/>
+No
+
+contraente è il proprietario
+<input type="radio" tabindex="40" onclick="resetIdentitiesData(); ruleConstrains( this.name); mainRuleConstrains( ); errorHighlight(this) ;" onchange="ruleConstrains( this.name); mainRuleConstrains( ); errorHighlight(this) " value="Y" name="contentSubView:contentForm:chooseAuto:contrIsOwn"/>
+Si
+<input type="radio" tabindex="40" onclick="resetIdentitiesData(); ruleConstrains( this.name); mainRuleConstrains( ); errorHighlight(this) ;" onchange="ruleConstrains( this.name); mainRuleConstrains( ); errorHighlight(this) " value="N" name="contentSubView:contentForm:chooseAuto:contrIsOwn"/>
+No
+
+veicolo cointestato
+<input type="radio" tabindex="50" onclick=" mainRuleConstrains( ); errorHighlight(this)" onchange=" mainRuleConstrains( );errorHighlight(this)" value="Y" name="contentSubView:contentForm:chooseAuto:Cointest"/>
+Si
+<input type="radio" tabindex="50" onclick=" mainRuleConstrains( ); errorHighlight(this)" onchange=" mainRuleConstrains( );errorHighlight(this)" value="N" name="contentSubView:contentForm:chooseAuto:Cointest" checked=""/>
+No
+
+dati proprietario/conducente
+<input type="radio" tabindex="60" onclick="partial = true; errorHighlight(this);ruleConstrains( this.name);mainRuleConstrains( );//initForMfr();" onchange="partial = true; ruleConstrains( this.name);errorHighlight(this);mainRuleConstrains( );//initForMfr();" value="M" name="contentSubView:contentForm:MFRProprietario"/>
+M = maschio
+
+<input type="radio" tabindex="60" onclick="partial = true; errorHighlight(this);ruleConstrains( this.name);mainRuleConstrains( );//initForMfr();" onchange="partial = true; ruleConstrains( this.name);errorHighlight(this);mainRuleConstrains( );//initForMfr();" value="F" name="contentSubView:contentForm:MFRProprietario"/>
+F = femmina
+
+<input type="radio" tabindex="60" onclick="partial = true; errorHighlight(this);ruleConstrains( this.name);mainRuleConstrains( );//initForMfr();" onchange="partial = true; ruleConstrains( this.name);errorHighlight(this);mainRuleConstrains( );//initForMfr();" value="E" name="contentSubView:contentForm:MFRProprietario"/>
+Persona Giuridica
+
+Il proprietario è anche il conducente
+<input type="radio" tabindex="70" onclick="resetIdentitiesData(); errorHighlight(this);mainRuleConstrains( );//initForMfr();" onchange="errorHighlight(this);mainRuleConstrains( );//initForMfr();" value="Y" name="contentSubView:contentForm:ProprietarioConducente"/>
+Si
+<input type="radio" tabindex="70" onclick="resetIdentitiesData(); errorHighlight(this);mainRuleConstrains( );//initForMfr();" onchange="errorHighlight(this);mainRuleConstrains( );//initForMfr();" value="N" name="contentSubView:contentForm:ProprietarioConducente"/>
+No
+
+data nascita
+01/01/1969 (separatori in automatico)
+
+anni possesso patente
+<option value="1">meno di un anno</option>
+<option value="2">da uno a due anni</option>
+<option value="3">da due a dieci anni</option>
+<option value="4">da oltre dieci anni</option>
+
+mese e anno immatricolazione
+12/2007 (separatore in autom)
+
+km/anno
+contentSubView:vehicleForm:chooseAuto:kms = inserire manualmente il nr. In automatico compare il puntos che separara le migliaia
+
+valore commerciale
+contentSubView:vehicleForm:chooseAuto:kms (idem come per km)
+
+gancio di traino
+<input type="radio" tabindex="90" onclick="errorHighlight(this)" value="true" name="contentSubView:vehicleForm:hook"/>
+Sì
+<input type="radio" tabindex="90" onclick="errorHighlight(this)" value="false" name="contentSubView:vehicleForm:hook" checked=""/>
+No
+
+veicolo in garage
+<input type="radio" tabindex="110" onclick="errorHighlight(this)" value="true" name="contentSubView:vehicleForm:garage"/>
+Sì
+<input type="radio" tabindex="110" onclick="errorHighlight(this)" value="false" name="contentSubView:vehicleForm:garage" checked=""/>
+No
+
+immatricolato con targa speciale
+<input type="radio" tabindex="120" onclick="showSpecialPlateTypesCombo(this); errorHighlight(this)" onchange="showSpecialPlateTypesCombo(this)" value="true" name="contentSubView:vehicleForm:foreignRegistration"/>
+Sì
+
+in questo caso specificare:
+<option value="AFI">AFI - - Forze Alleate in Italia</option>
+<option value="RSM">RSM - - Repubblica di San Marino</option>
+<option value="SCV">SCV - - Stato Città del Vaticano</option>
+<option value="ONU">ONU - - Nazioni unite (veicoli permanenti)</option>
+<option value="UNP">UNP - - Nazioni unite (veicoli per il personale addetto)</option>
+<option value="UNT">UNT - - Nazioni unite (veicoli in transito per l'Italia)</option>
+
+<input type="radio" tabindex="120" onclick="showSpecialPlateTypesCombo(this); errorHighlight(this)" onchange="showSpecialPlateTypesCombo(this)" value="false" name="contentSubView:vehicleForm:foreignRegistration" checked=""/>
+No
+
+RCA massimale
+<option value="5110">€ 2.500.000,00 - € 500.000,00</option>
+<option selected="" value="5120">€ 2.500.000,00 - € 1.000.000,00</option>
+<option value="5130">€ 2.500.000,00 - € 1.500.000,00</option>
+<option value="5140">€ 2.500.000,00 - € 2.000.000,00</option>
+<option value="5055">€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00</option>
+<option value="5050">€ 3.500.000,00 - € 3.500.000,00 - € 3.500.000,00</option>
+<option value="5052">€ 5.000.000,00 - € 5.000.000,00 - € 5.000.000,00</option>
+<option value="5056">€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00</option>
+<option value="5044">€ 10.000.000,00 - € 10.000.000,00 - € 10.000.000,00</option>
+<option value="5067">€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00</option>
+<option value="5061">€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00</option>
+
+franchigia
+<option value="Nessuna">Nessuna</option>
+<option value="258,00">258,00</option>
+<option value="361,00">361,00</option>
+
+infortuni al conducente
+<option selected="" value=" 50.000,00 50.000,00 ">€ 50.000,00 - € 50.000,00</option>
+<option value=" 100.000,00 100.000,00 ">€ 100.000,00 - € 100.000,00</option>
+
+
+
+

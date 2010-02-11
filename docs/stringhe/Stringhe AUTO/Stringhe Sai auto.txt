@@ -1,0 +1,163 @@
+Fondiaria - Sai
+
+Tipo veicolo
+<option value="01">autovettura</option>
+<option value="03">autobus</option>
+<option value="04">autocarro o autoveicolo per trasporto cose</option>
+<option value="05">ciclomotore o motoveicolo per trasporto cose</option>
+<option value="06">ciclomotore trasp. persone o quadriciclo leggero</option>
+<option value="07">motoveicolo per trasporto persone</option>
+<option value="08">macchina operatrice o carrello</option>
+<option value="09">macchina agricola</option>
+<option value="10">natante da diporto/uso privato/motore amovibile</option>
+<option value="11">natante in servizio pubblico</option>
+<option value="12">rimorchio - rischio statico</option>
+
+data polizza
+30/12/2009
+
+situazione assicurativa
+<option value="0">prima polizza</option>
+<option value="1">gia assicurato con la Compagnia</option>
+<option value="2">gia assicurato con altra Compagnia</option>
+
+mese/anno immatricolazione
+12/2007
+
+uso veicolo
+<option value="001">autotassametro</option>
+<option value="004">noleggio a lungo termine</option>
+<option value="002">noleggio con conducente</option>
+<option value="003">noleggio senza conducente</option>
+<option value="000">privato</option>
+<option value="500">veicolo adibito esclusivamente a scuola guida</option>
+
+veicolo adatto a disabili
+adegDisY = si
+adegDisN = no
+
+km/anno
+10000 (senza punti e scritto manualmente)
+
+tipo conducente
+<option value="J">conducente esclusivo con eta fino a 25 anni</option>
+<option value="S">conducente esclusivo con eta da 26 anni in poi</option>
+<option value="E">conducente esperto</option>
+<option value="F">qualunque conducente - famigliari conviventi con età tra 18 e 25 anni</option>
+<option value="N">qualunque conducente - no famigliari conviventi con età tra 18 e 25 anni</option>
+<option value="T">qualunque conducente - soggetti diversi dalle persone fisiche</option>
+
+traino rimorchio
+trainoY = si
+trainoN = no
+
+dispositivo gprs
+possessoGprsY = si
+possessoGprsN = no
+
+genere proprietario
+<option value="M">uomo</option>
+<option value="F">donna</option>
+<option value="E">ente/azienda/persona giuridica in genere</option>
+
+data nascita
+01/01/1960
+
+attestato di rischio
+attRiskY = si
+attRiskN = no
+
+forma tariffaria
+precFormaTariffB = bonus malus
+precFormaTariffA = non bonus malus
+
+classe bonus malus
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+nr polizze sai già in corso
+<option value="0">0</option>
+<option value="1">1 (FAMILY 1)</option>
+<option value="2">2 (FAMILY 2)</option>
+<option value="3">3 o piu (FAMILY 3)</option>
+
+sinistri con responsabilità + sinistri pagati (da 5 anni fino a 1 anno + anno corrente)
+<option value="A">N.A.</option>
+<option value="D">N.D.</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+
+sinistri a persone (idem)
+<option value="A">N.A.</option>
+<option value="D">N.D.</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+
+sinistri a cose (idem)
+<option value="A">N.A.</option>
+<option value="D">N.D.</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+
+massimale
+<option value="25000005.00">€ 2.500.000 - 500.000</option>
+<option value="2575000.00">€ 2.500.000 - 775.000</option>
+<option value="5100000.00">€ 5.000.000 - 1.000.000</option>
+<option value="3000000.00">€ 3.000.000,00</option>
+<option value="3615198.29">€ 3.615.198,29</option>
+<option value="5164568.99">€ 5.164.568,99</option>
+<option value="7746853.49">€ 7.746.853.49</option>
+<option value="8000000.00">€ 8.000.000,00</option>
+<option value="10000000.00">€ 10.000.000,00</option>
+<option value="10329137.98">€ 10.329.137,98</option>
+<option value="15000000.00">€ 15.000.000,00</option>
+<option value="25000000.00">€ 25.000.000,00</option>
+<option value="25822844.95">€ 25.822.844,95</option>
+
+franchigia
+<option value="0.00">nessuna</option>
+<option value="258.00">€ 258,00</option>
+<option value="361.00">€ 361,00</option>
+
+
+

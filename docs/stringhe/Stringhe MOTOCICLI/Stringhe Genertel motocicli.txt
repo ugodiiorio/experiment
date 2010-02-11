@@ -1,0 +1,38 @@
+GENERTEL MOTOCICLI
+
+situazione assicurativa
+sinistri con colpa ultimi 3 anni
+BM di assegnazione
+garanzie polizza attuale
+data decorrenza
+leasing
+bersani
+tagra veicolo di riferimento
+BM di riferimento bersani
+veicolo già assicurato con compagnia
+anno immatricolazione
+marca 
+kw
+valore
+antifurto
+ricovero
+uso
+km annui
+tipologia contraente
+ragione sociale
+specializzazione rag soc
+partita iva
+
+tipo via
+via
+nu civico
+comune
+provincia
+cap
+un conducente abituale
+conducente è contraente
+figli conviventi
+anni patente
+due conducenti abituali
+più di due conducenti abituali
+con abituali <25 o patente da meno di due anni

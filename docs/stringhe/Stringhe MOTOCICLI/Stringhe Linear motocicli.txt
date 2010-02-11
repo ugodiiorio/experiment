@@ -1,0 +1,159 @@
+Linear Motocicli
+
+situazione assicurativa moto
+<optgroup class="option_title" label="1. Bonus/Malus con classe C.I.P./C.U. assegnata">
+<option style="color: black;" value="1">Polizza annuale in Bonus Malus con classe CIP/CU assegnata</option>
+</optgroup>
+<optgroup class="option_title" label="2. Senza precedente annualità assicurativa">
+<option style="color: black;" value="2">Hai appena acquistato il veicolo (meno di 3 mesi)</option>
+<option style="color: black;" value="36">Da assicurare secondo la legge Bersani</option>
+<option style="color: black;" value="5">Hai una polizza temporanea relativa al veicolo da assicurare</option>
+<option style="color: black;" value="33">Proviene da Conto Vendita non andato a Buon Fine</option>
+<option style="color: black;" value="4">Proviene da Cessione di Contratto</option>
+</optgroup>
+<optgroup class="option_title" label="3. Bonus/Malus con classe C.I.P./C.U. non assegnata">
+<option style="color: black;" value="23">Hai una polizza annuale in Bonus Malus da 1 anno</option>
+<option style="color: black;" value="24">Hai una polizza annuale in Bonus Malus da 2 anni</option>
+<option style="color: black;" value="25">Hai una polizza annuale in Bonus Malus da 3 anni</option>
+<option style="color: black;" value="26">Hai una polizza annuale in Bonus Malus da 4 anni</option>
+<option style="color: black;" value="27">Hai una polizza annuale in Bonus Malus da 5 o più anni</option>
+</optgroup>
+<optgroup class="option_title" label="4. Franchigia">
+<option style="color: black;" value="28">È assicurata con tariffa in Franchigia (da 1 anno)</option>
+<option style="color: black;" value="29">È assicurata con tariffa in Franchigia (da 2 anni)</option>
+<option style="color: black;" value="30">È assicurata con tariffa in Franchigia (da 3 anni)</option>
+<option style="color: black;" value="31">È assicurata con tariffa in Franchigia (da 4 anni)</option>
+<option style="color: black;" value="32">È assicurata con tariffa in Franchigia (da 5 anni)</option>
+</optgroup>
+<optgroup class="option_title" label="5. Senza Documentazione">
+<option style="color: black;" value="14">Senza Documentazione</option>
+</optgroup>
+
+scadenza polizza
+30 Dicembre 2009 (a tendina)
+
+classe bonus malus
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+frazionamento polizza
+<option selected="" value="1">Frazionamento Annuale</option>
+<option value="2">Frazionamento Semestrale</option>
+<option value="4">Frazionamento Trimestrale</option>
+
+sinistri con colpa ultimi 5 anni
+sinistri15anno_mese (immettere nr)
+
+sinistri con colpa ultimo anno
+sinistri15anno_anno
+
+data immatricolazione
+Dicembre 2007 (tendina)
+
+ricovero notturno
+<option value="1">Garage</option>
+<option value="2">Cortile Interno</option>
+<option value="0">Inesistente</option>
+
+moto in leasing
+<input id="vincoli_moto" type="radio" tabindex="60" checked="" value="0" name="vincoli_moto"/> = no
+<input id="vincoli_moto" type="radio" value="2" name="vincoli_moto" onclick="showWaitingLayer(true);"/> = si
+
+data nascita
+1 Gennaio 1960 (tendina)
+
+sesso
+<input id="sesso" type="radio" tabindex="40" checked="" value="1" name="sesso"/>
+M  = maschio
+<input id="sesso" type="radio" tabindex="50" value="2" name="sesso"/>
+F  = femmina
+
+familiari minori di 26 ai abilitati alla guida
+<option value="0">Nessuno</option>
+<option value="25">25</option>
+<option value="24">24</option>
+<option value="23">23</option>
+<option value="22">22</option>
+<option value="21">21</option>
+<option value="20">20</option>
+<option value="19">19</option>
+<option value="18">18</option>
+<option value="17">17</option>
+<option value="16">16</option>
+<option value="15">15</option>
+<option value="14">14</option>
+
+sconto famiglia (altri familairi assicurati con Linear)
+<input id="famiglia" type="radio" tabindex="90" onclick="showRilascioTargaSconto(true);" value="1" name="famiglia"/>
+Sì  = si
+<input id="famiglia" type="radio" tabindex="100" checked="" onclick="showRilascioTargaSconto(false);" value="0" name="famiglia"/>
+No  = no
+
+(se si immettere nr targa)
+
+conducente anche proprietario
+<input id="proprietario" type="radio" tabindex="120" checked="" value="proprietario_si" name="proprietario"/>
+Sì  = si
+<input id="proprietario" type="radio" tabindex="130" value="proprietario_no" name="proprietario"/>
+No  = no
+
+tipo persona
+<input id="fisgiur" type="radio" tabindex="1" onclick="switchFisicaGiuridica(this.value);" checked="" value="0" name="fisgiur"/>
+Persona Fisica   = persona fisica
+
+<input id="fisgiur" type="radio" tabindex="10" onclick="switchFisicaGiuridica(this.value);" value="3" name="fisgiur"/>
+Persona Giuridica = persona giuridica
+
+
+data nascita
+1 Gennaio 1960 (tendina)
+
+sesso
+<input id="sesso" type="radio" tabindex="60" checked="" value="1" name="sesso"/>
+M = maschio
+
+<input id="sesso" type="radio" tabindex="70" value="2" name="sesso"/>
+F = femmina
+
+conoscenza compagnia
+<option value="QUOTID2003">Quotidiani nazionali e locali</option>
+<option value="PERIOD2003">Mensili e settimanali</option>
+<option value="ARTICOLIGI">Ho letto un articolo di giornale</option>
+<option value="MOTORI DI">Attraverso motori di ricerca</option>
+<option value="PASSAPINT">PassaParola</option>
+<option value="BANNER 200">Ho visto un banner sulla rete</option>
+<option value="MAILPUBBLI">Proposta pubblicitaria da mail</option>
+<option value="NEWS GROUP">News Group o chat</option>
+<option value="RADIO">Ho sentito lo spot Linear alla radio</option>
+<option value="TV">Televisione</option>
+<option value="ALTROINT00">Altro</option>
+
+massimale
+<option value="1000">€ 2.500.000 - 500.000</option>
+<option value="1006">€ 3.000.000,00 unico</option>
+<option value="1007">€ 4.000.000,00 unico</option>
+<option value="1008">€ 5.000.000,00 unico</option>
+
+infortuni conducenti
+<option selected="" value="3002">€ 60.000,00</option>
+<option value="3003">€ 80.000,00</option>
+<option value="3004">€ 100.000,00</option>
+
+
+
+
+

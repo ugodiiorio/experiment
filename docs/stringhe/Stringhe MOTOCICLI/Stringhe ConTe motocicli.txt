@@ -1,0 +1,329 @@
+ConTe motocicli
+
+conoscenza compagnia
+<option value="-1">Seleziona</option>
+<option value="1">Aeroporti</option>
+<option value="5">Internet</option>
+<option value="6">Affisioni</option>
+<option value="7">Mezzi Pubblici</option>
+<option value="8">Non Ricordo</option>
+<option value="12">Passaparola</option>
+<option value="16">Radio</option>
+<option value="18">TV</option>
+<option value="21">Stampa - Quattroruote</option>
+<option value="22">Stampa - Al volante</option>
+<option value="23">Stampa - Altro</option>
+
+situazione assicurativa
+page:situazione_1:0 = prima polizza
+opzioni:
+page:situazione_2:0 = veicolo nuovo
+page:situazione_2:1 = veicolo usato
+
+page:situazione_1:1 = già assicurato
+
+tipo veicolo
+<option value="-1">Seleziona</option>
+<option value="15">Motociclo (sopra i 50 cc.)</option>
+<option value="16">Ciclomotore (sotto i 50 cc.)</option>
+
+data scadenza polizza
+30/12/2009 (separatori automatici)
+
+data immatricolazione
+Dicembre 2007
+
+anno acquisto
+2008
+
+ricovero notturno
+<option value="-1">Seleziona</option>
+<option value="1">Box</option>
+<option value="2">Viale di accesso</option>
+<option value="3">Parcheggio custodito</option>
+<option value="4">Parcheggio incustodito</option>
+<option value="5">Strada</option>
+<option value="6">Altro</option>
+<option value="7">Garage custodito</option>
+
+antifurto
+<option value="1">Satellitare/GPS</option>
+<option value="2">Altri tipi di antifurto</option>
+<option value="3">No antifurto</option>
+<option value="4">Immobilizer</option>
+
+uso veicolo
+<option value="1">Affari</option>
+<option value="2">Tempo Libero</option>
+<option value="3">Tragitto Casa-Lavoro</option>
+
+cilindrata pi� alta mai guidata
+page:cilindrataPiuAlta
+
+
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option selected="selected" value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+<option value="32">32</option>
+<option value="33">33</option>
+<option value="34">34</option>
+<option value="35">35</option>
+<option value="36">36</option>
+<option value="37">37</option>
+<option value="38">38</option>
+<option value="39">39</option>
+<option value="40">40</option>
+<option value="41">41</option>
+<option value="42">42</option>
+<option value="43">43</option>
+<option value="44">44</option>
+<option value="45">45</option>
+<option value="46">46</option>
+<option value="47">47</option>
+<option value="48">48</option>
+<option value="49">49</option>
+<option value="50">50</option>
+(migliaia 000 già espresse)
+
+nr mesi continuativi di uso del veicolo
+<option value="1">0 - 3</option>
+<option value="2">4 - 6</option>
+<option value="3">7 - 9</option>
+<option value="4">10 - 12</option>
+<option value="5">13 - 18</option>
+<option value="6">19 - 24</option>
+<option value="7">>24</option>
+
+modifiche effettuate
+se "si" si apre finestra con opzioni
+page:modifiche_scelta:1 = no
+
+classe bonus malus
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+proprietario del veicolo
+page:contraente_proprietario:0 = si
+page:contraente_proprietario:1 = no
+
+se rispondi no
+proprietario è:
+page:relazione_contraente_proprietario_passo1:0 = persona fisica
+page:relazione_contraente_proprietario:0 = coniugato o convivente
+page:relazione_contraente_proprietario:1 = familiari primo grado
+page:relazione_contraente_proprietario:2 = altro
+
+page:relazione_contraente_proprietario_passo1:1 = persona giuridica
+
+page:relazione_contraente_proprietario_passo1:2 = società leasing
+
+conducente principale veicolo
+page:conducente_principale:0 = si
+
+page:conducente_principale:1 = no
+se rispondi no, opzioni:
+page:relazione_contraente_conducente:0 = coniugato/a convivente
+page:relazione_contraente_conducente:1 = familiari primo grado
+page:relazione_contraente_conducente:2 = altro
+
+data nascita
+01/01/1960 (separatori in autom)
+
+sesso
+page:conducente_principale_sesso_nocontraente:0 = maschio
+page:conducente_principale_sesso_nocontraente:1 = femmina
+
+nazione nascita
+page:conducente_principale_nazione_nocontraente:0 = italia
+page:conducente_principale_nazione_nocontraente:1 = estero
+(si apre tendina con paesi esteri)
+
+età di conseguimento patente
+page:eta_conseguimento_patente_nocontraente (immettere anni manualmente)
+
+tipo patente
+<option value="2">Patente Italiana A1</option>
+<option value="3">Patente Italiana A Limitata</option>
+<option value="4">Patente Italiana A Senza Limiti</option>
+<option value="5">Patente Italiana B o C o D prima del 25/04/1988</option>
+<option value="6">Patente Italiana B o C o D dopo il 25/04/1988</option>
+<option value="7">Patente Europea EEC</option>
+<option value="8">Patente Estera Extra UE</option>
+<option value="9">Altro tipo Patente</option>
+
+punti su patente
+<option value="5">Più di 20</option>
+<option value="4">16 - 20</option>
+<option value="3">11 - 15</option>
+<option value="2">6 - 10</option>
+<option value="1">0 - 5</option>
+
+stato civile
+<option value="1">Coniugato/Coniugata</option>
+<option value="2">Convivente</option>
+<option value="3">Single</option>
+<option value="4">Altro</option>
+
+figli minori 17 anni
+page:figli_minori_nocontraente:0 = si
+page:figli_minori_nocontraente:1 = no
+
+multe in stato ebbrezza
+page:multe_ebrezza_contraente:0 = si
+Opzione: quante
+page:numero_multe_ebrezza_contraente
+
+page:multe_ebrezza_contraente:1 = no
+
+patente sospesa negli ultimi 5 anni
+page:sospensione_patente_contraente:0 = si
+opzione: quante volte
+page:numero_sospensione_patente_contraente
+per quanti mesi totale
+page:numero_mesi_sospensione_patente_contraente
+
+page:sospensione_patente_contraente:1 = no
+
+utilizzo altro veicolo
+page:altro_veicolo:0 = si
+page:altro_veicolo:1 = no
+
+sinistri con colpa ultimi 3 anni
+page:sinistri_cc:0 = si
+
+quanti
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+
+page:sinistri_cc:1 = no
+
+sinistri senza colpa ultimi 3 anni
+page:sinistri_sc:0 = si
+
+quanti
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+
+page:sinistri_sc:1 = no
+
+sesso
+page:contraente_sesso:0 = maschio
+page:contraente_sesso:1 = femmina
+
+data nascita
+01/01/1960 (separatori autom)
+
+copertura scelta
+page:radioGuidatori:0 = lista guidatori
+page:radioGuidatori:1 = guidatori maggiori 28 anni
+page:radioGuidatori:2 = tutti i guidatori
+
+quanti altri guidatori oltre contraente
+page:quantiGuidatori:0 = nessuno
+page:quantiGuidatori:1 = 1
+page:quantiGuidatori:2 = 2
+page:quantiGuidatori:3 = 3
+page:quantiGuidatori:4 = 4
+
+nel caso aggiungere dati altri conducente (vedi auto)
+
+pagamento
+page:metodoDiPagamento:0 = cc
+page:metodoDiPagamento:1 = bonifico
+
+RCA tipo
+<option value="1" disabled="disabled">Garantito</option>
+<option value="2" disabled="disabled">Protetto</option>
+<option value="3" selected="selected">Base</option
+
+RCA massimale
+<option value="2500000">2.500.000</option>
+<option value="5000000">5.000.000</option>
+<option value="10000000">10.000.000</option>
+<option value="15000000">15.000.000</option>
+<option value="25000000">25.000.000</option>
+<option value="50000000">50.000.000</option>
+
+furto e incendio
+option value="8">10% - minimo 250 E</option>
+<option value="9">15% - minimo 375 E</option>
+
+infortuni conducente
+<option value="6" selected="selected">M. 25000 E, S. 250 E</option>
+<option value="7">M. 75000 E, S. 500 E</option>
+
+assistenza legale
+<option value="1" selected="selected">Normal</option>
+<option value="2">Plus</option>
+
+tutela legale
+<option value="1" selected="selected">Normal</option>
+<option value="2">Plus</option>
+
+
+
+
+
+

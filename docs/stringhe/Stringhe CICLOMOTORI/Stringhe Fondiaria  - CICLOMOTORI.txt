@@ -1,0 +1,112 @@
+Fondiaria Ciclomotori
+
+Decorrenza polizza
+20/01/2010 (sep. manuale)
+
+Situazione assicurativa
+situation
+
+<option value="0">prima polizza</option>
+<option value="1">gia assicurato con la Compagnia</option>
+<option value="2">gia assicurato con altra Compagnia</option>
+
+Tipo veicolo
+tipoVeicolo
+
+<option value="600">ciclomotore</option>
+<option value="601">quadriciclo leggero</option>
+
+Noleggio o locazione
+noleggioY = si
+noleggioN = no
+
+Omologato per trasporto di un passeggero
+passegY = si
+passegN = no
+
+Genere (tipo cliente)
+<option value="M">uomo</option>
+<option value="F">donna</option>
+<option value="E">ente/azienda/persona giuridica in genere</option>
+
+data nascita
+idem
+
+in possesso di attestato di rischio
+attRiskY = si
+attRiskN = no
+
+classe bonus malus
+cua
+
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+Attestato di rischio del veicolo
+a5 = sin con resp princ + sin pagati<option value="A">N.A.</option>
+
+<option value="D">N.D.</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+
+p5 = sin con resp parotaria
+Iptions= idem c.s.
+
+c5 = sinistri a cose
+idem
+
+massimale
+massimale
+
+<option value="25000005.00">Û 2.500.000 - 500.000</option>
+<option value="2575000.00">Û 2.500.000 - 775.000</option>
+<option value="5100000.00">Û 5.000.000 - 1.000.000</option>
+<option value="3500000.00">Û 3.500.000,00</option>
+<option value="3615198.29">Û 3.615.198,29</option>
+<option value="5164568.99">Û 5.164.568,99</option>
+<option value="7746853.49">Û 7.746.853.49</option>
+<option value="8000000.00">Û 8.000.000,00</option>
+<option value="10000000.00">Û 10.000.000,00</option>
+<option value="10329137.98">Û 10.329.137,98</option>
+<option value="15000000.00">Û 15.000.000,00</option>
+<option value="15493706.97">Û 15.493.706,97</option>
+<option value="20658275.96">Û 20.658.275,96</option>
+<option value="25000000.00">Û 25.000.000,00</option>
+<option value="25822844.95">Û 25.822.844,95</option>
+
+franchigia
+option value="0.00">nessuna</option>
+<option value="258.00">Û 258,00</option>
+<option value="361.00">Û 361,00</option>
+
+
+
+
+
+
+
+

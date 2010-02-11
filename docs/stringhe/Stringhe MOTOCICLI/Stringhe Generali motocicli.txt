@@ -1,0 +1,150 @@
+Generali Motocicli Posto unico
+
+decorrenza
+30/12/2009 (sep in automatico. richiesto ggmmaaaa)
+
+tipo veicolo
+<option id="COD_OGG_ASSICURABILE_0" value="0100">Autovettura</option>
+<option id="COD_OGG_ASSICURABILE_1" value="0901">Roulotte</option>
+<option id="COD_OGG_ASSICURABILE_2" value="0902">Carrello trainato</option>
+<option id="COD_OGG_ASSICURABILE_3" value="5000">Ciclomotore posto unico</option>
+<option id="COD_OGG_ASSICURABILE_4" value="5003">Ciclomotore 2 posti</option>
+<option id="COD_OGG_ASSICURABILE_5" value="0200">Motociclo due posti</option>
+<option id="COD_OGG_ASSICURABILE_6" value="0202">Motociclo posto unico</option>
+<option id="COD_OGG_ASSICURABILE_7" value="5002">Quadriciclo leggero trasporto persone</option>
+<option id="COD_OGG_ASSICURABILE_8" value="5004">Quadriciclo leggero trasporto persone 2 posti</option>
+<option id="COD_OGG_ASSICURABILE_9" value="0204">Quadriciclo trasporto persone</option>
+<option id="COD_OGG_ASSICURABILE_10" value="0700">Autocarro trasporto cose</option>
+<option id="COD_OGG_ASSICURABILE_11" value="0710">Autoarticolato</option>
+<option id="COD_OGG_ASSICURABILE_12" value="2109">Autocaravan</option>
+<option id="COD_OGG_ASSICURABILE_13" value="2601">Autoambulanza</option>
+<option id="COD_OGG_ASSICURABILE_14" value="0702">Autocarro quadriciclo</option>
+<option id="COD_OGG_ASSICURABILE_15" value="2204">Autocarro trasporto immondizie</option>
+<option id="COD_OGG_ASSICURABILE_16" value="2101">Veicolo Speciale - Auto</option>
+<option id="COD_OGG_ASSICURABILE_17" value="1000">Rimorchio Autocarro</option>
+<option id="COD_OGG_ASSICURABILE_18" value="1001">Rimorchio autocarro trasporto persone</option>
+<option id="COD_OGG_ASSICURABILE_19" value="0600">Motocarro</option>
+<option id="COD_OGG_ASSICURABILE_20" value="0602">Motocarro quadriciclo</option>
+<option id="COD_OGG_ASSICURABILE_21" value="5100">Ciclomotore trasporto cose</option>
+<option id="COD_OGG_ASSICURABILE_22" value="0203">Motoslitta</option>
+<option id="COD_OGG_ASSICURABILE_23" value="0300">Motocarrozzetta due posti</option>
+<option id="COD_OGG_ASSICURABILE_24" value="0302">Motocarrozzetta posto unico</option>
+<option id="COD_OGG_ASSICURABILE_25" value="2212">Motocarro trasporto immondizie</option>
+<option id="COD_OGG_ASSICURABILE_26" value="2131">Veicolo Speciale - Moto</option>
+<option id="COD_OGG_ASSICURABILE_27" value="0400">Autobus</option>
+<option id="COD_OGG_ASSICURABILE_28" value="0800">Autocarro trasporto persone</option>
+<option id="COD_OGG_ASSICURABILE_29" value="1100">Rimorchio di Autobus</option>
+<option id="COD_OGG_ASSICURABILE_30" value="0500">Filobus</option>
+<option id="COD_OGG_ASSICURABILE_31" value="3900">Treno lillipuziano</option>
+<option id="COD_OGG_ASSICURABILE_32" value="3500">Macchina Operatrice Classe A e Carrelli</option>
+<option id="COD_OGG_ASSICURABILE_33" value="3701">Macchina Operatrice Classe B</option>
+<option id="COD_OGG_ASSICURABILE_34" value="5201">Trattrice Agricola</option>
+<option id="COD_OGG_ASSICURABILE_35" value="1150">Rimorchio di Macchina Agricola</option>
+
+stato assicurativo
+<option id="STATO_ASSICURATIVO_0" value="A">Prima Immatricolazione</option>
+<option id="STATO_ASSICURATIVO_1" value="B">Prima polizza dopo voltura al P.R.A.</option>
+<option id="STATO_ASSICURATIVO_2" value="C">Gia' assicurato con Bonus/Malus</option>
+<option id="STATO_ASSICURATIVO_3" value="D">Gia' assicurato con Franchigia</option>
+<option id="STATO_ASSICURATIVO_4" value="E">Gia' assicurato con altra forma tariffaria</option>
+<option id="STATO_ASSICURATIVO_5" value="F">Gia' assicurato Generali con Bonus/Malus</option>
+<option id="STATO_ASSICURATIVO_6" value="G">Gia' assicurato Generali con Bonus/Malus Generali</option>
+<option id="STATO_ASSICURATIVO_7" value="H">Gia' assicurato Generali con NoClaimDiscount Generali</option>
+<option id="STATO_ASSICURATIVO_8" value="I">Gia' assicurato Generali con Franchigia</option>
+<option id="STATO_ASSICURATIVO_9" value="L">Gia' assicurato Generali con altra forma tariffaria</option>
+<option id="STATO_ASSICURATIVO_10" value="M">Gia' assicurato Generali con Bonus/Malus con Franchigia Generali</option>
+<option id="STATO_ASSICURATIVO_11" value="Z">Veicolo senza attestazione o con attestazione non valida</option>
+
+tipo cliente
+<option value="P">Persona Fisica</option>
+<option value="A">Persona Giuridica</option>
+
+durata polizza
+RB_POLIZZA_ANNUALE = annuale
+
+sesso
+<option value="M" selected="">Maschio</option>
+<option value="F">Femmina</option>
+
+data nascita
+01/01/1969 (vedi sopra)
+
+precedenti assicurativi
+TIPO_DICH_ATTESTAZIONE = assicurato in precedenza con polizza durata NON inferiore all'anno
+TIPO_DICH_TEMPORANEA = con polizza inferiore all'anno
+
+sinistrosità pregressa in attestato di rischio (da sestultimo anno fino a ultimo anno)
+<option value="NA">Non Assicurato</option>
+<option value="ND">Non Disponibile</option>
+<option value="00">0 sinistri</option>
+<option value="01">1 sinistro</option>
+<option value="02">2 sinistri</option>
+<option value="03">3 sinistri</option>
+<option value="04">4 o più sinistri</option>
+
+
+sinistrosità pregressa
+NUN_SIN_TEMPORANEI_0 = no sinistri in validità di polizza
+NUN_SIN_TEMPORANEI_1 = 1 sinistro in validità polizza
+NUN_SIN_TEMPORANEI_2 = due o più 
+
+data immatricolazione
+30/12/2007 (scrivere senza sep. in autom a invio)
+
+uso veicolo
+<option id="VAL_PARAMETRO_SELECT_1_0" value="L"> Locazione senza conducente</option>
+<option id="VAL_PARAMETRO_SELECT_1_1" value="P"> Privato</option>
+<option id="VAL_PARAMETRO_SELECT_1_2" value="SG"> Scuola Guida</option>
+
+alimentazione
+<option id="VAL_PARAMETRO_SELECT_2_0" value="B"> Benzina (motore solo a benzina)</option>
+<option id="VAL_PARAMETRO_SELECT_2_1" value="D"> Diesel</option>
+<option id="VAL_PARAMETRO_SELECT_2_2" value="E"> Elettrica</option>
+<option id="VAL_PARAMETRO_SELECT_2_3" value="G"> GPL</option>
+<option id="VAL_PARAMETRO_SELECT_2_4" value="H"> Benzina / GPL</option>
+<option id="VAL_PARAMETRO_SELECT_2_5" value="I"> Ibrida</option>
+<option id="VAL_PARAMETRO_SELECT_2_6" value="M"> Metano</option>
+<option id="VAL_PARAMETRO_SELECT_2_7" value="N"> Benzina / Metano</option>
+
+classe CU assegnazione
+<option id="VAL_PARAMETRO_CT_1_1_0" value="01"> 1</option>
+<option id="VAL_PARAMETRO_CT_1_1_1" value="02"> 2</option>
+<option id="VAL_PARAMETRO_CT_1_1_2" value="03"> 3</option>
+<option id="VAL_PARAMETRO_CT_1_1_3" value="04"> 4</option>
+<option id="VAL_PARAMETRO_CT_1_1_4" value="05"> 5</option>
+<option id="VAL_PARAMETRO_CT_1_1_5" value="06"> 6</option>
+<option id="VAL_PARAMETRO_CT_1_1_6" value="07"> 7</option>
+<option id="VAL_PARAMETRO_CT_1_1_7" value="08"> 8</option>
+<option id="VAL_PARAMETRO_CT_1_1_8" value="09"> 9</option>
+<option id="VAL_PARAMETRO_CT_1_1_9" value="10"> 10</option>
+<option id="VAL_PARAMETRO_CT_1_1_10" value="11"> 11</option>
+<option id="VAL_PARAMETRO_CT_1_1_11" value="12"> 12</option>
+<option id="VAL_PARAMETRO_CT_1_1_12" value="13"> 13</option>
+<option id="VAL_PARAMETRO_CT_1_1_13" value="14"> 14</option>
+<option id="VAL_PARAMETRO_CT_1_1_14" value="15"> 15</option>
+<option id="VAL_PARAMETRO_CT_1_1_15" value="16"> 16</option>
+<option id="VAL_PARAMETRO_CT_1_1_16" value="17"> 17</option>
+<option id="VAL_PARAMETRO_CT_1_1_17" value="18"> 18</option>
+
+massimale
+<option id="VAL_PARAMETRO_UEP_1_1_0" value="25">2500000/500000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_1" value="A2"> 3000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_2" value="A3"> 4000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_3" value="A4"> 6000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_4" value="A6"> 8000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_5" value="A7"> 12000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_6" value="A8"> 15000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_7" value="A9"> 20000000</option>
+<option id="VAL_PARAMETRO_UEP_1_1_8" value="B0"> 26000000</option>
+
+proprietario o familiare ha in corso polizza Generali
+RADIO_INIZ_FAM_SI = si
+RADIO_INIZ_FAM_NO = no
+
+
+
+
+
+
+
+

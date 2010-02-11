@@ -1,0 +1,161 @@
+Dialogo Motocicli
+
+conoscenza compagnia
+<option value="38">Affissioni</option>
+<option value="60">Banner Internet</option>
+<option value="22">Convenzioni Aziendali</option>
+<option value="32">E-Mail</option>
+<option value="102">Motori di ricerca</option>
+<option value="59">Passaparola</option>
+<option value="94">Periodici</option>
+<option value="92">Preventivatore ISVAP</option>
+<option value="3">Quotidiani</option>
+<option value="2">Radio</option>
+<option value="99">Teletxt</option>
+<option value="1">Televisione</option>
+
+uso veicolo
+<input type="radio" tabindex="44" onkeyup="hideShowVehicleUsage()" onclick="hideShowVehicleUsage()" onblur="hideShowVehicleUsage()" value="01" name="contentSubView:contentForm:vehicleUsage" checked=""/>
+Uso Privato = privato
+
+<input type="radio" tabindex="44" onkeyup="hideShowVehicleUsage()" onclick="hideShowVehicleUsage()" onblur="hideShowVehicleUsage()" value="other" name="contentSubView:contentForm:vehicleUsage"/>
+Altri Usi = altri usi
+
+nel caso opzione:
+<option value="82">Privato Guida/trasporto disabili</option>
+
+situazione assicurativa
+<input type="radio" tabindex="50" onclick="checkSituation(this); errorHighlight(this); showScript3()" onchange="checkSituation(this); errorHighlight(this);showScript3()" value="3" name="contentSubView:contentForm:attualeSituazione"/>
+Il Veicolo E' GIA' ASSICURATO con contratto in BONUS/MALUS = già assicurato con bonus malus
+
+<input type="radio" tabindex="50" onclick="checkSituation(this); errorHighlight(this); showScript3()" onchange="checkSituation(this); errorHighlight(this);showScript3()" value="1" name="contentSubView:contentForm:attualeSituazione"/>
+E' la PRIMA POLIZZA dopo l'acquisto di UN VEICOLO NUOVO = prima polizza per veicolo nuovo
+
+<input type="radio" tabindex="50" onclick="checkSituation(this); errorHighlight(this); showScript3()" onchange="checkSituation(this); errorHighlight(this);showScript3()" value="2" name="contentSubView:contentForm:attualeSituazione"/>
+E' la PRIMA POLIZZA dopo l'acquisto di UN VEICOLO USATO = prima polizza per veicolo usato
+
+<input type="radio" tabindex="50" onclick="checkSituation(this); errorHighlight(this); showScript3()" onchange="checkSituation(this); errorHighlight(this);showScript3()" value="0" name="contentSubView:contentForm:attualeSituazione"/>
+Il Veicolo e' GIA' ASSICURATO con contratto DIVERSO DA BONUS/MALUS = assicurato con contratto diverso da bonus malus
+
+data decorrenza
+30/12/2009 (separatori autom)
+
+classe bonus malus che sarà assegnata 
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+sinistri con colpa ultimi 6 anni
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3 o più</option>
+
+contraente anche proprietario
+<input type="radio" tabindex="20" onclick="resetIdentitiesData(); ruleConstrains( this.name); mainRuleConstrains( ); errorHighlight(this) ;" onchange="ruleConstrains( this.name); mainRuleConstrains( ); errorHighlight(this) " value="Y" name="contentSubView:contentForm:chooseMoto:contrIsOwn"/>
+Si = si
+
+<input type="radio" tabindex="20" onclick="resetIdentitiesData(); ruleConstrains( this.name); mainRuleConstrains( ); errorHighlight(this) ;" onchange="ruleConstrains( this.name); mainRuleConstrains( ); errorHighlight(this) " value="N" name="contentSubView:contentForm:chooseMoto:contrIsOwn"/>
+No = no
+
+anche polizza Dialogo auto
+<input type="radio" tabindex="50" onclick="showProprietarioPolizza();" value="Y" name="contentSubView:contentForm:chooseMoto:contraentePolizza"/>
+Si = si
+<input type="radio" tabindex="50" onclick="showProprietarioPolizza();" value="N" name="contentSubView:contentForm:chooseMoto:contraentePolizza" checked=""/>
+No = no
+
+nel caso, anche proprietario dell'auto assicurata Dialogo
+<input type="radio" tabindex="40" value="Y" name="contentSubView:contentForm:chooseMoto:proprietarioPolizza"/>
+Si = si
+<input type="radio" tabindex="40" value="N" name="contentSubView:contentForm:chooseMoto:proprietarioPolizza" checked=""/>
+No = no
+
+tipo proprietario
+<input type="radio" tabindex="60" onclick="partial = true; errorHighlight(this);ruleConstrains( this.name);mainRuleConstrains( );//initForMfr();" onchange="partial = true; ruleConstrains( this.name);errorHighlight(this);mainRuleConstrains( );//initForMfr();" value="M" name="contentSubView:contentForm:MFRProprietario"/>
+M = maschio
+
+<input type="radio" tabindex="60" onclick="partial = true; errorHighlight(this);ruleConstrains( this.name);mainRuleConstrains( );//initForMfr();" onchange="partial = true; ruleConstrains( this.name);errorHighlight(this);mainRuleConstrains( );//initForMfr();" value="F" name="contentSubView:contentForm:MFRProprietario"/>
+F = femmina
+
+<input type="radio" tabindex="60" onclick="partial = true; errorHighlight(this);ruleConstrains( this.name);mainRuleConstrains( );//initForMfr();" onchange="partial = true; ruleConstrains( this.name);errorHighlight(this);mainRuleConstrains( );//initForMfr();" value="E" name="contentSubView:contentForm:MFRProprietario"/>
+Persona Giuridica = persona giuridica
+
+data nascita
+01/01/1960 (separatori autom)
+
+anni possesso pat
+<option value="1">meno di un anno</option>
+<option value="2">da uno a due anni</option>
+<option value="3">da due a dieci anni</option>
+<option value="4">da oltre dieci anni</option>
+
+mese ano immatricolazione
+12/2007 (sep. autom)
+
+assicurazione anche x passeggero
+<input type="radio" tabindex="25" onchange="errorHighlight(this);" value="Y" name="contentSubView:vehicleForm:chooseMoto:additionalUse"/>
+Si = si
+<input type="radio" tabindex="25" onchange="errorHighlight(this);" value="N" name="contentSubView:vehicleForm:chooseMoto:additionalUse"/>
+No = no
+
+alimentazione
+<option value="B">Benzina</option>
+<option value="E">Elettrica</option>
+
+veicolo in garage
+<input type="radio" tabindex="70" onchange="errorHighlight(this);" value="true" name="contentSubView:vehicleForm:chooseMoto:garage"/>
+Sì = si
+<input type="radio" tabindex="70" onchange="errorHighlight(this);" value="false" name="contentSubView:vehicleForm:chooseMoto:garage" checked=""/>
+No = no
+
+veicolo con targa speciale
+<input type="radio" tabindex="75" onclick="showSpecialPlateTypesComboMoto(this); errorHighlight(this)" onchange="showSpecialPlateTypesComboMoto(this)" value="true" name="contentSubView:vehicleForm:chooseMoto:foreignRegistration"/>
+Sì = si
+<input type="radio" tabindex="75" onclick="showSpecialPlateTypesComboMoto(this); errorHighlight(this)" onchange="showSpecialPlateTypesComboMoto(this)" value="false" name="contentSubView:vehicleForm:chooseMoto:foreignRegistration" checked=""/>
+No = no
+
+se si
+<option value="AFI">AFI - - Forze Alleate in Italia</option>
+<option value="RSM">RSM - - Repubblica di San Marino</option>
+<option value="SCV">SCV - - Stato Città del Vaticano</option>
+<option value="ONU">ONU - - Nazioni unite (veicoli permanenti)</option>
+<option value="UNP">UNP - - Nazioni unite (veicoli per il personale addetto)</option>
+<option value="UNT">UNT - - Nazioni unite (veicoli in transito per l'Italia)</option>
+
+RC massimale
+<option value="5110">€ 2.500.000,00 - € 500.000,00</option>
+<option selected="" value="5120">€ 2.500.000,00 - € 1.000.000,00</option>
+<option value="5130">€ 2.500.000,00 - € 1.500.000,00</option>
+<option value="5140">€ 2.500.000,00 - € 2.000.000,00</option>
+<option value="5055">€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00</option>
+<option value="5050">€ 3.500.000,00 - € 3.500.000,00 - € 3.500.000,00</option>
+<option value="5052">€ 5.000.000,00 - € 5.000.000,00 - € 5.000.000,00</option>
+<option value="5056">€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00</option>
+<option value="5044">€ 10.000.000,00 - € 10.000.000,00 - € 10.000.000,00</option>
+
+franchigia
+<option value="Nessuna">Nessuna</option>
+<option value="258,00">258,00</option>
+<option value="361,00">361,00</option>
+
+
+
+
+
+
+
+
+

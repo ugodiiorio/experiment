@@ -1,0 +1,181 @@
+Quixa
+
+immatricolazione
+12/2009
+
+alimentazione
+option value="A">Altro</option>
+<option value="B" selected="selected">Benzina</option>
+<option value="D">Diesel</option>
+<option value="E">Electrica</option>
+<option value="G">GPL</option>
+<option value="M">Metano</option>
+
+km/anno
+<option value="10000">Fino a 10.000</option>
+<option value="10001">10.000 - 20.000</option>
+<option value="20001">20.000 - 30.000</option>
+<option value="30001">Oltre 30.000</option
+
+uso veicolo
+<option value="2">Tempo Libero</option>
+<option value="3">Casa-Lavoro e Tempo Libero</option>
+<option value="7">Affari</option>
+
+antifurto satellitare
+ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_rbtSatelliteLocationYes = si
+ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_rbtSatelliteLocationNo = no
+
+auto in leasing
+ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtLeasingYes = si
+ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtLeasingNo = no
+
+tipologia persona
+ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual = fisica
+ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal = persona giuridica
+
+sesso
+ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_0 = maschio
+ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_1 = femmina
+
+data nascita
+01/01/1960
+
+situazione assicurativa
+<option value="1">Veicolo già assicurato con attestato di rischio</option>
+<option value="2">Prima Polizza dopo l'acquisto di un veicolo</option>
+<option value="4">Veicolo già assicurato con Polizza temporanea</option>
+<option value="0">Nuova Polizza a seguito di furto o dismissione del veicolo</option>
+<option value="5">Attestato di rischio mancante</option>
+
+data decorrenza polizza
+30/12/2009
+
+compagnia di provenienza
+<option value="432">DIRECT LINE</option>
+<option value="247">GENERTEL</option>
+<option value="139">GENIALLOYD</option>
+<option value="198">ZURICH CONNECT</option>
+<option value="3">ALLIANZ S.P.A S</option>
+<option value="34">FONDIARIA -SAI</option>
+<option value="7">COMPAGNIA DI ASSICURAZIONE DI MILANO</option>
+<option value="39">AURORA ASSICURAZIONI</option>
+<option value="5">ASSICURAZIONI GENERALI</option>
+<option value="82">UGF ASSICURAZIONI S.P.A</option>
+<option value="243">AXA MPS DANNI</option>
+<option value="4">INA ASSITALIA-LE ASSICURAZIONI D'ITALIA</option>
+<option value="8">ALLEANZA TORO</option>
+<option value="40">ZURICH INSURANCE COMPANY S.A</option>
+<option value="32">SARA ASSICURAZIONI</option>
+<option value="57">SOCIETA' CATTOLICA DI ASSICURAZIONE</option>
+<option value="151">GROUPAMA ASSICURAZIONI</option>
+<option value="35">SOCIETA' REALE MUTUA DI ASS.NI</option>
+<option value="20">DUOMO UNIONE ASSICURAZIONI</option>
+<option value="38">VITTORIA ASSICURAZIONI</option>
+<option value="86">CARIGE R.D. ASSICURAZIONI</option>
+<option value="23">ITALIANA ASSICURAZIONI</option>
+<option value="106">SASA</option>
+<option value="16">FATA DANNI</option>
+<option value="911">ADMIRAL INSURANCE COMPANY LTD</option>
+<option value="392">ALA ASSICURAZIONI</option>
+<option value="364">ANTONIANA VENETA POPOLARE ASS.NI</option>
+<option value="417">ARCA ASSICURAZIONI</option>
+<option value="327">ASSICURATRICE MILANESE</option>
+<option value="85">ASSICURATRICE VAL PIAVE</option>
+<option value="254">ASSIMOCO</option>
+<option value="275">AUGUSTA ASSICURAZIONI SPA</option>
+<option value="457">AVIPOP ASSICURAZIONI</option>
+<option value="352">AVIVA ITALIA</option>
+<option value="14">AXA ASSICURAZIONI</option>
+<option value="199">BERNESE ASSICURAZIONI</option>
+<option value="281">CAPITALIA EX FINECO</option>
+<option value="273">CARIGE SPA</option>
+<option value="344">CHARTIS EUROPE</option>
+<option value="418">C.I.R.A</option>
+<option value="416">COMPAGNIA ASSICURATRICE LINEAR</option>
+<option value="428">CREDEMASSICURAZIONI SPA</option>
+<option value="472">CREDIT AGRICOLE</option>
+<option value="346">CREDITRAS ASSICURAZIONI</option>
+<option value="112">DIALOGO ASSICURAZIONI</option>
+<option value="293">ERGO ASSICURAZIONI</option>
+<option value="419">EURIZONTUTELA</option>
+<option value="13">GROUPAMA ASSICURAZIONI</option>
+<option value="133">HDI ASSICURAZIONI</option>
+<option value="19">HELVETIA</option>
+<option value="458">INCHIARO ASSICURAZIONI</option>
+<option value="223">ITAS ASSICURAZIONI</option>
+<option value="22">ITAS-IST. TRENTINO-ALTO ADIGE PER ASS.NI</option>
+<option value="412">LA PIEMONTESE</option>
+<option value="343">L'ASSICURATRICE ITALIANA DANNI</option>
+<option value="212">LE ASSICURAZIONI DI ROMA</option>
+<option value="88">LIGURIA</option>
+<option value="208">NATIONALE SUISSE</option>
+<option value="49">NAVALE ASSICURAZIONI</option>
+<option value="466">NOVIT</option>
+<option value="292">PADANA ASSICURAZIONI</option>
+<option value="274">PROGRESS ASSICURAZIONI</option>
+<option value="440">QUIXA SPA</option>
+<option value="175">SIAT</option>
+<option value="80">SUN INSURANCE OFFICE LIMITED</option>
+<option value="315">SYSTEMA COMPAGNIA DI ASSICURAZIONI</option>
+<option value="429">TUA ASSICURAZIONI</option>
+<option value="304">UBI ASSICURAZIONI</option>
+<option value="56">UNIQA PROTEZIONE</option>
+<option value="864">ZURICH INSURANCE IRELAND LIMITED</option>
+
+classe bonus malus
+<option value="-2">-----</option>
+<option value="-1">1 da più di un anno</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14" selected="selected">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+nr sinistri negli ultimi anni (parte dal 2004 e per ogni anno, menu a tendina - fino ad "anno corrente")
+<option value="-3" selected="selected">-----</option>
+<option value="-1">N/A</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">>1</option>
+<option value="-2">N/D</option>
+
+altri conducenti con meno di 26 anni
+ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_btnAge26Group_0 = si
+ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_btnAge26Group_1 = no
+
+RCA massimale
+<option value="3.000.000" selected="selected">3.000.000 € - 2.500.000 € - 500.000 €</option>
+<option value="6.000.000">6.000.000 € - 5.000.000 € - 1.000.000 €</option>
+<option value="12.000.000">12.000.000 € - 10.000.000 € - 2.000.000 €</option>
+<option value="18.000.000">18.000.000 € - 15.000.000 € - 3.000.000 €</option>
+<option value="25.000.000">25.000.000 € - 20.000.000 € - 5.000.000 €</option>
+
+infortuni al conducente
+<option value="50000" selected="selected">50.000 Euro</option>
+<option value="100000">100.000 Euro</option>
+<option value="150000">150.000 Euro</option>
+
+mezzo pagamento
+<option value="CreditCard">Carta di Credito</option>
+<option value="BNC">Bonifico</option>
+
+
+
+
+
+
+

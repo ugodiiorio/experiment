@@ -1,0 +1,168 @@
+Linear
+
+condizione assicurativa di partenza
+<option style="color: black;" value="-1">-------</option>
+<optgroup class="option_title" label="1. Con Precedente Annualità Assicurativa">
+</optgroup>
+<optgroup class="option_title" label="2. Senza Precedente Annualità Assicurativa">
+</optgroup>
+<optgroup class="option_title" label="3. Tariffa In Franchigia">
+</optgroup>
+<optgroup class="option_title" label="4. Senza Documentazione">
+</optgroup>
+</select>
+
+data scadenza polizza
+30 Dicembre 2009
+
+classe bonus malus
+<option value="18">18</option>
+<option value="17">17</option>
+<option value="16">16</option>
+<option value="15">15</option>
+<option value="14">14</option>
+<option value="13">13</option>
+<option value="12">12</option>
+<option value="11">11</option>
+<option value="10">10</option>
+<option value="9">9</option>
+<option value="8">8</option>
+<option value="7">7</option>
+<option value="6">6</option>
+<option value="5">5</option>
+<option value="4">4</option>
+<option value="3">3</option>
+<option value="2">2</option>
+<option value="1">1</option>
+<option value="0">1 da più anni</option>
+
+frazionamento polizza attuale
+<option value="1">Frazionamento Annuale</option>
+<option value="2">Frazionamento Semestrale</option>
+<option value="4">Frazionamento Trimestrale</optio
+
+sinistri con colpa negli ultimi 5 anni
+sinistri15anno_mese (immetti manualmente il nr)
+
+sinistri con colpa nell'ultimo anno
+sinistri15anno_anno (idem)
+
+data immatricolazione
+Dicembre 2006
+
+Linearsat (solo per veicoli con valore tra i 2500 e i 70000 euro)
+<input id="LinearBox" type="radio" tabindex="51" onclick="showHideAntifurto(this.value);" value="4" name="LinearBox"/>
+Si = si
+<input id="LinearBox" type="radio" tabindex="53" checked="" onclick="showHideAntifurto(this.value);" value="0" name="LinearBox"/>
+No = no
+
+
+alimentazione a gas o metano
+alimentazione_auto_si = si
+alimentazione_auto_no = no
+
+Se rispondi no a Linearsat, chiede tipo di antifurto
+<input id="antifurto_auto" type="radio" tabindex="80" checked="" value="0" name="antifurto_auto"/>
+No
+<br/>
+<input id="antifurto_auto" type="radio" tabindex="90" value="1" name="antifurto_auto"/>
+Si, è dotata di antifurto elettronico
+<br/>
+<input id="antifurto_auto" type="radio" tabindex="100" value="2" name="antifurto_auto"/>
+Si, è dotata di antifurto meccanico
+<br/>
+<input id="antifurto_auto" type="radio" tabindex="110" value="3" name="antifurto_auto"/>
+Si, è dotata di allarme sonoro 
+
+ricovero notturno
+<option value="1">Garage</option>
+<option value="2">Cortile Interno</option>
+<option value="0">Inesistente</option>
+
+utilizzo auto
+<option value="1">Diporto-Turismo</option>
+<option value="2">Casa-Lavoro</option>
+<option value="3">Professione-Affari</option>
+
+km medi/anno
+km_anno = inserire a mano il numero. In automatico segsuito da "punto" e migliaia (000) Km
+
+Auto in leasing
+<input id="vincoli_auto" type="radio" tabindex="170" checked="" value="0" name="vincoli_auto"/>
+No
+<br/>
+<input id="vincoli_auto" type="radio" value="2" name="vincoli_auto" onclick="showWaitingLayer(true);"/>
+Si
+
+data nascita
+1 Febbraio 1960
+
+sesso
+<input id="sesso" type="radio" tabindex="50" checked="" value="1" name="sesso"/>
+M
+<input id="sesso" type="radio" tabindex="60" value="2" name="sesso"/>
+F 
+
+patente di guida italiana
+<input id="patente" type="radio" tabindex="90" onclick="showRilascioPatente(true);" checked="" value="SI" name="patente"/>
+Sì
+<input id="patente" type="radio" tabindex="100" onclick="showRilascioPatente(false);" value="NO" name="patente"/>
+No 
+
+mese e anno di rilascio patente
+Gennaio 1989
+
+altri conducenti del nucleo inferiore ai 26 anni di età
+<option value="0">Nessuno</option>
+<option value="25">25</option>
+<option value="24">24</option>
+<option value="23">23</option>
+<option value="22">22</option>
+<option value="21">21</option>
+<option value="20">20</option>
+<option value="19">19</option>
+<option value="18">18</option>
+
+altri familiari assicurati con Linear
+<input id="famiglia" type="radio" tabindex="140" onclick="showRilascioTargaSconto(true);" value="1" name="famiglia"/>
+Sì
+<input id="famiglia" type="radio" tabindex="150" checked="" onclick="showRilascioTargaSconto(false);" value="0" name="famiglia"/>
+No 
+(se si indicare nr targa)
+
+conducente anche proprietario del veicolo
+<input id="proprietario" type="radio" tabindex="170" checked="" value="proprietario_si" name="proprietario"/>
+Sì
+<input id="proprietario" type="radio" tabindex="180" value="proprietario_no" name="proprietario"/>
+No 
+
+persona fisica o giuridica
+<input id="fisgiur" type="radio" tabindex="1" onclick="switchFisicaGiuridica(this.value);" checked="" value="0" name="fisgiur"/>
+Persona Fisica  
+<input id="fisgiur" type="radio" tabindex="10" onclick="switchFisicaGiuridica(this.value);" value="3" name="fisgiur"/>
+Persona Giuridica 
+
+data nascita
+1 Febbraio 1969
+
+sesso
+<input id="sesso" type="radio" tabindex="60" checked="" value="1" name="sesso"/>
+M
+<input id="sesso" type="radio" tabindex="70" value="2" name="sesso"/>
+F 
+
+RCA massimale
+<option value="1000">€ 2.500.000 - 500.000</option>
+<option value="1006">€ 3.000.000,00 unico</option>
+<option value="1007">€ 4.000.000,00 unico</option>
+<option value="1008">€ 5.000.000,00 unico</option>
+
+infortuni al conducente
+<option selected="" value="3002">€ 60.000,00</option>
+<option value="3003">€ 80.000,00</option>
+<option value="3004">€ 100.000,00</option
+
+
+
+
+

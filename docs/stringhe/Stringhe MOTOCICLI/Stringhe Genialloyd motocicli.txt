@@ -1,0 +1,167 @@
+Genialloyd Motocicli
+
+stato assicurativo
+<label class="selected" onclick="toggleSituazAssicurativaRadio(1,this);" for="radioSituazAssicurativa1" style="background: transparent url(../genialloyd/img/radio_noBack.gif) no-repeat scroll left top; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; padding-left: 35px;">
+<input id="radioSituazAssicurativa1" class="radio" type="radio" value="1" name="motoQuotationModel.optSituazioneAssicurativa" style="visibility: hidden; width: 0pt; height: 0pt; margin-right: 0pt; margin-top: 0pt;"/>
+veicolo acquistato (nuovo o usato) da non più di 90 giorni e non ancora assicurato
+</label> 
+
+<label class="normal" onclick="toggleSituazAssicurativaRadio(2,this);" for="radioSituazAssicurativa2" style="background: transparent url(../genialloyd/img/radio_noBack.gif) no-repeat scroll left top; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; padding-left: 35px;">
+<input id="radioSituazAssicurativa2" class="radio" type="radio" checked="checked" value="2" name="motoQuotationModel.optSituazioneAssicurativa" style="visibility: hidden; width: 0pt; height: 0pt; margin-right: 0pt; margin-top: 0pt;"/>
+la polizza in corso o ultima polizza da te stipulata per il motociclo è un contratto annuale
+</label>
+
+<label class="normal" onclick="toggleSituazAssicurativaRadio(3,this);" for="radioSituazAssicurativa3" style="background: transparent url(../genialloyd/img/radio_noBack.gif) no-repeat scroll left top; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; padding-left: 35px;">
+<input id="radioSituazAssicurativa3" class="radio" type="radio" value="3" name="motoQuotationModel.optSituazioneAssicurativa" style="visibility: hidden; width: 0pt; height: 0pt; margin-right: 0pt; margin-top: 0pt;"/>
+la polizza in corso o ultima polizza da te stipulata per il motociclo è un contratto con copertura temporanea (es.: semestrale)
+</label>
+
+
+se opzione nr 1 - legge Bersani
+radioBersaniFacilitation1 = no
+radioBersaniFacilitation2 = si
+
+scadenza polizza
+30 Dicembre 2009 (a tendina)
+
+classe bonus malus in assegnazione alla scadenza
+<option value="01">B/M 01</option>
+<option value="02">B/M 02</option>
+<option value="03">B/M 03</option>
+<option value="04">B/M 04</option>
+<option value="05">B/M 05</option>
+<option value="06">B/M 06</option>
+<option value="07">B/M 07</option>
+<option value="08">B/M 08</option>
+<option value="09">B/M 09</option>
+<option value="10">B/M 10</option>
+<option value="11">B/M 11</option>
+<option value="12">B/M 12</option>
+<option value="13">B/M 13</option>
+<option value="14">B/M 14</option>
+<option value="15">B/M 15</option>
+<option value="16">B/M 16</option>
+<option value="17">B/M 17</option>
+<option value="18">B/M 18</option>
+
+sinistri con colpa in attestato di rischio
+<option value="00">Nessuno</option>
+<option value="01">Uno</option>
+<option value="02">Piu' di uno</option>
+
+contreaente o familiare convivente già assicurato con G.
+radioUtenteClienteY = si
+radioUtenteClienteN = no
+
+familiare convivente già assicurato con G.
+radioFamClienteY = si
+radioFamClienteN = no
+
+intestatario
+radioTipoSoggettoF = persona fisica
+radioTipoSoggettoG = società
+
+sesso
+radioSessoM = uomo
+radioSessoF = donna
+
+data nascita
+1 Gennaio 1960
+
+
+secondo guidatore abituale
+radioSecondoGuidatoreY = si
+radioSecondoGuidatoreN = no
+
+copertura anche ad altri guidatori
+radioFormulaGuida1 = no (solo guidatori abituali)
+radioFormulaGuida2 = si, chiunque oltre anni 30
+radioFormulaGuida3 = si, guida libera
+
+il contratente è
+radioCoincidenzaContraente1 = intestatario
+radioCoincidenzaContraente2 = guidatore aggiuntivo
+radioCoincidenzaContraente3 = soggetto diverso
+
+
+mese/anno prima immatricolazione
+Dicembre 2007 (tendina)
+
+
+data immatricolazione stessa data acquisto
+radioCoincidenzaDateY = si
+radioCoincidenzaDateN = no
+
+se no, inserire data acquisto veicolo
+Dicembre 2008
+
+tipo antifurto
+<option value="03">Antifurto Satellitare</option>
+<option value="02">Immobilizer/Elettronico</option>
+<option value="01">Nessuno/Meccanico</option>
+
+leasing
+radioLeasingY = si
+radioLeasingN = no
+
+uso veicolo
+radioTipoUsoMotociclo1 = privato
+radioTipoUsoMotociclo2 = altri usi
+radioTipoUsoMotociclo3 = targhe speciali
+
+se altri usi
+<option value="10">Int. storico escl. terzi trasp.</option>
+<option value="03">Interesse storico</option>
+<option value="05">Noleggio con conducente</option>
+<option value="04">Noleggio libero</option>
+<option value="50">Privato escl. terzi trasp.</option>
+<option value="01">Privato</option>
+<option value="27">Scuola guida escl. terzi trasp.</option>
+<option value="26">Scuola guida</option>
+<option value="12">Uso pubblico</option>
+
+Se targhe speciali
+<option value="01">AFI</option>
+<option value="07">CC</option>
+<option value="02">CD</option>
+<option value="08">CRI</option>
+<option value="03">EE</option>
+<option value="04">FTASE</option>
+<option value="00">Normale</option>
+<option value="05">SCV</option>
+<option value="06">SMOM</option>
+
+in box
+custodiaBoxY = si
+custodiaBoxN = no
+
+veicolo usato anche per consegne domicilio
+consegneDomicilioY = si
+consegneDomicilioN = no
+
+conoscenza compagnia
+<option value="1237">Altro</option>
+<option value="1326">Articoli di giornale</option>
+<option value="1229">Preventivatore unico</option>
+<option value="1235">Pubblicità affissione</option>
+<option value="1231">Pubblicità su Internet</option>
+<option value="1027">Pubblicita' su periodici</option>
+<option value="1327">Pubblicità su quotidiani</option>
+<option value="1234">Pubblicità su radio</option>
+<option value="1094">Pubblicità su Televisione</option>
+<option value="1009">Passaparola</option>
+
+RC massimale
+<option selected="selected" value="0060">3 Mil. - 3 Mil.</option>
+<option value="0056">6 Mil. - 6 Mil.</option>
+<option value="0052">10 Mil. - 10 Mil.</option>
+
+furto e incendio
+<option value="0015">250,00 - 10%</option>
+<option selected="selected" value="0016">500,00 - 10%</option>
+
+
+
+
+
+

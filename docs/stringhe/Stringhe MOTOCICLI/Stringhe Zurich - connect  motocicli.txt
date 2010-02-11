@@ -1,0 +1,130 @@
+Zurich connect Moto
+
+conoscenza compagnia
+<option value="A1 ">Passaparola </option>
+<option value="A2 ">Pagine Gialle/elenchi telefonici </option>
+<option value="A3 ">Televideo </option>
+<option value="A4 ">Quotidiani </option>
+<option value="A5 ">Riviste </option>
+<option value="A6 ">Radio </option>
+<option value="B3 ">Televisione </option>
+<option value="A7 ">Sms su cellulare </option>
+<option value="A8 ">E-mail </option>
+<option value="A9 ">Banner/motori di ricerca </option>
+<option value="B1 ">Convenzioni </option>
+<option value="B2 ">Altro </option>
+
+famiiare assicurato
+<option value="NO" selected="selected">NO</option>
+<option value="SI">SI</option>
+
+situazione assicurativa
+<option value="1000">Il motociclo e' gia' assicurato con un contratto in Bonus/Malus</option>
+<option value="1040">Sto acquistando un motociclo nuovo/usato e mi assicuro per la prima volta</option>
+
+data decorrenza
+30/12/2009 (tutto manuale)
+
+data scadenza
+IDEM - presa in automatico in coincidenza con la data decorrenza immessa
+
+contraente anche proprietario
+<option value="SI">SI</option>
+<option value="NO">NO</option>
+
+nr proprietari veicolo
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+
+sesso
+Maschio = maschio
+Femmina = femmina
+PersonaGiuridica = persona giuridica
+
+data nascita
+01/01/1960 (tutto manuale)
+
+stato civile
+<option value="M ">Coniugato con figli <=13 anni </option>
+<option value="C ">Coniugato senza figli </option>
+<option value="D ">Divorziato </option>
+<option value="S ">Separato </option>
+<option value="G ">Single </option>
+<option value="V ">Vedovo </option>
+<option value="N ">Non dichiarato </option>
+<option value="F ">Coniugato con figli > 13 anni </option>
+
+studi
+<option value="D ">Diploma </option>
+<option value="L ">Laurea </option>
+<option value="E ">Licenza elementare </option>
+<option value="M ">Scuola media </option>
+<option value="N ">Nessun Titolo </option>
+</select>
+
+mese e anno immatricolazione
+gennaio 2008 
+
+classe bonus malus
+<option value="0">Seleziona una voce</option>
+<option value="01">1</option>
+<option value="02">2</option>
+<option value="03">3</option>
+<option value="04">4</option>
+<option value="05">5</option>
+<option value="06">6</option>
+<option value="07">7</option>
+<option value="08">8</option>
+<option value="09">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+
+sinistri con colpa ultimi 5 anni e corrente
+<option value="0 " selected="selected">Nessun sinistro </option>
+<option value="1 ">1 sinistro </option>
+<option value="2 ">2 sinistri </option>
+<option value="3 ">3 sinistri </option>
+<option value="99 ">4 sinistri e oltre </option>
+
+se valore maggiore a 0
+sinistri ultimo biennio
+<option value="NO">NO</option>
+<option value="SI">SI</option>
+
+
+nr anni assicurazione ultimi 5
+<option value="1">1 anno</option>
+<option value="2">2 anni</option>
+<option value="3">3 anni</option>
+<option value="4">4 anni</option>
+<option value="5" selected="selected">5 anni</option>
+
+
+RC massimale
+<option value="RCBPUNT035" selected="selected">2.500.000 - 500.000 </option>
+<option value="RCBPUNT060">4.000.000 UNICO </option>
+<option value="RCBPUNT100">6.000.000 UNICO </option>
+<option value="RCBPUNT200">20.000.000 UNICO </option>
+
+assistenza stradale
+<option value="ASSIST02 " selected="selected">CLASSIC </option>
+<option value="ASSIST03 ">TOP </option>
+
+furto e incendio
+<option selected="">25% con il minimo di 250 euro</option>
+
+
+
+
+
+
