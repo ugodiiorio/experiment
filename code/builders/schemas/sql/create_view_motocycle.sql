@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW piper_nigrum_technical.motocycle
+CREATE OR REPLACE VIEW kte_driver.sect_2
 AS
     SELECT
         key_insurance_profiles_id_num,

@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW piper_nigrum_technical.motorbycicle
+CREATE OR REPLACE VIEW kte_driver.sect_3
 AS
     SELECT
         key_insurance_profiles_id_num,
@@ -54,4 +54,4 @@ AS
     FROM
         company_insurance_profiles
     WHERE
-        key_sector_id_str='sect3'
+        key_sector_id_str='sect_3'

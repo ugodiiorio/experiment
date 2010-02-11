@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW piper_nigrum_technical.policy
+CREATE OR REPLACE VIEW kte_driver.policy
 AS
     SELECT
         key_insurance_profiles_id_num,
