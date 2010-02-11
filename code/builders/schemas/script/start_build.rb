@@ -5,9 +5,9 @@ $LOAD_PATH << './builders/schemas/script'
 require "rubygems"
 require "mysql"
 require 'logger'
-require "app_schema.rb"
-require "schedule_schema.rb"
-require "price_schema.rb"
+require "driver_schema.rb"
+require "monitor_schema.rb"
+require "target_schema.rb"
 
 def init()
 
@@ -60,9 +60,9 @@ def init()
   @db_host	= database_settings['ds_db_host'] || "localhost"
   @db_user = database_settings['ds_conn_user'] || "testuser"
   @db_pwd = database_settings['ds_conn_pwd'] || "testpass"
-  @db_default_premiums = database_settings['ds_db_default_premiums'] || "test"
-  @db_default_scheduler = database_settings['ds_db_default_scheduler'] || "test"
-  @db_default_app = database_settings['ds_db_default_app'] || "test"
+  @db_default_target = database_settings['ds_db_default_target'] || "kte_target"
+  @db_default_monitor = database_settings['ds_db_default_monitor'] || "kte_monitor"
+  @db_default_driver = database_settings['ds_db_default_driver'] || "kte_driver"
   @schema = app_settings['as_building_schema'] || "all"
 
   @log_device = logger_settings['ls_device'] || "/home/notroot/git/piper_nigrum/builders/log/schemas.log"
@@ -115,21 +115,21 @@ begin
   connect()
 
   case @schema
-  when "application"
-    c = BuildAppSchema.new(@db_host, @db_user, @db_pwd, @db_default_app)
+  when "driver"
+    c = BuildDriverSchema.new(@db_host, @db_user, @db_pwd, @db_default_driver)
     c.run
-  when "schedule"
-    c = BuildScheduleSchema.new(@db_host, @db_user, @db_pwd, @db_default_scheduler)
+  when "monitor"
+    c = BuildMonitorSchema.new(@db_host, @db_user, @db_pwd, @db_default_monitor)
     c.run
-  when "price"
-    c = BuildPriceSchema.new(@db_host, @db_user, @db_pwd,  @db_default_premiums)
+  when "target"
+    c = BuildTargetSchema.new(@db_host, @db_user, @db_pwd,  @db_default_target)
     c.run
   else
-    c = BuildPriceSchema.new(@db_host, @db_user, @db_pwd,  @db_default_premiums)
+    c = BuildTargetSchema.new(@db_host, @db_user, @db_pwd,  @db_default_target)
     c.run
-    c = BuildScheduleSchema.new(@db_host, @db_user, @db_pwd, @db_default_scheduler)
+    c = BuildMonitorSchema.new(@db_host, @db_user, @db_pwd, @db_default_monitor)
     c.run
-    c = BuildAppSchema.new(@db_host, @db_user, @db_pwd, @db_default_app)
+    c = BuildDriverSchema.new(@db_host, @db_user, @db_pwd, @db_default_driver)
     c.run
   end
 

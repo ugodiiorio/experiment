@@ -1,29 +1,30 @@
 #!/usr/bin/ruby -w
 # simple.rb - simple MySQL script using Ruby MySQL module
 
-class BuildAppSchema
+class BuildDriverSchema
   
-  def initialize(db_host, db_user, db_pwd, db_default_app)
+  def initialize(db_host, db_user, db_pwd, db_default_driver)
     @db_host = db_host
     @db_user = db_user
     @db_pwd = db_pwd
-    @db_default_app = db_default_app
+    @db_default_driver = db_default_driver
   end
+
 	def run()
 		
-		puts "\nLa attivita' di creazione tabelle dello schema application su host: "+ @db_host +" e' stata inizializzata..."
+		puts "\nLa attivita' di creazione tabelle dello schema driver su host: "+ @db_host +" e' stata inizializzata..."
 		
 		mysql = Mysql.init()
-#		mysql = Mysql.real_connect(@db_host, @db_user, @db_pwd, @db_default_app)
+#		mysql = Mysql.real_connect(@db_host, @db_user, @db_pwd, @db_default_driver)
     mysql = Mysql.real_connect(@db_host, @db_user, @db_pwd)
 
-    mysql.query("CREATE SCHEMA IF NOT EXISTS " + @db_default_app + "
+    mysql.query("CREATE SCHEMA IF NOT EXISTS " + @db_default_driver + "
 		;")
 
 #		c = Table_creator_traduttori.new()
 #		c.Table_creator()
 		
-		mysql.query("CREATE TABLE " + @db_default_app + ".profiles_personal_data (
+		mysql.query("CREATE TABLE " + @db_default_driver + ".profiles_personal_data (
 			key_profiles_id_num 	INT UNSIGNED NOT NULL, PRIMARY KEY (key_profiles_id_num),
       own_owner_specification_str	VARCHAR(128),
 			driv_name_str					VARCHAR(64) NOT NULL,
@@ -32,8 +33,8 @@ class BuildAppSchema
 			driv_address_street_str			VARCHAR(128),
 			driv_address_num_num			INT(2),
 			driv_phone_type_str			VARCHAR(128),
-			driv_Mobile_prefix_num			INT(3),
-			driv_Mobile_number_num			VARCHAR(128),
+			driv_mobile_prefix_num			INT(3),
+			driv_mobile_number_num			VARCHAR(128),
 			driv_e_mail_str 					VARCHAR(128),
 			driv_toponym_str			VARCHAR(128),
       driv_education_str			VARCHAR(128),
@@ -43,7 +44,7 @@ class BuildAppSchema
 		;")
 
 
-			mysql.query("CREATE TABLE " + @db_default_app + ".insurance_profiles (
+			mysql.query("CREATE TABLE " + @db_default_driver + ".insurance_profiles (
 key_insurance_profiles_id_num INT UNSIGNED NOT NULL,
 key_provider_id_str  VARCHAR(32)  NOT NULL,
 key_sector_id_str  VARCHAR(32)  NOT NULL,
@@ -300,7 +301,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ;")
 
 
-    	mysql.query("CREATE TABLE " + @db_default_app + ".company_insurance_profiles (
+    	mysql.query("CREATE TABLE " + @db_default_driver + ".company_insurance_profiles (
 key_insurance_profiles_id_num INT UNSIGNED NOT NULL,
 key_provider_id_str  VARCHAR(32)  NOT NULL,
 key_sector_id_str  VARCHAR(32)  NOT NULL,
@@ -566,7 +567,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 
 
-    mysql.query("CREATE TABLE " + @db_default_app + ".field_mapping (
+    mysql.query("CREATE TABLE " + @db_default_driver + ".field_mapping (
         key_provider_id_str 	VARCHAR(32)  NOT NULL,
         key_sector_id_str 	VARCHAR(32)  NOT NULL,
         output_field_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,output_field_str),
@@ -576,7 +577,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 			;")
 
 
-     mysql.query("CREATE TABLE " + @db_default_app + ".regexp_mapping (
+     mysql.query("CREATE TABLE " + @db_default_driver + ".regexp_mapping (
         key_provider_id_str 	VARCHAR(32)  NOT NULL,
         key_sector_id_str 	VARCHAR(32)  NOT NULL,
         key_company_id_str 	VARCHAR(32)  NOT NULL,
@@ -585,7 +586,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )
 			;")
 
-    mysql.query("CREATE TABLE " + @db_default_app + ".date_mapping (
+    mysql.query("CREATE TABLE " + @db_default_driver + ".date_mapping (
         key_provider_id_str 	VARCHAR(32)  NOT NULL,
         key_sector_id_str 	VARCHAR(32)  NOT NULL,
         key_company_id_str 	VARCHAR(32)  NOT NULL,
@@ -594,7 +595,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )
 			;")
 
-    mysql.query("CREATE TABLE  " + @db_default_app + ".translated_fields (
+    mysql.query("CREATE TABLE  " + @db_default_driver + ".translated_fields (
         key_provider_id_str 	VARCHAR(32)  NOT NULL,
         key_sector_id_str 	VARCHAR(32)  NOT NULL,
         key_company_id_str 	VARCHAR(32)  NOT NULL,
@@ -604,7 +605,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )
 			;")
 
-    mysql.query("CREATE TABLE " + @db_default_app + ".translation_rules (
+    mysql.query("CREATE TABLE " + @db_default_driver + ".translation_rules (
         key_provider_id_str 	VARCHAR(32)  NOT NULL,
         key_sector_id_str 	VARCHAR(32)  NOT NULL,
         key_company_id_str 	VARCHAR(32)  NOT NULL,
@@ -613,20 +614,20 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )
 			;")
 
-     mysql.query("CREATE TABLE " + @db_default_app + ".companies (
+     mysql.query("CREATE TABLE " + @db_default_driver + ".companies (
         key_companies_group_id_str 	VARCHAR(32)  NOT NULL,
         key_company_id_str 	VARCHAR(32)  NOT NULL, PRIMARY KEY (key_companies_group_id_str, key_company_id_str)
         )
 			;")
 
-     mysql.query("CREATE TABLE " + @db_default_app + ".covers (
+     mysql.query("CREATE TABLE " + @db_default_driver + ".covers (
         key_cover_id_str 	VARCHAR(32)  NOT NULL, PRIMARY KEY (key_cover_id_str),
         pol_cover_dsc_str 	VARCHAR(32)  NOT NULL
         )
 			;")
 
 
-    mysql.query("CREATE TABLE " + @db_default_app + ".quixa_input_file (
+    mysql.query("CREATE TABLE " + @db_default_driver + ".prov1_sect1_input_file (
         pol_record_id_str   VARCHAR(32) NOT NULL,
         Profilo_tecnico VARCHAR(128) NOT NULL,
         contatore   VARCHAR(128) NOT NULL,
@@ -665,7 +666,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 		mysql.close()
 		
-#		puts "\n - Table creation " + @db_default_app + " ended"
+    		puts "\n - " + @db_default_driver + " schema tables creation finished"
 	
 	end
 	

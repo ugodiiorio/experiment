@@ -1,7 +1,7 @@
 --- 
 app_settings:
-  as_building_schema: "application"
-  #application, schedule, price
+  as_building_schema: "all"
+  #driver, monitor, target
 
 
 logger_settings: 
@@ -15,6 +15,6 @@ database_settings:
   ds_db_host: "localhost"
   ds_conn_user: "root"
   ds_conn_pwd: "kub01d"
-  ds_db_default_premiums: "piper_nigrum_premiums"
-  ds_db_default_app: "piper_nigrum_technical"
-  ds_db_default_scheduler: "piper_nigrum_scheduler"
+  ds_db_default_target: "kte_target"
+  ds_db_default_driver: "kte_driver"
+  ds_db_default_monitor: "kte_monitor"

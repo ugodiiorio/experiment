@@ -1,7 +1,7 @@
 --- 
 app_settings:
   as_select_stmt_profile: "SELECT * FROM insurance_profiles"
-  as_select_stmt_input: "SELECT * FROM quixa_input_file LIMIT 0,10"
+  as_select_stmt_input: "SELECT * FROM prov1_sect1_input_file LIMIT 0,10"
   as_select_stmt_mapping: "SELECT * FROM field_mapping"
   as_insert_stmt_profile: "INSERT INTO insurance_profiles (key_insurance_profiles_id_num, key_provider_id_str, key_sector_id_str, key_companies_group_id_str, key_working_set_id_str) VALUES (?,?,?,?,?)"
   as_update_stmt_profile: "UPDATE insurance_profiles SET @@profile_field@@ = ? WHERE key_insurance_profiles_id_num = ?"

@@ -1,29 +1,29 @@
 #!/usr/bin/ruby -w
 # simple.rb - simple MySQL script using Ruby MySQL module
 
-class BuildScheduleSchema
+class BuildMonitorSchema
 
-  def initialize(db_host, db_user, db_pwd, db_default)
+  def initialize(db_host, db_user, db_pwd, db_default_monitor)
     @db_host = db_host
     @db_user = db_user
     @db_pwd = db_pwd
-    @db_default_scheduler = db_default
+    @db_default_monitor = db_default_monitor
   end
 
 	def run()
 		
-		puts "\nLa attivita' di creazione tabelle dello schema scheduler su host: "+ @db_host +" e' stata inizializzata..."
+		puts "\nLa attivita' di creazione tabelle dello schema monitor su host: "+ @db_host +" e' stata inizializzata..."
 		
 		mysql = Mysql.init()
 		mysql = Mysql.real_connect(@db_host, @db_user, @db_pwd)
 
 
-     mysql.query("CREATE SCHEMA IF NOT EXISTS " + @db_default_scheduler + "
+     mysql.query("CREATE SCHEMA IF NOT EXISTS " + @db_default_monitor + "
 		;")
 		
 		
 	
-			mysql.query("CREATE TABLE " + @db_default_scheduler + ".scheduler (
+			mysql.query("CREATE TABLE " + @db_default_monitor + ".scheduler (
            key_insurance_profiles_id_num 	int(5) UNSIGNED NOT NULL,
             key_provider_id_str 	VARCHAR(20) NOT NULL,
             key_sector_id_str 	VARCHAR(20)  NOT NULL,
@@ -40,12 +40,10 @@ class BuildScheduleSchema
 					mysql.close()
 
 
-    	puts "\n - " + @db_default_scheduler + " table creation finished"
+    	puts "\n - " + @db_default_monitor + " schema creation tables finished"
       
 		end
 									
-#	puts "\n - " + @db_default_scheduler + " table creation finished"
-	
 	end
 	
 
