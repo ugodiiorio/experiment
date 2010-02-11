@@ -43,6 +43,8 @@ class BuildDriverSchema
 			)
 		;")
 
+    mysql.query("  CREATE  INDEX own_spec_index   ON " + @db_default_app + ".profiles_personal_data(own_owner_specification_str)
+		;")
 
 			mysql.query("CREATE TABLE " + @db_default_driver + ".insurance_profiles (
 key_insurance_profiles_id_num INT UNSIGNED NOT NULL,
