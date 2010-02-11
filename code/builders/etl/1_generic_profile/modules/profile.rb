@@ -31,8 +31,8 @@ module Profile
 
       res_map.each_hash do |map|
         map.collect { |key, value| mapfield[key.to_s.to_sym] = value }
-        profile_field = mapfield[:output_field]
-        eval_out = mapfield[:output_eval].to_s
+        profile_field = mapfield[:output_field_str]
+        eval_out = mapfield[:eval_str].to_s
   #      value = @fieldnum[profile_field.to_s.to_sym] ? @dbh.escape_string(eval(eval_out).to_s).to_s : "'" + @dbh.escape_string(eval(eval_out).to_s).to_s + "'"
   #      value = @dbh.escape_string(eval(eval_out).to_s).to_s
         value = eval(eval_out).to_s

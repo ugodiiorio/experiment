@@ -572,7 +572,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         key_sector_id_str 	VARCHAR(32)  NOT NULL,
         output_field_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,output_field_str),
         input_field_str 	VARCHAR(256)  NOT NULL,
-				ruby_function_str		TEXT
+				eval_str		TEXT
         )
 			;")
 
