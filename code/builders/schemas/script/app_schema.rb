@@ -295,7 +295,7 @@ pol_supplementary_coverage_str VARCHAR(128),
 pol_on_off_supplementary_coverage_str	VARCHAR(128),
 pol_supplementary_coverage_web_id_str	VARCHAR(128),
 pol_supplementary_coverage_premium_id_str	VARCHAR(128),
-timestamp TIMESTAMP DEFAULT 0
+timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
 ;")
 
@@ -552,7 +552,7 @@ pol_supplementary_coverage_str VARCHAR(128),
 pol_on_off_supplementary_coverage_str	VARCHAR(128),
 pol_supplementary_coverage_web_id_str	VARCHAR(128),
 pol_supplementary_coverage_premium_id_str	VARCHAR(128),
-timestamp TIMESTAMP DEFAULT 0
+timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
 ;")
 
@@ -632,7 +632,7 @@ timestamp TIMESTAMP DEFAULT 0
         contatore   VARCHAR(128) NOT NULL,
         coeff_tecnico   VARCHAR(128),
         veh_make_str   VARCHAR(128),
-        pol_matriculation_date_dt   VARCHAR(128),
+        pol_matriculation_date_str   VARCHAR(128),
         veh_model_str   VARCHAR(128),
         veh_set_up_str   VARCHAR(128),
         veh_fuel_str   VARCHAR(128),
