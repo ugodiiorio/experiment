@@ -1,48 +1,48 @@
 1) generare dal file del provider il file di input inserendo l'header corretto e relativo al provider
 
-2) generare gli schemas (lanciando il file start_build.rb contenuto nella cartella '../PN_project_structure/builders/schemas/script' ) dopo aver configurato le variabili (db user, db password, nome schema...) 
+2) generare gli schemas (lanciando il file start_build.rb contenuto nella cartella '/home/notroot/git/KTE/code/builders/schemas/script' ) dopo aver configurato le variabili (db user, db password, nome schema...) 
   nel file start_build.rb.yml
 
 3) caricare nella tabella "quixa_input_file" (o "towers_input_file nel caso si vogliano elaborare i profili di TP) 
    attraverso il comando mysql da terminale
-   "load data local infile '../PN_project_structure/builders/etl/1_generic_profile/csv/quixa_20100101_in.csv' into table quixa_input_file fields terminated by '#' escaped by "";
+   "load data local infile '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/csv/prov1_sect1_20100101_in.csv' into table quixa_input_file fields terminated by '#' escaped by "";
  ATT: è importante che questo file abbia come separatori di campi caratteri diversi da  , o ; o | .
  
 4) caricare nella tabella "field_mapping" il file "field_mapping.csv"
    attraverso il comando mysql da terminale
-   "load data local infile '../PN_project_structure/builders/etl/1_generic_profile/csv/field_mapping.csv' into table field_mapping fields terminated by '#' escaped by "";    
+   "load data local infile '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/csv/field_mapping.csv' into table field_mapping fields terminated by '#' escaped by "";    
    ATT: è importante che questo file abbia come separatori di campi caratteri diversi da  , o ; o | .
    
-5) lanciare il file build_profile.rb (nella cartella '..PN_project_structure/builders/etl/1_generic_profile/script') dopo aver opportunamente settato i paramentri nelfile build_profile.rb.yml 
+5) lanciare il file build_profile.rb (nella cartella '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/script') dopo aver opportunamente settato i paramentri nelfile build_profile.rb.yml 
   (devono essere settati key_insurance_profiles_id_num , key_provider_id_str, key_sector_id_str, key_company_id_str, key_working_set_id_str  ).
   questo file si occupa di popolare la tabella insurance_profiles in base al file di input caricato nella tabella quinxa_input_file e alle regole di mapping caricate nella tabella field_mapping.
    
 
 6) caricare nella tabella "regexp_mapping" il file "regexp_mapping.csv"
    attraverso il comando mysql da terminale
-   "load data local infile '..PN_project_structure/builders/etl/2_translation_rule/csv/regexp_mapping.csv' into table regexp_mapping fields terminated by '#' escaped by "";    
+   "load data local infile '/home/notroot/git/KTE/code/builders/etl/2_translation_rule/csv/regexp_mapping.csv' into table regexp_mapping fields terminated by '#' escaped by "";    
    ATT: è importante che questo file abbia come separatori di campi caratteri diversi da  , o ; o | .
 
 7)caricare nella tabella "date_mapping" il file "date_mapping.csv"
    attraverso il comando mysql da terminale
-   "load data local infile '..PN_project_structure/builders/etl/2_translation_rule/csv/date_mapping.csv' into table date_mapping fields terminated by '#' escaped by "";    
+   "load data local infile '/home/notroot/git/KTE/code/builders/etl/2_translation_rule/csv/date_mapping.csv' into table date_mapping fields terminated by '#' escaped by "";    
    ATT: è importante che questo file abbia come separatori di campi caratteri diversi da  , o ; o | .
 
 8)caricare nella tabella "translated_fields" il file "translated_fields.csv"
    attraverso il comando mysql da terminale
-   "load data local infile '..PN_project_structure/builders/etl/2_translation_rule/csv/translated_fields.csv' into table translated_fields fields terminated by '#' escaped by "";    
+   "load data local infile '/home/notroot/git/KTE/code/builders/etl/2_translation_rule/csv/translated_fields.csv' into table translated_fields fields terminated by '#' escaped by "";    
    ATT: è importante che questo file abbia come separatori di campi caratteri diversi da  , o ; o | .
 
-9) lanciare i file build_translator_date.rb e build_translator_regexp.rb (in '..PN_project_structure/builders/etl/2_translation_rule/script') settando i parametri di lancio
+9) lanciare i file build_translator_date.rb e build_translator_regexp.rb (in '/home/notroot/git/KTE/code/builders/etl/2_translation_rule/script') settando i parametri di lancio
   nei relativi file .yml
   Aquesto punto la tabella translated_fileds è completamente caricata
 
 10) caricare nella tabella "translation_rules" il file "translation_rules.csv"
    attraverso il comando mysql da terminale
-   "load data local infile '..PN_project_structure/builders/etl/3_company_profile/csv/translation_rules.csv' into table translation_rules fields terminated by '#' escaped by "\";    
+   "load data local infile '/home/notroot/git/KTE/code/builders/etl/3_specific_profile/csv/translation_rules.csv' into table translation_rules fields terminated by '#' escaped by "\";    
    ATT: è importante che questo file abbia come separatori di campi caratteri diversi da  , o ; o | . inoltre il campo di escpae deve essere \ per permettere di caricare i campi \N con NULL.
 
-11) lanciare i file build_specific_profile.rb (in '..PN_project_structure/builders/etl/3_company_profile/script') settando i parametri di lancio
+11) lanciare i file build_specific_profile.rb (in '/home/notroot/git/KTE/code/builders/etl/3_company_profile/script') settando i parametri di lancio
   nel relativo file .yml
   Aquesto punto la tabella company_insurnace_profiles è completamente caricata
 

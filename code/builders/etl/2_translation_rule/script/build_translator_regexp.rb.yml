@@ -6,7 +6,6 @@ app_settings:
   as_insert_stmt_profile: "INSERT INTO translated_fields (key_provider_id_str, key_sector_id_str, key_company_id_str, field_name_str, field_value_str) VALUES (?,?,?,?,?)"
   as_update_stmt_profile: "UPDATE translated_fields SET target_value_str = ? WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND field_name_str = ? AND field_value_str = ?"
   as_select_stmt_company: "SELECT key_company_id_str FROM companies WHERE key_companies_group_id_str = ?"
-  as_provider_id: "quixa"
   as_provider_id: "provider_1"
   as_sector_id: "sect_1"
   as_companies_group_id: "all_provider_1"
