@@ -1,0 +1,28 @@
+--- 
+general_settings: 
+  gs_input_profile: '5'
+  gs_company: 'linear'
+  gs_selenium_port: '4444'
+  gs_source_type: '216'
+  gs_optional_range: ''
+  gs_sql_host: 'localhost'
+  gs_typing_sleep_in_seconds: 1
+  gs_execution_id: 999
+  gs_profile_sleep_in_seconds: 5
+  gs_max_number_of_profiles: 1
+logger_settings: 
+  ls_device: "/home/notroot/git/CompetitorIntelligence/WebCrawler/Quixa_Runtime/Logs/webcrawler.log"
+  ls_level: 0
+  ls_shift_age: = 'weekly'
+  ls_shift_size: = 1024000
+  ls_datetime_format: = "%Y-%m-%d %H:%M:%S"
+selenium_settings: 
+  ss_wait_for_page_to_load: 120000
+  ss_timeout_in_seconds: 120
+  ss_io_device: '/home/notroot/git/CompetitorIntelligence/WebCrawler/Quixa_Runtime/Logs/genialloyd.test.txt'
+  ss_output_level: 3
+database_settings:
+  ds_engine_type: 'MYSQL'
+  ds_conn_user: 'Robot'
+  ds_conn_pwd: ''
+app_settings:
