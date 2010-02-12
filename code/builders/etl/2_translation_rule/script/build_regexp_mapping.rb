@@ -74,13 +74,10 @@ def init()
   @stmt_sel_company = app_settings['as_select_stmt_company']
   @stmt_ins_regexp = app_settings['as_insert_stmt_regexp']
   @stmt_upd_regexp = app_settings['as_update_stmt_regexp']
-  @stmt_sel_rule = app_settings['as_select_stmt_rule']
-  @stmt_sel_value = app_settings['as_select_stmt_value']
-# @stmt_sel_mapping = app_settings['as_select_stmt_mapping']
   @provider_id = app_settings['as_provider_id']
   @sector_id = app_settings['as_sector_id']
-#  @companies_group_id = app_settings['as_companies_group_id']
-  @company_id = app_settings['as_company_id']
+  @companies_group_id = app_settings['as_companies_group_id']
+#  @company_id = app_settings['as_company_id']
   @working_set_id = app_settings['as_working_set_id']
 
   @log_device = logger_settings['ls_device'] || "./logs/warns_errors.log"
@@ -141,65 +138,45 @@ def get_column_info()
 
 end
 
- def translate_fields()
+ def build_regexp_mapping()
 
-  @dbh.query_with_result = true
+   @dbh.query_with_result = true
 
-
-  #select sulla companies che trova il key_companies_id_group
+   #recupero della compagnia
+    #select sulla companies che trova il key_companies_id_group
   stmt_companies = @dbh.prepare(@stmt_sel_company)
-  stmt_companies.execute(@company_id)
+  stmt_companies.execute(@companies_group_id)
   while row_company = stmt_companies.fetch do
-    @companies_group_id = row_company[0]
+   @company_id = row_company[0]
 
 
-    # select sulla translation rule che trova i campi da tradurre
-    stmt_rule = @stmt_sel_rule
-    stmt_rule = @dbh.prepare(@stmt_sel_rule)
-    stmt_rule.execute(@provider_id, @sector_id, @company_id)
-#    res_file = @dbh.query(stmt_rule)
 
-     while row_rule = stmt_rule.fetch do
-#    res_file.each_hash do |fieldtr|
-      @field_name = row_rule[0]
+   #recupero dal regexp_hash i valori che mi servono
 
-      # per ogni campo trovato recupero i valori sulla insurance profiles
-      stmt_value = @stmt_sel_value.sub("@@field_name@@", @field_name)
-      stmt_val = @dbh.prepare(stmt_value)
-      stmt_val.execute(@provider_id, @sector_id, @companies_group_id)
-      while field_values = stmt_val.fetch do
-        @field_value = field_values[0]
-        fname_fvalue ={}
-        fname_fvalue = fname_fvalue.merge({@field_name.to_s => @field_value.to_s})
-        #recupero da targetquixa il valore target  hash=target_values
-
-        #
-        target = @target_values[fname_fvalue]
-        #
-        #
-        #faccio la insert sulla translated_fields
-        begin
-          stmt_ins = @dbh.prepare(@stmt_ins_tr_field)
-          stmt_ins.execute(@provider_id, @sector_id, @company_id, @field_name, @field_value)
-        rescue Mysql::Error => e
-          if e.errno.to_s == '1062'
-          else raise e
-          end
-          @logger.error(__FILE__) {"Error code: #{e.errno}"}
-          @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
-          @logger.error(__FILE__) {"Error message: #{e.error}"}
-
-        end
-
-
-        #faccio l'update
-        
-        stmt_upd = @dbh.prepare(@stmt_upd_tr_field)
-        stmt_upd.execute(target.to_s, @provider_id, @sector_id, @company_id, @field_name, @field_value)
-
+   @eval_values.each_hash do |fieldtr|
+     
+     
+     #faccio la insert sulla regexp_mapping_fields
+     begin
+       stmt_ins = @dbh.prepare(@stmt_ins_regexp)
+       stmt_ins.execute(@provider_id, @sector_id, @company_id, fieldtr.keys)
+     rescue Mysql::Error => e
+       if e.errno.to_s == '1062'
+       else raise e
        end
-    end
-  end
+       @logger.error(__FILE__) {"Error code: #{e.errno}"}
+       @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
+       @logger.error(__FILE__) {"Error message: #{e.error}"}
+
+     end
+
+
+     #faccio l'update
+     stmt_upd = @dbh.prepare(@stmt_upd_regexp)
+     stmt_upd.execute(target.to_s, @provider_id, @sector_id, @company_id, fieldtr.keys, fieldtr.value)
+
+   end
+  
 
   #        stmt.close
 
@@ -208,16 +185,17 @@ end
   @row_num += res_file.num_rows.to_i
   res_file.free
 
-end
+  end
+ end
 
 
 def summary()
-  puts "Number of input rows parsed: #{@row_num}"
-  puts "Number of profile rows inserted: #{@profile_num}"
-  stmt = @dbh.prepare(@stmt_sel_profile)
-  stmt.execute
-  puts "Number of profile rows updated: #{stmt.affected_rows()}"
-  stmt.close
+#  puts "Number of input rows parsed: #{@row_num}"
+#  puts "Number of profile rows inserted: #{@profile_num}"
+#  stmt = @dbh.prepare(@stmt_sel_profile)
+#  stmt.execute
+#  puts "Number of profile rows updated: #{stmt.affected_rows()}"
+#  stmt.close
 
 end
 
@@ -243,16 +221,18 @@ begin
 
   connect()
 
-#  create_schema() # uncomment to create and use dummy tables with foo data
-
   get_column_info()
 
-#  include Target_ + @company_id.to_s
-  include Target_quixa
-  build_hash_quixa()
-  
-  translate_fields()
 
+  path_mod = "Regexp_Eval_" + @company_id.to_s.capitalize
+
+  include path_mod
+
+  path_hash = "build_hash_regexp" + @sector_id.to_s + "()"
+
+  eval path_hash
+  
+  
   summary()
 
   disconnect()
