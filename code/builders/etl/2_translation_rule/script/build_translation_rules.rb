@@ -121,7 +121,7 @@ def get_column_info()
    res.fetch_fields.each do |info|
      #     puts info.class
 
-   info.is_pri_key? ? nil  :   ( info.name == 'timestamp' ? nil : @fieldname << info.name )
+   info.is_pri_key? ? nil  :   ( info.type == Mysql::Time ? nil : @fieldname << info.name )
    end
    res.free
 
