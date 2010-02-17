@@ -5,7 +5,6 @@ general_settings:
   gs_selenium_port: '4444'
   gs_source_type: '216'
   gs_optional_range: ''
-  gs_sql_host: 'localhost'
   gs_typing_sleep_in_seconds: 1
   gs_execution_id: 999
   gs_profile_sleep_in_seconds: 5
@@ -22,7 +21,11 @@ selenium_settings:
   ss_io_device: '/home/notroot/git/CompetitorIntelligence/WebCrawler/Quixa_Runtime/Logs/genialloyd.test.txt'
   ss_output_level: 3
 database_settings:
-  ds_engine_type: 'MYSQL'
-  ds_conn_user: 'Robot'
-  ds_conn_pwd: ''
+  ds_engine_type: "MYSQL"
+  ds_db_host: "localhost"
+  ds_conn_user: "kte"
+  ds_conn_pwd: "t0p$ecret"
+  ds_db_default: "kte_driver"
 app_settings:
+  as_detection_date: '10th day next month'
+  

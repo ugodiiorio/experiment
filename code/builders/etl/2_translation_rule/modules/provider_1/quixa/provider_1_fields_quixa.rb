@@ -8,7 +8,7 @@ module Provider1FieldsQuixa
 
 #     target_values["fname_fvalue"]
 
-    @target_values = Hash.new
+    @target_values = {}
 
     @target_values = {
       {'driv_birth_place_str' => 'CASALE CORTE CERRO'} => "CASALE CORTE CERRO",
@@ -207,49 +207,6 @@ module Provider1FieldsQuixa
      
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#  costruisci hash ["field_name + field_value","target"]
   end
 
 end

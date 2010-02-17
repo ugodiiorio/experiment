@@ -1,23 +1,14 @@
 #!/usr/bin/ruby -w
 $LOAD_PATH << './builders/etl/1_generic_profile'
 
-
 require "rubygems"
-require "date.rb"
-require "date/format.rb"
 require "yaml"
 require 'logger'
 require "mysql"
 require "active_support"
 
-#require "modules/field_mapping_provider_1_sect_1.rb"
 MODULE_FOLDER = 'modules'
-#puts File.dirname(__FILE__)
-DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__),'..',MODULE_FOLDER)
-
-#DLN_LIBRARY_PATH << '/modules/provider_1/quixa/'
-#puts DLN_LIBRARY_PATH
-
+DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__),'..',MODULE_FOLDER) + '/'
 
 def init()
 
@@ -51,10 +42,8 @@ def init()
     raise ex
   ensure
     config = {:app_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
-    app_settings = {:as_select_stmt_rule =>nil, :as_select_stmt_value =>nil, :as_select_stmt_company  =>nil,
-      :as_insert_stmt_tr_field =>nil, :as_update_stmt_tr_field => nil,
-      :as_provider_id =>nil, :as_sector_id =>nil,
-      :as_companies_group_id =>nil, :as_working_set_id =>nil} unless app_settings
+    app_settings = {:as_select_stmt_profile =>nil, :as_insert_stmt_tr_rule =>nil,
+      :as_provider_id =>nil, :as_sector_id =>nil, :as_module_prefix =>nil} unless app_settings
     logger_settings = {:ls_device =>nil,
       :ls_level =>nil,
       :ls_shift_age =>nil,
@@ -73,6 +62,7 @@ def init()
   @stmt_sel_profile = app_settings['as_select_stmt_profile']
   @provider_id = app_settings['as_provider_id']
   @sector_id = app_settings['as_sector_id']
+  @module_prefix = app_settings['as_module_prefix']
 
   @log_device = logger_settings['ls_device'] || "./logs/warns_errors.log"
   @log_level = logger_settings['ls_level'] || 2
@@ -170,14 +160,9 @@ begin
 
   get_column_info()
 
-  module_name = 'field_mapping_' + @provider_id.to_s + @sector_id.to_s
-  load(DLN_LIBRARY_PATH + '/' + module_name + '.rb')
+  module_name = @module_prefix + '_' + @provider_id.to_s + '_' + @sector_id.to_s
+  load(DLN_LIBRARY_PATH + module_name + '.rb')
   include module_name.camelize.constantize
-
-
-#  path_mod = "Field_Mapping_"  +  @provider_id.to_s.capitalize  + "_" + @sector_id.to_s.capitalize
-
-#  include  path_mod.constantize
 
   build_hash_field_rule()
 

@@ -33,14 +33,10 @@ module Profile
         map.collect { |key, value| mapfield[key.to_s.to_sym] = value }
         profile_field = mapfield[:output_field_str]
         mapfield[:eval_str] ? value = eval(mapfield[:eval_str].to_s).to_s : value = nil 
-  #      value = @fieldnum[profile_field.to_s.to_sym] ? @dbh.escape_string(eval(eval_out).to_s).to_s : "'" + @dbh.escape_string(eval(eval_out).to_s).to_s + "'"
-  #      value = @dbh.escape_string(eval(eval_out).to_s).to_s
-#        value = eval(eval_out).to_s
 
         stmt_upd_profile = @stmt_upd_profile.sub("@@profile_field@@", profile_field)
         stmt = @dbh.prepare(stmt_upd_profile)
         stmt.execute(value, @id.to_s)
-  #      puts "Number of profile rows updated: #{stmt.affected_rows}"
         stmt.close
 
       end

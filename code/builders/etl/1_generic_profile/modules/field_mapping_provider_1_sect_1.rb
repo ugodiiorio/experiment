@@ -2,8 +2,6 @@ module FieldMappingProvider1Sect1
 
   def build_hash_field_rule()
 
-    @field_rule_values = Hash.new
-
     @field_rule_values = {}
 
     @field_rule_values = {

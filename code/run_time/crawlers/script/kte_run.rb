@@ -56,8 +56,7 @@ begin
   ensure
       config = {:general_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
       general_settings = {:gs_input_profile =>nil, :gs_company =>nil,
-                          :gs_selenium_port =>nil, :gs_source_type =>nil,
-                          :gs_optional_range =>nil, :gs_sql_host =>nil,
+                          :gs_selenium_port =>nil, :gs_source_type =>nil, :gs_optional_range =>nil,
                           :gs_typing_sleep_in_seconds =>nil, :gs_execution_id =>nil,
                           :gs_profile_sleep_in_seconds =>nil, :gs_max_number_of_profiles =>nil} unless general_settings
       logger_settings = {:ls_device =>nil,
@@ -69,9 +68,8 @@ begin
                            :ss_timeout_in_seconds =>nil,
                            :ss_io_device =>nil,
                            :ss_output_level =>nil} unless selenium_settings
-      database_settings = {:ds_engine_type =>nil,
-                          :ds_conn_user =>nil,
-                          :ds_conn_pwd =>nil} unless database_settings
+      database_settings = {:ds_engine_type =>nil, :ds_conn_user =>nil,
+                           :ds_conn_pwd =>nil, :ds_db_host =>nil, :ds_db_default =>nil} unless database_settings
       app_settings = {:as_detection_date =>nil} unless app_settings
   end
 
@@ -80,7 +78,6 @@ begin
   @port 							          = ARGV[2] || general_settings['gs_selenium_port'] || "4444"
   $source 						          = ARGV[3] || general_settings['gs_source_type'] || "216"
   $range 							          = ARGV[4] || general_settings['gs_optional_range'] || ""
-  $db_ip 							          = ARGV[5] || general_settings['gs_sql_host'] || "localhost"
   $sleep_input					         = ARGV[6] || general_settings['gs_typing_sleep_in_seconds'] || "1"
   $rilevazione	  				        = ARGV[7] || general_settings['gs_execution_id'] || "99"
   $sleep_profilo                  = ARGV[8] || general_settings['gs_profile_sleep_in_seconds'] || "10" # sleep in seconds between one profile execution and the next
@@ -97,6 +94,7 @@ begin
   $selenium_io                   = ARGV[15] || selenium_settings['ss_io_device'] || STDOUT
   $selenium_out_level             = ARGV[16] || selenium_settings['ss_output_level'] || 3
 
+  $db_ip 							          = ARGV[5] || database_settings[':ds_db_host'] || "localhost"
   $db_conn_user                 = ARGV[17] || database_settings[':ds_conn_user'] || 'Robot'
   $db_conn_pwd                 = ARGV[18] || database_settings[':ds_conn_pwd'] || ''
 

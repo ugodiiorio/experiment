@@ -3,16 +3,12 @@ $LOAD_PATH << './builders/etl/2_translation_rule'
 
 
 require "rubygems"
-require "date.rb"
-require "date/format.rb"
-#require 'chronic'
 require "yaml"
 require 'logger'
 require "mysql"
 require "active_support"
 
-#require "modules/provider_1_rules_quixa"
-#require "modules/field_mapping_provider_1_sect_1.rb"
+MODULE_FOLDER = 'modules'
 
 def init()
 
@@ -110,8 +106,6 @@ def connect()
 
 end
 
-
-
 def get_column_info()
 
    stmt = @stmt_sel_profile
@@ -129,14 +123,6 @@ def get_column_info()
 end
 
  def translation_rules()
-
-   #select sulla companies che trova il key_company_id
-#   @dbh.query_with_result = true
-#   stmt_companies = @dbh.prepare(@stmt_sel_company)
-#   stmt_companies.execute(@company_id)
-#   while row_company = stmt_companies.fetch do
-#     @companies_group_id = row_company[0]
-
 
      # recupero il nome della colonna
      # per ogni campo faccio la insert sulla translation_rules
@@ -168,17 +154,6 @@ end
      end
 
    end
-
-#
-
-  #        stmt.close
-
-
-  #  puts "Number of file rows returned: #{res_file.num_rows}"
-#  @row_num += res_file.num_rows.to_i
-#  res_file.free
-
-
 
 def summary()
 #  puts "Number of input rows parsed: #{@row_num}"
@@ -212,26 +187,16 @@ begin
 
   connect()
 
-#  create_schema() # uncomment to create and use dummy tables with foo data
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER, @provider_id, @company_id)
 
-#  get_column_info()
-MODULE_FOLDER = 'modules'
-#puts File.dirname(__FILE__)
-DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__),'..',MODULE_FOLDER,@provider_id,@company_id)
+  module_name = @provider_id.to_s + "_rules_" +  @company_id.to_s
+  load(DLN_LIBRARY_PATH + '/' + module_name + '.rb')
+  include module_name.camelize.constantize
 
- module_name = @provider_id.to_s + "_rules_" +  @company_id.to_s
- load(DLN_LIBRARY_PATH + '/' + module_name + '.rb')
- include module_name.camelize.constantize
+  build_hash = "build_hash_rules_" + @sector_id.to_s + "_" +  @provider_id.to_s + "()"
 
-# path_mod = "Rules_" + @company_id.to_s.capitalize
+  eval build_hash
 
-#  include  path_mod.constantize
-
-   path_hash = "build_hash_rules_" + @sector_id.to_s + "_" +  @provider_id.to_s + "()"
-
-   eval  path_hash
-
-#  build_hash_quixa_sect_1()
   get_column_info()
   translation_rules()
 

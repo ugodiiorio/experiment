@@ -3,15 +3,12 @@ $LOAD_PATH << './builders/etl/2_translation_rule'
 
 
 require "rubygems"
-require "date.rb"
-require "date/format.rb"
-#require 'chronic'
 require "yaml"
 require 'logger'
 require "mysql"
 require "active_support"
 
-#require "modules/provider_1_fields_quixa"
+MODULE_FOLDER = 'modules'
 
 def init()
 
@@ -35,13 +32,8 @@ def init()
       ARGV[0] = nil
     end
   rescue Errno::ENOENT => ex
-    #    case ARGV.size()
-    #      when 1
     puts "yaml config file #{@config_file} not there! - " + ex.message
     raise ex
-    #      else
-    #        ARGV[0] = nil
-    #    end
   rescue IOError => ex
     puts "impossible to open yaml config file #{@config_file}! - " + ex.message
     raise ex
@@ -108,36 +100,6 @@ def connect()
 
 end
 
-
-
-def get_column_info()
-
-#  stmt = @stmt_sel_rule
-#  @fieldnum = {}
-#  @dbh.query_with_result = false
-#  @dbh.query(stmt)
-#  res = @dbh.use_result
-#
-#  puts "Statement: #{stmt}"
-#  if res.nil? then
-#    puts "Statement has no result set"
-#    printf "Number of rows affected: %d\n", @dbh.affected_rows
-#  else
-#    puts "Statement has a result set"
-#    printf "Number of rows: %d\n", res.num_rows
-#    printf "Number of columns: %d\n", res.num_fields
-#    res.fetch_fields.each_with_index do |info, i|
-#      #     puts info.class
-#      printf "--- Column %d (%s) ---\n", i, info.name
-#      puts info.is_pri_key?
-#      @fieldnum = @fieldnum.merge({info.name.to_sym => info.is_num?})
-#      puts @fieldnum[info.name.to_sym]
-#    end
-#    res.free
-#  end
-
-end
-
  def translate_fields()
 
   @dbh.query_with_result = true
@@ -198,13 +160,6 @@ end
     end
   end
 
-  #        stmt.close
-
-
-  #  puts "Number of file rows returned: #{res_file.num_rows}"
-#  @row_num += res_file.num_rows.to_i
-#  res_file.free
-
 end
 
 
@@ -240,27 +195,15 @@ begin
 
   connect()
 
-#  create_schema() # uncomment to create and use dummy tables with foo data
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER, @provider_id, @company_id)
 
-  get_column_info()
+  module_name = @provider_id.to_s + "_fields_" +  @company_id.to_s
+  load(DLN_LIBRARY_PATH + '/' + module_name + '.rb')
+  include module_name.camelize.constantize
 
-MODULE_FOLDER = 'modules'
-#puts File.dirname(__FILE__)
-DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__),'..',MODULE_FOLDER,@provider_id,@company_id)
+  build_hash = "build_hash_" + @sector_id.to_s + "()"
 
- module_name = @provider_id.to_s + "_fields_" +  @company_id.to_s
- load(DLN_LIBRARY_PATH + '/' + module_name + '.rb')
- include module_name.camelize.constantize
-
-# path_mod = "Fields_" + @company_id.to_s.capitalize
-
-#  include  path_mod.constantize
-#  include Target_quixa
-#  build_hash_quixa + @sector_id
-
-   path_hash = "build_hash_" + @sector_id.to_s + "()"
-
-   eval  path_hash
+  eval build_hash
 
 #  build_hash_quixa_sect_1()
 
