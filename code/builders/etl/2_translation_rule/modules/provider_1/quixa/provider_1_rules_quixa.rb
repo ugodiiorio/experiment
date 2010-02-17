@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Rules_Quixa
+module Provider1RulesQuixa
 
 #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
 def build_hash_rules_sect_1_provider_1()

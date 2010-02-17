@@ -11,7 +11,8 @@ require 'logger'
 require "mysql"
 require "active_support"
 
-require "modules/provider_1_rules_quixa"
+#require "modules/provider_1_rules_quixa"
+#require "modules/field_mapping_provider_1_sect_1.rb"
 
 def init()
 
@@ -214,11 +215,17 @@ begin
 #  create_schema() # uncomment to create and use dummy tables with foo data
 
 #  get_column_info()
+MODULE_FOLDER = 'modules'
+#puts File.dirname(__FILE__)
+DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__),'..',MODULE_FOLDER,@provider_id,@company_id)
 
+ module_name = @provider_id.to_s + "_rules_" +  @company_id.to_s
+ load(DLN_LIBRARY_PATH + '/' + module_name + '.rb')
+ include module_name.camelize.constantize
 
- path_mod = "Rules_" + @company_id.to_s.capitalize
+# path_mod = "Rules_" + @company_id.to_s.capitalize
 
-  include  path_mod.constantize
+#  include  path_mod.constantize
 
    path_hash = "build_hash_rules_" + @sector_id.to_s + "_" +  @provider_id.to_s + "()"
 

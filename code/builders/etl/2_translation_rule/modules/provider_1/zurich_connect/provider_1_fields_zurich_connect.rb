@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Fields_Zurich_Connect
+module Provider1FieldsZurichConnect
   def build_hash_sect_1()
 
     #     target_values["fname_fvalue"]

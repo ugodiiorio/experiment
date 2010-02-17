@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Fields_Directline
+module Provider2FieldsDirectline
 
   def build_hash_sect_1()
 

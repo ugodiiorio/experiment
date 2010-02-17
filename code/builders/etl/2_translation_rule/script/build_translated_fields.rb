@@ -11,7 +11,7 @@ require 'logger'
 require "mysql"
 require "active_support"
 
-require "modules/provider_1_fields_quixa"
+#require "modules/provider_1_fields_quixa"
 
 def init()
 
@@ -244,10 +244,17 @@ begin
 
   get_column_info()
 
+MODULE_FOLDER = 'modules'
+#puts File.dirname(__FILE__)
+DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__),'..',MODULE_FOLDER,@provider_id,@company_id)
 
- path_mod = "Fields_" + @company_id.to_s.capitalize
+ module_name = @provider_id.to_s + "_fields_" +  @company_id.to_s
+ load(DLN_LIBRARY_PATH + '/' + module_name + '.rb')
+ include module_name.camelize.constantize
 
-  include  path_mod.constantize
+# path_mod = "Fields_" + @company_id.to_s.capitalize
+
+#  include  path_mod.constantize
 #  include Target_quixa
 #  build_hash_quixa + @sector_id
 

@@ -1,4 +1,4 @@
-module Field_Mapping_Provider_1_Sect_1
+module FieldMappingProvider1Sect1
 
   def build_hash_field_rule()
 

@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Fields_Genialloyd
+module Provider1FieldsGenialloyd
   
   def build_hash_sect_1()
 

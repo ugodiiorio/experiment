@@ -10,7 +10,14 @@ require 'logger'
 require "mysql"
 require "active_support"
 
-require "modules/field_mapping_provider_1_sect_1.rb"
+#require "modules/field_mapping_provider_1_sect_1.rb"
+MODULE_FOLDER = 'modules'
+#puts File.dirname(__FILE__)
+DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__),'..',MODULE_FOLDER)
+
+#DLN_LIBRARY_PATH << '/modules/provider_1/quixa/'
+#puts DLN_LIBRARY_PATH
+
 
 def init()
 
@@ -163,10 +170,14 @@ begin
 
   get_column_info()
 
+  module_name = 'field_mapping_' + @provider_id.to_s + @sector_id.to_s
+  load(DLN_LIBRARY_PATH + '/' + module_name + '.rb')
+  include module_name.camelize.constantize
 
-  path_mod = "Field_Mapping_"  +  @provider_id.to_s.capitalize  + "_" + @sector_id.to_s.capitalize
 
-  include  path_mod.constantize
+#  path_mod = "Field_Mapping_"  +  @provider_id.to_s.capitalize  + "_" + @sector_id.to_s.capitalize
+
+#  include  path_mod.constantize
 
   build_hash_field_rule()
 

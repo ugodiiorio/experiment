@@ -1,0 +1,137 @@
+# Logfile created on Wed Feb 17 18:37:08 +0100 2010 by logger.rb/85
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error message: uninitialized constant Provider1FieldsQuixa
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_bersani_str-No' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-MI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PD' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-GO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_client_type_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_client_type_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_coming_from_company_str-generali' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-N' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-S' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_insurance_situation_str-veicolo gia'' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_leasing_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_1_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_4_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-N/A' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_payment_str-carta di credito' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_alarm_str-immobilizer' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-B' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-D' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_km_per_yr_num-15000' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_vehicle_use_str-privato' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_vehicle_value_str-5000' for key 1
+Finishing process ...
