@@ -26,6 +26,7 @@ class BuildTargetSchema
             key_sector_id_str 	VARCHAR(20)  NOT NULL,
             key_company_id_str 	VARCHAR(20)  NOT NULL,
             key_working_set_id_str 	VARCHAR(20) NOT NULL,
+            key_rate_id_str varchar(8)  NOT NULL,
             key_cover_id_str varchar(20)  NOT NULL,
 		        premium_num decimal(6,2)  NOT NULL,
             timestamp TIMESTAMP DEFAULT 0,

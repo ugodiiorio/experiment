@@ -11,7 +11,7 @@ require 'logger'
 require "mysql"
 require "active_support"
 
-require "modules/target_quixa"
+require "modules/provider_1_fields_quixa"
 
 def init()
 
@@ -202,19 +202,19 @@ end
 
 
   #  puts "Number of file rows returned: #{res_file.num_rows}"
-  @row_num += res_file.num_rows.to_i
-  res_file.free
+#  @row_num += res_file.num_rows.to_i
+#  res_file.free
 
 end
 
 
 def summary()
-  puts "Number of input rows parsed: #{@row_num}"
-  puts "Number of profile rows inserted: #{@profile_num}"
-  stmt = @dbh.prepare(@stmt_sel_profile)
-  stmt.execute
-  puts "Number of profile rows updated: #{stmt.affected_rows()}"
-  stmt.close
+#  puts "Number of input rows parsed: #{@row_num}"
+#  puts "Number of profile rows inserted: #{@profile_num}"
+#  stmt = @dbh.prepare(@stmt_sel_profile)
+#  stmt.execute
+#  puts "Number of profile rows updated: #{stmt.affected_rows()}"
+#  stmt.close
 
 end
 
@@ -245,7 +245,7 @@ begin
   get_column_info()
 
 
- path_mod = "Target_" + @company_id.to_s.capitalize
+ path_mod = "Fields_" + @company_id.to_s.capitalize
 
   include  path_mod.constantize
 #  include Target_quixa
@@ -253,7 +253,7 @@ begin
 
    path_hash = "build_hash_" + @sector_id.to_s + "()"
 
-    eval  path_hash
+   eval  path_hash
 
 #  build_hash_quixa_sect_1()
 

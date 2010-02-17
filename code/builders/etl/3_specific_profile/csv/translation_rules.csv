@@ -1,8 +1,7 @@
-provider_1#sect_1#quixa#driv_birth_place_str#copy_field[:driv_residence_str]
+provider_1#sect_1#quixa#driv_birth_place_str#copy_field(:pol_residence_str)
 provider_1#sect_1#quixa#driv_birth_province_str#translate_field
 provider_1#sect_1#quixa#driv_citizenship_str#translate_field
 provider_1#sect_1#quixa#driv_driver_sex_str#translate_field
-provider_1#sect_1#quixa#driv_job_str#translate_field
 provider_1#sect_1#quixa#pol_additional_drivers_less_than_26_yrs_str#translate_field
 provider_1#sect_1#quixa#pol_birth_date_day_str#translate_field
 provider_1#sect_1#quixa#pol_birth_date_month_str#translate_field
@@ -19,7 +18,7 @@ provider_1#sect_1#quixa#pol_matriculation_date_day_str#translate_field
 provider_1#sect_1#quixa#pol_matriculation_date_month_str#translate_field
 provider_1#sect_1#quixa#pol_matriculation_date_str#translate_field
 provider_1#sect_1#quixa#pol_matriculation_date_year_num#translate_field
-provider_1#sect_1#quixa#pol_nr_of_paid_claims_translate_field_yr_str#translate_field
+provider_1#sect_1#quixa#pol_nr_of_paid_claims_1_yr_str#translate_field
 provider_1#sect_1#quixa#pol_nr_of_paid_claims_2_yr_str#translate_field
 provider_1#sect_1#quixa#pol_nr_of_paid_claims_3_yr_str#translate_field
 provider_1#sect_1#quixa#pol_nr_of_paid_claims_4_yr_str#translate_field
@@ -36,8 +35,9 @@ provider_1#sect_1#quixa#veh_fuel_str#translate_field
 provider_1#sect_1#quixa#veh_habitual_vehicle_use_str#translate_field
 provider_1#sect_1#quixa#veh_km_per_yr_num#translate_field
 provider_1#sect_1#quixa#veh_kw_num#translate_field
-provider_1#sect_1#quixa#veh_make_str#translate_field
-provider_1#sect_1#quixa#veh_model_str#translate_field
-provider_1#sect_1#quixa#veh_set_up_str#translate_field
 provider_1#sect_1#quixa#veh_stabilizer_str#copy_field
+provider_1#sect_1#quixa#driv_job_str#job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\s)*" end;regexp_mod = regexp_mod + "\\b";
+provider_1#sect_1#quixa#veh_make_str#make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\s)*" end;regexp_mod = regexp_mod + "\\b";
+provider_1#sect_1#quixa#veh_model_str#make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\s)*" end;regexp_mod = regexp_mod + "\\b";
+provider_1#sect_1#quixa#veh_set_up_str#make=profilefield[:veh_set_up_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\s)*" end;regexp_mod = regexp_mod + "\\b";
 provider_1#sect_1#quixa#driv_driving_license_yrs_str#x = '' ; if profilefield[:driv_driving_license_yrs_str].to_i == 1; x='Si, da 1 anno'; elsif profilefield[:driv_driving_license_yrs_str].to_i == 2; x='Si, da 2 anni'; elsif profilefield[:driv_driving_license_yrs_str].to_i == 3; x='Si, da 3 anni'; else  x='Si, da oltre 3 anni' end;

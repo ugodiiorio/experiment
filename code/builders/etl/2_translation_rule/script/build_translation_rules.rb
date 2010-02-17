@@ -11,11 +11,11 @@ require 'logger'
 require "mysql"
 require "active_support"
 
-require "modules/regexp_eval"
+require "modules/provider_1_rules_quixa"
 
 def init()
 
-  puts "start of build_regexp_mapping script"
+  puts "start of build_translation_rules script"
   @logger = nil
   @dbh = nil
   @start_time = DateTime.now()
@@ -50,13 +50,10 @@ def init()
     raise ex
   ensure
     config = {:app_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
-    app_settings = {:as_select_stmt_company  =>nil,
-      :as_insert_stmt_regexp =>nil,
-      :as_update_stmt_regexp => nil,
-      :as_provider_id =>nil,
-      :as_sector_id =>nil,
-      :as_companies_group_id =>nil,
-      :as_working_set_id =>nil} unless app_settings
+    app_settings = {:as_select_stmt_profile => nil, :as_select_stmt_rule =>nil, :as_select_stmt_value =>nil, :as_select_stmt_company  =>nil,
+      :as_insert_stmt_tr_field =>nil, :as_update_stmt_tr_field => nil,
+      :as_provider_id =>nil, :as_sector_id =>nil,
+      :as_companies_group_id =>nil, :as_working_set_id =>nil} unless app_settings
     logger_settings = {:ls_device =>nil,
       :ls_level =>nil,
       :ls_shift_age =>nil,
@@ -71,13 +68,17 @@ def init()
   @db_user = database_settings['ds_conn_user'] || "testuser"
   @db_pwd = database_settings['ds_conn_pwd'] || "testpass"
   @db_default = database_settings['ds_db_default'] || "test"
+  @stmt_sel_profile = app_settings['as_select_stmt_profile']
   @stmt_sel_company = app_settings['as_select_stmt_company']
-  @stmt_ins_regexp = app_settings['as_insert_stmt_regexp']
-  @stmt_upd_regexp = app_settings['as_update_stmt_regexp']
+  @stmt_ins_tr_rule = app_settings['as_insert_stmt_tr_rule']
+  @stmt_upd_tr_rule = app_settings['as_update_stmt_tr_rule']
+  @stmt_sel_rule = app_settings['as_select_stmt_rule']
+  @stmt_sel_value = app_settings['as_select_stmt_value']
+# @stmt_sel_mapping = app_settings['as_select_stmt_mapping']
   @provider_id = app_settings['as_provider_id']
   @sector_id = app_settings['as_sector_id']
-  @companies_group_id = app_settings['as_companies_group_id']
-#  @company_id = app_settings['as_company_id']
+#  @companies_group_id = app_settings['as_companies_group_id']
+  @company_id = app_settings['as_company_id']
   @working_set_id = app_settings['as_working_set_id']
 
   @log_device = logger_settings['ls_device'] || "./logs/warns_errors.log"
@@ -112,81 +113,70 @@ end
 
 def get_column_info()
 
-#  stmt = @stmt_sel_rule
-#  @fieldnum = {}
-#  @dbh.query_with_result = false
-#  @dbh.query(stmt)
-#  res = @dbh.use_result
-#
-#  puts "Statement: #{stmt}"
-#  if res.nil? then
-#    puts "Statement has no result set"
-#    printf "Number of rows affected: %d\n", @dbh.affected_rows
-#  else
-#    puts "Statement has a result set"
-#    printf "Number of rows: %d\n", res.num_rows
-#    printf "Number of columns: %d\n", res.num_fields
-#    res.fetch_fields.each_with_index do |info, i|
-#      #     puts info.class
-#      printf "--- Column %d (%s) ---\n", i, info.name
-#      puts info.is_pri_key?
-#      @fieldnum = @fieldnum.merge({info.name.to_sym => info.is_num?})
-#      puts @fieldnum[info.name.to_sym]
-#    end
-#    res.free
-#  end
+   stmt = @stmt_sel_profile
+   @dbh.query_with_result = false
+   @dbh.query(stmt)
+   res = @dbh.use_result
+   @fieldname = []
+   res.fetch_fields.each do |info|
+     #     puts info.class
+
+   info.is_pri_key? ? nil  :   ( info.name == 'timestamp' ? nil : @fieldname << info.name )
+   end
+   res.free
 
 end
 
- def build_regexp_mapping()
+ def translation_rules()
 
-   @dbh.query_with_result = true
-
-   #recupero della compagnia
-    #select sulla companies che trova il key_companies_id_group
-  stmt_companies = @dbh.prepare(@stmt_sel_company)
-  stmt_companies.execute(@companies_group_id)
-  while row_company = stmt_companies.fetch do
-   @company_id = row_company[0]
+   #select sulla companies che trova il key_company_id
+#   @dbh.query_with_result = true
+#   stmt_companies = @dbh.prepare(@stmt_sel_company)
+#   stmt_companies.execute(@company_id)
+#   while row_company = stmt_companies.fetch do
+#     @companies_group_id = row_company[0]
 
 
+     # recupero il nome della colonna
+     # per ogni campo faccio la insert sulla translation_rules
+     index = 0
+     while index < @fieldname.length
+       @field_name = @fieldname[index]
 
-   #recupero dal regexp_hash i valori che mi servono
-
-   @eval_values.each_hash do |fieldtr|
-     
-     
-     #faccio la insert sulla regexp_mapping_fields
-     begin
-       stmt_ins = @dbh.prepare(@stmt_ins_regexp)
-       stmt_ins.execute(@provider_id, @sector_id, @company_id, fieldtr.keys)
-     rescue Mysql::Error => e
-       if e.errno.to_s == '1062'
-       else raise e
+       begin
+         stmt_ins = @dbh.prepare(@stmt_ins_tr_rule)
+         stmt_ins.execute(@provider_id, @sector_id, @company_id, @field_name)
+       rescue Mysql::Error => e
+         if e.errno.to_s == '1062'
+         else raise e
+         end
+         @logger.error(__FILE__) {"Error code: #{e.errno}"}
+         @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
+         @logger.error(__FILE__) {"Error message: #{e.error}"}
        end
-       @logger.error(__FILE__) {"Error code: #{e.errno}"}
-       @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
-       @logger.error(__FILE__) {"Error message: #{e.error}"}
+       stmt_ins.close
 
+       rule = @rule_values[@field_name]
+
+       #faccio l'update
+
+       stmt_upd = @dbh.prepare(@stmt_upd_tr_rule)
+       stmt_upd.execute(rule.to_s, @provider_id, @sector_id, @company_id, @field_name)
+       stmt_upd.close
+       index += 1
      end
 
-
-     #faccio l'update
-     stmt_upd = @dbh.prepare(@stmt_upd_regexp)
-     stmt_upd.execute(target.to_s, @provider_id, @sector_id, @company_id, fieldtr.keys, fieldtr.value)
-
    end
-  
+
+#
 
   #        stmt.close
 
 
   #  puts "Number of file rows returned: #{res_file.num_rows}"
-  @row_num += res_file.num_rows.to_i
-  res_file.free
+#  @row_num += res_file.num_rows.to_i
+#  res_file.free
 
-  end
- end
 
 
 def summary()
@@ -221,18 +211,23 @@ begin
 
   connect()
 
+#  create_schema() # uncomment to create and use dummy tables with foo data
+
+#  get_column_info()
+
+
+ path_mod = "Rules_" + @company_id.to_s.capitalize
+
+  include  path_mod.constantize
+
+   path_hash = "build_hash_rules_" + @sector_id.to_s + "_" +  @provider_id.to_s + "()"
+
+   eval  path_hash
+
+#  build_hash_quixa_sect_1()
   get_column_info()
+  translation_rules()
 
-
-  path_mod = "Regexp_Eval_" + @company_id.to_s.capitalize
-
-  include path_mod
-
-  path_hash = "build_hash_regexp" + @sector_id.to_s + "()"
-
-  eval path_hash
-  
-  
   summary()
 
   disconnect()
@@ -249,6 +244,6 @@ ensure
   disconnect()
   stop_log()
   puts DateTime.now()
-  e ? puts("end of build_profile script with errors") : puts("end of build_profile script")
+  e ? puts("end of build_translation_rules script with errors") : puts("end of build_translation_rules script")
 
 end

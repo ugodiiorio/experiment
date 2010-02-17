@@ -43,7 +43,7 @@ class BuildDriverSchema
 			)
 		;")
 
-    mysql.query("  CREATE  INDEX own_spec_index   ON " + @db_default_app + ".profiles_personal_data(own_owner_specification_str)
+    mysql.query("  CREATE  INDEX own_spec_index   ON " + @db_default_driver + ".profiles_personal_data(own_owner_specification_str)
 		;")
 
 			mysql.query("CREATE TABLE " + @db_default_driver + ".insurance_profiles (
@@ -573,29 +573,28 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         key_provider_id_str 	VARCHAR(32)  NOT NULL,
         key_sector_id_str 	VARCHAR(32)  NOT NULL,
         output_field_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,output_field_str),
-        input_field_str 	VARCHAR(256)  NOT NULL,
-				eval_str		TEXT
+        eval_str		TEXT
         )
 			;")
 
 
-     mysql.query("CREATE TABLE " + @db_default_driver + ".regexp_mapping (
-        key_provider_id_str 	VARCHAR(32)  NOT NULL,
-        key_sector_id_str 	VARCHAR(32)  NOT NULL,
-        key_company_id_str 	VARCHAR(32)  NOT NULL,
-        field_name_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,key_company_id_str,field_name_str),
-				eval_str		TEXT
-        )
-			;")
-
-    mysql.query("CREATE TABLE " + @db_default_driver + ".date_mapping (
-        key_provider_id_str 	VARCHAR(32)  NOT NULL,
-        key_sector_id_str 	VARCHAR(32)  NOT NULL,
-        key_company_id_str 	VARCHAR(32)  NOT NULL,
-        field_name_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,key_company_id_str,field_name_str),
-				eval_str		TEXT
-        )
-			;")
+#     mysql.query("CREATE TABLE " + @db_default_driver + ".regexp_mapping (
+#        key_provider_id_str 	VARCHAR(32)  NOT NULL,
+#        key_sector_id_str 	VARCHAR(32)  NOT NULL,
+#        key_company_id_str 	VARCHAR(32)  NOT NULL,
+#        field_name_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,key_company_id_str,field_name_str),
+#				eval_str		TEXT
+#        )
+#			;")
+#
+#    mysql.query("CREATE TABLE " + @db_default_driver + ".date_mapping (
+#        key_provider_id_str 	VARCHAR(32)  NOT NULL,
+#        key_sector_id_str 	VARCHAR(32)  NOT NULL,
+#        key_company_id_str 	VARCHAR(32)  NOT NULL,
+#        field_name_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,key_company_id_str,field_name_str),
+#				eval_str		TEXT
+#        )
+#			;")
 
     mysql.query("CREATE TABLE  " + @db_default_driver + ".translated_fields (
         key_provider_id_str 	VARCHAR(32)  NOT NULL,
