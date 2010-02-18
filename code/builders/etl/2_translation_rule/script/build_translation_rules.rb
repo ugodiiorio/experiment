@@ -8,6 +8,7 @@ require 'logger'
 require "mysql"
 require "active_support"
 
+Mysql::Time = 7
 MODULE_FOLDER = 'modules'
 
 def init()
@@ -109,52 +110,48 @@ end
 
 def get_column_info()
 
-   stmt = @stmt_sel_profile
-   @dbh.query_with_result = false
-   @dbh.query(stmt)
-   res = @dbh.use_result
-   @fieldname = []
-   res.fetch_fields.each do |info|
-     #     puts info.class
-
-   info.is_pri_key? ? nil  :   ( info.type == Mysql::Time ? nil : @fieldname << info.name )
-   end
-   res.free
+  stmt = @stmt_sel_profile
+  @dbh.query_with_result = false
+  @dbh.query(stmt)
+  res = @dbh.use_result
+  @fieldname = []
+  res.fetch_fields.each do |info|
+    info.is_pri_key? ? nil : (info.type == Mysql::Time ? nil : @fieldname << info.name)
+  end
+  res.free
 
 end
 
- def translation_rules()
+def translation_rules()
 
-     # recupero il nome della colonna
-     # per ogni campo faccio la insert sulla translation_rules
-     index = 0
-     while index < @fieldname.length
-       @field_name = @fieldname[index]
+  # recupero il nome della colonna
+  # per ogni campo faccio la insert sulla translation_rules
+  index = 0
+  while index < @fieldname.length
+    @field_name = @fieldname[index]
 
-       begin
-         stmt_ins = @dbh.prepare(@stmt_ins_tr_rule)
-         stmt_ins.execute(@provider_id, @sector_id, @company_id, @field_name)
-       rescue Mysql::Error => e
-         if e.errno.to_s == '1062'
-         else raise e
-         end
-         @logger.error(__FILE__) {"Error code: #{e.errno}"}
-         @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
-         @logger.error(__FILE__) {"Error message: #{e.error}"}
-       end
-       stmt_ins.close
+    begin
+      stmt_ins = @dbh.prepare(@stmt_ins_tr_rule)
+      stmt_ins.execute(@provider_id, @sector_id, @company_id, @field_name)
+    rescue Mysql::Error => e
+      raise e unless e.errno.to_s == '1062'
+      @logger.error(__FILE__) {"Error code: #{e.errno}"}
+      @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
+      @logger.error(__FILE__) {"Error message: #{e.error}"}
+    end
+    stmt_ins.close
 
-       rule = @rule_values[@field_name]
+    rule = @rule_values[@field_name]
 
-       #faccio l'update
+    #faccio l'update
 
-       stmt_upd = @dbh.prepare(@stmt_upd_tr_rule)
-       stmt_upd.execute(rule.to_s, @provider_id, @sector_id, @company_id, @field_name)
-       stmt_upd.close
-       index += 1
-     end
+    stmt_upd = @dbh.prepare(@stmt_upd_tr_rule)
+    stmt_upd.execute(rule.to_s, @provider_id, @sector_id, @company_id, @field_name)
+    stmt_upd.close
+    index += 1
+  end
 
-   end
+end
 
 def summary()
 #  puts "Number of input rows parsed: #{@row_num}"
@@ -190,11 +187,9 @@ begin
 
   DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER, @provider_id, @company_id)
 
-
   load(DLN_LIBRARY_PATH + '/' + @module_filename)
 
   module_name = @provider_id.to_s + '_' + @company_id.to_s
-  
 
   include module_name.camelize.constantize
 

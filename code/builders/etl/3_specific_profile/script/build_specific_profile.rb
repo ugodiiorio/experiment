@@ -245,23 +245,14 @@ def get_column_info()
   @dbh.query(stmt)
   res = @dbh.use_result
 
-  puts "Statement: #{stmt}"
-  if res.nil? then
-   puts "Statement has no result set"
-   printf "Number of rows affected: %d\n", @dbh.affected_rows
-  else
-   puts "Statement has a result set"
-   printf "Number of rows: %d\n", res.num_rows
-   printf "Number of columns: %d\n", res.num_fields
-   res.fetch_fields.each_with_index do |info, i|
+  res.fetch_fields.each_with_index do |info, i|
+    info.is_pri_key? ? nil : (info.type == Mysql::Time ? nil : @fieldname = @fieldname.merge({i => info.name}))
 #     puts info.class
 #     printf "--- Column %d (%s) ---\n", i, info.name
 #     puts info.is_pri_key?
-     @fieldname = @fieldname.merge({i => info.name})
 #     puts @fieldname[i]
-   end
-   res.free
-  end
+    end
+  res.free
 
 end
 

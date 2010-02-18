@@ -26,15 +26,7 @@ module Specific_Profile
         @id_profile = row_profile[0]
         insert_field()
 
-        id = 0
-        @profile = {}
-        profilefield = {}
-
-        row_profile.each do |profile_value|
-          @profile = @profile.merge({ @fieldname[id] => profile_value })
-          id += 1
-        end
-        @profile.collect { |key, value| profilefield[key.to_sym] = value }
+        profilefield = build_profile_fields_hash(row_profile)
 
         @profile.each do |key, value|
 
@@ -88,6 +80,21 @@ module Specific_Profile
     rescue Exception => e
       raise e
     end
+
+  end
+
+  def build_profile_fields_hash(row_profile)
+
+        id = 0
+        @profile = {}
+        profilefield = {}
+
+        row_profile.each do |profile_value|
+          @profile = @profile.merge({ @fieldname[id] => profile_value }) if @fieldname[id]
+          id += 1
+        end
+        @profile.collect { |key, value| profilefield[key.to_sym] = value }
+        return profilefield
 
   end
     
