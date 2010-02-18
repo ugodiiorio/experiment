@@ -7,6 +7,8 @@ require 'logger'
 require "mysql"
 require "active_support"
 
+
+Mysql::Time = 7
 MODULE_FOLDER = 'modules'
 DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__),'..',MODULE_FOLDER) + '/'
 
@@ -182,6 +184,6 @@ ensure
   disconnect()
   stop_log()
   puts DateTime.now()
-  e ? puts("end of build_profile script with errors") : puts("end of build_profile script")
+  e ? puts("end of build_field_mapping script with errors") : puts("end of build_field_mapping script")
 
 end

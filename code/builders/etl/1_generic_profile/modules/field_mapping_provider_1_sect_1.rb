@@ -22,7 +22,7 @@ module FieldMappingProvider1Sect1
       'driv_residence_same_as_home_address_str' => '"si"',
       'driv_studies_str' => '"Diploma"',
       'own_owner_sex_str' => 'infield[:driv_driver_sex_str].slice(0,1)',
-      'own_owner_specification_str' => 'infield[:driv_driver_sex_str].slice(0,1)',
+      'own_owner_specification_str' => 'x = infield[:driv_driver_sex_str].slice(0,1); x=="S" ? x="C": x=x',
       'own_owner_zip_code_str' => 'infield[:pol_driver_zip_code_str].strip',
       'pol_act_of_vandalism_code_str' => nil,
       'pol_act_of_vandalism_minimum_uncoverage_str' => nil,
