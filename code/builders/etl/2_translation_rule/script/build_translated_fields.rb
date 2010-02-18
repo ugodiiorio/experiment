@@ -42,18 +42,18 @@ def init()
     raise ex
   ensure
     config = {:app_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
-    app_settings = {:as_select_stmt_rule =>nil, :as_select_stmt_value =>nil, :as_select_stmt_company  =>nil,
-      :as_insert_stmt_tr_field =>nil, :as_update_stmt_tr_field => nil,
-      :as_provider_id =>nil, :as_sector_id =>nil,
-      :as_companies_group_id =>nil, :as_working_set_id =>nil} unless app_settings
-    logger_settings = {:ls_device =>nil,
-      :ls_level =>nil,
-      :ls_shift_age =>nil,
-      :ls_shift_size =>nil,
-      :ls_datetime_format =>nil} unless logger_settings
-    database_settings = {:ds_engine_type =>nil, :ds_db_host =>nil,
-      :ds_conn_user =>nil, :ds_db_default =>nil,
-      :ds_conn_pwd =>nil} unless database_settings
+    app_settings = {:as_select_stmt_rule => nil, :as_select_stmt_value => nil, :as_select_stmt_company =>nil,
+      :as_insert_stmt_tr_field => nil, :as_update_stmt_tr_field => nil,
+      :as_provider_id => nil, :as_sector_id =>nil, :as_company_group_id => nil, :as_module_filename => nil,
+      :as_companies_group_id => nil, :as_working_set_id => nil} unless app_settings
+    logger_settings = {:ls_device => nil,
+      :ls_level => nil,
+      :ls_shift_age => nil,
+      :ls_shift_size => nil,
+      :ls_datetime_format => nil} unless logger_settings
+    database_settings = {:ds_engine_type => nil, :ds_db_host => nil,
+      :ds_conn_user => nil, :ds_db_default => nil,
+      :ds_conn_pwd => nil} unless database_settings
   end
 
   @host	= database_settings['ds_db_host'] || "localhost"
@@ -65,12 +65,12 @@ def init()
   @stmt_upd_tr_field = app_settings['as_update_stmt_tr_field']
   @stmt_sel_rule = app_settings['as_select_stmt_rule']
   @stmt_sel_value = app_settings['as_select_stmt_value']
-# @stmt_sel_mapping = app_settings['as_select_stmt_mapping']
   @provider_id = app_settings['as_provider_id']
   @sector_id = app_settings['as_sector_id']
-#  @companies_group_id = app_settings['as_companies_group_id']
+  @companies_group_id = app_settings['as_company_group_id']
   @company_id = app_settings['as_company_id']
   @working_set_id = app_settings['as_working_set_id']
+  @module_filename = app_settings['as_module_filename']
 
   @log_device = logger_settings['ls_device'] || "./logs/warns_errors.log"
   @log_level = logger_settings['ls_level'] || 2
@@ -104,59 +104,47 @@ end
 
   @dbh.query_with_result = true
 
-
-  #select sulla companies che trova il key_companies_id_group
-  stmt_companies = @dbh.prepare(@stmt_sel_company)
-  stmt_companies.execute(@company_id)
-  while row_company = stmt_companies.fetch do
-    @companies_group_id = row_company[0]
-
-
-    # select sulla translation rule che trova i campi da tradurre
-    stmt_rule = @stmt_sel_rule
-    stmt_rule = @dbh.prepare(@stmt_sel_rule)
-    stmt_rule.execute(@provider_id, @sector_id, @company_id)
+  # select sulla translation rule che trova i campi da tradurre
+  stmt_rule = @stmt_sel_rule
+  stmt_rule = @dbh.prepare(@stmt_sel_rule)
+  stmt_rule.execute(@provider_id, @sector_id, @company_id)
 #    res_file = @dbh.query(stmt_rule)
 
-     while row_rule = stmt_rule.fetch do
+   while row_rule = stmt_rule.fetch do
 #    res_file.each_hash do |fieldtr|
-      @field_name = row_rule[0]
+    @field_name = row_rule[0]
 
-      # per ogni campo trovato recupero i valori sulla insurance profiles
-      stmt_value = @stmt_sel_value.sub("@@field_name@@", @field_name)
-      stmt_val = @dbh.prepare(stmt_value)
-      stmt_val.execute(@provider_id, @sector_id, @companies_group_id)
-      while field_values = stmt_val.fetch do
-        @field_value = field_values[0]
-        fname_fvalue ={}
-        fname_fvalue = fname_fvalue.merge({@field_name.to_s => @field_value.to_s})
-        #recupero da targetquixa il valore target  hash=target_values
+    # per ogni campo trovato recupero i valori sulla insurance profiles
+    stmt_value = @stmt_sel_value.sub("@@field_name@@", @field_name)
+    stmt_val = @dbh.prepare(stmt_value)
+    stmt_val.execute(@provider_id, @sector_id, @companies_group_id)
+    while field_values = stmt_val.fetch do
+      @field_value = field_values[0]
+      fname_fvalue ={}
+      fname_fvalue = fname_fvalue.merge({@field_name.to_s => @field_value.to_s})
+      #recupero da targetquixa il valore target  hash=target_values
 
-        #
-        target = @target_values[fname_fvalue]
-        #
-        #
-        #faccio la insert sulla translated_fields
-        begin
-          stmt_ins = @dbh.prepare(@stmt_ins_tr_field)
-          stmt_ins.execute(@provider_id, @sector_id, @company_id, @field_name, @field_value)
-        rescue Mysql::Error => e
-          if e.errno.to_s == '1062'
-          else raise e
-          end
-          @logger.error(__FILE__) {"Error code: #{e.errno}"}
-          @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
-          @logger.error(__FILE__) {"Error message: #{e.error}"}
-
+      #
+      target = @target_values[fname_fvalue]
+      #
+      #
+      #faccio la insert sulla translated_fields
+      begin
+        stmt_ins = @dbh.prepare(@stmt_ins_tr_field)
+        stmt_ins.execute(@provider_id, @sector_id, @company_id, @field_name, @field_value)
+      rescue Mysql::Error => e
+        if e.errno.to_s == '1062'
+        else raise e
         end
+        @logger.error(__FILE__) {"Error code: #{e.errno}"}
+        @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
+        @logger.error(__FILE__) {"Error message: #{e.error}"}
 
+      end
+      #faccio l'update
+      stmt_upd = @dbh.prepare(@stmt_upd_tr_field)
+      stmt_upd.execute(target.to_s, @provider_id, @sector_id, @company_id, @field_name, @field_value)
 
-        #faccio l'update
-        
-        stmt_upd = @dbh.prepare(@stmt_upd_tr_field)
-        stmt_upd.execute(target.to_s, @provider_id, @sector_id, @company_id, @field_name, @field_value)
-
-       end
     end
   end
 
@@ -197,8 +185,9 @@ begin
 
   DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER, @provider_id, @company_id)
 
-  module_name = @provider_id.to_s + "_fields_" +  @company_id.to_s
-  load(DLN_LIBRARY_PATH + '/' + module_name + '.rb')
+  load(DLN_LIBRARY_PATH + '/' + @module_filename)
+
+  module_name = @provider_id.to_s + '_' + @company_id.to_s
   include module_name.camelize.constantize
 
   build_hash = "build_hash_" + @sector_id.to_s + "()"

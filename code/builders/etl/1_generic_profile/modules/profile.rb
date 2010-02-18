@@ -21,7 +21,7 @@ module Profile
       file.collect { |key, value| infield[key.to_sym] = value }
 
       stmt = @dbh.prepare(@stmt_ins_profile)
-      stmt.execute(@id, @provider_id, @sector_id, @company_id, @working_set_id)
+      stmt.execute(@id, @provider_id, @sector_id, @company_group_id, @working_set_id)
   #    puts "Number of profile rows inserted: #{stmt.affected_rows()}"
       @profile_num += stmt.affected_rows().to_i
       stmt.close

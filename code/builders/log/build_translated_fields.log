@@ -1,0 +1,480 @@
+# Logfile created on Thu Feb 18 09:57:09 +0100 2010 by logger.rb/85
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error message: can't convert nil into String
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error message: uninitialized constant Provider1quixa
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_bersani_str-No' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_bersani_str-Convivente' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_bersani_str-Veicolo' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-MI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PD' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-GO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-TO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-BG' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-TS' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-BO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-AL' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CH' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-RM' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-MN' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-SI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PC' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-TV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-MC' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-BS' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-MO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-FI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VE' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PE' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-AN' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CN' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-UD' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-FR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-RE' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-LO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-RA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-BL' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-FC' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PG' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-NO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-NA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-SV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CL' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-GE' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-FE' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-SP' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-MS' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-SA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-LT' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CS' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-TA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-BI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VC' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-AP' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-AR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-AT' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PT' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-LC' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-IM' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-RN' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-TN' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-TE' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PU' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-GR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-LU' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-SR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-RC' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-KR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-SS' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PN' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-SO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CZ' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-AQ' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-NU' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VT' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-LE' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-BZ' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CT' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-BA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-ME' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-AV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-LI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-FG' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-BN' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CE' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-BR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-CI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-AO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VB' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-9' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-3' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-14' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-13' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-12' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-10' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-8' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-2' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-4' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-15' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_client_type_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_client_type_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_coming_from_company_str-generali' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-N' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-S' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_insurance_situation_str-veicolo gia'' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_insurance_situation_str-1a polizza d' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_insurance_situation_str-1a polizza d' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_leasing_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_1_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_1_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-N/A' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-N/A' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_4_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_4_yr_str-N/A' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-N/A' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-2' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_payment_str-carta di credito' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_alarm_str-immobilizer' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-B' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-D' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-G' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-Casa-Lavoro' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-Tempo liber' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-Affari' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_km_per_yr_num-15000' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_vehicle_use_str-privato' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_vehicle_value_str-5000' for key 1
+Finishing process ...
