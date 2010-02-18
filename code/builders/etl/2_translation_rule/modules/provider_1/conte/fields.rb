@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider1FieldsConte
+module Provider1Conte
   def build_hash_sect_1()
 
     #     target_values["fname_fvalue"]

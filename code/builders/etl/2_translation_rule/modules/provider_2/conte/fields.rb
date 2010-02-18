@@ -2,11 +2,10 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider1FieldsDialogo
-# da correggere il file di mara con gli input anziche gli x path
+module Provider2Conte
   def build_hash_sect_1()
 
-#     target_values["fname_fvalue"]
+    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
@@ -231,8 +230,71 @@ module Provider1FieldsDialogo
       {'driv_birth_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'driv_birth_province_str' => 'VI'} => 'VICENZA',
       {'driv_birth_province_str' => 'VT'} => 'VITERBO',
-     
-# da correggere il file di mara con gli input anziche gli x path
+      {'veh_fuel_str' => 'B'} => 'Benzina',
+{'veh_fuel_str' => 'D'} => 'Diesel',
+{'veh_fuel_str' => 'G'} => 'GPL',
+{'veh_fuel_str' => 'M'} => 'Metano',
+{'veh_alarm_str' => 'immobilizer'} => 'Immobilizer',
+{'pol_bersani_str' => 'Convivente'} => 'page:decreto_bersani:0',
+{'pol_bersani_str' => 'Veicolo'} => 'page:decreto_bersani:0',
+{'pol_bersani_str' => 'No'} => 'page:decreto_bersani:1',
+{'pol_BM_assigned_str' => '-1'} => '1',
+{'pol_BM_assigned_str' => '1'} => '1',
+{'pol_BM_assigned_str' => '2'} => '2',
+{'pol_BM_assigned_str' => '3'} => '3',
+{'pol_BM_assigned_str' => '4'} => '4',
+{'pol_BM_assigned_str' => '5'} => '5',
+{'pol_BM_assigned_str' => '6'} => '6',
+{'pol_BM_assigned_str' => '7'} => '7',
+{'pol_BM_assigned_str' => '8'} => '8',
+{'pol_BM_assigned_str' => '9'} => '9',
+{'pol_BM_assigned_str' => '10'} => '10',
+{'pol_BM_assigned_str' => '11'} => '11',
+{'pol_BM_assigned_str' => '12'} => '12',
+{'pol_BM_assigned_str' => '13'} => '13',
+{'pol_BM_assigned_str' => '14'} => '14',
+{'pol_BM_assigned_str' => '15'} => '15',
+{'pol_BM_assigned_str' => '16'} => '16',
+{'pol_BM_assigned_str' => '17'} => '17',
+{'pol_BM_assigned_str' => '18'} => '18',
+{'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
+{'pol_subscriber_is_driver_str' => 'si'} => 'page:conducente_principale:0',
+{'pol_subscriber_is_owner_str' => 'si'} => 'page:contraente_proprietario:0',
+{'pol_subscriber_is_owner_str' => 'no'} => 'page:contraente_proprietario:1',
+{'pol_cohabiting_children_str' => 'si'} => 'page:figli_minori:0',
+{'pol_instalment_str' => 'annuale'} => 'Annuale',
+{'pol_instalment_str' => 'semestrale'} => 'Semestrale',
+{'veh_km_per_yr_num' => '15000'} => '15',
+{'pol_public_liability_indemnity_limit_str' => '3000000'} => '2,500,000',
+{'pol_public_liability_indemnity_limit_str' => '25000000'} => '25,000,000',
+{'pol_public_liability_indemnity_limit_str' => '18000000'} => '15,000,000',
+{'pol_public_liability_indemnity_limit_str' => '12000000'} => '10,000,000',
+{'pol_public_liability_indemnity_limit_str' => '6000000'} => '5,000,000',
+{'pol_payment_str' => 'carta di credito'} => 'page:metodoDiPagamento:0',
+{'veh_modification_made_str' => 'no'} => 'page:modifiche_scelta:1',
+{'pol_drunkenness_fine_str' => 'no'} => 'page:multe_ebrezza_contraente:1',
+{'pol_privacy_1_str' => 'id elemento web1'} => 'page:privacy_contr',
+{'driv_driving_license_points_str' => '20'} => 'Più di 20',
+{'driv_residence_same_as_home_address_str' => 'si'} => 'page:conducente_principale_recapito:0',
+{'veh_vehicle_shelter_str' => 'box privato'} => 'Box',
+{'pol_driver_sex_str' => 'M'} => 'page:conducente_principale_sesso:0',
+{'pol_driver_sex_str' => 'F'} => 'page:conducente_principale_sesso:1',
+{'pol_insurance_situation_str' => 'veicolo gi\' assicurato con atr'} => 'page:situazione_1:1',
+{'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'page:situazione_1:0',
+{'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'page:situazione_1:0',
+{'pol_driving_license_suspension_str' => 'no'} => 'page:sospensione_patente_contraente:1',
+{'driv_civil_status_str' => 'Coniugato senza figli'} => 'coniugato/a o convivente',
+{'driv_birth_state_str' => 'ITALIA'} => 'page:conducente_nazione:0',
+{'driv_birth_state_str' => 'Tutto il resto'} => 'page:conducente_nazione:1',
+{'driv_driving_license_type_str' => 'B'} => 'B (auto)',
+{'own_owner_specification_str' => 'M'} => 'page:relazione_contraente_proprietario_passo1:0',
+{'own_owner_specification_str' => 'F'} => 'page:relazione_contraente_proprietario_passo1:0',
+{'own_owner_specification_str' => 'C'} => 'page:relazione_contraente_proprietario_passo1:1',
+{'veh_habitual_vehicle_use_str' => 'tempo libero-casa lavoro'} => 'Tragitto Casa-Lavoro',
+{'pol_other_vehicle_use_str' => 'no'} => 'page:altro_veicolo:1',
+{'veh_new_used_vehicle_str' => 'N'} => 'page:situazione_2:0',
+{'veh_new_used_vehicle_str' => 'U'} => 'page:situazione_2:1'
+
     }
 
 
@@ -277,7 +339,7 @@ module Provider1FieldsDialogo
 
 
 
-#  costruisci hash ["field_name + field_value","target"]
+    #  costruisci hash ["field_name + field_value","target"]
   end
 
 

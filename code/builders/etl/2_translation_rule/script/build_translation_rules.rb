@@ -49,7 +49,7 @@ def init()
     config = {:app_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
     app_settings = {:as_select_stmt_profile => nil, :as_select_stmt_rule =>nil, :as_select_stmt_value =>nil, :as_select_stmt_company  =>nil,
       :as_insert_stmt_tr_field =>nil, :as_update_stmt_tr_field => nil,
-      :as_provider_id =>nil, :as_sector_id =>nil,
+      :as_provider_id =>nil, :as_sector_id =>nil, :as_module_filename => nil,
       :as_companies_group_id =>nil, :as_working_set_id =>nil} unless app_settings
     logger_settings = {:ls_device =>nil,
       :ls_level =>nil,
@@ -77,6 +77,7 @@ def init()
 #  @companies_group_id = app_settings['as_companies_group_id']
   @company_id = app_settings['as_company_id']
   @working_set_id = app_settings['as_working_set_id']
+  @module_filename = app_settings['as_module_filename']
 
   @log_device = logger_settings['ls_device'] || "./logs/warns_errors.log"
   @log_level = logger_settings['ls_level'] || 2
@@ -189,11 +190,15 @@ begin
 
   DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER, @provider_id, @company_id)
 
-  module_name = @provider_id.to_s + "_rules_" +  @company_id.to_s
-  load(DLN_LIBRARY_PATH + '/' + module_name + '.rb')
+
+  load(DLN_LIBRARY_PATH + '/' + @module_filename)
+
+  module_name = @provider_id.to_s + '_' + @company_id.to_s
+  
+
   include module_name.camelize.constantize
 
-  build_hash = "build_hash_rules_" + @sector_id.to_s + "_" +  @provider_id.to_s + "()"
+  build_hash = "build_hash_rules_" + @sector_id.to_s + "()"
 
   eval build_hash
 

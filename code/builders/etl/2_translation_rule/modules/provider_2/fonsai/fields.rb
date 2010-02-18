@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider2FieldsFonsai
+module Provider2Fonsai
   def build_hash_sect_1()
      #sistemare la situazione assicurativa di prima immatricolazione
 

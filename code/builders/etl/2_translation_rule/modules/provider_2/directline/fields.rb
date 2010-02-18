@@ -2,15 +2,83 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider2FieldsGenerali
-  def build_hash_sect_1()
-    #sistemare la situazione assicurativa di prima immatricolazione
+module Provider2Directline
 
-    #     target_values["fname_fvalue"]
+  def build_hash_sect_1()
+
+#     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
     @target_values = {
+      {'pol_driver_less_than_26_yrs_str' => 'N'} => 'Nessuno',
+      # {'pol_driver_less_than_26_yrs_str' => 'S'} => 'ÒUn conducenteÓ, ÒDue conducentiÓ, ÒPi di due conducentiÓ',
+      {'veh_alarm_str' => 'immobilizer'} => 'Immobilizzatore o Satellitare',
+      {'pol_bersani_str' => 'Convivente'} => 'id_radio_tipo_bm_1',
+      {'pol_bersani_str' => 'Veicolo'} => 'id_radio_tipo_bm_1',
+      {'pol_bersani_str' => 'Veicolo'} => 'id_radio_tipo_bm_2',
+      {'pol_coming_from_BM_num' => '-1'} => '01',
+      {'pol_coming_from_BM_num' => '1'} => '01',
+      {'pol_coming_from_BM_num' => '2'} => '02',
+      {'pol_coming_from_BM_num' => '3'} => '03',
+      {'pol_coming_from_BM_num' => '4'} => '04',
+      {'pol_coming_from_BM_num' => '5'} => '05',
+      {'pol_coming_from_BM_num' => '6'} => '06',
+      {'pol_coming_from_BM_num' => '7'} => '07',
+      {'pol_coming_from_BM_num' => '8'} => '08',
+      {'pol_coming_from_BM_num' => '9'} => '09',
+      {'pol_coming_from_BM_num' => '10'} => '10',
+      {'pol_coming_from_BM_num' => '11'} => '11',
+      {'pol_coming_from_BM_num' => '12'} => '12',
+      {'pol_coming_from_BM_num' => '13'} => '13',
+      {'pol_coming_from_BM_num' => '14'} => '14',
+      {'pol_coming_from_BM_num' => '15'} => '15',
+      {'pol_coming_from_BM_num' => '16'} => '16',
+      {'pol_coming_from_BM_num' => '17'} => '17',
+      {'pol_coming_from_BM_num' => '18'} => '18',
+      {'pol_BM_assigned_str' => '-1'} => '01',
+      {'pol_BM_assigned_str' => '1'} => '01',
+      {'pol_BM_assigned_str' => '2'} => '02',
+      {'pol_BM_assigned_str' => '3'} => '03',
+      {'pol_BM_assigned_str' => '4'} => '04',
+      {'pol_BM_assigned_str' => '5'} => '05',
+      {'pol_BM_assigned_str' => '6'} => '06',
+      {'pol_BM_assigned_str' => '7'} => '07',
+      {'pol_BM_assigned_str' => '8'} => '08',
+      {'pol_BM_assigned_str' => '9'} => '09',
+      {'pol_BM_assigned_str' => '10'} => '10',
+      {'pol_BM_assigned_str' => '11'} => '11',
+      {'pol_BM_assigned_str' => '12'} => '12',
+      {'pol_BM_assigned_str' => '13'} => '13',
+      {'pol_BM_assigned_str' => '14'} => '14',
+      {'pol_BM_assigned_str' => '15'} => '15',
+      {'pol_BM_assigned_str' => '16'} => '16',
+      {'pol_BM_assigned_str' => '17'} => '17',
+      {'pol_BM_assigned_str' => '18'} => '18',
+      {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'INTERNET',
+      {'pol_subscriber_is_driver_str' => 'si'} => '//form/table[2]/tbody/tr[17]/td[2]/input',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre form/...
+      {'pol_subscriber_is_owner_str' => 'si'} => '//form/table[2]/tbody/tr[21]/td[2]/input',
+      {'pol_subscriber_is_owner_str' => 'no'} => '//form/table[2]/tbody/tr[21]/td[2]/input[3]',
+      {'pol_family_members_insured_with_company_str' => '0'} => '//form/table[2]/tbody/tr[13]/td[2]/input[3]',
+      {'pol_instalment_str' => 'annuale'} => 'Annuale',
+      {'pol_instalment_str' => 'semestrale'} => 'Semestrale',
+      {'pol_bersani_ref_car_already_insured_with_company_str' => 'no'} => '//form/table[2]/tbody/tr[13]/td[2]/input[3]',
+      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '3.600.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '5.000.000/1.000.000',
+      {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
+      {'pol_owner_sex_str' => 'M'} => '//form/table[2]/tbody/tr[3]/td[5]/input',
+      {'pol_owner_sex_str' => 'F'} => '//form/table[2]/tbody/tr[3]/td[5]/input[3]',
+      {'pol_driver_sex_str' => 'M'} => '//form/table[2]/tbody/tr[3]/td[5]/input',
+      {'pol_driver_sex_str' => 'F'} => '//form/table[2]/tbody/tr[3]/td[5]/input[4]',
+      {'pol_insurance_situation_str' => 'veicolo gi\' assicurato con atr'} => '//*[@id="id_radio_bm"]',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//table/tbody/tr[10]/td/table/tbody/tr[3]/td[2]/input',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//table/tbody/tr[10]/td/table/tbody/tr[4]/td[2]/input',
+      {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Sposato/a',
+      {'veh_habitual_vehicle_use_str' => 'tempo libero-casa lavoro'} => ' Tragitto Casa-Lavoro/Tempo libero',
+      {'veh_vehicle_use_str' => 'privato'} => '//form/table[2]/tbody/tr[15]/td[2]/table/tbody/tr[2]/td/input',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',
@@ -120,83 +188,8 @@ module Provider2FieldsGenerali
       {'pol_residence_province_str' => 'VR'} => 'VERONA',
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
-      {'pol_residence_province_str' => 'VT'} => 'VITERBO',
-      {'veh_fuel_str' => 'B'} => 'Benzina',
-      {'veh_fuel_str' => 'D'} => 'Diesel',
-      {'veh_fuel_str' => 'G'} => 'GPL',
-      {'veh_fuel_str' => 'M'} => 'Metano',
-      {'veh_alarm_str' => 'immobilizer'} => ' Nessuno o altro',
-      {'pol_risk_certificate_str' => 'si'} => 'TIPO_DICH_ATTESTAZIONE',
-      {'pol_bersani_str' => 'Convivente'} => 'Si - rilasciato da altra Compagnia',
-      {'pol_bersani_str' => 'Veicolo   '} => 'Si - rilasciato da altra Compagnia',
-      {'pol_bersani_str' => 'No        '} => 'No',
-      {'pol_BM_assigned_str' => '-1'} => '1',
-      {'pol_BM_assigned_str' => '1'} => '1',
-      {'pol_BM_assigned_str' => '2'} => '2',
-      {'pol_BM_assigned_str' => '3'} => '3',
-      {'pol_BM_assigned_str' => '4'} => '4',
-      {'pol_BM_assigned_str' => '5'} => '5',
-      {'pol_BM_assigned_str' => '6'} => '6',
-      {'pol_BM_assigned_str' => '7'} => '7',
-      {'pol_BM_assigned_str' => '8'} => '8',
-      {'pol_BM_assigned_str' => '9'} => '9',
-      {'pol_BM_assigned_str' => '10'} => '10',
-      {'pol_BM_assigned_str' => '11'} => '11',
-      {'pol_BM_assigned_str' => '12'} => '12',
-      {'pol_BM_assigned_str' => '13'} => '13',
-      {'pol_BM_assigned_str' => '14'} => '14',
-      {'pol_BM_assigned_str' => '15'} => '15',
-      {'pol_BM_assigned_str' => '16'} => '16',
-      {'pol_BM_assigned_str' => '17'} => '17',
-      {'pol_BM_assigned_str' => '18'} => '18',
-      {'pol_instalment_str' => 'annuale'} => 'RB_POLIZZA_ANNUALE',
-      {'pol_instalment_str' => 'semestrale'} => 'RB_POLIZZA_TMP',
-      {'veh_tow_hook_str' => 'no'} => 'PARAMETRO_RADIO_6_0',
-      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '3000000',
-      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '26000000',
-      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '20000000',
-      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '12000000',
-      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6000000',
-      {'pol_nr_of_paid_claims_2_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_2_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_2_yr_str' => '2'} => '2',
-      {'pol_nr_of_paid_claims_2_yr_str' => 'N/A'} => 'Non Assicurato',
-      {'pol_nr_of_paid_claims_2_yr_str' => 'N/D'} => 'Non Disponibile',
-      {'pol_nr_of_paid_claims_3_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_3_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_3_yr_str' => '2'} => '2',
-      {'pol_nr_of_paid_claims_3_yr_str' => 'N/A'} => 'Non Assicurato',
-      {'pol_nr_of_paid_claims_3_yr_str' => 'N/D'} => 'Non Disponibile',
-      {'pol_nr_of_paid_claims_4_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_4_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_4_yr_str' => '2'} => '2',
-      {'pol_nr_of_paid_claims_4_yr_str' => 'N/A'} => 'Non Assicurato',
-      {'pol_nr_of_paid_claims_4_yr_str' => 'N/D'} => 'Non Disponibile',
-      {'pol_nr_of_paid_claims_5_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_5_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_5_yr_str' => '2'} => '2',
-      {'pol_nr_of_paid_claims_5_yr_str' => 'N/A'} => 'Non Assicurato',
-      {'pol_nr_of_paid_claims_5_yr_str' => 'N/D'} => 'Non Disponibile',
-      {'pol_nr_of_paid_claims_1_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_1_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_1_yr_str' => '2'} => '2',
-      {'pol_nr_of_paid_claims_1_yr_str' => 'N/A'} => 'Non Assicurato',
-      {'pol_nr_of_paid_claims_1_yr_str' => 'N/D'} => 'Non Disponibile',
-      {'pol_driver_sex_str' => 'M'} => 'Maschio',
-      {'pol_driver_sex_str' => 'F'} => 'Femmina',
-      {'pol_insurance_situation_str' => 'veicolo gi\' assicurato con atr'} => 'Gia\' assicurato con Bonus/Malus',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Prima Immatricolazione',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'Prima Immatricolazione',
-      {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
-      {'pol_driving_type_str' => 'esclusiva'} => ' Conducente esclusivo',
-      {'pol_driving_type_str' => 'libera'} => ' Conducente qualsiasi',
-      {'pol_driving_type_str' => 'definita'} => ' Conducente "coniugi"',
-      {'pol_client_type_str' => 'M'} => 'Persona Fisica',
-      {'pol_client_type_str' => 'F'} => 'Persona Fisica',
-      {'pol_client_type_str' => 'C'} => 'Persona Giuridica',
-      {'veh_vehicle_use_str' => 'privato'} => 'Privato',
-      {'pol_premium_id_str' => 'TRUE'} => 'TOTALE_PI_CL_10'
-    }
+      {'pol_residence_province_str' => 'VT'} => 'VITERBO'
+         }
 
 
 
@@ -240,7 +233,7 @@ module Provider2FieldsGenerali
 
 
 
-    #  costruisci hash ["field_name + field_value","target"]
+#  costruisci hash ["field_name + field_value","target"]
   end
 
 

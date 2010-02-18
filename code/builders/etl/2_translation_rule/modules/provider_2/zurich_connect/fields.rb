@@ -2,9 +2,8 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider2FieldsAxa
+module Provider2ZurichConnect
   def build_hash_sect_1()
-     #sistemare la situazione assicurativa di prima immatricolazione
 
     #     target_values["fname_fvalue"]
 
@@ -121,10 +120,18 @@ module Provider2FieldsAxa
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
-      {'veh_fuel_str' => 'B'} => 'Benzina',
-      {'veh_fuel_str' => 'D'} => 'Diesel',
+      {'veh_abs_str' => 'si'} => 'ABS presente',
+      {'veh_airbag_str' => 'si'} => 'Airbag lato guida + passeggero',
+      {'veh_fuel_str' => 'B'} => 'BENZINA',
+      {'veh_fuel_str' => 'D'} => 'DIESEL',
       {'veh_fuel_str' => 'G'} => 'GPL',
-      {'veh_fuel_str' => 'M'} => 'Metano',
+      {'veh_fuel_str' => 'M'} => 'METANO',
+      {'veh_alarm_str' => 'immobilizer'} => 'IMMOBILIZER',
+      {'veh_antiskid_str' => 'no'} => 'Assente',
+      {'pol_bersani_str' => 'Convivente'} => 'SI',
+      {'pol_bersani_str' => 'Veicolo'} => 'SI',
+      {'pol_bersani_str' => 'No'} => 'NO',
+      {'pol_BM_assigned_str' => '-1'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
       {'pol_BM_assigned_str' => '3'} => '3',
@@ -143,32 +150,34 @@ module Provider2FieldsAxa
       {'pol_BM_assigned_str' => '16'} => '16',
       {'pol_BM_assigned_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
-      {'pol_public_liability_exemption_str' => 'no'} => '0 Euro',
-       {'pol_instalment_str' => 'annuale'} => 'Annuale',
+      {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
+      {'pol_subscriber_is_owner_str' => 'si'} => 'SI',
+      {'pol_subscriber_is_owner_str' => 'no'} => 'NO',
+      {'pol_family_members_insured_with_company_str' => '0'} => 'NO',
+      {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_instalment_str' => 'semestrale'} => 'Semestrale',
-      {'veh_tow_hook_str' => 'no'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[9]/th/div[2]/input',
-      {'pol_defined_drive_str' => 'si'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr[2]/td/div/table/tbody/tr[2]/th/div[2]/input[2]',
-      {'pol_defined_drive_str' => 'no'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr[2]/td/div/table/tbody/tr[2]/th/div[2]/input',
-      {'pol_exclusive_drive_str' => 'si'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr[2]/td/div/table/tbody/tr/th[2]/div[2]/input[2]',
-      {'pol_exclusive_drive_str' => 'no'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr[2]/td/div/table/tbody/tr/th[2]/div[2]/input',
-      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '2,600,000 € - 2,600,000 € - 2,600,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '25,000,000 € - 25,000,000 € - 25,000,000 € €',
-      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '20,000,000 € - 20,000,000 € - 20,000,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '10,000,000 € - 10,000,000 € - 10,000,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '5,200,000 € - 5,200,000 € - 5,200,000 €',
+      {'veh_tow_hook_str' => 'no'} => 'Senza gancio traino',
+      {'veh_tow_hook_str' => 'no'} => 'Senza gancio traino',
+      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '4.000.000 UNICO',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '20.000.000 UNICO',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '20.000.000 UNICO',
+      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '6.000.000 UNICO',
+      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6.000.000 UNICO',
       {'pol_driver_sex_str' => 'M'} => 'Maschio',
       {'pol_driver_sex_str' => 'F'} => 'Femmina',
-      {'pol_insurance_situation_str' => 'veicolo gi\' assicurato con atr'} => 'Il contraente presenta l\'attestato di rischio',
-      #{'pol_insurance_situation_str' => '1a POLIZZA DOPO L\'ACQUISTO DEL VEICOLO NUOVO'} => 'Veicolo immatricolato per 1^ volta al P.R.A. / Veicolo assicurato per la 1^ volta dopo voltura al P.R.A. / Veicolo proveniente dall\'estero / 1^ immatricolazione al P.R.A. con medesima classe / Ass.to 1^ volta dopo voltura con medesima classe',
-      {'pol_type_of_contract_str' => 'bonus/malus'} => 'Bonus/Malus',
-      {'pol_number_plate_type_str' => 'definitiva'} => 'Definitiva',
-      {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
-      {'veh_vehicle_type_str' => 'autovettura'} => 'Autovettura',
-      {'pol_client_type_str' => 'M'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input[2]',
-      {'pol_client_type_str' => 'F'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input[2]',
-      {'pol_client_type_str' => 'C'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input',
-      {'veh_vehicle_use_str' => 'privato'} => 'Privato'
-     }
+      {'pol_driver_sex_str' => 'C'} => 'PersonaGiuridica',
+      {'pol_owner_sex_str' => 'M'} => 'MaschioPR',
+      {'pol_owner_sex_str' => 'F'} => 'FemminaPR',
+      {'pol_owner_sex_str' => 'C'} => 'PersonaGiuridicaPR',
+      {'pol_insurance_situation_str' => 'veicolo gi\' assicurato con atr'} => 'L\'automobile e\' gia\' assicurata con un contratto in Bonus/Malus',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Sto acquistando un\'auto usata e mi assicuro per la prima volta',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'Sto acquistando un\'auto nuova e mi assicuro per la prima volta',
+      {'veh_stabilizer_str' => 'no'} => 'NO',
+      {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Coniugato senza figli',
+      {'driv_studies_str' => 'Diploma'} => 'Diploma',
+      {'veh_num_of_owners_str' => '1'} => '1'
+
+    }
 
 
 
