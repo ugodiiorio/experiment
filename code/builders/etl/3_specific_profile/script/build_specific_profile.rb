@@ -9,6 +9,8 @@ require 'logger'
 
 require "modules/specific_profile"
 
+Mysql::Time = 7
+
 def init()
 
   puts "start of build_profile script"
