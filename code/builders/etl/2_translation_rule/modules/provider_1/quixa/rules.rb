@@ -5,7 +5,7 @@
 module Provider1Quixa
 
 #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
-def build_hash_rules_sect_1()
+def build_hash_sect_1()
 
     @rule_values ={}
 
@@ -29,6 +29,7 @@ def build_hash_rules_sect_1()
       'driv_driving_license_points_str' => 'copy_field',
       'driv_driving_license_type_str' => 'copy_field',
       'driv_driving_license_year_of_issue_str' => 'copy_field',
+      'driv_driving_license_month_of_issue_str' => 'copy_field',
       'driv_driving_license_yrs_str' => 'copy_field',
       'driv_driver_sex_str' => 'copy_field',
       'driv_heir_str' => 'copy_field',
@@ -48,7 +49,7 @@ def build_hash_rules_sect_1()
       'pol_bersani_ref_car_already_insured_with_company_str' => 'copy_field',
       'pol_bersani_ref_vehicle_number_plate_str' => 'copy_field',
       'pol_blukasko_str' => 'copy_field',
-      'pol_BM_particular_cases_str' => 'copy_field',
+#      'pol_BM_particular_cases_str' => 'copy_field',
       'pol_car_already_insured_with_company_str' => 'copy_field',
       'pol_claims_total_number_str' => 'copy_field',
       'pol_cohabiting_children_str' => 'copy_field',

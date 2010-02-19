@@ -3,10 +3,10 @@
 # Module defined in specific_profile.rb file
 
 module Provider1Dialogo
-# da correggere il file di mara con gli input anziche gli x path
+  # da correggere il file di mara con gli input anziche gli x path
   def build_hash_sect_1()
 
-#     target_values["fname_fvalue"]
+    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
@@ -231,9 +231,62 @@ module Provider1Dialogo
       {'driv_birth_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'driv_birth_province_str' => 'VI'} => 'VICENZA',
       {'driv_birth_province_str' => 'VT'} => 'VITERBO',
-     
-# da correggere il file di mara con gli input anziche gli x path
-    }
+      {'pol_BM_assigned_str' => '1'} => '1',
+      {'pol_BM_assigned_str' => '2'} => '2',
+      {'pol_BM_assigned_str' => '3'} => '3',
+      {'pol_BM_assigned_str' => '4'} => '4',
+      {'pol_BM_assigned_str' => '5'} => '5',
+      {'pol_BM_assigned_str' => '6'} => '6',
+      {'pol_BM_assigned_str' => '7'} => '7',
+      {'pol_BM_assigned_str' => '8'} => '8',
+      {'pol_BM_assigned_str' => '9'} => '9',
+      {'pol_BM_assigned_str' => '10'} => '10',
+      {'pol_BM_assigned_str' => '11'} => '11',
+      {'pol_BM_assigned_str' => '12'} => '12',
+      {'pol_BM_assigned_str' => '13'} => '13',
+      {'pol_BM_assigned_str' => '14'} => '14',
+      {'pol_BM_assigned_str' => '15'} => '15',
+      {'pol_BM_assigned_str' => '16'} => '16',
+      {'pol_BM_assigned_str' => '17'} => '17',
+      {'pol_BM_assigned_str' => '18'} => '18',
+      {'veh_km_per_yr_num' => 'COPY'} => '(va scritto proprio)',
+      {'pol_bersani_str' => 'Veicolo   '} => '/html/body/div/div[3]/div/form/fieldset/div[3]/div/div/table/tbody/tr/td/label/input',
+      {'pol_driver_is_owner_str' => 'no'} => '/html/body/div/div[3]/div/form/span[2]/fieldset/div[4]/table/tbody/tr/td[2]/table/tbody/tr/td[2]/label/input',
+      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '€ 10.000.000,00 - € 10.000.000,00 - € 10.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '€ 5.000.000,00 - € 5.000.000,00 - € 5.000.000,00',
+      {'pol_BM_assigned_str' => '-1'} => '1 da almeno un anno',
+      {'pol_insurance_situation_str' => 'veicolo gi\' assicurato con atr'} => 'contentSubView:contentForm:attualeSituazione',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'contentSubView:contentForm:attualeSituazione',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'contentSubView:contentForm:attualeSituazione',
+      {'pol_bersani_str' => 'Convivente'} => 'contentSubView:contentForm:bonusMalusRadio',
+      {'pol_bersani_str' => 'No'} => 'contentSubView:contentForm:bonusMalusRadio',
+      {'pol_driving_type_str' => 'definita'} => 'contentSubView:contentForm:chooseAuto:casoAss',
+      {'pol_driving_type_str' => 'libera'} => 'contentSubView:contentForm:chooseAuto:casoAss',
+      {'pol_driving_type_str' => 'esclusiva'} => 'contentSubView:contentForm:chooseAuto:casoAss',
+      {'veh_num_of_owners_str' => '1'} => 'contentSubView:contentForm:chooseAuto:Cointest',
+      {'pol_subscriber_is_driver_str' => 'si'} => 'contentSubView:contentForm:chooseAuto:contrIsDriv',
+      {'pol_subscriber_is_driver_str' => 'no        '} => 'contentSubView:contentForm:chooseAuto:contrIsDriv',
+      {'pol_subscriber_is_owner_str' => 'si'} => 'contentSubView:contentForm:chooseAuto:contrIsOwn',
+      {'own_owner_sex_str' => 'M'} => 'contentSubView:contentForm:MFRProprietario',
+      {'own_owner_sex_str' => 'F'} => 'contentSubView:contentForm:MFRProprietario',
+      {'own_owner_sex_str' => 'C'} => 'contentSubView:contentForm:MFRProprietario',
+      {'pol_driver_is_owner_str' => 'si'} => 'contentSubView:contentForm:ProprietarioConducente',
+      {'pol_driver_sex_str' => 'M'} => 'contentSubView:contentForm:SessoConducente',
+      {'pol_driver_sex_str' => 'F'} => 'contentSubView:contentForm:SessoConducente',
+      {'veh_vehicle_use_str' => 'privato'} => 'contentSubView:contentForm:vehicleUsage',
+      {'pol_assistance_str' => 'TRUE'} => 'contentSubView:quotationTabletForm:proposalTable:1:_id147',
+      {'pol_legal_assistance_str' => 'TRUE'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
+      {'pol_driver_accident_str' => 'TRUE'} => 'contentSubView:quotationTabletForm:proposalTable:3:_id147',
+      {'pol_instalment_str' => 'ANNUALE'} => 'contentSubView:quotationTabletForm:proposalTable:8:_id147',
+      {'pol_instalment_str' => 'SEMESTRALE'} => 'contentSubView:quotationTabletForm:proposalTable:9:_id147',
+      {'pol_number_plate_type_str' => 'definitiva'} => 'contentSubView:vehicleForm:foreignRegistration',
+      {'veh_vehicle_shelter_str' => 'box privato'} => 'contentSubView:vehicleForm:garage',
+      {'veh_tow_hook_str' => 'no'} => 'contentSubView:vehicleForm:hook',
+      {'driv_driving_license_yrs_str' => 'TRUE'} => 'Dovrebbe esserci un if nella regola di traduzione',
+ }
 
 
 
@@ -277,7 +330,7 @@ module Provider1Dialogo
 
 
 
-#  costruisci hash ["field_name + field_value","target"]
+    #  costruisci hash ["field_name + field_value","target"]
   end
 
 

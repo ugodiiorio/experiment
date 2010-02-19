@@ -193,7 +193,7 @@ begin
 
   include module_name.camelize.constantize
 
-  build_hash = "build_hash_rules_" + @sector_id.to_s + "()"
+  build_hash = "build_hash_" + @sector_id.to_s + "()"
 
   eval build_hash
 

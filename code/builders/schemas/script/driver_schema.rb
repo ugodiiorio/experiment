@@ -39,8 +39,8 @@ class BuildDriverSchema
 			driv_toponym_str			VARCHAR(128),
       driv_education_str			VARCHAR(128),
       driv_vat_number_str VARCHAR(128),
-      driv_denomination_company_str  VARCHAR(64)
-			)
+      driv_denomination_company_str  VARCHAR(64),
+      )
 		;")
 
     mysql.query("  CREATE  INDEX own_spec_index   ON " + @db_default_driver + ".profiles_personal_data(own_owner_specification_str)
@@ -62,6 +62,7 @@ driv_driver_sex_str	VARCHAR(128),
 driv_driving_license_points_str	VARCHAR(128),
 driv_driving_license_type_str	VARCHAR(128),
 driv_driving_license_year_of_issue_str	VARCHAR(4),
+driv_driving_license_month_of_issue_str	VARCHAR(16),
 driv_driving_license_yrs_str	VARCHAR(128),
 driv_heir_str	VARCHAR(128),
 driv_italian_residence_starting_yrs_num	INT,
@@ -322,6 +323,7 @@ driv_driver_sex_str	VARCHAR(128),
 driv_driving_license_points_str	VARCHAR(128),
 driv_driving_license_type_str	VARCHAR(128),
 driv_driving_license_year_of_issue_str	VARCHAR(4),
+driv_driving_license_month_of_issue_str	VARCHAR(16),
 driv_driving_license_yrs_str	VARCHAR(128),
 driv_heir_str	VARCHAR(128),
 driv_italian_residence_starting_yrs_num	INT,
