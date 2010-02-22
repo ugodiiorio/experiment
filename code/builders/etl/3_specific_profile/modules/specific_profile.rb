@@ -9,7 +9,8 @@ module Specific_Profile
     @dbh.query_with_result = true
 
     stmt_companies = @dbh.prepare(@stmt_sel_company)
-    stmt_companies.execute(@company_group_id)
+    stmt_companies.execute(@company_group_id, @company_id)
+    raise RangeError, "No " + @company_id + " company exist for specified companies group " + @company_group_id  if stmt_companies.affected_rows() == 0
     while row_company = stmt_companies.fetch do
 
       @company_id = row_company[0]

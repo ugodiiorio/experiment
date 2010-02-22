@@ -51,8 +51,8 @@ def init()
     app_settings = {:as_select_stmt_profile =>nil, :as_select_stmt_filtered_profile =>nil, :as_select_stmt_company =>nil,
                         :as_select_stmt_translated =>nil, :as_select_stmt_rules =>nil,
                         :as_insert_stmt_profile =>nil, :as_update_stmt_profile => nil,
-                        :as_provider_id =>nil, :as_sector_id =>nil,
-                        :as_company_group_id =>nil, :as_working_set_id =>nil} unless app_settings
+                        :as_provider_id =>nil, :as_sector_id =>nil, :as_working_set_id =>nil,
+                        :as_company_group_id =>nil, :as_company_id =>nil} unless app_settings
     logger_settings = {:ls_device =>nil,
                        :ls_level =>nil,
                        :ls_datetime_format =>nil} unless logger_settings
@@ -76,6 +76,7 @@ def init()
   @provider_id = app_settings['as_provider_id']
   @sector_id = app_settings['as_sector_id']
   @company_group_id = app_settings['as_company_group_id']
+  app_settings['as_company_id'].empty? ? @company_id = '%' : @company_id = app_settings['as_company_id']
   @working_set_id = app_settings['as_working_set_id']
 
   @log_device = logger_settings['ls_device'] || "/home/notroot/git/piper_nigrum/builders/log/etl.log"
@@ -83,7 +84,6 @@ def init()
   @datetime_format = logger_settings['ls_datetime_format'] || "%Y-%m-%d %H:%M:%S"
 
   @id_profile, @profile_num, @row_num = 0, 0, 0
-  @company_id = 'quixa'
 
 end
 

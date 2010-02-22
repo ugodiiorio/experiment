@@ -32,7 +32,7 @@ class BuildMonitorSchema
             result_str  varchar(10) DEFAULT NULL,
             result_message_str_str varchar(256) DEFAULT NULL,
             PRIMARY KEY (key_insurance_profiles_id_num,key_provider_id_str,key_sector_id_str,key_company_id_str,key_working_set_id_str)
-            );"
+            ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;"
             )
 
    

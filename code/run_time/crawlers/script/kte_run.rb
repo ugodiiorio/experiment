@@ -77,7 +77,6 @@ begin
   @compagnia_input 				      = ARGV[1] || general_settings['gs_company'] || "quixa"
   @port 							          = ARGV[2] || general_settings['gs_selenium_port'] || "4444"
   $source 						          = ARGV[3] || general_settings['gs_source_type'] || "216"
-  $range 							          = ARGV[4] || general_settings['gs_optional_range'] || ""
   $sleep_input					         = ARGV[6] || general_settings['gs_typing_sleep_in_seconds'] || "1"
   $rilevazione	  				        = ARGV[7] || general_settings['gs_execution_id'] || "99"
   $sleep_profilo                  = ARGV[8] || general_settings['gs_profile_sleep_in_seconds'] || "10" # sleep in seconds between one profile execution and the next
@@ -97,8 +96,9 @@ begin
   $db_ip 							          = ARGV[5] || database_settings[':ds_db_host'] || "localhost"
   $db_conn_user                 = ARGV[17] || database_settings[':ds_conn_user'] || 'Robot'
   $db_conn_pwd                 = ARGV[18] || database_settings[':ds_conn_pwd'] || ''
+  $db_default                 = ARGV[19] || database_settings[':ds_db_default'] || ''
 
-  start_date                = ARGV[19] || app_settings[':as_detection_date'] || '10th day next month'
+  start_date                = ARGV[20] || app_settings[':as_detection_date'] || '10th day next month'
   $detection_date                    = Chronic.parse(start_date)
 
   #$Compagnia_file = @compagnia_input
@@ -118,7 +118,6 @@ begin
     @@logger.info('init => ' + @compagnia_input) {"profilo assicurativo: " + @profilo_assicurativo_input}
     @@logger.info('init => ' + @compagnia_input) {"porta: " + @port}
     @@logger.info('init => ' + @compagnia_input) {"sorgente: " + $source.to_s()}
-    @@logger.info('init => ' + @compagnia_input) {"range: " + $range.to_s()}
     @@logger.info('init => ' + @compagnia_input) {"ip del database: " + $db_ip.to_s()}
     @@logger.info('init => ' + @compagnia_input) {"sleep time: " + $sleep_input.to_s()}
     @@logger.info('init => ' + @compagnia_input) {"sleep_profilo: " + $sleep_profilo.to_s()}
@@ -129,32 +128,8 @@ begin
     raise ex
   end
 
-  case $range
-  when "lotto1"
-    #	$range_start = 1
-    #	$range_stop = 864
-    $range_start = 1
-    $range_stop = 400
-    @@logger.info('init => ' + @compagnia_input) {"Range start: " + $range_start.to_s()}
-    @@logger.info('init => ' + @compagnia_input) {"Range stop: " + $range_stop.to_s()}
-  when "lotto2"
-    $range_start = 865
-    $range_stop = 1728
-    @@logger.info('init => ' + @compagnia_input) {"Range start: " + $range_start.to_s()}
-    @@logger.info('init => ' + @compagnia_input) {"Range stop: " + $range_stop.to_s()}
-  when "lotto3"
-    $range_start = 1729
-    $range_stop = 2592
-  else
-    $range_start = 1
-    $range_stop = 2592
-  end
-
   cag = CheckAndGo.new()
   k = cag.profiles_number(@compagnia_input).to_i()
-  if $source == "2592"
-    k = $range_stop.to_i()
-  end
 
   $max_profili = k if $max_profili.to_i() == 0
   @@logger.info('init => ' + @compagnia_input) {"max profiles: " + $max_profili.to_s()}
@@ -224,7 +199,7 @@ begin
         @@logger.info('init => ' + @compagnia_input) {"Executed profiles: "+  count_profili.to_s()}
       end
     else #il profilo assicurativo non è fissato
-      i = $range_start.to_i()
+      i = 1
       while i <= k do
         chk_executed = false
         @profilo_assicurativo = i

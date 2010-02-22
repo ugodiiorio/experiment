@@ -5,29 +5,13 @@ require "mysql"
 
 class Table_reader_utilities
 
-	def Num_column_profiles(profilo_assicurativo)
-		mysql = Mysql.init()
-		mysql = Mysql.real_connect($db_ip, $db_conn_user, $db_conn_pwd, "Quixa_technical")
-		
-		profilo_assicurativo = profilo_assicurativo.to_s()
-		
-		res = mysql.query("SELECT * FROM profili_assicurativi_" + $source + " WHERE id_profilo_assicurativo = '"+ profilo_assicurativo +"'")		
-		
-		return res.num_fields		
-	end
-	
 	def Num_rows_profiles()
 		mysql = Mysql.init()
-		mysql = Mysql.real_connect($db_ip, $db_conn_user, $db_conn_pwd, "Quixa_technical")
+		mysql = Mysql.real_connect($db_ip, $db_conn_user, $db_conn_pwd, $db_default)
 		
-		if $source == "216"
-			res = mysql.query("Select * From profili_assicurativi_216 ")
-			k = res.num_rows
-		else
-			k = ($range_stop-$range_start).to_s()
+      res = mysql.query("Select * from profili_assicurativi_216")
+      k = res.num_rows
 			
-		end
-		
 		puts " - Numero profili da eseguire: "+ k.to_s()	
 		
 		return k
