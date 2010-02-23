@@ -1,0 +1,1747 @@
+# Logfile created on Mon Feb 22 15:13:29 +0100 2010 by logger.rb/85
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-MI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PD' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-GO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_coming_from_company_str-generali' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-N' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-S' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_insurance_situation_str-veicolo gia'' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_leasing_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_1_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_4_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-N/A' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_payment_str-carta di credito' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_alarm_str-immobilizer' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-D' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-B' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-Casa-Lavoro' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-Tempo liber' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_km_per_yr_num-15000' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_vehicle_use_str-privato' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_vehicle_value_str-5000' for key 1
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-MI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PD' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-GO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_client_type_str-persona fisica' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_coming_from_company_str-generali' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-N' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-S' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_insurance_situation_str-veicolo gia'' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_leasing_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_1_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_4_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-N/A' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_payment_str-carta di credito' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_alarm_str-immobilizer' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-D' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-B' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-Casa-Lavoro' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-Tempo liber' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_km_per_yr_num-15000' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_vehicle_value_str-5000' for key 1
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-MI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PD' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-GO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_client_type_str-persona fisica' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_coming_from_company_str-generali' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-N' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-S' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_insurance_situation_str-veicolo gia'' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_leasing_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_1_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_4_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-N/A' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_payment_str-carta di credito' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_alarm_str-immobilizer' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-B' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-D' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-casa-lavoro' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-tempo liber' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_km_per_yr_num-15000' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_vehicle_value_str-5000' for key 1
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-MI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-VA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PD' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-PR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_residence_province_str-GO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_client_type_str-persona fisica' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_coming_from_company_str-generali' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-N' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_driver_less_than_26_yrs_str-S' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_insurance_situation_str-veicolo gia'' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_leasing_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_1_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_2_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_3_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_4_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_5_yr_str-N/A' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_nr_of_paid_claims_this_yr_str-0' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_payment_str-carta di credito' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_alarm_str-immobilizer' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-B' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_fuel_str-D' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-casa-lavoro' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_habitual_vehicle_use_str-tempo liber' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_km_per_yr_num-15000' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-quixa-veh_vehicle_value_str-5000' for key 1
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_birth_state_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_civil_status_str-Coniugato senza fi' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_driving_license_points_str-20' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_driving_license_type_str-B' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_residence_same_as_home_address_str-' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_client_type_str-persona fisica' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_cohabiting_children_str-si' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_defined_drive_str-si' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_defined_drive_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_driving_license_suspension_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_drunkenness_fine_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_exclusive_drive_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_free_drive_str-si' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_free_drive_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_how_do_you_know_the_company_str-pass' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_insurance_situation_str-veicolo gia'' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_other_vehicle_use_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_privacy_1_str-id elemento web1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-MI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-VA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-PV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-PD' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-PR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-GO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_subscriber_is_driver_str-si' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_subscriber_is_owner_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_alarm_str-immobilizer' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_fuel_str-B' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_fuel_str-D' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_habitual_vehicle_use_str-casa-lavoro' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_habitual_vehicle_use_str-tempo liber' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_km_per_yr_num-15000' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_modification_made_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_new_used_vehicle_str-U' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_new_used_vehicle_str-N' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_vehicle_shelter_str-box privato' for key 1
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_birth_state_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_civil_status_str-Coniugato senza fi' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_driving_license_points_str-20' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_driving_license_type_str-B' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-driv_residence_same_as_home_address_str-' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_client_type_str-persona fisica' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_cohabiting_children_str-si' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_defined_drive_str-si' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_defined_drive_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_driving_license_suspension_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_drunkenness_fine_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_exclusive_drive_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_free_drive_str-si' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_free_drive_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_how_do_you_know_the_company_str-pass' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_insurance_situation_str-veicolo gia'' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_other_vehicle_use_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_privacy_1_str-id elemento web1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_public_liability_indemnity_limit_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-MI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-VA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-PV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-PD' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-PR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_residence_province_str-GO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_subscriber_is_driver_str-si' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-pol_subscriber_is_owner_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_alarm_str-immobilizer' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_fuel_str-B' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_fuel_str-D' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_habitual_vehicle_use_str-casa-lavoro' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_habitual_vehicle_use_str-tempo liber' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_km_per_yr_num-15000' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_modification_made_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_new_used_vehicle_str-U' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_new_used_vehicle_str-N' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-conte-veh_vehicle_shelter_str-box privato' for key 1
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driving_license_yrs_str-23' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driving_license_yrs_str-22' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driving_license_yrs_str-21' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driving_license_yrs_str-46' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driving_license_yrs_str-10' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driving_license_yrs_str-16' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driving_license_yrs_str-14' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driver_is_owner_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driving_type_str-esperta' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driving_type_str-libera' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_how_do_you_know_the_company_str-pa' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_insurance_situation_str-veicolo gi' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driver_is_owner_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driving_type_str-esperta' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driving_type_str-libera' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_how_do_you_know_the_company_str-pa' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_insurance_situation_str-veicolo gi' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driver_is_owner_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driving_type_str-esperta' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driving_type_str-libera' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_how_do_you_know_the_company_str-pa' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_insurance_situation_str-veicolo gi' for key 1
+Error code: 1048
+Error SQLSTATE: 23000
+Error message: Column 'field_value_str' cannot be null
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_citizenship_str-ITALIA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-own_owner_specification_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driver_is_owner_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driving_type_str-esperta' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_driving_type_str-libera' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_how_do_you_know_the_company_str-pa' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-dialogo-pol_insurance_situation_str-veicolo gi' for key 1
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-driv_civil_status_str-Coniugato sen' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-driv_driver_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-driv_driver_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-own_owner_sex_str-F' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-own_owner_sex_str-M' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_bersani_ref_car_already_insured' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_bersani_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_BM_assigned_str-5' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_BM_assigned_str--1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_BM_assigned_str-11' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_BM_assigned_str-7' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_BM_assigned_str-6' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_BM_assigned_str-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_car_already_insured_with_compan' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_coming_from_BM_num-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_driver_less_than_26_yrs_str-N' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_driver_less_than_26_yrs_str-S' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_family_car_num-1' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_family_members_insured_with_com' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_how_do_you_know_the_company_str' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_instalment_str-annuale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_instalment_str-semestrale' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_insurance_situation_str-veicolo' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_public_liability_exemption_str-' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_public_liability_indemnity_limi' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_public_liability_indemnity_limi' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_residence_province_str-MI' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_residence_province_str-VA' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_residence_province_str-PV' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_residence_province_str-PD' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_residence_province_str-PR' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_residence_province_str-GO' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_subscriber_is_driver_str-si' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-pol_subscriber_is_owner_str-no' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-veh_alarm_str-immobilizer' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-veh_habitual_vehicle_use_str-casa-l' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-veh_habitual_vehicle_use_str-tempo ' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-veh_km_per_yr_num-15000' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-veh_vehicle_shelter_str-box privato' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-veh_vehicle_use_str-privato' for key 1
+Error code: 1062
+Error SQLSTATE: 23000
+Error message: Duplicate entry 'provider_1-sect_1-directline-veh_vehicle_value_str-5000' for key 1
+Finishing process ...
+Starting process ...
+yaml config file /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script/build_translated_fields.rb.yml succesfully open
+Finishing process ...

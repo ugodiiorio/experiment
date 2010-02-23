@@ -8,7 +8,7 @@ app_settings:
   as_provider_id: "provider_1"
   as_sector_id: "sect_1"
   as_company_group_id: "all_provider_1"
-  as_company_id: "quixa"
+  as_company_id: "directline"
   as_working_set_id: "quixa_20100101"
   as_module_filename: "fields.rb"
 
