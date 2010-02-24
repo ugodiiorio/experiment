@@ -12,9 +12,9 @@ module Profile
 
     @dbh.query_with_result = true
     infield = {}
-    mapfield = {}
+#    mapfield = {}
 
-    stmt = @stmt_sel_input.sub("@@input_file_table@@", @input_file)
+    stmt = @stmt_sel_input.sub("@@input_file@@", @input_file)
     res_file = @dbh.query(stmt)
     res_file.each_hash do |file|
       @id += 1
@@ -26,11 +26,12 @@ module Profile
       @profile_num += stmt.affected_rows().to_i
       stmt.close
 
-      stmt = @stmt_sel_mapping.sub("@@provider_id@@", quote(@provider_id)).sub("@@sector_id@@", quote(@sector_id))
-      res_map = @dbh.query(stmt)
+      stmt_map = @dbh.prepare(@stmt_filter_mapping)
+      stmt_map.execute(@provider_id, @sector_id)
 
-      res_map.each_hash do |map|
-        map.collect { |key, value| mapfield[key.to_s.to_sym] = value }
+      while row_map = stmt_map.fetch do
+
+        mapfield = build_profile_fields_hash(row_map)
         profile_field = mapfield[:output_field_str]
         mapfield[:eval_str] ? value = eval(mapfield[:eval_str].to_s).to_s : value = nil 
 
@@ -40,7 +41,8 @@ module Profile
         stmt.close
 
       end
-      res_map.free
+      stmt_map.close
+
     end
   #  puts "Number of file rows returned: #{res_file.num_rows}"
     @row_num += res_file.num_rows.to_i
@@ -48,8 +50,17 @@ module Profile
 
   end
 
-  def quote(s)
-    return "'" + s + "'"
+  def build_profile_fields_hash(row_map)
+
+    id = 0
+    mapfield = {}
+
+    row_map.each do |map_value|
+      mapfield = mapfield.merge({ @fieldname[id].to_sym => map_value }) if @fieldname[id]
+      id += 1
+    end
+    return mapfield
+
   end
 
 end

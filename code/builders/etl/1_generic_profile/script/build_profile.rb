@@ -46,8 +46,8 @@ def init()
     raise ex
   ensure
     config = {:app_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
-    app_settings = {:as_select_stmt_profile => nil, :as_select_stmt_input => nil,
-                        :as_select_stmt_mapping => nil, :as_insert_stmt_profile => nil, :as_update_stmt_profile => nil,
+    app_settings = {:as_select_stmt_mapping => nil, :as_select_stmt_input => nil,
+                        :as_select_stmt_filtered_mapping => nil, :as_insert_stmt_profile => nil, :as_update_stmt_profile => nil,
                         :as_provider_id => nil, :as_sector_id => nil, :as_input_file => nil,
                         :as_company_group_id => nil, :as_working_set_id => nil} unless app_settings
     logger_settings = {:ls_device =>nil,
@@ -67,9 +67,9 @@ def init()
 
   @stmt_ins_profile = app_settings['as_insert_stmt_profile']
   @stmt_upd_profile = app_settings['as_update_stmt_profile']
-  @stmt_sel_profile = app_settings['as_select_stmt_profile']
-  @stmt_sel_input = app_settings['as_select_stmt_input']
   @stmt_sel_mapping = app_settings['as_select_stmt_mapping']
+  @stmt_sel_input = app_settings['as_select_stmt_input']
+  @stmt_filter_mapping = app_settings['as_select_stmt_filtered_mapping']
   @input_file = app_settings['as_input_file']
   @provider_id = app_settings['as_provider_id']
   @sector_id = app_settings['as_sector_id']
@@ -171,40 +171,26 @@ end
 
 def get_column_info()
 
-  stmt = @stmt_sel_profile 
-  @fieldnum = {}
+  stmt = @stmt_sel_mapping
+  @fieldname = {}
   @dbh.query_with_result = false
   @dbh.query(stmt)
   res = @dbh.use_result
 
-  puts "Statement: #{stmt}"
-  if res.nil? then
-   puts "Statement has no result set"
-   printf "Number of rows affected: %d\n", @dbh.affected_rows
-  else
-   puts "Statement has a result set"
-   printf "Number of rows: %d\n", res.num_rows
-   printf "Number of columns: %d\n", res.num_fields
-   res.fetch_fields.each_with_index do |info, i|
+  res.fetch_fields.each_with_index do |info, i|
+    @fieldname = @fieldname.merge({i => info.name})
 #     puts info.class
-     printf "--- Column %d (%s) ---\n", i, info.name
-     puts info.is_pri_key?
-     @fieldnum = @fieldnum.merge({info.name.to_sym => info.is_num?})
-     puts @fieldnum[info.name.to_sym]
-   end
-   res.free
-  end
+#     printf "--- Column %d (%s) ---\n", i, info.name
+#     puts info.is_pri_key?
+#     puts @fieldname[i]
+    end
+  res.free
 
 end
 
 def summary()
   puts "Number of input rows parsed: #{@row_num}"
   puts "Number of profile rows inserted: #{@profile_num}"
-  stmt = @dbh.prepare(@stmt_sel_profile)
-  stmt.execute
-  puts "Number of profile rows updated: #{stmt.affected_rows()}"
-  stmt.close
-
 end
 
 def disconnect
@@ -231,7 +217,7 @@ begin
 
 #  create_schema() # uncomment to create and use dummy tables with foo data
 
-#  get_column_info() # not yet used
+  get_column_info() # not yet used
 
   include Profile
   build_profile()
