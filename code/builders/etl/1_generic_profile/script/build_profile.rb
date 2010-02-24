@@ -46,10 +46,10 @@ def init()
     raise ex
   ensure
     config = {:app_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
-    app_settings = {:as_select_stmt_profile =>nil, :as_select_stmt_input =>nil,
-                        :as_select_stmt_mapping =>nil, :as_insert_stmt_profile =>nil, :as_update_stmt_profile => nil,
-                        :as_provider_id =>nil, :as_sector_id =>nil,
-                        :as_company_group_id =>nil, :as_working_set_id =>nil} unless app_settings
+    app_settings = {:as_select_stmt_profile => nil, :as_select_stmt_input => nil,
+                        :as_select_stmt_mapping => nil, :as_insert_stmt_profile => nil, :as_update_stmt_profile => nil,
+                        :as_provider_id => nil, :as_sector_id => nil, :as_input_file => nil,
+                        :as_company_group_id => nil, :as_working_set_id => nil} unless app_settings
     logger_settings = {:ls_device =>nil,
                        :ls_level =>nil,
                        :ls_shift_age =>nil,
@@ -70,6 +70,7 @@ def init()
   @stmt_sel_profile = app_settings['as_select_stmt_profile']
   @stmt_sel_input = app_settings['as_select_stmt_input']
   @stmt_sel_mapping = app_settings['as_select_stmt_mapping']
+  @input_file = app_settings['as_input_file']
   @provider_id = app_settings['as_provider_id']
   @sector_id = app_settings['as_sector_id']
   @company_group_id = app_settings['as_company_group_id']

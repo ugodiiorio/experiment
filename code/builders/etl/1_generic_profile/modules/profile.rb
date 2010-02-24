@@ -14,7 +14,7 @@ module Profile
     infield = {}
     mapfield = {}
 
-    stmt = @stmt_sel_input
+    stmt = @stmt_sel_input.sub("@@input_file_table@@", @input_file)
     res_file = @dbh.query(stmt)
     res_file.each_hash do |file|
       @id += 1
@@ -26,7 +26,7 @@ module Profile
       @profile_num += stmt.affected_rows().to_i
       stmt.close
 
-      stmt = @stmt_sel_mapping
+      stmt = @stmt_sel_mapping.sub("@@provider_id@@", quote(@provider_id)).sub("@@sector_id@@", quote(@sector_id))
       res_map = @dbh.query(stmt)
 
       res_map.each_hash do |map|
@@ -46,6 +46,10 @@ module Profile
     @row_num += res_file.num_rows.to_i
     res_file.free
 
+  end
+
+  def quote(s)
+    return "'" + s + "'"
   end
 
 end
