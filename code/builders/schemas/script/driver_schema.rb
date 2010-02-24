@@ -579,7 +579,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     mysql.query("CREATE TABLE " + @db_default_driver + ".field_mapping (
         key_provider_id_str 	VARCHAR(32)  NOT NULL,
         key_sector_id_str 	VARCHAR(32)  NOT NULL,
-        output_field_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,output_field_str),
+        key_output_field_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,key_output_field_str),
         eval_str		TEXT
         )
 			;")
@@ -607,8 +607,8 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         key_provider_id_str 	VARCHAR(32)  NOT NULL,
         key_sector_id_str 	VARCHAR(32)  NOT NULL,
         key_company_id_str 	VARCHAR(32)  NOT NULL,
-        field_name_str 	VARCHAR(256)  NOT NULL,
-        field_value_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,key_company_id_str,field_name_str,field_value_str),
+        key_field_name_str 	VARCHAR(256)  NOT NULL,
+        key_field_value_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,key_company_id_str,key_field_name_str,key_field_value_str),
 				target_value_str		VARCHAR(256)
         )
 			;")
@@ -617,7 +617,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         key_provider_id_str 	VARCHAR(32)  NOT NULL,
         key_sector_id_str 	VARCHAR(32)  NOT NULL,
         key_company_id_str 	VARCHAR(32)  NOT NULL,
-        field_name_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,key_company_id_str,field_name_str),
+        key_field_name_str 	VARCHAR(256)  NOT NULL,  PRIMARY KEY (key_provider_id_str,key_sector_id_str,key_company_id_str,key_field_name_str),
         rule_str TEXT
         )
 			;")
@@ -635,7 +635,7 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 			;")
 
 
-    mysql.query("CREATE TABLE " + @db_default_driver + ".prov1_sect1_input_file (
+    mysql.query("CREATE TABLE " + @db_default_driver + ".provider_1_sect_1_input_file (
         pol_record_id_str   VARCHAR(32) NOT NULL,
         Profilo_tecnico VARCHAR(128) NOT NULL,
         contatore   VARCHAR(128) NOT NULL,
@@ -669,6 +669,145 @@ timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 			;")
 
 
+mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_1_input_file (
+        pol_record_id_str VARCHAR(32) NOT NULL,
+        pol_policy_starting_date_str VARCHAR(128),
+        veh_make_str VARCHAR(128),
+        pol_matriculation_date_str VARCHAR(128),
+        veh_gas_methane_supply_str VARCHAR(128),
+        veh_kw_num VARCHAR(128),
+        veh_model_str VARCHAR(128),
+        veh_set_up_str VARCHAR(128),
+        veh_abs_str VARCHAR(128),
+        veh_airbag_str VARCHAR(128),
+        pol_client_type_str VARCHAR(128),
+        own_owner_sex_str VARCHAR(128),
+        own_birth_date_str VARCHAR(128),
+        pol_residence_province_str VARCHAR(128),
+        own_owner_zip_code_str VARCHAR(128),
+        pol_residence_str VARCHAR(128),
+        driv_driving_license_yrs_str VARCHAR(128),
+        driv_job_str VARCHAR(128),
+        pol_driver_sex_str VARCHAR(128),
+        pol_birth_date_str VARCHAR(128),
+        pol_driver_residence_province_str VARCHAR(128),
+        pol_driver_zip_code_str VARCHAR(128),
+        driv_residence_str VARCHAR(128),
+        pol_insurance_situation_str VARCHAR(128),
+        pol_bersani_str VARCHAR(128),
+        pol_driver_less_than_26_yrs_str VARCHAR(128),
+        pol_quotation_str VARCHAR(128),
+        pol_BM_assigned_str VARCHAR(128),
+        pol_nr_of_paid_claims_this_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_1_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_2_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_3_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_4_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_5_yr_str VARCHAR(128),
+        pol_claims_total_number_str VARCHAR(128),
+        pol_driving_type_str VARCHAR(128),
+        pol_public_liability_exemption_str VARCHAR(128),
+        pol_public_liability_indemnity_limit_str VARCHAR(128)
+       )
+     ;")
+
+    mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_2_input_file (
+        pol_record_id_str VARCHAR(32) NOT NULL,
+        pol_policy_starting_date_str VARCHAR(128),
+        veh_make_str VARCHAR(128),
+        pol_matriculation_date_str VARCHAR(128),
+        veh_capacity_num VARCHAR(128),
+        veh_model_str VARCHAR(128),
+        veh_set_up_str VARCHAR(128),
+        veh_passenger_transportation_str VARCHAR(128),
+        veh_max_capacity_ever_driven_str VARCHAR(128),
+        veh_make_previous_vehicle_str VARCHAR(128),
+        veh_max_make_previous_set_up_str VARCHAR(128),
+        pol_client_type_str VARCHAR(128),
+        own_owner_sex_str VARCHAR(128),
+        own_birth_date_str VARCHAR(128),
+        pol_residence_province_str VARCHAR(128),
+        own_owner_zip_code_str VARCHAR(128),
+        pol_residence_str VARCHAR(128),
+        driv_driving_license_yrs_str VARCHAR(128),
+        driv_driving_experience_str VARCHAR(128),
+        driv_job_str VARCHAR(128),
+        pol_driver_sex_str VARCHAR(128),
+        pol_birth_date_str VARCHAR(128),
+        pol_driver_residence_province_str VARCHAR(128),
+        pol_driver_zip_code_str VARCHAR(128),
+        driv_residence_str VARCHAR(128),
+        pol_insurance_situation_str VARCHAR(128),
+        pol_bersani_str VARCHAR(128),
+        pol_driver_less_than_26_yrs_str VARCHAR(128),
+        pol_quotation_str VARCHAR(128),
+        pol_BM_assigned_str VARCHAR(128),
+        pol_nr_of_paid_claims_this_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_1_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_2_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_3_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_4_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_5_yr_str VARCHAR(128),
+        pol_claims_total_number_str VARCHAR(128),
+        pol_driving_type_str VARCHAR(128),
+        pol_public_liability_exemption_str VARCHAR(128),
+        pol_public_liability_indemnity_limit_str VARCHAR(128)
+       )
+     ;")
+
+    mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_3_input_file (
+        pol_record_id_str VARCHAR(32) NOT NULL,
+        pol_policy_starting_date_str VARCHAR(128),
+        veh_passenger_transportation_str VARCHAR(128),
+        pol_client_type_str VARCHAR(128),
+        own_owner_sex_str VARCHAR(128),
+        own_birth_date_str VARCHAR(128),
+        pol_residence_province_str VARCHAR(128),
+        own_owner_zip_code_str VARCHAR(128),
+        pol_residence_str VARCHAR(128),
+        pol_driver_sex_str VARCHAR(128),
+        pol_birth_date_str VARCHAR(128),
+        pol_driver_residence_province_str VARCHAR(128),
+        pol_driver_zip_code_str VARCHAR(128),
+        driv_residence_str VARCHAR(128),
+        pol_insurance_situation_str VARCHAR(128),
+        pol_quotation_str VARCHAR(128),
+        pol_BM_assigned_str VARCHAR(128),
+        pol_nr_of_paid_claims_this_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_1_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_2_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_3_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_4_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_5_yr_str VARCHAR(128),
+        pol_claims_total_number_str VARCHAR(128),
+        pol_public_liability_exemption_str VARCHAR(128),
+        pol_public_liability_indemnity_limit_str VARCHAR(128)
+       )
+     ;")
+
+    mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_4_input_file (
+        pol_record_id_str VARCHAR(32) NOT NULL,
+        pol_policy_starting_date_str VARCHAR(128),
+        veh_third_party_str VARCHAR(128),
+        pol_matriculation_date_str VARCHAR(128),
+        veh_full_load_total_weight_num VARCHAR(128),
+        own_owner_zip_code_str VARCHAR(128),
+        pol_residence_province_str VARCHAR(128),
+        pol_residence_str VARCHAR(128),
+        pol_insurance_situation_str VARCHAR(128),
+        pol_quotation_str VARCHAR(128),
+        pol_BM_assigned_str VARCHAR(128),
+        pol_nr_of_paid_claims_this_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_1_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_2_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_3_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_4_yr_str VARCHAR(128),
+        pol_nr_of_paid_claims_5_yr_str VARCHAR(128),
+        pol_claims_total_number_str VARCHAR(128),
+        pol_public_liability_exemption_str VARCHAR(128),
+        pol_public_liability_indemnity_limit_str VARCHAR(128)
+       )
+     ;")
 
 
 

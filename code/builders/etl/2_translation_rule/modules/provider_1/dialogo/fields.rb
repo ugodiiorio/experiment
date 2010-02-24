@@ -285,6 +285,7 @@ module Provider1Dialogo
       {'veh_vehicle_shelter_str' => 'box privato'} => 'contentSubView:vehicleForm:garage',
       {'veh_tow_hook_str' => 'no'} => 'contentSubView:vehicleForm:hook',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola'
+      
  }
 
 

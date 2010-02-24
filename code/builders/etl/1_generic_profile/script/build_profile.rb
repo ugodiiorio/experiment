@@ -70,12 +70,12 @@ def init()
   @stmt_sel_mapping = app_settings['as_select_stmt_mapping']
   @stmt_sel_input = app_settings['as_select_stmt_input']
   @stmt_filter_mapping = app_settings['as_select_stmt_filtered_mapping']
-  @input_file = app_settings['as_input_file']
+  @input_file = app_settings['as_provider_id'].to_s + "_" + app_settings['as_sector_id'].to_s + "_input_file"
   @provider_id = app_settings['as_provider_id']
   @sector_id = app_settings['as_sector_id']
   @company_group_id = app_settings['as_company_group_id']
   @working_set_id = app_settings['as_working_set_id']
-
+  
   @log_device = logger_settings['ls_device'] || "/home/notroot/git/piper_nigrum/builders/log/etl.log"
   @log_level = logger_settings['ls_level'] || 2
   @datetime_format = logger_settings['ls_datetime_format'] || "%Y-%m-%d %H:%M:%S"

@@ -14,6 +14,8 @@ module Profile
     infield = {}
 #    mapfield = {}
 
+
+
     stmt = @stmt_sel_input.sub("@@input_file@@", @input_file)
     res_file = @dbh.query(stmt)
     res_file.each_hash do |file|
@@ -32,12 +34,12 @@ module Profile
       while row_map = stmt_map.fetch do
 
         mapfield = build_profile_fields_hash(row_map)
-        profile_field = mapfield[:output_field_str]
+        profile_field = mapfield[:key_output_field_str]
         mapfield[:eval_str] ? value = eval(mapfield[:eval_str].to_s).to_s : value = nil 
 
         stmt_upd_profile = @stmt_upd_profile.sub("@@profile_field@@", profile_field)
         stmt = @dbh.prepare(stmt_upd_profile)
-        stmt.execute(value, @id.to_s)
+        stmt.execute(value, @id.to_s, @provider_id, @sector_id, @company_group_id, @working_set_id)
         stmt.close
 
       end

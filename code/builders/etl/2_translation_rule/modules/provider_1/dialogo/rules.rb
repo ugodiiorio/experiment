@@ -52,7 +52,7 @@ module Provider1Dialogo
       'veh_vehicle_use_str' => 'translate_field',
       'own_owner_zip_code_str' => 'copy_field',
       'pol_public_liability_exemption_str' => 'copy_field',
-      'pol_nr_of_paid_claims_3_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[: pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[: pol_nr_of_paid_claims_2_yr_str].to_i; t= profilefield[: pol_nr_of_paid_claims_3_yr_str].to_i; sin= x+y+z+t',
+      'pol_nr_of_paid_claims_3_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[:pol_nr_of_paid_claims_2_yr_str].to_i; t= profilefield[:pol_nr_of_paid_claims_3_yr_str].to_i; sin= x+y+z+t',
       'pol_driving_type_str' => 'translate_field',
       'pol_easy_driver_str' => 'copy_field',
       'pol_number_plate_type_str' => 'translate_field',

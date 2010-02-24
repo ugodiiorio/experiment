@@ -52,7 +52,7 @@ def build_hash_sect_1()
 'pol_road_assistance_str' => 'copy_field',
 'pol_road_assistance_type_str' => 'copy_field',
 'pol_kasko_str' => 'copy_field',
-'pol_nr_of_paid_claims_5_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[: pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[: pol_nr_of_paid_claims_2_yr_str].to_i; t= profilefield[: pol_nr_of_paid_claims_3_yr_str].to_i; w= profilefield[: pol_nr_of_paid_claims_4_yr_str].to_i; q= profilefield[: pol_nr_of_paid_claims_5_yr_str].to_i; sin= x+y+z+t+w+q',
+'pol_nr_of_paid_claims_5_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[:pol_nr_of_paid_claims_2_yr_str].to_i; t= profilefield[:pol_nr_of_paid_claims_3_yr_str].to_i; w= profilefield[:pol_nr_of_paid_claims_4_yr_str].to_i; q= profilefield[:pol_nr_of_paid_claims_5_yr_str].to_i; sin= x+y+z+t+w+q',
 'pol_driver_accident_coverage_str' => 'copy_field',
 'pol_social_political_events_str' => 'copy_field',
 'veh_accesories_value_str' => 'copy_field',
