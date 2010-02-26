@@ -10,6 +10,7 @@ module Provider1Conte
     @rule_values ={}
 
     @rule_values = {
+      'driv_driving_license_month_of_issue_str' => 'copy_field',
       'pol_record_id_str' => 'copy_field',
       'driv_driver_sex_str' => 'translate_field',
       'pol_birth_date_str' => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = \'%d/%m/%Y\';data = data.strftime(european_date).to_s',

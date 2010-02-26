@@ -10,6 +10,7 @@ def build_hash_sect_1()
     @rule_values ={}
 
     @rule_values = {
+      'driv_driving_license_month_of_issue_str' => 'copy_field',
       'pol_birth_date_str' => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = \'%d/%m/%Y\';data = data.strftime(european_date).to_s',
 'pol_birth_date_year_num' => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = \'%Y\';data = data.strftime(european_date).to_s',
 'pol_birth_date_month_str' => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = \'%m\';data = data.strftime(european_date).to_s',

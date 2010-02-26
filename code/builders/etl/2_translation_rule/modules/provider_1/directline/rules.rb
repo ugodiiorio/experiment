@@ -9,7 +9,8 @@ def build_hash_sect_1()
 
     @rule_values ={}
 
-    @rule_values = { 
+    @rule_values = {
+      'driv_driving_license_month_of_issue_str' => 'copy_field',
       'driv_driver_sex_str' => 'translate_field',
 'driv_job_str' => 'job=profilefield[:driv_job_str]; jregexp_mod = "regexpi:([A-Za-z0-9])*";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ; el.split("/"); el.each do |el2|; jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)*(\\\\s)*" end; end ; jregexp_mod = jregexp_mod + "\\\\b" ;',
 'pol_assistance_str' => 'translate_field',

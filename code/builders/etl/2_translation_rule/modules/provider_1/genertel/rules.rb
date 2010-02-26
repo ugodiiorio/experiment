@@ -10,6 +10,7 @@ def build_hash_sect_1()
     @rule_values ={}
 
     @rule_values = {
+      'driv_driving_license_month_of_issue_str' => 'copy_field',
       'driv_birth_place_str' => 'copy_field',
 'driv_birth_province_str' => 'copy_field',
 'driv_driver_sex_str' => 'translate_field',
@@ -254,7 +255,6 @@ def build_hash_sect_1()
 'pol_supplementary_coverage_premium_id_str' => 'copy_field',
  'pol_act_of_vandalism_code_str' => 'copy_field',
       'pol_record_id_str' => 'copy_field',
-      'driv_job_2_str' => 'copy_field',
       'pol_additional_drivers_less_than_26_yrs_str'=> 'copy_field' ,
       'own_owner_sex_str' => 'copy_field',
       'pol_subscriber_is_holder_str'=> 'copy_field' ,

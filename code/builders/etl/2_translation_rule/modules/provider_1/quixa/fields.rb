@@ -11,9 +11,6 @@ module Provider1Quixa
     @target_values = {}
 
     @target_values = {
-      {'driv_birth_place_str' => 'CASALE CORTE CERRO'} => "CASALE CORTE CERRO",
-      {'driv_birth_province_str' => 'VB'} => "VERBANO CUSIO OSSOLA",
-      {'driv_birth_province_str' => 'VR'} => "VERONA",
       {'pol_bersani_str' => 'convivente'} => 'si, parente/convivente',
       {'pol_bersani_str' => 'veicolo'} => 'si, 2º veicolo del medesimo proprietario',
       {'pol_bersani_str' => 'no'} => 'no',
@@ -95,11 +92,12 @@ module Provider1Quixa
       {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'Casa-Lavoro e Tempo Libero',
       {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
       {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
-      {'veh_km_per_yr_num' => '15000'} => '10.000 - 20.000',
+      {'veh_km_per_yr_str' => '15000'} => '10.000 - 20.000',
       {'veh_vehicle_value_str' => '5000'} => '5000',
       {'own_owner_specification_str' => 'M' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
       {'own_owner_specification_str' => 'F' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
       {'own_owner_specification_str' => 'C' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal',
+       {'pol_RCA_premium_id_str' => 'id elemento' } => 'da tradurre',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',

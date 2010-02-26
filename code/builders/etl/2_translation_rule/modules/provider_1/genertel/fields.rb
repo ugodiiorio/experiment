@@ -11,6 +11,7 @@ module Provider1Genertel
     @target_values = Hash.new
 
     @target_values = {
+      {'driv_job_2_str' => 'campo tecnico per genertel'} => 'index 1',
       {'pol_nr_of_paid_claims_3_yr_str' => '0'} => '0',
       {'pol_BM_assigned_str' => '-1'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
