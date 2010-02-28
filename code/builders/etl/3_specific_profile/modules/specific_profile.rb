@@ -40,10 +40,14 @@ module Specific_Profile
   #        puts "Number of profile rows selected #{stmt_rules.affected_rows()}"
 
           while row_rule = stmt_rules.fetch do
-
             rule = row_rule[0]
-            comp_profile_value = eval(rule)
-  #          rule ? comp_profile_value = translate_field() : comp_profile_value = copy_field()
+
+            begin
+              comp_profile_value = eval(rule)
+    #          rule ? comp_profile_value = translate_field() : comp_profile_value = copy_field()
+            rescue Exception => e
+              raise RangeError, "Unexpected EVAL Error on: #{@profile_field.upcase} => #{@profile_value} with rule #{rule}\n***[#{e.message}]***"
+            end
 
             stmt_upd_profile = @stmt_upd_profile.sub("@@profile_field@@", @profile_field)
             stmt = @dbh.prepare(stmt_upd_profile)

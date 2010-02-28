@@ -12,18 +12,18 @@ class BuildMonitorSchema
 
 	def run()
 		
-		puts "\nLa attivita' di creazione tabelle dello schema monitor su host: "+ @db_host +" e' stata inizializzata..."
-		
-		mysql = Mysql.init()
-		mysql = Mysql.real_connect(@db_host, @db_user, @db_pwd)
+    puts "\nLa attivita' di creazione tabelle dello schema monitor su host: "+ @db_host +" e' stata inizializzata..."
+
+    mysql = Mysql.init()
+    mysql = Mysql.real_connect(@db_host, @db_user, @db_pwd)
 
 
-     mysql.query("CREATE SCHEMA IF NOT EXISTS " + @db_default_monitor + "
-		;")
-		
-		
-	
-			mysql.query("CREATE TABLE " + @db_default_monitor + ".scheduler (
+    mysql.query("CREATE SCHEMA IF NOT EXISTS " + @db_default_monitor + "
+    ;")
+
+
+
+    mysql.query("CREATE TABLE " + @db_default_monitor + ".scheduler (
            key_insurance_profiles_id_num 	int(5) UNSIGNED NOT NULL,
             key_provider_id_str 	VARCHAR(20) NOT NULL,
             key_sector_id_str 	VARCHAR(20)  NOT NULL,
@@ -35,16 +35,17 @@ class BuildMonitorSchema
             ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;"
             )
 
-   
-    
-					mysql.close()
+    mysql.query("  CREATE  INDEX result_index   ON " + @db_default_monitor + ".scheduler(result_str)
+    ;")
+
+    mysql.close()
 
 
-    	puts "\n - " + @db_default_monitor + " schema creation tables finished"
+    puts "\n - " + @db_default_monitor + " schema creation tables finished"
       
-		end
+  end
 									
-	end
+end
 	
 
 

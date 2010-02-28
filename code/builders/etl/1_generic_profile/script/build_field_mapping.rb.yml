@@ -2,8 +2,8 @@
 app_settings:
   as_select_stmt_profile: "SELECT * FROM insurance_profiles"
   as_insert_stmt_tr_rule: "INSERT INTO field_mapping (key_provider_id_str, key_sector_id_str, key_output_field_str, eval_str) VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE eval_str = ?"
-  as_provider_id: "provider_2"
-  as_sector_id: "sect_4"
+  as_provider_id: "provider_1"
+  as_sector_id: "sect_1"
   as_module_prefix: "field_mapping"
 
 logger_settings: 

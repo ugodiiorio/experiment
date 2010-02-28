@@ -35,7 +35,13 @@ module Profile
 
         mapfield = build_profile_fields_hash(row_map)
         profile_field = mapfield[:key_output_field_str]
-        mapfield[:eval_str] ? value = eval(mapfield[:eval_str].to_s).to_s : value = nil 
+        profile_field_value = mapfield[:eval_str]
+        
+        begin
+          mapfield[:eval_str] ? value = eval(mapfield[:eval_str].to_s).to_s : value = nil
+        rescue Exception => e
+          raise RangeError, "Unexpected [#{e.message}] EVAL Error on: #{profile_field.upcase} => #{profile_field_value}"
+        end
 
         stmt_upd_profile = @stmt_upd_profile.sub("@@profile_field@@", profile_field)
         stmt = @dbh.prepare(stmt_upd_profile)

@@ -10,8 +10,8 @@ app_settings:
   as_provider_id: "provider_1"
   as_sector_id: "sect_1"
   as_company_group_id: "all_provider_1"
-  as_company_id: "dialogo"
-  as_working_set_id: "prov_1_20100101"
+  as_company_id: "quixa"
+  as_working_set_id: "prov_1_20100201"
 
 logger_settings: 
   ls_device: "/home/notroot/git/KTE/code/builders/log/specific_profile.log"

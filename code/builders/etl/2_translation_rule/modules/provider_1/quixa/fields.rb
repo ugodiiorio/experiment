@@ -97,7 +97,7 @@ module Provider1Quixa
       {'own_owner_specification_str' => 'M' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
       {'own_owner_specification_str' => 'F' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
       {'own_owner_specification_str' => 'C' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal',
-       {'pol_RCA_premium_id_str' => 'id elemento' } => 'da tradurre',
+      {'pol_RCA_premium_id_str' => 'id elemento' } => 'da tradurre',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',
