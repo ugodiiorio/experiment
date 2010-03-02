@@ -264,7 +264,7 @@ module Provider1Conte
       {'pol_cohabiting_children_str' => 'si'} => 'page:figli_minori:0',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_instalment_str' => 'semestrale'} => 'Semestrale',
-      {'veh_km_per_yr_num' => '15000'} => '15',
+      {'veh_km_per_yr_str' => '15000'} => '15',
       {'pol_public_liability_indemnity_limit_str' => '3000000'} => '2,500,000',
       {'pol_public_liability_indemnity_limit_str' => '25000000'} => '25,000,000',
       {'pol_public_liability_indemnity_limit_str' => '18000000'} => '15,000,000',

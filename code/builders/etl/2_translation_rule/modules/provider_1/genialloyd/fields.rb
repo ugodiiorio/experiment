@@ -125,7 +125,7 @@ module Provider1Genialloyd
       {'pol_BM_assigned_str' => '1'} => '1 B/M',
       {'pol_BM_assigned_str' => '-1'} => '1 B/M da almeno un anno',
       {'pol_BM_assigned_str' => '10'} => '10 B/M',
-      {'veh_km_per_yr_num' => '15000'} => '10.000 - 20.000',
+      {'veh_km_per_yr_str' => '15000'} => '10.000 - 20.000',
       {'pol_BM_assigned_str' => '11'} => '11 B/M',
       {'pol_BM_assigned_str' => '12'} => '12 B/M',
       {'pol_BM_assigned_str' => '13'} => '13 B/M',
@@ -149,14 +149,13 @@ module Provider1Genialloyd
       {'pol_BM_assigned_str' => '9'} => '9 B/M',
       {'veh_vehicle_shelter_str' => 'box privato'} => 'box1',
       {'pol_bersani_str' => 'no'} => 'no',
-      {'pol_nr_of_paid_claims_2_yr_str' => '2'} => 'Due',
+#      {'pol_nr_of_paid_claims_2_yr_str' => '2'} => 'Due',
       {'pol_claims_total_number_str' => '2'} => 'Due',
       {'pol_driving_type_str' => 'esperta'} => 'guida1',
       {'pol_driving_type_str' => 'esclusiva'} => 'guida2',
       {'pol_driving_type_str' => 'libera'} => 'guida3',
       {'veh_alarm_str' => 'immobilizer'} => 'Immobilizer/Elettronico',
-      {'pol_matriculation_date_dt' => 'REGEXP'} => 'mm/aaaa',
-      {'pol_nr_of_paid_claims_2_yr_str' => '0'} => 'Nessuno',
+#      {'pol_nr_of_paid_claims_2_yr_str' => '0'} => 'Nessuno',
       {'pol_claims_total_number_str' => '0'} => 'Nessuno',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
       {'veh_vehicle_use_str' => 'privato'} => 'radio5',
@@ -170,14 +169,15 @@ module Provider1Genialloyd
       {'pol_bersani_str' => 'veicolo'} => 'situazione3',
       {'pol_client_type_str' => 'persona fisica'} => 'tipologia1',
       {'pol_client_type_str' => 'persona giuridica'} => 'tipologia4',
-      {'pol_nr_of_paid_claims_2_yr_str' => '1'} => 'Uno',
+#      {'pol_nr_of_paid_claims_2_yr_str' => '1'} => 'Uno',
       {'pol_claims_total_number_str' => '1'} => 'Uno',
       {'driv_driver_sex_str' => 'M'} => 'tipologia1',
       {'driv_driver_sex_str' => 'F'} => 'tipologia2',
       {'own_owner_sex_str' => 'M'} => 'tipologia1',
       {'driv_driver_sex_str' => 'C'} => 'tipologia4',
       {'own_owner_sex_str' => 'F'} => 'tipologia2',
-      {'own_owner_sex_str' => 'C'} => 'tipologia4'
+      {'own_owner_sex_str' => 'C'} => 'tipologia4',
+      {'pol_RCA_premium_id' => 'id elemento'} => 'da trovare'
 
 
 

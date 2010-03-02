@@ -176,12 +176,13 @@ module Provider1ZurichConnect
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Coniugato senza figli',
       {'driv_studies_str' => 'Diploma'} => 'Diploma',
       {'veh_num_of_owners_str' => '1'} => '1',
-       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '1'} => '1 anno',
-        {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '0'} => '0 anni',
-        {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '2'} => '2 anni',
-        {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '3'} => '3 anni',
-        {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '4'} => '4 anni',
-        {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '5'} => '5 anni'
+      {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '1'} => '1 anno',
+      {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '0'} => '0 anni',
+      {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '2'} => '2 anni',
+      {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '3'} => '3 anni',
+      {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '4'} => '4 anni',
+      {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '5'} => '5 anni',
+      {'pol_RCA_premium_id' => 'id elemento'} => 'lblvPremioAnnualeLordoSconto',
 
 
     }

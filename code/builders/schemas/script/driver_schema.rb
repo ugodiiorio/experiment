@@ -26,25 +26,25 @@ class BuildDriverSchema
 		
 		mysql.query("CREATE TABLE " + @db_default_driver + ".profiles_personal_data (
 			key_profiles_id_num 	INT UNSIGNED NOT NULL,
-      own_owner_specification_str	VARCHAR(128),
-			driv_name_str					VARCHAR(64) NOT NULL,
-			driv_surname_str		VARCHAR(64) NOT NULL,
-			driv_birth_place_str 			VARCHAR(128),
-			driv_address_street_str			VARCHAR(128),
-			driv_address_num_num			INT(2),
-			driv_phone_type_str			VARCHAR(128),
-			driv_mobile_prefix_num			INT(3),
-			driv_mobile_number_num			VARCHAR(128),
-			driv_e_mail_str 					VARCHAR(128),
-			driv_toponym_str			VARCHAR(128),
-      driv_education_str			VARCHAR(128),
-      driv_vat_number_str VARCHAR(128),
-      driv_denomination_company_str  VARCHAR(64),
+      pers_sex_str	VARCHAR(128),
+			pers_name_str					VARCHAR(64) NOT NULL,
+			pers_surname_str		VARCHAR(64) NOT NULL,
+			pers_birth_place_str 			VARCHAR(128),
+			pers_address_street_str			VARCHAR(128),
+			pers_address_num_num			INT(2),
+			pers_phone_type_str			VARCHAR(128),
+			pers_mobile_prefix_num			INT(3),
+			pers_mobile_number_num			VARCHAR(128),
+			pers_e_mail_str 					VARCHAR(128),
+			pers_toponym_str			VARCHAR(128),
+      pers_education_str			VARCHAR(128),
+      pers_vat_number_str VARCHAR(128),
+      pers_denomination_company_str  VARCHAR(64),
       PRIMARY KEY (key_profiles_id_num)
       )
 		;")
 
-    mysql.query("  CREATE  INDEX own_spec_index   ON " + @db_default_driver + ".profiles_personal_data(own_owner_specification_str)
+    mysql.query("  CREATE  INDEX sex_index   ON " + @db_default_driver + ".profiles_personal_data(pers_sex_str)
 		;")
 
 			mysql.query("CREATE TABLE " + @db_default_driver + ".insurance_profiles (

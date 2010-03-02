@@ -276,9 +276,13 @@ module Provider1Dialogo
       {'driv_driver_sex_str' => 'M'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="M"]',
       {'driv_driver_sex_str' => 'F'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="F"]',
       {'veh_vehicle_use_str' => 'privato'} => 'contentSubView:contentForm:vehicleUsage',
-#      {'pol_assistance_str' => 'TRUE'} => 'contentSubView:quotationTabletForm:proposalTable:1:_id147',
-#      {'pol_legal_assistance_str' => 'TRUE'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
-#      {'pol_driver_accident_str' => 'TRUE'} => 'contentSubView:quotationTabletForm:proposalTable:3:_id147',
+      #      {'pol_assistance_str' => 'TRUE'} => 'contentSubView:quotationTabletForm:proposalTable:1:_id147',
+      #      {'pol_legal_assistance_str' => 'TRUE'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
+      {'own_owner_specification_str' => 'M'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="M"]',
+      {'own_owner_specification_str' => 'F'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="F"]',
+      {'own_owner_specification_str' => 'C'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="E"]',
+
       {'pol_instalment_str' => 'annuale'} => 'contentSubView:quotationTabletForm:proposalTable:8:_id147',
       {'pol_instalment_str' => 'semestrale'} => 'contentSubView:quotationTabletForm:proposalTable:9:_id147',
       {'pol_number_plate_type_str' => 'definitiva'} => 'contentSubView:vehicleForm:foreignRegistration',
@@ -286,7 +290,7 @@ module Provider1Dialogo
       {'veh_tow_hook_str' => 'no'} => 'contentSubView:vehicleForm:hook',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola'
       
- }
+    }
 
 
 

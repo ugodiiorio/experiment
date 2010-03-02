@@ -9,7 +9,8 @@ def build_hash_sect_1()
 
     @rule_values ={}
 
-    @rule_values = { 
+    @rule_values = {
+      'veh_cf_num'=> 'copy_field',
       'driv_birth_place_str' => 'copy_field',
       'driv_birth_province_str' => 'copy_field',
       'driv_birth_state_str' => 'profilefield[:driv_birth_state_str] == "ITALIA" ? translate_field : "page:conducente_nazione:1"',
