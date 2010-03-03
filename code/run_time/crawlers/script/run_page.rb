@@ -2,34 +2,33 @@ require "rubygems"
 require "test/unit"
 require "test/unit/ui/console/testrunner"
 
-require "Companies_parameters/quixa.rb"
-require "Companies_parameters/dialogo.rb"
-require "Companies_parameters/genertel.rb"
-require "Companies_parameters/directline.rb"
-require "Companies_parameters/genialloyd.rb"
-require "Companies_parameters/linear.rb"
-require "Companies_parameters/zurich.rb"
-require "Companies_parameters/conte.rb"
+require "modules/quixa.rb"
+require "modules/dialogo.rb"
+require "modules/genertel.rb"
+require "modules/directline.rb"
+require "modules/genialloyd.rb"
+require "modules/linear.rb"
+require "modules/zurich.rb"
+require "modules/conte.rb"
 
-class Caller
-	def initialize(profilo_assicurativo, compagnia, port , rilevazione )
-		@profilo_assicurativo, $profilo_assicurativo = profilo_assicurativo, profilo_assicurativo
-		@compagnia, $compagnia = compagnia, compagnia
-		@port, $port = port, port
-		@id_test, $id_test = Time.new().to_s(), Time.new().to_s()
-    @rilevazione, $rilevazione = rilevazione, rilevazione
+module RunPage
 
-		$sleep = 0
-		if !($sleep_input == 0)
-			$sleep = $sleep_input.to_i + 0.01*rand(200)
-		end
+  MODULE_FOLDER = 'modules'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER, @provider_id, @company_id)
 
-		$browser = "*chrome"
-#		$browser = "*safari"
-		$time_out = $timeout_in_seconds
+	def page_setup()
+
+
+    load(DLN_LIBRARY_PATH + '/' + @module_filename)
+
+    module_name = @company + '_' + @sector
+    include module_name.camelize.constantize
+
+		$sleep_typing +=  0.01*rand(200) if $sleep_typing < 1
+
+		$browser = "*chrome" #"*safari"
 
     begin
-      @ep = {:profilo_assicurativo => @profilo_assicurativo, :compagnia => @compagnia, :id_test => @id_test, :port => @port , :rilevazione => @rilevazione}
 
       $writer 				= Writer.new(@ep)
       @reader 				= Reader.new()
@@ -38,6 +37,7 @@ class Caller
       @@logger.fatal('Caller.initialize => ' + @compagnia) {ex.message}
       raise
     end
+    
 	end
 	
 	def executor()

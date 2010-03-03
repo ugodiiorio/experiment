@@ -7,7 +7,7 @@
 gem "selenium-client", ">=1.2.13"
 require "selenium/client"
 
-class QuixaTest < Test::Unit::TestCase
+module QuixaSect1 #< Test::Unit::TestCase
   
   def setup
     begin
@@ -27,7 +27,7 @@ class QuixaTest < Test::Unit::TestCase
         :port => $port,
         :browser => $browser,
         :url => "http://www.quixa.it",
-        :timeout_in_seconds => $time_out
+        :timeout_in_seconds => $timeout_in_sec
 
       @selenium.start_new_browser_session
       @selenium.set_context("test_new")

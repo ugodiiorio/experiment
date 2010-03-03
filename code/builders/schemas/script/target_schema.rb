@@ -29,8 +29,8 @@ class BuildTargetSchema
             key_rate_id_str varchar(8)  NOT NULL,
             key_cover_id_str varchar(20)  NOT NULL,
 		        premium_num decimal(6,2)  NOT NULL,
-            timestamp TIMESTAMP DEFAULT 0,
-			       PRIMARY KEY (key_insurance_profiles_id_num,key_provider_id_str,key_sector_id_str,key_company_id_str,key_working_set_id_str,key_rate_id_str,key_cover_id_str)
+            last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+			      PRIMARY KEY (key_insurance_profiles_id_num,key_provider_id_str,key_sector_id_str,key_company_id_str,key_working_set_id_str,key_rate_id_str,key_cover_id_str)
       	);"
     )
 			

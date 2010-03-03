@@ -28,7 +28,7 @@ class ConTeTest < Test::Unit::TestCase
         #:browser => "*safari",
       :browser => $browser,
         :url => "http://www.conte.it",
-        :timeout_in_seconds => $time_out
+        :timeout_in_seconds => $timeout_in_sec
 
       @selenium.start_new_browser_session
       @selenium.set_context("test_new")

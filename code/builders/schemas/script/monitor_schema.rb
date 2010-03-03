@@ -29,19 +29,23 @@ class BuildMonitorSchema
             key_sector_id_str 	VARCHAR(20)  NOT NULL,
             key_company_id_str 	VARCHAR(20)  NOT NULL,
             key_working_set_id_str 	VARCHAR(20) NOT NULL,
+            key_rate_id_str varchar(8)  NOT NULL,
+            state_str  varchar(10) DEFAULT 'NOT RUN',
             result_str  varchar(10) DEFAULT NULL,
             result_message_str_str varchar(256) DEFAULT NULL,
-            PRIMARY KEY (key_insurance_profiles_id_num,key_provider_id_str,key_sector_id_str,key_company_id_str,key_working_set_id_str)
+            start_update TIMESTAMP DEFAULT 0,
+            last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY (key_insurance_profiles_id_num,key_provider_id_str,key_sector_id_str,key_company_id_str,key_working_set_id_str,key_rate_id_str)
             ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;"
             )
 
-    mysql.query("  CREATE  INDEX result_index   ON " + @db_default_monitor + ".scheduler(result_str)
+    mysql.query("  CREATE  INDEX state_index   ON " + @db_default_monitor + ".scheduler(state_str)
     ;")
 
     mysql.close()
 
 
-    puts "\n - " + @db_default_monitor + " schema creation tables finished"
+    puts "\n - " + @db_default_monitor + " schema tables creation finished"
       
   end
 									

@@ -27,7 +27,7 @@ class GenertelTest < Test::Unit::TestCase
         :port => $port,
         :browser => $browser,
         :url => "http://www.genertel.it",
-        :timeout_in_seconds => $time_out
+        :timeout_in_seconds => $timeout_in_sec
 
       @selenium.start_new_browser_session
       @selenium.set_context("test_new")
