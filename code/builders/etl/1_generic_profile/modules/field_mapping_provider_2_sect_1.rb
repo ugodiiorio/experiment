@@ -70,7 +70,7 @@ module FieldMappingProvider2Sect1
       'pol_exclusive_drive_str' => "'no'",
       'pol_defined_drive_str' => 'if infield[:pol_driver_less_than_26_yrs_str]=="N"; x= "si" else x= "no" end',
       'pol_free_drive_str' => 'if infield[:pol_driver_less_than_26_yrs_str]=="N"; x= "si" else x= "no" end',
-      'veh_km_per_yr_num' => "'fino a 100000'",
+      'veh_km_per_yr_str' => "'fino a 100000'",
       'pol_leasing_str' => "'no'",
       'veh_modification_made_str' => "'no'",
       'pol_drunkenness_fine_str' => "'no'",

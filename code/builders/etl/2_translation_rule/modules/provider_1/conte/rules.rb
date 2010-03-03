@@ -10,7 +10,7 @@ module Provider1Conte
     @rule_values ={}
 
     @rule_values = {
-
+      'pol_BM_1_more_than_1_year_str' => 'copy_field',
       'pol_public_liability_young_exemption_str' => 'copy_field',
       'pol_pejus_cu_str' => 'copy_field',
       'pol_BM_in_risk_certificate_str' => 'copy_field',

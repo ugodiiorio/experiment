@@ -60,6 +60,7 @@ module Provider1Linear
       'pol_blukasko_web_id_str' => 'copy_field',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_BM_in_risk_certificate_str' => 'copy_field',
+      'pol_BM_1_more_than_1_year_str' => 'copy_field',
       'pol_BM_particular_cases_str' => 'copy_field',
       'pol_car_already_insured_with_company_str' => 'copy_field',
       'pol_claims_total_number_malus_str'=> 'copy_field',

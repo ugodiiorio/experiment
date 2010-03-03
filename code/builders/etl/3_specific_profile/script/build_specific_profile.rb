@@ -13,7 +13,7 @@ Mysql::Time = 7
 
 def init()
 
-  puts "start of build_profile script"
+  puts "start of build_specific_profile script"
   @logger = nil
   @dbh = nil
   @start_time = DateTime.now()
@@ -310,6 +310,6 @@ ensure
   disconnect()
   stop_log()
   puts DateTime.now()
-  e ? puts("end of build_profile script with errors") : puts("end of build_profile script")
+  e ? puts("end of build_specific_profile script with errors") : puts("end of build_specific_profile script")
 
 end

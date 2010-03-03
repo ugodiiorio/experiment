@@ -214,6 +214,6 @@ ensure
   disconnect()
   stop_log()
   puts DateTime.now()
-  e ? puts("end of build_profile script with errors") : puts("end of build_profile script")
+  e ? puts("end of build_translated_fields script with errors") : puts("end of build_translated_fields script")
 
 end
