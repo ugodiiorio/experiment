@@ -137,7 +137,7 @@ module Provider1Genertel
       'pol_natural_events_web_id_str' => 'copy_field',
       'pol_nr_of_paid_claims_1_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_2_yr_str' => 'copy_field',
-      'pol_nr_of_paid_claims_3_yr_str' => '( profilefield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str].to_i < 3 && profilefield[pol_claims_total_number_str].to_i == 0)  ? "N.A." : (x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[:pol_nr_of_paid_claims_2_yr_str].to_i; sin= x+y+z )',
+      'pol_nr_of_paid_claims_3_yr_str' => '( profilefield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str].to_i < 3 && profilefield[:pol_claims_total_number_str].to_i == 0)  ? "N.A." : (x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[:pol_nr_of_paid_claims_2_yr_str].to_i; sin= x+y+z )',
       'pol_nr_of_paid_claims_4_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_5_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_this_yr_str' => 'copy_field',

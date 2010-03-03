@@ -306,6 +306,19 @@ module Provider1Conte
       {'pol_exclusive_drive_str' => 'no'} => 'no',
       {'pol_defined_drive_str' => 'si'} => 'page:radioGuidatori:1',
       {'pol_defined_drive_str' => 'no'} => 'no',
+        {'pol_matriculation_date_month_str' => '01'} => 'Gennaio',
+      {'pol_matriculation_date_month_str' => '02'} => 'Febbraio',
+      {'pol_matriculation_date_month_str' => '03'} => 'Marzo',
+      {'pol_matriculation_date_month_str' => '04'} => 'Aprile',
+      {'pol_matriculation_date_month_str' => '05'} => 'Maggio',
+      {'pol_matriculation_date_month_str' => '06'} => 'Giugno',
+      {'pol_matriculation_date_month_str' => '07'} => 'Luglio',
+      {'pol_matriculation_date_month_str' => '08'} => 'Agosto',
+      {'pol_matriculation_date_month_str' => '09'} => 'Settembre',
+      {'pol_matriculation_date_month_str' => '10'} => 'Ottobre',
+      {'pol_matriculation_date_month_str' => '11'} => 'Novembre',
+      {'pol_matriculation_date_month_str' => '12'} => 'Dicembre',
+
 
 
 

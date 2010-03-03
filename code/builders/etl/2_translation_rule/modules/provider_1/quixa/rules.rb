@@ -14,7 +14,7 @@ def build_hash_sect_1()
       'veh_cf_num'=> 'copy_field',
       'driv_birth_place_str' => 'copy_field',
       'driv_birth_province_str' => 'copy_field',
-      'driv_birth_state_str' => 'profilefield[:driv_birth_state_str] == "ITALIA" ? translate_field : "page:conducente_nazione:1"',
+      'driv_birth_state_str' => 'profilefield[:driv_birth_state_str] == "ITALIA" ? copy_field : "page:conducente_nazione:1"',
       'driv_citizenship_str' => 'copy_field',
       'driv_civil_status_str' => 'copy_field',
       'driv_driver_sex_str' => 'translate_field',
