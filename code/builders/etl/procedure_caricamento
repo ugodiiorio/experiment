@@ -3,17 +3,17 @@
 2) generare gli schemas (lanciando il file start_build.rb contenuto nella cartella '/home/notroot/git/KTE/code/builders/schemas/script' ) dopo aver configurato le variabili (db user, db password, nome schema...) 
   nel file start_build.rb.yml
 
-3) caricare nella tabella "provider_1_sect_1_input_file" (nle caso si vogliano elaboarare i profili relativi a provider_1 e sect_1)
+3) caricare nella tabella "provider_1_sect_1_input_file" (nel caso si vogliano elaborare i profili relativi a provider_1 e sect_1)
    attraverso il comando mysql da terminale
    "load data local infile '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/csv/prov1_sect1_20100101_in.csv' into table provider_1_sect_1_input_file fields terminated by '#' escaped by "";
  ATT: è importante che questo file abbia come separatori di campi caratteri diversi da  , o ; o | .
  
-4) lanciare il file build_field_mapping.rb (nella cartella '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/script') dopo aver opportunamente settato i paramentri nelfile build_field_mapping.rb.yml
+4) lanciare il file build_field_mapping.rb (nella cartella '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/script') dopo aver opportunamente settato i parametri nel file build_field_mapping.rb.yml
    (devono essere settati key_provider_id_str, key_sector_id_str).
 
-5) lanciare il file build_profile.rb (nella cartella '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/script') dopo aver opportunamente settato i paramentri nel file build_profile.rb.yml
+5) lanciare il file build_profile.rb (nella cartella '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/script') dopo aver opportunamente settato i parametri nel file build_profile.rb.yml
   (devono essere settati key_insurance_profiles_id_num , key_provider_id_str, key_sector_id_str, key_company_id_str, key_working_set_id_str  ).
-  questo file si occupa di popolare la tabella insurance_profiles in base al file di input caricato nella tabella quinxa_input_file e alle regole di mapping caricate nella tabella field_mapping.
+  questo file si occupa di popolare la tabella insurance_profiles in base al file di input caricato nella tabella quixa_input_file e alle regole di mapping caricate nella tabella field_mapping.
    
 6) lanciare i file build_translation_rules.rb  (in '/home/notroot/git/KTE/code/builders/etl/2_translation_rule/script') settando i parametri di lancio
   nei relativi file .yml
@@ -22,12 +22,12 @@
 
 6) lanciare i file build_translated_fields.rb  (in '/home/notroot/git/KTE/code/builders/etl/2_translation_rule/script') settando i parametri di lancio
   nei relativi file .yml
- (devono essere settati, coerentemente con i parametri precedentemente settai nel build_translation_rules.rb.yml,  key_provider_id_str, key_sector_id_str, key_company_id_str, key_working_set_id_str).
+ (devono essere settati, coerentemente con i parametri precedentemente settati nel build_translation_rules.rb.yml,  key_provider_id_str, key_sector_id_str, key_company_id_str, key_working_set_id_str).
 
 
 8) lanciare i file build_specific_profile.rb (in '/home/notroot/git/KTE/code/builders/etl/3_company_profile/script') settando i parametri di lancio
   nel relativo file .yml
-  Aquesto punto la tabella company_insurnace_profiles è completamente caricata
+  A questo punto la tabella company_insurnace_profiles è completamente caricata
 
 
 
