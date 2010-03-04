@@ -6,7 +6,7 @@ app_settings:
   as_select_stmt_company: "SELECT DISTINCT key_companies_group_id_str  FROM companies WHERE   key_company_id_str= ?"
   as_provider_id: "provider_1"
   as_sector_id: "sect_1"
-  as_company_id: "quixa"
+  as_company_id: "conte"
   as_working_set_id: "prov_1_20100201"
   as_module_filename: "rules.rb"
 

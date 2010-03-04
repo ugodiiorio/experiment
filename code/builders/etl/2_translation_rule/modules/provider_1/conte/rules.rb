@@ -66,7 +66,7 @@ module Provider1Conte
       'veh_purchase_date_year_num' => 'data= Date.parse(profilefield[:pol_matriculation_date_str]);european_date = \'%Y\';data = data.strftime(european_date).to_s',
       'veh_purchase_date_month_str' => 'data= Date.parse(profilefield[:pol_matriculation_date_str]);european_date = \'%m\';data = data.strftime(european_date).to_s',
       'veh_purchase_date_day_str' => 'data= Date.parse(profilefield[:pol_matriculation_date_str]);european_date = \'%d\';data = data.strftime(european_date).to_s',
-      'driv_citizenship_str' => 'copy_field',
+      'driv_citizenship_str' => 'profilefield[:driv_citizenship_str]== "ITALIA" ?  "page:conducente_nazione:0" : "page:conducente_nazione:1"',
       'pol_residence_province_str' => 'translate_field',
       'pol_glasses_code_str' => 'copy_field',
       'pol_kasko_minimum_uncoverage_str' => 'copy_field',

@@ -286,7 +286,7 @@ module Provider1Conte
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'page:situazione_1:0',
       {'pol_driving_license_suspension_str' => 'no'} => 'page:sospensione_patente_contraente:1',
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'coniugato/a o convivente',
-      {'driv_birth_state_str' => 'ITALIA'} => 'page:conducente_nazione:0',
+#      {'driv_birth_state_str' => 'ITALIA'} => 'page:conducente_nazione:0',
       #{'driv_birth_state_str' => 'Tutto il resto'} => 'page:conducente_nazione:1',
       {'driv_driving_license_type_str' => 'B'} => 'B (auto)',
       {'own_owner_specification_str' => 'M'} => 'page:relazione_contraente_proprietario_passo1:0',

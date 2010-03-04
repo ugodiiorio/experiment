@@ -7,8 +7,8 @@ module FieldMappingProvider1Sect1
     @field_rule_values = {
       'driv_birth_place_str' =>  'infield[:pol_residence_str].upcase.strip',
       'driv_birth_province_str' =>  'infield[:pol_residence_province_str].upcase.strip',
-      'driv_birth_state_str' =>  'infield[:driv_citizenship_str].upcase.strip',
-      'driv_citizenship_str' =>  'infield[:driv_citizenship_str].upcase.strip',
+      'driv_birth_state_str' =>  'infield[:driv_citizenship_str].upcase.strip == "SOCIETA" ? "ITALIA" : infield[:driv_citizenship_str].upcase.strip',
+      'driv_citizenship_str' =>  'infield[:driv_citizenship_str].upcase.strip == "SOCIETA" ? "ITALIA" : infield[:driv_citizenship_str].upcase.strip',
       'driv_civil_status_str' =>  '"Coniugato senza figli"',
       'driv_driver_sex_str' =>  'x = infield[:driv_driver_sex_str].slice(0,1); x=="S" ? x="C": x=x',
       'driv_driving_license_month_of_issue_str' =>  '(DateTime::now - infield[:driv_driver_sex_str].slice(1, 2).to_i.years-2.months + 18.years).strftime("%m")',
