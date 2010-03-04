@@ -36,6 +36,7 @@ module FieldMappingProvider2Sect3
 
       'veh_gas_methane_supply_str' => "'no'",
       'veh_capacity_num' => "'50'",
+      'veh_fuel_str' =>  "'benzina'",
       'pol_yrs_with_no_claims_in_RC_str' => "'4'",
       'driv_birth_place_str' => 'infield[:pol_residence_str].strip.upcase',
       'driv_heir_str' => "'no'",
@@ -44,7 +45,8 @@ module FieldMappingProvider2Sect3
       'pol_property_type_to_be_insured_str' => "'ciclomotore'",
       'pol_type_of_contract_str' => "'nuova polizza'",
       'veh_vehicle_type_str' => "'ciclomotore'",
-      'veh_vehicle_use_str' => "'privato'"
+      'veh_vehicle_use_str' => "'privato'",
+      'pol_privacy_1_str' => "'si'"
     }
   end
 

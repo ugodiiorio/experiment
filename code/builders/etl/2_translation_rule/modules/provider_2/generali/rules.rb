@@ -19,10 +19,10 @@ def build_hash_sect_3()
       'pol_residence_str' => 'copy_field',
       'veh_capacity_num' => 'copy_field',
 
-      'own_owner_birth_date_str' => 'Date.parse(infield[:pol_birth_date_str]);european_date = "%d/%m/%Y";data = data.strftime(european_date).to_s.gsub("/","")',
-      'pol_matriculation_date_str' => 'Date.parse(infield[:pol_birth_date_str]);european_date = "%d/%m/%Y";data = data.strftime(european_date).to_s.gsub("/","")',
-      'pol_policy_starting_date_str' => 'Date.parse(infield[:pol_birth_date_str]);european_date = "%d/%m/%Y";data = data.strftime(european_date).to_s.gsub("/","")',
-      'veh_vehicle_type_str' => '(infield[:veh_passenger_transportation_str]== "si") ? "Ciclomotore posto unico" : "Ciclomotore 2 posti"',
+      'own_owner_birth_date_str' => 'data=Date.parse(profilefield[:pol_birth_date_str]);european_date = "%d%m%Y";data = data.strftime(european_date).to_s',
+      'pol_matriculation_date_str' => 'data=Date.parse(profilefield[:pol_matriculation_date_str]);european_date = "%d%m%Y";data = data.strftime(european_date).to_s',
+      'pol_policy_starting_date_str' => 'data=Date.parse(profilefield[:pol_policy_starting_date_str]);european_date = "%d%m%Y";data = data.strftime(european_date).to_s',
+      'veh_vehicle_type_str' => '(profilefield[:veh_passenger_transportation_str]== "si") ? "Ciclomotore posto unico" : "Ciclomotore 2 posti"',
 
       'pol_premium_id_str' => '//*[@id="TOTALE_PI"]'
     }

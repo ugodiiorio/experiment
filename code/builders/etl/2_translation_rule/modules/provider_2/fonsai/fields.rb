@@ -1,4 +1,4 @@
-module Provider2FonSai
+module Provider2Fonsai
 
   def build_hash_sect_3()
 

@@ -1,4 +1,4 @@
-module Provider2FonSai
+module Provider2Fonsai
 
 def build_hash_sect_3()
 
@@ -21,8 +21,8 @@ def build_hash_sect_3()
 
       'own_owner_zip_code_str' => 'copy_field',
 
-      'own_owner_birth_date_str' => 'Date.parse(infield[:pol_birth_date_str]);european_date = "%d/%m/%Y";data = data.strftime(european_date).to_s.gsub("/","")',
-      'pol_policy_starting_date_str' => 'Date.parse(infield[:pol_birth_date_str]);european_date = "%d/%m/%Y";data = data.strftime(european_date).to_s.gsub("/","")',
+      'own_owner_birth_date_str' => 'data = Date.parse(profilefield[:pol_birth_date_str]);european_date = "%d%m%Y";data = data.strftime(european_date).to_s',
+      'pol_policy_starting_date_str' => 'data = Date.parse(profilefield[:pol_policy_starting_date_str]);european_date = "%d%m%Y";data = data.strftime(european_date).to_s',
 
       'pol_premium_id_str' => '//*[@id="premio"]'
   }

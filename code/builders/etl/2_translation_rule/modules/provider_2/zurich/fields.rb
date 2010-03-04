@@ -1,4 +1,4 @@
-module Provider2Generali
+module Provider2Zurich
 
   def build_hash_sect_3()
 
@@ -6,6 +6,7 @@ module Provider2Generali
 
     @target_values = {
 
+      {'driv_heir_str' => 'no',} => '//*[@id="CLA_ERLE_N"]',
       {'own_owner_sex_str' => 'M'} => '//*[@id="COD_SESS_M"]',
       {'own_owner_sex_str' => 'F'} => '//*[@id="COD_SESS_F"]',
       {'pol_BM_assigned_str' => '1 da almeno 1 anno'} => '01',
@@ -31,6 +32,7 @@ module Provider2Generali
       {'pol_client_type_str' => 'persona giuridica'} => '//*[@id="TIP_PERS_G"]',
       {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Prima Immatricolazione',
       {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Proveniente da altra Compagnia',
+      {'pol_privacy_1_str' => 'si'} => '//*[@id="check1"]',
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3.000.000 EURO',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6.000.000 EURO',
       {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '10.000.000 EURO',
@@ -147,7 +149,7 @@ module Provider2Generali
       {'pol_residence_province_str' => 'VS'} => 'MEDIO CAMPIDANO',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
-      {'pol_type_of_contract_str' => 'nuova polizza'} => '//*[@id="COD_TMOV_N"]',
+      {'pol_type_of_contract_str' => 'nuova polizza'} => '[@id="COD_TMOV_N"]',
       {'veh_fuel_str' => 'benzina'} => '//*[@id="COD_TCMB_B"]',
 
     }
