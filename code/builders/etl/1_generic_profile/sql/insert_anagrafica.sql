@@ -6,7 +6,7 @@ INSERT INTO `kte_driver`.`profiles_personal_data` VALUES  (1,'M','Marcello','ABB
  (6,'M','Ferdinando','AGOSTINO','Bologna ','CALVI ',4,'Cellulare',339,'738768','Ferdinando.AGOSTINO@libero.com','VIA','Diploma','',NULL),
  (7,'F','Giovanna','AGOSTONI','Firenze ','CAMPAGNA ',3,'Cellulare',339,'832638','Giovanna.AGOSTONI@libero.com','VIA','Diploma','',NULL),
  (8,'M','Paolo','AIMARETTI','Bari ','CANTORE ',4,'Cellulare',380,'832694','Paolo.AIMARETTI@libero.com','VIA','Diploma','',NULL);
-INSERT INTO `kte_driver`.`profiles_personal_data` VALUES  (9,'M','Daniele','AJO','Catania ','CANTÃ…Â¸ ',3,'Cellulare',380,'832669','Daniele.AJO@gmail.com','VIA','Diploma','',NULL),
+INSERT INTO `kte_driver`.`profiles_personal_data` VALUES  (9,'M','Daniele','AJO','Catania ','ROMA',3,'Cellulare',380,'832669','Daniele.AJO@gmail.com','VIA','Diploma','',NULL),
  (10,'F','Maria','ALBANESI','Venezia ','CARACCIOLO ',12,'Cellulare',380,'738768','Maria.ALBANESI@gmail.com','VIA','Diploma','',NULL),
  (11,'F','M.Grazia','ALBE','Verona ','CARAVAGGIO ',1,'Cellulare',380,'736590','M.Grazia.ALBE@gmail.com','VIA','Diploma','',NULL),
  (12,'F','Anna Maria','ALDEGHI','Messina ','CARDUCCI ',12,'Cellulare',380,'832660','AnnaMaria.ALDEGHI@gmail.com','VIA','Diploma','',NULL),
