@@ -10,6 +10,8 @@ module Provider1Directline
     @rule_values ={}
 
     @rule_values = {
+       'own_owner_residence_province_str' =>  'translate_field'   ,
+      'own_owner_residence_str' =>  'copy_field',
       'pol_BM_1_more_than_1_year_str' => 'copy_field',
       'pol_BM_particular_cases_str' => 'copy_field',
       'pol_public_liability_young_exemption_str' => 'copy_field',

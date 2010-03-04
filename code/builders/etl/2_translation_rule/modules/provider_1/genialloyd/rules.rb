@@ -31,6 +31,8 @@ module Provider1Genialloyd
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
       'own_owner_zip_code_str' => 'copy_field',
+       'own_owner_residence_province_str' =>  'translate_field'   ,
+      'own_owner_residence_str' =>  'copy_field',
       'pol_act_of_vandalism_code_str' => 'copy_field',
       'pol_act_of_vandalism_minimum_uncoverage_str' => 'copy_field',
       'pol_act_of_vandalism_on_off_str' => 'copy_field',

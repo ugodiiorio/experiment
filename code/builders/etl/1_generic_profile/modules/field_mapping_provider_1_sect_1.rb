@@ -25,6 +25,8 @@ module FieldMappingProvider1Sect1
       'own_owner_sex_str' =>  'infield[:driv_driver_sex_str].upcase.slice(0,1)',
       'own_owner_specification_str' =>  'x = infield[:driv_driver_sex_str].upcase.slice(0,1); x=="S" ? x="C": x=x',
       'own_owner_zip_code_str' =>  'infield[:pol_driver_zip_code_str].strip',
+      'own_owner_residence_province_str' =>  'infield[:pol_residence_province_str].strip'   ,
+      'own_owner__residence_str' =>  'infield[:pol_residence_str].strip',
       'pol_act_of_vandalism_premium_id_str' =>  '"id elemento"',
       'pol_act_of_vandalisme_web_id_str' =>  '"id elemento"',
       'pol_already_benefit_from_bersani_str' =>  '"no"',
