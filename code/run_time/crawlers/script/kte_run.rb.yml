@@ -28,6 +28,6 @@ app_settings:
   as_company_id: "quixa"
   as_working_set_id: "prov_1_20100201"
   as_rate_id: '20100310'
-  as_profile_id: '100'
+  as_profile_id: '50'
   as_rate_date: '10th day next month'
   
