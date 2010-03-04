@@ -31,7 +31,7 @@ module RunPage
 
       @DB = Sequel.mysql(:database => $db_default, :user => $db_conn_user, :password => $db_conn_pwd, :host => $db_ip)
       @DB.loggers << @logger
-      ds = @DB.from(:sect_1).filter(:key_insurance_profiles_id_num => :$p1,
+      ds = @DB.from(:sector_1).filter(:key_insurance_profiles_id_num => :$p1,
                                       :key_provider_id_str => :$p2,
                                       :key_sector_id_str => :$p3,
                                       :key_company_id_str => :$p4,
@@ -39,20 +39,24 @@ module RunPage
       ps = ds.prepare(:select, :select_by_sector)
       ps.call(:p1=>@profile, :p2=>@provider, :p3=>@sector, :p4=>@company, :p5=>@working_set).each do |row|
         row.each do |k, v|
-          puts k
-          puts v
+#          puts k
+#          puts v
+          instance_variable_set(eval(":@#{normalize(k)}"), v)
+          puts instance_variable_get("@#{k}")
         end
       end
 
-      k = DB.from(:profiles_personal_data).count
+      i = 0
+      k = DB.from(:profiles_personal_data).where(:pers_sex_str => 'C').count
       one_of_people = (rand(k) +1).to_i
-      ds = @DB.from(:profiles_personal_data).filter(:key_profiles_id_num => :$p1, :own_owner_specification_str => :$p2)
+      ds = @DB.from(:profiles_personal_data).filter(:pers_sex_str => :$p1)
       ps = ds.prepare(:select, :select_by_sex)
-      ps.call(:p1=>one_of_people, :p2=>"M").each do |row|
+      ps.call(:p1=>"C").each do |row|
+        i += 1
         row.each do |k, v|
           puts k
           puts v
-        end
+        end if i == one_of_people
       end
 
       #      $writer 				= Writer.new(@ep)
@@ -143,4 +147,11 @@ module RunPage
 
 	end
 
+end
+
+def normalize(var)
+  arr_var = var.to_s.split("_")
+  arr_var.pop!
+  arr_var.delete!(arr_var.first)
+  puts var
 end

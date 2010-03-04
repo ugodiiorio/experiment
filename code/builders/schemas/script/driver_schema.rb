@@ -25,7 +25,7 @@ class BuildDriverSchema
 #		c.Table_creator()
 		
 		mysql.query("CREATE TABLE " + @db_default_driver + ".profiles_personal_data (
-			key_profiles_id_num 	INT UNSIGNED NOT NULL,
+			key_personal_id_num 	INT UNSIGNED NOT NULL,
       pers_sex_str	VARCHAR(128) NOT NULL,
 			pers_name_str					VARCHAR(64) NOT NULL,
 			pers_surname_str		VARCHAR(64) NOT NULL,
