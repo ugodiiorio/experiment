@@ -4,8 +4,8 @@
 #				13/03/2009						              #
 #############################################
 
-gem "selenium-client", ">=1.2.13"
-require "selenium/client"
+#gem "selenium-client", ">=1.2.13"
+#require "selenium/client"
 
 module QuixaSect1 #< Test::Unit::TestCase
   

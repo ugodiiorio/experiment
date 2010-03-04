@@ -9,21 +9,26 @@ require 'chronic'
 require "yaml"
 require 'logger'
 require 'sequel'
+require 'mysql'
 
 require "script/utils.rb"
 require "script/run_page.rb"
 
-def is_numeric?(n)
-  Float n rescue false
+module Kernel
+private
+   def method_name
+     caller[0] =~ /`([^']*)'/ and $1
+   end
 end
 
-def caller(compagnia, profilo_assicurativo, port)
-  begin
-    Caller.new( profilo_assicurativo, compagnia, port , $rilevazione  ).executor()
-  rescue Exception => ex
-    @logger.error('CheckAndGo.caller => ' + compagnia) {"Calling test execution failure"}
-    raise ex
+class String
+  def camelize
+    self.split(/[^a-z0-9]/i).map{|w| w.capitalize}.join
   end
+end
+
+def is_numeric?(n)
+  Float n rescue false
 end
 
 begin
@@ -145,30 +150,29 @@ begin
   DB.disconnect
 
   $max_profili = k if $max_profili.to_i() == 0
-  @logger.info('init => ' + @company) {"max profiles: " + $max_profili.to_s()}
+  @logger.info(__FILE__) {"#{@company} => max profiles: " + $max_profili.to_s()}
 
-  include CheckAndGo
+  include Utils
+  include RunPage
   while true
     break if count_profili.to_i() == $max_profili.to_i()
 
-    @locked_profile = true
+    @already_locked = true
 
     if is_numeric?(@profile)
       
-      @logger.warn('init => ' + @company) {"profile id number outside table limits !!!"} unless @profile.to_i.between?(1, k)
+      @logger.warn(__FILE__) {"#{@company} => profile id number outside table limits !!!"} unless @profile.to_i.between?(1, k)
       break unless @profile.to_i.between?(1, k)
 #      case @company
-      unless locked_profile?
-        @locked_profile = false
-        caller(@company, @profile, @port)
-      end
+      @already_locked = locked_profile?
+      page_setup unless @already_locked
 #      end
-      if @locked_profile
-        @logger.info('init => ' + @company) {"No profile/company pair available !!!"}
+      if @already_locked
+        @logger.info(__FILE__) {"#{@company} => No profile/company pair available !!!"}
   			break
       else
         count_profili = count_profili + 1
-        @logger.info('init => ' + @company) {"Executed profiles: "+  count_profili.to_s()}
+        @logger.info(__FILE__) {"#{@company} => Executed profiles: "+  count_profili.to_s()}
       end
     else #il profilo assicurativo non è fissato
       i = 1
@@ -186,7 +190,7 @@ begin
 #        end
         if chk_executed
           count_profili = count_profili + 1
-          @logger.info('init => ' + @company) {"Executed profiles: "+  count_profili.to_s()}
+          @logger.info(__FILE__) {"#{@company} => Executed profiles: "+  count_profili.to_s()}
         end
         break if count_profili.to_i() == $max_profili.to_i()
 #        @logger.info "Break Profili Cycle"
@@ -195,14 +199,14 @@ begin
         i = i+1
       end
       if !chk_executed
-        @logger.info('init => ' + @company) {"Nessuna combinazione profilo/compagnia disponibile !!!"}
+        @logger.info(__FILE__) {"#{@company} => Nessuna combinazione profilo/compagnia disponibile !!!"}
         break;
       end
     end
   end
 
 rescue Exception => ex
-  @logger.error("init => #{@company}") {"ERROR - Running script abnormaly terminated: #{ex}"} if @logger
+  @logger.error(__FILE__) {"#{@company} => ERROR - Running script abnormaly terminated: #{ex}"} if @logger
 
 ensure
   Test::Unit.run=true unless Test::Unit.run?
