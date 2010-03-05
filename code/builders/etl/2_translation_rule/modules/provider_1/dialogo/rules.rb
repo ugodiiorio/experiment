@@ -10,6 +10,10 @@ module Provider1Dialogo
     @rule_values ={}
 
     @rule_values = {
+       'pol_first_claim_month_str' => 'copy_field',
+      'pol_first_claim_year_str' => 'copy_field',
+      'pol_second_claim_month_str' => 'copy_field',
+      'pol_second_claim_year_str'  => 'copy_field',
       'pol_BM_1_more_than_1_year_str' => 'copy_field',
       'pol_public_liability_young_exemption_str' => 'copy_field',
       'pol_pejus_cu_str' => 'copy_field',
@@ -65,7 +69,7 @@ module Provider1Dialogo
       'veh_vehicle_use_str' => 'translate_field',
       'own_owner_zip_code_str' => 'copy_field',
       'pol_public_liability_exemption_str' => 'copy_field',
-      'pol_nr_of_paid_claims_3_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[:pol_nr_of_paid_claims_2_yr_str].to_i; t= profilefield[:pol_nr_of_paid_claims_3_yr_str].to_i; sin= x+y+z+t',
+      'pol_nr_of_paid_claims_3_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str]; y= profilefield[:pol_nr_of_paid_claims_1_yr_str]; z= profilefield[:pol_nr_of_paid_claims_2_yr_str]; t= profilefield[:pol_nr_of_paid_claims_3_yr_str];  z == "N/A" ? sin= x.to_i+y.to_i+z.to_i : (t == "N/A" ? sin= x.to_i+y.to_i : sin= x.to_i+y.to_i+z.to_i+t.to_i);',
       'pol_driving_type_str' => 'translate_field',
       'pol_number_plate_type_str' => 'translate_field',
       'veh_tow_hook_str' => 'translate_field',

@@ -10,6 +10,10 @@ module Provider1Directline
     @rule_values ={}
 
     @rule_values = {
+       'pol_first_claim_month_str' => 'copy_field',
+      'pol_first_claim_year_str' => 'copy_field',
+      'pol_second_claim_month_str' => 'copy_field',
+      'pol_second_claim_year_str'  => 'copy_field',
        'own_owner_residence_province_str' =>  'translate_field'   ,
       'own_owner_residence_str' =>  'copy_field',
       'pol_BM_1_more_than_1_year_str' => 'copy_field',

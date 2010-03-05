@@ -10,7 +10,10 @@ module Provider1Genertel
     @rule_values ={}
 
     @rule_values = {
-
+ 'pol_first_claim_month_str' => 'copy_field',
+      'pol_first_claim_year_str' => 'copy_field',
+      'pol_second_claim_month_str' => 'copy_field',
+      'pol_second_claim_year_str'  => 'copy_field',
       'driv_birth_place_str' => 'copy_field',
       'driv_birth_province_str' => 'copy_field',
       'driv_birth_state_str' => 'copy_field',

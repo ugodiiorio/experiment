@@ -10,6 +10,10 @@ def build_hash_sect_1()
     @rule_values ={}
 
     @rule_values = {
+       'pol_first_claim_month_str' => 'copy_field',
+      'pol_first_claim_year_str' => 'copy_field',
+      'pol_second_claim_month_str' => 'copy_field',
+      'pol_second_claim_year_str'  => 'copy_field',
       'pol_BM_1_more_than_1_year_str' => 'copy_field',
       'veh_cf_num'=> 'copy_field',
       'driv_birth_place_str' => 'copy_field',
