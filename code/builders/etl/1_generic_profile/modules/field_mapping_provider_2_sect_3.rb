@@ -33,6 +33,7 @@ module FieldMappingProvider2Sect3
       'pol_claims_total_number_str' => 'infield[:pol_claims_total_number_str].strip.downcase',
       'pol_public_liability_exemption_str' => 'infield[:pol_public_liability_exemption_str].strip.downcase',
       'pol_public_liability_indemnity_limit_str' => 'infield[:pol_public_liability_indemnity_limit_str].strip.downcase',
+      'pol_coming_from_BM_num' =>  'bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end',
 
       'veh_gas_methane_supply_str' => "'no'",
       'veh_capacity_num' => "'50'",
