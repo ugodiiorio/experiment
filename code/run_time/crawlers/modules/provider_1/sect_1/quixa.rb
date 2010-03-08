@@ -1,61 +1,120 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				13/03/2009						              #
+#				01/03/2010						              #
 #############################################
 
 #gem "selenium-client", ">=1.2.13"
 #require "selenium/client"
 
-module QuixaSect1 #< Test::Unit::TestCase
-  
+class QuixaSect1 < Test::Unit::TestCase
+  attr_reader :selenium_driver, :browser
+  alias :site :browser
+  alias :page :selenium_driver
+
+  def get(var)
+    return site.instance_variable_get(var)
+  end
+  def set(var, val)
+    site.instance_variable_set(var, val)
+  end
+
   def setup
     begin
-      @@logger.info('QuixaTest.setup => ' + $compagnia) {"Setting up Selenium Test ..."}
-      $Result_file.puts("\n******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
-      $Result_file.puts("Compagnia QUIXA \n") unless $selenium_out_level == 0 || $Result_file == STDOUT
-      $Result_file.puts("Profilo n "+ $profilo_assicurativo.to_s()+"\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
-      $Result_file.puts("******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
+      @browser = RunBrowser.new
+      @browser.selenium_setup
+      @kte = @browser.kte
+      @logger = @kte.logger
 
-      @garanzia = "1"
+      site.person
+      site.sector
+      puts get("@owner_specification")
+      
+      @logger.info(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Setting up Selenium Page ..."}
+#      $Result_file.puts("\n******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
+#      $Result_file.puts("Compagnia QUIXA \n") unless $selenium_out_level == 0 || $Result_file == STDOUT
+#      $Result_file.puts("Profilo n "+ $profilo_assicurativo.to_s()+"\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
+#      $Result_file.puts("******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
+
+      @rca_cover = "1"
       @verification_errors = []
-      const_publisher
+#      const_publisher
 
-      @@logger.debug('QuixaTest.setup => ' + $compagnia) {"Selenium port: "+ $port}
-      @selenium= Selenium::Client::Driver.new \
-        :host => "localhost",
-        :port => $port,
-        :browser => $browser,
-        :url => "http://www.quixa.it",
-        :timeout_in_seconds => $timeout_in_sec
+      @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Selenium port: #{@kte.port}"}
+      @selenium_driver = Selenium::Client::Driver.new \
+        :host => site.host,
+        :port => site.port,
+        :timeout_in_seconds => site.timeout_in_secs,
+        :browser => site.browser,
+        :url => "http://www.quixa.it"
 
-      @selenium.start_new_browser_session
-      @selenium.set_context("test_new")
+      @selenium_driver.start_new_browser_session
+#      @selenium.set_context("test_new")
+
+#        it "can find Selenium" do
+#          page.open "/"
+#          page.title.should eql("Google")
+#          page.type "q", "Selenium seleniumhq"
+#          page.click "btnG", :wait_for => :page
+#          page.value("q").should eql("Selenium seleniumhq")
+#          page.text?("seleniumhq.org").should be_true
+#          page.title.should eql("Selenium seleniumhq - Google Search")
+#          page.text?("seleniumhq.org").should be_true
+#                  page.element?("link=Cached").should be_true
+#        end
+
     rescue Errno::ECONNREFUSED => ex
-      @@logger.error('QuixaTest.setup => ' + $compagnia) {ex.class.to_s + " => Selenium not started: " + ex.message.to_s}
+      @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
 #      @verification_errors[@verification_errors.size] = ex.message
-      @@logger.error('QuixaTest.setup => ' + $compagnia) {ex.class.to_s + " => " + ex.message.to_s}
+      @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
   end
+
   
   def teardown
-	  @selenium.close_current_browser_session #unless $selenium
+	  @selenium_driver.close_current_browser_session if @selenium_driver
     assert_equal [], @verification_errors
   end
   
-  def test_new
+  def test_site
 
     begin
-      @last_element = nil
+      @last_element, @last_value = nil, nil
+      page_1
+      @logger.info(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{@kte.test_result}"}
+
       #@selenium.set_speed 2000
-      @selenium.open "/simulator.aspx?SimObject=CAR"
+    rescue Timeout::Error => ex
+      ex_message = "#{ex.class.to_s}: Selenium Timeout on element -> #{@last_element} - #{ex.message.to_s}"
+      @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex_message}"}
+      @kte.test_result = ex_message
+      raise ex.class, ex_message
+    rescue Exception => ex
+      ex_message = "#{ex.class.to_s}: Selenium error on element -> #{@last_element} - #{ex.message.to_s}"
+      @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex_message}"}
+      @kte.test_result = ex_message
+      raise ex.class, ex_message
+    end
+  end
+
+  def page_1
+
+    @last_element = "/simulator.aspx?SimObject=CAR"
+    @last_value = nil
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running element: #{@last_element} with value: #{@last_value}"}
+    page.open @last_element
+    @kte.rca_premium = 1000
+    @kte.test_result = "Test OK => New RCA price for profile #{@kte.profile} = #{@kte.rca_premium}"
 #      click "/html/body/form/div[3]/div/div[3]/div/div/map[4]/area"
 #      click   "//div[@id='hidepage']/div[1]/div[3]/div[1]/div[1]/map[3]/area"  #causa promozione feltrinelli si è spostato il bottone "fai preventivo" promozione in scadenza 14&/12/2009
-#      @selenium.wait_for_page_to_load $wait_for_page_to_load
+#      page.wait_for_page_to_load $wait_for_page_to_load
 
+  end
+
+  def page_2
     #sleep 3 #non commentare in Quixa
       select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlBrand", "label="+				$Marca_auto
     #sleep 2
@@ -121,68 +180,46 @@ module QuixaSect1 #< Test::Unit::TestCase
       click "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
       sleep 3 
 
-#      @selenium.wait_for_element "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max"
-#      lab = @selenium.get_selected_label "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max"
-#      @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Massimale RCA di default = "+lab}
-#      if (lab != $Massimale_RCA)
-#        select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", "label="+ 								$Massimale_RCA
-#        select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", "label=Carta di Credito"
-#        click "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
-#        @selenium.wait_for_page_to_load $wait_for_page_to_load
-#      end
-
-        #premio = @selenium.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lbl_P01_DA")
       wait_for_elm "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize"
-      assert !60.times{ break if (@selenium.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
-      premio = @selenium.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize")
+      assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
+      premio = page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize")
       raise RangeError, "Price cannot be a string" if premio.split[0].to_s.match(/[a-zA-Z]/) == nil ? false : true
       premio = premio.split[0]
       premio = premio.gsub(".","") if premio
       premio = premio.gsub(",",".") if premio
 
-      @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"gsub premio = " + premio.to_s}
+      @logger.debug('QuixaTest.test_new => ' + $compagnia) {"gsub premio = " + premio.to_s}
       raise RangeError, "Price cannot be nil" unless premio
       raise RangeError, "Price cannot be equal to zero" unless premio.to_i > 0
 
       $writer.result_update("OK", "New price for profile " + $profilo_assicurativo + " = " + premio)
-      $writer.profile_price( $profilo_assicurativo, $compagnia, @garanzia, $rilevazione, premio)
-      @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"PREMIO = "+ premio}
-    rescue Timeout::Error => ex
-      ex_message = ex.class.to_s + " => Selenium timeout on element -> " + @last_element + " - " + ex.message.to_s
-      @@logger.error('QuixaTest.test_new => ' + $compagnia) {ex_message}
-      $writer.result_update("KO", ex_message)
-      raise ex.class, ex_message
-    rescue Exception => ex
-      ex_message = ex.class.to_s + " => Selenium error on element -> " + @last_element + " - " + ex.message.to_s
-      @@logger.error('QuixaTest.test_new => ' + $compagnia) {ex_message}
-      $writer.result_update("KO", ex_message)
-      raise ex.class, ex_message
+      $writer.profile_price( $profilo_assicurativo, $compagnia, @garanzia, @rate, premio)
+      @logger.debug('QuixaTest.test_new => ' + $compagnia) {"PREMIO = "+ premio}
     end
-	end 
 	
 	def select_regex(element, label)
-	  @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Seleziona da combo = "+element}
-	  @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"      ...la label con regex = "+label}
+	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Seleziona da combo = "+element}
+	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"      ...la label con regex = "+label}
 	  wait_for_select(element, label, "regex")
-	  @selenium.select element, label
+	  page.select element, label
 	end
 
 	def select(element, label)
-	  @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Seleziona da combo = "+element+ " la label = "+label}
+	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Seleziona da combo = "+element+ " la label = "+label}
 	  wait_for_select(element, label)
-	  @selenium.select element, label  	
+	  page.select element, label
 	end
 	
 	def click(element)
-	  @@logger.debug('QuixaTest.test_new => ' + $compagnia) { "Click su elemento = "+element}
+	  @logger.debug('QuixaTest.test_new => ' + $compagnia) { "Click su elemento = "+element}
 	  wait_for_elm(element)
-	  @selenium.click element 	
+	  page.click element
 	end  
 	
 	def type(element, label)
-	  @@logger.debug('QuixaTest.test_new => ' + $compagnia) { "Type su elemento = "+element+" la label = "+label}
+	  @logger.debug('QuixaTest.test_new => ' + $compagnia) { "Type su elemento = "+element+" la label = "+label}
 	  wait_for_elm(element)
-	  @selenium.type element, label  	
+	  page.type element, label
 	end     
   
   def wait_for_select(nome_elemento_combo, label, regex = nil)
@@ -191,29 +228,29 @@ module QuixaSect1 #< Test::Unit::TestCase
   	sleep $sleep
     @last_element = nome_elemento_combo
   	if(nome_elemento_combo==nil)
-  		@@logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! Nome_elemento_combo inesistente !!"}
+  		@logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! Nome_elemento_combo inesistente !!"}
       raise RangeError, "Wait for select failed! Element cannot be nil"
   	end
     if(label==nil)
-        @@logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! label inesistente!!"}
+        @logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! label inesistente!!"}
       raise RangeError, "Wait for select failed! Label cannot be Elemento = nil"
       end
     label= label.gsub!("label=","")
     if(label==nil)
-      @@logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! Label non formattata correttamente !!"}
+      @logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! Label non formattata correttamente !!"}
       raise RangeError, "Wait for select failed! Label cannot be nil"
     end
-	  @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Nome combo = "+nome_elemento_combo}
-	  @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Label = "+label}
+	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Nome combo = "+nome_elemento_combo}
+	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Label = "+label}
 	  wait_for_elm nome_elemento_combo
-	  var = @selenium.element? nome_elemento_combo
-	  @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Combo presente ? "+var.to_s()+"  label  "+label}
-	  assert !60.times{ break if (@selenium.get_select_options(nome_elemento_combo).include?(label)); sleep 1 }	unless regex
-#	  var = @selenium.get_select_options(nome_elemento_combo).include?(label)
+	  var = page.element? nome_elemento_combo
+	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Combo presente ? "+var.to_s()+"  label  "+label}
+	  assert !60.times{ break if (page.get_select_options(nome_elemento_combo).include?(label)); sleep 1 }	unless regex
+#	  var = page.get_select_options(nome_elemento_combo).include?(label)
 #    if var
-#  	  @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Label presente nella combo = " + label}
+#  	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Label presente nella combo = " + label}
 #    else
-#  	  @@logger.error('QuixaTest.test_new => ' + $compagnia) {"Label not present into combo = " + label}
+#  	  @logger.error('QuixaTest.test_new => ' + $compagnia) {"Label not present into combo = " + label}
 #      raise RangeError, "Wait for select failed! label not present = " + label
 #    end
   end
@@ -224,62 +261,62 @@ module QuixaSect1 #< Test::Unit::TestCase
   	sleep 1.5
 #  	sleep $sleep
 	  if(nome_elemento==nil)
-		  @@logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! Nome_elemento inesistente !!"}
+		  @logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! Nome_elemento inesistente !!"}
       raise RangeError, "Wait for element failed! Element cannot be nil"
 	  end	  
-	  @selenium.wait_for_element nome_elemento
-	  if @selenium.element? "ctl00_UpdateProgress1"
-		  if @selenium.is_visible("ctl00_UpdateProgress1")
-		  	assert !30.times{ break if (! @selenium.is_visible("ctl00_UpdateProgress1")); sleep 1; @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Attesa - combo "+ nome_elemento;} }
+	  page.wait_for_element nome_elemento
+	  if page.element? "ctl00_UpdateProgress1"
+		  if page.is_visible("ctl00_UpdateProgress1")
+		  	assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Attesa - combo "+ nome_elemento;} }
 		  end
 	  end
-	  if @selenium.element? nome_elemento
-  	  @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Nome elemento = "+nome_elemento}
+	  if page.element? nome_elemento
+  	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Nome elemento = "+nome_elemento}
     else
-  	  @@logger.error('QuixaTest.test_new => ' + $compagnia) {"Element = " + nome_elemento +" not present"}
+  	  @logger.error('QuixaTest.test_new => ' + $compagnia) {"Element = " + nome_elemento +" not present"}
       raise RangeError, "Wait for element failed! Element not present = " + nome_elemento
     end
-	  #var = @selenium.element? nome_elemento
-	  #@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Elemento presente ? "+var.to_s()+"\n\n"
+	  #var = page.element? nome_elemento
+	  #@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Elemento presente ? "+var.to_s()+"\n\n"
   end  
   
 	def wait_for_alert()
-		!8.times{ break if (@selenium.alert?); sleep 1; puts "Attesa alert \n"; }
-		if @selenium.alert?
-			@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Consuming alert !"}
-			@selenium.alert()	
+		!8.times{ break if (page.alert?); sleep 1; puts "Attesa alert \n"; }
+		if page.alert?
+			@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Consuming alert !"}
+			page.alert()
 		else
-			@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"No alert present"}
+			@logger.debug('QuixaTest.test_new => ' + $compagnia) {"No alert present"}
 		end
 	end     
 	
-	def const_publisher
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"profilo " + $profilo_assicurativo}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Comune_residenza	 =	" +		$Comune_residenza}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Marca_auto  	 =	" +		$Marca_auto}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Modello_auto  	 =	" +		$Modello_auto}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Allestimento_auto  	 =	" +		$Allestimento_auto}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Provincia  	 =	" +		$Provincia}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Professione  	 =	" +		$Professione}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Classe_BM  	 =	" +		$Classe_BM}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Sesso	 =	" +		$Sesso}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_nascita_giorno	 =	" +		$Data_nascita_giorno}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_nascita_mese	 =	" +		$Data_nascita_mese}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_nascita_anno	 =	" +		$Data_nascita_anno}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_nascita	 =	" +		$Data_nascita}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_immatricolazione_mese	 =	" +		$Data_immatricolazione_mese}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_immatricolazione_anno	 =	" +		$Data_immatricolazione_anno}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_immatricolazione	 =	" +		$Data_immatricolazione}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_1  	 =	" +		$N_incidenti_anno_1}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_2  	 =	" +		$N_incidenti_anno_2}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_3  	 =	" +		$N_incidenti_anno_3}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_4  	 =	" +		$N_incidenti_anno_4}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_5  	 =	" +		$N_incidenti_anno_5}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_0  	 =	" +		$N_incidenti_anno_0}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Massimale_RCA  	 =	" +		$Massimale_RCA}
-    @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Data_decorrenza_giorno = "+ 		$Data_decorrenza_giorno}
-		@@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Data_decorrenza_mese = "+ 			$Data_decorrenza_mese}
-    @@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Data_decorrenza_anno = "+ 			$Data_decorrenza_anno}
+	def log_vars
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"profilo " + $profilo_assicurativo}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Comune_residenza	 =	" +		$Comune_residenza}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Marca_auto  	 =	" +		$Marca_auto}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Modello_auto  	 =	" +		$Modello_auto}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Allestimento_auto  	 =	" +		$Allestimento_auto}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Provincia  	 =	" +		$Provincia}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Professione  	 =	" +		$Professione}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Classe_BM  	 =	" +		$Classe_BM}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Sesso	 =	" +		$Sesso}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_nascita_giorno	 =	" +		$Data_nascita_giorno}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_nascita_mese	 =	" +		$Data_nascita_mese}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_nascita_anno	 =	" +		$Data_nascita_anno}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_nascita	 =	" +		$Data_nascita}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_immatricolazione_mese	 =	" +		$Data_immatricolazione_mese}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_immatricolazione_anno	 =	" +		$Data_immatricolazione_anno}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Data_immatricolazione	 =	" +		$Data_immatricolazione}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_1  	 =	" +		$N_incidenti_anno_1}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_2  	 =	" +		$N_incidenti_anno_2}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_3  	 =	" +		$N_incidenti_anno_3}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_4  	 =	" +		$N_incidenti_anno_4}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_5  	 =	" +		$N_incidenti_anno_5}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$N_incidenti_anno_0  	 =	" +		$N_incidenti_anno_0}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"$Massimale_RCA  	 =	" +		$Massimale_RCA}
+    @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Data_decorrenza_giorno = "+ 		$Data_decorrenza_giorno}
+		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Data_decorrenza_mese = "+ 			$Data_decorrenza_mese}
+    @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Data_decorrenza_anno = "+ 			$Data_decorrenza_anno}
 	end
 		
 end
