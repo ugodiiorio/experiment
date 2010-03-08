@@ -11,6 +11,7 @@ module FieldMappingProvider2Sect4
       'own_owner_zip_code_str' =>'infield[:own_owner_zip_code_str].strip.downcase',
       'pol_BM_assigned_str' =>'infield[:pol_BM_assigned_str].strip.downcase',
       'pol_claims_total_number_str' =>'infield[:pol_claims_total_number_str].strip.downcase',
+      'pol_coming_from_BM_num' =>  'bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end',
       'pol_insurance_situation_str' => 'a=infield[:pol_insurance_situation_str].strip.downcase; b=a.gsub(/à /,"a"); c=b.gsub(/è/,"e"); d=c.gsub(/é/,"e"); e=d.gsub(/ì/,"i"); f= e.gsub(/ò/,"o"); g=f.gsub(/ù/,"u"); h=g.gsub(/°/,"a");',
       'pol_matriculation_date_str' => '(DateTime::now - infield[:pol_matriculation_date_str].to_i.years).strftime("%F")',
       'pol_nr_of_paid_claims_1_yr_str' =>'infield[:pol_nr_of_paid_claims_1_yr_str].strip.downcase',
@@ -29,7 +30,7 @@ module FieldMappingProvider2Sect4
       'veh_third_party_str' =>'infield[:veh_third_party_str].strip.downcase',
 
       'pol_instalment_str' => "'annuale'",
-      'veh_gas_methane_supply_str' => "'diesel'",
+      'veh_fuel_str' => "'diesel'",
       'pol_number_of_NI_NA_yrs_during_5_yrs_str' => "'0'",
       'veh_alarm_str' => "'nessuno'",
       'driv_birth_place_str' => 'infield[:pol_residence_str].strip.upcase',
@@ -42,7 +43,7 @@ module FieldMappingProvider2Sect4
       'pol_renounce_compensation_str' => "'no'",
       'own_owner_sex_str' => "'C'",
       'veh_product_sector_str' => "'Pesca, piscicoltura e servizi connessi'",
-      'pol_property_type_to_be_insured_str' => "'autocarro per trasporto pesone o cose'",
+      'pol_property_type_to_be_insured_str' => "'autocarro per trasporto persone o cose'",
       'pol_type_of_contract_str' => "'nuova polizza'",
       'pol_number_plate_type_str' => "'definitiva'",
       'veh_vehicle_type_str' => "'autocarro per trasporto persone o cose'",
@@ -57,7 +58,10 @@ module FieldMappingProvider2Sect4
       'veh_transportation_of_dangerous_goods_B_str' => "'no'",
       'veh_radioactive_substances_transportation_str' => "'no'",
       'veh_use_for_shops_str' => "'no'",
-      'veh_vehicle_use_str' => "'privato'"
+      'veh_vehicle_use_str' => "'privato'",
+      'pol_pejus_cu_str' => "'0%'",
+      'pol_privacy_1_str' => "'si'",
+      'veh_loading_unloading_str' => "'no'"
 
     }
   end

@@ -212,8 +212,8 @@ module Provider1Genertel
       {'pol_residence_province_str' => 'VR'} => 'VERONA',
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
-      {'pol_residence_province_str' => 'VT'} => 'VITERBO'
-       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
+      {'pol_residence_province_str' => 'VT'} => 'VITERBO',
+      {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
       {'own_owner_residence_province_str' => 'AO'} => 'AOSTA',
