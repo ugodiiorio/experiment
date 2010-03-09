@@ -10,6 +10,8 @@ module Provider1Linear
     @target_values = Hash.new
 
     @target_values = {
+       {'pol_driver_is_owner_str' => 'si'} => '//input[@id="fsgiur" and @value="1"]',
+       {'pol_driver_is_owner_str' => 'no'} => '//input[@id="fsgiur" and @value="0"]',
        {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',

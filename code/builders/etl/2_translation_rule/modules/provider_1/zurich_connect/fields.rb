@@ -10,7 +10,7 @@ module Provider1ZurichConnect
     @target_values = Hash.new
 
     @target_values = {
-       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
+      {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
       {'own_owner_residence_province_str' => 'AO'} => 'AOSTA',
@@ -273,6 +273,8 @@ module Provider1ZurichConnect
       {'pol_public_liability_indemnity_limit_str' => '18000000'} => '20.000.000 UNICO',
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '6.000.000 UNICO',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6.000.000 UNICO',
+      {'pol_defined_drive_str' => 'si'} => 'Guida Esperta',
+      {'pol_free_drive_str' => 'si'} => 'Guida Libera',
       {'driv_driver_sex_str' => 'M'} => 'Maschio',
       {'driv_driver_sex_str' => 'F'} => 'Femmina',
       {'driv_driver_sex_str' => 'C'} => 'PersonaGiuridica',
@@ -293,7 +295,8 @@ module Provider1ZurichConnect
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '4'} => '4 anni',
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '5'} => '5 anni',
       {'pol_RCA_premium_id' => 'id elemento'} => 'lblvPremioAnnualeLordoSconto',
-
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'chkInfortuniConducente',
+      {'pol_theft_fire_coverage_premium_id_str' => 'id elemento'} => 'chkIncendioFurto',
 
     }
 

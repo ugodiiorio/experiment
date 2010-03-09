@@ -11,6 +11,8 @@ module Provider1Directline
     @target_values = Hash.new
 
     @target_values = {
+
+      {'pol_bersani_ref_vehicle_number_plate_str' => 'no'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[13]/td[2]/input[3]',
       {'pol_driver_less_than_26_yrs_str' => 'N'} => 'Nessuno',
       {'pol_driver_less_than_26_yrs_str' => 'S'} => 'Un conducente',
       {'veh_alarm_str' => 'immobilizer'} => 'Immobilizzatore o Satellitare',
@@ -83,7 +85,7 @@ module Provider1Directline
       {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
       {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
       {'veh_vehicle_use_str' => 'privato'} => '//form/table[2]/tbody/tr[15]/td[2]/table/tbody/tr[2]/td/input',
-       {'pol_RCA_premium_id_str' => 'privato'} => 'da ricopiare dal file di mara',
+      {'pol_RCA_premium_id_str' => 'privato'} => 'premioRCADiv',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',
@@ -194,7 +196,7 @@ module Provider1Directline
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
-       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
+      {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
       {'own_owner_residence_province_str' => 'AO'} => 'AOSTA',
