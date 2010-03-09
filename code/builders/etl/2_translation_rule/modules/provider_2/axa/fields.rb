@@ -45,4 +45,38 @@ module Provider2Axa
 
   end
 
+  def build_hash_sect_4()
+
+    @target_values = {}
+
+    @target_values = {
+
+      {'pol_instalment_str' => 'annuale'} => 'Annuale',
+      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Il contraente presenta l\'attestato di rischio',
+      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
+      {'pol_number_plate_type_str' => 'definitiva'} => 'Definitiva',
+      {'pol_pejus_cu_str' => '0%'} => '0%',
+      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3,000,000 € - 2,500,000 € - 500,000 €',
+      {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '6,000,000 € - 5,000,000 € - 1,000,000 €',
+      {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6,000,000 € - 6,000,000 € - 6,000,000 €',
+      {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '10,000,000 € - 10,000,000 € - 10,000,000 €',
+      {'pol_public_liability_indemnity_limit_str' => '15,000,000'} => '15,000,000 € - 15,000,000 € - 15,000,000 €',
+      {'pol_public_liability_indemnity_limit_str' => '20,000,000'} => '20,000,000 € - 20,000,000 € - 20,000,000 €',
+      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '25,000,000 € - 25,000,000 € - 25,000,000 €',
+      {'pol_property_type_to_be_insured_str' => 'autocarro per trasporto persone o cose'} => 'Autocarro',
+      {'pol_quotation_str' => 'fissa'} => 'Fissa',
+      {'pol_quotation_str' => 'franchigia'} => 'Franchigia',
+      {'veh_fuel_str' => 'diesel'} => 'Diesel',
+      {'veh_hook_str' => 'no'} => 'No',
+      {'veh_product_sector_str' => 'Pesca, piscicoltura e servizi connessi'} => 'Pesca, piscicoltura e servizi connessi',
+      {'veh_third_party_str' => 'Conto proprio'} => 'Conto proprio (cose)',
+      {'veh_third_party_str' => 'Conto terzi'} => 'Conto terzi (cose)',
+      {'veh_vehicle_type_str' => 'autocarro per trasporto persone o cose'} => 'Autocarro',
+
+      {'pol_client_type_str' => 'C'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input',
+
+    }
+
+  end
+
 end
