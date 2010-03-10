@@ -3,7 +3,7 @@ general_settings:
   gs_source_type: '216'
   gs_typing_sleep_in_seconds: 1
   gs_profile_sleep_in_seconds: 5
-  gs_profile_id: '4'
+  gs_profile_id: '2'
   gs_max_number_of_profiles: 1
 logger_settings: 
   ls_device: '/home/notroot/git/KTE/code/run_time/log/'

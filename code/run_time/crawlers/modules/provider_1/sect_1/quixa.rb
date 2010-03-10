@@ -35,22 +35,25 @@ class QuixaSect1 < Test::Unit::TestCase
       site.sector
       puts get("@owner_specification")
       
-      @logger.info(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Setting up Selenium Page ..."}
+      @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
 #      $Result_file.puts("\n******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
 #      $Result_file.puts("Compagnia QUIXA \n") unless $selenium_out_level == 0 || $Result_file == STDOUT
 #      $Result_file.puts("Profilo n "+ $profilo_assicurativo.to_s()+"\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
 #      $Result_file.puts("******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
 
+      @rc_cover_code, @kte.rc_cover_code = get('@rca_code'), get('@rca_code')
+      @record = get('@record_id')
       @rate_date = format_date(@kte.rate_date)
+
       vehicle_age = 1
       @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
-      @rc_cover = get("@rca_code")
-      @verification_errors = []
+
       @url = eval(site.url)
       @sleep = @kte.sleep_typing
+      @verification_errors = []
       #      const_publisher
 
-      @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Selenium port: #{@kte.port}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
       @selenium_driver = Selenium::Client::Driver.new \
         :host => site.host,
         :port => site.port,
@@ -62,11 +65,11 @@ class QuixaSect1 < Test::Unit::TestCase
 #      @selenium.set_context("test_new")
 
     rescue Errno::ECONNREFUSED => ex
-      @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
 #      @verification_errors[@verification_errors.size] = ex.message
-      @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
   end
@@ -81,24 +84,24 @@ class QuixaSect1 < Test::Unit::TestCase
 
     begin
       @last_element, @last_value = nil, nil
-      @logger.info(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{page.get_title}"}
+      @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{page.get_title}"}
 
       page_1
       page_2
 #      page_3
-      @kte.rca_premium = 1000
-      @kte.test_result = "Test OK => New RCA price for profile #{@kte.profile} = #{@kte.rca_premium}"
-      @logger.info(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{@kte.test_result}"}
+      @kte.rc_premium = 1000
+      @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
+      @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
 
       #@selenium.set_speed 2000
     rescue Timeout::Error => ex
-      ex_message = "#{ex.class.to_s}: Selenium Timeout on element -> #{@last_element} - #{ex.message.to_s}"
-      @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex_message}"}
+      ex_message = "#{ex.class.to_s}: Selenium Timeout for profile [#{@kte.profile}] and record [#{@record}] on element -> [#{@last_element}]: #{ex.message.to_s}"
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex_message}"}
       @kte.test_result = ex_message
       raise ex.class, ex_message
     rescue Exception => ex
-      ex_message = "#{ex.class.to_s}: Selenium error on element -> #{@last_element} - #{ex.message.to_s}"
-      @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex_message}"}
+      ex_message = "#{ex.class.to_s}: Selenium error for profile [#{@kte.profile}] and record [#{@record}] on element -> [#{@last_element}]: #{ex.message.to_s}"
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex_message}"}
       @kte.test_result = ex_message
       raise ex.class, ex_message
     end
@@ -106,61 +109,27 @@ class QuixaSect1 < Test::Unit::TestCase
 
   def page_1
 
-    @last_element, @last_value = @url, nil #"/simulator.aspx?SimObject=CAR"
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running page element: #{@last_element}"}
-    page.open @last_element
-#      page_click "/html/body/form/div[3]/div/div[3]/div/div/map[4]/area"
-#      page_click   "//div[@id='hidepage']/div[1]/div[3]/div[1]/div[1]/map[3]/area"  #causa promozione feltrinelli si è spostato il bottone "fai preventivo" promozione in scadenza 14&/12/2009
-#      page_wait
-    #sleep 3 #non commentare in Quixa
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlBrand", get('@make')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with label value: #{@last_value}"}
-    page_select_regex @last_element, "label=#{@last_value}"
-    #sleep 2
-#    if $Polizza_nuova_auto_nuova
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", get('@matriculation_date')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running text element: #{@last_element} with string value: #{@last_value}"}
-    page_type @last_element, "#{@last_value}"
-#    else
-#      if $Polizza_nuova_auto_usata
-#        page_type "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", 						$Data_immatricolazione
-#      else
-#        page_type "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", 						$Data_immatricolazione
-#      end
-#    end
+    open_page(@url) #"/simulator.aspx?SimObject=CAR"
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with regex value: #{@last_value}"}
-    page_select_regex @last_element, "label=#{@last_value}"
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlBrand", get('@make'))
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with regex value: #{@last_value}"}
-    page_select_regex @last_element, "label=#{@last_value}"
+    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", get('@matriculation_date'))
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with regex value: #{@last_value}"}
-    page_select_regex @last_element, "label=#{@last_value}"
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model'))
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlFuelType", get('@fuel')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with option value: #{@last_value}"}
-    page_select @last_element, "label=#{@last_value}"
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlKmPerYear", get('@km_per_yr')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with label value: #{@last_value}"}
-    page_select @last_element, "label=#{@last_value}"
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVehicleUse", get('@habitual_vehicle_use')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with option value: #{@last_value}"}
-    page_select @last_element, "label=#{@last_value}"
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlFuelType", get('@fuel'))
 
-    @last_element, @last_value = get('@alarm'), nil
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running option button element: #{@last_element}"}
-    page_click @last_element
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlKmPerYear", get('@km_per_yr'))
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward", nil
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running button element: #{@last_element}"}
-    page_click @last_element
-  	sleep @sleep*3
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVehicleUse", get('@habitual_vehicle_use'))
+
+    click_option(get('@alarm'))
+
+    click_button("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward")
 
   end
 
@@ -168,38 +137,44 @@ class QuixaSect1 < Test::Unit::TestCase
 
 #      wait_for_alert()
 
-    @last_element, @last_value = get('@leasing'), nil
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running option button element: #{@last_element}"}
-    page_click @last_element
+    click_option(get('@leasing'))
 
-    @last_element, @last_value = get('@client_type'), nil
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running option button element: #{@last_element}"}
-    page_click @last_element
+    click_option(get('@client_type'))
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with option value: #{@last_value}"}
-    page_select @last_element, "label=#{@last_value}"
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
 
-#    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence')
-#    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with option value: #{@last_value}"}
-#    page_select @last_element, "label=#{@last_value}"
+#    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCountry", get('@citizenship')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with option value: #{@last_value}"}
-    page_select @last_element, "label=#{@last_value}"
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCountry", get('@citizenship'))
 
-    @last_element, @last_value = get('@driver_sex'), nil
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running option button element: #{@last_element}"}
-    page_click @last_element
+    click_option(get('@driver_sex'))
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", get('@birth_date')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running text element: #{@last_element} with string value: #{@last_value}"}
-    page_type @last_element, "#{@last_value}"
+    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", get('@birth_date'))
 
-    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", get('@job')
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with regex value: #{@last_value}"}
-    page_select_regex @last_element, "label=#{@last_value}"
-    #sleep 5
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", get('@job'))
+
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", get('@insurance_situation'))
+    case /(attestato)*/.match(page.get_selected_label("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation"))
+      when true
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlSelectBersani", get('@bersani'))
+      else
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", get('@nr_of_paid_claims_1_yr'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", get('@nr_of_paid_claims_2_yr'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", get('@nr_of_paid_claims_3_yr'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", get('@nr_of_paid_claims_4_yr'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", get('@nr_of_paid_claims_5_yr'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", get('@nr_of_paid_claims_this_yr'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCongenere", get('@coming_from_company'))
+    end
+
+    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
+
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
+
+    click_option(get('@driver_less_than_26_yrs'))
+
+    click_button("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward")
+
   end
 
   def page_3
@@ -232,7 +207,7 @@ class QuixaSect1 < Test::Unit::TestCase
 
 #      $Massimale_RCA = $Massimale_RCA + " €"
 #      page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", "label="+ 			$Massimale_RCA
-    page_select_regex "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", "label=" + $Massimale_RCA
+    page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", "label=" + $Massimale_RCA
 
     page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", "label="+ 		$Mezzo_pagamento
     page_click "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
@@ -250,62 +225,62 @@ class QuixaSect1 < Test::Unit::TestCase
     raise RangeError, "Price cannot be nil" unless premio
     raise RangeError, "Price cannot be equal to zero" unless premio.to_i > 0
 
-    $writer.result_update("OK", "New price for profile " + $profilo_assicurativo + " = " + premio)
-    $writer.profile_price( $profilo_assicurativo, $compagnia, @garanzia, @rate, premio)
+#    $writer.result_update("OK", "New price for profile " + $profilo_assicurativo + " = " + premio)
+#    $writer.profile_price( $profilo_assicurativo, $compagnia, @garanzia, @rate, premio)
     @logger.debug('QuixaTest.test_new => ' + $compagnia) {"PREMIO = "+ premio}
   end
 	
 	def page_click(element)
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Click on element = #{element}"}
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on element = #{element}"}
 #	  wait_for_elm(element)
 	  page.click element
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => element value = #{page.get_value(element)}"}
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
 	def page_type(element, label)
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
 	  page.type element, label
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => element value = #{page.get_value(element)}"}
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
-	def page_select_regex(element, label)
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Select from combo = #{element} a label using regex expression = #{label}"}
-	  wait_for_select(element, label, "regex")
-	  page.select element, label
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => element value = #{page.get_selected_value(element)}"}
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => visible element text = #{page.get_selected_label(element)}"}
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => all element options = #{page.get_select_options(element)}"}
-	end
+#	def page_select_regex(element, label)
+#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from combo = #{element} a label using regex expression = #{label}"}
+#	  wait_for_select(element, label, "regex")
+#	  page.select element, label
+#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_selected_value(element)}"}
+#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => visible element text = #{page.get_selected_label(element)}"}
+#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => all element options = #{page.get_select_options(element)}"}
+#	end
 
 	def page_select(element, label)
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Select from combo = #{element} a #{label}"}
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from combo = #{element} a #{label}"}
 	  wait_for_select(element, label)
 	  page.select element, label
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => element value = #{page.get_selected_value(element)}"}
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => visible element text = #{page.get_selected_label(element)}"}
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => all element options = #{page.get_select_options(element)}"}
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_selected_value(element)}"}
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => visible element text = #{page.get_selected_label(element)}"}
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => all element options = #{page.get_select_options(element)}"}
 	end
 	
-  def wait_for_select(combo_name, label, regex = nil)
+  def wait_for_select(combo_name, label)
   	sleep @sleep
     raise RangeError, "Wait for select failed! Element cannot be nil" unless combo_name
     raise RangeError, "Wait for select failed! Label cannot be nil" unless label
     raise RangeError, "Wait for select failed! Label cannot be nil" unless label.gsub!("label=","")
 	  wait_for_elm combo_name
-	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
-	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless regex
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
+	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
   end
   
   def wait_for_elm(name)
   	sleep @sleep
 	  page.wait_for_element name
-		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug(__FILE__ + ' => ' + method_name) \
+		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug("#{__FILE__} => #{method_name}") \
                                {"#{@kte.company} => Waiting combo "+ name;} } \
                                 if page.is_visible("ctl00_UpdateProgress1") \
                                 if page.element? "ctl00_UpdateProgress1"
 	  raise RangeError, "Wait for element failed! Element not present = #{name}" unless page.element? name
-#	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => element name = #{name}"}
+#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element name = #{name}"}
       
   end  
   
@@ -342,6 +317,44 @@ class QuixaSect1 < Test::Unit::TestCase
 		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Data_decorrenza_mese = "+ 			$Data_decorrenza_mese}
     @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Data_decorrenza_anno = "+ 			$Data_decorrenza_anno}
 	end
+
+  def open_page(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
+    page.open @last_element
+    sleep @sleep
+  end
+
+  def select_option(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+    page_select @last_element, "label=#{@last_value}"
+  end
+
+  def type_text(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
+    page_type @last_element, "#{@last_value}"
+  end
+
+  def click_option(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked option button element: [#{@last_element}]"}
+    page_click @last_element
+  end
+
+  def click_checkbox(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked checkbox element: [#{@last_element}]"}
+    page_click @last_element
+  end
+
+  def click_button(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
+    page_click @last_element
+  	sleep @sleep*2
+  end
 
   def page_wait
    page.wait_for_page_to_load site.wait_for_page_to_load

@@ -107,8 +107,8 @@ class LinearSect1 < Test::Unit::TestCase
     page.click "//img[@alt='Preventivi online: auto, moto e casa']"
     page.wait_for_page_to_load site.wait_for_page_to_load
     page.click "//img[@alt='Preventivo automobile']"
-    @kte.rca_premium = 900
-    @kte.test_result = "Test OK => New RCA price for profile #{@kte.profile} = #{@kte.rca_premium}"
+    @kte.rc_premium = 900
+    @kte.test_result = "Test OK => New RCA price for profile #{@kte.profile} = #{@kte.rc_premium}"
 #      click "/html/body/form/div[3]/div/div[3]/div/div/map[4]/area"
 #      click   "//div[@id='hidepage']/div[1]/div[3]/div[1]/div[1]/map[3]/area"  #causa promozione feltrinelli si è spostato il bottone "fai preventivo" promozione in scadenza 14&/12/2009
 #      page.wait_for_page_to_load $wait_for_page_to_load

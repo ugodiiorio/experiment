@@ -57,11 +57,11 @@ class RunBrowser
         end
       end
     rescue Sequel::DatabaseError => e
-      @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => MYSQL ERROR: #{e}"} if @logger
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => MYSQL ERROR: #{e}"} if @logger
       raise
     rescue Exception => ex
       puts ex.class
-      @logger.fatal(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.message}"} if @logger
+      @logger.fatal("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.message}"} if @logger
       raise
     ensure
       @DB_PROFILE.disconnect
@@ -82,11 +82,11 @@ class RunBrowser
       end
 
     rescue Sequel::DatabaseError => e
-      @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => MYSQL ERROR: #{e}"}
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => MYSQL ERROR: #{e}"}
       raise
     rescue Exception => ex
       puts ex.class
-      @logger.fatal(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.message}"}
+      @logger.fatal("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.message}"}
       raise
     ensure
       @DB_PROFILE.disconnect
@@ -113,21 +113,36 @@ class RunBrowser
                           :key_rate_id_str => kte.rate).update(:result_str => KO, :start_update => Time.new())
       end
 
-      @logger.info(__FILE__ + ' => ' + method_name) {"#{kte.company} => Starting Selenium Page at #{Time.new().to_s()} for profile #{kte.profile}"}
+      @logger.info("#{__FILE__} => #{method_name}") {"#{kte.company} => Starting Selenium Page at #{Time.new().to_s()} for profile #{kte.profile}"}
 #      kte.selenium_io == STDOUT ? $Result_file = File.new(kte.selenium_io, "a") : $Result_file = kte.selenium_io
-      @logger.debug(__FILE__ + ' => ' + method_name) {"#{kte.company} => Test case log file initializing ..."}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{kte.company} => Test case log file initializing ..."}
 
 #      start_selenium
       load(File.join(DLN_LIBRARY_PATH, kte.provider, kte.sector) + '/' + kte.company + ".rb")
       test = Test::Unit::UI::Console::TestRunner.new Kernel.const_get(selenium_class)
       result = test.start
-      puts kte.rca_premium
+      puts kte.rc_premium
+      puts kte.rc_cover_code
       puts kte.test_result
+      puts kte.record
 
-      @logger.info(__FILE__ + ' => ' + method_name) {"#{kte.company} => Selenium result: #{result.to_s}"}
+      @logger.info("#{__FILE__} => #{method_name}") {"#{kte.company} => Selenium result: #{result.to_s}"}
       puts result.passed?
 
       if result.passed?
+        @DB_TARGET.transaction do
+          ps = @DB_TARGET[:premiums].prepare(:insert, :insert_for_premium,
+                                          :key_insurance_profiles_id_num => :$p1,
+                                          :key_provider_id_str => :$p2,
+                                          :key_sector_id_str => :$p3,
+                                          :key_company_id_str => :$p4,
+                                          :key_working_set_id_str => :$p5,
+                                          :key_rate_id_str => :$p6,
+                                          :key_cover_id_str => :$p7,
+                                          :record_id_str => :$p8,
+                                          :premium_num => :$p9)
+          ps.call(:p1=>kte.profile, :p2=>kte.provider, :p3=>kte.sector, :p4=>kte.company, :p5=>kte.working_set, :p6=>kte.rate, :p7=>kte.rc_cover_code, :p8=>kte.record, :p9=>kte.rc_premium)
+        end
         @DB_MONITOR.transaction do
           schedules = @DB_MONITOR[:scheduler]
           schedules.filter( :key_insurance_profiles_id_num => kte.profile,
@@ -136,8 +151,8 @@ class RunBrowser
                             :key_company_id_str => kte.company,
                             :key_working_set_id_str => kte.working_set,
                             :key_rate_id_str => kte.rate).update(:result_str => OK, :result_message_str => kte.test_result, :state_str => RUN)
-          end
-          @logger.info(__FILE__ + ' => ' + method_name) {"#{kte.company} => Execution for profile #{kte.profile.to_s} PASSED"}
+        end
+        @logger.info("#{__FILE__} => #{method_name}") {"#{kte.company} => Execution for profile #{kte.profile.to_s} EXECUTED"}
       else
         @DB_MONITOR.transaction do
           schedules = @DB_MONITOR[:scheduler]
@@ -147,16 +162,16 @@ class RunBrowser
                             :key_company_id_str => kte.company,
                             :key_working_set_id_str => kte.working_set,
                             :key_rate_id_str => kte.rate).update(:result_str => KO, :result_message_str => kte.test_result, :state_str => FREE)
-          end
-          @logger.info(__FILE__ + ' => ' + method_name) {"#{kte.company} => Execution for profile #{kte.profile.to_s} NOT PASSED"}
+        end
+        @logger.info("#{__FILE__} => #{method_name}") {"#{kte.company} => Execution for profile #{kte.profile.to_s} ABORTED"}
       end
 
     rescue Sequel::DatabaseError => e
-      @logger.error(__FILE__ + ' => ' + method_name) {"#{kte.company} => MYSQL ERROR: #{e}"} if @logger
+      @logger.error("#{__FILE__} => #{method_name}") {"#{kte.company} => MYSQL ERROR: #{e}"} if @logger
       raise
     rescue Exception => ex
       puts ex.class
-      @logger.fatal(__FILE__ + ' => ' + method_name) {"#{kte.company} => #{ex.message}"} if @logger
+      @logger.fatal("#{__FILE__} => #{method_name}") {"#{kte.company} => #{ex.message}"} if @logger
       raise
     ensure
       @DB_MONITOR.disconnect

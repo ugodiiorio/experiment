@@ -45,12 +45,12 @@ class KTE
   attr_reader :log_device, :log_level
   attr_reader :port, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
   attr_reader :db_host, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
-  attr_accessor :profile, :rca_premium, :test_result
+  attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result
 
   def initialize
     begin
       @logger = nil
-      @rca_premium, @test_result = 0, nil
+      @rc_premium, @rc_cover_code, @record, @test_result = 0, nil, nil, nil
 
       begin
 
