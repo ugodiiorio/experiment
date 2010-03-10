@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider1Genertel
+module Provider2Genertel
 
   def build_hash_sect_1()
 
@@ -11,7 +11,7 @@ module Provider1Genertel
     @target_values = Hash.new
 
     @target_values = {
-       {'pol_legal_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[4]/td[4]/div/div/div/img',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[4]/td[4]/div/div/div/img',
       {'pol_road_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[5]/td[4]/div/div/div/img',
       {'veh_vehicle_value_str' => '5000'} => 'index 1',
        {'pol_RCA_premium_id_str' => 'id elemento'} => 'LBLXRIEXValuta',

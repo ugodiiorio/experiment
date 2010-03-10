@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider1ZurichConnect
+module Provider2ZurichConnect
 
   #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
   def build_hash_sect_1()
@@ -66,6 +66,7 @@ module Provider1ZurichConnect
  'pol_bersani_ref_vehicle_insured_with_company_str'  => 'copy_field' ,
  'pol_bersani_ref_vehicle_number_plate_str'  => 'copy_field' ,
  'pol_BM_assigned_str'  => 'translate_field' ,
+ 'pol_BM_1_more_than_1_year_str'  => 'copy_field' ,
  'pol_BM_in_risk_certificate_str'  => 'copy_field' ,
  'pol_BM_particular_cases_str'  => 'copy_field' ,
  'pol_car_already_insured_with_company_str'  => 'copy_field' ,

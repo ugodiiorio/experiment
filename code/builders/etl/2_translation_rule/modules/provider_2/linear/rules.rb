@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider1Linear
+module Provider2Linear
 
   #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
   def build_hash_sect_1()
@@ -64,6 +64,7 @@ module Provider1Linear
       'pol_blukasko_premium_id_str' => 'copy_field',
       'pol_blukasko_web_id_str' => 'copy_field',
       'pol_BM_assigned_str' => 'translate_field',
+      'pol_BM_1_more_than_1_year_str'  => 'copy_field' ,
       'pol_BM_in_risk_certificate_str' => 'copy_field',
       'pol_BM_1_more_than_1_year_str' => 'copy_field',
       'pol_BM_particular_cases_str' => 'copy_field',

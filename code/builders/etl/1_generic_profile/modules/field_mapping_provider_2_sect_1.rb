@@ -58,7 +58,7 @@ module FieldMappingProvider2Sect1
       'pol_driver_zip_code_str'  => 'infield[:pol_driver_lzip_code_str].strip' ,
       'pol_driving_license_suspension_str'  => '"no"' ,
       'pol_driving_license_withdrawal_indemnity_limit_str'  => nil ,
-      'pol_driving_type_str'  => 'infield[:pol_driving_type_str].strip-downcase' ,
+      'pol_driving_type_str'  => 'infield[:pol_driving_type_str].strip.downcase' ,
       'pol_drunkenness_fine_str'  => '"no"' ,
       'pol_exclusive_drive_str'  => '"no"' ,
       'pol_family_car_num'  => '1' ,

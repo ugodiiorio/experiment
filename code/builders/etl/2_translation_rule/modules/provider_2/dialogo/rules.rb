@@ -43,6 +43,7 @@ def build_hash_sect_1()
  'pol_birth_date_str'  => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = \'%d%m%Y\';data = data.strftime(european_date).to_s' ,
  'pol_birth_date_year_num'  => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = \'%Y\';data = data.strftime(european_date).to_s' ,
  'pol_BM_assigned_str'  => 'translate_field' ,
+ 'pol_BM_1_more_than_1_year_str'  => 'copy_field' ,
  'pol_BM_in_risk_certificate_str'  => 'copy_field' ,
  'pol_BM_particular_cases_str'  => 'copy_field' ,
  'pol_car_already_insured_with_company_str'  => 'copy_field' ,
