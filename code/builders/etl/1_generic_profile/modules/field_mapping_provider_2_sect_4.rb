@@ -12,7 +12,7 @@ module FieldMappingProvider2Sect4
       'pol_record_id_str' =>'infield[:pol_record_id_str].strip.downcase',
       'pol_BM_assigned_str' =>'infield[:pol_BM_assigned_str].strip.downcase',
       'pol_claims_total_number_str' =>'infield[:pol_claims_total_number_str].strip.downcase',
-      'pol_coming_from_BM_num' =>  'bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end',
+      'pol_coming_from_BM_str' =>  'bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end',
       'pol_insurance_situation_str' => 'a=infield[:pol_insurance_situation_str].strip.downcase; b=a.gsub(/à /,"a"); c=b.gsub(/è/,"e"); d=c.gsub(/é/,"e"); e=d.gsub(/ì/,"i"); f= e.gsub(/ò/,"o"); g=f.gsub(/ù/,"u"); h=g.gsub(/°/,"a");',
       'pol_matriculation_date_str' => '(DateTime::now - infield[:pol_matriculation_date_str].to_i.years).strftime("%F")',
       'pol_matriculation_date_day_str' => '(DateTime::now - infield[:pol_matriculation_date_str].to_i.years).strftime("%d")',

@@ -26,7 +26,7 @@ def build_hash_sect_2()
       'pol_birth_date_str' => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = "%d/%m/%Y";data = data.strftime(european_date).to_s',
       'pol_matriculation_date_str' => 'data=Date.parse(profilefield[:pol_matriculation_date_str]);european_date = "%d/%m/%Y";data = data.strftime(european_date).to_s',
       'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
-      'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
+      'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
       'veh_model_str' => 'kw=profilefield[:veh_kw_str];make=profilefield[:veh_model_str]; make= make.gsub(/tddi/i, "TD DI");  make= make.gsub(/tdci/i, "TD CI");  make= make.gsub(/turbodiesel/i, "TD"); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',
 
 
@@ -60,7 +60,7 @@ def build_hash_sect_3()
 
       'pol_matriculation_date_str' => 'data=Date.parse(profilefield[:pol_matriculation_date_str]);european_date = "%d/%m/%Y";data = data.strftime(european_date).to_s',
       'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
-      'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
+      'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
       'veh_model_str' => 'kw=profilefield[:veh_kw_str];make=profilefield[:veh_model_str]; make= make.gsub(/tddi/i, "TD DI");  make= make.gsub(/tdci/i, "TD CI");  make= make.gsub(/turbodiesel/i, "TD"); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',
 
       'pol_premium_id_str' => '/html/body/form/div[2]/div/div[5]/div/table/tbody/tr[3]/td[4]'
@@ -96,7 +96,7 @@ def build_hash_sect_4()
       'pol_matriculation_date_str' => 'data=Date.parse(profilefield[:pol_matriculation_date_str]);european_date = "%d/%m/%Y";data = data.strftime(european_date).to_s',
       'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
       'pol_nr_of_paid_claims_3_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[:pol_nr_of_paid_claims_2_yr_str].to_i; sin= x+y+z',
-      'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";',
+      'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";',
       'veh_set_up_str' => 'make=profilefield[:veh_set_up_str]; make= make.gsub(/(\\s)+ie(\\s)+/i, " i.e. "); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1) ;regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',
 
     }

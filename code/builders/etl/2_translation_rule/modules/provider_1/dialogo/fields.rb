@@ -11,6 +11,7 @@ module Provider1Dialogo
     @target_values = Hash.new
 
     @target_values = {
+
        {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
