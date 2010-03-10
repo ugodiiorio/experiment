@@ -9,7 +9,7 @@ require "test/unit"
 require "test/unit/ui/console/testrunner"
 
 class RunBrowser
-  attr_reader :kte, :browser, :host, :port, :wait_for_page_to_load, :timeout_in_secs, :sleep_typing
+  attr_reader :kte, :browser, :host, :port, :wait_for_page_to_load, :timeout_in_secs, :sleep_typing, :url
 
   MODULE_FOLDER = 'modules'
   DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
@@ -36,7 +36,9 @@ class RunBrowser
     @timeout_in_secs = @kte.timeout_in_sec
     @sleep_typing +=  0.01*rand(200) if @kte.sleep_typing < 1
     @DB_PROFILE = Sequel.mysql(:database => @kte.db_driver, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @logger)
-
+    ds = @DB_PROFILE[:companies].where(:key_companies_group_id_str => @kte.company_group, :key_company_id_str => @kte.company)
+    @url  = ds.first[:site_url_str]
+    
   end
 
 	def person()

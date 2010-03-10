@@ -40,7 +40,7 @@ def is_numeric?(n)
 end
 
 class KTE
-  attr_reader :logger, :company, :provider, :sector, :working_set, :rate, :detection_date
+  attr_reader :logger, :company_group, :company, :provider, :sector, :working_set, :rate, :rate_date
   attr_reader :sleep_typing, :sleep_between_profiles, :max_profiles
   attr_reader :log_device, :log_level
   attr_reader :port, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
@@ -97,7 +97,7 @@ class KTE
           database_settings = {:ds_engine_type =>nil, :ds_conn_user =>nil,
                                :ds_conn_pwd =>nil, :ds_db_host =>nil, 
                                :ds_db_driver =>nil, :ds_db_monitor =>nil, :ds_db_target =>nil} unless database_settings
-          app_settings = {:as_rate_date =>nil, :as_company_id =>nil,
+          app_settings = {:as_rate_date =>nil, :as_company_id =>nil, :as_company_group_id =>nil,
                           :as_rate_id =>nil, :as_provider_id =>nil, :as_sector_id =>nil,
                           :as_working_set_id =>nil} unless app_settings
       end
@@ -108,12 +108,14 @@ class KTE
       @max_profiles                 = ARGV[9] || general_settings['gs_max_number_of_profiles'] || "1" # max number of profiles to execute in the running task
       @profile                    	= ARGV[0] || general_settings['gs_profile_id'] || "100"
 
+      @company_group     			      = ARGV[23] || app_settings['as_company_group_id'] || "all_provider_1"
       @company 	        			      = ARGV[1] || app_settings['as_company_id'] || "quixa"
-      @provider 	        			    = ARGV[21] || app_settings['as_provider_id'] || "quixa"
-      @sector 				              = ARGV[22] || app_settings['as_sector_id'] || "sect_1"
-      @working_set 	         			  = ARGV[23] || app_settings['as_working_set_id'] || "prov_1_20100201"
-      @rate	                        = ARGV[7] || app_settings['as_rate_id'] || "20991212"
-      @start_date                   = ARGV[20] || app_settings[':as_rate_date'] || '10th day next month'
+      @provider 	        			    = ARGV[20] || app_settings['as_provider_id'] || "quixa"
+      @sector 				              = ARGV[21] || app_settings['as_sector_id'] || "sect_1"
+      @working_set 	         			  = ARGV[22] || app_settings['as_working_set_id'] || "prov_1_20100201"
+      @rate	                        = ARGV[7] || app_settings['as_rate_id'] || "today"
+      @start_date                    = ARGV[19] || app_settings['as_rate_date'] || '10th day next month'
+      @rate_date                    = Chronic.parse(@start_date)
 
       @log_device                   = ARGV[12] || logger_settings['ls_device'] || "/home/notroot/git/KTE/code/run_time/log/"
       @log_level                    = ARGV[13] || logger_settings['ls_level'] || 2
@@ -131,11 +133,9 @@ class KTE
       @db_conn_user                 = ARGV[17] || database_settings['ds_conn_user'] || 'kte'
       @db_conn_pwd                  = ARGV[18] || database_settings['ds_conn_pwd'] || ''
 
-      @db_driver                    = ARGV[19] || database_settings['ds_db_driver'] || 'kte_driver'
-      @db_monitor                   = ARGV[19] || database_settings['ds_db_monitor'] || 'kte_monitor'
-      @db_target                    = ARGV[19] || database_settings['ds_db_target'] || 'kte_target'
-
-      @detection_date                    = Chronic.parse(@start_date)
+      @db_driver                    = ARGV[25] || database_settings['ds_db_driver'] || 'kte_driver'
+      @db_monitor                   = ARGV[26] || database_settings['ds_db_monitor'] || 'kte_monitor'
+      @db_target                    = ARGV[27] || database_settings['ds_db_target'] || 'kte_target'
 
       @log_device += @provider + @sector + @company + ".log" unless @log_device == STDOUT
       @selenium_io += @provider + @sector + @company + ".run.txt" unless @selenium_io == STDOUT
@@ -154,7 +154,7 @@ class KTE
       @logger.info('init') {'Starting process ...'}
 
       @logger.info('init => ' + @company) {"chronic start date: " + @start_date}
-      @logger.info('init => ' + @company) {"detection date: " + @detection_date.to_s}
+      @logger.info('init => ' + @company) {"rate date: " + @rate_date.to_s}
       @logger.info('init => ' + @company) {"company: " + @company}
       @logger.info('init => ' + @company) {"insurance profile: " + @profile}
       @logger.info('init => ' + @company) {"selenium port: " + @port}

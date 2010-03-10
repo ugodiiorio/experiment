@@ -13,10 +13,15 @@ class QuixaSect1 < Test::Unit::TestCase
   alias :page :selenium_driver
 
   def get(var)
-    return site.instance_variable_get(var)
+    var_value = site.instance_variable_get(var)
+    return var_value.to_s.strip
   end
-  def set(var, val)
-    site.instance_variable_set(var, val)
+
+  def format_date(date)
+    rate_date_day = "%02d" % date.day
+    rate_date_month = "%02d" % date.month
+    rate_date_year = "%02d" % date.year
+    return "#{rate_date_day}/#{rate_date_month}/#{rate_date_year}"
   end
 
   def setup
@@ -36,9 +41,14 @@ class QuixaSect1 < Test::Unit::TestCase
 #      $Result_file.puts("Profilo n "+ $profilo_assicurativo.to_s()+"\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
 #      $Result_file.puts("******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
 
-      @rca_cover = "1"
+      @rate_date = format_date(@kte.rate_date)
+      vehicle_age = 1
+      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
+      @rc_cover = get("@rca_code")
       @verification_errors = []
-#      const_publisher
+      @url = eval(site.url)
+      @sleep = @kte.sleep_typing
+      #      const_publisher
 
       @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Selenium port: #{@kte.port}"}
       @selenium_driver = Selenium::Client::Driver.new \
@@ -46,22 +56,10 @@ class QuixaSect1 < Test::Unit::TestCase
         :port => site.port,
         :timeout_in_seconds => site.timeout_in_secs,
         :browser => site.browser,
-        :url => "http://www.quixa.it"
+        :url => @url
 
       @selenium_driver.start_new_browser_session
 #      @selenium.set_context("test_new")
-
-#        it "can find Selenium" do
-#          page.open "/"
-#          page.title.should eql("Google")
-#          page.type "q", "Selenium seleniumhq"
-#          page.click "btnG", :wait_for => :page
-#          page.value("q").should eql("Selenium seleniumhq")
-#          page.text?("seleniumhq.org").should be_true
-#          page.title.should eql("Selenium seleniumhq - Google Search")
-#          page.text?("seleniumhq.org").should be_true
-#                  page.element?("link=Cached").should be_true
-#        end
 
     rescue Errno::ECONNREFUSED => ex
       @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
@@ -83,7 +81,13 @@ class QuixaSect1 < Test::Unit::TestCase
 
     begin
       @last_element, @last_value = nil, nil
+      @logger.info(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{page.get_title}"}
+
       page_1
+      page_2
+#      page_3
+      @kte.rca_premium = 1000
+      @kte.test_result = "Test OK => New RCA price for profile #{@kte.profile} = #{@kte.rca_premium}"
       @logger.info(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{@kte.test_result}"}
 
       #@selenium.set_speed 2000
@@ -102,192 +106,212 @@ class QuixaSect1 < Test::Unit::TestCase
 
   def page_1
 
-    @last_element = "/simulator.aspx?SimObject=CAR"
-    @last_value = nil
-    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running element: #{@last_element} with value: #{@last_value}"}
+    @last_element, @last_value = @url, nil #"/simulator.aspx?SimObject=CAR"
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running page element: #{@last_element}"}
     page.open @last_element
-    @kte.rca_premium = 1000
-    @kte.test_result = "Test OK => New RCA price for profile #{@kte.profile} = #{@kte.rca_premium}"
-#      click "/html/body/form/div[3]/div/div[3]/div/div/map[4]/area"
-#      click   "//div[@id='hidepage']/div[1]/div[3]/div[1]/div[1]/map[3]/area"  #causa promozione feltrinelli si è spostato il bottone "fai preventivo" promozione in scadenza 14&/12/2009
-#      page.wait_for_page_to_load $wait_for_page_to_load
+#      page_click "/html/body/form/div[3]/div/div[3]/div/div/map[4]/area"
+#      page_click   "//div[@id='hidepage']/div[1]/div[3]/div[1]/div[1]/map[3]/area"  #causa promozione feltrinelli si è spostato il bottone "fai preventivo" promozione in scadenza 14&/12/2009
+#      page_wait
+    #sleep 3 #non commentare in Quixa
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlBrand", get('@make')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with label value: #{@last_value}"}
+    page_select_regex @last_element, "label=#{@last_value}"
+    #sleep 2
+#    if $Polizza_nuova_auto_nuova
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", get('@matriculation_date')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running text element: #{@last_element} with string value: #{@last_value}"}
+    page_type @last_element, "#{@last_value}"
+#    else
+#      if $Polizza_nuova_auto_usata
+#        page_type "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", 						$Data_immatricolazione
+#      else
+#        page_type "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", 						$Data_immatricolazione
+#      end
+#    end
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with regex value: #{@last_value}"}
+    page_select_regex @last_element, "label=#{@last_value}"
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with regex value: #{@last_value}"}
+    page_select_regex @last_element, "label=#{@last_value}"
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with regex value: #{@last_value}"}
+    page_select_regex @last_element, "label=#{@last_value}"
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlFuelType", get('@fuel')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with option value: #{@last_value}"}
+    page_select @last_element, "label=#{@last_value}"
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlKmPerYear", get('@km_per_yr')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with label value: #{@last_value}"}
+    page_select @last_element, "label=#{@last_value}"
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVehicleUse", get('@habitual_vehicle_use')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with option value: #{@last_value}"}
+    page_select @last_element, "label=#{@last_value}"
+
+    @last_element, @last_value = get('@alarm'), nil
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running option button element: #{@last_element}"}
+    page_click @last_element
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward", nil
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running button element: #{@last_element}"}
+    page_click @last_element
+  	sleep @sleep*3
 
   end
 
   def page_2
-    #sleep 3 #non commentare in Quixa
-      select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlBrand", "label="+				$Marca_auto
-    #sleep 2
-      if $Polizza_nuova_auto_nuova
-        type "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", 						$Data_imm_classe_14_mese + "/" + $Data_decorrenza_anno
-      else
-        if $Polizza_nuova_auto_usata
-          type "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", 						$Data_immatricolazione
-        else
-          type "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", 						$Data_immatricolazione
-        end
-      end
-
-      #sleep 3
-      select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", "label="+				$Modello_auto
-        select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", "label="+			$Allestimento_auto
-      #sleep 5
-      select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlKmPerYear", "label="+		$N_km_quixa
-      select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVehicleUse", "label="+ 		$Uso_auto
-      click "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-        #sleep 6 #non commentare in Quixa
 
 #      wait_for_alert()
 
-        select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", "label="+			$Provincia
-      click 																															$Sesso
-        type "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", 						$Data_nascita
-        #sleep 3
-      select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", "label="+					$Professione
-      #sleep 5
-      if $Polizza_nuova_auto_nuova
-        click "//option[@value='2']"
+    @last_element, @last_value = get('@leasing'), nil
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running option button element: #{@last_element}"}
+    page_click @last_element
+
+    @last_element, @last_value = get('@client_type'), nil
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running option button element: #{@last_element}"}
+    page_click @last_element
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with option value: #{@last_value}"}
+    page_select @last_element, "label=#{@last_value}"
+
+#    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence')
+#    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with option value: #{@last_value}"}
+#    page_select @last_element, "label=#{@last_value}"
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCountry", get('@citizenship')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with option value: #{@last_value}"}
+    page_select @last_element, "label=#{@last_value}"
+
+    @last_element, @last_value = get('@driver_sex'), nil
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running option button element: #{@last_element}"}
+    page_click @last_element
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", get('@birth_date')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running text element: #{@last_element} with string value: #{@last_value}"}
+    page_type @last_element, "#{@last_value}"
+
+    @last_element, @last_value = "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", get('@job')
+    @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => now's running combo element: #{@last_element} with regex value: #{@last_value}"}
+    page_select_regex @last_element, "label=#{@last_value}"
+    #sleep 5
+  end
+
+  def page_3
+
+    if $Polizza_nuova_auto_nuova
+      page_click "//option[@value='2']"
+    else
+      if $Polizza_nuova_auto_usata
+        page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", "label="+ "Prima Polizza dopo l'acquisto di un veicolo"
       else
-        if $Polizza_nuova_auto_usata
-          select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", "label="+ "Prima Polizza dopo l'acquisto di un veicolo"
-        else
-          select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", "label="+ $Situaziona_assicurativa
-          select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", "label="+			$Classe_BM
-          select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", "label="+					$N_incidenti_anno_1
-          select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", "label="+					$N_incidenti_anno_2
-          select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", "label="+					$N_incidenti_anno_3
-          select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", "label="+					$N_incidenti_anno_4
-          select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", "label="+					$N_incidenti_anno_5
-          select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", "label="+					$N_incidenti_anno_0
-          select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCongenere", "label="+			$Compagnia_precedente
-        end
+        page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", "label="+ $Situaziona_assicurativa
+        page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", "label="+			$Classe_BM
+        page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", "label="+					$N_incidenti_anno_1
+        page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", "label="+					$N_incidenti_anno_2
+        page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", "label="+					$N_incidenti_anno_3
+        page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", "label="+					$N_incidenti_anno_4
+        page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", "label="+					$N_incidenti_anno_5
+        page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", "label="+					$N_incidenti_anno_0
+        page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCongenere", "label="+			$Compagnia_precedente
       end
-      click 																															$Flag_no_leasing
-        select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", "label="+ 		$Comune_residenza
-      select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCountry", "label="+				$Nazione
-        type "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", 						$Data_decorrenza
-      click 																															$Flag_conducenti_inf_26
-      click "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-        #sleep 3 #non commentare in Quixa
-
-      click "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-        #sleep 3 #non commentare in Quixa
-#      $Massimale_RCA = $Massimale_RCA + " €"
-#      select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", "label="+ 			$Massimale_RCA
-      select_regex "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", "label=" + $Massimale_RCA
-
-      select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", "label="+ 		$Mezzo_pagamento
-      click "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
-      sleep 3 
-
-      wait_for_elm "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize"
-      assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
-      premio = page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize")
-      raise RangeError, "Price cannot be a string" if premio.split[0].to_s.match(/[a-zA-Z]/) == nil ? false : true
-      premio = premio.split[0]
-      premio = premio.gsub(".","") if premio
-      premio = premio.gsub(",",".") if premio
-
-      @logger.debug('QuixaTest.test_new => ' + $compagnia) {"gsub premio = " + premio.to_s}
-      raise RangeError, "Price cannot be nil" unless premio
-      raise RangeError, "Price cannot be equal to zero" unless premio.to_i > 0
-
-      $writer.result_update("OK", "New price for profile " + $profilo_assicurativo + " = " + premio)
-      $writer.profile_price( $profilo_assicurativo, $compagnia, @garanzia, @rate, premio)
-      @logger.debug('QuixaTest.test_new => ' + $compagnia) {"PREMIO = "+ premio}
     end
+    page_click 																															$Flag_no_leasing
+    page_type "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", 						$Data_decorrenza
+    page_click 																															$Flag_conducenti_inf_26
+    page_click "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
+    #sleep 3 #non commentare in Quixa
+
+    page_click "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
+  #sleep 3 #non commentare in Quixa
+
+#      $Massimale_RCA = $Massimale_RCA + " €"
+#      page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", "label="+ 			$Massimale_RCA
+    page_select_regex "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", "label=" + $Massimale_RCA
+
+    page_select "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", "label="+ 		$Mezzo_pagamento
+    page_click "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
+    sleep 3
+
+    wait_for_elm "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize"
+    assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
+    premio = page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize")
+    raise RangeError, "Price cannot be a string" if premio.split[0].to_s.match(/[a-zA-Z]/) == nil ? false : true
+    premio = premio.split[0]
+    premio = premio.gsub(".","") if premio
+    premio = premio.gsub(",",".") if premio
+
+    @logger.debug('QuixaTest.test_new => ' + $compagnia) {"gsub premio = " + premio.to_s}
+    raise RangeError, "Price cannot be nil" unless premio
+    raise RangeError, "Price cannot be equal to zero" unless premio.to_i > 0
+
+    $writer.result_update("OK", "New price for profile " + $profilo_assicurativo + " = " + premio)
+    $writer.profile_price( $profilo_assicurativo, $compagnia, @garanzia, @rate, premio)
+    @logger.debug('QuixaTest.test_new => ' + $compagnia) {"PREMIO = "+ premio}
+  end
 	
-	def select_regex(element, label)
-	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Seleziona da combo = "+element}
-	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"      ...la label con regex = "+label}
-	  wait_for_select(element, label, "regex")
-	  page.select element, label
+	def page_click(element)
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Click on element = #{element}"}
+#	  wait_for_elm(element)
+	  page.click element
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
-	def select(element, label)
-	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Seleziona da combo = "+element+ " la label = "+label}
-	  wait_for_select(element, label)
-	  page.select element, label
-	end
-	
-	def click(element)
-	  @logger.debug('QuixaTest.test_new => ' + $compagnia) { "Click su elemento = "+element}
-	  wait_for_elm(element)
-	  page.click element
-	end  
-	
-	def type(element, label)
-	  @logger.debug('QuixaTest.test_new => ' + $compagnia) { "Type su elemento = "+element+" la label = "+label}
+	def page_type(element, label)
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
 	  page.type element, label
-	end     
-  
-  def wait_for_select(nome_elemento_combo, label, regex = nil)
-  	#sleep 3 #non commentare in Quixa !
-#  	sleep 2
-  	sleep $sleep
-    @last_element = nome_elemento_combo
-  	if(nome_elemento_combo==nil)
-  		@logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! Nome_elemento_combo inesistente !!"}
-      raise RangeError, "Wait for select failed! Element cannot be nil"
-  	end
-    if(label==nil)
-        @logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! label inesistente!!"}
-      raise RangeError, "Wait for select failed! Label cannot be Elemento = nil"
-      end
-    label= label.gsub!("label=","")
-    if(label==nil)
-      @logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! Label non formattata correttamente !!"}
-      raise RangeError, "Wait for select failed! Label cannot be nil"
-    end
-	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Nome combo = "+nome_elemento_combo}
-	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Label = "+label}
-	  wait_for_elm nome_elemento_combo
-	  var = page.element? nome_elemento_combo
-	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Combo presente ? "+var.to_s()+"  label  "+label}
-	  assert !60.times{ break if (page.get_select_options(nome_elemento_combo).include?(label)); sleep 1 }	unless regex
-#	  var = page.get_select_options(nome_elemento_combo).include?(label)
-#    if var
-#  	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Label presente nella combo = " + label}
-#    else
-#  	  @logger.error('QuixaTest.test_new => ' + $compagnia) {"Label not present into combo = " + label}
-#      raise RangeError, "Wait for select failed! label not present = " + label
-#    end
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => element value = #{page.get_value(element)}"}
+	end
+
+	def page_select_regex(element, label)
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Select from combo = #{element} a label using regex expression = #{label}"}
+	  wait_for_select(element, label, "regex")
+	  page.select element, label
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => element value = #{page.get_selected_value(element)}"}
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => visible element text = #{page.get_selected_label(element)}"}
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => all element options = #{page.get_select_options(element)}"}
+	end
+
+	def page_select(element, label)
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => Select from combo = #{element} a #{label}"}
+	  wait_for_select(element, label)
+	  page.select element, label
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => element value = #{page.get_selected_value(element)}"}
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => visible element text = #{page.get_selected_label(element)}"}
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => all element options = #{page.get_select_options(element)}"}
+	end
+	
+  def wait_for_select(combo_name, label, regex = nil)
+  	sleep @sleep
+    raise RangeError, "Wait for select failed! Element cannot be nil" unless combo_name
+    raise RangeError, "Wait for select failed! Label cannot be nil" unless label
+    raise RangeError, "Wait for select failed! Label cannot be nil" unless label.gsub!("label=","")
+	  wait_for_elm combo_name
+	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
+	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless regex
   end
   
-  def wait_for_elm(nome_elemento)
-#	sleep 2
-    @last_element = nome_elemento
-  	sleep 1.5
-#  	sleep $sleep
-	  if(nome_elemento==nil)
-		  @logger.error('QuixaTest.test_new => ' + $compagnia) {"Attenzione ! Nome_elemento inesistente !!"}
-      raise RangeError, "Wait for element failed! Element cannot be nil"
-	  end	  
-	  page.wait_for_element nome_elemento
-	  if page.element? "ctl00_UpdateProgress1"
-		  if page.is_visible("ctl00_UpdateProgress1")
-		  	assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Attesa - combo "+ nome_elemento;} }
-		  end
-	  end
-	  if page.element? nome_elemento
-  	  @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Nome elemento = "+nome_elemento}
-    else
-  	  @logger.error('QuixaTest.test_new => ' + $compagnia) {"Element = " + nome_elemento +" not present"}
-      raise RangeError, "Wait for element failed! Element not present = " + nome_elemento
-    end
-	  #var = page.element? nome_elemento
-	  #@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Elemento presente ? "+var.to_s()+"\n\n"
+  def wait_for_elm(name)
+  	sleep @sleep
+	  page.wait_for_element name
+		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug(__FILE__ + ' => ' + method_name) \
+                               {"#{@kte.company} => Waiting combo "+ name;} } \
+                                if page.is_visible("ctl00_UpdateProgress1") \
+                                if page.element? "ctl00_UpdateProgress1"
+	  raise RangeError, "Wait for element failed! Element not present = #{name}" unless page.element? name
+#	  @logger.debug(__FILE__ + ' => ' + method_name) {"#{@kte.company} => element name = #{name}"}
+      
   end  
   
 	def wait_for_alert()
-		!8.times{ break if (page.alert?); sleep 1; puts "Attesa alert \n"; }
-		if page.alert?
-			@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Consuming alert !"}
-			page.alert()
-		else
-			@logger.debug('QuixaTest.test_new => ' + $compagnia) {"No alert present"}
-		end
+		!8.times{ break if (page.alert?); sleep 1; puts "Waiting alert ..."; }
+		page.alert() if page.alert?
 	end     
 	
 	def log_vars
@@ -318,5 +342,9 @@ class QuixaSect1 < Test::Unit::TestCase
 		@logger.debug('QuixaTest.test_new => ' + $compagnia) {"Data_decorrenza_mese = "+ 			$Data_decorrenza_mese}
     @logger.debug('QuixaTest.test_new => ' + $compagnia) {"Data_decorrenza_anno = "+ 			$Data_decorrenza_anno}
 	end
-		
+
+  def page_wait
+   page.wait_for_page_to_load site.wait_for_page_to_load
+  end
+
 end
