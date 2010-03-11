@@ -10,6 +10,11 @@ module Provider2Conte
     @target_values = Hash.new
 
     @target_values = {
+      {'pol_RCA_premium_id_str' => 'id elemento'} => 'page:quota_info:0:colonna_Premi',
+      {'pol_driver_accident_web_id_str' => 'id elemento'} => 'page:quota_info:6:garanziaChecked',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'page:quota_info:8:garanziaChecked',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'page:quota_info:7:garanziaChecked',
+
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',

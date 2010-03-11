@@ -10,6 +10,16 @@ module Provider1Conte
     @target_values = Hash.new
 
     @target_values = {
+      {'pol_RCA_premium_id_str' => 'id elemento'} => 'page:quota_info:0:colonna_Premi',
+      {'pol_driver_accident_web_id_str' => 'id elemento'} => 'page:quota_info:6:garanziaChecked',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'page:quota_info:8:garanziaChecked',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'page:quota_info:7:garanziaChecked',
+
+      {'pol_kasko_web_id_str' => 'id elemento'} => 'page:quota_info:3:garanziaChecked',
+      {'pol_minikasko_web_id_str' => 'id elemento'} => 'page:quota_info:2:garanziaChecked',
+      {'pol_glasses_web_id_str' => 'id elemento'} => 'page:quota_info:5:garanziaChecked',
+      {'pol_natural_events_web_id_str' => 'id elemento'} => 'page:quota_info:4:garanziaChecked',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'page:quota_info:1:garanziaChecked',
 
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
@@ -425,6 +435,7 @@ module Provider1Conte
       {'pol_claims_total_number_str' => '0'} => 'page:sinistri_cc:1',
       {'pol_claims_total_number_str' => '1'} => 'page:sinistri_cc:0',
       {'pol_claims_total_number_str' => '2'} => 'page:sinistri_cc:0',
+    
 
 
 

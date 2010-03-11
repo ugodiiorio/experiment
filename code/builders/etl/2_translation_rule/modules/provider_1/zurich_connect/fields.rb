@@ -23,7 +23,7 @@ module Provider1ZurichConnect
       {'own_owner_residence_province_str' => 'BL'} => 'BELLUNO',
       {'own_owner_residence_province_str' => 'BN'} => 'BENEVENTO',
       {'own_owner_residence_province_str' => 'BG'} => 'BERGAMO',
-      {'own_owner_residence_province_str' => 'BI'} => 'BIELLA',
+      {'own_owner_residence_province_str' => 'BI'} => 'label=BIELLA',
       {'own_owner_residence_province_str' => 'BO'} => 'BOLOGNA',
       {'own_owner_residence_province_str' => 'BZ'} => 'BOLZANO',
       {'own_owner_residence_province_str' => 'BS'} => 'BRESCIA',

@@ -4,13 +4,13 @@
 
 module Provider1Quixa
 
-#  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
-def build_hash_sect_1()
+  #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
+  def build_hash_sect_1()
 
     @rule_values ={}
 
     @rule_values = {
-       'pol_first_claim_month_str' => 'copy_field',
+      'pol_first_claim_month_str' => 'copy_field',
       'pol_first_claim_year_str' => 'copy_field',
       'pol_second_claim_month_str' => 'copy_field',
       'pol_second_claim_year_str'  => 'copy_field',
@@ -37,7 +37,7 @@ def build_hash_sect_1()
       'own_owner_sex_str' => 'copy_field',
       'own_owner_specification_str' => 'copy_field',
       'own_owner_zip_code_str' => 'copy_field',
-       'own_owner_residence_province_str' =>  'translate_field'   ,
+      'own_owner_residence_province_str' =>  'translate_field'   ,
       'own_owner_residence_str' =>  'copy_field',
       'pol_act_of_vandalism_code_str' => 'copy_field',
       'pol_act_of_vandalism_minimum_uncoverage_str' => 'copy_field',
@@ -48,19 +48,18 @@ def build_hash_sect_1()
       'pol_assistance_code_str' => 'copy_field',
       'pol_assistance_on_off_str' => 'copy_field',
       'pol_assistance_premium_id_str' => 'copy_field',
-      'pol_assistance_web_id_str' => 'copy_field',
-      'pol_athmospheric_events_code_str' => 'copy_field',
-      'pol_athmospheric_events_on_off_str' => 'copy_field',
+      'pol_assistance_web_id_str' => 'translate_field',
+      'pol_athmospheric_evenlts_on_off_str' => 'copy_field',
       'pol_athmospheric_events_premium_id_str' => 'copy_field',
       'pol_athmospheric_events_web_id_str' => 'copy_field',
       'pol_bersani_policy_expiring_date_str' => 'copy_field',
       'pol_bersani_ref_vehicle_insured_with_company_str' => 'copy_field',
       'pol_bersani_ref_vehicle_number_plate_str' => 'copy_field',
       'pol_bersani_str' => 'translate_field',
-      'pol_birth_date_day_str' => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = \'%d\';data = data.strftime(european_date).to_s',
-      'pol_birth_date_month_str' => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = \'%m\';data = data.strftime(european_date).to_s',
-      'pol_birth_date_str' => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = \'%d/%m/%Y\';data = data.strftime(european_date).to_s',
-      'pol_birth_date_year_num' => 'data= Date.parse(profilefield[:pol_birth_date_str]);european_date = \'%Y\';data = data.strftime(european_date).to_s',
+      'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
+      'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
+      'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
+      'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_blukasko_code_str' => 'copy_field',
       'pol_blukasko_on_off_str' => 'copy_field',
       'pol_blukasko_premium_id_str' => 'copy_field',
@@ -84,7 +83,7 @@ def build_hash_sect_1()
       'pol_driver_accident_coverage_code_str' => 'copy_field',
       'pol_driver_accident_coverage_on_off_str' => 'copy_field',
       'pol_driver_accident_coverage_premium_id_str' => 'copy_field',
-      'pol_driver_accident_coverage_web_id_str' => 'copy_field',
+      'pol_driver_accident_coverage_web_id_str' => 'translate_field',
       'pol_driver_accident_indemnity_limit_str' => 'copy_field',
       'pol_driver_is_owner_str' => 'copy_field',
       'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'copy_field',
@@ -123,11 +122,11 @@ def build_hash_sect_1()
       'pol_legal_assistance_code_str' => 'copy_field',
       'pol_legal_assistance_on_off_str' => 'copy_field',
       'pol_legal_assistance_premium_id_str' => 'copy_field',
-      'pol_legal_assistance_web_id_str' => 'copy_field',
-      'pol_matriculation_date_day_str' => 'data= Date.parse(profilefield[:pol_matriculation_date_str]);european_date = \'%d\';data = data.strftime(european_date).to_s',
-      'pol_matriculation_date_month_str' => 'data= Date.parse(profilefield[:pol_matriculation_date_str]);european_date = \'%m\';data = data.strftime(european_date).to_s',
-      'pol_matriculation_date_str' => 'data= Date.parse(profilefield[:pol_matriculation_date_str]);european_date = \'%m/%Y\';data = data.strftime(european_date).to_s',
-      'pol_matriculation_date_year_num' => 'data= Date.parse(profilefield[:pol_matriculation_date_str]);european_date = \'%Y\';data = data.strftime(european_date).to_s',
+      'pol_legal_assistance_web_id_str' => 'translate_field',
+      'pol_matriculation_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'pol_matriculation_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
+      'pol_matriculation_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
+      'pol_matriculation_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'pol_minikasko_code_str' => 'copy_field',
       'pol_minikasko_premium_id_str' => 'copy_field',
       'pol_minikasko_web_id_str' => 'copy_field',
@@ -261,23 +260,23 @@ def build_hash_sect_1()
       'veh_vehicle_value_str' => 'translate_field',
       'veh_weight_to_be_towed_num' => 'copy_field',
       'pol_record_id_str' => 'copy_field',
-      }
+    }
 
-end
+  end
 
-#  def build_hash_regexp_sect_1_prov_12()  a regime i provider si chiameranno prov_1, prov_2 etc
-def build_hash_regexp_sect_1_tower()
-#     target_values["fname_fvalue"]
+  #  def build_hash_regexp_sect_1_prov_12()  a regime i provider si chiameranno prov_1, prov_2 etc
+  def build_hash_regexp_sect_1_tower()
+    #     target_values["fname_fvalue"]
 
     @rule_values = Hash.new
 
     @rule_values ={}
 
     @rule_values = { 'driv_job_str'  => "job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";" ,
-       'veh_make_str'  => "make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";",
-       'veh_set_up_str'  => "make=profilefield[:veh_set_up_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";",
-       'veh_model_str'  => "make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";"
-      }
+      'veh_make_str'  => "make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";",
+      'veh_set_up_str'  => "make=profilefield[:veh_set_up_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";",
+      'veh_model_str'  => "make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";"
+    }
   end
 
 end

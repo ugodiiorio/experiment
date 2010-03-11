@@ -232,7 +232,7 @@ module Provider1Linear
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
-      {'pol_BM_assigned_str' => '-1'} => '1',
+      {'pol_BM_assigned_str' => '-1'} => '1 da più anni',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
       {'pol_BM_assigned_str' => '3'} => '3',
