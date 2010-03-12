@@ -26,7 +26,7 @@ class RunBrowser
 
     @@kte = kte if kte
     @logger = @@kte.logger
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => CLASS OBJECT ID #{@@kte}"}
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@@kte.company} => CLASS OBJECT ID #{@@kte}"}
 
   end
 
