@@ -11,7 +11,6 @@ require 'logger'
 require 'sequel'
 require 'mysql'
 
-require "utils.rb"
 require "run_browser.rb"
 
 module Kernel
@@ -37,6 +36,20 @@ end
 
 def is_numeric?(n)
   Float n rescue false
+end
+
+def db_connect(db)
+  return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @kte.logger)
+end
+
+def count_profiles(db)
+#  @DB_PROFILE.loggers << @kte.logger
+  count = db.from(:company_insurance_profiles).count
+  return count
+end
+
+def db_disconnect(db)
+  db.disconnect
 end
 
 class KTE
@@ -172,15 +185,18 @@ class KTE
 
 end
 
+MODULE_FOLDER = 'modules'
+UTILS = 'utils.rb'
+DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
 
 begin
 
   @kte = KTE.new
   @kte.start_logger
-  @DB = Sequel.mysql(:database => @kte.db_driver, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @kte.logger)
-#  @DB.loggers << @kte.logger
-  profiles = @DB.from(:company_insurance_profiles).count
-  @DB.disconnect
+
+  db_profile = db_connect(@kte.db_driver)
+  profiles = count_profiles(db_profile)
+  db_disconnect(db_profile)
 
   @kte.max_profiles = profiles if @kte.max_profiles.to_i() == 0
   @kte.logger.info(__FILE__) {"#{@kte.company} => max profiles: " + @kte.max_profiles.to_s()}
@@ -193,6 +209,7 @@ begin
     break if profiles_count.to_i() == @kte.max_profiles.to_i()
 
     @already_locked = nil
+    require("#{File.join(DLN_LIBRARY_PATH)}/#{UTILS}")
     include Utils
 
     if is_numeric?(@kte.profile)
@@ -242,4 +259,5 @@ ensure
   Test::Unit.run=true unless Test::Unit.run?
   @kte.logger.close unless @kte.log_device == STDOUT if @kte.logger
   puts "end of init script"
+
 end
