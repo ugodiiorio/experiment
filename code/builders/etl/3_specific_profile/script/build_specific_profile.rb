@@ -6,7 +6,8 @@ require "rubygems"
 require "yaml"
 require "mysql"
 require 'logger'
-
+require 'chronic'
+require 'active_support'
 require "modules/specific_profile"
 
 Mysql::Time = 7
@@ -49,7 +50,7 @@ def init()
   ensure
     config = {:app_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
     app_settings = {:as_select_stmt_profile =>nil, :as_select_stmt_filtered_profile =>nil, :as_select_stmt_company =>nil,
-                        :as_select_stmt_translated =>nil, :as_select_stmt_rules =>nil,
+                        :as_select_stmt_translated =>nil, :as_select_stmt_rules =>nil, :as_rate_date => nil,
                         :as_insert_stmt_profile =>nil, :as_update_stmt_profile => nil,
                         :as_provider_id =>nil, :as_sector_id =>nil, :as_working_set_id =>nil,
                         :as_company_group_id =>nil, :as_company_id =>nil} unless app_settings
@@ -78,6 +79,7 @@ def init()
   @company_group_id = app_settings['as_company_group_id']
   app_settings['as_company_id'].empty? ? @company_id = '%' : @company_id = app_settings['as_company_id']
   @working_set_id = app_settings['as_working_set_id']
+  @rate_date = app_settings['as_rate_date']
 
   @log_device = logger_settings['ls_device'] || "/home/notroot/git/piper_nigrum/builders/log/etl.log"
   @log_level = logger_settings['ls_level'] || 2

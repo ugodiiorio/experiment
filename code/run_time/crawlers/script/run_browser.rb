@@ -26,7 +26,7 @@ class RunBrowser
 
     @@kte = kte if kte
     @logger = @@kte.logger
-    puts @@kte
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => CLASS OBJECT ID #{@@kte}"}
 
   end
 
@@ -38,7 +38,7 @@ class RunBrowser
     @port = @kte.port
     @wait_for_page_to_load = @kte.wait_for_page_to_load
     @timeout_in_secs = @kte.timeout_in_sec
-    @sleep_typing +=  0.01*rand(200) if @kte.sleep_typing < 1
+    @kte.sleep_typing < 1 ? @sleep_typing = @kte.sleep_typing + 0.01*rand(200) : @sleep_typing = @kte.sleep_typing
     @sector_view = view_hash
     
     db_profile = db_connect(@kte.db_driver)
@@ -47,7 +47,7 @@ class RunBrowser
     
   end
 
-	def load_person()
+	def load_sector()
 
     begin
       view = @sector_view[@kte.sector].to_sym
@@ -58,45 +58,52 @@ class RunBrowser
                                       :key_company_id_str => :$p4,
                                       :key_working_set_id_str => :$p5)
       ps = ds.prepare(:select, :select_by_sector)
-      ps.call(:p1=>@kte.profile, :p2=>@kte.provider, :p3=>@kte.sector, :p4=>@kte.company, :p5=>@kte.working_set).each do |row|
-        row.each do |k, v|
-          instance_variable_set(eval(":@#{normalize(k)}"), v)
-          @logger.debug("#{__FILE__} => #{method_name}") {"#{kte.company} => instance variable: [@#{normalize(k)}] with value: [#{v}]"}
+      if ps.call(:p1=>@kte.profile, :p2=>@kte.provider, :p3=>@kte.sector, :p4=>@kte.company, :p5=>@kte.working_set).count > 0
+        ps.call(:p1=>@kte.profile, :p2=>@kte.provider, :p3=>@kte.sector, :p4=>@kte.company, :p5=>@kte.working_set).each do |row|
+          row.each do |k, v|
+            instance_variable_set(eval(":@#{normalize(k)}"), v)
+            @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => instance variable: [@#{normalize(k)}] with value: [#{v}]"}
+          end
         end
+      else
+        raise RangeError, "ATTENTION! Dataset for view #{view} is empty. Please check key fields"
       end
     rescue Sequel::DatabaseError => e
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => MYSQL ERROR: #{e}"} if @logger
       raise
     rescue Exception => ex
-      puts ex.class
-      @logger.fatal("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.message}"} if @logger
+      @logger.fatal("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class} with message #{ex.message}"} if @logger
       raise
     ensure
     db_disconnect(db_profile)
     end
   end
   
-  def load_sector()
+  def load_person()
     begin
       i = 0
       db_profile = db_connect(@kte.db_driver)
       k = db_profile.from(:profiles_personal_data).where(:pers_sex_str => @owner_specification).count
-      one_of_people = (rand(k) +1).to_i
-      ds = db_profile.from(:profiles_personal_data).filter(:pers_sex_str => :$p1)
-      ps = ds.prepare(:select, :select_by_sex)
-      ps.call(:p1 => @owner_specification).each do |row|
-        i += 1
-        row.each do |k, v|
-          instance_variable_set(eval(":@#{normalize(k)}"), v)
-        end if i == one_of_people
+      if k > 0
+        one_of_people = (rand(k) +1).to_i
+        ds = db_profile.from(:profiles_personal_data).filter(:pers_sex_str => :$p1)
+        ps = ds.prepare(:select, :select_by_sex)
+        ps.call(:p1 => @owner_specification).each do |row|
+          i += 1
+          row.each do |k, v|
+            instance_variable_set(eval(":@#{normalize(k)}"), v)
+            @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => instance variable: [@#{normalize(k)}] with value: [#{v}]"}
+          end if i == one_of_people
+        end
+      else
+        raise RangeError, "ATTENTION! Dataset for profiles_personal_data is empty. Please check key fields"
       end
 
     rescue Sequel::DatabaseError => e
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => MYSQL ERROR: #{e}"}
       raise
     rescue Exception => ex
-      puts ex.class
-      @logger.fatal("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.message}"}
+      @logger.fatal("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class} with message: #{ex.message}"}
       raise
     ensure
     db_disconnect(db_profile)
@@ -111,8 +118,7 @@ class RunBrowser
 
       selenium_class = ("#{@kte.company}_#{@kte.sector}").camelize
 
-      @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => Starting Selenium Page at #{Time.new().to_s()} for profile #{@kte.profile}"}
-#      @kte.selenium_io == STDOUT ? $Result_file = File.new(@kte.selenium_io, "a") : $Result_file = @kte.selenium_io
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Starting Selenium Page at #{Time.new().to_s()} for profile #{@kte.profile}"}
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Test case log file initializing ..."}
 
 #      start_selenium
@@ -120,10 +126,10 @@ class RunBrowser
       test = Test::Unit::UI::Console::TestRunner.new Kernel.const_get(selenium_class)
       result = test.start
 
-      puts {"#{@kte.rc_premium} - #{@kte.rc_cover_code} - #{@kte.test_result} - #{@kte.record}"}
+#      puts "#{@kte.rc_premium} - #{@kte.rc_cover_code} - #{@kte.test_result} - #{@kte.record}"
 
-      @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium result: #{result.to_s}"}
-      puts result.passed?
+      @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => SELENIUM TEST SUITE RESULT: #{result}"}
+#      puts result.passed?
 
       db_monitor = db_connect(@kte.db_monitor)
       if result.passed?
@@ -131,21 +137,20 @@ class RunBrowser
         insert_premium(db_target)
 
         update_result(db_monitor, OK, @kte.test_result, RUN)
-        @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => Execution for profile #{@kte.profile.to_s} EXECUTED"}
+        @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{"@"*20} PROFILE #{@kte.profile}-[#{@kte.record}] EXECUTED WITH PREMIUM #{@kte.rc_premium} € #{"@"*20}"}
 
       else
 
         update_result(db_monitor, KO, @kte.test_result, FREE)
-        @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => Execution for profile #{@kte.profile.to_s} ABORTED"}
+        @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{"@"*20} EXECUTION FOR PROFILE #{@kte.profile}-#{@kte.record} ABORTED #{"@"*20}"}
       end
 
     rescue Sequel::DatabaseError => e
-      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => MYSQL ERROR: #{e}"} if @logger
-      raise
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => MYSQL ERROR #{e.class} with message: #{e}"} if @logger
+      raise e
     rescue Exception => ex
-      puts ex.class
-      @logger.fatal("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.message}"} if @logger
-      raise
+      @logger.fatal("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class} with message: #{ex.message}"} if @logger
+      raise ex
     ensure
       db_disconnect(db_monitor) if db_monitor
       db_disconnect(db_target) if db_target

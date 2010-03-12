@@ -12,8 +12,8 @@ class QuixaSect1 < Test::Unit::TestCase
   alias :site :browser
   alias :page :selenium_driver
 
-  NewVehicle = 1..100
-  Individual = 1..100
+  NewVehicle = 0..100
+  Individual = 0..100
   
   def get(var)
     var_value = site.instance_variable_get(var)
@@ -34,18 +34,11 @@ class QuixaSect1 < Test::Unit::TestCase
       @kte = @browser.kte
       @logger = @kte.logger
 
-      site.load_person
       site.load_sector
-      puts get("@owner_specification")
+      site.load_person
       
-      @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
-#      $Result_file.puts("\n******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
-#      $Result_file.puts("Compagnia QUIXA \n") unless $selenium_out_level == 0 || $Result_file == STDOUT
-#      $Result_file.puts("Profilo n "+ $profilo_assicurativo.to_s()+"\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
-#      $Result_file.puts("******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
-
       @rc_cover_code, @kte.rc_cover_code = get('@rca_code'), get('@rca_code')
-      @record = get('@record_id')
+      @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
 
 #      vehicle_age = 1
@@ -53,9 +46,9 @@ class QuixaSect1 < Test::Unit::TestCase
 
       @url = eval(site.url)
       @sleep = @kte.sleep_typing
-      @verification_errors = []
-      #      const_publisher
+#      @verification_errors = []
 
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
       @selenium_driver = Selenium::Client::Driver.new \
         :host => site.host,
@@ -80,14 +73,13 @@ class QuixaSect1 < Test::Unit::TestCase
   
   def teardown
 	  @selenium_driver.close_current_browser_session if @selenium_driver
-    assert_equal [], @verification_errors
+#    assert_equal [], @verification_errors
   end
   
   def test_site
 
     begin
       @last_element, @last_value = nil, nil
-      @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{page.get_title}"}
 
       page_1
       page_2
@@ -95,7 +87,7 @@ class QuixaSect1 < Test::Unit::TestCase
       page_4
       
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
-      @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
 
       #@selenium.set_speed 2000
     rescue Timeout::Error => ex
@@ -150,7 +142,7 @@ class QuixaSect1 < Test::Unit::TestCase
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCountry", get('@citizenship'))
-        click_option(get('@driver_sex')) #ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        click_option(get('@driver_sex'))
         type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", get('@birth_date'))
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", get('@job'))
       else
@@ -161,7 +153,7 @@ class QuixaSect1 < Test::Unit::TestCase
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", get('@insurance_situation'))
     case page.get_selected_label(@last_element) =~ /prima polizza/i
       when NewVehicle
-        if (page.get_text("//label[@for='#{@last_element}']") =~ /fisica/i) == Individual
+        if (page.get_text("//label[@for='#{get('@client_type')}']") =~ /fisica/i) == Individual
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlSelectBersani", get('@bersani'))
         /(si)*/.match(page.get_selected_label(@last_element)) ? \
                       select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned')) : nil
@@ -196,19 +188,18 @@ class QuixaSect1 < Test::Unit::TestCase
     
     case get("@rca_on_off")
       when 'on'
-        #ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! change with cover ids variables
-        click_checkbox("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P11") if is_checked?("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P11")
-        click_checkbox("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13") if is_checked?("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13")
-        click_checkbox("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P30") if is_checked?("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P30")
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
 #        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@instalment')) #ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@payment'))
+        #ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! change with cover ids variables
+        click_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+        click_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+        click_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
 
         click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
 
-        wait_for_elm "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize"
+        wait_for_elm get("@rca_premium_id")
 #        assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
-
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
@@ -220,8 +211,9 @@ class QuixaSect1 < Test::Unit::TestCase
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
-    assert_equal @url, page.get_location
     sleep @sleep
+    assert_equal @url, page.get_location
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{page.get_title.upcase}"}
   end
 
   def select_option(id, value = nil)
@@ -347,9 +339,9 @@ class QuixaSect1 < Test::Unit::TestCase
 
   end
 
-	def wait_for_alert()
-		!8.times{ break if (page.alert?); sleep 1; puts "Waiting alert ..."; }
-		page.alert() if page.alert?
-	end
+#	def wait_for_alert()
+#		!8.times{ break if (page.alert?); sleep 1; puts "Waiting alert ..."; }
+#		page.alert() if page.alert?
+#	end
 
 end

@@ -38,20 +38,6 @@ def is_numeric?(n)
   Float n rescue false
 end
 
-def db_connect(db)
-  return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @kte.logger)
-end
-
-def count_profiles(db)
-#  @DB_PROFILE.loggers << @kte.logger
-  count = db.from(:company_insurance_profiles).count
-  return count
-end
-
-def db_disconnect(db)
-  db.disconnect
-end
-
 class KTE
   attr_reader :logger, :company_group, :company, :provider, :sector, :working_set, :rate, :rate_date
   attr_reader :sleep_typing, :sleep_between_profiles, :max_profiles
@@ -99,7 +85,7 @@ class KTE
         raise ex
       ensure
           config = {:general_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
-          general_settings = {:gs_source_type =>nil, :gs_profile_sleep_in_seconds =>nil, :gs_profile_id =>nil,
+          general_settings = {:gs_profile_sleep_in_seconds =>nil, :gs_profile_id =>nil,
                               :gs_typing_sleep_in_seconds =>nil, :gs_max_number_of_profiles =>nil} unless general_settings
           logger_settings = {:ls_device =>nil, :ls_level =>nil,
                              :ls_shift_age =>nil, :ls_shift_size =>nil,
@@ -115,7 +101,6 @@ class KTE
                           :as_working_set_id =>nil} unless app_settings
       end
 
-      @source 						          = ARGV[3] || general_settings['gs_source_type'] || "216"
       @sleep_typing					        = ARGV[6] || general_settings['gs_typing_sleep_in_seconds'] || 1
       @sleep_between_profiles       = ARGV[8] || general_settings['gs_profile_sleep_in_seconds'] || "10" # sleep in seconds between one profile execution and the next
       @max_profiles                 = ARGV[9] || general_settings['gs_max_number_of_profiles'] || "1" # max number of profiles to execute in the running task
@@ -150,8 +135,8 @@ class KTE
       @db_monitor                   = ARGV[26] || database_settings['ds_db_monitor'] || 'kte_monitor'
       @db_target                    = ARGV[27] || database_settings['ds_db_target'] || 'kte_target'
 
-      @log_device += @provider + @sector + @company + ".log" unless @log_device == STDOUT
-      @selenium_io += @provider + @sector + @company + ".run.txt" unless @selenium_io == STDOUT
+      @log_device += "#{@provider}_#{@sector}_#{@company}.log" unless @log_device == STDOUT
+#      @selenium_io += @provider + @sector + @company + ".run.txt" unless @selenium_io == STDOUT
     end
   end
 
@@ -163,20 +148,24 @@ class KTE
       @logger.level = @log_level.to_i
       @logger.datetime_format = @datetime_format
 
-      @logger.info('init') {"config file #{@config_file} succesfully open"} if @config_file
-      @logger.info('init') {'Starting process ...'}
+      @logger.info(__FILE__) {"#{@company} => #{"*"*80}"}
+      @logger.info(__FILE__) {"#{@company} => #{"@"*20} STARTED AT #{Time.now()}"}
+      @logger.info(__FILE__) {"#{@company} => #{"@"*20} #{@company.upcase} WEB SITE"}
+      @logger.info(__FILE__) {"#{@company} => #{"@"*20} PROFILE #{@profile}"}
+      @logger.info(__FILE__) {"#{@company} => #{"*"*80}"}
 
-      @logger.info('init => ' + @company) {"chronic start date: " + @start_date}
-      @logger.info('init => ' + @company) {"rate date: " + @rate_date.to_s}
-      @logger.info('init => ' + @company) {"company: " + @company}
-      @logger.info('init => ' + @company) {"insurance profile: " + @profile}
-      @logger.info('init => ' + @company) {"selenium port: " + @port}
-      @logger.info('init => ' + @company) {"source: " + @source.to_s()}
-      @logger.info('init => ' + @company) {"db host: " + @db_host.to_s()}
-      @logger.info('init => ' + @company) {"element sleep time: " + @sleep_typing.to_s()}
-      @logger.info('init => ' + @company) {"sleep between profiles: " + @sleep_between_profiles.to_s()}
-      @logger.info('init => ' + @company) {"max_profiles: " + @max_profiles.to_s()}
-  #    @logger.info('init => ' + @company) {"profiles_count: " + profiles_count.to_s()}
+      @logger.debug(__FILE__) {"#{@company} => config file #{@config_file} succesfully open"} if @config_file
+      @logger.debug(__FILE__) {"#{@company} => Starting process ..."}
+
+      @logger.info(__FILE__) {"#{@company} => chronic start date: #{@start_date}"}
+      @logger.info(__FILE__) {"#{@company} => rate date: #{@rate_date.to_s}"}
+      @logger.info(__FILE__) {"#{@company} => company: #{@company}"}
+      @logger.info(__FILE__) {"#{@company} => insurance profile: #{@profile}"}
+      @logger.info(__FILE__) {"#{@company} => selenium port: #{@port}"}
+      @logger.info(__FILE__) {"#{@company} => db host: #{@db_host.to_s()}"}
+      @logger.info(__FILE__) {"#{@company} => element sleep time: #{@sleep_typing.to_s()}"}
+      @logger.info(__FILE__) {"#{@company} => sleep between profiles: #{@sleep_between_profiles.to_s()}"}
+      @logger.info(__FILE__) {"#{@company} => max_profiles: #{@max_profiles.to_s()}"}
     rescue Exception => ex
       puts ex.message
       raise ex
@@ -193,14 +182,14 @@ begin
 
   @kte = KTE.new
   @kte.start_logger
+  require("#{File.join(DLN_LIBRARY_PATH)}/#{UTILS}")
+  include Utils
 
   db_profile = db_connect(@kte.db_driver)
   profiles = count_profiles(db_profile)
   db_disconnect(db_profile)
 
   @kte.max_profiles = profiles if @kte.max_profiles.to_i() == 0
-  @kte.logger.info(__FILE__) {"#{@kte.company} => max profiles: " + @kte.max_profiles.to_s()}
-
   @browser = RunBrowser.new(@kte)
 #  @browser.setup
   
@@ -209,8 +198,6 @@ begin
     break if profiles_count.to_i() == @kte.max_profiles.to_i()
 
     @already_locked = nil
-    require("#{File.join(DLN_LIBRARY_PATH)}/#{UTILS}")
-    include Utils
 
     if is_numeric?(@kte.profile)
       
@@ -223,9 +210,11 @@ begin
         @kte.logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
   			break
       else
+        @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
         @browser.run()
         profiles_count = profiles_count + 1
-        @kte.logger.info(__FILE__) {"#{@kte.company} => Executed profiles: "+  profiles_count.to_s()}
+        @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
+        @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
       end
     else #il profilo assicurativo non è fissato
       i = 1
@@ -236,9 +225,11 @@ begin
         @already_locked = locked_profile?
   #      end
         unless @already_locked
+          @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
           @browser.run()
           profiles_count = profiles_count + 1
-          @kte.logger.info(__FILE__) {"#{@kte.company} => Executed profiles: "+  profiles_count.to_s()}
+          @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
+          @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
         end
         break if profiles_count.to_i() == @kte.max_profiles.to_i()
   #        @kte.logger.info "Break Profili Cycle"
@@ -256,8 +247,29 @@ rescue Exception => ex
   @kte.logger.error(__FILE__) {"#{@kte.company} => ERROR - Running script abnormaly terminated: #{ex}"} if @kte.logger
 
 ensure
+  if @kte.logger
+    @kte.logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
+    @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} FINISHED AT #{Time.now()}"}
+    @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} #{@kte.company.upcase} WEB SITE"}
+    @kte.logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
+    @kte.logger.close unless @kte.log_device == STDOUT
+  end
   Test::Unit.run=true unless Test::Unit.run?
-  @kte.logger.close unless @kte.log_device == STDOUT if @kte.logger
   puts "end of init script"
 
 end
+
+#def db_connect(db)
+#  return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @kte.logger)
+#end
+#
+#def count_profiles(db)
+##  @DB_PROFILE.loggers << @kte.logger
+#  count = db.from(:company_insurance_profiles).count
+#  return count
+#end
+#
+#def db_disconnect(db)
+#  db.disconnect
+#end
+

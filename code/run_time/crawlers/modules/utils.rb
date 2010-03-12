@@ -21,9 +21,6 @@ module Utils
       @new_lock= false
 
       db_monitor = db_connect(@kte.db_monitor)
-#      @DB = Sequel.mysql(:database => @kte.db_monitor, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host)
-#      @DB.loggers << @kte.logger
-
       count = update_lock(db_monitor)
 
       insert_lock(db_monitor) unless existing_profile?(count)
@@ -38,12 +35,11 @@ module Utils
         @new_lock= false
         return profile_locked?(@new_lock)
       else
-        @kte.logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => MYSQL ERROR: #{e}"}
+        @kte.logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{e.class} MYSQL ERROR with message: #{e}"}
         raise
       end
     rescue Exception => ex
-#      puts ex.class
-      @kte.logger.fatal(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.message}"}
+      @kte.logger.fatal(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.class} with message: #{ex.message}"}
       raise
     end
 
@@ -64,7 +60,7 @@ module Utils
       @kte.logger.warn(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile availability NOT PASSED"}
       return true
 		else
-      @kte.logger.info(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile availability PASSED"}
+      @kte.logger.debug(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile availability PASSED"}
       return false
 		end
   end
@@ -74,7 +70,6 @@ module Utils
   end
 
   def count_profiles(db)
-  #  @DB_PROFILE.loggers << @kte.logger
     count = db.from(:company_insurance_profiles).count
     return count
   end
