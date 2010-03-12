@@ -262,7 +262,7 @@ class QuixaSect1 < Test::Unit::TestCase
   def is_checked?(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => is it checked checkbox: [#{@last_element}]?"}
-    wait_for_elm(@last_element)
+    is_present?(@last_element)
   	return page.is_checked(@last_element)
   end
 
@@ -322,6 +322,14 @@ class QuixaSect1 < Test::Unit::TestCase
 	  raise RangeError, "Wait for element failed! Element not present = #{name}" unless page.element? name
 #	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element name = #{name}"}
 
+  end
+
+  def is_present?(name)
+	  present = page.is_element_present name
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
+	  visible = page.is_visible name
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
+    return present
   end
 
   def get_premium(p)

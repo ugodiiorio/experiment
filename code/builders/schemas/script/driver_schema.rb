@@ -40,7 +40,7 @@ class BuildDriverSchema
       pers_education_str			VARCHAR(128),
       pers_vat_number_str VARCHAR(128),
       pers_denomination_company_str  VARCHAR(64),
-      PRIMARY KEY (key_profiles_id_num)
+      PRIMARY KEY (key_personal_id_num)
       ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
     mysql.query("  CREATE  INDEX sex_index   ON " + @db_default_driver + ".profiles_personal_data(pers_sex_str)
