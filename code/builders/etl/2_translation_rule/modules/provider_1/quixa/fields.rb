@@ -6,14 +6,14 @@ module Provider1Quixa
 
   def build_hash_sect_1()
 
-#     target_values["fname_fvalue"]
+    #     target_values["fname_fvalue"]
 
     @target_values = {}
 
     @target_values = {
-       {'pol_legal_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13',
-        {'pol_driver_accident_coverage_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P30',
-         {'pol_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13',
+      {'pol_legal_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P30',
+      {'pol_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P11',
       {'pol_bersani_str' => 'convivente'} => 'si, parente/convivente',
       {'pol_bersani_str' => 'veicolo'} => 'si, 2º veicolo del medesimo proprietario',
       {'pol_bersani_str' => 'no'} => 'no',
@@ -97,9 +97,9 @@ module Provider1Quixa
       {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
       {'veh_km_per_yr_str' => '15000'} => '10.000 - 20.000',
       {'veh_vehicle_value_str' => '5000'} => '5000',
-#      {'own_owner_specification_str' => 'M' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
-#      {'own_owner_specification_str' => 'F' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
-#      {'own_owner_specification_str' => 'C' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal',
+      #      {'own_owner_specification_str' => 'M' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
+      #      {'own_owner_specification_str' => 'F' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
+      #      {'own_owner_specification_str' => 'C' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal',
       {'pol_RCA_premium_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Priz',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
@@ -211,7 +211,7 @@ module Provider1Quixa
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
-       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
+      {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
       {'own_owner_residence_province_str' => 'AO'} => 'AOSTA',
@@ -321,7 +321,7 @@ module Provider1Quixa
       {'own_owner_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'own_owner_residence_province_str' => 'VI'} => 'VICENZA',
       {'own_owner_residence_province_str' => 'VT'} => 'VITERBO',
-       }
+    }
 
   end
 

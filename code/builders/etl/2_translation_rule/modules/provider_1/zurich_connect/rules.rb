@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+dri#!/usr/bin/ruby
 
 # Module defined in specific_profile.rb file
 
@@ -95,7 +95,7 @@ module Provider1ZurichConnect
       'pol_driving_licence_withdrawal_guarantee_web_id_str' => 'copy_field',
       'pol_driving_license_suspension_str' => 'copy_field',
       'pol_driving_license_withdrawal_indemnity_limit_str' => 'copy_field',
-      'pol_driving_type_str' => 'copy_field',
+      'pol_driving_type_str' => 'translate_field',
       'pol_drunkenness_fine_str' => 'copy_field',
       'pol_easy_driver_code_str' => 'copy_field',
       'pol_easy_driver_on_off_str' => 'copy_field',

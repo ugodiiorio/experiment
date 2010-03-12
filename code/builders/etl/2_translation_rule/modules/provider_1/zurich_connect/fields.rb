@@ -10,6 +10,8 @@ module Provider1ZurichConnect
     @target_values = Hash.new
 
     @target_values = {
+      {'pol_driving_type_str' => 'esperta'} => 'Guida Esperta',
+      {'pol_driving_type_str' => 'libera'} => 'Guida Libera',
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
