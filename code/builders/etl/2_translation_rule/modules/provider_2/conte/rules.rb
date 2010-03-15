@@ -1,10 +1,5 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider2Conte
 
-  #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
   def build_hash_sect_1()
 
     @rule_values ={}
@@ -264,19 +259,81 @@ module Provider2Conte
 
   end
 
-  #  def build_hash_regexp_sect_1_prov_12()  a regime i provider si chiameranno prov_1, prov_2 etc
-  def build_hash_regexp_sect_1_tower()
-    #     target_values["fname_fvalue"]
-
-    @rule_values = Hash.new
+  def build_hash_sect_2()
 
     @rule_values ={}
 
-    @rule_values = { 'driv_job_str'  => "job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";" ,
-      'veh_make_str'  => "make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";",
-      'veh_set_up_str'  => "make=profilefield[:veh_set_up_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";",
-      'veh_model_str'  => "make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";"
+    @rule_values = {
+
+      'driv_birth_place_str' => 'copy_field',
+      'driv_birth_province_str' => 'translate_field',
+      'driv_citizenship_str' => 'translate_field',
+      'driv_civil_status_str' => 'translate_field',
+      'driv_driver_sex_str' => 'translate_field',
+      'driv_driving_license_points_str' => 'translate_field',
+      'driv_driving_license_type_str' => 'translate_field',
+      'driv_driving_license_yrs_str' => 'profilefield[:pol_birth_date_str].to_i.years - profilefield[:driv_driving_license_yrs_str].to_i.years',
+      'driv_job_str' => 'copy_field',
+      'pol_bersani_str' => 'translate_field',
+      'pol_birth_date_day_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
+      'pol_birth_date_month_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
+      'pol_birth_date_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%F")',
+      'pol_birth_date_year_num'  => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
+      'pol_BM_assigned_str' => 'translate_field',
+      'pol_claims_total_number_str' => 'translate_field',
+      'pol_client_type_str' => 'translate_field',
+      'pol_cohabiting_children_str' => 'translate_field',
+      'pol_driver_accident_coverage_web_id_str' => 'translate_field',
+      'pol_driver_zip_code_str' => 'copy_field',
+      'pol_driving_license_suspension_str' => 'translate_field',
+      'pol_driving_type_str' => 'translate_field',
+      'pol_drunkenness_fine_str' => 'translate_field',
+      'pol_first_claim_month_str' => 'copy_field',
+      'pol_first_claim_year_str' => 'copy_field',
+      'pol_other_vehicle_use_str' => 'translate_field',
+      'pol_how_do_you_know_the_company_str' => 'translate_field',
+      'pol_insurance_situation_str' => 'translate_field',
+      'pol_legal_assistance_web_id_str' => 'translate_field',
+      'pol_matriculation_date_day_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'pol_matriculation_date_month_str'  => 'x= (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%-1m"); y="index="+x;',
+      'pol_matriculation_date_str'  => 'european_date = \'%d%m%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years)strftime(european_date).to_s' ,
+      'pol_matriculation_date_year_num'  => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+      'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z=profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y+z;',
+      'pol_policy_starting_date_day_str'  => 'copy_field' ,
+      'pol_policy_starting_date_month_str'  => 'copy_field' ,
+      'pol_policy_starting_date_str'  => 'copy_field' ,
+      'pol_policy_starting_date_year_num'  => 'copy_field' ,
+      'pol_privacy_1_str' => 'translate_field',
+      'pol_public_liability_indemnity_limit_str' => 'translate_field',
+      'pol_RCA_premium_id_str' => 'translate_field',
+      'pol_RCA_code_str' => 'copy_field',
+      'pol_RCA_on_off_str' => 'copy_field',
+      'pol_residence_str' => 'copy_field',
+      'pol_residence_province_str' => 'translate_field',
+      'pol_road_assistance_web_id_str' =>  'translate_field',
+      'pol_subscriber_is_driver_str' => 'translate_field',
+      'pol_subscriber_is_owner_str' => 'translate_field',
+      'pol_theft_fire_coverage_web_id_str'=> 'translate_field',
+      'pol_vehicle_continuous_use_no_of_mths_str'=> 'translate_field' ,
+      'veh_alarm_str' => 'translate_field',
+      'veh_habitual_vehicle_use_str' => 'translate_field',
+      'veh_km_per_yr_num' => 'translate_field',
+      'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
+      'veh_max_capacity_ever_driven_num' => 'copy_field',
+      'veh_model_str' => 'make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
+      'veh_modification_made_str' => 'translate_field',
+      'veh_new_used_vehicle_str' => 'translate_field',
+      'veh_purchase_date_str' => 'european_date = \'%d%m%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years)strftime(european_date).to_s' ,
+      'veh_purchase_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+      'veh_purchase_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
+      'veh_purchase_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'veh_vehicle_value_str' => 'copy_field',
+      'veh_vehicle_shelter_str' => 'translate_field',
+      'veh_vehicle_type_str' => 'translate_field',
+
+
     }
+
   end
 
 end

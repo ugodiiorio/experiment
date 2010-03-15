@@ -8,9 +8,10 @@ module FieldMappingProvider2Sect3
 
     @field_rule_values = {
 
+      'driv_driver_sex_str' => 'if (infield[:own_owner_sex_str].strip.upcase == "C") infield[:driv_driver_sex_str].strip.downcase else infield[:own_owner_sex_str].strip.downcase',
       'driv_residence_str' => 'infield[:driv_residence_str].strip.downcase',
-      'own_birth_date_str' => 'infield[:own_birth_date_str].strip.downcase',
       'own_owner_sex_str' => 'infield[:own_owner_sex_str].strip.downcase',
+      'own_owner_specification_str'  => 'if infield[:own_owner_sex_str].strip.upcase == "M"; infield[:own_owner_sex_str].strip.upcase; elsif infield[:own_owner_sex_str].strip.upcase == "F"; infield[:own_owner_sex_str].strip.upcase; else "C"; end' ,
       'own_owner_zip_code_str' => 'infield[:own_owner_zip_code_str].strip.downcase',
       'pol_birth_date_str' => '(DateTime::now - infield[:pol_birth_date_str].to_i.years).strftime("%F")',
       'pol_birth_date_day_str' => '(DateTime::now - infield[:pol_birth_date_str].to_i.years).strftime("%d")',
@@ -20,7 +21,6 @@ module FieldMappingProvider2Sect3
       'pol_claims_total_number_str' => 'infield[:pol_claims_total_number_str].strip.downcase',
       'pol_client_type_str' => 'infield[:pol_client_type_str].strip.downcase',
       'pol_coming_from_BM_str' =>  'bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end',
-      'pol_driver_sex_str' => 'infield[:pol_driver_sex_str].strip.downcase',
       'pol_driver_zip_code_str' => 'infield[:pol_driver_zip_code_str].strip.downcase',
       'pol_insurance_situation_str' => 'infield[:pol_insurance_situation_str].strip.downcase',
       'pol_nr_of_paid_claims_1_yr_str' => 'infield[:pol_nr_of_paid_claims_1_yr_str].strip.downcase',
@@ -46,6 +46,9 @@ module FieldMappingProvider2Sect3
       'pol_instalment_str' => '"annuale"',
       'pol_privacy_1_str' => "'si'",
       'pol_property_type_to_be_insured_str' => "'ciclomotore'",
+      'pol_RCA_code_str' => "'RC'",
+      'pol_RCA_on_off_str' => "'on'",
+      'pol_RCA_premium_id_str' => "'id_elemento'",
       'pol_type_of_contract_str' => "'nuova polizza'",
       'pol_yrs_with_no_claims_in_RC_str' => "'4'",
       'veh_capacity_num' => "'50'",

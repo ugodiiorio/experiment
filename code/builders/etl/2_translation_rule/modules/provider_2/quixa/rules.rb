@@ -1,13 +1,8 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider2Quixa
 
-#  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
-def build_hash_sect_1()
+  def build_hash_sect_1()
 
-    @rule_values ={}
+      @rule_values ={}
 
     @rule_values = {
        'driv_birth_place_str'  => 'copy_field' ,
@@ -261,23 +256,61 @@ def build_hash_sect_1()
  'pol_theft_fire_coverage_web_id_str'  => 'copy_field' ,
  'pol_theft_fire_minimum_uncoverage_exemption_str'  => 'copy_field' ,
 
-      }
+        }
 
-end
+  end
 
-#  def build_hash_regexp_sect_1_prov_12()  a regime i provider si chiameranno prov_1, prov_2 etc
-def build_hash_regexp_sect_2()
-#     target_values["fname_fvalue"]
-
-    @rule_values = Hash.new
+  def build_hash_sect_2()
 
     @rule_values ={}
 
-    @rule_values = { 'driv_job_str'  => "job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";" ,
-       'veh_make_str'  => "make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";",
-       'veh_set_up_str'  => "make=profilefield[:veh_set_up_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";",
-       'veh_model_str'  => "make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";"
-      }
+    @rule_values = {
+
+      'driv_citizenship_str' => 'translate_field' ,
+      'driv_job_str'  => 'job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
+      'own_owner_sex_str' => 'translate_field' ,
+      'pol_bersani_str' => 'translate_field',
+      'pol_birth_date_day_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
+      'pol_birth_date_month_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
+      'pol_birth_date_str'  => 'european_date = \'%d%m%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years)strftime(european_date).to_s' ,
+      'pol_birth_date_year_num'  => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
+      'pol_BM_assigned_str' => 'translate_field',
+      'pol_client_type_str' => 'translate_field' ,
+      'pol_coming_from_company_str' => 'translate_field' ,
+      'pol_insurance_situation_str' => 'translate_field' ,
+      'pol_instalment_str'  => 'translate_field' ,
+      'pol_leasing_str'  => 'translate_field' ,
+      'pol_matriculation_date_day_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'pol_matriculation_date_month_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
+      'pol_matriculation_date_str'  => 'european_date = \'%d%m%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years)strftime(european_date).to_s' ,
+      'pol_matriculation_date_year_num'  => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+      'pol_nr_of_paid_claims_1_yr_str' => 'translate_field',
+      'pol_nr_of_paid_claims_2_yr_str' => 'translate_field',
+      'pol_nr_of_paid_claims_3_yr_str' => 'translate_field',
+      'pol_nr_of_paid_claims_4_yr_str' => 'translate_field',
+      'pol_nr_of_paid_claims_5_yr_str' => 'translate_field',
+      'pol_nr_of_paid_claims_this_yr_str' => 'translate_field',
+      'pol_payment_str'  => 'translate_field',
+      'pol_policy_starting_date_day_str'  => 'copy_field' ,
+      'pol_policy_starting_date_month_str'  => 'copy_field' ,
+      'pol_policy_starting_date_str'  => 'copy_field' ,
+      'pol_policy_starting_date_year_num'  => 'copy_field' ,
+      'pol_public_liability_indemnity_limit_str' => 'translate_field',
+      'pol_RCA_code_str' => 'copy_field',
+      'pol_RCA_on_off_str' => 'copy_field',
+      'pol_RCA_premium_id_str' => 'translate_field',
+      'pol_residence_province_str' => 'translate_field' ,
+      'pol_residence_str' => 'copy_field' ,
+      'veh_alarm_str' => 'translate_field',
+      'veh_km_per_yr_num' => 'translate_field',
+      'veh_make_str'  => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = " regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
+      'veh_model_str'  => 'make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
+      'veh_passenger_str' => 'translate_field',
+      'veh_set_up_str'  => 'make=profilefield[:veh_set_up_str]; regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
+      'veh_vehicle_value_str' => 'copy_field',
+
+    }
+
   end
 
 end

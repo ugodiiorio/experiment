@@ -1,2 +1,501 @@
-1#2009-04-28#BMW#4#1200#1200GS#GS Adventure#Si#650#Honda#CBR600RR#Persona fisica#M#1966-02-16#MI#20112#Milano#3#SI#OPERAIO                                     ######VEICOLO GIA' ASSICURATO CON ATR                 #No        #N#Franchigia#1#0#0#0#0#0#0#0#Esperta#500000#6,000,000
-2#2009-04-29#Honda#1#600#CBR600#CBR600RR#No#900#BMW#GS Adventure#Persona fisica#M#1966-03-24#MB#20052#Monza#6#NO#IMPIEGATO ######VEICOLO GIA' ASSICURATO CON ATR                 #No        #N#BM#1#0#0#0#0#0#0#0#Esperta##25,000,000
+1#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+2#2010-03-15##3#100#######Persona fisica#M#40#AG##Agrigento#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+3#2010-03-15##3#100#######Persona fisica#M#40#AL##Alessandria#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+4#2010-03-15##3#100#######Persona fisica#M#40#AN##Ancona#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+5#2010-03-15##3#100#######Persona fisica#M#40#AO##Aosta#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+6#2010-03-15##3#100#######Persona fisica#M#40#AP##AscoliPiceno#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+7#2010-03-15##3#100#######Persona fisica#M#40#AQ##L'Aquila#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+8#2010-03-15##3#100#######Persona fisica#M#40#AR##Arezzo#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+9#2010-03-15##3#100#######Persona fisica#M#40#AT##Asti#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+10#2010-03-15##3#100#######Persona fisica#M#40#AV##Avellino#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+11#2010-03-15##3#100#######Persona fisica#M#40#BA##Bari#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+12#2010-03-15##3#100#######Persona fisica#M#40#BG##Bergamo#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+13#2010-03-15##3#100#######Persona fisica#M#40#BI##Biella#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+14#2010-03-15##3#100#######Persona fisica#M#40#BL##Belluno#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+15#2010-03-15##3#100#######Persona fisica#M#40#BN##Benevento#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+16#2010-03-15##3#100#######Persona fisica#M#40#BO##Bologna#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+17#2010-03-15##3#100#######Persona fisica#M#40#BR##Brindisi#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+18#2010-03-15##3#100#######Persona fisica#M#40#BS##Brescia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+19#2010-03-15##3#100#######Persona fisica#M#40#BZ##Bolzano#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+20#2010-03-15##3#100#######Persona fisica#M#40#CA##Cagliari#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+21#2010-03-15##3#100#######Persona fisica#M#40#CB##Campobasso#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+22#2010-03-15##3#100#######Persona fisica#M#40#CE##Caserta#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+23#2010-03-15##3#100#######Persona fisica#M#40#CH##Chieti#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+24#2010-03-15##3#100#######Persona fisica#M#40#CL##Caltanissetta#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+25#2010-03-15##3#100#######Persona fisica#M#40#CN##Cuneo#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+26#2010-03-15##3#100#######Persona fisica#M#40#CO##Como#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+27#2010-03-15##3#100#######Persona fisica#M#40#CR##Cremona#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+28#2010-03-15##3#100#######Persona fisica#M#40#CS##Cosenza#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+29#2010-03-15##3#100#######Persona fisica#M#40#CT##Catania#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+30#2010-03-15##3#100#######Persona fisica#M#40#CZ##Catanzaro#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+31#2010-03-15##3#100#######Persona fisica#M#40#EN##Enna#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+32#2010-03-15##3#100#######Persona fisica#M#40#FE##Ferrara#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+33#2010-03-15##3#100#######Persona fisica#M#40#FG##Foggia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+34#2010-03-15##3#100#######Persona fisica#M#40#FI##Firenze#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+35#2010-03-15##3#100#######Persona fisica#M#40#FC##Forl#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+36#2010-03-15##3#100#######Persona fisica#M#40#FR##Frosinone#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+37#2010-03-15##3#100#######Persona fisica#M#40#GE##Genova#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+38#2010-03-15##3#100#######Persona fisica#M#40#GO##Gorizia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+39#2010-03-15##3#100#######Persona fisica#M#40#GR##Grosseto#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+40#2010-03-15##3#100#######Persona fisica#M#40#IM##Imperia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+41#2010-03-15##3#100#######Persona fisica#M#40#IS##Isernia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+42#2010-03-15##3#100#######Persona fisica#M#40#KR##Crotone#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+43#2010-03-15##3#100#######Persona fisica#M#40#LC##Lecco#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+44#2010-03-15##3#100#######Persona fisica#M#40#LE##Lecce#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+45#2010-03-15##3#100#######Persona fisica#M#40#LI##Livorno#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+46#2010-03-15##3#100#######Persona fisica#M#40#LO##Lodi#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+47#2010-03-15##3#100#######Persona fisica#M#40#LT##Latina#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+48#2010-03-15##3#100#######Persona fisica#M#40#LU##Lucca#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+49#2010-03-15##3#100#######Persona fisica#M#40#MC##Macerata#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+50#2010-03-15##3#100#######Persona fisica#M#40#ME##Messina#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+51#2010-03-15##3#100#######Persona fisica#M#40#MI##Milano#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+52#2010-03-15##3#100#######Persona fisica#M#40#MN##Mantova#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+53#2010-03-15##3#100#######Persona fisica#M#40#MO##Modena#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+54#2010-03-15##3#100#######Persona fisica#M#40#MS##MassaCarrara#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+55#2010-03-15##3#100#######Persona fisica#M#40#MT##Matera#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+56#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+57#2010-03-15##3#100#######Persona fisica#M#40#NO##Novara#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+58#2010-03-15##3#100#######Persona fisica#M#40#NU##Nuoro#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+59#2010-03-15##3#100#######Persona fisica#M#40#OR##Oristano#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+60#2010-03-15##3#100#######Persona fisica#M#40#PA##Palermo#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+61#2010-03-15##3#100#######Persona fisica#M#40#PC##Piacenza#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+62#2010-03-15##3#100#######Persona fisica#M#40#PD##Padova#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+63#2010-03-15##3#100#######Persona fisica#M#40#PE##Pescara#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+64#2010-03-15##3#100#######Persona fisica#M#40#PG##Perugia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+65#2010-03-15##3#100#######Persona fisica#M#40#PI##Pisa#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+66#2010-03-15##3#100#######Persona fisica#M#40#PN##Pordenone#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+67#2010-03-15##3#100#######Persona fisica#M#40#PO##Prato#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+68#2010-03-15##3#100#######Persona fisica#M#40#PR##Parma#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+69#2010-03-15##3#100#######Persona fisica#M#40#PU##Pesaro#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+70#2010-03-15##3#100#######Persona fisica#M#40#PT##Pistoia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+71#2010-03-15##3#100#######Persona fisica#M#40#PV##Pavia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+72#2010-03-15##3#100#######Persona fisica#M#40#PZ##Potenza#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+73#2010-03-15##3#100#######Persona fisica#M#40#RA##Ravenna#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+74#2010-03-15##3#100#######Persona fisica#M#40#RC##ReggioCalabria#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+75#2010-03-15##3#100#######Persona fisica#M#40#RE##ReggioEmilia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+76#2010-03-15##3#100#######Persona fisica#M#40#RG##Ragusa#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+77#2010-03-15##3#100#######Persona fisica#M#40#RI##Rieti#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+78#2010-03-15##3#100#######Persona fisica#M#40#RM##Roma#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+79#2010-03-15##3#100#######Persona fisica#M#40#RN##Rimini#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+80#2010-03-15##3#100#######Persona fisica#M#40#RO##Rovigo#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+81#2010-03-15##3#100#######Persona fisica#M#40#SA##Salerno#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+82#2010-03-15##3#100#######Persona fisica#M#40#SI##Siena#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+83#2010-03-15##3#100#######Persona fisica#M#40#SO##Sondrio#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+84#2010-03-15##3#100#######Persona fisica#M#40#SP##LaSpezia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+85#2010-03-15##3#100#######Persona fisica#M#40#SR##Siracusa#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+86#2010-03-15##3#100#######Persona fisica#M#40#SS##Sassari#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+87#2010-03-15##3#100#######Persona fisica#M#40#SV##Savona#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+88#2010-03-15##3#100#######Persona fisica#M#40#TA##Taranto#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+89#2010-03-15##3#100#######Persona fisica#M#40#TE##Teramo#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+90#2010-03-15##3#100#######Persona fisica#M#40#TN##Trento#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+91#2010-03-15##3#100#######Persona fisica#M#40#TO##Torino#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+92#2010-03-15##3#100#######Persona fisica#M#40#TP##Trapani#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+93#2010-03-15##3#100#######Persona fisica#M#40#TR##Terni#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+94#2010-03-15##3#100#######Persona fisica#M#40#TS##Trieste#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+95#2010-03-15##3#100#######Persona fisica#M#40#TV##Treviso#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+96#2010-03-15##3#100#######Persona fisica#M#40#UD##Udine#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+97#2010-03-15##3#100#######Persona fisica#M#40#VA##Varese#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+98#2010-03-15##3#100#######Persona fisica#M#40#VB##Verbania#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+99#2010-03-15##3#100#######Persona fisica#M#40#VC##Vercelli#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+100#2010-03-15##3#100#######Persona fisica#M#40#VE##Venezia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+101#2010-03-15##3#100#######Persona fisica#M#40#VI##Vicenza#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+102#2010-03-15##3#100#######Persona fisica#M#40#VR##Verona#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+103#2010-03-15##3#100#######Persona fisica#M#40#VT##Viterbo#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+104#2010-03-15##3#100#######Persona fisica#M#40#VV##ViboValentia#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+105#2010-03-15##3#100#######Persona fisica#M#40#AG##Sciacca#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+106#2010-03-15##3#100#######Persona fisica#M#40#AL##Cavatore #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+107#2010-03-15##3#100#######Persona fisica#M#40#AN##Montemarciano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+108#2010-03-15##3#100#######Persona fisica#M#40#AO##La Salle #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+109#2010-03-15##3#100#######Persona fisica#M#40#AP##Grottammare #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+110#2010-03-15##3#100#######Persona fisica#M#40#AQ##Calascio #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+111#2010-03-15##3#100#######Persona fisica#M#40#AR##Capolona #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+112#2010-03-15##3#100#######Persona fisica#M#40#AT##Antignano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+113#2010-03-15##3#100#######Persona fisica#M#40#AV##Grottolella #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+114#2010-03-15##3#100#######Persona fisica#M#40#BA##Alberobello #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+115#2010-03-15##3#100#######Persona fisica#M#40#BG##Azzone #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+116#2010-03-15##3#100#######Persona fisica#M#40#BI##Tollegno #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+117#2010-03-15##3#100#######Persona fisica#M#40#BL##Longarone #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+118#2010-03-15##3#100#######Persona fisica#M#40#BN##Airola #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+119#2010-03-15##3#100#######Persona fisica#M#40#BO##Bentivoglio #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+120#2010-03-15##3#100#######Persona fisica#M#40#BR##Ostuni #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+121#2010-03-15##3#100#######Persona fisica#M#40#BS##Ceto #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+122#2010-03-15##3#100#######Persona fisica#M#40#BZ##Merano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+123#2010-03-15##3#100#######Persona fisica#M#40#CA##Pula#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+124#2010-03-15##3#100#######Persona fisica#M#40#CB##Gambatesa #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+125#2010-03-15##3#100#######Persona fisica#M#40#CE##Capodrise #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+126#2010-03-15##3#100#######Persona fisica#M#40#CH##Vasto #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+127#2010-03-15##3#100#######Persona fisica#M#40#CL##Campofranco #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+128#2010-03-15##3#100#######Persona fisica#M#40#CN##Aisone #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+129#2010-03-15##3#100#######Persona fisica#M#40#CO##Griante #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+130#2010-03-15##3#100#######Persona fisica#M#40#CR##Crema #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+131#2010-03-15##3#100#######Persona fisica#M#40#CS##Castrovillari #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+132#2010-03-15##3#100#######Persona fisica#M#40#CT##Milo #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+133#2010-03-15##3#100#######Persona fisica#M#40#CZ##Curinga #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+134#2010-03-15##3#100#######Persona fisica#M#40#EN##Agira #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+135#2010-03-15##3#100#######Persona fisica#M#40#FE##Bondeno #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+136#2010-03-15##3#100#######Persona fisica#M#40#FG##Apricena #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+137#2010-03-15##3#100#######Persona fisica#M#40#FI##Calenzano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+138#2010-03-15##3#100#######Persona fisica#M#40#FC##Galeata #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+139#2010-03-15##3#100#######Persona fisica#M#40#FR##Acuto #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+140#2010-03-15##3#100#######Persona fisica#M#40#GE##Mele #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+141#2010-03-15##3#100#######Persona fisica#M#40#GO##Moraro #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+142#2010-03-15##3#100#######Persona fisica#M#40#GR##Capalbio #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+143#2010-03-15##3#100#######Persona fisica#M#40#IM##Castellaro #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+144#2010-03-15##3#100#######Persona fisica#M#40#IS##Filignano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+145#2010-03-15##3#100#######Persona fisica#M#40#KR##Cutro #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+146#2010-03-15##3#100#######Persona fisica#M#40#LC##Ballabio #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+147#2010-03-15##3#100#######Persona fisica#M#40#LE##Gallipoli #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+148#2010-03-15##3#100#######Persona fisica#M#40#LI##Cecina #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+149#2010-03-15##3#100#######Persona fisica#M#40#LO##Graffignana #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+150#2010-03-15##3#100#######Persona fisica#M#40#LT##Maenza #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+151#2010-03-15##3#100#######Persona fisica#M#40#LU##Altopascio #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+152#2010-03-15##3#100#######Persona fisica#M#40#MC##Montecosaro #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+153#2010-03-15##3#100#######Persona fisica#M#40#ME##Acquedolci #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+154#2010-03-15##3#100#######Persona fisica#M#40#MI##Cuggiono #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+155#2010-03-15##3#100#######Persona fisica#M#40#MN##Monzambano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+156#2010-03-15##3#100#######Persona fisica#M#40#MO##Campogalliano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+157#2010-03-15##3#100#######Persona fisica#M#40#MS##Aulla #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+158#2010-03-15##3#100#######Persona fisica#M#40#MT##Accettura #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+159#2010-03-15##3#100#######Persona fisica#M#40#NA##Acerra #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+160#2010-03-15##3#100#######Persona fisica#M#40#NO##Gozzano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+161#2010-03-15##3#100#######Persona fisica#M#40#NU##Aritzo #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+162#2010-03-15##3#100#######Persona fisica#M#40#OR##Ghilarza #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+163#2010-03-15##3#100#######Persona fisica#M#40#PA##Alia #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+164#2010-03-15##3#100#######Persona fisica#M#40#PC##Caorso #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+165#2010-03-15##3#100#######Persona fisica#M#40#PD##Campodarsego #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+166#2010-03-15##3#100#######Persona fisica#M#40#PE##Alanno #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+167#2010-03-15##3#100#######Persona fisica#M#40#PG##Montone #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+168#2010-03-15##3#100#######Persona fisica#M#40#PI##Calcinaia #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+169#2010-03-15##3#100#######Persona fisica#M#40#PN##Aviano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+170#2010-03-15##3#100#######Persona fisica#M#40#PO##Cantagallo #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+171#2010-03-15##3#100#######Persona fisica#M#40#PR##Fontanellato #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+172#2010-03-15##3#100#######Persona fisica#M#40#PU##Gabicce Mare#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+173#2010-03-15##3#100#######Persona fisica#M#40#PT##Abetone #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+174#2010-03-15##3#100#######Persona fisica#M#40#PV##Bascape'#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+175#2010-03-15##3#100#######Persona fisica#M#40#PZ##Anzi #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+176#2010-03-15##3#100#######Persona fisica#M#40#RA##Bagnacavallo #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+177#2010-03-15##3#100#######Persona fisica#M#40#RC##Delianuova #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+178#2010-03-15##3#100#######Persona fisica#M#40#RE##Bagnolo in piano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+179#2010-03-15##3#100#######Persona fisica#M#40#RG##Acate #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+180#2010-03-15##3#100#######Persona fisica#M#40#RI##Accumoli #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+181#2010-03-15##3#100#######Persona fisica#M#40#RM##Affile #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+182#2010-03-15##3#100#######Persona fisica#M#40#RN##Bellaria-Igea Marina #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+183#2010-03-15##3#100#######Persona fisica#M#40#RO##Ceregnano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+184#2010-03-15##3#100#######Persona fisica#M#40#SA##Amalfi #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+185#2010-03-15##3#100#######Persona fisica#M#40#SI##Chiusdino #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+186#2010-03-15##3#100#######Persona fisica#M#40#SO##Ardenno #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+187#2010-03-15##3#100#######Persona fisica#M#40#SP##Carro #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+188#2010-03-15##3#100#######Persona fisica#M#40#SR##Augusta #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+189#2010-03-15##3#100#######Persona fisica#M#40#SS##Bono #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+190#2010-03-15##3#100#######Persona fisica#M#40#SV##Albisola Superiore #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+191#2010-03-15##3#100#######Persona fisica#M#40#TA##Crispiano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+192#2010-03-15##3#100#######Persona fisica#M#40#TE##Campli #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+193#2010-03-15##3#100#######Persona fisica#M#40#TN##Amblar #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+194#2010-03-15##3#100#######Persona fisica#M#40#TO##andezeno#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+195#2010-03-15##3#100#######Persona fisica#M#40#TP##Custonaci #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+196#2010-03-15##3#100#######Persona fisica#M#40#TR##Allerona #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+197#2010-03-15##3#100#######Persona fisica#M#40#TS##Sgonico #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+198#2010-03-15##3#100#######Persona fisica#M#40#TV##Conegliano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+199#2010-03-15##3#100#######Persona fisica#M#40#UD##Artegna #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+200#2010-03-15##3#100#######Persona fisica#M#40#VA##Cassano Magnago #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+201#2010-03-15##3#100#######Persona fisica#M#40#VB##Arizzano #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+202#2010-03-15##3#100#######Persona fisica#M#40#VC##Quarona #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+203#2010-03-15##3#100#######Persona fisica#M#40#VE##Camponogara#3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+204#2010-03-15##3#100#######Persona fisica#M#40#VI##Piovene Rocchette #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+205#2010-03-15##3#100#######Persona fisica#M#40#VR##Affi #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+206#2010-03-15##3#100#######Persona fisica#M#40#VT##Blera #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+207#2010-03-15##3#100#######Persona fisica#M#40#VV##Pizzo #3##IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+208#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+209#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###4,000,000
+210#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###6,000,000
+211#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###8,000,000
+212#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###12,000,000
+213#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###15,000,000
+214#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###20,000,000
+215#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###26,000,000
+216#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#1#0#0#0#0#0#0#0###3,000,000
+217#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#2#0#0#0#0#0#0#0###3,000,000
+218#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#3#0#0#0#0#0#0#0###3,000,000
+219#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#4#0#0#0#0#0#0#0###3,000,000
+220#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#5#0#0#0#0#0#0#0###3,000,000
+221#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#6#0#0#0#0#0#0#0###3,000,000
+222#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#7#0#0#0#0#0#0#0###3,000,000
+223#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+224#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#9#0#0#0#0#0#0#0###3,000,000
+225#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#10#0#0#0#0#0#0#0###3,000,000
+226#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#11#0#0#0#0#0#0#0###3,000,000
+227#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#12#0#0#0#0#0#0#0###3,000,000
+228#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#13#0#0#0#0#0#0#0###3,000,000
+229#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#14#0#0#0#0#0#0#0###3,000,000
+230#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#15#0#0#0#0#0#0#0###3,000,000
+231#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#16#0#0#0#0#0#0#0###3,000,000
+232#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#17#0#0#0#0#0#0#0###3,000,000
+233#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#18#0#0#0#0#0#0#0###3,000,000
+234#2010-03-15##0#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#No#No#BM##0#0#0#0#0#0#0###3,000,000
+235#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#1#1#0#0#0#0#0#1###3,000,000
+236#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#2#1#0#0#0#0#0#1###3,000,000
+237#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#3#1#0#0#0#0#0#1###3,000,000
+238#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#4#1#0#0#0#0#0#1###3,000,000
+239#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#5#1#0#0#0#0#0#1###3,000,000
+240#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#6#1#0#0#0#0#0#1###3,000,000
+241#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#7#1#0#0#0#0#0#1###3,000,000
+242#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#1#0#0#0#0#0#1###3,000,000
+243#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#9#1#0#0#0#0#0#1###3,000,000
+244#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#10#1#0#0#0#0#0#1###3,000,000
+245#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#11#1#0#0#0#0#0#1###3,000,000
+246#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#12#1#0#0#0#0#0#1###3,000,000
+247#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#13#1#0#0#0#0#0#1###3,000,000
+248#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#14#1#0#0#0#0#0#1###3,000,000
+249#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#15#1#0#0#0#0#0#1###3,000,000
+250#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#16#1#0#0#0#0#0#1###3,000,000
+251#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#17#1#0#0#0#0#0#1###3,000,000
+252#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#18#1#0#0#0#0#0#1###3,000,000
+253#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#1#0#1#0#0#0#0#1###3,000,000
+254#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#2#0#1#0#0#0#0#1###3,000,000
+255#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#3#0#1#0#0#0#0#1###3,000,000
+256#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#4#0#1#0#0#0#0#1###3,000,000
+257#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#5#0#1#0#0#0#0#1###3,000,000
+258#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#6#0#1#0#0#0#0#1###3,000,000
+259#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#7#0#1#0#0#0#0#1###3,000,000
+260#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#1#0#0#0#0#1###3,000,000
+261#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#9#0#1#0#0#0#0#1###3,000,000
+262#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#10#0#1#0#0#0#0#1###3,000,000
+263#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#11#0#1#0#0#0#0#1###3,000,000
+264#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#12#0#1#0#0#0#0#1###3,000,000
+265#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#13#0#1#0#0#0#0#1###3,000,000
+266#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#14#0#1#0#0#0#0#1###3,000,000
+267#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#15#0#1#0#0#0#0#1###3,000,000
+268#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#16#0#1#0#0#0#0#1###3,000,000
+269#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#17#0#1#0#0#0#0#1###3,000,000
+270#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#18#0#1#0#0#0#0#1###3,000,000
+271#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#1#0#0#1#0#0#0#1###3,000,000
+272#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#2#0#0#1#0#0#0#1###3,000,000
+273#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#3#0#0#1#0#0#0#1###3,000,000
+274#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#4#0#0#1#0#0#0#1###3,000,000
+275#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#5#0#0#1#0#0#0#1###3,000,000
+276#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#6#0#0#1#0#0#0#1###3,000,000
+277#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#7#0#0#1#0#0#0#1###3,000,000
+278#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#1#0#0#0#1###3,000,000
+279#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#9#0#0#1#0#0#0#1###3,000,000
+280#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#10#0#0#1#0#0#0#1###3,000,000
+281#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#11#0#0#1#0#0#0#1###3,000,000
+282#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#12#0#0#1#0#0#0#1###3,000,000
+283#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#13#0#0#1#0#0#0#1###3,000,000
+284#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#14#0#0#1#0#0#0#1###3,000,000
+285#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#15#0#0#1#0#0#0#1###3,000,000
+286#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#16#0#0#1#0#0#0#1###3,000,000
+287#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#17#0#0#1#0#0#0#1###3,000,000
+288#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#18#0#0#1#0#0#0#1###3,000,000
+289#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#1#0#0#0#1#0#0#1###3,000,000
+290#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#2#0#0#0#1#0#0#1###3,000,000
+291#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#3#0#0#0#1#0#0#1###3,000,000
+292#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#4#0#0#0#1#0#0#1###3,000,000
+293#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#5#0#0#0#1#0#0#1###3,000,000
+294#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#6#0#0#0#1#0#0#1###3,000,000
+295#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#7#0#0#0#1#0#0#1###3,000,000
+296#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#1#0#0#1###3,000,000
+297#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#9#0#0#0#1#0#0#1###3,000,000
+298#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#10#0#0#0#1#0#0#1###3,000,000
+299#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#11#0#0#0#1#0#0#1###3,000,000
+300#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#12#0#0#0#1#0#0#1###3,000,000
+301#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#13#0#0#0#1#0#0#1###3,000,000
+302#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#14#0#0#0#1#0#0#1###3,000,000
+303#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#15#0#0#0#1#0#0#1###3,000,000
+304#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#16#0#0#0#1#0#0#1###3,000,000
+305#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#17#0#0#0#1#0#0#1###3,000,000
+306#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#18#0#0#0#1#0#0#1###3,000,000
+307#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#1#0#0#0#0#1#0#1###3,000,000
+308#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#2#0#0#0#0#1#0#1###3,000,000
+309#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#3#0#0#0#0#1#0#1###3,000,000
+310#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#4#0#0#0#0#1#0#1###3,000,000
+311#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#5#0#0#0#0#1#0#1###3,000,000
+312#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#6#0#0#0#0#1#0#1###3,000,000
+313#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#7#0#0#0#0#1#0#1###3,000,000
+314#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#1#0#1###3,000,000
+315#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#9#0#0#0#0#1#0#1###3,000,000
+316#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#10#0#0#0#0#1#0#1###3,000,000
+317#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#11#0#0#0#0#1#0#1###3,000,000
+318#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#12#0#0#0#0#1#0#1###3,000,000
+319#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#13#0#0#0#0#1#0#1###3,000,000
+320#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#14#0#0#0#0#1#0#1###3,000,000
+321#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#15#0#0#0#0#1#0#1###3,000,000
+322#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#16#0#0#0#0#1#0#1###3,000,000
+323#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#17#0#0#0#0#1#0#1###3,000,000
+324#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#18#0#0#0#0#1#0#1###3,000,000
+325#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#1#0#0#0#0#0#1#1###3,000,000
+326#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#2#0#0#0#0#0#1#1###3,000,000
+327#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#3#0#0#0#0#0#1#1###3,000,000
+328#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#4#0#0#0#0#0#1#1###3,000,000
+329#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#5#0#0#0#0#0#1#1###3,000,000
+330#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#6#0#0#0#0#0#1#1###3,000,000
+331#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#7#0#0#0#0#0#1#1###3,000,000
+332#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#1#1###3,000,000
+333#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#9#0#0#0#0#0#1#1###3,000,000
+334#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#10#0#0#0#0#0#1#1###3,000,000
+335#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#11#0#0#0#0#0#1#1###3,000,000
+336#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#12#0#0#0#0#0#1#1###3,000,000
+337#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#13#0#0#0#0#0#1#1###3,000,000
+338#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#14#0#0#0#0#0#1#1###3,000,000
+339#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#15#0#0#0#0#0#1#1###3,000,000
+340#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#16#0#0#0#0#0#1#1###3,000,000
+341#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#17#0#0#0#0#0#1#1###3,000,000
+342#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#18#0#0#0#0#0#1#1###3,000,000
+343#2010-03-15##3#100#######Persona fisica#M#18#NA##Napoli#3#0#IMPIEGATO #M#18#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+344#2010-03-15##3#100#######Persona fisica#M#19#NA##Napoli#3#0#IMPIEGATO #M#19#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+345#2010-03-15##3#100#######Persona fisica#M#20#NA##Napoli#3#0#IMPIEGATO #M#20#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+346#2010-03-15##3#100#######Persona fisica#M#21#NA##Napoli#3#0#IMPIEGATO #M#21#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+347#2010-03-15##3#100#######Persona fisica#M#22#NA##Napoli#3#0#IMPIEGATO #M#22#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+348#2010-03-15##3#100#######Persona fisica#M#23#NA##Napoli#3#0#IMPIEGATO #M#23#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+349#2010-03-15##3#100#######Persona fisica#M#24#NA##Napoli#3#0#IMPIEGATO #M#24#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+350#2010-03-15##3#100#######Persona fisica#M#25#NA##Napoli#3#0#IMPIEGATO #M#25#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+351#2010-03-15##3#100#######Persona fisica#M#26#NA##Napoli#3#0#IMPIEGATO #M#26#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+352#2010-03-15##3#100#######Persona fisica#M#27#NA##Napoli#3#0#IMPIEGATO #M#27#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+353#2010-03-15##3#100#######Persona fisica#M#28#NA##Napoli#3#0#IMPIEGATO #M#28#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+354#2010-03-15##3#100#######Persona fisica#M#29#NA##Napoli#3#0#IMPIEGATO #M#29#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+355#2010-03-15##3#100#######Persona fisica#M#30#NA##Napoli#3#0#IMPIEGATO #M#30#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+356#2010-03-15##3#100#######Persona fisica#M#31#NA##Napoli#3#0#IMPIEGATO #M#31#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+357#2010-03-15##3#100#######Persona fisica#M#32#NA##Napoli#3#0#IMPIEGATO #M#32#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+358#2010-03-15##3#100#######Persona fisica#M#33#NA##Napoli#3#0#IMPIEGATO #M#33#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+359#2010-03-15##3#100#######Persona fisica#M#34#NA##Napoli#3#0#IMPIEGATO #M#34#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+360#2010-03-15##3#100#######Persona fisica#M#35#NA##Napoli#3#0#IMPIEGATO #M#35#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+361#2010-03-15##3#100#######Persona fisica#M#36#NA##Napoli#3#0#IMPIEGATO #M#36#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+362#2010-03-15##3#100#######Persona fisica#M#37#NA##Napoli#3#0#IMPIEGATO #M#37#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+363#2010-03-15##3#100#######Persona fisica#M#38#NA##Napoli#3#0#IMPIEGATO #M#38#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+364#2010-03-15##3#100#######Persona fisica#M#39#NA##Napoli#3#0#IMPIEGATO #M#39#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+365#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+366#2010-03-15##3#100#######Persona fisica#M#41#NA##Napoli#3#0#IMPIEGATO #M#41#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+367#2010-03-15##3#100#######Persona fisica#M#42#NA##Napoli#3#0#IMPIEGATO #M#42#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+368#2010-03-15##3#100#######Persona fisica#M#43#NA##Napoli#3#0#IMPIEGATO #M#43#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+369#2010-03-15##3#100#######Persona fisica#M#44#NA##Napoli#3#0#IMPIEGATO #M#44#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+370#2010-03-15##3#100#######Persona fisica#M#45#NA##Napoli#3#0#IMPIEGATO #M#45#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+371#2010-03-15##3#100#######Persona fisica#M#46#NA##Napoli#3#0#IMPIEGATO #M#46#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+372#2010-03-15##3#100#######Persona fisica#M#47#NA##Napoli#3#0#IMPIEGATO #M#47#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+373#2010-03-15##3#100#######Persona fisica#M#48#NA##Napoli#3#0#IMPIEGATO #M#48#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+374#2010-03-15##3#100#######Persona fisica#M#49#NA##Napoli#3#0#IMPIEGATO #M#49#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+375#2010-03-15##3#100#######Persona fisica#M#50#NA##Napoli#3#0#IMPIEGATO #M#50#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+376#2010-03-15##3#100#######Persona fisica#M#51#NA##Napoli#3#0#IMPIEGATO #M#51#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+377#2010-03-15##3#100#######Persona fisica#M#52#NA##Napoli#3#0#IMPIEGATO #M#52#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+378#2010-03-15##3#100#######Persona fisica#M#53#NA##Napoli#3#0#IMPIEGATO #M#53#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+379#2010-03-15##3#100#######Persona fisica#M#54#NA##Napoli#3#0#IMPIEGATO #M#54#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+380#2010-03-15##3#100#######Persona fisica#M#55#NA##Napoli#3#0#IMPIEGATO #M#55#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+381#2010-03-15##3#100#######Persona fisica#M#56#NA##Napoli#3#0#IMPIEGATO #M#56#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+382#2010-03-15##3#100#######Persona fisica#M#57#NA##Napoli#3#0#IMPIEGATO #M#57#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+383#2010-03-15##3#100#######Persona fisica#M#58#NA##Napoli#3#0#IMPIEGATO #M#58#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+384#2010-03-15##3#100#######Persona fisica#M#59#NA##Napoli#3#0#IMPIEGATO #M#59#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+385#2010-03-15##3#100#######Persona fisica#M#60#NA##Napoli#3#0#IMPIEGATO #M#60#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+386#2010-03-15##3#100#######Persona fisica#M#61#NA##Napoli#3#0#IMPIEGATO #M#61#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+387#2010-03-15##3#100#######Persona fisica#M#62#NA##Napoli#3#0#IMPIEGATO #M#62#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+388#2010-03-15##3#100#######Persona fisica#M#63#NA##Napoli#3#0#IMPIEGATO #M#63#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+389#2010-03-15##3#100#######Persona fisica#M#64#NA##Napoli#3#0#IMPIEGATO #M#64#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+390#2010-03-15##3#100#######Persona fisica#M#65#NA##Napoli#3#0#IMPIEGATO #M#65#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+391#2010-03-15##3#100#######Persona fisica#M#66#NA##Napoli#3#0#IMPIEGATO #M#66#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+392#2010-03-15##3#100#######Persona fisica#M#67#NA##Napoli#3#0#IMPIEGATO #M#67#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+393#2010-03-15##3#100#######Persona fisica#M#68#NA##Napoli#3#0#IMPIEGATO #M#68#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+394#2010-03-15##3#100#######Persona fisica#M#69#NA##Napoli#3#0#IMPIEGATO #M#69#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+395#2010-03-15##3#100#######Persona fisica#M#70#NA##Napoli#3#0#IMPIEGATO #M#70#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+396#2010-03-15##3#100#######Persona fisica#M#71#NA##Napoli#3#0#IMPIEGATO #M#71#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+397#2010-03-15##3#100#######Persona fisica#M#72#NA##Napoli#3#0#IMPIEGATO #M#72#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+398#2010-03-15##3#100#######Persona fisica#M#73#NA##Napoli#3#0#IMPIEGATO #M#73#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+399#2010-03-15##3#100#######Persona fisica#M#74#NA##Napoli#3#0#IMPIEGATO #M#74#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+400#2010-03-15##3#100#######Persona fisica#M#75#NA##Napoli#3#0#IMPIEGATO #M#75#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+401#2010-03-15##3#100#######Persona fisica#M#76#NA##Napoli#3#0#IMPIEGATO #M#76#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+402#2010-03-15##3#100#######Persona fisica#M#77#NA##Napoli#3#0#IMPIEGATO #M#77#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+403#2010-03-15##3#100#######Persona fisica#M#78#NA##Napoli#3#0#IMPIEGATO #M#78#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+404#2010-03-15##3#100#######Persona fisica#M#79#NA##Napoli#3#0#IMPIEGATO #M#79#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+405#2010-03-15##3#100#######Persona fisica#F#18#NA##Napoli#3#0#IMPIEGATO #F#18#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+406#2010-03-15##3#100#######Persona fisica#F#19#NA##Napoli#3#0#IMPIEGATO #F#19#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+407#2010-03-15##3#100#######Persona fisica#F#20#NA##Napoli#3#0#IMPIEGATO #F#20#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+408#2010-03-15##3#100#######Persona fisica#F#21#NA##Napoli#3#0#IMPIEGATO #F#21#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+409#2010-03-15##3#100#######Persona fisica#F#22#NA##Napoli#3#0#IMPIEGATO #F#22#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+410#2010-03-15##3#100#######Persona fisica#F#23#NA##Napoli#3#0#IMPIEGATO #F#23#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+411#2010-03-15##3#100#######Persona fisica#F#24#NA##Napoli#3#0#IMPIEGATO #F#24#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+412#2010-03-15##3#100#######Persona fisica#F#25#NA##Napoli#3#0#IMPIEGATO #F#25#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+413#2010-03-15##3#100#######Persona fisica#F#26#NA##Napoli#3#0#IMPIEGATO #F#26#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+414#2010-03-15##3#100#######Persona fisica#F#27#NA##Napoli#3#0#IMPIEGATO #F#27#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+415#2010-03-15##3#100#######Persona fisica#F#28#NA##Napoli#3#0#IMPIEGATO #F#28#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+416#2010-03-15##3#100#######Persona fisica#F#29#NA##Napoli#3#0#IMPIEGATO #F#29#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+417#2010-03-15##3#100#######Persona fisica#F#30#NA##Napoli#3#0#IMPIEGATO #F#30#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+418#2010-03-15##3#100#######Persona fisica#F#31#NA##Napoli#3#0#IMPIEGATO #F#31#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+419#2010-03-15##3#100#######Persona fisica#F#32#NA##Napoli#3#0#IMPIEGATO #F#32#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+420#2010-03-15##3#100#######Persona fisica#F#33#NA##Napoli#3#0#IMPIEGATO #F#33#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+421#2010-03-15##3#100#######Persona fisica#F#34#NA##Napoli#3#0#IMPIEGATO #F#34#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+422#2010-03-15##3#100#######Persona fisica#F#35#NA##Napoli#3#0#IMPIEGATO #F#35#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+423#2010-03-15##3#100#######Persona fisica#F#36#NA##Napoli#3#0#IMPIEGATO #F#36#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+424#2010-03-15##3#100#######Persona fisica#F#37#NA##Napoli#3#0#IMPIEGATO #F#37#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+425#2010-03-15##3#100#######Persona fisica#F#38#NA##Napoli#3#0#IMPIEGATO #F#38#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+426#2010-03-15##3#100#######Persona fisica#F#39#NA##Napoli#3#0#IMPIEGATO #F#39#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+427#2010-03-15##3#100#######Persona fisica#F#40#NA##Napoli#3#0#IMPIEGATO #F#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+428#2010-03-15##3#100#######Persona fisica#F#41#NA##Napoli#3#0#IMPIEGATO #F#41#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+429#2010-03-15##3#100#######Persona fisica#F#42#NA##Napoli#3#0#IMPIEGATO #F#42#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+430#2010-03-15##3#100#######Persona fisica#F#43#NA##Napoli#3#0#IMPIEGATO #F#43#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+431#2010-03-15##3#100#######Persona fisica#F#44#NA##Napoli#3#0#IMPIEGATO #F#44#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+432#2010-03-15##3#100#######Persona fisica#F#45#NA##Napoli#3#0#IMPIEGATO #F#45#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+433#2010-03-15##3#100#######Persona fisica#F#46#NA##Napoli#3#0#IMPIEGATO #F#46#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+434#2010-03-15##3#100#######Persona fisica#F#47#NA##Napoli#3#0#IMPIEGATO #F#47#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+435#2010-03-15##3#100#######Persona fisica#F#48#NA##Napoli#3#0#IMPIEGATO #F#48#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+436#2010-03-15##3#100#######Persona fisica#F#49#NA##Napoli#3#0#IMPIEGATO #F#49#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+437#2010-03-15##3#100#######Persona fisica#F#50#NA##Napoli#3#0#IMPIEGATO #F#50#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+438#2010-03-15##3#100#######Persona fisica#F#51#NA##Napoli#3#0#IMPIEGATO #F#51#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+439#2010-03-15##3#100#######Persona fisica#F#52#NA##Napoli#3#0#IMPIEGATO #F#52#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+440#2010-03-15##3#100#######Persona fisica#F#53#NA##Napoli#3#0#IMPIEGATO #F#53#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+441#2010-03-15##3#100#######Persona fisica#F#54#NA##Napoli#3#0#IMPIEGATO #F#54#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+442#2010-03-15##3#100#######Persona fisica#F#55#NA##Napoli#3#0#IMPIEGATO #F#55#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+443#2010-03-15##3#100#######Persona fisica#F#56#NA##Napoli#3#0#IMPIEGATO #F#56#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+444#2010-03-15##3#100#######Persona fisica#F#57#NA##Napoli#3#0#IMPIEGATO #F#57#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+445#2010-03-15##3#100#######Persona fisica#F#58#NA##Napoli#3#0#IMPIEGATO #F#58#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+446#2010-03-15##3#100#######Persona fisica#F#59#NA##Napoli#3#0#IMPIEGATO #F#59#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+447#2010-03-15##3#100#######Persona fisica#F#60#NA##Napoli#3#0#IMPIEGATO #F#60#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+448#2010-03-15##3#100#######Persona fisica#F#61#NA##Napoli#3#0#IMPIEGATO #F#61#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+449#2010-03-15##3#100#######Persona fisica#F#62#NA##Napoli#3#0#IMPIEGATO #F#62#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+450#2010-03-15##3#100#######Persona fisica#F#63#NA##Napoli#3#0#IMPIEGATO #F#63#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+451#2010-03-15##3#100#######Persona fisica#F#64#NA##Napoli#3#0#IMPIEGATO #F#64#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+452#2010-03-15##3#100#######Persona fisica#F#65#NA##Napoli#3#0#IMPIEGATO #F#65#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+453#2010-03-15##3#100#######Persona fisica#F#66#NA##Napoli#3#0#IMPIEGATO #F#66#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+454#2010-03-15##3#100#######Persona fisica#F#67#NA##Napoli#3#0#IMPIEGATO #F#67#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+455#2010-03-15##3#100#######Persona fisica#F#68#NA##Napoli#3#0#IMPIEGATO #F#68#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+456#2010-03-15##3#100#######Persona fisica#F#69#NA##Napoli#3#0#IMPIEGATO #F#69#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+457#2010-03-15##3#100#######Persona fisica#F#70#NA##Napoli#3#0#IMPIEGATO #F#70#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+458#2010-03-15##3#100#######Persona fisica#F#71#NA##Napoli#3#0#IMPIEGATO #F#71#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+459#2010-03-15##3#100#######Persona fisica#F#72#NA##Napoli#3#0#IMPIEGATO #F#72#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+460#2010-03-15##3#100#######Persona fisica#F#73#NA##Napoli#3#0#IMPIEGATO #F#73#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+461#2010-03-15##3#100#######Persona fisica#F#74#NA##Napoli#3#0#IMPIEGATO #F#74#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+462#2010-03-15##3#100#######Persona fisica#F#75#NA##Napoli#3#0#IMPIEGATO #F#75#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+463#2010-03-15##3#100#######Persona fisica#F#76#NA##Napoli#3#0#IMPIEGATO #F#76#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+464#2010-03-15##3#100#######Persona fisica#F#77#NA##Napoli#3#0#IMPIEGATO #F#77#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+465#2010-03-15##3#100#######Persona fisica#F#78#NA##Napoli#3#0#IMPIEGATO #F#78#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+466#2010-03-15##3#100#######Persona fisica#F#79#NA##Napoli#3#0#IMPIEGATO #F#79#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+467#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#1#0#0#0#0#0#0#0###3,000,000
+468#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#2#0#0#0#0#0#0#0###3,000,000
+469#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#3#0#0#0#0#0#0#0###3,000,000
+470#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#4#0#0#0#0#0#0#0###3,000,000
+471#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#5#0#0#0#0#0#0#0###3,000,000
+472#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#6#0#0#0#0#0#0#0###3,000,000
+473#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#7#0#0#0#0#0#0#0###3,000,000
+474#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#8#0#0#0#0#0#0#0###3,000,000
+475#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#9#0#0#0#0#0#0#0###3,000,000
+476#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#10#0#0#0#0#0#0#0###3,000,000
+477#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#11#0#0#0#0#0#0#0###3,000,000
+478#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#12#0#0#0#0#0#0#0###3,000,000
+479#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#13#0#0#0#0#0#0#0###3,000,000
+480#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#14#0#0#0#0#0#0#0###3,000,000
+481#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#15#0#0#0#0#0#0#0###3,000,000
+482#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#16#0#0#0#0#0#0#0###3,000,000
+483#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#17#0#0#0#0#0#0#0###3,000,000
+484#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Prima polizza#Si#No#BM#18#0#0#0#0#0#0#0###3,000,000
+485#2010-03-15##3#100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+486#2010-03-15##3#150#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+487#2010-03-15##3#250#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+488#2010-03-15##3#350#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+489#2010-03-15##3#400#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+490#2010-03-15##3#500#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+491#2010-03-15##3#600#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+492#2010-03-15##3#750#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+493#2010-03-15##3#800#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+494#2010-03-15##3#850#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+495#2010-03-15##3#900#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+496#2010-03-15##3#998#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+497#2010-03-15##3#999#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+498#2010-03-15##3#1000#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+499#2010-03-15##3#1100#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+500#2010-03-15##3#1200#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000
+501#2010-03-15##3#1500#######Persona fisica#M#40#NA##Napoli#3#0#IMPIEGATO #M#40#NA##Napoli#Gia' assicurato con Bonus/Malus#No#No#BM#8#0#0#0#0#0#0#0###3,000,000

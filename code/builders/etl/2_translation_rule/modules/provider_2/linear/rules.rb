@@ -266,19 +266,75 @@ module Provider2Linear
 
   end
 
-  #  def build_hash_regexp_sect_1_prov_12()  a regime i provider si chiameranno prov_1, prov_2 etc
-  def build_hash_regexp_sect_1_tower()
-    #     target_values["fname_fvalue"]
+  def build_hash_sect_2()
 
     @rule_values = Hash.new
 
     @rule_values ={}
 
-    @rule_values = { 'driv_job_str'  => "job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";" ,
-      'veh_make_str'  => "make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";",
-      'veh_set_up_str'  => "make=profilefield[:veh_set_up_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";",
-      'veh_model_str'  => "make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(\" \"); regexp_mod = \"regexpi:([A-Za-z0-9])*\";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + \"(\" + el.to_s + \".*)+(\\s)*\" end;regexp_mod = regexp_mod + \"\\b\";"
+    @rule_values = {
+
+      'driv_citizenship_str' => 'copy_field',
+      'driv_driver_sex_str' => 'translate_fields',
+      'pol_bersani_ref_vehicle_insured_with_company_str' => 'translate_field',
+      'pol_bersani_ref_vehicle_number_plate_str' => 'copy_field',
+      'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years)strftime("%d").to_s',
+      'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years)strftime("%m").to_s',
+      'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years)strftime("%Y").to_s',
+      'pol_BM_assigned_str' => 'translate_field',
+      'pol_car_already_insured_with_company_str' => 'copy_field',
+      'pol_client_type_str' => 'translate_field',
+      'pol_driver_less_than_26_yrs_str' => 'translate_field',
+      'pol_how_do_you_know_the_company_str' => 'translate_field',
+      'pol_instalment_str' => 'translate_field',
+      'pol_insurance_situation_str' => 'profilefield[:pol_bersani_str] == "no" ? translate_field : "Da assicurare secondo la legge Bersani"',
+      'pol_leasing_str' => 'translate_field',
+      'pol_matriculation_date_day_str' => 'copy_field',
+      'pol_matriculation_date_month_str' => 'translate_field',
+      'pol_matriculation_date_str' => 'copy_field',
+      'pol_matriculation_date_year_num' => 'copy_field',
+      'pol_nr_of_paid_claims_1_yr_str' => 'copy_field',
+      'pol_nr_of_paid_claims_2_yr_str' => 'copy_field',
+      'pol_nr_of_paid_claims_3_yr_str' => 'copy_field',
+      'pol_nr_of_paid_claims_4_yr_str' => 'copy_field',
+      'pol_nr_of_paid_claims_5_yr_str' => 'copy_field',
+      'pol_nr_of_paid_claims_this_yr_str' => 'copy_field',
+      'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => 'profilefield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]== 5 ? "Sì" : "No"',
+      'pol_policy_starting_date_day_str'=> 'copy_field' ,
+      'pol_policy_starting_date_month_str'=> 'copy_field' ,
+      'pol_policy_starting_date_str' => 'copy_field',
+      'pol_policy_starting_date_year_num'=> 'copy_field' ,
+      'pol_public_liability_indemnity_limit_str' => 'translate_field',
+      'pol_RCA_code_str' =>  'copy_field',
+      'pol_RCA_on_off_str' => 'copy_field',
+      'pol_RCA_premium_id_str' => 'translate_field',
+      'pol_residence_str' => 'copy_field',
+      'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
+      'veh_set_up_str' => 'make=profilefield[:veh_set_up_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',
+      'veh_vehicle_shelter_str' => 'translate_field',
+
+      'pol_road_assistance_code_str' => 'copy_field',
+      'pol_road_assistance_on_off_str' => 'copy_field',
+      'pol_road_assistance_web_id_str' => 'translate_field',
+      'pol_road_assistance_premium_id_str' => 'copy_field',
+
+      'pol_contingency_protection_code_str' => 'copy_field',
+      'pol_contingency_protection_on_off_str' => 'copy_field',
+      'pol_contingency_protection_premium_id_str' => 'copy_field',
+      'pol_contingency_protection_web_id_str' => 'copy_field',
+
+      'pol_legal_assistance_code_str' => 'copy_field',
+      'pol_legal_assistance_on_off_str' => 'copy_field',
+      'pol_legal_assistance_premium_id_str' => 'copy_field',
+      'pol_legal_assistance_web_id_str' => 'translate_field',
+
+      'pol_driver_accident_coverage_code_str' => 'copy_field',
+      'pol_driver_accident_coverage_on_off_str' => 'copy_field',
+      'pol_driver_accident_coverage_premium_id_str' => 'copy_field',
+      'pol_driver_accident_coverage_web_id_str' => 'copy_field',
+
     }
+
   end
 
 end
