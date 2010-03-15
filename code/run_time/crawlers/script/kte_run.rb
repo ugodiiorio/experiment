@@ -175,13 +175,15 @@ class KTE
 end
 
 MODULE_FOLDER = 'modules'
-UTILS = 'utils.rb'
+UTILS = 'db_setters.rb'
 DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
 
 begin
 
   @kte = KTE.new
   @kte.start_logger
+  @logger = @kte.logger
+
   require("#{File.join(DLN_LIBRARY_PATH)}/#{UTILS}")
   include Utils
 
@@ -201,58 +203,58 @@ begin
 
     if is_numeric?(@kte.profile)
       
-      @kte.logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
+      @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
       break unless @kte.profile.to_i.between?(1, profiles)
 #      case @kte.company
       @already_locked = locked_profile?
 #      end
       if @already_locked
-        @kte.logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
+        @logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
   			break
       else
-        @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
+        @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
         @browser.run()
         profiles_count = profiles_count + 1
-        @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
-        @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
+        @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
+        @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
       end
     else #il profilo assicurativo non è fissato
       i = 1
       while i <= profiles do
   #      case @kte.company
         @kte.profile = i
-        @kte.logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
+        @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
         @already_locked = locked_profile?
   #      end
         unless @already_locked
-          @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
+          @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
           @browser.run()
           profiles_count = profiles_count + 1
-          @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
-          @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
+          @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
+          @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
         end
         break if profiles_count.to_i() == @kte.max_profiles.to_i()
-  #        @kte.logger.info "Break Profili Cycle"
+  #        @logger.info "Break Profili Cycle"
         i += 1
         sleep @kte.sleep_between_profiles.to_i unless @already_locked
       end
       if profiles_count == 0
-        @kte.logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
+        @logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
         break;
       end
     end
   end
 
 rescue Exception => ex
-  @kte.logger.error(__FILE__) {"#{@kte.company} => ERROR - Running script abnormaly terminated: #{ex}"} if @kte.logger
+  @logger.error(__FILE__) {"#{@kte.company} => ERROR - Running script abnormaly terminated: #{ex}"} if @logger
 
 ensure
-  if @kte.logger
-    @kte.logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
-    @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} FINISHED AT #{Time.now()}"}
-    @kte.logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} #{@kte.company.upcase} WEB SITE"}
-    @kte.logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
-    @kte.logger.close unless @kte.log_device == STDOUT
+  if @logger
+    @logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
+    @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} FINISHED AT #{Time.now()}"}
+    @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} #{@kte.company.upcase} WEB SITE"}
+    @logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
+    @logger.close unless @kte.log_device == STDOUT
   end
   Test::Unit.run=true unless Test::Unit.run?
   puts "end of init script"
@@ -260,11 +262,11 @@ ensure
 end
 
 #def db_connect(db)
-#  return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @kte.logger)
+#  return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @logger)
 #end
 #
 #def count_profiles(db)
-##  @DB_PROFILE.loggers << @kte.logger
+##  @DB_PROFILE.loggers << @logger
 #  count = db.from(:company_insurance_profiles).count
 #  return count
 #end

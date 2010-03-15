@@ -31,15 +31,15 @@ module Utils
 
     rescue Sequel::DatabaseError => e
       if e.wrapped_exception.to_s.gsub(DUPLICATE_KEY)
-        @kte.logger.warn(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => MYSQL WARNING: #{e}"}
+        @logger.warn(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => MYSQL WARNING: #{e}"}
         @new_lock= false
         return profile_locked?(@new_lock)
       else
-        @kte.logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{e.class} MYSQL ERROR with message: #{e}"}
+        @logger.error(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{e.class} MYSQL ERROR with message: #{e}"}
         raise
       end
     rescue Exception => ex
-      @kte.logger.fatal(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.class} with message: #{ex.message}"}
+      @logger.fatal(__FILE__ + ' => ' + method_name) {"#{@kte.company} => #{ex.class} with message: #{ex.message}"}
       raise
     end
 
@@ -57,21 +57,16 @@ module Utils
   def profile_locked?(bool)
 		case bool
 		when false
-      @kte.logger.warn(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile availability NOT PASSED"}
+      @logger.warn(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile availability NOT PASSED"}
       return true
 		else
-      @kte.logger.debug(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile availability PASSED"}
+      @logger.debug(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile availability PASSED"}
       return false
 		end
   end
 
   def db_connect(db)
-    return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @kte.logger)
-  end
-
-  def count_profiles(db)
-    count = db.from(:company_insurance_profiles).count
-    return count
+    return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @logger)
   end
 
   def db_disconnect(db)
@@ -126,4 +121,68 @@ module Utils
 
   end
   
+  def count_profiles(db)
+    count = db.from(:company_insurance_profiles).count
+    return count
+  end
+
+  def get_url(db)
+    ds = db[:companies].where(:key_companies_group_id_str => @kte.company_group, :key_company_id_str => @kte.company)
+    return url = ds.first[:site_url_str]
+  end
+
+  def update_result(db, result, message, state)
+
+    db.transaction do
+      schedules = db[:scheduler]
+      schedules.filter( :key_insurance_profiles_id_num => @kte.profile,
+                        :key_provider_id_str => @kte.provider,
+                        :key_sector_id_str => @kte.sector,
+                        :key_company_id_str => @kte.company,
+                        :key_working_set_id_str => @kte.working_set,
+                        :key_rate_id_str => @kte.rate).update(:result_str => result, :result_message_str => message, :state_str => state)
+    end
+
+  end
+
+  def insert_premium(db)
+
+    db.transaction do
+      ps = db[:premiums].prepare(:insert, :insert_for_premium,
+                                      :key_insurance_profiles_id_num => :$p1,
+                                      :key_provider_id_str => :$p2,
+                                      :key_sector_id_str => :$p3,
+                                      :key_company_id_str => :$p4,
+                                      :key_working_set_id_str => :$p5,
+                                      :key_rate_id_str => :$p6,
+                                      :key_cover_id_str => :$p7,
+                                      :record_id_str => :$p8,
+                                      :premium_num => :$p9)
+      ps.call(:p1=>@kte.profile, :p2=>@kte.provider, :p3=>@kte.sector, :p4=>@kte.company, :p5=>@kte.working_set, :p6=>@kte.rate, :p7=>@kte.rc_cover_code, :p8=>@kte.record, :p9=>@kte.rc_premium)
+    end
+
+  end
+
+  def select_sector(db, v)
+    ds = db.from(v).filter(:key_insurance_profiles_id_num => :$p1,
+                                    :key_provider_id_str => :$p2,
+                                    :key_sector_id_str => :$p3,
+                                    :key_company_id_str => :$p4,
+                                    :key_working_set_id_str => :$p5)
+    ps = ds.prepare(:select, :select_by_sector)
+    sect_arr = ps.call(:p1=>@kte.profile, :p2=>@kte.provider, :p3=>@kte.sector, :p4=>@kte.company, :p5=>@kte.working_set)
+    return sect_arr
+  end
+  
+  def count_people(db)
+    return count = db.from(:profiles_personal_data).where(:pers_sex_str => @owner_specification).count
+  end
+  
+  def select_person(db)
+    ds = db.from(:profiles_personal_data).filter(:pers_sex_str => :$p1)
+    ps = ds.prepare(:select, :select_by_sex)
+    person_arr = ps.call(:p1 => @owner_specification)
+    return person_arr
+  end
+
 end
