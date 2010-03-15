@@ -256,6 +256,18 @@ module FieldMappingProvider2Sect1
       'pol_theft_fire_coverage_premium_id_str'  => nil ,
       'pol_theft_fire_coverage_web_id_str'  => '"id elemento"' ,
       'pol_theft_fire_minimum_uncoverage_exemption_str'  => nil ,
+      'pol_collision_code_str' => nil,
+      'pol_collision_on_off_str' => nil,
+      'pol_collision_premium_id_str' => nil,
+      'pol_collision_web_id_str' => nil,
+      'pol_protected_bonus_code_str' => nil,
+      'pol_protected_bonus_on_off_str' => nil,
+      'pol_protected_bonus_premium_id_str' => nil,
+      'pol_protected_bonus_web_id_str' => nil,
+      'pol_protection_24_code_str' => nil,
+      'pol_protection_24_on_off_str' => nil,
+      'pol_protection_24_premium_id_str' => nil,
+      'pol_protection_24_web_id_str' => nil,
 
 
       #      'pol_record_id_str' => 'infield[:pol_record_id_str].strip.downcase',

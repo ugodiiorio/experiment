@@ -24,6 +24,7 @@ def build_hash_sect_2()
       'own_owner_zip_code_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_record_id_str'  => 'copy_field',
       'veh_capacity_num' => 'copy_field',
 
       'pol_birth_date_str'  => 'european_date = \'%d/%m/%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years)strftime(european_date).to_s' ,

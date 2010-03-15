@@ -13,8 +13,8 @@ logger_settings:
 database_settings:
   ds_engine_type: "MYSQL"
   ds_db_host: "localhost"
-  ds_conn_user: "kte"
-  ds_conn_pwd: "t0p$ecret"
+  ds_conn_user: "root"
+  ds_conn_pwd: "kub01d"
   ds_db_default_target: "kte_target"
   ds_db_default_driver: "kte_driver"
   ds_db_default_monitor: "kte_monitor"
