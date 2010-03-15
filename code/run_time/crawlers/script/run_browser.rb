@@ -10,6 +10,8 @@ require "selenium/client"
 #require "selenium/rspec/spec_helper"
 
 require "test/unit"
+require "test/unit/testresult"
+require "test/unit/error"
 require "test/unit/ui/console/testrunner"
 
 class RunBrowser
@@ -17,10 +19,14 @@ class RunBrowser
 
   MODULE_FOLDER = 'modules'
   DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
+  UTILS = 'utils.rb'
   KO = "KO"
   OK = "OK"
   RUN = "RUN"
   FREE = "FREE"
+
+#  require("#{File.join(DLN_LIBRARY_PATH)}/#{UTILS}")
+#  include Utils
 
 	def initialize(kte = nil)
 
@@ -52,14 +58,9 @@ class RunBrowser
     begin
       view = @sector_view[@kte.sector].to_sym
       db_profile = db_connect(@kte.db_driver)
-      ds = db_profile.from(view).filter(:key_insurance_profiles_id_num => :$p1,
-                                      :key_provider_id_str => :$p2,
-                                      :key_sector_id_str => :$p3,
-                                      :key_company_id_str => :$p4,
-                                      :key_working_set_id_str => :$p5)
-      ps = ds.prepare(:select, :select_by_sector)
-      if ps.call(:p1=>@kte.profile, :p2=>@kte.provider, :p3=>@kte.sector, :p4=>@kte.company, :p5=>@kte.working_set).count > 0
-        ps.call(:p1=>@kte.profile, :p2=>@kte.provider, :p3=>@kte.sector, :p4=>@kte.company, :p5=>@kte.working_set).each do |row|
+      sector_profile = select_sector(db_profile, view)
+      if sector_profile.count > 0
+        sector_profile.each do |row|
           row.each do |k, v|
             instance_variable_set(eval(":@#{normalize(k)}"), v)
             @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => instance variable: [@#{normalize(k)}] with value: [#{v}]"}
@@ -83,12 +84,11 @@ class RunBrowser
     begin
       i = 0
       db_profile = db_connect(@kte.db_driver)
-      k = db_profile.from(:profiles_personal_data).where(:pers_sex_str => @owner_specification).count
-      if k > 0
-        one_of_people = (rand(k) +1).to_i
-        ds = db_profile.from(:profiles_personal_data).filter(:pers_sex_str => :$p1)
-        ps = ds.prepare(:select, :select_by_sex)
-        ps.call(:p1 => @owner_specification).each do |row|
+      people = count_people(db_profile)
+      if people > 0
+        one_of_people = (rand(people) +1).to_i
+        specific_person = select_person(db_profile)
+        specific_person.each do |row|
           i += 1
           row.each do |k, v|
             instance_variable_set(eval(":@#{normalize(k)}"), v)
@@ -125,9 +125,11 @@ class RunBrowser
       require(File.join(DLN_LIBRARY_PATH, @kte.provider, @kte.sector) + '/' + @kte.company + ".rb")
       test = Test::Unit::UI::Console::TestRunner.new Kernel.const_get(selenium_class)
       result = test.start
+      test_errors = result.instance_variable_get("@errors")[0]
+      test_failures = result.instance_variable_get("@failures")[0]
 
-#      puts "#{@kte.rc_premium} - #{@kte.rc_cover_code} - #{@kte.test_result} - #{@kte.record}"
-
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => SELENIUM TEST SUITE RESULT: #{test_errors}"} if test_errors
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => SELENIUM TEST SUITE RESULT: #{test_failures}"} if test_failures
       @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => SELENIUM TEST SUITE RESULT: #{result}"}
 #      puts result.passed?
 
@@ -178,57 +180,6 @@ def normalize(var)
   arr_var.delete(arr_var.first)
   var = arr_var.collect{|a| a + "_"}.to_s.chop.downcase
   return var
-
-end
-
-def db_connect(db)
-  return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @logger)
-end
-
-def count_profiles(db)
-#  @DB_PROFILE.loggers << @kte.logger
-  count = db.from(:company_insurance_profiles).count
-  return count
-end
-
-def db_disconnect(db)
-  db.disconnect
-end
-
-def get_url(db)
-  ds = db[:companies].where(:key_companies_group_id_str => @kte.company_group, :key_company_id_str => @kte.company)
-  return url = ds.first[:site_url_str]
-end
-
-def update_result(db, result, message, state)
-
-  db.transaction do
-    schedules = db[:scheduler]
-    schedules.filter( :key_insurance_profiles_id_num => @kte.profile,
-                      :key_provider_id_str => @kte.provider,
-                      :key_sector_id_str => @kte.sector,
-                      :key_company_id_str => @kte.company,
-                      :key_working_set_id_str => @kte.working_set,
-                      :key_rate_id_str => @kte.rate).update(:result_str => result, :result_message_str => message, :state_str => state)
-  end
-
-end
-
-def insert_premium(db)
-
-  db.transaction do
-    ps = db[:premiums].prepare(:insert, :insert_for_premium,
-                                    :key_insurance_profiles_id_num => :$p1,
-                                    :key_provider_id_str => :$p2,
-                                    :key_sector_id_str => :$p3,
-                                    :key_company_id_str => :$p4,
-                                    :key_working_set_id_str => :$p5,
-                                    :key_rate_id_str => :$p6,
-                                    :key_cover_id_str => :$p7,
-                                    :record_id_str => :$p8,
-                                    :premium_num => :$p9)
-    ps.call(:p1=>@kte.profile, :p2=>@kte.provider, :p3=>@kte.sector, :p4=>@kte.company, :p5=>@kte.working_set, :p6=>@kte.rate, :p7=>@kte.rc_cover_code, :p8=>@kte.record, :p9=>@kte.rc_premium)
-  end
 
 end
 

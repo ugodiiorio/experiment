@@ -11,7 +11,7 @@ Selenium::Rake::RemoteControlStartTask.new(:'rc:start') do |rc|
  rc.background = true
  rc.wait_until_up_and_running = true
  rc.jar_file = SELENIUM_RC_JAR
- rc.additional_args << " -singleWindow"
+ rc.additional_args << " -multiWindow"
 # rc.additional_args << " -multiWindow -firefoxProfileTemplate FirefoxProfile"
 
 end
