@@ -12,9 +12,10 @@ module Provider2Genertel
 
     @target_values = {
 
-      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[4]/td[4]/div/div/div/img',
-      {'pol_road_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[5]/td[4]/div/div/div/img',
-      {'veh_vehicle_value_str' => '5000'} => 'index 1',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
+      {'pol_legal_assistance_web_id_str'  => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
+      {'pol_theft_fire_coverage_web_id_str'  => 'id elemento'} => 'GRDXGARXGaranzieX8X5', {'veh_vehicle_value_str' => '5000'} => 'index 1',
        {'pol_RCA_premium_id_str' => 'id elemento'} => 'LBLXRIEXValuta',
       {'veh_km_per_yr_str' => 'campo tecnico per genertel'} => 'index 1',
       {'driv_job_2_str' => 'campo tecnico per genertel'} => 'index 1',
@@ -72,9 +73,6 @@ module Provider2Genertel
       {'pol_subscriber_is_driver_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[2]/div[2]/div/div/div/div/img',
       {'pol_cohabiting_children_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[4]/div[2]/div/div/div/div/img',
       {'pol_privacy_3_str' => 'id elemento web3'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[4]/div[2]/div/div/div/div/img',
-      {'pol_road_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[6]/td[4]/div/div/div/img',
-      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[7]/td[4]/div/div/div/img',
-      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/p/label[2]/span',
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div/div/img',
       {'pol_bersani_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/img',
       {'pol_bersani_str' => 'convivente'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div/div/div/img',

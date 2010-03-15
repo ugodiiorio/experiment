@@ -11,8 +11,15 @@ module Provider1Dialogo
     @target_values = Hash.new
 
     @target_values = {
+      {'pol_assistance_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:1:_id147',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:3:_id147',
+      {'pol_easy_driver_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:7:_id147',
+      {'pol_glasses_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:6:_id147',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
+      {'pol_assistance_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:5:_id147',
+      {'pol_assistance_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:4:_id147',
 
-       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
+      {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
       {'own_owner_residence_province_str' => 'AO'} => 'AOSTA',
@@ -384,15 +391,15 @@ module Provider1Dialogo
       {'own_owner_sex_str' => 'F'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="F"]',
       {'own_owner_sex_str' => 'C'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="E"]',
       {'pol_driver_is_owner_str' => 'si'} => 'contentSubView:contentForm:ProprietarioConducente',
-      {'driv_driver_sex_str' => 'M'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="M"]',
-      {'driv_driver_sex_str' => 'F'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="F"]',
+      {'driv_driver_sex_str' => 'M'} => '//input[@name=contentSubView:contentForm:SessoConducente and @value="M"]',
+      {'driv_driver_sex_str' => 'F'} => '//input[@name=contentSubView:contentForm:SessoConducente and @value="F"]',
       {'veh_vehicle_use_str' => 'privato'} => 'contentSubView:contentForm:vehicleUsage',
       #      {'pol_assistance_str' => 'TRUE'} => 'contentSubView:quotationTabletForm:proposalTable:1:_id147',
       #      {'pol_legal_assistance_str' => 'TRUE'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
-#      {'own_owner_specification_str' => 'M'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="M"]',
-#      {'own_owner_specification_str' => 'F'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="F"]',
-#      {'own_owner_specification_str' => 'C'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="E"]',
+      #      {'own_owner_specification_str' => 'M'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="M"]',
+      #      {'own_owner_specification_str' => 'F'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="F"]',
+      #      {'own_owner_specification_str' => 'C'} => '//input[@name=contentSubView:contentForm:MFRProprietario and @value="E"]',
 
       {'pol_instalment_str' => 'annuale'} => 'contentSubView:quotationTabletForm:proposalTable:8:_id147',
       {'pol_instalment_str' => 'semestrale'} => 'contentSubView:quotationTabletForm:proposalTable:9:_id147',

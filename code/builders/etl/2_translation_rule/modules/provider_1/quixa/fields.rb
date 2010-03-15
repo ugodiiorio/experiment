@@ -11,6 +11,11 @@ module Provider1Quixa
     @target_values = {}
 
     @target_values = {
+      {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P31',
+      {'pol_glasses_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P05',
+      {'pol_natural_events_act_of_vandalism_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P25',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P04',
+
       {'pol_legal_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P30',
       {'pol_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13',
@@ -38,11 +43,11 @@ module Provider1Quixa
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_client_type_str' => 'persona fisica'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
       {'pol_client_type_str' => 'persona giuridica'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal',
-      {'pol_coming_from_company_str' => 'generali'} => 'ASSICURAZIONI GENERALI',
+      {'pol_coming_from_company_str' => 'generali'} => 'GENERALI',
       {'pol_driver_less_than_26_yrs_str' => 'N'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_btnAge26Group_1',
       {'pol_driver_less_than_26_yrs_str' => 'S'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_btnAge26Group_0',
-      {'driv_driver_sex_str' => 'M'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_0',
-      {'driv_driver_sex_str' => 'F'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_1',
+      {'own_owner_sex_str' => 'M'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_0',
+      {'own_owner_sex_str' => 'F'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_1',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_instalment_str' => 'semestrale'} => 'Semestrale',
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'Veicolo già assicurato con attestato di rischio',
@@ -100,7 +105,7 @@ module Provider1Quixa
       #      {'own_owner_specification_str' => 'M' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
       #      {'own_owner_specification_str' => 'F' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
       #      {'own_owner_specification_str' => 'C' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal',
-      {'pol_RCA_premium_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Priz',
+      {'pol_RCA_premium_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',
