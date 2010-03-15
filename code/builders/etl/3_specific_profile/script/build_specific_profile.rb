@@ -7,11 +7,7 @@ require "yaml"
 require "mysql"
 require 'logger'
 require 'chronic'
-<<<<<<< HEAD:code/builders/etl/3_specific_profile/script/build_specific_profile.rb
-
-=======
 require 'active_support'
->>>>>>> 1d31bdd53e15626b7a77e64005b62cf2b77dc883:code/builders/etl/3_specific_profile/script/build_specific_profile.rb
 require "modules/specific_profile"
 
 Mysql::Time = 7
