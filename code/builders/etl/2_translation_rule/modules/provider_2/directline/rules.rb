@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider1Directline
+module Provider2Directline
 
   #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
   def build_hash_sect_1()
@@ -67,7 +67,7 @@ module Provider1Directline
  'pol_claims_total_number_str'  => 'copy_field' ,
  'pol_client_type_str'  => 'copy_field' ,
  'pol_cohabiting_children_str'  => 'copy_field' ,
- 'pol_coming_from_BM_num'  => 'translate_field' ,
+ 'pol_coming_from_BM_str'  => 'translate_field' ,
  'pol_coming_from_company_str'  => 'copy_field' ,
  'pol_contingency_protection_code_str'  => 'copy_field' ,
  'pol_contingency_protection_on_off_str'  => 'copy_field' ,
@@ -227,7 +227,7 @@ module Provider1Directline
  'veh_liquid_fuel_transportation_str'  => 'copy_field' ,
  'veh_loading_unloading_str'  => 'copy_field' ,
  'veh_make_previous_vehicle_str'  => 'copy_field' ,
- 'veh_make_str'  => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
+ 'veh_make_str'  => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
  'veh_marble_blocks_str'  => 'copy_field' ,
  'veh_model_str'  => 'make=profilefield[:veh_model_str]; make= make.gsub(/ª s$/i, " s"); make= make.gsub(/ª/, " "); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
  'veh_modification_made_str'  => 'copy_field' ,

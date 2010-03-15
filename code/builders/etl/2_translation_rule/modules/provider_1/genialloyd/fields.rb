@@ -287,7 +287,7 @@ module Provider1Genialloyd
       {'driv_driver_sex_str' => 'C'} => 'tipologia4',
       {'own_owner_sex_str' => 'F'} => 'tipologia2',
       {'own_owner_sex_str' => 'C'} => 'tipologia4',
-      {'pol_RCA_premium_id' => 'id elemento'} => 'da trovare'
+      {'pol_RCA_premium_id' => 'id elemento'} => '/html/body/div/div/div[2]/form/div[9]/div[2]/div'
 
 
 

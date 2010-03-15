@@ -1,21 +1,21 @@
---- 
-general_settings: 
-  gs_source_type: '216'
+---
+general_settings:
   gs_typing_sleep_in_seconds: 1
   gs_profile_sleep_in_seconds: 5
+  gs_profile_id: '800'
   gs_max_number_of_profiles: 1
-logger_settings: 
+logger_settings:
   ls_device: '/home/notroot/git/KTE/code/run_time/log/'
-  ls_level: 0
+  ls_level: 1
   ls_shift_age: = 'weekly'
   ls_shift_size: = 1024000
   ls_datetime_format: = '%Y-%m-%d %H:%M:%S'
-selenium_settings: 
+selenium_settings:
   ss_selenium_port: '4444'
-  ss_wait_for_page_to_load: 120000
-  ss_timeout_in_seconds: 120
+  ss_wait_for_page_to_load: 60000
+  ss_timeout_in_seconds: 30
   ss_io_device: '/home/notroot/git/KTE/code/run_time/log/'
-  ss_output_level: 3
+  ss_output_level: 1
   ss_browser_type: '*chrome'
 database_settings:
   ds_engine_type: 'MYSQL'
@@ -27,10 +27,10 @@ database_settings:
   ds_db_target: 'kte_target'
 app_settings:
   as_provider_id: 'provider_1'
-  as_sector_id: 'sect_1'
+  as_company_group_id: 'all_provider_1'
   as_company_id: 'quixa'
-  as_working_set_id: 'prov_1_20100201'
-  as_rate_id: '20100310'
-  as_profile_id: '50'
+  as_sector_id: 'sect_1'
+  as_working_set_id: 'prov_1_20100301'
+  as_rate_id: '20100410'
   as_rate_date: '10th day next month'
   

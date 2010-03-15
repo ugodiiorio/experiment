@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider1Genertel
+module Provider2Genertel
 
   #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
   def build_hash_sect_1()
@@ -10,6 +10,7 @@ module Provider1Genertel
     @rule_values ={}
 
     @rule_values = {
+
  'pol_first_claim_month_str' => 'copy_field',
       'pol_first_claim_year_str' => 'copy_field',
       'pol_second_claim_month_str' => 'copy_field',
@@ -258,7 +259,7 @@ module Provider1Genertel
       'veh_vehicle_use_str' => 'translate_field',
       'veh_vehicle_value_str' => 'copy_field',
       'veh_weight_to_be_towed_num'=> 'copy_field' ,
-
+ 
 
     }
 
@@ -267,8 +268,6 @@ module Provider1Genertel
   def build_hash_sect_2()
 
     @rule_values = Hash.new
-
-    @rule_values ={}
 
     @rule_values = {
 

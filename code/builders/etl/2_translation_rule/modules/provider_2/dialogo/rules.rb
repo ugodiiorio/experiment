@@ -10,6 +10,7 @@ def build_hash_sect_1()
     @rule_values ={}
 
     @rule_values = {
+
        'driv_birth_place_str' => 'copy_field' ,
  'driv_birth_province_str' => 'copy_field' ,
  'driv_birth_state_str' => 'copy_field' ,
@@ -259,8 +260,7 @@ def build_hash_sect_1()
  'pol_theft_fire_coverage_premium_id_str' => 'copy_field' ,
  'pol_theft_fire_coverage_web_id_str' => 'copy_field' ,
  'pol_theft_fire_minimum_uncoverage_exemption_str' => 'copy_field' ,
-
-     
+ 
       }
 
 end

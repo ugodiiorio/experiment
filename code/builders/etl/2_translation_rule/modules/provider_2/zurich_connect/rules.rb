@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider1ZurichConnect
+module Provider2ZurichConnect
 
   #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
   def build_hash_sect_1()
@@ -34,7 +34,7 @@ module Provider1ZurichConnect
  'pol_theft_fire_coverage_premium_id_str'  => 'translate_field' ,
  'veh_set_up_str'  => 'make=profilefield[:veh_set_up_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";' ,
  'veh_model_str'  => 'make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
- 'veh_make_str'  => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
+ 'veh_make_str'  => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
  'driv_job_str'  => 'job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
  'pol_matriculation_date_year_num'  => 'data= Date.parse(profilefield[:pol_matriculation_date_str]);european_date = \'%Y\';data = data.strftime(european_date).to_s' ,
  'pol_matriculation_date_month_str'  => 'data= Date.parse(profilefield[:pol_matriculation_date_str]);european_date = \'%m\';data = data.strftime(european_date).to_s' ,
@@ -66,6 +66,7 @@ module Provider1ZurichConnect
  'pol_bersani_ref_vehicle_insured_with_company_str'  => 'copy_field' ,
  'pol_bersani_ref_vehicle_number_plate_str'  => 'copy_field' ,
  'pol_BM_assigned_str'  => 'translate_field' ,
+ 'pol_BM_1_more_than_1_year_str'  => 'copy_field' ,
  'pol_BM_in_risk_certificate_str'  => 'copy_field' ,
  'pol_BM_particular_cases_str'  => 'copy_field' ,
  'pol_car_already_insured_with_company_str'  => 'copy_field' ,
@@ -73,7 +74,7 @@ module Provider1ZurichConnect
  'pol_claims_total_number_str'  => 'copy_field' ,
  'pol_client_type_str'  => 'copy_field' ,
  'pol_cohabiting_children_str'  => 'copy_field' ,
- 'pol_coming_from_BM_num'  => 'copy_field' ,
+ 'pol_coming_from_BM_str'  => 'copy_field' ,
  'pol_coming_from_company_str'  => 'copy_field' ,
  'pol_current_policy_guarantee_str'  => 'copy_field' ,
  'pol_driver_accident_indemnity_limit_str'  => 'copy_field' ,

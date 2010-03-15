@@ -2,7 +2,7 @@
 
 # Module defined in specific_profile.rb file
 
-module Provider1Genertel
+module Provider2Genertel
 
   def build_hash_sect_1()
 
@@ -11,10 +11,14 @@ module Provider1Genertel
     @target_values = Hash.new
 
     @target_values = {
+
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[4]/td[4]/div/div/div/img',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[5]/td[4]/div/div/div/img',
+      {'veh_vehicle_value_str' => '5000'} => 'index 1',
+       {'pol_RCA_premium_id_str' => 'id elemento'} => 'LBLXRIEXValuta',
+      {'veh_km_per_yr_str' => 'campo tecnico per genertel'} => 'index 1',
       {'driv_job_2_str' => 'campo tecnico per genertel'} => 'index 1',
 #      {'pol_nr_of_paid_claims_3_yr_str' => '0'} => '0',
-      {'pol_BM_assigned_str' => '-1'} => '1',
-      {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_coming_from_BM_num' => '-1'} => '1',
       {'pol_coming_from_BM_num' => '1'} => '1',
       {'pol_nr_of_paid_claims_3_yr_str' => '1'} => '1',
@@ -89,6 +93,7 @@ module Provider1Genertel
 #      {'own_owner_specification_str' => 'C'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div/div[2]/div/div[2]/div/div/img',
 #      {'own_owner_specification_str' => 'M'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div/div[2]/div/div/div/div/img',
 #      {'own_owner_specification_str' => 'F'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div/div[2]/div/div/div/div/img',
+#      {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Amici/parenti',
       {'pol_instalment_str' => 'annuale'} => 'annuale',
       {'pol_instalment_str' => 'semestrale'} => 'annuale',
       {'veh_fuel_str' => 'B'} => 'Benzina',
@@ -559,5 +564,5 @@ module Provider1Genertel
 
   }
   end
-  
+
 end
