@@ -128,7 +128,7 @@ module FieldMappingProvider1Sect1
       'pol_public_liability_young_exemption_str ' =>  '"no"',
       'pol_quotation_str' =>  '"bonus/malus"',
       'pol_RCA_code_str' =>  '"RC"',
-      'pol_RCA_on_off_str'  => "on",
+      'pol_RCA_on_off_str'  => '"on"',
       'pol_RCA_premium_id_str' =>  '"id elemento"',
       'pol_record_id_str' =>  'infield[:pol_record_id_str].strip',
       'pol_renounce_compensation_str' =>  '"si"',
@@ -166,7 +166,7 @@ module FieldMappingProvider1Sect1
       'veh_km_per_yr_str' =>  '15000',
       'veh_kw_num' =>  'infield[:veh_kw_num]',
       'veh_make_previous_vehicle_str' =>  nil, #'a=infield[:veh_make_previous_vehicle_str].strip; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); f= h.gsub(/ª/,"a" );',
-      'veh_make_str' =>  'a=infield[:veh_make_str].strip; b= a.gsub(/--->/,"" );c= b.gsub(/Â/,"" )',
+      'veh_make_str' =>  'a=infield[:veh_make_str].strip;b= a.gsub(/---->/,"" ); c= b.gsub(/--->/,"" );d= c.gsub(/Â/,"" )',
       'veh_model_str' =>  'a=infield[:veh_model_str].strip;b= a.gsub(/--->/,"" );c= b.gsub(/Â/,"" )',
       'veh_modification_made_str' =>  '"no"',
       'veh_new_used_vehicle_str' =>  'if infield[:pol_matriculation_date_str].to_i > 0 ; x= "U" else x= "N" end',
@@ -255,7 +255,21 @@ module FieldMappingProvider1Sect1
       'veh_transportation_type_str' => nil,
       'veh_truck_tractor_weight_num' => nil,
       'veh_use_for_shops_str' => nil,
-      'veh_weight_to_be_towed_num' => nil
+      'veh_weight_to_be_towed_num' => nil,
+      'pol_collision_code_str' => nil,
+      'pol_collision_on_off_str' => nil,
+      'pol_collision_premium_id_str' => nil,
+      'pol_collision_web_id_str' => nil,
+      'pol_protected_bonus_code_str' => nil,
+      'pol_protected_bonus_on_off_str' => nil,
+      'pol_protected_bonus_premium_id_str' => nil,
+      'pol_protected_bonus_web_id_str' => nil,
+      'pol_protection_24_code_str' => nil,
+      'pol_protection_24_on_off_str' => nil,
+      'pol_protection_24_premium_id_str' => nil,
+      'pol_protection_24_web_id_str' => nil,
+
+
     }
   end
 

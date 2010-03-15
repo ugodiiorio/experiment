@@ -10,9 +10,19 @@ module Provider1Linear
     @target_values = Hash.new
 
     @target_values = {
-       {'pol_driver_is_owner_str' => 'si'} => '//input[@id="fsgiur" and @value="1"]',
-       {'pol_driver_is_owner_str' => 'no'} => '//input[@id="fsgiur" and @value="0"]',
-       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => '7',
+      {'pol_driving_licence_withdrawal_guarantee_web_id_str' => 'id elemento'} => '/html/body/div[2]/div/form/div/div[5]/div[2]/table[2]/tbody/tr[17]/td[3]/input',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '6',
+      {'pol_minikasko_web_id_str' => 'id elemento'} => '10',
+      {'pol_natural_events_web_id_str' => 'id elemento'} => '4',
+      {'pol_social_political_events_web_id_str' => 'id elemento'} => '/html/body/div[2]/div/form/div/div[5]/div[2]/table[2]/tbody/tr[9]/td[3]/input',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '3',
+      {'pol_protected_bonus_web_id_str' => 'id elemento'} => '2',
+      {'pol_protection_24_web_id_str' => 'id elemento'} => '/html/body/div[2]/div/form/div/div[5]/div[2]/table[2]/tbody/tr[17]/td[3]/input',
+
+      {'pol_driver_is_owner_str' => 'si'} => '//input[@id="fsgiur" and @value="1"]',
+      {'pol_driver_is_owner_str' => 'no'} => '//input[@id="fsgiur" and @value="0"]',
+      {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
       {'own_owner_residence_province_str' => 'AO'} => 'AOSTA',

@@ -15,14 +15,14 @@ class BuildDriverSchema
 		puts "\nLa attivita' di creazione tabelle dello schema driver su host: "+ @db_host +" e' stata inizializzata..."
 		
 		mysql = Mysql.init()
-#		mysql = Mysql.real_connect(@db_host, @db_user, @db_pwd, @db_default_driver)
+    #		mysql = Mysql.real_connect(@db_host, @db_user, @db_pwd, @db_default_driver)
     mysql = Mysql.real_connect(@db_host, @db_user, @db_pwd)
 
     mysql.query("CREATE SCHEMA IF NOT EXISTS " + @db_default_driver + "
 		;")
 
-#		c = Table_creator_traduttori.new()
-#		c.Table_creator()
+    #		c = Table_creator_traduttori.new()
+    #		c.Table_creator()
 		
 		mysql.query("CREATE TABLE " + @db_default_driver + ".profiles_personal_data (
 			key_personal_id_num 	INT UNSIGNED NOT NULL,
@@ -46,7 +46,7 @@ class BuildDriverSchema
     mysql.query("  CREATE  INDEX sex_index   ON " + @db_default_driver + ".profiles_personal_data(pers_sex_str)
 		;")
 
-			mysql.query("CREATE TABLE " + @db_default_driver + ".insurance_profiles (
+    mysql.query("CREATE TABLE " + @db_default_driver + ".insurance_profiles (
         key_insurance_profiles_id_num INT UNSIGNED NOT NULL,
         key_provider_id_str  VARCHAR(32)  NOT NULL,
         key_sector_id_str  VARCHAR(32)  NOT NULL,
@@ -237,6 +237,10 @@ class BuildDriverSchema
         pol_blukasko_on_off_str     VARCHAR(128),
         pol_blukasko_premium_id_str     VARCHAR(256),
         pol_blukasko_web_id_str     VARCHAR(256),
+        pol_collision_code_str     VARCHAR(128),
+        pol_collision_on_off_str     VARCHAR(128),
+        pol_collision_premium_id_str     VARCHAR(256),
+        pol_collision_web_id_str     VARCHAR(256),
         pol_contingency_protection_code_str     VARCHAR(128),
         pol_contingency_protection_on_off_str     VARCHAR(128),
         pol_contingency_protection_premium_id_str     VARCHAR(256),
@@ -279,6 +283,14 @@ class BuildDriverSchema
         pol_natural_events_on_off_str     VARCHAR(128),
         pol_natural_events_premium_id_str     VARCHAR(256),
         pol_natural_events_web_id_str     VARCHAR(256),
+        pol_protected_bonus_code_str     VARCHAR(128),
+        pol_protected_bonus_on_off_str     VARCHAR(128),
+        pol_protected_bonus_premium_id_str     VARCHAR(256),
+        pol_protected_bonus_web_id_str     VARCHAR(256),
+        pol_protection_24_code_str     VARCHAR(128),
+        pol_protection_24_on_off_str     VARCHAR(128),
+        pol_protection_24_premium_id_str     VARCHAR(256),
+        pol_protection_24_web_id_str     VARCHAR(256),
         pol_road_assistance_code_str     VARCHAR(128),
         pol_road_assistance_indemnity_limit_str     VARCHAR(128),
         pol_road_assistance_on_off_str     VARCHAR(128),
@@ -307,22 +319,22 @@ class BuildDriverSchema
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
 
-#pol_nr_of_persons_claims_1_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_2_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_3_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_4_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_5_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_this_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_1_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_2_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_3_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_4_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_5_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_this_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_1_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_2_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_3_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_4_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_5_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_this_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_1_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_2_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_3_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_4_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_5_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_this_yr_str	VARCHAR(128),
 
 
 
-    	mysql.query("CREATE TABLE " + @db_default_driver + ".company_insurance_profiles (
+    mysql.query("CREATE TABLE " + @db_default_driver + ".company_insurance_profiles (
         key_insurance_profiles_id_num INT UNSIGNED NOT NULL,
         key_provider_id_str  VARCHAR(32)  NOT NULL,
         key_sector_id_str  VARCHAR(32)  NOT NULL,
@@ -513,6 +525,10 @@ class BuildDriverSchema
         pol_blukasko_on_off_str     VARCHAR(128),
         pol_blukasko_premium_id_str     VARCHAR(256),
         pol_blukasko_web_id_str     VARCHAR(256),
+        pol_collision_code_str     VARCHAR(128),
+        pol_collision_on_off_str     VARCHAR(128),
+        pol_collision_premium_id_str     VARCHAR(256),
+        pol_collision_web_id_str     VARCHAR(256),
         pol_contingency_protection_code_str     VARCHAR(128),
         pol_contingency_protection_on_off_str     VARCHAR(128),
         pol_contingency_protection_premium_id_str     VARCHAR(256),
@@ -555,6 +571,14 @@ class BuildDriverSchema
         pol_natural_events_on_off_str     VARCHAR(128),
         pol_natural_events_premium_id_str     VARCHAR(256),
         pol_natural_events_web_id_str     VARCHAR(256),
+        pol_protected_bonus_code_str     VARCHAR(128),
+        pol_protected_bonus_on_off_str     VARCHAR(128),
+        pol_protected_bonus_premium_id_str     VARCHAR(256),
+        pol_protected_bonus_web_id_str     VARCHAR(256),
+        pol_protection_24_code_str     VARCHAR(128),
+        pol_protection_24_on_off_str     VARCHAR(128),
+        pol_protection_24_premium_id_str     VARCHAR(256),
+        pol_protection_24_web_id_str     VARCHAR(256),
         pol_road_assistance_code_str     VARCHAR(128),
         pol_road_assistance_indemnity_limit_str     VARCHAR(128),
         pol_road_assistance_on_off_str     VARCHAR(128),
@@ -582,20 +606,20 @@ class BuildDriverSchema
         PRIMARY KEY (key_insurance_profiles_id_num, key_provider_id_str, key_sector_id_str, key_company_id_str, key_working_set_id_str)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
-##    altre garanzie
+    ##    altre garanzie
 
-#pol_nr_of_goods_claims_1_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_2_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_3_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_4_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_5_yr_str	VARCHAR(128),
-#pol_nr_of_goods_claims_this_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_1_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_2_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_3_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_4_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_5_yr_str	VARCHAR(128),
-#pol_nr_of_persons_claims_this_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_1_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_2_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_3_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_4_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_5_yr_str	VARCHAR(128),
+    #pol_nr_of_goods_claims_this_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_1_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_2_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_3_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_4_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_5_yr_str	VARCHAR(128),
+    #pol_nr_of_persons_claims_this_yr_str	VARCHAR(128),
 
 
     mysql.query("CREATE TABLE " + @db_default_driver + ".field_mapping (
@@ -626,14 +650,14 @@ class BuildDriverSchema
         rule_str TEXT
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
-     mysql.query("CREATE TABLE " + @db_default_driver + ".companies (
+    mysql.query("CREATE TABLE " + @db_default_driver + ".companies (
         key_companies_group_id_str 	VARCHAR(32)  NOT NULL,
         key_company_id_str 	VARCHAR(32)  NOT NULL,
         site_url_str 	VARCHAR(256)  NOT NULL,
         PRIMARY KEY (key_companies_group_id_str, key_company_id_str)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
-     mysql.query("CREATE TABLE " + @db_default_driver + ".covers (
+    mysql.query("CREATE TABLE " + @db_default_driver + ".covers (
         key_cover_id_str 	VARCHAR(32)  NOT NULL,
         pol_cover_dsc_str 	VARCHAR(32)  NOT NULL,
         PRIMARY KEY (key_cover_id_str)
@@ -673,7 +697,7 @@ class BuildDriverSchema
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
 
-mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_1_input_file (
+    mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_1_input_file (
         pol_record_id_str VARCHAR(32) NOT NULL,
         pol_policy_starting_date_str VARCHAR(128),
         veh_make_str VARCHAR(128),
@@ -813,7 +837,7 @@ mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_1_input_fil
 
 		mysql.close()
 		
-    		puts "\n - " + @db_default_driver + " tables schema creation finished"
+    puts "\n - " + @db_default_driver + " tables schema creation finished"
 	
 	end
 	

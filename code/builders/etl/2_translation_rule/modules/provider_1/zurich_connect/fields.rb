@@ -10,6 +10,16 @@ module Provider1ZurichConnect
     @target_values = Hash.new
 
     @target_values = {
+      {'pol_blukasko_web_id_str' => 'id elemento'} => 'chkKaskoParziale',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'chkInfortuniConducente',
+      {'pol_driving_licence_withdrawal_guarantee_web_id_str' => 'id elemento'} => 'chkRitiroPatente',
+      {'pol_glasses_web_id_str' => 'id elemento'} => 'chkComplementareARD',
+      {'pol_kasko_web_id_str' => 'id elemento'} => 'chkKaskoCompleta',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'chkTutelaGiud',
+      {'pol_natural_events_web_id_str' => 'id elemento'} => 'chkEventiNaturali',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'chkAssistenza',
+      {'pol_social_political_events_web_id_str' => 'id elemento'} => 'chkEventiSociopolitici',
+
       {'pol_driving_type_str' => 'esperta'} => 'Guida Esperta',
       {'pol_driving_type_str' => 'libera'} => 'Guida Libera',
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
