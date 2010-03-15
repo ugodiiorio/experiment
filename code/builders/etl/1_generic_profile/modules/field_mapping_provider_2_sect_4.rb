@@ -8,16 +8,14 @@ module FieldMappingProvider2Sect4
 
     @field_rule_values = {
 
+      'own_owner_specification_str'  => 'if infield[:own_owner_sex_str].strip.upcase == "M"; infield[:own_owner_sex_str].strip.upcase; elsif infield[:own_owner_sex_str].strip.upcase == "F"; infield[:own_owner_sex_str].strip.upcase; else "C"; end' ,
       'own_owner_zip_code_str' =>'infield[:own_owner_zip_code_str].strip.downcase',
       'pol_record_id_str' =>'infield[:pol_record_id_str].strip.downcase',
       'pol_BM_assigned_str' =>'infield[:pol_BM_assigned_str].strip.downcase',
       'pol_claims_total_number_str' =>'infield[:pol_claims_total_number_str].strip.downcase',
       'pol_coming_from_BM_num' =>  'bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end',
       'pol_insurance_situation_str' => 'a=infield[:pol_insurance_situation_str].strip.downcase; b=a.gsub(/à /,"a"); c=b.gsub(/è/,"e"); d=c.gsub(/é/,"e"); e=d.gsub(/ì/,"i"); f= e.gsub(/ò/,"o"); g=f.gsub(/ù/,"u"); h=g.gsub(/°/,"a");',
-      'pol_matriculation_date_str' => '(DateTime::now - infield[:pol_matriculation_date_str].to_i.years).strftime("%F")',
-      'pol_matriculation_date_day_str' => '(DateTime::now - infield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => '(DateTime::now - infield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-      'pol_matriculation_date_year_str' => '(DateTime::now - infield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+      'pol_matriculation_date_str' => 'infield[:pol_matriculation_date_str].strip.downcase',
       'pol_nr_of_paid_claims_1_yr_str' =>'infield[:pol_nr_of_paid_claims_1_yr_str].strip.downcase',
       'pol_nr_of_paid_claims_2_yr_str' =>'infield[:pol_nr_of_paid_claims_2_yr_str].strip.downcase',
       'pol_nr_of_paid_claims_3_yr_str' =>'infield[:pol_nr_of_paid_claims_3_yr_str].strip.downcase',
@@ -46,6 +44,9 @@ module FieldMappingProvider2Sect4
       'pol_pejus_cu_str' => "'0%'",
       'pol_privacy_1_str' => "'si'",
       'pol_property_type_to_be_insured_str' => "'autocarro per trasporto persone o cose'",
+      'pol_RCA_code_str' => "'RC'",
+      'pol_RCA_on_off_str' => "'on'",
+      'pol_RCA_premium_id_str' => "'id_elemento'",
       'pol_renounce_compensation_str' => "'no'",
       'pol_type_of_contract_str' => "'nuova polizza'",
       'veh_alarm_str' => "'nessuno'",

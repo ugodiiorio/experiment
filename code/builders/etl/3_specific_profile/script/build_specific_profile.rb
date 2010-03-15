@@ -6,6 +6,7 @@ require "rubygems"
 require "yaml"
 require "mysql"
 require 'logger'
+require 'chronic'
 
 require "modules/specific_profile"
 

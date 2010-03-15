@@ -1,95 +1,107 @@
-module Provider2Quixa
+#!/usr/bin/ruby
+
+# Module defined in specific_profile.rb file
+
+module Provider1Genertel
 
   def build_hash_sect_1()
+
+    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
     @target_values = {
-      {'pol_bersani_str' => 'convivente'} => 'si, parente/convivente',
-      {'pol_bersani_str' => 'veicolo'} => 'si, 2º veicolo del medesimo proprietario',
-      {'pol_bersani_str' => 'no'} => 'no',
-      {'pol_BM_assigned_str' => '-1'} => '1 da più di un anno',
+      {'driv_job_2_str' => 'campo tecnico per genertel'} => 'index 1',
+#      {'pol_nr_of_paid_claims_3_yr_str' => '0'} => '0',
+      {'pol_BM_assigned_str' => '-1'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
-      {'pol_BM_assigned_str' => '2'} => '2',
-      {'pol_BM_assigned_str' => '3'} => '3',
-      {'pol_BM_assigned_str' => '4'} => '4',
-      {'pol_BM_assigned_str' => '5'} => '5',
-      {'pol_BM_assigned_str' => '6'} => '6',
-      {'pol_BM_assigned_str' => '7'} => '7',
-      {'pol_BM_assigned_str' => '8'} => '8',
-      {'pol_BM_assigned_str' => '9'} => '9',
-      {'pol_BM_assigned_str' => '10'} => '10',
-      {'pol_BM_assigned_str' => '11'} => '11',
-      {'pol_BM_assigned_str' => '12'} => '12',
-      {'pol_BM_assigned_str' => '13'} => '13',
-      {'pol_BM_assigned_str' => '14'} => '14',
-      {'pol_BM_assigned_str' => '15'} => '15',
-      {'pol_BM_assigned_str' => '16'} => '16',
-      {'pol_BM_assigned_str' => '17'} => '17',
-      {'pol_BM_assigned_str' => '18'} => '18',
-      {'pol_client_type_str' => 'persona fisica'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
-      {'pol_client_type_str' => 'persona giuridica'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal',
-      {'pol_coming_from_company_str' => 'generali'} => 'ASSICURAZIONI GENERALI',
-      {'pol_driver_less_than_26_yrs_str' => 'N'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_btnAge26Group_1',
-      {'pol_driver_less_than_26_yrs_str' => 'S'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_btnAge26Group_0',
-      {'driv_driver_sex_str' => 'M'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_0',
-      {'driv_driver_sex_str' => 'F'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_1 ',
-      {'own_owner_sex_str' => 'M'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_0',
-      {'own_owner_sex_str' => 'F'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_1 ',
-      {'pol_instalment_str' => 'annuale'} => 'Annuale',
-      {'pol_instalment_str' => 'semestrale'} => 'Semestrale',
-      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'Veicolo già assicurato con attestato di rischio',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Prima Polizza dopo l\'acquisto di un veicolo',
-      {'pol_leasing_str' => 'no'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtLeasingNo',
-      {'pol_nr_of_paid_claims_1_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_1_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_1_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_1_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_1_yr_str' => 'N/D'} => 'N/D',
-      {'pol_nr_of_paid_claims_2_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_2_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_2_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_2_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_2_yr_str' => 'N/D'} => 'N/D',
-      {'pol_nr_of_paid_claims_3_yr_str' => '0'} => '0',
+      {'pol_coming_from_BM_num' => '-1'} => '1',
+      {'pol_coming_from_BM_num' => '1'} => '1',
       {'pol_nr_of_paid_claims_3_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_3_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_3_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_3_yr_str' => 'N/D'} => 'N/D',
-      {'pol_nr_of_paid_claims_4_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_4_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_4_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_4_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_4_yr_str' => 'N/D'} => 'N/D',
-      {'pol_nr_of_paid_claims_5_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_5_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_5_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_5_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_5_yr_str' => 'N/D'} => 'N/D',
-      {'pol_nr_of_paid_claims_this_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_this_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_this_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_5_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_5_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_5_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_5_yr_str' => 'N/D'} => 'N/D',
-      {'pol_payment_str' => 'carta di credito'} => 'Carta di Credito',
-      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '3.000.000 € - 2.500.000 € - 500.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '25.000.000 € - 20.000.000 € - 5.000.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '18.000.000 € - 15.000.000 € - 3.000.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '12.000.000 € - 10.000.000 € - 2.000.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6.000.000 € - 5.000.000 € - 1.000.000 €',
-      {'veh_alarm_str' => 'immobilizer'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_rbtSatelliteLocationNo',
+      {'pol_BM_assigned_str' => '2'} => '2',
+      {'pol_coming_from_BM_num' => '2'} => '2',
+      {'pol_nr_of_paid_claims_3_yr_str' => '2'} => '2',
+      {'pol_BM_assigned_str' => '3'} => '3',
+      {'pol_coming_from_BM_num' => '3'} => '3',
+      {'pol_BM_assigned_str' => '4'} => '4',
+      {'pol_coming_from_BM_num' => '4'} => '4',
+      {'pol_BM_assigned_str' => '5'} => '5',
+      {'pol_coming_from_BM_num' => '5'} => '5',
+      {'pol_BM_assigned_str' => '6'} => '6',
+      {'pol_coming_from_BM_num' => '6'} => '6',
+      {'pol_BM_assigned_str' => '7'} => '7',
+      {'pol_coming_from_BM_num' => '7'} => '7',
+      {'pol_BM_assigned_str' => '8'} => '8',
+      {'pol_coming_from_BM_num' => '8'} => '8',
+      {'pol_BM_assigned_str' => '9'} => '9',
+      {'pol_coming_from_BM_num' => '9'} => '9',
+      {'pol_BM_assigned_str' => '10'} => '10',
+      {'pol_coming_from_BM_num' => '10'} => '10',
+      {'pol_BM_assigned_str' => '11'} => '11',
+      {'pol_coming_from_BM_num' => '11'} => '11',
+      {'pol_BM_assigned_str' => '12'} => '12',
+      {'pol_coming_from_BM_num' => '12'} => '12',
+      {'pol_BM_assigned_str' => '13'} => '13',
+      {'pol_coming_from_BM_num' => '13'} => '13',
+      {'pol_BM_assigned_str' => '14'} => '14',
+      {'pol_coming_from_BM_num' => '14'} => '14',
+      {'pol_BM_assigned_str' => '15'} => '15',
+      {'pol_coming_from_BM_num' => '15'} => '15',
+      {'pol_BM_assigned_str' => '16'} => '16',
+      {'pol_coming_from_BM_num' => '16'} => '16',
+      {'pol_BM_assigned_str' => '17'} => '17',
+      {'pol_coming_from_BM_num' => '17'} => '17',
+      {'pol_BM_assigned_str' => '18'} => '18',
+      {'pol_coming_from_BM_num' => '18'} => '18',
+      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '€ 3,000,000.00',
+      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '€ 6,000,000.00',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 10,000,000.00',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '€ 10,000,000.00',
+      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '€ 10,000,000.00',
+      {'veh_airbag_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[11]/div[2]/div/div/div/div/img',
+      {'veh_abs_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[12]/div[2]/div/div/div/div/img',
+      {'veh_vehicle_shelter_str' => 'box privato'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[13]/div[2]/div/div/div/div/img',
+      {'pol_privacy_1_str' => 'id elemento web1'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[2]/div[2]/div/div/div/div/img',
+      {'pol_privacy_2_str' => 'id elemento web2'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div[2]/div/div/div/div/img',
+      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'N'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div[3]/div[2]/div/div[2]/div/div/img',
+      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'S'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div[3]/div[2]/div/div/div/div/img',
+      {'pol_subscriber_is_driver_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[2]/div[2]/div/div/div/div/img',
+      {'pol_cohabiting_children_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[4]/div[2]/div/div/div/div/img',
+      {'pol_privacy_3_str' => 'id elemento web3'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[4]/div[2]/div/div/div/div/img',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[6]/td[4]/div/div/div/img',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[7]/td[4]/div/div/div/img',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/p/label[2]/span',
+      {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div/div/img',
+      {'pol_bersani_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/img',
+      {'pol_bersani_str' => 'convivente'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div/div/div/img',
+      {'pol_bersani_str' => 'veicolo'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div/div/div/img',
+      {'pol_current_policy_guarantee_str' => 'nessuna'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div/div[6]/div[5]/div/div/div/img',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div[2]/div/div/img',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div[3]/div/div/img',
+      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div/div/div/img',
+      {'pol_leasing_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[5]/div[2]/div[2]/div/div[2]/div/div/img',
+      {'pol_subscriber_is_owner_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[11]/div[2]/div/div[2]/div/div/img',
+      {'pol_subscriber_is_owner_str' => 'si'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[11]/div[2]/div/div/div/div/img',
+      {'pol_client_type_str' => 'persona giuridica'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div/div[2]/div/div[2]/div/div/img',
+      {'driv_driver_sex_str' => 'F'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[4]/div[2]/div/div[2]/div/div/img',
+      {'pol_client_type_str' => 'persona fisica'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[4]/div[2]/div/div/div/div/img',
+      {'driv_driver_sex_str' => 'M'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[4]/div[2]/div/div/div/div/img',
+#      {'own_owner_specification_str' => 'C'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div/div[2]/div/div[2]/div/div/img',
+#      {'own_owner_specification_str' => 'M'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div/div[2]/div/div/div/div/img',
+#      {'own_owner_specification_str' => 'F'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div/div[2]/div/div/div/div/img',
+      {'pol_instalment_str' => 'annuale'} => 'annuale',
+      {'pol_instalment_str' => 'semestrale'} => 'annuale',
       {'veh_fuel_str' => 'B'} => 'Benzina',
       {'veh_fuel_str' => 'D'} => 'Diesel',
-      {'veh_fuel_str' => 'G'} => 'GPL',
-      {'veh_fuel_str' => 'M'} => 'Metano',
-      {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'Casa-Lavoro e Tempo Libero',
-      {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
-      {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
-      {'veh_km_per_yr_str' => '15000'} => '10.000 - 20.000',
-      {'veh_vehicle_value_str' => '5000'} => '5000',
-      {'pol_RCA_premium_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize',
+      {'veh_fuel_str' => 'G'} => 'GPL/Metano',
+      {'veh_fuel_str' => 'M'} => 'GPL/Metano',
+      #      {'veh_alarm_str' => 'immobilizer'} => 'Immobilizzatore con allarme',
+      {'veh_alarm_str' => 'immobilizer'} => 'Immobilizzatore senza allarme',
+      {'pol_BM_1_more_than_1_year_str' => 'si'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div/div[4]/div[2]/div/div/div/div/img',
+#      {'pol_nr_of_paid_claims_3_yr_str' => 'N/A'} => 'N.A.',
+#      {'pol_nr_of_paid_claims_3_yr_str' => 'N/D'} => 'N.A.',
+      {'pol_bersani_ref_vehicle_number_plate_str' => 'ab123dc'} => 'ab123dc',
+      {'veh_vehicle_use_str' => 'privato'} => 'Privato',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',
@@ -310,89 +322,121 @@ module Provider2Quixa
       {'own_owner_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'own_owner_residence_province_str' => 'VI'} => 'VICENZA',
       {'own_owner_residence_province_str' => 'VT'} => 'VITERBO',
-
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #  costruisci hash ["field_name + field_value","target"]
   end
 
   def build_hash_sect_2()
 
-    @target_values = {}
+  @target_values = {}
 
-    @target_values = {
+  @target_values = {
 
-      {'driv_citizenship_str' => 'ITALIA'} => 'ITALIA' ,
-      {'own_owner_sex_str' => 'M'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_0',
-      {'own_owner_sex_str' => 'F'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_1',
-      {'pol_bersani_str' => 'convivente'} => 'si, parente/convivente',
-      {'pol_bersani_str' => 'veicolo'} => 'si, 2º veicolo del medesimo proprietario',
-      {'pol_bersani_str' => 'no'} => 'no',
-      {'pol_BM_assigned_str' => '-1'} => '1 da più di un anno',
+      {'driv_job_2_str' => 'campo tecnico per genertel'} => 'index 1',
+      {'own_owner_sex_str' => 'M'} => 'RBTXDP1XSessoMF0',
+      {'own_owner_sex_str' => 'F'} => 'RBTXDP1XSessoMF1',
+      {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div/div/img',
+      {'pol_bersani_str' => 'no'} => 'RBTXDPOXBersani0',
+      {'pol_bersani_str' => 'convivente'} => 'RBTXDPOXBersani1',
+      {'pol_bersani_str' => 'veicolo'} => 'RBTXDPOXBersani1',
+      {'pol_BM_assigned_str' => '-1'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
+      {'pol_coming_from_BM_num' => '-1'} => '1',
+      {'pol_coming_from_BM_num' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
+      {'pol_coming_from_BM_num' => '2'} => '2',
       {'pol_BM_assigned_str' => '3'} => '3',
+      {'pol_coming_from_BM_num' => '3'} => '3',
       {'pol_BM_assigned_str' => '4'} => '4',
+      {'pol_coming_from_BM_num' => '4'} => '4',
       {'pol_BM_assigned_str' => '5'} => '5',
+      {'pol_coming_from_BM_num' => '5'} => '5',
       {'pol_BM_assigned_str' => '6'} => '6',
+      {'pol_coming_from_BM_num' => '6'} => '6',
       {'pol_BM_assigned_str' => '7'} => '7',
+      {'pol_coming_from_BM_num' => '7'} => '7',
       {'pol_BM_assigned_str' => '8'} => '8',
+      {'pol_coming_from_BM_num' => '8'} => '8',
       {'pol_BM_assigned_str' => '9'} => '9',
+      {'pol_coming_from_BM_num' => '9'} => '9',
       {'pol_BM_assigned_str' => '10'} => '10',
+      {'pol_coming_from_BM_num' => '10'} => '10',
       {'pol_BM_assigned_str' => '11'} => '11',
+      {'pol_coming_from_BM_num' => '11'} => '11',
       {'pol_BM_assigned_str' => '12'} => '12',
+      {'pol_coming_from_BM_num' => '12'} => '12',
       {'pol_BM_assigned_str' => '13'} => '13',
+      {'pol_coming_from_BM_num' => '13'} => '13',
       {'pol_BM_assigned_str' => '14'} => '14',
+      {'pol_coming_from_BM_num' => '14'} => '14',
       {'pol_BM_assigned_str' => '15'} => '15',
+      {'pol_coming_from_BM_num' => '15'} => '15',
       {'pol_BM_assigned_str' => '16'} => '16',
+      {'pol_coming_from_BM_num' => '16'} => '16',
       {'pol_BM_assigned_str' => '17'} => '17',
+      {'pol_coming_from_BM_num' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
-      {'pol_client_type_str' => 'persona fisica'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
-      {'pol_client_type_str' => 'persona giuridica'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal',
-      {'pol_coming_from_company_str' => 'generali'} => 'ASSICURAZIONI GENERALI',
-      {'pol_instalment_str' => 'annuale'} => 'Annuale',
-      {'pol_instalment_str' => 'semestrale'} => 'Semestrale',
-      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'Veicolo già assicurato con attestato di rischio',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Prima Polizza dopo l\'acquisto di un veicolo',
-      {'pol_leasing_str' => 'no'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtLeasingNo',
-      {'pol_nr_of_paid_claims_1_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_1_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_1_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_1_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_1_yr_str' => 'N/D'} => 'N/D',
-      {'pol_nr_of_paid_claims_2_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_2_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_2_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_2_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_2_yr_str' => 'N/D'} => 'N/D',
-      {'pol_nr_of_paid_claims_3_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_3_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_3_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_3_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_3_yr_str' => 'N/D'} => 'N/D',
-      {'pol_nr_of_paid_claims_4_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_4_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_4_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_4_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_4_yr_str' => 'N/D'} => 'N/D',
-      {'pol_nr_of_paid_claims_5_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_5_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_5_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_5_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_5_yr_str' => 'N/D'} => 'N/D',
-      {'pol_nr_of_paid_claims_this_yr_str' => '0'} => '0',
-      {'pol_nr_of_paid_claims_this_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_this_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_5_yr_str' => '1'} => '1',
-      {'pol_nr_of_paid_claims_5_yr_str' => '2'} => '>1',
-      {'pol_nr_of_paid_claims_5_yr_str' => 'N/A'} => 'N/A',
-      {'pol_nr_of_paid_claims_5_yr_str' => 'N/D'} => 'N/D',
-      {'pol_payment_str' => 'carta di credito'} => 'Carta di Credito',
-      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '3.000.000 € - 2.500.000 € - 500.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '25.000.000 € - 20.000.000 € - 5.000.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '18.000.000 € - 15.000.000 € - 3.000.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '12.000.000 € - 10.000.000 € - 2.000.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6.000.000 € - 5.000.000 € - 1.000.000 €',
-      {'pol_RCA_premium_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize',
+      {'pol_coming_from_BM_num' => '18'} => '18',
+      {'pol_client_type_str' => 'persona giuridica'} => 'RBTXDP1XContraente0',
+      {'pol_client_type_str' => 'persona fisica'} => 'RBTXDP1XContraente1',
+      {'pol_cohabiting_children_str' => 'si'} => 'RBTXDCOXFigli1',
+      {'pol_current_policy_guarantee_str'  => 'id elemento'} => 'RBTXDPOXIncendioFurto1',
+      {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Amici/parenti',
+      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'RBTXDPOXSituazione0',
+      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => '(profilefield[:veh_new_used_vehicle_str] == "U") ? "RBTXDPOXSituazione2" : "RBTXDPOXSituazione1"',
+      {'pol_leasing_str' => 'no'} => 'RBTXDPOXLeasing1',
+      {'pol_payment_str' => 'carta di credito'} => '',
+      {'pol_privacy_1_str' => 'id elemento web1'} => 'RBTXPRIXConsensoA0',
+      {'pol_privacy_2_str' => 'id elemento web2'} => 'RBTXPRIXConsensoB0',
+      {'pol_privacy_3_str' => 'id elemento web3'} => 'RBTXPRIXConsensoC0',
+      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '€ 3,000,000.00',
+      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '€ 6,000,000.00',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 10,000,000.00',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '€ 10,000,000.00',
+      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '€ 10,000,000.00',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',
@@ -503,11 +547,17 @@ module Provider2Quixa
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
-      {'veh_alarm_str' => 'no'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtSatelliteLocationNo',
-      {'veh_km_per_yr_num' => '15000'} => 'Tra 10000 - 20000',
+      {'veh_alarm_str' => 'no'} => 'Nessun antifurto',
+      {'veh_vehicle_shelter_str' => 'box privato'} => 'RBTXDVEXCustodia0',
+      {'veh_vehicle_use_str' => 'privato'} => 'Privato',
 
-    }
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
+      {'pol_legal_assistance_web_id_str'  => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => 'LBLXRIEXImporto',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
+      {'pol_theft_fire_coverage_web_id_str'  => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
 
+  }
   end
-
+  
 end

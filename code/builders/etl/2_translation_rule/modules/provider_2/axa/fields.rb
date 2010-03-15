@@ -40,6 +40,7 @@ module Provider2Axa
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3,000,000 € - 2,500,000 € - 500,000 €',
       {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '6,000,000 € - 5,000,000 € - 1,000,000 €',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6,000,000 € - 6,000,000 € - 6,000,000 €',
+      {'pol_RCA_premium_id_str' => 'id_elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
       {'pol_second_driver_str' => 'no'} => 'No',
       {'veh_fuel_str' => 'benzina'} => 'Benzina',
       {'veh_vehicle_type_str' => 'motociclo'} => 'Motociclo'
@@ -86,6 +87,7 @@ module Provider2Axa
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3,000,000 € - 2,500,000 € - 500,000 €',
       {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '6,000,000 € - 5,000,000 € - 1,000,000 €',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6,000,000 € - 6,000,000 € - 6,000,000 €',
+      {'pol_RCA_premium_id_str' => 'id_elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
       {'veh_vehicle_type_str' => 'ciclomotore'} => 'Ciclomotore',
       {'veh_fuel_str' => 'benzina'} => 'Benzina'
 
@@ -99,6 +101,7 @@ module Provider2Axa
 
     @target_values = {
 
+      {'pol_client_type_str' => 'C'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Il contraente presenta l\'attestato di rischio',
       {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
@@ -114,14 +117,13 @@ module Provider2Axa
       {'pol_property_type_to_be_insured_str' => 'autocarro per trasporto persone o cose'} => 'Autocarro',
       {'pol_quotation_str' => 'fissa'} => 'Fissa',
       {'pol_quotation_str' => 'franchigia'} => 'Franchigia',
+      {'pol_RCA_premium_id_str' => 'id_elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
       {'veh_fuel_str' => 'diesel'} => 'Diesel',
       {'veh_hook_str' => 'no'} => 'No',
       {'veh_product_sector_str' => 'Pesca, piscicoltura e servizi connessi'} => 'Pesca, piscicoltura e servizi connessi',
       {'veh_third_party_str' => 'Conto proprio'} => 'Conto proprio (cose)',
       {'veh_third_party_str' => 'Conto terzi'} => 'Conto terzi (cose)',
       {'veh_vehicle_type_str' => 'autocarro per trasporto persone o cose'} => 'Autocarro',
-
-      {'pol_client_type_str' => 'C'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input',
 
     }
 

@@ -290,49 +290,64 @@ module Provider2Dialogo
 # da correggere il file di mara con gli input anziche gli x path
     }
 
+end
 
+  def build_hash_sect_2()
 
+  @target_values = {}
 
+  @target_values = {
 
+      {'own_owner_sex_str' => 'M'} => '/html/body/div/div[3]/div/form/span[2]/fieldset/div[2]/table/tbody/tr/td/label/input',
+      {'own_owner_sex_str' => 'F'} => '/html/body/div/div[3]/div/form/span[2]/fieldset/div[2]/table/tbody/tr/td[2]/label/input',
+      {'own_owner_sex_str' => 'C'} => '/html/body/div/div[3]/div/form/span[2]/fieldset/div[2]/table/tbody/tr/td[3]/label/input',
+      {'pol_bersani_str' => 'Convivente'} => '/html/body/div/div[3]/div/form/fieldset/div[3]/div/div/table/tbody/tr/td/label/input',
+      {'pol_bersani_str' => 'Veicolo'} => '/html/body/div/div[3]/div/form/fieldset/div[3]/div/div/table/tbody/tr/td/label/input',
+      {'pol_bersani_str' => 'No'} => '/html/body/div/div[3]/div/form/fieldset/div[3]/div/div/table/tbody/tr/td[2]/label/input',
+      {'pol_BM_assigned_str' => '1'} => '1',
+      {'pol_BM_assigned_str' => '2'} => '2',
+      {'pol_BM_assigned_str' => '3'} => '3',
+      {'pol_BM_assigned_str' => '4'} => '4',
+      {'pol_BM_assigned_str' => '5'} => '5',
+      {'pol_BM_assigned_str' => '6'} => '6',
+      {'pol_BM_assigned_str' => '7'} => '7',
+      {'pol_BM_assigned_str' => '8'} => '8',
+      {'pol_BM_assigned_str' => '9'} => '9',
+      {'pol_BM_assigned_str' => '10'} => '10',
+      {'pol_BM_assigned_str' => '11'} => '11',
+      {'pol_BM_assigned_str' => '12'} => '12',
+      {'pol_BM_assigned_str' => '13'} => '13',
+      {'pol_BM_assigned_str' => '14'} => '14',
+      {'pol_BM_assigned_str' => '15'} => '15',
+      {'pol_BM_assigned_str' => '16'} => '16',
+      {'pol_BM_assigned_str' => '17'} => '17',
+      {'pol_BM_assigned_str' => '18'} => '18',
+      {'pol_car_already_insured_with_company_str'  => 'no'} => '/html/body/div/div[3]/div/form/div/fieldset[2]/table/tbody/tr/td[2]/table/tbody/tr/td[2]/label/input',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:3:_id147',
+      {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
+      {'pol_insurance_situation_str' => 'veicolo gi\' assicurato con atr'} => '/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr/td/label/input',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr[2]/td/label/input ',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr[3]/td/label/input',
+      {'pol_legal_assistance_web_id_str'  => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
+      {'pol_number_plate_type_str' => 'definitiva'} => '/html/body/div/div[3]/div/form/div/fieldset/div[8]/table/tbody/tr/td[2]/label/input',
+      {'pol_subscriber_is_owner_str' => 'si'} => '/html/body/div/div[3]/div/form/div/fieldset/div/table/tbody/tr/td[2]/table/tbody/tr/td/label/input',
+      {'pol_passenger_str'  => 'si'} => '/html/body/div/div[3]/div/form/div/fieldset/div[2]/table/tbody/tr/td/label/input',
+      {'pol_passenger_str'  => 'no'} => '/html/body/div/div[3]/div/form/div/fieldset/div[2]/table/tbody/tr/td[2]/label/input',
+      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '€ 10.000.000,00 - € 10.000.000,00 - € 10.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '€ 5.000.000,00 - € 5.000.000,00 - € 5.000.000,00',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/div[2]/div[3]/div/form/div/table/tbody/tr[6]/td/table/tbody/tr/td[2]/div/span',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:1:_id147',
+      {'pol_theft_fire_coverage_web_id_str'  => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:4:_id147',
+      {'veh_fuel_str' => 'benzina'} => 'Benzina',
+      {'veh_vehicle_shelter_str' => 'box privato'} => '/html/body/div/div[3]/div/form/div/fieldset/div[7]/table/tbody/tr/td/label/input',
+      {'veh_vehicle_type_str' => 'motociclo'} => '/html/body/div/div[3]/div/form/fieldset/table/tbody/tr[3]/td/div/table/tbody/tr/td/label/input',
+      {'veh_vehicle_use_str' => 'privato'} => '/html/body/div/div[3]/div/form/fieldset/div/table/tbody/tr/td/label/input',
 
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#  costruisci hash ["field_name + field_value","target"]
   end
 
 
