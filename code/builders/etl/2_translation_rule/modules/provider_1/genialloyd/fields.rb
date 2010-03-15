@@ -291,10 +291,10 @@ module Provider1Genialloyd
       {'pol_client_type_str' => 'persona giuridica'} => 'tipologia4',
       #      {'pol_nr_of_paid_claims_2_yr_str' => '1'} => 'Uno',
       {'pol_claims_total_number_str' => '1'} => 'Uno',
-      {'driv_driver_sex_str' => 'M'} => 'tipologia1',
-      {'driv_driver_sex_str' => 'F'} => 'tipologia2',
+#      {'driv_driver_sex_str' => 'M'} => 'tipologia1',
+#      {'driv_driver_sex_str' => 'F'} => 'tipologia2',
       {'own_owner_sex_str' => 'M'} => 'tipologia1',
-      {'driv_driver_sex_str' => 'C'} => 'tipologia4',
+#      {'driv_driver_sex_str' => 'C'} => 'tipologia4',
       {'own_owner_sex_str' => 'F'} => 'tipologia2',
       {'own_owner_sex_str' => 'C'} => 'tipologia4',
       {'pol_RCA_premium_id' => 'id elemento'} => '/html/body/div/div/div[2]/form/div[9]/div[2]/div'
