@@ -312,6 +312,7 @@ def build_hash_sect_2()
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_record_id_str'  => 'copy_field',
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_on_off_str' => 'copy_field',
       'pol_road_assistance_web_id_str' => 'translate_field',
