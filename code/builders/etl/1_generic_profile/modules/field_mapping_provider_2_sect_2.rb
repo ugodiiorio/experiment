@@ -63,7 +63,7 @@ module FieldMappingProvider2Sect2
       'pol_theft_fire_coverage_premium_id_str'  => '"id elemento"',
       'pol_theft_fire_coverage_web_id_str'  => '"id elemento"' ,
       'veh_capacity_num' => 'infield[:veh_capacity_num].strip.downcase',
-      'veh_make_previous_vehicle_str' => 'a=infield[:veh_make_previous_vehicle_str].strip; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); f= h.gsub(/ª/,"a" );',
+      'veh_make_previous_vehicle_str' => 'a=infield[:veh_make_str].strip; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); f= h.gsub(/ª/,"a" );',
       'veh_make_str' => 'a=infield[:veh_make_str].strip; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); f= h.gsub(/ª/,"a" );',
       'veh_max_capacity_ever_driven_num' => 'infield[:veh_max_capacity_ever_driven_num].strip.downcase',
       'veh_model_str' => 'a=infield[:veh_model_str].strip; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); f= h.gsub(/ª/,"a" );',
