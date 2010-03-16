@@ -17,13 +17,13 @@ require "test/unit/ui/console/testrunner"
 class RunTest
   attr_reader :kte, :browser, :host, :port, :wait_for_page_to_load, :timeout_in_secs, :sleep_typing, :url
 
-  MODULE_FOLDER = 'modules'
+  MODULE_FOLDER, UTILS = 'modules', 'utils.rb'
   DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
-  UTILS = 'utils.rb'
-  KO = "KO"
-  OK = "OK"
-  RUN = "RUN"
-  FREE = "FREE"
+#  UTILS = 'utils.rb'
+  KO, OK, RUN, FREE = "KO", "OK", "RUN", "FREE"
+#  OK = "OK"
+#  RUN = "RUN"
+#  FREE = "FREE"
 
 #  require("#{File.join(DLN_LIBRARY_PATH)}/#{UTILS}")
 #  include Utils
@@ -161,25 +161,3 @@ class RunTest
   end
 
 end
-
-def view_hash()
-
-  view = Hash.new
-  view = {
-    'sect_1' => 'sector_1',
-    'sect_2' => 'sector_2',
-    'sect_3' => 'sector_3',
-    'sect_4' => 'sector_4',
-    }
-end
-
-def normalize(var)
-
-  arr_var = var.to_s.split("_")
-  arr_var.pop
-  arr_var.delete(arr_var.first)
-  var = arr_var.collect{|a| a + "_"}.to_s.chop.downcase
-  return var
-
-end
-
