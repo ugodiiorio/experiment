@@ -295,10 +295,10 @@ module Provider2Conte
       'pol_how_do_you_know_the_company_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
       'pol_legal_assistance_web_id_str' => 'translate_field',
-      'pol_matriculation_date_day_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str'  => 'x= (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%-1m"); y="index="+x;',
-      'pol_matriculation_date_str'  => 'european_date = \'%d%m%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime(european_date).to_s' ,
-      'pol_matriculation_date_year_num'  => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
+      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z=profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y+z;',
       'pol_policy_starting_date_day_str'  => 'copy_field' ,
       'pol_policy_starting_date_month_str'  => 'copy_field' ,
@@ -332,7 +332,6 @@ module Provider2Conte
       'veh_vehicle_value_str' => 'copy_field',
       'veh_vehicle_shelter_str' => 'translate_field',
       'veh_vehicle_type_str' => 'translate_field',
-
 
     }
 

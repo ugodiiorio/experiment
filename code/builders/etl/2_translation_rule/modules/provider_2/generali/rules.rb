@@ -308,10 +308,10 @@ module Provider2Generali
       'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
       'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
       'pol_birth_date_str'  => 'european_date = \'%d%m%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime((european_date).to_s' ,
-      'pol_matriculation_date_day_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-      'pol_matriculation_date_str'  => 'european_date = \'%d%m%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime((european_date).to_s' ,
-      'pol_matriculation_date_year_num'  => '(Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
+      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'veh_vehicle_type_str' => '(profilefield[:veh_passenger_transportation_str]== "si") ? "Motociclo due posti" : "Motociclo posto unico"',
 
     }
