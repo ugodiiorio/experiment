@@ -82,16 +82,17 @@ module Provider1Directline
       {'own_owner_sex_str' => 'M'} => '//input[@name=sessoContraente and @value="M"]',
       {'own_owner_sex_str' => 'F'} => '//input[@name=sessoContraente and @value="F"]',
       {'own_owner_sex_str' => 'C'} => '//input[@name=sessoContraente and @value="M"]',
-      
+      {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
+    
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => '//*[@id="id_radio_bm"]',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//table/tbody/tr[10]/td/table/tbody/tr[3]/td[2]/input',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//table/tbody/tr[10]/td/table/tbody/tr[4]/td[2]/input',
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Sposato/a',
-      {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => ' Tragitto Casa-Lavoro/Tempo libero',
+      {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'Tragitto Casa-Lavoro/Tempo libero',
       {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
       {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
       {'veh_vehicle_use_str' => 'privato'} => '//form/table[2]/tbody/tr[15]/td[2]/table/tbody/tr[2]/td/input',
-      {'pol_RCA_premium_id_str' => 'privato'} => 'premioRCADiv',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => 'premioRCADiv',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',

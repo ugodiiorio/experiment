@@ -1,12 +1,56 @@
 module Provider2Axa
 
-  def build_hash_sect_2()
+  def build_hash_sect_1()
 
     @target_values = {}
 
     @target_values = {
+      {'veh_fuel_str' => 'B'} => 'Benzina',
+      {'veh_fuel_str' => 'D'} => 'Diesel',
+      {'veh_fuel_str' => 'G'} => 'GPL',
+      {'veh_fuel_str' => 'M'} => 'Metano',
+      {'pol_public_liability_exemption_str' => 'no'} => '0 Euro',
+      {'pol_instalment_str' => 'annuale'} => 'Annuale',
+      {'veh_tow_hook_str' => 'no'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[9]/th/div[2]/input',
+      {'pol_defined_drive_str' => 'si'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr[2]/td/div/table/tbody/tr[2]/th/div[2]/input[2]',
+      {'pol_defined_drive_str' => 'no'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr[2]/td/div/table/tbody/tr[2]/th/div[2]/input',
+      {'pol_exclusive_drive_str' => 'si'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr[2]/td/div/table/tbody/tr/th[2]/div[2]/input[2]',
+      {'pol_exclusive_drive_str' => 'no'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr[2]/td/div/table/tbody/tr/th[2]/div[2]/input',
+      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '2,600,000 € - 2,600,000 € - 2,600,000 €',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '25,000,000 € - 25,000,000 € - 25,000,000 €',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '20,000,000 € - 20,000,000 € - 20,000,000 €',
+      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '10,000,000 € - 10,000,000 € - 10,000,000 €',
+      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '5,200,000 € - 5,200,000 € - 5,200,000 €',
+      {'own_owner_sex_str' => 'M'} => 'Maschio',
+      {'own_owner_sex_str' => 'F'} => 'Femmina',
+      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'Il contraente presenta l\'attestato di rischio',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Veicolo assicurato per la 1^ volta dopo voltura al P.R.A.',
+      {'pol_type_of_contract_str' => 'bonus/malus'} => 'Bonus/Malus',
+      {'pol_number_plate_type_str' => 'definitiva'} => 'Definitiva',
+      {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
+      {'veh_vehicle_type_str' => 'autovettura'} => 'Autovettura',
+      {'pol_client_type_str' => 'M'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input[2]',
+      {'pol_client_type_str' => 'F'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input[2]',
+      {'pol_client_type_str' => 'C'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input',
+      {'veh_vehicle_use_str' => 'privato'} => 'Privato',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/form/div[2]/div/div[5]/div/table/tbody/tr[3]/td[4]',
 
-      {'driv_driving_experience_str' => 'si'} => 'Sì',
+    }
+
+
+  
+
+end
+
+
+def build_hash_sect_2()
+
+  @target_values = {}
+
+  @target_values = {
+
+    {'driv_driving_experience_str' => 'si'} => 'Sì',
       {'driv_driving_experience_str' => 'no'} => 'No',
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
@@ -45,17 +89,17 @@ module Provider2Axa
       {'veh_fuel_str' => 'benzina'} => 'Benzina',
       {'veh_vehicle_type_str' => 'motociclo'} => 'Motociclo'
 
-    }
+  }
 
-  end
+end
   
-  def build_hash_sect_3()
+def build_hash_sect_3()
 
-    @target_values = {}
+  @target_values = {}
 
-    @target_values = {
+  @target_values = {
       
-      {'own_owner_sex_str' => 'M'} => 'Maschio',
+    {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
       {'pol_BM_assigned_str' => '1 da almeno 1 anno'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
@@ -91,17 +135,17 @@ module Provider2Axa
       {'veh_vehicle_type_str' => 'ciclomotore'} => 'Ciclomotore',
       {'veh_fuel_str' => 'benzina'} => 'Benzina'
 
-    }
+  }
 
-  end
+end
 
-  def build_hash_sect_4()
+def build_hash_sect_4()
 
-    @target_values = {}
+  @target_values = {}
 
-    @target_values = {
+  @target_values = {
 
-      {'pol_client_type_str' => 'C'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input',
+    {'pol_client_type_str' => 'C'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Il contraente presenta l\'attestato di rischio',
       {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
@@ -127,6 +171,6 @@ module Provider2Axa
 
     }
 
-  end
+end
 
 end

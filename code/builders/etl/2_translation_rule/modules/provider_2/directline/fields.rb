@@ -12,12 +12,20 @@ module Provider2Directline
 
     @target_values = {
 
+       {'pol_act_of_vandalisme_web_id_str' => 'id elemento'} => 'chk_4',
+      {'pol_assistance_web_id_str' => 'id elemento'} => 'chk_7',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'chk_6',
+      {'pol_kasko_web_id_str' => 'id elemento'} => 'chk_3',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'chk_8',
+      {'pol_natural_events_web_id_str' => 'id elemento'} => 'chk_5',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'chk_1',
+      {'pol_collision_premium_id_str' => 'id elemento'} => 'chk_2',
+
       {'pol_bersani_ref_vehicle_number_plate_str' => 'no'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[13]/td[2]/input[3]',
       {'pol_driver_less_than_26_yrs_str' => 'N'} => 'Nessuno',
       {'pol_driver_less_than_26_yrs_str' => 'S'} => 'Un conducente',
-      {'veh_alarm_str' => 'immobilizer'} => 'Immobilizzatore o Satellitare',
-      {'pol_bersani_str' => 'convivente'} => 'id_radio_tipo_bm_1',
-      {'pol_bersani_str' => 'veicolo'} => 'id_radio_tipo_bm_1',
+      {'veh_alarm_str' => 'nessuno'} => 'Nessuno',
+      {'pol_bersani_str' => 'si'} => 'id_radio_tipo_bm_1',
       {'pol_bersani_str' => 'no'} => 'id_radio_tipo_bm_2',
       {'pol_coming_from_BM_str' => '-1'} => 'Classe 01',
       {'pol_coming_from_BM_str' => '1'} => 'Classe 01',
@@ -58,12 +66,12 @@ module Provider2Directline
       {'pol_BM_assigned_str' => '17'} => 'Classe 17',
       {'pol_BM_assigned_str' => '18'} => 'Classe 18',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'INTERNET',
-      {'pol_subscriber_is_driver_str' => 'si'} => '//form/table[2]/tbody/tr[17]/td[2]/input',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre form/...
-      {'pol_subscriber_is_owner_str' => 'si'} => '//form/table[2]/tbody/tr[21]/td[2]/input',
-      {'pol_subscriber_is_owner_str' => 'no'} => '//form/table[2]/tbody/tr[21]/td[2]/input[3]',
+      {'pol_subscriber_is_driver_str' => 'si'} => '//input[@name=FlagConducenteAbituale and @value="true"]',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre form/...
+      {'pol_subscriber_is_owner_str' => 'si'} => '//input[@name=FlagIntestatario and @value="true"]',
+      {'pol_subscriber_is_owner_str' => 'no'} => '//input[@name=FlagIntestatario and @value="false"]',
       {'pol_family_members_insured_with_company_str' => '0'} => '//form/table[2]/tbody/tr[13]/td[2]/input[3]',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
-      {'pol_instalment_str' => 'semestrale'} => 'Semestrale',
+#      {'pol_instalment_str' => 'semestrale'} => 'Semestrale',
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => '//form/table[2]/tbody/tr[13]/td[2]/input[3]',
       {'pol_public_liability_indemnity_limit_str' => '3000000'} => '3.600.000/1.000.000',
       {'pol_public_liability_indemnity_limit_str' => '25000000'} => '5.000.000/1.000.000',
@@ -71,21 +79,20 @@ module Provider2Directline
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '5.000.000/1.000.000',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '5.000.000/1.000.000',
       {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
-      {'own_owner_sex_str' => 'M'} => '//form/table[2]/tbody/tr[3]/td[5]/input',
-      {'own_owner_sex_str' => 'F'} => '//form/table[2]/tbody/tr[3]/td[5]/input[3]',
-      {'own_owner_sex_str' => 'C'} => '//form/table[2]/tbody/tr[3]/td[5]/input',
-      {'driv_driver_sex_str' => 'M'} => '//form/table[2]/tbody/tr[3]/td[5]/input',
-      {'driv_driver_sex_str' => 'F'} => '//form/table[2]/tbody/tr[3]/td[5]/input[4]',
-      {'driv_driver_sex_str' => 'C'} => '//form/table[2]/tbody/tr[3]/td[5]/input',
+      {'own_owner_sex_str' => 'M'} => '//input[@name=sessoContraente and @value="M"]',
+      {'own_owner_sex_str' => 'F'} => '//input[@name=sessoContraente and @value="F"]',
+      {'own_owner_sex_str' => 'C'} => '//input[@name=sessoContraente and @value="M"]',
+       {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
+
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => '//*[@id="id_radio_bm"]',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//table/tbody/tr[10]/td/table/tbody/tr[3]/td[2]/input',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//table/tbody/tr[10]/td/table/tbody/tr[4]/td[2]/input',
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Sposato/a',
       {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => ' Tragitto Casa-Lavoro/Tempo libero',
-      {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
-      {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
-      {'veh_vehicle_use_str' => 'privato'} => '//form/table[2]/tbody/tr[15]/td[2]/table/tbody/tr[2]/td/input',
-      {'pol_RCA_premium_id_str' => 'privato'} => 'premioRCADiv',
+#      {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
+#      {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
+#      {'veh_vehicle_use_str' => 'privato'} => '//form/table[2]/tbody/tr[15]/td[2]/table/tbody/tr[2]/td/input',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => 'premioRCADiv',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',
@@ -313,43 +320,6 @@ module Provider2Directline
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     #  costruisci hash ["field_name + field_value","target"]
   end
 
@@ -417,9 +387,9 @@ module Provider2Directline
       {'pol_subscriber_is_driver_str' => 'si'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[17]/td[2]/input',
       {'pol_subscriber_is_owner_str' => 'si'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[21]/td[2]/input',
       {'pol_subscriber_is_owner_str' => 'no'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[21]/td[2]/input[3]',
-      {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => ' Tragitto Casa-Lavoro/Tempo libero',
-      {'veh_km_per_yr_str'  => '15000'} => '15',
-      {'veh_vehicle_shelter_str' => 'box privato'} => ' 			   Box privato              ',
+      {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'Tragitto Casa-Lavoro/Tempo libero',
+      {'veh_km_per_yr_str'  => '10000'} => '10',
+      {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
       {'veh_vehicle_type_str' => 'motociclo'} => 'Motociclo',
       {'veh_vehicle_use_str' => 'privato'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[15]/td[2]/table/tbody/tr[2]/td/input',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'chk_6',
