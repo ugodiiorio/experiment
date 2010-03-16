@@ -14,7 +14,7 @@ require "test/unit/testresult"
 require "test/unit/error"
 require "test/unit/ui/console/testrunner"
 
-class RunBrowser
+class RunTest
   attr_reader :kte, :browser, :host, :port, :wait_for_page_to_load, :timeout_in_secs, :sleep_typing, :url
 
   MODULE_FOLDER = 'modules'

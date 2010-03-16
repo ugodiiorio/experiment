@@ -9,7 +9,7 @@
 #    nil
 #  end
 
-module Utils
+module DbSetters
 
   LOCK = "LOCK"
   OK = "OK"

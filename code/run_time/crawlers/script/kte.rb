@@ -11,32 +11,14 @@ require 'logger'
 require 'sequel'
 require 'mysql'
 
-require "run_browser.rb"
+MODULE_FOLDER = 'modules'
+DB_SETTERS = 'db_setters.rb'
+TEST_SUITE = 'run_test.rb'
+DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
 
-module Kernel
-private
-   def method_name
-     caller[0] =~ /`([^']*)'/ and $1
-   end
-end
-
-class String
-  def camelize
-    self.split(/[^a-z0-9]/i).map{|w| w.capitalize}.join
-  end
-
-  def to_class(parent = Kernel)
-    chain = self.split "::"
-    klass = parent.const_get chain.shift
-    return chain.size < 1 ? (klass.is_a?(Class) ? klass : nil) : chain.join("::").to_class(klass)
-    rescue
-      nil
-  end
-end
-
-def is_numeric?(n)
-  Float n rescue false
-end
+require("#{File.join(DLN_LIBRARY_PATH)}/#{DB_SETTERS}")
+include DbSetters
+require("#{File.join(File.dirname(__FILE__))}/#{TEST_SUITE}")
 
 class KTE
   attr_reader :logger, :company_group, :company, :provider, :sector, :working_set, :rate, :rate_date
@@ -172,106 +154,112 @@ class KTE
     end
   end
 
-end
+  def run()
 
-MODULE_FOLDER = 'modules'
-UTILS = 'db_setters.rb'
-DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
+    begin
 
-begin
+      @kte = self
+      @kte.start_logger
+      @logger = @kte.logger
 
-  @kte = KTE.new
-  @kte.start_logger
-  @logger = @kte.logger
+      db_profile = db_connect(@kte.db_driver)
+      profiles = count_profiles(db_profile)
+      db_disconnect(db_profile)
 
-  require("#{File.join(DLN_LIBRARY_PATH)}/#{UTILS}")
-  include Utils
+      @kte.max_profiles = profiles if @kte.max_profiles.to_i() == 0
+      @test_suite = RunTest.new(@kte)
+    #  @test_suite.setup
 
-  db_profile = db_connect(@kte.db_driver)
-  profiles = count_profiles(db_profile)
-  db_disconnect(db_profile)
-
-  @kte.max_profiles = profiles if @kte.max_profiles.to_i() == 0
-  @browser = RunBrowser.new(@kte)
-#  @browser.setup
-  
-  profiles_count = 0
-  while true
-    break if profiles_count.to_i() == @kte.max_profiles.to_i()
-
-    @already_locked = nil
-
-    if is_numeric?(@kte.profile)
-      
-      @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
-      break unless @kte.profile.to_i.between?(1, profiles)
-#      case @kte.company
-      @already_locked = locked_profile?
-#      end
-      if @already_locked
-        @logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
-  			break
-      else
-        @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
-        @browser.run()
-        profiles_count = profiles_count + 1
-        @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
-        @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
-      end
-    else #il profilo assicurativo non è fissato
-      i = 1
-      while i <= profiles do
-  #      case @kte.company
-        @kte.profile = i
-        @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
-        @already_locked = locked_profile?
-  #      end
-        unless @already_locked
-          @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
-          @browser.run()
-          profiles_count = profiles_count + 1
-          @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
-          @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
-        end
+      profiles_count = 0
+      while true
         break if profiles_count.to_i() == @kte.max_profiles.to_i()
-  #        @logger.info "Break Profili Cycle"
-        i += 1
-        sleep @kte.sleep_between_profiles.to_i unless @already_locked
+
+        @already_locked = nil
+
+        if is_numeric?(@kte.profile)
+
+          @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
+          break unless @kte.profile.to_i.between?(1, profiles)
+    #      case @kte.company
+          @already_locked = locked_profile?
+    #      end
+          if @already_locked
+            @logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
+            break
+          else
+            @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
+            @test_suite.run()
+            profiles_count = profiles_count + 1
+            @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
+            @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
+          end
+        else #il profilo assicurativo non è fissato
+          i = 1
+          while i <= profiles do
+      #      case @kte.company
+            @kte.profile = i
+            @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
+            @already_locked = locked_profile?
+      #      end
+            unless @already_locked
+              @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
+              @test_suite.run()
+              profiles_count = profiles_count + 1
+              @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
+              @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
+            end
+            break if profiles_count.to_i() == @kte.max_profiles.to_i()
+      #        @logger.info "Break Profili Cycle"
+            i += 1
+            sleep @kte.sleep_between_profiles.to_i unless @already_locked
+          end
+          if profiles_count == 0
+            @logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
+            break;
+          end
+        end
       end
-      if profiles_count == 0
-        @logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
-        break;
+
+    rescue Exception => ex
+      @logger.error(__FILE__) {"#{@kte.company} => ERROR - Running script abnormaly terminated: #{ex}"} if @logger
+
+    ensure
+      if @logger
+        @logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
+        @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} FINISHED AT #{Time.now()}"}
+        @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} #{@kte.company.upcase} WEB SITE"}
+        @logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
+        @logger.close unless @kte.log_device == STDOUT
       end
+      Test::Unit.run=true unless Test::Unit.run?
+
     end
   end
 
-rescue Exception => ex
-  @logger.error(__FILE__) {"#{@kte.company} => ERROR - Running script abnormaly terminated: #{ex}"} if @logger
-
-ensure
-  if @logger
-    @logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
-    @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} FINISHED AT #{Time.now()}"}
-    @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} #{@kte.company.upcase} WEB SITE"}
-    @logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
-    @logger.close unless @kte.log_device == STDOUT
-  end
-  Test::Unit.run=true unless Test::Unit.run?
-  puts "end of init script"
-
 end
 
-#def db_connect(db)
-#  return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @logger)
-#end
-#
-#def count_profiles(db)
-##  @DB_PROFILE.loggers << @logger
-#  count = db.from(:company_insurance_profiles).count
-#  return count
-#end
-#
-#def db_disconnect(db)
-#  db.disconnect
-#end
+module Kernel
+private
+   def method_name
+     caller[0] =~ /`([^']*)'/ and $1
+   end
+end
+
+class String
+  def camelize
+    self.split(/[^a-z0-9]/i).map{|w| w.capitalize}.join
+  end
+
+  def to_class(parent = Kernel)
+    chain = self.split "::"
+    klass = parent.const_get chain.shift
+    return chain.size < 1 ? (klass.is_a?(Class) ? klass : nil) : chain.join("::").to_class(klass)
+    rescue
+      nil
+  end
+end
+
+def is_numeric?(n)
+  Float n rescue false
+end
 
