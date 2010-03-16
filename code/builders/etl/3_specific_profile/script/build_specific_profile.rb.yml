@@ -9,8 +9,8 @@ app_settings:
   as_update_stmt_profile: "UPDATE company_insurance_profiles SET @@profile_field@@ = ? WHERE key_insurance_profiles_id_num = ? AND key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND key_working_set_id_str = ?"
   as_provider_id: "provider_2"
   as_sector_id: "sect_2"
-  as_company_group_id: "conte_provider_2"
-  as_company_id: "conte"
+  as_company_group_id: "genertel_provider_2"
+  as_company_id: "genertel"
   as_working_set_id: "prov_2_20100201"
   as_rate_date: "10th day next month"
 

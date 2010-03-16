@@ -348,6 +348,7 @@ module Provider2Genialloyd
       {'pol_bersani_str' => 'no'} => 'radioBersaniFacilitation1',
       {'pol_bersani_str' => 'convivente'} => 'radioBersaniFacilitation2',
       {'pol_bersani_str' => 'veicolo'} => 'radioBersaniFacilitation2',
+      {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'radioCompagniaAssicBersani3',
       {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'situazione1',
       {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'situazione2',
 
@@ -358,7 +359,6 @@ module Provider2Genialloyd
 
       {'driv_driver_sex_str' => 'M'} => '//input[@name=sesso and @value="1"]',
       {'driv_driver_sex_str' => 'F'} => '//input[@name=sesso and @value="2"]',
-      {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'No, il veicolo non è assicurato con Linear S.p.A.',
       {'pol_BM_assigned_str' => '-1'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
