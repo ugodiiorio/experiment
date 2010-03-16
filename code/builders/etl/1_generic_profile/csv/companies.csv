@@ -1,3 +1,8 @@
-all_provider_1#quixa
-linear_provider_2#linear
-quixa_provider_2#quixa
+all_provider_1#quixa#url="http://www.quixa.it/simulator.aspx?SimObject=CAR"
+linear_provider_2#linear#url="http://www.linear.it
+quixa_provider_2#quixa#url="http://www.quixa.it/simulator.aspx?SimObject=CAR"
+conte_provider_2#conte
+dialogo_provider_2#dialogo
+directline_provider_2#directline
+genertel_provider_2#genertel
+zurich_connect_provider_2#zurich_connect

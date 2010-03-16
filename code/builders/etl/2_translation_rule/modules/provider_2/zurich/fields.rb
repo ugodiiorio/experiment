@@ -92,7 +92,7 @@ module Provider2Zurich
       {'pol_client_type_str' => 'persona giuridica'} => '//*[@id="TIP_PERS_G"]',
       {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Prima Immatricolazione',
       {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Proveniente da altra Compagnia',
-      {'pol_privacy_1_str' => 'si'} => '//*[@id="check1"]',
+      {'pol_privacy_1_str' => 'id elemento web1'} => '//*[@id="check1"]',
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3.000.000 EURO',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6.000.000 EURO',
       {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '10.000.000 EURO',

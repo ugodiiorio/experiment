@@ -286,7 +286,7 @@ module Provider2ZurichConnect
       'driv_studies_str'  => 'translate_field' ,
       'own_owner_sex_str' => 'translate_field',
       'pol_bersani_str'  => 'translate_field',
-      'pol_birth_date_str' => 'european_date = \'%d/%m/%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years)strftime(european_date).to_s',
+      'pol_birth_date_str' => 'european_date = \'%d/%m/%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime((european_date).to_s',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_claims_total_number_str'  => 'copy_field' ,
       'pol_driver_zip_code_str'  => 'copy_field' ,

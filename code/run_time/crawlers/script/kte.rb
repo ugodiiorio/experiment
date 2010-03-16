@@ -13,12 +13,15 @@ require 'mysql'
 
 MODULE_FOLDER = 'modules'
 DB_SETTERS = 'db_setters.rb'
+EXTENSIONS = 'kte_ext.rb'
 TEST_SUITE = 'run_test.rb'
 DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
 
 require("#{File.join(DLN_LIBRARY_PATH)}/#{DB_SETTERS}")
-include DbSetters
+require("#{File.join(DLN_LIBRARY_PATH)}/#{EXTENSIONS}")
 require("#{File.join(File.dirname(__FILE__))}/#{TEST_SUITE}")
+include DbSetters
+include KteExt
 
 class KTE
   attr_reader :logger, :company_group, :company, :provider, :sector, :working_set, :rate, :rate_date
@@ -237,29 +240,3 @@ class KTE
   end
 
 end
-
-module Kernel
-private
-   def method_name
-     caller[0] =~ /`([^']*)'/ and $1
-   end
-end
-
-class String
-  def camelize
-    self.split(/[^a-z0-9]/i).map{|w| w.capitalize}.join
-  end
-
-  def to_class(parent = Kernel)
-    chain = self.split "::"
-    klass = parent.const_get chain.shift
-    return chain.size < 1 ? (klass.is_a?(Class) ? klass : nil) : chain.join("::").to_class(klass)
-    rescue
-      nil
-  end
-end
-
-def is_numeric?(n)
-  Float n rescue false
-end
-
