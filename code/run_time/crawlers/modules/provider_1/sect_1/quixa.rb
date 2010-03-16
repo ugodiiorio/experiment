@@ -12,7 +12,7 @@ class QuixaSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
-  NewVehicle = 0..100
+  FirstPolicy = 0..100
   Individual = 0..100
   
   def get(var)
@@ -152,11 +152,11 @@ class QuixaSect1 < Test::Unit::TestCase
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", get('@insurance_situation'))
     case page.get_selected_label(@last_element) =~ /prima polizza/i
-      when NewVehicle
-        if (page.get_text("//label[@for='#{get('@client_type')}']") =~ /fisica/i) == Individual
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlSelectBersani", get('@bersani'))
-        /(si)*/.match(page.get_selected_label(@last_element)) ? \
-                      select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned')) : nil
+      when FirstPolicy
+        if Individual === (page.get_text("//label[@for='#{get('@client_type')}']") =~ /fisica/i)
+          select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlSelectBersani", get('@bersani'))
+          /(si)+/.match(page.get_selected_label(@last_element)) ? \
+                        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned')) : nil
         end
       else
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCongenere", get('@coming_from_company'))
@@ -167,7 +167,7 @@ class QuixaSect1 < Test::Unit::TestCase
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", get('@nr_of_paid_claims_4_yr'))
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", get('@nr_of_paid_claims_5_yr'))
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", get('@nr_of_paid_claims_this_yr'))
-    end
+      end
 
     type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
 
@@ -324,8 +324,8 @@ class QuixaSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
-    assert premium.split[0] != nil
-    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil
+    assert premium.split[0] != nil, @last_element.inspect
+    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
     premium = premium.split[0].gsub(".","")
     premium = premium.gsub(",",".")
 
