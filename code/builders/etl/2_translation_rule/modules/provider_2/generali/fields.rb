@@ -1,5 +1,79 @@
 module Provider2Generali
 
+
+  def build_hash_sect_1()
+
+    @target_values = {}
+
+    @target_values = {
+      {'veh_fuel_str' => 'B'} => 'Benzina',
+      {'veh_fuel_str' => 'D'} => 'Diesel',
+      {'veh_fuel_str' => 'G'} => 'GPL',
+      {'veh_fuel_str' => 'M'} => 'Metano',
+      {'veh_alarm_str' => 'nessuno'} => ' Nessuno o altro',
+      {'pol_risk_certificate_str' => 'si'} => 'TIPO_DICH_ATTESTAZIONE',
+      {'pol_bersani_str' => 'si'} => 'Si - rilasciato da altra Compagnia',
+      {'pol_bersani_str' => 'no'} => 'No',
+      {'pol_BM_assigned_str' => '-1'} => '1',
+      {'pol_BM_assigned_str' => '1'} => '1',
+      {'pol_BM_assigned_str' => '2'} => '2',
+      {'pol_BM_assigned_str' => '3'} => '3',
+      {'pol_BM_assigned_str' => '4'} => '4',
+      {'pol_BM_assigned_str' => '5'} => '5',
+      {'pol_BM_assigned_str' => '6'} => '6',
+      {'pol_BM_assigned_str' => '7'} => '7',
+      {'pol_BM_assigned_str' => '8'} => '8',
+      {'pol_BM_assigned_str' => '9'} => '9',
+      {'pol_BM_assigned_str' => '10'} => '10',
+      {'pol_BM_assigned_str' => '11'} => '11',
+      {'pol_BM_assigned_str' => '12'} => '12',
+      {'pol_BM_assigned_str' => '13'} => '13',
+      {'pol_BM_assigned_str' => '14'} => '14',
+      {'pol_BM_assigned_str' => '15'} => '15',
+      {'pol_BM_assigned_str' => '16'} => '16',
+      {'pol_BM_assigned_str' => '17'} => '17',
+      {'pol_BM_assigned_str' => '18'} => '18',
+      {'veh_tow_hook_str' => 'no'} => 'PARAMETRO_RADIO_6_0',
+      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '3000000',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '26000000',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '20000000',
+      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '12000000',
+      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6000000',
+      {'pol_nr_of_paid_claims_2_yr_str' => '0'} => '0',
+      {'pol_nr_of_paid_claims_2_yr_str' => '1'} => '1',
+      {'pol_nr_of_paid_claims_3_yr_str' => '0'} => '0',
+      {'pol_nr_of_paid_claims_3_yr_str' => '1'} => '1',
+      {'pol_nr_of_paid_claims_4_yr_str' => '0'} => '0',
+      {'pol_nr_of_paid_claims_4_yr_str' => '1'} => '1',
+      {'pol_nr_of_paid_claims_5_yr_str' => '0'} => '0',
+      {'pol_nr_of_paid_claims_5_yr_str' => '1'} => '1',
+      {'pol_nr_of_paid_claims_1_yr_str' => '0'} => '0',
+      {'pol_nr_of_paid_claims_1_yr_str' => '1'} => '1',
+      {'pol_nr_of_paid_claims_this_yr_str' => '0'} => '0',
+      {'pol_nr_of_paid_claims_this_yr_str' => '1'} => '1',
+      {'pol_driver_sex_str' => 'M'} => 'Maschio',
+      {'pol_driver_sex_str' => 'F'} => 'Femmina',
+      {'pol_insurance_situation_str' => 'veicolo gi\'a assicurato con atr'} => 'Gia\' assicurato con Bonus/Malus',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo'} => 'Prima Immatricolazione',
+
+      {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
+      {'pol_driving_type_str' => 'esclusiva'} => ' Conducente esclusivo',
+      {'pol_driving_type_str' => 'libera'} => ' Conducente qualsiasi',
+      {'pol_driving_type_str' => 'definita'} => ' Conducente "coniugi"',
+      {'pol_client_type_str' => 'M'} => 'Persona Fisica',
+      {'pol_client_type_str' => 'F'} => 'Persona Fisica',
+      {'pol_client_type_str' => 'C'} => 'Persona Giuridica',
+      {'veh_vehicle_use_str' => 'privato'} => 'Privato',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => 'TOTALE_PI_CL_10',
+
+
+
+    }
+
+  end
+
+
+
   def build_hash_sect_2()
 
     @target_values = {}

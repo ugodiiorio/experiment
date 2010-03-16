@@ -15,7 +15,6 @@ module Provider1Quixa
       {'pol_glasses_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P05',
       {'pol_natural_events_act_of_vandalism_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P25',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P04',
-
       {'pol_legal_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P30',
       {'pol_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13',
@@ -102,9 +101,6 @@ module Provider1Quixa
       {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
       {'veh_km_per_yr_str' => '15000'} => '10.000 - 20.000',
       {'veh_vehicle_value_str' => '5000'} => '5000',
-      #      {'own_owner_specification_str' => 'M' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
-      #      {'own_owner_specification_str' => 'F' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
-      #      {'own_owner_specification_str' => 'C' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal',
       {'pol_RCA_premium_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
