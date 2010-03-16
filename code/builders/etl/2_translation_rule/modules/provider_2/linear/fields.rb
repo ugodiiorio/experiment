@@ -10,9 +10,19 @@ module Provider2Linear
     @target_values = Hash.new
 
     @target_values = {
-       {'pol_driver_is_owner_str' => 'si'} => '//input[@id="fsgiur" and @value="1"]',
-       {'pol_driver_is_owner_str' => 'no'} => '//input[@id="fsgiur" and @value="0"]',
-       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
+       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => '7',
+      {'pol_driving_licence_withdrawal_guarantee_web_id_str' => 'id elemento'} => '/html/body/div[2]/div/form/div/div[5]/div[2]/table[2]/tbody/tr[17]/td[3]/input',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '6',
+      {'pol_minikasko_web_id_str' => 'id elemento'} => '10',
+      {'pol_natural_events_web_id_str' => 'id elemento'} => '4',
+      {'pol_social_political_events_web_id_str' => 'id elemento'} => '/html/body/div[2]/div/form/div/div[5]/div[2]/table[2]/tbody/tr[9]/td[3]/input',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '3',
+      {'pol_protected_bonus_web_id_str' => 'id elemento'} => '2',
+      {'pol_protection_24_web_id_str' => 'id elemento'} => '/html/body/div[2]/div/form/div/div[5]/div[2]/table[2]/tbody/tr[17]/td[3]/input',
+
+      {'pol_driver_is_owner_str' => 'si'} => '//input[@id="fsgiur" and @value="1"]',
+      {'pol_driver_is_owner_str' => 'no'} => '//input[@id="fsgiur" and @value="0"]',
+      {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
       {'own_owner_residence_province_str' => 'AO'} => 'AOSTA',
@@ -232,7 +242,7 @@ module Provider2Linear
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
-      {'pol_BM_assigned_str' => '-1'} => '1',
+      {'pol_BM_assigned_str' => '-1'} => '1 da più anni',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
       {'pol_BM_assigned_str' => '3'} => '3',
@@ -252,12 +262,11 @@ module Provider2Linear
       {'pol_BM_assigned_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_driver_less_than_26_yrs_str' => 'S'} => '21',
-      {'pol_client_type_str' => 'M'} => '//input[@name=fisgiur and @value="0"]',
-      {'pol_client_type_str' => 'F'} => '//input[@name=fisgiur and @value="0"]',
-      {'pol_client_type_str' => 'C'} => '//input[@name=fisgiur and @value="3"]',
-      {'driv_driver_sex_str' => 'M'} => '//input[@name=sesso and @value="1"]',
-      {'driv_driver_sex_str' => 'F'} => '//input[@name=sesso and @value="2"]',
-      {'veh_alarm_str' => 'immobilizer'} => 'antifurto_auto',
+      {'pol_client_type_str' => 'persona fisica'} => '//input[@name=fisgiur and @value="0"]',
+      {'pol_client_type_str' => 'persona giuridica'} => '//input[@name=fisgiur and @value="3"]',
+      {'own_owner_sex_str' => 'M'} => '//input[@name=sesso and @value="1"]',
+      {'own_owner_sex_str' => 'F'} => '//input[@name=sesso and @value="2"]',
+      {'veh_alarm_str' => 'nessuno'} => 'no',
       {'pol_leasing_str' => 'no'} => 'vincoli_auto',
       {'pol_public_liability_indemnity_limit_str' => '3000000'} => '€ 3.000.000,00 unico',
       {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 5.000.000,00 unico',
@@ -292,8 +301,8 @@ module Provider2Linear
       {'driv_driving_license_month_of_issue_str' => '09'} => 'Settembre',
       {'pol_risk_certificate_str' => 'si'} => 'Sì',
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'È assicurata con tariffa Bonus-Malus',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Deve essere assicurata per la prima volta',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'Deve essere assicurata per la prima volta',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo'} => 'Deve essere assicurata per la prima volta',
+
       {'pol_matriculation_date_month_str' => '01'} => 'Gennaio',
       {'pol_matriculation_date_month_str' => '02'} => 'Febbraio',
       {'pol_matriculation_date_month_str' => '03'} => 'Marzo',
@@ -306,7 +315,6 @@ module Provider2Linear
       {'pol_matriculation_date_month_str' => '10'} => 'Ottobre',
       {'pol_matriculation_date_month_str' => '11'} => 'Novembre',
       {'pol_matriculation_date_month_str' => '12'} => 'Dicembre',
-
     }
 
 
@@ -390,7 +398,7 @@ module Provider2Linear
       {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Polizza annuale in Bonus Malus con classe CIP/CU assegnata',
       {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Hai appena acquistato il veicolo (meno di 3 mesi)',
       {'pol_instalment_str' => 'annuale'} => 'Frazionamento Annuale',
-      {'pol_instalment_str' => 'semestrale'} => 'Frazionamento Semestrale',
+#      {'pol_instalment_str' => 'semestrale'} => 'Frazionamento Semestrale',
       {'pol_leasing_str' => 'no'} => 'vincoli_moto',
       {'pol_matriculation_date_month_str' => '01'} => 'Gennaio',
       {'pol_matriculation_date_month_str' => '02'} => 'Febbraio',

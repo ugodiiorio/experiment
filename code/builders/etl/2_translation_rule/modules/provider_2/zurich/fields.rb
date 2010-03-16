@@ -1,5 +1,65 @@
 module Provider2Zurich
 
+  def build_hash_sect_1()
+
+    @target_values = {}
+
+    @target_values = {
+      {'veh_fuel_str' => 'B'} => 'COD_TCMB_B',
+      {'veh_fuel_str' => 'D'} => 'COD_TCMB_D',
+      {'veh_fuel_str' => 'G'} => 'COD_TCMB_G',
+      {'veh_fuel_str' => 'M'} => 'COD_TCMB_M',
+      {'pol_risk_certificate_str' => 'si'} => 'Scaduto da meno di 5 anni',
+      {'pol_BM_assigned_str' => '-1'} => '01',
+      {'pol_BM_assigned_str' => '1'} => '02',
+      {'pol_BM_assigned_str' => '2'} => '03',
+      {'pol_BM_assigned_str' => '3'} => '04',
+      {'pol_BM_assigned_str' => '4'} => '05',
+      {'pol_BM_assigned_str' => '5'} => '06',
+      {'pol_BM_assigned_str' => '6'} => '07',
+      {'pol_BM_assigned_str' => '7'} => '08',
+      {'pol_BM_assigned_str' => '8'} => '09',
+      {'pol_BM_assigned_str' => '9'} => '10',
+      {'pol_BM_assigned_str' => '10'} => '11',
+      {'pol_BM_assigned_str' => '11'} => '12',
+      {'pol_BM_assigned_str' => '12'} => '13',
+      {'pol_BM_assigned_str' => '13'} => '14',
+      {'pol_BM_assigned_str' => '14'} => '15',
+      {'pol_BM_assigned_str' => '15'} => '16',
+      {'pol_BM_assigned_str' => '16'} => '17',
+      {'pol_BM_assigned_str' => '17'} => '18',
+      {'pol_BM_assigned_str' => '18'} => '18',
+      {'driv_heir_str' => 'no'} => 'CLA_ERLE_N',
+      {'veh_tow_hook_str' => 'no'} => 'CODVER23_N',
+      {'pol_defined_drive_str' => 'si'} => 'GUI_DEFINI_S',
+      {'pol_defined_drive_str' => 'no'} => 'GUI_DEFINI_N',
+      {'pol_exclusive_drive_str' => 'si'} => 'GUI_ESCLUS_S',
+      {'pol_exclusive_drive_str' => 'no'} => 'GUI_ESCLUS_N',
+      {'pol_free_drive_str' => 'si'} => 'GUI_LIBERA_S',
+      {'pol_free_drive_str' => 'no'} => 'GUI_LIBERA_N',
+      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '3.000.000 EURO',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '26.000.000 EURO',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '15.000.000 EURO',
+      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '10.000.000 EURO',
+      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6.000.000 EURO',
+      {'own_owner_sex_str' => 'M'} => 'COD_SESS_M',
+      {'own_owner_sex_str' => 'F'} => 'COD_SESS_F',
+      {'pol_insurance_situation_str' => 'veicolo gi\'a assicurato con atr'} => 'Proveniente da altra Compagnia',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo'} => 'Prima Immatricolazione',
+      {'pol_type_of_contract_str' => 'bonus/malus'} => 'BONUS MALUS',
+      {'pol_quotation_str' => 'bonus/malus'} => 'COD_TMOV_N',
+      {'own_owner_specification_str' => 'M'} => 'TIP_PERS_F',
+      {'own_owner_specification_str' => 'F'} => 'TIP_PERS_F',
+      {'own_owner_specification_str' => 'C'} => 'TIP_PERS_G',
+      {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'AUTOVETTURA SERVIZIO PRIVATO',
+      {'veh_vehicle_type_str' => 'autovettura'} => 'AUTOVETTURA',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
+
+
+    }
+
+  end
+   
   def build_hash_sect_2()
 
     @target_values = {}
