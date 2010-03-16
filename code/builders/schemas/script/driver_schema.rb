@@ -716,7 +716,7 @@ class BuildDriverSchema
         pol_residence_str VARCHAR(128),
         driv_driving_license_yrs_str VARCHAR(128),
         driv_job_str VARCHAR(128),
-        pol_driver_sex_str VARCHAR(128),
+        driv_driver_sex_str VARCHAR(128),
         pol_birth_date_str VARCHAR(128),
         pol_driver_residence_province_str VARCHAR(128),
         pol_driver_zip_code_str VARCHAR(128),
