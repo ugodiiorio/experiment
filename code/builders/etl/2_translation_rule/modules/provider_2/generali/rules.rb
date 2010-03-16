@@ -300,6 +300,7 @@ module Provider2Generali
 
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_record_id_str'  => 'copy_field',
       'pol_residence_str' => 'copy_field',
       'veh_capacity_num' => 'copy_field',
 

@@ -557,7 +557,7 @@ module Provider2Conte
     {'driv_birth_province_str' => 'VI'} => 'VICENZA',
     {'driv_birth_province_str' => 'VT'} => 'VITERBO',
     {'driv_citizenship_str' => 'ITALIA'} => 'page:conducente_nazione:0',
-    {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Coniugato/Coniugata',
+    {'driv_civil_status_str' => 'coniugato senza figli'} => 'Coniugato/Coniugata',
     {'driv_driver_sex_str' => 'M'} => 'page:conducente_principale_sesso:0',
     {'driv_driver_sex_str' => 'F'} => 'page:conducente_principale_sesso:1',
     {'driv_driving_license_points_str' => '20'} => 'Più di 20',

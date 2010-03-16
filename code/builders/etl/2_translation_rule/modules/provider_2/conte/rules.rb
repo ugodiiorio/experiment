@@ -306,6 +306,7 @@ module Provider2Conte
       'pol_policy_starting_date_year_num'  => 'copy_field' ,
       'pol_privacy_1_str' => 'translate_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
+      'pol_record_id_str' => 'copy_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',

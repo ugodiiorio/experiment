@@ -303,6 +303,7 @@ module Provider2ZurichConnect
       'pol_policy_starting_date_str'  => 'copy_field',
       'pol_policy_starting_date_year_num'  => 'copy_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
+      'pol_record_id_str'  => 'copy_field',
       'pol_subscriber_is_owner_str'  => 'translate_field',
       'veh_capacity_num'  => 'copy_field' ,
       'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";',

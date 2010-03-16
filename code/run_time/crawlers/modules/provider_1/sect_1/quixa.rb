@@ -8,8 +8,8 @@
 #require "selenium/client"
 
 class QuixaSect1 < Test::Unit::TestCase
-  attr_reader :selenium_driver, :browser
-  alias :site :browser
+  attr_reader :selenium_driver, :suite_test
+  alias :site :suite_test
   alias :page :selenium_driver
 
   NewVehicle = 0..100
@@ -29,9 +29,9 @@ class QuixaSect1 < Test::Unit::TestCase
 
   def setup
     begin
-      @browser = RunBrowser.new
-      @browser.selenium_setup
-      @kte = @browser.kte
+      @suite_test = RunTest.new
+      @suite_test.selenium_setup
+      @kte = @suite_test.kte
       @logger = @kte.logger
 
       site.load_sector
@@ -188,13 +188,18 @@ class QuixaSect1 < Test::Unit::TestCase
     
     case get("@rca_on_off")
       when 'on'
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
 #        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@instalment')) #ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@payment'))
-        #ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! change with cover ids variables
+
         click_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
         click_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
         click_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
+        click_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+        click_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+        click_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+        click_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+        click_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
         click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
 
@@ -285,15 +290,6 @@ class QuixaSect1 < Test::Unit::TestCase
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => all element options = #{page.get_select_options(element)}"}
 	end
 
-#	def page_select_regex(element, label)
-#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from combo = #{element} a label using regex expression = #{label}"}
-#	  wait_for_select(element, label, "regex")
-#	  page.select element, label
-#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_selected_value(element)}"}
-#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => visible element text = #{page.get_selected_label(element)}"}
-#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => all element options = #{page.get_select_options(element)}"}
-#	end
-
   def wait_for_select(combo_name, label)
   	sleep @sleep
     raise RangeError, "Wait for select failed! Element cannot be nil" unless combo_name
@@ -319,8 +315,8 @@ class QuixaSect1 < Test::Unit::TestCase
   def is_present?(name)
 	  present = page.is_element_present name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
-	  visible = page.is_visible name
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
+	  visible = page.is_visible name if present
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"} if present
     return present
   end
 

@@ -293,16 +293,17 @@ module Provider2Zurich
       'veh_fuel_str' => 'translate_field',
       'veh_vehicle_type_str' => 'translate_field',
 
-      'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
-      'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
-      'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
       'pol_nr_of_paid_claims_2_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_5_yr_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_record_id_str'  => 'copy_field',
       'veh_capacity_num' => 'copy_field',
-
+      
+      'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
+      'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
+      'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
       'pol_risk_certificate_str' => '(profilefield[:pol_insurance_situation_str]== "1a immatricolazione dopo l’acquisto del veicolo") ? "//*[@id=\"CODPRO71_9\"]" : "//*[@id=\"CODPRO71_1\"]"',
 
     }

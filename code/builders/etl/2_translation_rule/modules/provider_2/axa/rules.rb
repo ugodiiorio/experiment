@@ -300,6 +300,7 @@ module Provider2Axa
       'pol_claims_total_number_str' => 'copy_field',
       'pol_claims_total_number_malus_str' => 'copy_field',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
+      'pol_record_id_str'  => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
 
