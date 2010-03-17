@@ -123,6 +123,7 @@ class QuixaSect1 < Test::Unit::TestCase
     click_option(get('@alarm'))
 
     click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
+  	sleep @sleep*3
 
   end
 
@@ -165,13 +166,14 @@ class QuixaSect1 < Test::Unit::TestCase
     click_option(get('@driver_less_than_26_yrs'))
 
     click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
+    sleep @sleep*3
 
   end
 
   def page_3
 
     click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-    sleep @sleep*2
+  	sleep @sleep*5
     
   end
 
@@ -193,6 +195,7 @@ class QuixaSect1 < Test::Unit::TestCase
         uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
         click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
+      	sleep @sleep*2
 
         wait_for_elm get("@rca_premium_id")
 #        assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
@@ -250,8 +253,7 @@ class QuixaSect1 < Test::Unit::TestCase
   def click_button(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
-    page_click @last_element
-  	sleep @sleep*3
+    page_click_button @last_element
   end
 
   def is_checked?(id, value = nil)
@@ -265,16 +267,21 @@ class QuixaSect1 < Test::Unit::TestCase
    page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
+	def page_click_button(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button = #{element}"}
+	  page.click element
+	end
+
 	def page_click(element)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on element = #{element}"}
-#	  wait_for_elm(element)
+	  wait_for_elm(element)
 	  page.click element
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
 	def page_uncheck(element)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Uncheck element = #{element}"}
-#	  wait_for_elm(element)
+	  wait_for_elm(element)
 	  page.uncheck element
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
@@ -327,7 +334,7 @@ class QuixaSect1 < Test::Unit::TestCase
 
   def select_bersani
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
-    select_last_years_claims
+    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
   end
 
   def select_last_years_claims
