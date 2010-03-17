@@ -1,61 +1,117 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				13/03/2009						              #
+#				17/03/2010						              #
 #############################################
 
-gem "selenium-client", ">=1.2.13"
-require "selenium/client"
+class DialogoSect1 < Test::Unit::TestCase
+  attr_reader :selenium_driver, :suite_test
+  alias :site :suite_test
+  alias :page :selenium_driver
 
-class DialogoTest < Test::Unit::TestCase
+  FirstPolicy = 0..100
+  Individual = 0..100
+
+  def get(var)
+    var_value = site.instance_variable_get(var)
+    return var_value.to_s.strip
+  end
+
+  def format_date(date)
+    rate_date_day = "%02d" % date.day
+    rate_date_month = "%02d" % date.month
+    rate_date_year = "%02d" % date.year
+    return "#{rate_date_day}/#{rate_date_month}/#{rate_date_year}"
+  end
 
   def setup
     begin
-      @@logger.info('DialogoTest.setup => ' + $compagnia) {"Setting up Selenium Test ..."}
-      $Result_file.puts("\n******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
-      $Result_file.puts("Compagnia DIALOGO \n") unless $selenium_out_level == 0 || $Result_file == STDOUT
-      $Result_file.puts("Profilo n "+ $profilo_assicurativo.to_s()+"\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
-      $Result_file.puts("******************************************************\n") unless $selenium_out_level == 0 || $Result_file == STDOUT
+      @suite_test = RunTest.new
+      @suite_test.selenium_setup
+      @kte = @suite_test.kte
+      @logger = @kte.logger
 
-      @garanzia = "1"
-      @verification_errors = []
-      const_publisher
+      site.load_sector
+      site.load_person
 
-      @@logger.debug('DialogoTest.setup => ' + $compagnia) {"Selenium port: "+ $port}
-      @selenium= Selenium::Client::Driver.new \
-        :host => "localhost",
-        :port => $port,
-        :browser => $browser,
-        :url => "http://www.dialogo.it",
-        :timeout_in_seconds => $timeout_in_sec
+      @rc_cover_code, @kte.rc_cover_code = get('@rca_code'), get('@rca_code')
+      @record, @kte.record = get('@record_id'), get('@record_id')
+      @rate_date = format_date(@kte.rate_date)
 
-      @selenium.start_new_browser_session
-      @selenium.set_context("test_new")
+#      vehicle_age = 1
+#      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
+
+      @url = eval(site.url)
+      @sleep = @kte.sleep_typing
+#      @verification_errors = []
+
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
+      @selenium_driver = Selenium::Client::Driver.new \
+        :host => site.host,
+        :port => site.port,
+        :timeout_in_seconds => site.timeout_in_secs,
+        :browser => site.browser,
+        :url => @url
+
+      @selenium_driver.start_new_browser_session
+#      @selenium.set_context("test_new")
+
     rescue Errno::ECONNREFUSED => ex
-      @@logger.error('DialogoTest.setup => ' + $compagnia) {ex.class.to_s + " => Selenium not started: " + ex.message.to_s}
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
 #      @verification_errors[@verification_errors.size] = ex.message
-      @@logger.error('DialogoTest.setup => ' + $compagnia) {ex.class.to_s + " => " + ex.message.to_s}
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
   end
-  
+
+
   def teardown
-    @selenium.close_current_browser_session #unless $selenium
-    assert_equal [], @verification_errors
+	  @selenium_driver.close_current_browser_session if @selenium_driver
+#    assert_equal [], @verification_errors
   end
-  
-  def test_new
+
+  def test_site
 
     begin
-      @last_element = nil
-#      @selenium.set_speed 2000
-#      @selenium.set_timeout(30000)
-      @selenium.open "http://www.dialogo.it/DialogoInternet/home.faces"
-      click "//img[@alt='Preventivo Auto in 5 click']"
-      @selenium.wait_for_page_to_load $wait_for_page_to_load
+      @last_element, @last_value = nil, nil
 
+      page_1
+#      page_2
+#      page_3
+#      page_4
+
+      @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
+
+      #@selenium.set_speed 2000
+    rescue Timeout::Error => ex
+      ex_message = "#{ex.class.to_s}: Selenium Timeout for profile [#{@kte.profile}] and record [#{@record}] on element -> [#{@last_element}] with value [#{@last_value if @last_value}]: #{ex.message.to_s}"
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex_message}"}
+      @kte.test_result = ex_message
+      raise ex.class, ex_message
+    rescue Exception => ex
+      ex_message = "#{ex.class.to_s}: Selenium error for profile [#{@kte.profile}] and record [#{@record}] on element -> [#{@last_element}] with value [#{@last_value if @last_value}]: #{ex.message.to_s}"
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex_message}"}
+      @kte.test_result = ex_message
+      raise ex.class, ex_message
+    end
+  end
+
+  private # all methods that follow will be made private: not accessible for outside objects
+
+  def page_1
+
+    open_page(@url) #url="http://www.dialogo.it/DialogoInternet/home.faces"
+
+    click_button "//img[@alt='Preventivo Auto in 5 click']"
+    page_wait
+    
+  end
+
+  def page_2
       click "contentSubView:contentForm:knowledgeSelect"
       select "contentSubView:contentForm:knowledgeSelect", "label="+					$ConoscenzaCompagnia
 
@@ -205,107 +261,157 @@ class DialogoTest < Test::Unit::TestCase
       $writer.result_update("KO", ex_message)
       raise ex.class, ex_message
     end
-	end 
 	
-	def select(element, label)
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Seleziona da combo = "+element}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"      ...la label = "+label}
-	  wait_for_select(element, label)
-	  @selenium.select element, label  	
-	end
-	
-	def click(element)
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Click su elemento = "+element}
-	  wait_for_elm(element)
-	  @selenium.click element 	
-	end  
-	
-	def type(element, label)
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Scrivi su elemento = "+element}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"      ...la label = "+label}
-	  wait_for_elm(element)
-	  @selenium.type element, label  	
-	end    
-  
-  def wait_for_select(nome_elemento_combo, label)
-    @last_element = nome_elemento_combo
-  	sleep $sleep
-  	if(nome_elemento_combo==nil)
-  		@@logger.error('DialogoTest.test_new => ' + $compagnia) {"Attenzione ! Nome_elemento_combo inesistente !!"}
-      raise RangeError, "Wait for select failed! Element cannot be nil"
-  	end
-    if(label==nil)
-      @@logger.error('DialogoTest.test_new => ' + $compagnia) {"Attenzione ! label inesistente!!"}
-      raise RangeError, "Wait for select failed! Label cannot be nil"
-      end
-    label= label.gsub!("label=","")
-    if(label==nil)
-      @@logger.error('DialogoTest.test_new => ' + $compagnia) {"Attenzione ! Label non formattata correttamente !!"}
-      raise RangeError, "Wait for select failed! Label cannot be nil"
-    end
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Nome combo = "+nome_elemento_combo}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Label = "+label}
-	  	  
-	  @selenium.wait_for_element nome_elemento_combo
-	  var = @selenium.element? nome_elemento_combo
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Combo presente ? "+var.to_s()+"  label  "+label}
-	  assert !60.times{ break if (@selenium.get_select_options(nome_elemento_combo).include?(label)); sleep 1 }	
+  def open_page(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
+    page.open @last_element
+    sleep @sleep
+    assert_equal @url, page.get_location
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{page.get_title.upcase}"}
   end
-  
-  def wait_for_elm(nome_elemento)
-    @last_element = nome_elemento
-	  sleep $sleep
-	  if(nome_elemento==nil)
-		  @@logger.error('DialogoTest.test_new => ' + $compagnia) {"Attenzione ! Nome_elemento inesistente !!"}
-      raise RangeError, "Wait for element failed! Element cannot be nil"
-	  end	  
-	  @selenium.wait_for_element nome_elemento
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Nome elemento = "+nome_elemento}
-	  
-	  var = @selenium.element? nome_elemento
-	  if var
-      @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Elemento presente ? "+var.to_s()}
-    else
-  	  @@logger.error('DialogoTest.test_new => ' + $compagnia) {"Elemento = "+nome_elemento +" non presente"}
-      raise RangeError, "Wait for element failed! Element not present"
-    end
-  end	  
-  
-  def const_publisher ()
-  	
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Sesso = "+ $Sesso}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Cap = "+ $Cap}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Data_immatricolazione = "+ $Data_immatricolazione}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Data_immatricolazione_anno = "+ $Data_immatricolazione_anno}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Data_immatricolazione_mese = "+ $Data_immatricolazione_mese}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Data_immatricolazione_giorno = "+ $Data_immatricolazione_giorno}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Professione = "+ $Professione}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Marca_auto = "+ $Marca_auto}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Modello_auto = "+ $Modello_auto}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Allestimento_auto = "+ $Allestimento_auto}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Classe_BM = "+ $Classe_BM}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"N_Sinistri_4_anni = "+ $N_sinistri_4_anni}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Massimale_RCA = "+ $Massimale_RCA}
-	  @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"profilo " + $profilo_assicurativo}
-	  
-  end
-  
-  def uncheck(nome_elemento)
-    @last_element = nome_elemento
-    sleep $sleep
 
-    if(nome_elemento==nil)
-      @@logger.error('DialogoTest.test_new => ' + $compagnia) {"Attenzione ! Nome_elemento inesistente !!"}
-    end
-      var = @selenium.element? nome_elemento
-      if var
-        if @selenium.is_checked nome_elemento
-          @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Click su elemento = "+ nome_elemento}
-          @selenium.uncheck nome_elemento
-          sleep 2
-        end
-      else
-      end
-  end    
+  def select_option(id, value = nil)
+    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+    page_select @last_element, "#{@last_value}"
+    assert_equal page.get_selected_label(@last_element), @last_value unless /(regexpi)*/.match(@last_element)
+  end
+
+  def type_text(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
+    page_type @last_element, "#{@last_value}"
+    assert_equal page.get_value(@last_element), @last_value
+  end
+
+  def click_option(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked option button element: [#{@last_element}]"}
+    page_click @last_element
+    assert_equal page.get_value(@last_element), "on"
+  end
+
+  def click_checkbox(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked checkbox element: [#{@last_element}]"}
+    page_click @last_element
+    assert_equal page.get_value(@last_element), "on"
+  end
+
+  def uncheck_checkbox(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's unchecked checkbox element: [#{@last_element}]"}
+    page_uncheck @last_element
+    assert_equal page.get_value(@last_element), "off"
+  end
+
+  def click_button(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
+    page_click @last_element
+  	sleep @sleep*3
+  end
+
+  def is_checked?(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => is it checked checkbox: [#{@last_element}]?"}
+    present = is_present?(@last_element)
+  	return present ? page.is_checked(@last_element) : nil
+  end
+
+  def page_wait
+   page.wait_for_page_to_load site.wait_for_page_to_load
+  end
+
+	def page_click(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on element = #{element}"}
+#	  wait_for_elm(element)
+	  page.click element
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
+	end
+
+	def page_uncheck(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Uncheck element = #{element}"}
+#	  wait_for_elm(element)
+	  page.uncheck element
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
+	end
+
+	def page_type(element, label)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
+	  wait_for_elm(element)
+	  page.type element, label
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
+	end
+
+	def page_select(element, label)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from combo = #{element} a #{label}"}
+	  wait_for_select(element, label)
+	  page.select element, label
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_selected_value(element)}"}
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => visible element text = #{page.get_selected_label(element)}"}
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => all element options = #{page.get_select_options(element)}"}
+	end
+
+  def wait_for_select(combo_name, label)
+  	sleep @sleep
+    raise RangeError, "Wait for select failed! Element cannot be nil" unless combo_name
+    raise RangeError, "Wait for select failed! Label cannot be nil" unless label
+    raise RangeError, "Wait for select failed! Label cannot be nil" unless label.gsub!("label=","")
+	  wait_for_elm combo_name
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
+	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
+  end
+
+  def wait_for_elm(name)
+  	sleep @sleep
+	  page.wait_for_element name
+		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug("#{__FILE__} => #{method_name}") \
+                               {"#{@kte.company} => Waiting combo "+ name;} } \
+                                if page.is_visible("ctl00_UpdateProgress1") \
+                                if page.element? "ctl00_UpdateProgress1"
+	  raise RangeError, "Wait for element failed! Element not present = #{name}" unless page.element? name
+#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element name = #{name}"}
+
+  end
+
+  def is_present?(name)
+	  present = page.is_element_present name
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
+	  visible = page.is_visible name if present
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"} if present
+    return present
+  end
+
+  def select_bersani
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
+    select_last_years_claims
+  end
+
+  def select_last_years_claims
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", get('@nr_of_paid_claims_1_yr'))
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", get('@nr_of_paid_claims_2_yr'))
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", get('@nr_of_paid_claims_3_yr'))
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", get('@nr_of_paid_claims_4_yr'))
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", get('@nr_of_paid_claims_5_yr'))
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", get('@nr_of_paid_claims_this_yr'))
+  end
+
+  def get_premium(p)
+
+    @last_element = p
+    premium = page.get_text(@last_element)
+    assert premium.split[0] != nil, @last_element.inspect
+    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    premium = premium.split[0].gsub(".","")
+    premium = premium.gsub(",",".")
+
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
+    raise RangeError, "Price cannot be equal to zero" unless premium.to_i > 0
+    @kte.rc_premium = premium
+
+  end
+  
 end
 

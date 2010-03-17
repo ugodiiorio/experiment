@@ -100,6 +100,8 @@ class QuixaSect1 < Test::Unit::TestCase
     end
   end
 
+  private # all methods that follow will be made private: not accessible for outside objects
+
   def page_1
 
     open_page(@url) #"http://www.quixa.it/simulator.aspx?SimObject=CAR"
