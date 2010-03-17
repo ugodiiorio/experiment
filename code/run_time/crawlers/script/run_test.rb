@@ -122,7 +122,7 @@ class RunTest
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Test case log file initializing ..."}
 
 #      start_selenium
-      require(File.join(DLN_LIBRARY_PATH, @kte.provider, @kte.sector) + '/' + @kte.company + ".rb")
+      require("#{File.join(DLN_LIBRARY_PATH, @kte.provider, @kte.sector)}/#{@kte.company}_#{@kte.sector}.rb")
       test = Test::Unit::UI::Console::TestRunner.new Kernel.const_get(selenium_class)
       result = test.start
       test_errors = result.instance_variable_get("@errors")[0]
