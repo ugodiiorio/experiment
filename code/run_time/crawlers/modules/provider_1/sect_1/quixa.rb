@@ -130,7 +130,7 @@ class QuixaSect1 < Test::Unit::TestCase
   def page_2
 
 #      wait_for_alert()
-
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_option(get('@leasing'))
 
     click_option(get('@client_type'))
@@ -172,6 +172,7 @@ class QuixaSect1 < Test::Unit::TestCase
 
   def page_3
 
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
   	sleep @sleep*5
     
@@ -179,6 +180,7 @@ class QuixaSect1 < Test::Unit::TestCase
 
   def page_4
     
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     case get("@rca_on_off")
       when 'on'
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
@@ -211,8 +213,8 @@ class QuixaSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-    assert_equal @url, page.get_location
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{page.get_title.upcase}"}
+    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
   end
 
   def select_option(id, value = nil)
@@ -304,9 +306,9 @@ class QuixaSect1 < Test::Unit::TestCase
 
   def wait_for_select(combo_name, label)
   	sleep @sleep
-    raise RangeError, "Wait for select failed! Element cannot be nil" unless combo_name
-    raise RangeError, "Wait for select failed! Label cannot be nil" unless label
-    raise RangeError, "Wait for select failed! Label cannot be nil" unless label.gsub!("label=","")
+    assert_not_nil combo_name
+    assert_not_nil label
+    assert_not_nil label.gsub!("label=","")
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
@@ -315,26 +317,23 @@ class QuixaSect1 < Test::Unit::TestCase
   def wait_for_elm(name)
   	sleep @sleep
 	  page.wait_for_element name
-		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug("#{__FILE__} => #{method_name}") \
-                               {"#{@kte.company} => Waiting combo "+ name;} } \
-                                if page.is_visible("ctl00_UpdateProgress1") \
-                                if page.element? "ctl00_UpdateProgress1"
-	  raise RangeError, "Wait for element failed! Element not present = #{name}" unless page.element? name
-#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element name = #{name}"}
+    assert_is_element_present(name)
 
   end
 
   def is_present?(name)
 	  present = page.is_element_present name
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
-	  visible = page.is_visible name if present
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"} if present
+    if present
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
+      visible = page.is_visible name
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
+    end
     return present
   end
 
   def select_bersani
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
     /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
   end
 
   def select_last_years_claims
@@ -356,14 +355,21 @@ class QuixaSect1 < Test::Unit::TestCase
     premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
-    raise RangeError, "Price cannot be equal to zero" unless premium.to_i > 0
+    assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"
     @kte.rc_premium = premium
 
+  end
+
+  def assert_is_element_present(element)
+		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug("#{__FILE__} => #{method_name}") \
+                               {"#{@kte.company} => Waiting combo "+ name;} } \
+                                if page.is_visible("ctl00_UpdateProgress1") \
+                                if page.element? "ctl00_UpdateProgress1"
+	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
   end
 
 #	def wait_for_alert()
 #		!8.times{ break if (page.alert?); sleep 1; puts "Waiting alert ..."; }
 #		page.alert() if page.alert?
 #	end
-
 end

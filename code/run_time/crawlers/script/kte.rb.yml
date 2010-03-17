@@ -2,7 +2,7 @@
 general_settings: 
   gs_typing_sleep_in_seconds: 1.5
   gs_profile_sleep_in_seconds: 5
-  gs_profile_id: '1355'
+  gs_profile_id: '7'
   gs_max_number_of_profiles: 1
 logger_settings: 
   ls_device: '/home/notroot/git/KTE/code/run_time/log/'
@@ -12,8 +12,8 @@ logger_settings:
   ls_datetime_format: = '%Y-%m-%d %H:%M:%S'
 selenium_settings: 
   ss_selenium_port: '4444'
-  ss_wait_for_page_to_load: 60000
-  ss_timeout_in_seconds: 30
+  ss_wait_for_page_to_load: 120000
+  ss_timeout_in_seconds: 120
   ss_io_device: '/home/notroot/git/KTE/code/run_time/log/'
   ss_output_level: 3
   ss_browser_type: '*chrome'
@@ -28,7 +28,7 @@ database_settings:
 app_settings:
   as_provider_id: 'provider_1'
   as_company_group_id: 'all_provider_1'
-  as_company_id: 'quixa'
+  as_company_id: 'dialogo'
   as_sector_id: 'sect_1'
   as_working_set_id: 'prov_1_20100301'
   as_rate_id: '20100410'

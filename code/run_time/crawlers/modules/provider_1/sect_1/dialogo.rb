@@ -79,7 +79,7 @@ class DialogoSect1 < Test::Unit::TestCase
       @last_element, @last_value = nil, nil
 
       page_1
-#      page_2
+      page_2
 #      page_3
 #      page_4
 
@@ -112,9 +112,30 @@ class DialogoSect1 < Test::Unit::TestCase
   end
 
   def page_2
-      click "contentSubView:contentForm:knowledgeSelect"
-      select "contentSubView:contentForm:knowledgeSelect", "label="+					$ConoscenzaCompagnia
 
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+#      page_click "contentSubView:contentForm:knowledgeSelect"
+    select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
+
+    click_option(get('@vehicle_use'))
+    click_option(get('@insurance_situation'))
+    type_text("contentSubView:contentForm:decorrenza", @rate_date)
+  end
+
+  def page_3
+    
+    case page.get_text("//label[@for='#{@last_element}']") =~ /fisica/i
+      when Individual
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCountry", get('@citizenship'))
+        click_option(get('@owner_sex'))
+        type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", get('@birth_date'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", get('@job'))
+      else
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
+        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
+    end
       if $Polizza_nuova_auto_nuova
         click "//input[@name='contentSubView:contentForm:attualeSituazione' and @value='1']"
         type "contentSubView:contentForm:decorrenza", 								$Data_decorrenza
@@ -233,33 +254,15 @@ class DialogoSect1 < Test::Unit::TestCase
       click "buttonRecomputeImg"
 
       sleep 5
-      wait_for_elm("//div[@id='sbox_Costo Annuale']/span")
+      wait_for_elm get("@rca_premium_id")
+      get_premium(get("@rca_premium_id"))
 
-    #	premio = @selenium.get_text("//div[@id='sbox_RCA']/span")
-      premio = @selenium.get_text("//div[@id='sbox_Costo Annuale']/span")
-    #	premio = @selenium.get_text("contentSubView:quotationTabletForm:proposalTable:0:platinumPremium")
+      wait_for_elm("//div[@id='sbox_Costo Annuale']/span")
       str = premio.split
       premio = str[1]
       premio = premio.gsub(".","") if premio
       premio = premio.gsub(",",".") if premio
       @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"gsub premio = " + premio.to_s}
-      raise RangeError, "Price cannot be nil" unless premio
-
-      raise RangeError, "Price cannot be equal to zero" unless premio.to_i > 0
-
-      $writer.result_update("OK", "New price for profile " + $profilo_assicurativo + " = " + premio)
-      $writer.profile_price( $profilo_assicurativo, $compagnia, @garanzia, $rilevazione, premio)
-      @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"PREMIO = "+ premio}
-    rescue Timeout::Error => ex
-      ex_message = ex.class.to_s + " => Selenium timeout on element -> " + @last_element + " - " + ex.message.to_s
-      @@logger.error('DialogoTest.test_new => ' + $compagnia) {ex_message}
-      $writer.result_update("KO", ex_message)
-      raise ex.class, ex_message
-    rescue Exception => ex
-      ex_message = ex.class.to_s + " => Selenium error on element -> " + @last_element + " - " + ex.message.to_s
-      @@logger.error('DialogoTest.test_new => ' + $compagnia) {ex_message}
-      $writer.result_update("KO", ex_message)
-      raise ex.class, ex_message
     end
 	
   def open_page(id, value = nil)
@@ -267,8 +270,8 @@ class DialogoSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-    assert_equal @url, page.get_location
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{page.get_title.upcase}"}
+    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
   end
 
   def select_option(id, value = nil)
@@ -360,9 +363,12 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def wait_for_select(combo_name, label)
   	sleep @sleep
-    raise RangeError, "Wait for select failed! Element cannot be nil" unless combo_name
-    raise RangeError, "Wait for select failed! Label cannot be nil" unless label
-    raise RangeError, "Wait for select failed! Label cannot be nil" unless label.gsub!("label=","")
+    assert_not_nil combo_name
+    assert_not_nil label
+    assert_not_nil label.gsub!("label=","")
+#    raise RangeError, "Wait for select failed! Element cannot be nil" unless combo_name
+#    raise RangeError, "Wait for select failed! Label cannot be nil" unless label
+#    raise RangeError, "Wait for select failed! Label cannot be nil" unless label.gsub!("label=","")
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
@@ -371,13 +377,7 @@ class DialogoSect1 < Test::Unit::TestCase
   def wait_for_elm(name)
   	sleep @sleep
 	  page.wait_for_element name
-		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug("#{__FILE__} => #{method_name}") \
-                               {"#{@kte.company} => Waiting combo "+ name;} } \
-                                if page.is_visible("ctl00_UpdateProgress1") \
-                                if page.element? "ctl00_UpdateProgress1"
-	  raise RangeError, "Wait for element failed! Element not present = #{name}" unless page.element? name
-#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element name = #{name}"}
-
+    assert_is_element_present(name)
   end
 
   def is_present?(name)
@@ -391,8 +391,8 @@ class DialogoSect1 < Test::Unit::TestCase
   end
 
   def select_bersani
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
     /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
   end
 
   def select_last_years_claims
@@ -414,9 +414,13 @@ class DialogoSect1 < Test::Unit::TestCase
     premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
-    raise RangeError, "Price cannot be equal to zero" unless premium.to_i > 0
+    assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"
     @kte.rc_premium = premium
 
+  end
+
+  def assert_is_element_present(element)
+	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
   end
   
 end
