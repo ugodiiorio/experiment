@@ -276,6 +276,7 @@ module Provider2Linear
 
       'driv_citizenship_str' => 'copy_field',
       'driv_driver_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'pol_bersani_ref_vehicle_insured_with_company_str' => 'translate_field',
       'pol_bersani_ref_vehicle_number_plate_str' => 'copy_field',
       'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
@@ -304,6 +305,7 @@ module Provider2Linear
       'pol_policy_starting_date_month_str'=> 'copy_field' ,
       'pol_policy_starting_date_str' => 'copy_field',
       'pol_policy_starting_date_year_num'=> 'copy_field' ,
+      'pol_property_type_to_be_insured_str'  => 'copy_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_record_id_str'  => 'copy_field',
       'pol_RCA_code_str' =>  'copy_field',
@@ -313,6 +315,7 @@ module Provider2Linear
       'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
       'veh_set_up_str' => 'make=profilefield[:veh_set_up_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',
       'veh_vehicle_shelter_str' => 'translate_field',
+      'veh_vehicle_type_str'  => 'copy_field',
 
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_on_off_str' => 'copy_field',

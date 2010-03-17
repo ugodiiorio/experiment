@@ -278,6 +278,7 @@ module Provider2Dialogo
       'driv_driving_license_yrs_str' => 'x = "" ; if profilefield[:driv_driving_license_yrs_str].to_i < 1; x="meno di un anno"; elsif profilefield[:driv_driving_license_yrs_str].to_i <= 2; x="da uno a due anni"; elsif profilefield[:driv_driving_license_yrs_str].to_i <= 10; x="da due a dieci anni"; else  x="da oltre dieci anni" end;',
       'driv_job_str' => 'job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
       'own_owner_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'own_owner_zip_code_str' => 'copy_field',
       'pol_bersani_str' => 'translate_field',
       'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',

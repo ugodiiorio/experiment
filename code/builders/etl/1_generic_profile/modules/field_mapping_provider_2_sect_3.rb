@@ -8,9 +8,9 @@ module FieldMappingProvider2Sect3
 
     @field_rule_values = {
 
-      'driv_driver_sex_str' => 'if (infield[:own_owner_sex_str].strip.upcase == "C") infield[:driv_driver_sex_str].strip.downcase else infield[:own_owner_sex_str].strip.downcase',
+      'driv_driver_sex_str' => 'if (infield[:own_owner_sex_str].strip.upcase == "C") infield[:driv_driver_sex_str].strip.downcase else infield[:own_owner_sex_str].strip.upcase',
       'driv_residence_str' => 'infield[:driv_residence_str].strip.downcase',
-      'own_owner_sex_str' => 'infield[:own_owner_sex_str].strip.downcase',
+      'own_owner_sex_str' => 'infield[:own_owner_sex_str].strip.upcase',
       'own_owner_specification_str'  => 'if infield[:own_owner_sex_str].strip.upcase == "M"; infield[:own_owner_sex_str].strip.upcase; elsif infield[:own_owner_sex_str].strip.upcase == "F"; infield[:own_owner_sex_str].strip.upcase; else "C"; end' ,
       'own_owner_zip_code_str' => 'infield[:own_owner_zip_code_str].strip.downcase',
       'pol_birth_date_str' => '(DateTime::now - infield[:pol_birth_date_str].to_i.years).strftime("%F")',
@@ -37,9 +37,8 @@ module FieldMappingProvider2Sect3
       'pol_public_liability_indemnity_limit_str' => 'infield[:pol_public_liability_indemnity_limit_str].strip.downcase',
       'pol_quotation_str' => 'infield[:pol_quotation_str].strip.downcase',
       'pol_record_id_str' => 'infield[:pol_record_id_str].strip.downcase',
-      'pol_residence_province_str' => 'infield[:pol_residence_province_str].strip.downcase',
-      'pol_residence_province_str' => 'infield[:pol_residence_province_str].strip.downcase',
-      'pol_residence_str' => 'infield[:pol_residence_str].strip.downcase',
+      'pol_residence_province_str' => 'infield[:pol_residence_province_str].strip.upcase',
+      'pol_residence_str' => 'infield[:pol_residence_str].strip.upcase',
 
       'driv_birth_place_str' => 'infield[:pol_residence_str].strip.upcase',
       'driv_heir_str' => "'no'",

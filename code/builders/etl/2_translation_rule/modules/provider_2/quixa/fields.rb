@@ -306,7 +306,6 @@ module Provider2Quixa
 
     @target_values = {
 
-      {'driv_citizenship_str' => 'ITALIA'} => 'ITALIA' ,
       {'own_owner_sex_str' => 'M'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_0',
       {'own_owner_sex_str' => 'F'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_1',
       {'pol_bersani_str' => 'convivente'} => 'si, parente/convivente',
@@ -377,7 +376,7 @@ module Provider2Quixa
       {'pol_public_liability_indemnity_limit_str' => '18000000'} => '18.000.000 € - 15.000.000 € - 3.000.000 €',
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '12.000.000 € - 10.000.000 € - 2.000.000 €',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6.000.000 € - 5.000.000 € - 1.000.000 €',
-      {'pol_RCA_premium_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize',
+      {'pol_RCA_premium_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_MA_Prize',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',
@@ -488,8 +487,11 @@ module Provider2Quixa
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
-      {'veh_alarm_str' => 'no'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtSatelliteLocationNo',
-      {'veh_km_per_yr_num' => '15000'} => 'Tra 10000 - 20000',
+      {'veh_alarm_str' => 'nessuno'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtSatelliteLocationNo',
+      {'veh_km_per_yr_str' => '15000'} => 'Tra 10.000 - 20.000',
+      {'veh_passenger_transportation_str' => 'si'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtPassengerYes',
+      {'veh_passenger_transportation_str' => 'no'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtPassengerNo',
+      {'veh_vehicle_type_str' => 'motociclo'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucNewSimulation_rblSimulationTypes_1',
 
     }
 
