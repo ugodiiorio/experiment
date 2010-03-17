@@ -275,8 +275,6 @@ module Provider2Axa
 
   end
 
-
-
   def build_hash_sect_2()
 
     @rule_values ={}
@@ -285,6 +283,7 @@ module Provider2Axa
       
       'driv_driving_experience_str' => 'translate_field',
       'own_owner_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
       'pol_instalment_str' => 'translate_field',
@@ -324,6 +323,7 @@ module Provider2Axa
     @rule_values = {
 
       'own_owner_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
@@ -364,6 +364,7 @@ module Provider2Axa
 
     @rule_values = {
 
+      'own_owner_specification_str'  => 'copy_field',
       'pol_client_type_str' => 'translate_field',
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
