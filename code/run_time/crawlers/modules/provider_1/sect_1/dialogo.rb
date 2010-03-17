@@ -309,8 +309,7 @@ class DialogoSect1 < Test::Unit::TestCase
   def click_button(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
-    page_click @last_element
-  	sleep @sleep*3
+    page_click_button @last_element
   end
 
   def is_checked?(id, value = nil)
@@ -324,16 +323,21 @@ class DialogoSect1 < Test::Unit::TestCase
    page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
+	def page_click_button(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button = #{element}"}
+	  page.click element
+	end
+
 	def page_click(element)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on element = #{element}"}
-#	  wait_for_elm(element)
+	  wait_for_elm(element)
 	  page.click element
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
 	def page_uncheck(element)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Uncheck element = #{element}"}
-#	  wait_for_elm(element)
+	  wait_for_elm(element)
 	  page.uncheck element
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
@@ -378,15 +382,17 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def is_present?(name)
 	  present = page.is_element_present name
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
-	  visible = page.is_visible name if present
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"} if present
+    if present
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
+      visible = page.is_visible name
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
+    end
     return present
   end
 
   def select_bersani
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
-    select_last_years_claims
+    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
   end
 
   def select_last_years_claims
