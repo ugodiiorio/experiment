@@ -79,7 +79,7 @@ module FieldMappingProvider1Sect1
       'pol_glasses_web_id_str' =>  '"id elemento"',
       'pol_how_do_you_know_the_company_str' =>  '"passaparola"',
       'pol_instalment_str' =>  'infield[:pol_instalment_str].downcase.strip',
-      'pol_insurance_situation_str' => 'infield[:pol_insurance_situation_str].downcase.strip == "veicolo gia\' assicurato con atr" ? a=infield[:pol_insurance_situation_str].downcase.strip : if infield[:pol_matriculation_date_str].to_i == 0; a=infield[:pol_insurance_situation_str].downcase.strip + " nuovo"; else a=infield[:pol_insurance_situation_str].downcase.strip + " usato" end ; b= a.gsub(/à/,"a" ); c= b.gsub(/è/,"e" ); d= c.gsub(/é/,"e" ); e= d.gsub(/ì/,"i" ); f= e.gsub(/ò/,"o" ); g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); ',
+      'pol_insurance_situation_str' => 'infield[:pol_insurance_situation_str].downcase.strip == "veicolo gia\' assicurato con atr" ? a=infield[:pol_insurance_situation_str].downcase.strip : (if infield[:pol_matriculation_date_str].to_i == 0; a=infield[:pol_insurance_situation_str].downcase.strip + " nuovo"; else a=infield[:pol_insurance_situation_str].downcase.strip + " usato" end) ; b= a.gsub(/à/,"a" ); c= b.gsub(/è/,"e" ); d= c.gsub(/é/,"e" ); e= d.gsub(/ì/,"i" ); f= e.gsub(/ò/,"o" ); g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); ',
       'pol_kasko_premium_id_str' =>  '"id elemento"',
       'pol_kasko_web_id_str' =>  '"id elemento"',
       'pol_leasing_str' =>  '"no"',

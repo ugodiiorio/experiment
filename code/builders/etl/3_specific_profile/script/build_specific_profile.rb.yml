@@ -11,7 +11,7 @@ app_settings:
   as_sector_id: "sect_1"
   as_company_group_id: "dialogo_provider_2"
   as_company_id: "dialogo"
-  as_working_set_id: "prov_2_20100201"
+  as_working_set_id: "prov_2_20100301"
   as_rate_date: "10th day next month"
 
 logger_settings: 
