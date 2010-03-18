@@ -47,7 +47,7 @@ module FieldMappingProvider2Sect4
       'pol_property_type_to_be_insured_str' => "'autocarro per trasporto persone o cose'",
       'pol_RCA_code_str' => "'RC'",
       'pol_RCA_on_off_str' => "'on'",
-      'pol_RCA_premium_id_str' => "'id_elemento'",
+      'pol_RCA_premium_id_str' => "'id elemento'",
       'pol_renounce_compensation_str' => "'no'",
       'pol_type_of_contract_str' => "'nuova polizza'",
       'veh_alarm_str' => "'nessuno'",

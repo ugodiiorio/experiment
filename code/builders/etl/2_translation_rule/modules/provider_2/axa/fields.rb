@@ -79,7 +79,7 @@ def build_hash_sect_2()
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3,000,000 € - 2,500,000 € - 500,000 €',
       {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '6,000,000 € - 5,000,000 € - 1,000,000 €',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6,000,000 € - 6,000,000 € - 6,000,000 €',
-      {'pol_RCA_premium_id_str' => 'id_elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
       {'pol_second_driver_str' => 'no'} => 'No',
       {'veh_fuel_str' => 'benzina'} => 'Benzina',
       {'veh_vehicle_type_str' => 'motociclo'} => 'Motociclo'
@@ -126,7 +126,7 @@ def build_hash_sect_3()
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3,000,000 € - 2,500,000 € - 500,000 €',
       {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '6,000,000 € - 5,000,000 € - 1,000,000 €',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6,000,000 € - 6,000,000 € - 6,000,000 €',
-      {'pol_RCA_premium_id_str' => 'id_elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
       {'veh_vehicle_type_str' => 'ciclomotore'} => 'Ciclomotore',
       {'veh_fuel_str' => 'benzina'} => 'Benzina'
 
@@ -156,7 +156,7 @@ def build_hash_sect_4()
       {'pol_property_type_to_be_insured_str' => 'autocarro per trasporto persone o cose'} => 'Autocarro',
       {'pol_quotation_str' => 'fissa'} => 'Fissa',
       {'pol_quotation_str' => 'franchigia'} => 'Franchigia',
-      {'pol_RCA_premium_id_str' => 'id_elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
       {'veh_fuel_str' => 'diesel'} => 'Diesel',
       {'veh_hook_str' => 'no'} => 'No',
       {'veh_product_sector_str' => 'Pesca, piscicoltura e servizi connessi'} => 'Pesca, piscicoltura e servizi connessi',

@@ -49,7 +49,7 @@ module FieldMappingProvider2Sect3
       'pol_property_type_to_be_insured_str' => "'ciclomotore'",
       'pol_RCA_code_str' => "'RC'",
       'pol_RCA_on_off_str' => "'on'",
-      'pol_RCA_premium_id_str' => "'id_elemento'",
+      'pol_RCA_premium_id_str' => "'id elemento'",
       'pol_type_of_contract_str' => "'nuova polizza'",
       'pol_yrs_with_no_claims_in_RC_str' => "'4'",
       'veh_capacity_num' => "'50'",
