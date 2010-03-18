@@ -272,6 +272,7 @@ module Provider1Dialogo
       'pol_protection_24_on_off_str' => 'copy_field' ,
       'pol_protection_24_premium_id_str' => 'copy_field' ,
       'pol_protection_24_web_id_str' => 'copy_field' ,
+      'pol_public_liability_young_exemption_str' => 'copy_field'
 
     }
 
