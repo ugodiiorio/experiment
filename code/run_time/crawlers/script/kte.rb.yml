@@ -2,7 +2,7 @@
 general_settings: 
   gs_typing_sleep_in_seconds: 1
   gs_profile_sleep_in_seconds: 5
-  gs_profile_id: '3'
+  gs_profile_id: '1'
   gs_max_number_of_profiles: 1
 logger_settings: 
   ls_device: '/home/notroot/git/KTE/code/log/'
@@ -27,9 +27,9 @@ database_settings:
   ds_db_target: 'kte_target'
 app_settings:
   as_provider_id: 'provider_2'
-  as_company_group_id: 'quixa_provider_2'
-  as_company_id: 'quixa'
-  as_sector_id: 'sect_2'
+  as_sector_id: 'sect_1'
+  as_company_id: 'dialogo'
+  as_company_group_id: 'dialogo_provider_2'
   as_working_set_id: 'prov_2_20100301'
   as_rate_id: '20100410'
   as_rate_date: '10th day next month'
