@@ -49,7 +49,7 @@ def init()
     app_settings = {:as_select_stmt_mapping => nil, :as_select_stmt_input => nil,
                         :as_select_stmt_filtered_mapping => nil, :as_insert_stmt_profile => nil, :as_update_stmt_profile => nil,
                         :as_provider_id => nil, :as_sector_id => nil, :as_input_file => nil,
-                        :as_company_group_id => nil, :as_working_set_id => nil} unless app_settings
+                        :as_company_group_id => nil, :as_working_set_id => nil, :as_provider_company_id => nil} unless app_settings
     logger_settings = {:ls_device =>nil,
                        :ls_level =>nil,
                        :ls_shift_age =>nil,
@@ -75,7 +75,7 @@ def init()
   @sector_id = app_settings['as_sector_id']
   @company_group_id = app_settings['as_company_group_id']
   @working_set_id = app_settings['as_working_set_id']
-  
+  @provider_company_id = app_settings['as_provider_company_id']
   @log_device = logger_settings['ls_device'] || "/home/notroot/git/piper_nigrum/builders/log/etl.log"
   @log_level = logger_settings['ls_level'] || 2
   @datetime_format = logger_settings['ls_datetime_format'] || "%Y-%m-%d %H:%M:%S"
