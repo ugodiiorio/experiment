@@ -1,6 +1,5 @@
 module Provider2Generali
 
-
   def build_hash_sect_1()
 
     @target_values = {}
@@ -53,8 +52,8 @@ module Provider2Generali
       {'pol_nr_of_paid_claims_this_yr_str' => '1'} => '1',
       {'pol_driver_sex_str' => 'M'} => 'Maschio',
       {'pol_driver_sex_str' => 'F'} => 'Femmina',
-      {'pol_insurance_situation_str' => 'veicolo gi\'a assicurato con atr'} => 'Gia\' assicurato con Bonus/Malus',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo'} => 'Prima Immatricolazione',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Gia\' assicurato con Bonus/Malus',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima Immatricolazione',
 
       {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
       {'pol_driving_type_str' => 'esclusiva'} => ' Conducente esclusivo',
@@ -175,15 +174,10 @@ module Provider2Generali
       {'pol_residence_province_str' => 'VS'} => 'VS - MEDIO CAMPIDANO',
       {'pol_residence_province_str' => 'VT'} => 'VT - VITERBO',
       {'pol_residence_province_str' => 'VV'} => 'VV - VIBO VALENTIA',
-    
-
-
 
     }
 
   end
-
-
 
   def build_hash_sect_2()
 
@@ -215,8 +209,8 @@ module Provider2Generali
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_client_type_str' => 'persona fisica'} => 'Persona Fisica',
       {'pol_client_type_str' => 'persona giuridica'} => 'Persona Giuridica',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => "Gia' assicurato con Bonus/Malus",
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Prima Immatricolazione',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => "Gia' assicurato con Bonus/Malus",
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima Immatricolazione',
       {'pol_instalment_str' => 'annuale'} => '//*[@id="RB_POLIZZA_ANNUALE"]',
       {'pol_nr_of_paid_claims_this_yr_str' => '0'} => '0 sinistri',
       {'pol_nr_of_paid_claims_this_yr_str' => '1'} => '1 sinistro',
@@ -387,8 +381,8 @@ module Provider2Generali
       {'pol_client_type_str' => 'persona fisica'} => 'Persona Fisica',
       {'pol_client_type_str' => 'persona giuridica'} => 'Persona Giuridica',
       {'pol_instalment_str' => 'annuale'} => '//*[@id="RB_POLIZZA_ANNUALE"]',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => "Gia' assicurato con Bonus/Malus",
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Prima Immatricolazione',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => "Gia' assicurato con Bonus/Malus",
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima Immatricolazione',
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3000000',
       {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '4000000',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6000000',
@@ -528,8 +522,8 @@ module Provider2Generali
       {'pol_client_type_str' => 'persona fisica'} => 'Persona Fisica',
       {'pol_client_type_str' => 'persona giuridica'} => 'Persona Giuridica',
       {'pol_instalment_str' => 'annuale'} => '//*[@id="RB_POLIZZA_ANNUALE"]',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => "Gia' assicurato con Bonus/Malus",
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Prima Immatricolazione',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => "Gia' assicurato con Bonus/Malus",
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima Immatricolazione',
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3000000',
       {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '4000000',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6000000',

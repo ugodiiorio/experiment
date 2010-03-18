@@ -1,6 +1,5 @@
 module Provider2Fonsai
 
-  
   def build_hash_sect_1()
 
     @target_values = {}
@@ -74,8 +73,8 @@ module Provider2Fonsai
       {'pol_partner_garages_str' => 'no'} => '/html/body/form/div/div[2]/div/div[2]/div/div[9]/div/span[2]',
       {'own_owner_sex_str' => 'M'} => 'Uomo',
       {'own_owner_sex_str' => 'F'} => 'Donna',
-      {'pol_insurance_situation_str' => 'veicolo gi\'a assicurato con atr'} => 'Già assicurato con altra compagnia',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo'} => 'Prima polizza',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Già assicurato con altra compagnia',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima polizza',
       {'pol_type_of_contract_str' => 'bonus/malus'} => 'Personalizzata Unica',
       {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovetture',
       {'veh_vehicle_type_str' => 'autovettura'} => 'Autovettura',
@@ -84,24 +83,11 @@ module Provider2Fonsai
       {'own_owner_sex_str' => 'C'} => 'Persona giuridica',
       {'pol_driving_type_str' => 'definita'} => 'Conducente esperto',
       {'pol_driving_type_str' => 'libera'} => 'Qualunque conducente - soggetti diversi dalle persone fisiche',
-#      {'pol_driving_type_str' => 'esclusiva se guidat <25 anni'} => 'Conducente esclusivo con età fino a 25 anni',
-#      {'pol_driving_type_str' => 'esclusiva se guidat >26 anni'} => 'Conducente esclusivo con età da 26 anni',
-#      {'veh_vehicle_use_str' => 'privato'} => 'Privato',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'premio',
-
 
     }
   end
   
-
-
-
-
-
-
-
-
-
   def build_hash_sect_2()
 
     @target_values = {}
@@ -151,8 +137,8 @@ module Provider2Fonsai
       {'pol_coming_from_BM_num' => '17'} => '17',
       {'pol_coming_from_BM_num' => '18'} => '18',
       {'pol_coming_from_familiar_risk_certificate_str' => 'attest rilasc altra com'} => 'attRisk_A',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Già assicurato con altra compagnia',
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Prima polizza',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Già assicurato con altra compagnia',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima polizza',
       {'pol_property_type_to_be_insured_str' => 'motociclo'} => 'Motoveicoli per trasporto persone',
       {'pol_public_liability_exemption_str' => '0 Euro'} => 'nessuna',
       {'pol_public_liability_exemption_str' => '250 Euro'} => '€ 258,00',
@@ -225,8 +211,8 @@ module Provider2Fonsai
       {'pol_coming_from_BM_num' => '17'} => '17',
       {'pol_coming_from_BM_num' => '18'} => '18',
       {'pol_coming_from_familiar_risk_certificate_str' => 'attest rilasc altra com'} => 'attRisk_A',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Già assicurato con altra compagnia',
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Prima polizza',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Già assicurato con altra compagnia',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima polizza',
       {'pol_property_type_to_be_insured_str' => 'ciclomotore'} => 'Ciclomotori o Quadricicli leggeri per trasporto persone',
       {'pol_public_liability_exemption_str' => '0 Euro'} => 'nessuna',
       {'pol_public_liability_exemption_str' => '250 Euro'} => '€ 258,00',
@@ -297,8 +283,8 @@ module Provider2Fonsai
       {'pol_coming_from_BM_num' => '17'} => '17',
       {'pol_coming_from_BM_num' => '18'} => '18',
       {'pol_coming_from_familiar_risk_certificate_str' => 'attest rilasc altra com'} => 'attRisk_A',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Già assicurato con altra compagnia',
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Prima polizza',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Già assicurato con altra compagnia',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima polizza',
       {'pol_property_type_to_be_insured_str' => 'autocarro per trasporto persone o cose'} => 'Autocarri o Autoveicoli per trasporto cose',
       {'pol_public_liability_exemption_str' => '0 Euro'} => 'nessuna',
       {'pol_public_liability_exemption_str' => '250 Euro'} => '€ 258,00',

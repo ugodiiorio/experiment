@@ -1,12 +1,6 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider2Directline
 
   def build_hash_sect_1()
-
-    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
@@ -84,14 +78,10 @@ module Provider2Directline
       {'own_owner_sex_str' => 'C'} => '//input[@name=sessoContraente and @value="M"]',
        {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
 
-      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => '//*[@id="id_radio_bm"]',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//table/tbody/tr[10]/td/table/tbody/tr[3]/td[2]/input',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//table/tbody/tr[10]/td/table/tbody/tr[4]/td[2]/input',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => '//*[@id="id_radio_bm"]',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => '//table/tbody/tr[10]/td/table/tbody/tr[3]/td[2]/input',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Sposato/a',
       {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => ' Tragitto Casa-Lavoro/Tempo libero',
-#      {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
-#      {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
-#      {'veh_vehicle_use_str' => 'privato'} => '//form/table[2]/tbody/tr[15]/td[2]/table/tbody/tr[2]/td/input',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'premioRCADiv',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
@@ -315,12 +305,6 @@ module Provider2Directline
       {'own_owner_residence_province_str' => 'VT'} => 'VITERBO',
     }
 
-
-
-
-
-
-    #  costruisci hash ["field_name + field_value","target"]
   end
 
   def build_hash_sect_2()
@@ -375,8 +359,8 @@ module Provider2Directline
       {'pol_driver_less_than_26_yrs_str' => 'N'} => 'Nessuno',
       {'pol_driver_less_than_26_yrs_str' => 'S'} => 'Un conducente',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => ' 		                  AMICI E PARENTI',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => '//*[@id="id_radio_bm"]',
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => '(profilefield[:veh_new_used_vehicle_str] == "U") ? "/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr[3]/td/label/input" : "/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr[2]/td/label/input"',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => '//*[@id="id_radio_bm"]',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => '(profilefield[:veh_new_used_vehicle_str] == "U") ? "/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr[3]/td/label/input" : "/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr[2]/td/label/input"',
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '0'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[4]/tbody/tr[8]/td[2]/table/tbody/tr/td[3]/input',
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '5'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[4]/tbody/tr[8]/td[2]/table/tbody/tr/td/input',
       {'pol_public_liability_indemnity_limit_str' => '3000000'} => '3.600.000/1.000.000',
@@ -399,6 +383,7 @@ module Provider2Directline
       {'pol_theft_fire_coverage_web_id_str'  => 'id elemento'} => 'chk_1',
 
   }
+  
   end
 
 end

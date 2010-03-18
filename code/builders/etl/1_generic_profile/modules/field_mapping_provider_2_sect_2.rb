@@ -28,7 +28,7 @@ module FieldMappingProvider2Sect2
       'pol_family_members_insured_with_company_str' =>  '0',
       'pol_first_claim_month_str'  => '"Gennaio"' ,
       'pol_first_claim_year_str'  => 'if claimslastyr = infield[:pol_nr_of_paid_claims_this_yr_str].to_i == 1 ; (DateTime::now).strftime("%Y") elsif claimslastyr = infield[:pol_nr_of_paid_claims_1_yr_str].to_i == 1 ; (DateTime::now - 1.year).strftime("%Y"); elsif claimslastyr = infield[:pol_nr_of_paid_claims_2_yr_str].to_i == 1 ; (DateTime::now - 2.year).strftime("%Y"); elsif claimslastyr = infield[:pol_nr_of_paid_claims_3_yr_str].to_i == 1 ; (DateTime::now - 3.year).strftime("%Y"); end ;' ,
-      'pol_insurance_situation_str' => 'infield[:pol_insurance_situation_str].strip.downcase',
+      'pol_insurance_situation_str' => 'sitass=infield[:pol_insurance_situation_str].strip.downcase;  if sitass=~/1a*\\s*[(A-Za-z0-9)*(\\s)*]*/ ; x= "1a immatricolazione"; else x="proveniente da altra compagnia" end;',
       'pol_legal_assistance_code_str'  => nil ,
       'pol_legal_assistance_on_off_str'  => nil ,
       'pol_legal_assistance_premium_id_str'  => '"id elemento"' ,

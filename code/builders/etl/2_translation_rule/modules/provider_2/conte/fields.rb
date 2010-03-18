@@ -1,12 +1,6 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider2Conte
   
   def build_hash_sect_1()
-
-    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
@@ -403,8 +397,8 @@ module Provider2Conte
       {'driv_driver_sex_str' => 'F'} => 'page:conducente_principale_sesso:1',
       {'own_owner_sex_str' => 'M'} => 'page:conducente_principale_sesso:0',
       {'own_owner_sex_str' => 'F'} => 'page:conducente_principale_sesso:1',
-      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'page:situazione_1:1',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo'} => 'page:situazione_1:0',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'page:situazione_1:1',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'page:situazione_1:0',
       {'pol_driving_license_suspension_str' => 'no'} => 'page:sospensione_patente_contraente:1',
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'coniugato/a o convivente',
       {'driv_driving_license_type_str' => 'B'} => 'B (auto)',
@@ -437,7 +431,6 @@ module Provider2Conte
 
     }
 
-    #  costruisci hash ["field_name + field_value","target"]
   end
 
   def build_hash_sect_2()
@@ -590,9 +583,8 @@ module Provider2Conte
     {'pol_driving_type_str' => 'libera'} => 'page:radioGuidatori:2',
     {'pol_drunkenness_fine_str' => 'no'} => 'page:multe_ebrezza_contraente:1',
     {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
-    {'pol_insurance_situation_str' => 'veicolo gi\' assicurato con atr'} => 'page:situazione_1:1',
-    {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'page:situazione_1:0',
-    {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'page:situazione_1:0',
+    {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'page:situazione_1:1',
+    {'pol_insurance_situation_str' => '1a immatricolazione'} => 'page:situazione_1:0',
     {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'page:quota_info:3:garanziaChecked',
     {'pol_matriculation_date_month_str' => '01'} => 'Gennaio',
     {'pol_matriculation_date_month_str' => '02'} => 'Febbraio',

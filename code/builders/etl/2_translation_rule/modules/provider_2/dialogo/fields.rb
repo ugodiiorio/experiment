@@ -1,12 +1,6 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider2Dialogo
-# da correggere il file di mara con gli input anziche gli x path
-  def build_hash_sect_1()
 
-#     target_values["fname_fvalue"]
+  def build_hash_sect_1()
 
     @target_values = Hash.new
 
@@ -373,8 +367,8 @@ module Provider2Dialogo
       {'pol_public_liability_indemnity_limit_str' => '3000000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '€ 5.000.000,00 - € 5.000.000,00 - € 5.000.000,00',
       {'pol_BM_assigned_str' => '-1'} => '1 da almeno un anno',
-      {'pol_insurance_situation_str' => 'veicolo gi\' assicurato con atr'} => '//input[@name=contentSubView:contentForm:attualeSituazione and @value="3"]',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo'} => '//input[@name=contentSubView:contentForm:attualeSituazione and @value="1"]',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => '//input[@name=contentSubView:contentForm:attualeSituazione and @value="3"]',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => '//input[@name=contentSubView:contentForm:attualeSituazione and @value="1"]',
 #      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//input[@name=contentSubView:contentForm:attualeSituazione and @value="2"]',
       {'pol_bersani_str' => 'si'} => 'contentSubView:contentForm:bonusMalusRadio',
       {'pol_bersani_str' => 'no'} => 'contentSubView:contentForm:bonusMalusRadio',
@@ -399,9 +393,7 @@ module Provider2Dialogo
       {'veh_vehicle_shelter_str' => 'box privato'} => 'contentSubView:vehicleForm:garage',
       {'veh_tow_hook_str' => 'no'} => 'contentSubView:vehicleForm:hook',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola'
-
-# da correggere il file di mara con gli input anziche gli x path
-    }
+   }
 
 end
 
@@ -438,9 +430,8 @@ end
       {'pol_car_already_insured_with_company_str'  => 'no'} => '/html/body/div/div[3]/div/form/div/fieldset[2]/table/tbody/tr/td[2]/table/tbody/tr/td[2]/label/input',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:3:_id147',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
-      {'pol_insurance_situation_str' => 'veicolo gi\' assicurato con atr'} => '/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr/td/label/input',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr[2]/td/label/input ',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr[3]/td/label/input',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => '/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr/td/label/input',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => '/html/body/div/div[3]/div/form/fieldset/table[2]/tbody/tr[2]/td/table/tbody/tr[2]/td/label/input ',
       {'pol_legal_assistance_web_id_str'  => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
       {'pol_number_plate_type_str' => 'definitiva'} => '/html/body/div/div[3]/div/form/div/fieldset/div[8]/table/tbody/tr/td[2]/label/input',
       {'pol_subscriber_is_owner_str' => 'si'} => '/html/body/div/div[3]/div/form/div/fieldset/div/table/tbody/tr/td[2]/table/tbody/tr/td/label/input',
@@ -462,6 +453,5 @@ end
   }
 
   end
-
 
 end

@@ -68,7 +68,7 @@ module FieldMappingProvider2Sect1
       'pol_free_drive_str'  => 'infield[:pol_driving_type_str].strip.downcase == "libera" ? "si" : "no"' ,
       'pol_how_do_you_know_the_company_str'  => '"passaparola"' ,
       'pol_instalment_str'  => '"annuale"' ,
-      'pol_insurance_situation_str'  => 'infield[:pol_insurance_situation_str].strip.downcase' ,
+      'pol_insurance_situation_str' => 'sitass=infield[:pol_insurance_situation_str].strip.downcase;  if sitass=~/1a*\\s*[(A-Za-z0-9)*(\\s)*]*/ ; x= "1a immatricolazione"; else x="proveniente da altra compagnia" end;',
       'pol_leasing_str'  => '"no"' ,
       'pol_matriculation_date_day_str'  => 'infield[:pol_matriculation_date_str]' ,
       'pol_matriculation_date_month_str'  => 'infield[:pol_matriculation_date_str]' ,
