@@ -7,7 +7,7 @@ app_settings:
   as_module_prefix: "field_mapping"
 
 logger_settings: 
-  ls_device: "/home/notroot/git/KTE/code/builders/log/build_field_mapping.log"
+  ls_device: "/home/notroot/git/KTE/code/log/build_field_mapping.log"
   ls_level: 0
   ls_shift_age: = "weekly"
   ls_shift_size: = 1024000
