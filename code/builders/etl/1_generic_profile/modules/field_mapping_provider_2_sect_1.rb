@@ -27,7 +27,7 @@ module FieldMappingProvider2Sect1
       'driv_studies_str'  => '"diploma"' ,
       'own_owner_residence_province_str'  => 'infield[:own_owner_residence_province_str].strip.upcase' ,
       'own_owner_residence_str'  => 'infield[:own_owner_residence_str].strip.upcase' ,
-      'own_owner_sex_str'  => 'infield[:own_owner_sex_str].strip.upcase' ,
+      'own_owner_sex_str'  => 'infield[:own_owner_sex_str].strip.upcase == "" ? "C" : infield[:own_owner_sex_str].strip.upcase' ,
       'own_owner_specification_str'  => 'if infield[:own_owner_sex_str].strip.upcase == "M"; infield[:own_owner_sex_str].strip.upcase; elsif infield[:own_owner_sex_str].strip.upcase == "F"; infield[:own_owner_sex_str].strip.upcase; else "C"; end' ,
       'own_owner_zip_code_str'  => 'infield[:own_owner_zip_code_str].strip.downcase' ,
       'pol_already_benefit_from_bersani_str'  => '"no"' ,
