@@ -1,10 +1,5 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider2ZurichConnect
 
-  #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
   def build_hash_sect_1()
 
     @rule_values ={}
@@ -272,13 +267,6 @@ module Provider2ZurichConnect
       'pol_protection_24_premium_id_str' => 'copy_field' ,
       'pol_protection_24_web_id_str' => 'copy_field' ,
       'pol_public_liability_young_exemption_str' => 'copy_field'
-
-
-
-
-
-
-
 
     }
 

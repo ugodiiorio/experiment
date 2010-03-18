@@ -304,7 +304,7 @@ module Provider2Zurich
       'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
       'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
       'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
-      'pol_risk_certificate_str' => '(profilefield[:pol_insurance_situation_str]== "1a immatricolazione dopo l’acquisto del veicolo") ? "//*[@id=\"CODPRO71_9\"]" : "//*[@id=\"CODPRO71_1\"]"',
+      'pol_risk_certificate_str' => '(profilefield[:pol_insurance_situation_str]== "1a immatricolazione") ? "//*[@id=\"CODPRO71_9\"]" : "//*[@id=\"CODPRO71_1\"]"',
 
     }
 
@@ -372,7 +372,7 @@ module Provider2Zurich
       'pol_RCA_on_off_str' => 'copy_field',
       'veh_full_load_total_weight_num' => 'copy_field',
 
-      'pol_risk_certificate_str' => '(profilefield[:pol_insurance_situation_str]== "1a immatricolazione dopo l’acquisto del veicolo") ? "//*[@id=\"CODPRO71_9\"]" : "//*[@id=\"CODPRO71_1\"]"',
+      'pol_risk_certificate_str' => '(profilefield[:pol_insurance_situation_str]== "1a immatricolazione") ? "//*[@id=\"CODPRO71_9\"]" : "//*[@id=\"CODPRO71_1\"]"',
       'veh_vehicle_type_str' => '(profilefield[:veh_third_party_str]== "Conto proprio") ? " AUTOCARRO TRASP.COSE CONTO PROPRIO" : " AUTOCARRO TRASP.COSE CONTO TERZI"',
 
     }

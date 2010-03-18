@@ -268,8 +268,6 @@ module Provider2Generali
       'pol_protection_24_premium_id_str' => 'copy_field' ,
       'pol_protection_24_web_id_str' => 'copy_field' ,
 
-      
-      
     }
   end
 

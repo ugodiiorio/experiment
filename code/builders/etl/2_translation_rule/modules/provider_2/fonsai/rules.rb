@@ -6,7 +6,6 @@ module Provider2Fonsai
 
     @rule_values = {
 
-
       'driv_birth_place_str'  => 'copy_field' ,
       'driv_birth_province_str'  => 'copy_field' ,
       'driv_birth_state_str'  => 'copy_field' ,

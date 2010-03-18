@@ -1,6 +1,5 @@
 module Provider2Axa
 
-
   def build_hash_sect_1()
 
     @rule_values ={}
@@ -163,7 +162,7 @@ module Provider2Axa
       'veh_third_party_str'  => 'copy_field' ,
       'veh_tow_hook_str'  => 'translate_field' ,
       'veh_toxic_gas_explosive_transportation_str'  => 'copy_field' ,
-      'veh_transportation_of_dangerous_goods_A_str'  => 'copy_field' ,
+      'veh_tra dopo l’acquisto del veicolonsportation_of_dangerous_goods_A_str'  => 'copy_field' ,
       'veh_transportation_of_dangerous_goods_B_str'  => 'copy_field' ,
       'veh_transportation_type_str'  => 'copy_field' ,
       'veh_truck_tractor_weight_num'  => 'copy_field' ,
@@ -254,7 +253,7 @@ module Provider2Axa
       'pol_theft_fire_coverage_code_str'  => 'copy_field' ,
       'pol_theft_fire_coverage_on_off_str'  => 'copy_field' ,
       'pol_theft_fire_coverage_premium_id_str'  => 'copy_field' ,
-      'pol_theft_fire_coverage_web_id_str'  => 'copy_field' ,
+      'pol_theft dopo l’acquisto del veicolo_fire_coverage_web_id_str'  => 'copy_field' ,
       'pol_theft_fire_minimum_uncoverage_exemption_str'  => 'copy_field' ,
       'pol_collision_code_str' => 'copy_field' ,
       'pol_collision_on_off_str' => 'copy_field' ,
@@ -268,8 +267,6 @@ module Provider2Axa
       'pol_protection_24_on_off_str' => 'copy_field' ,
       'pol_protection_24_premium_id_str' => 'copy_field' ,
       'pol_protection_24_web_id_str' => 'copy_field' ,
-
-
 
     }
 
