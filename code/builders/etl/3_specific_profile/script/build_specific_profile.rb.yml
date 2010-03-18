@@ -15,7 +15,7 @@ app_settings:
   as_rate_date: "10th day next month"
 
 logger_settings: 
-  ls_device: "/home/notroot/git/KTE/code/log/build_specific_profile.log"
+  ls_device: "/home/notroot/git/KTE/code/builders/log/build_specific_profile.log"
   ls_level: 1
   ls_datetime_format: = "%Y-%m-%d %H:%M:%S"
 database_settings:
