@@ -56,9 +56,9 @@ module Provider2Generali
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima Immatricolazione',
 
       {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
-      {'pol_driving_type_str' => 'esclusiva'} => ' Conducente esclusivo',
-      {'pol_driving_type_str' => 'libera'} => ' Conducente qualsiasi',
-      {'pol_driving_type_str' => 'definita'} => ' Conducente "coniugi"',
+      {'pol_driving_type_str' => 'esclusiva'} => 'Conducente esclusivo',
+      {'pol_driving_type_str' => 'libera'} => 'Conducente qualsiasi',
+      {'pol_driving_type_str' => 'definita'} => 'Conducente \"coniugi\"',
       {'pol_client_type_str' => 'M'} => 'Persona Fisica',
       {'pol_client_type_str' => 'F'} => 'Persona Fisica',
       {'pol_client_type_str' => 'C'} => 'Persona Giuridica',
