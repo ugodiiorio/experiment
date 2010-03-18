@@ -1,4 +1,4 @@
-dri#!/usr/bin/ruby
+#!/usr/bin/ruby
 
 # Module defined in specific_profile.rb file
 
