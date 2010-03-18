@@ -44,7 +44,7 @@ module Provider2Dialogo
       'pol_car_already_insured_with_company_str' => 'copy_field' ,
       'pol_claims_total_number_malus_str' => 'copy_field' ,
       'pol_claims_total_number_str' => 'copy_field' ,
-      'pol_client_type_str' => 'translate_field' ,
+      'pol_client_type_str' => 'copy_field' ,
       'pol_cohabiting_children_str' => 'copy_field' ,
       'pol_coming_from_BM_num' => 'copy_field' ,
       'pol_coming_from_company_str' => 'copy_field' ,
@@ -256,7 +256,7 @@ module Provider2Dialogo
       'pol_theft_fire_coverage_premium_id_str' => 'copy_field' ,
       'pol_theft_fire_coverage_web_id_str' => 'copy_field' ,
       'pol_theft_fire_minimum_uncoverage_exemption_str' => 'copy_field' ,
-       'pol_collision_code_str' => 'copy_field' ,
+      'pol_collision_code_str' => 'copy_field' ,
       'pol_collision_on_off_str' => 'copy_field' ,
       'pol_collision_premium_id_str' => 'copy_field' ,
       'pol_collision_web_id_str' => 'copy_field' ,
@@ -268,7 +268,8 @@ module Provider2Dialogo
       'pol_protection_24_on_off_str' => 'copy_field' ,
       'pol_protection_24_premium_id_str' => 'copy_field' ,
       'pol_protection_24_web_id_str' => 'copy_field' ,
-      'pol_public_liability_young_exemption_str' => 'copy_field'
+      'pol_public_liability_young_exemption_str' => 'copy_field',
+      'pol_BM_1_more_than_1_year_str' => 'copy_field',
  
     }
 
