@@ -104,7 +104,7 @@ module FieldMappingProvider2Sect2
       'pol_property_type_to_be_insured_str' => "'motociclo'",
       'pol_RCA_code_str' => "'RC'",
       'pol_RCA_on_off_str' => "'on'",
-      'pol_RCA_premium_id_str' => "'id_elemento'",
+      'pol_RCA_premium_id_str' => "'id elemento'",
       'pol_second_driver_str' => "'no'",
       'pol_subscriber_is_driver_str' => 'if infield[:own_owner_sex_str].strip.upcase == "M"; "si"; elsif infield[:own_owner_sex_str].strip.upcase == "F"; "si"; else "no"; end',
       'pol_subscriber_is_holder_str' => '"si"',
