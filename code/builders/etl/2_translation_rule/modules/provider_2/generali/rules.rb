@@ -109,7 +109,7 @@ module Provider2Generali
       'pol_RCA_premium_id_str'  => 'translate_field' ,
       'pol_record_id_str'  => 'copy_field' ,
       'pol_renounce_compensation_str'  => 'copy_field' ,
-      'pol_residence_province_str'  => 'copy_field' ,
+      'pol_residence_province_str'  => 'translate_field' ,
       'pol_residence_str'  => 'copy_field' ,
       'pol_risk_certificate_str'  => 'translate_field' ,
       'pol_second_claim_month_str'  => 'copy_field' ,

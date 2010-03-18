@@ -5,11 +5,11 @@ app_settings:
   as_insert_stmt_tr_field: "INSERT INTO translated_fields (key_provider_id_str, key_sector_id_str, key_company_id_str, key_field_name_str, key_field_value_str) VALUES (?,?,?,?,?)"
   as_update_stmt_tr_field: "UPDATE translated_fields SET target_value_str = ? WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND key_field_name_str = ? AND key_field_value_str = ?"
   as_select_stmt_company: "SELECT DISTINCT key_companies_group_id_str FROM companies WHERE  key_company_id_str = ?"
-  as_provider_id: "provider_2"
-  as_sector_id: "sect_2"
-  as_company_group_id: "zurich_connect_provider_2"
-  as_company_id: "zurich_connect"
-  as_working_set_id: "prov_2_20100201"
+  as_provider_id: "provider_1"
+  as_sector_id: "sect_1"
+  as_company_group_id: "all_provider_1"
+  as_company_id: "quixa"
+  as_working_set_id: "prov_1_20100301"
   as_module_filename: "fields.rb"
 
 logger_settings: 

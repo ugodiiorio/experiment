@@ -5,8 +5,11 @@
 
 3) caricare nella tabella "provider_1_sect_1_input_file" (nel caso si vogliano elaborare i profili relativi a provider_1 e sect_1)
    attraverso il comando mysql da terminale
-   "load data local infile '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/csv/prov1_sect1_20100101_in.csv' into table provider_1_sect_1_input_file fields terminated by '#' escaped by "";
- ATT: è importante che questo file abbia come separatori di campi caratteri diversi da  , o ; o | .
+   "load data local infile '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/csv/prov1_sect1_20100101_in.csv' into table provider_1_sect_1_input_file fields terminated by '#' escaped by "" ;
+ ATT:   - per il caricamento dei file relativi al provider 1 è necessario che venga aggiunto al comando il testo "set pol_provider_company_id_str='all'"
+        - è importante che questo file abbia come separatori di campi caratteri diversi da  , o ; o | .
+
+
  
 4) lanciare il file build_field_mapping.rb (nella cartella '/home/notroot/git/KTE/code/builders/etl/1_generic_profile/script') dopo aver opportunamente settato i parametri nel file build_field_mapping.rb.yml
    (devono essere settati key_provider_id_str, key_sector_id_str).
