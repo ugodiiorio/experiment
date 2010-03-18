@@ -52,7 +52,7 @@ module FieldMappingProvider1Sect1
       'pol_claims_total_number_str' =>  'infield[:pol_claims_total_number_str].strip',
       'pol_client_type_str' =>  'x = infield[:driv_driver_sex_str].upcase.slice(0,1); x=="S" ? x="persona giuridica": x="persona fisica"',
       'pol_cohabiting_children_str' =>  '"si"',
-      'pol_coming_from_BM_str' =>  'bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end',
+      'pol_coming_from_BM_str' =>  'bm=infield[:pol_BM_assigned_str]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end',
       'pol_coming_from_company_str' =>  '"generali"',
       'pol_contingency_protection_premium_id_str' =>  '"id elemento"',
       'pol_contingency_protection_web_id_str' =>  '"id elemento"',

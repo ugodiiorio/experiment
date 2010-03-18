@@ -6,11 +6,11 @@ app_settings:
   as_insert_stmt_profile: "INSERT INTO insurance_profiles (key_insurance_profiles_id_num, key_provider_id_str, key_sector_id_str, key_companies_group_id_str, key_working_set_id_str) VALUES (?,?,?,?,?)"
   as_update_stmt_profile: "UPDATE insurance_profiles SET @@profile_field@@ = ? WHERE key_insurance_profiles_id_num = ? AND  key_provider_id_str = ? AND key_sector_id_str = ? AND key_companies_group_id_str = ? AND key_working_set_id_str = ?"
   as_provider_id: "provider_2"
-  as_provider_company_id: "quixa"
+  as_sector_id: "sect_1"
+  as_company_group_id: "dialogo_provider_2"
+  as_working_set_id: "prov_2_20100201"
+  as_provider_company_id: "dialogo"
   #as_provider_company_id : nome della compagnia nel file di provider 2, all per provider_1
-  as_sector_id: "sect_2"
-  as_company_group_id: "quixa_provider_2"
-  as_working_set_id: "prov_2_20100301"
 
 logger_settings: 
   ls_device: "/home/notroot/git/KTE/code/builders/log/build_profile.log"

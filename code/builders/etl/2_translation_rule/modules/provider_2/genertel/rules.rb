@@ -259,6 +259,19 @@ module Provider2Genertel
       'veh_vehicle_use_str' => 'translate_field',
       'veh_vehicle_value_str' => 'copy_field',
       'veh_weight_to_be_towed_num'=> 'copy_field' ,
+       'pol_collision_code_str' => 'copy_field' ,
+      'pol_collision_on_off_str' => 'copy_field' ,
+      'pol_collision_premium_id_str' => 'copy_field' ,
+      'pol_collision_web_id_str' => 'copy_field' ,
+      'pol_protected_bonus_code_str' => 'copy_field' ,
+      'pol_protected_bonus_on_off_str' => 'copy_field' ,
+      'pol_protected_bonus_premium_id_str' => 'copy_field' ,
+      'pol_protected_bonus_web_id_str' => 'copy_field' ,
+      'pol_protection_24_code_str' => 'copy_field' ,
+      'pol_protection_24_on_off_str' => 'copy_field' ,
+      'pol_protection_24_premium_id_str' => 'copy_field' ,
+      'pol_protection_24_web_id_str' => 'copy_field' ,
+      'pol_public_liability_young_exemption_str' => 'copy_field'
  
 
     }
