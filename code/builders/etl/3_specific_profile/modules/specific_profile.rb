@@ -80,8 +80,15 @@ module Specific_Profile
       @profile_num += stmt_comp_profile.affected_rows().to_i
       stmt_comp_profile.close
     rescue Mysql::Error => e
-      @logger.warn(__LINE__) {"Warning message: #{e.error}"} if e.errno == 1062
-      raise ex unless e.errno == 1062
+      case e.errno.to_s
+        when '1062'
+          @logger.warn(__FILE__) {"Warning message: #{e.error}"}
+        else
+          raise e unless e.errno.to_s == '1062'
+          @logger.error(__FILE__) {"Error code: #{e.errno}"}
+          @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
+          @logger.error(__FILE__) {"Error message: #{e.error}"}
+        end
     rescue Exception => e
       raise e
     end

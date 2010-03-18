@@ -134,17 +134,21 @@ def translation_rules()
       stmt_ins = @dbh.prepare(@stmt_ins_tr_rule)
       stmt_ins.execute(@provider_id, @sector_id, @company_id, @field_name)
     rescue Mysql::Error => e
-      raise e unless e.errno.to_s == '1062'
-      @logger.error(__FILE__) {"Error code: #{e.errno}"}
-      @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
-      @logger.error(__FILE__) {"Error message: #{e.error}"}
+      case e.errno.to_s
+        when '1062'
+          @logger.warn(__FILE__) {"Warning message: #{e.error}"}
+        else
+          raise e unless e.errno.to_s == '1062'
+          @logger.error(__FILE__) {"Error code: #{e.errno}"}
+          @logger.error(__FILE__) {"Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")}
+          @logger.error(__FILE__) {"Error message: #{e.error}"}
+        end
     end
-    stmt_ins.close
 
+    stmt_ins.close
     rule = @rule_values[@field_name]
 
     #faccio l'update
-
     stmt_upd = @dbh.prepare(@stmt_upd_tr_rule)
     stmt_upd.execute(rule.to_s, @provider_id, @sector_id, @company_id, @field_name)
     stmt_upd.close
