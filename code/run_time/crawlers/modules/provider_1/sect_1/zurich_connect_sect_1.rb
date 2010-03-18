@@ -9,8 +9,8 @@ class ZurichConnectSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
-  FirstPolicy = 0..100
-  Individual = 0..100
+  FirstTime = 0..100
+  NotIndividual = true
 
   def get(var)
     var_value = site.instance_variable_get(var)
@@ -78,10 +78,12 @@ class ZurichConnectSect1 < Test::Unit::TestCase
     begin
       @last_element, @last_value = nil, nil
 
+      page_intro
       page_1
-#      page_2
-#      page_3
+      page_2
+      page_3
 #      page_4
+#      page_5
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -102,7 +104,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   private # all methods that follow will be made private: not accessible for outside objects
 
-  def page_1
+  def page_intro
 
     open_page(@url) #url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneAuto"
 
@@ -111,83 +113,91 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   end
 
+  def page_1
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    select_option("ddlFonteConoscenza", get("@how_do_you_know_the_company"))
+    select_option("ddlFamiglia", get("@family_members_insured_with_company"))
+
+    select_option("ddlSituazioneAssicurativa",get('@insurance_situation'))
+    case page.get_selected_label(@last_element) =~ /prima volta/i
+      when FirstTime
+        select_option("DropBersani1", get('@bersani'))
+      else
+      end
+
+    type_text("txtDataDecorrenzaPolizza", @rate_date)
+    type_text("txtDataScadenza", @rate_date)
+    select_option("ddlContraenteProp", get("@subscriber_is_owner"))
+    select_option("DDLNumeroCointestatari", get("@num_of_owners"))
+
+    click_button "Avanti"
+    page_wait
+
+  end
+  
   def page_2
 
-      select "ddlFonteConoscenza", "label="+							$Conoscenza_Zurich
-
-      if $Polizza_nuova_auto_nuova
-        select "//option[@value='1040']"
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    click_option(get('@owner_sex'))
+    page_wait
+    case page.get_attribute("#{@last_element}@tabindex").to_i == 3
+      when NotIndividual
       else
-        if $Polizza_nuova_auto_usata
-          select "ddlSituazioneAssicurativa", "label="+					"Sto acquistando un'auto usata e mi assicuro per la prima volta"
-        else
-          select "ddlSituazioneAssicurativa", "label="+					$Situaziona_assicurativa
-        end
-      end
+        type_text("txtDataNascita", get('@birth_date'))
+        select_option("ddlNazionalita", get('@citizenship'))
+        select_option("ddlstatociv2", get('@civil_status'))
+        select_option("ddlTitoloStudio", get('@studies'))
+        select_option("ddlprofessione", "OPERAIO") #get('@job')) ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    end
 
-      type "txtDataDecorrenzaPolizza", 								$Data_decorrenza
-      type "txtDataScadenza", 										$Data_decorrenza
-      select "ddlContraenteProp", "label="+							$Contraente_is_proprietario= "SI"
-        click "Avanti"
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
+    type_text("txtCapResidenza", get('@driver_zip_code'))
+    click_button "btnLocalita"
+#        case page.get_selected_label("ddlLocalita") =~ /Seleziona una voce/i
+    page_wait
+    select_option("ddlLocalita", get('@residence'))
 
-        click "//div[@id='domanda1']/p[2]"
-        click 															$Sesso
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
+    click_button "Avanti"
+    page_wait
+    
+  end
 
-        type "txtDataNascita", 											$Data_nascita
-        select "ddlNazionalita", "label="+								$Nazionalita
-        select "ddlstatociv2", "label="+								$Stato_civile
-        select "ddlTitoloStudio", "label="+								$Titolo_studio_Zurich
-        select "ddlprofessione", "label="+								$Professione
-        type "txtCapResidenza", 										$Cap
-        click "btnLocalita"
+  def page_3
 
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
-      select "ddlLocalita", "label="+									$Comune_residenza
+    select_option("ddlAlimentazione", get('@fuel'))
+    sleep @sleep*2
+    select_option("ddlMeseImm", get('@matriculation_date_month')) #ATTENTION!!!!!!!!!!!!!!!!!!! mesi numerici vs mesi alfabetici
+    sleep @sleep*2
+    select_option("ddlAnno", get('@matriculation_date_year'))
+    sleep @sleep*2
+    select_option("ddlMarca", get('@make'))
+    sleep @sleep*2
+    select_option("ddlModello", get('@model')) #ATTENTION 1a vs 1°
+    sleep @sleep*2
+    select_option("ddlAllestimento", get('@set_up'))
 
-        click "Avanti"
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
+    click_button "Avanti"
+    page_wait
 
-      sleep 3
-        select "ddlAlimentazione", "label="+							$Alimentazione
-      sleep 3
-      if $Polizza_nuova_auto_nuova
-        select "ddlMeseImm", "label="+									$Data_decorrenza_mese
-        sleep 3
-        select "ddlAnno", "label="+										$Data_decorrenza_anno
-        sleep 3
-      else
-        if $Polizza_nuova_auto_usata
-          select "ddlMeseImm", "label="+									$Data_immatricolazione_mese
-          sleep 3
-          select "ddlAnno", "label="+										$Data_immatricolazione_anno
-          sleep 5
-        else
-          select "ddlMeseImm", "label="+									$Data_immatricolazione_mese
-          sleep 3
-          select "ddlAnno", "label="+										$Data_immatricolazione_anno
-          sleep 5
-        end
-      end
+    select_option("ddlAntifurto", get('@alarm'))
+    sleep @sleep*2
+    type_text("txtValoriVeicoli", get('@vehicle_value'))
+    type_text("txtValoriAccessori", get('@accesories_value'))
+    select_option("ddlanti", get('@antiskid'))
+    sleep @sleep*2
+    select_option("ddlairbag", get('@airbag'))
+    sleep @sleep*2
+    select_option("ddlABS", get('@abs'))
+#    select_option("ddlStabiliz", get('@stabilizer'))  ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    sleep @sleep*2
+    select_option("ddlGancioTraino", get('@tow_hook'))
 
-        select "ddlMarca", "label="+									$Marca_auto
-      sleep 5
-        select "ddlModello", "label="+									$Modello_auto
-        sleep 3
-      select "ddlAllestimento", "label="+								$Allestimento_auto
-        click "Avanti"
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
+    click_button "Avanti"
+    page_wait
+    
+  end
 
-        select "ddlAntifurto", "label="+								$Antifurto
-      type 	"txtValoriVeicoli", 									"5000"
-        select "ddlanti", "label="+										$Antifurto2
-      select "ddlGancioTraino", "label="+								$No_gancio_traino
-      select "ddlStabiliz", "label="+									$No_stabilizzatore
-      select "ddlABS", "label="+ 										$Si_ABS
-      select "ddlairbag", "label="+									$Si_airbag
-        click "Avanti"
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
+  def page_4
 
       if $Polizza_nuova_auto_nuova
       else
@@ -222,24 +232,6 @@ class ZurichConnectSect1 < Test::Unit::TestCase
       premio = premio.gsub(".","") if premio
       premio = premio.gsub(",",".") if premio
       #premium2 = @selenium.get_text("//div[@id='lblvPremioAnnualeLordo']")
-      @@logger.debug('ZurichTest.test_new => ' + $compagnia) {"gsub premio = " + premio.to_s}
-      raise RangeError, "Price cannot be nil" unless premio
-
-      raise RangeError, "Price cannot be equal to zero" unless premio.to_i > 0
-
-      $writer.result_update("OK", "New price for profile " + $profilo_assicurativo + " = " + premio)
-      $writer.profile_price( $profilo_assicurativo, $compagnia, @garanzia, $rilevazione, premio)
-      @@logger.debug('ZurichTest.test_new => ' + $compagnia) {"PREMIO = "+ premio}
-    rescue Timeout::Error => ex
-      ex_message = ex.class.to_s + " => Selenium timeout on element -> " + @last_element + " - " + ex.message.to_s
-      @@logger.error('ZurichTest.test_new => ' + $compagnia) {ex_message}
-      $writer.result_update("KO", ex_message)
-      raise ex.class, ex_message
-    rescue Exception => ex
-      ex_message = ex.class.to_s + " => Selenium error on element -> " + @last_element + " - " + ex.message.to_s
-      @@logger.error('ZurichTest.test_new => ' + $compagnia) {ex_message}
-      $writer.result_update("KO", ex_message)
-      raise ex.class, ex_message
     end
 	
   def open_page(id, value = nil)
