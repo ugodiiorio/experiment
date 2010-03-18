@@ -331,7 +331,7 @@ module Provider2Quixa
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_client_type_str' => 'persona fisica'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonIndividual',
       {'pol_client_type_str' => 'persona giuridica'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtPersonLegal',
-      {'pol_coming_from_company_str' => 'generali'} => 'GENERALI',
+      {'pol_coming_from_company_str' => 'Generali'} => 'GENERALI',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_instalment_str' => 'semestrale'} => 'Semestrale',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Veicolo già assicurato con attestato di rischio',
