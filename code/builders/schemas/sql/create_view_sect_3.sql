@@ -55,6 +55,6 @@ AS
         veh_vehicle_type_str,
         veh_vehicle_use_str
     FROM
-        company_insurance_profiles
+        kte_driver.company_insurance_profiles
     WHERE
         key_sector_id_str='sect_3'

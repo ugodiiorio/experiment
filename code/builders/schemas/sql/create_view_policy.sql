@@ -175,4 +175,4 @@ AS
         pol_theft_fire_coverage_web_id_str,
         pol_theft_fire_minimum_uncoverage_exemption_str
     FROM
-        company_insurance_profiles
+        kte_driver.company_insurance_profiles

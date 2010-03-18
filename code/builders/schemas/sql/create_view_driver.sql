@@ -25,4 +25,4 @@ AS
         driv_residence_same_as_home_address_str,
         driv_studies_str
     FROM
-        company_insurance_profiles
+        kte_driver.company_insurance_profiles

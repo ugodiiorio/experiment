@@ -1,12 +1,6 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider2Genertel
 
   def build_hash_sect_1()
-
-    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
@@ -86,8 +80,8 @@ module Provider2Genertel
       {'pol_bersani_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/img',
       {'pol_bersani_str' => 'si'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div/div/div/img',
       {'pol_current_policy_guarantee_str' => 'nessuna'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div/div[6]/div[5]/div/div/div/img',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div[2]/div/div/img',
-      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div/div/div/img',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div[2]/div/div/img',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div/div/div/img',
       {'pol_leasing_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[5]/div[2]/div[2]/div/div[2]/div/div/img',
       {'pol_subscriber_is_owner_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[11]/div[2]/div/div[2]/div/div/img',
       {'pol_subscriber_is_owner_str' => 'si'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[11]/div[2]/div/div/div/div/img',
@@ -330,54 +324,9 @@ module Provider2Genertel
       {'own_owner_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'own_owner_residence_province_str' => 'VI'} => 'VICENZA',
       {'own_owner_residence_province_str' => 'VT'} => 'VITERBO',
-    }
-
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #  costruisci hash ["field_name + field_value","target"]
   end
 
   def build_hash_sect_2()
@@ -436,8 +385,8 @@ module Provider2Genertel
       {'pol_cohabiting_children_str' => 'si'} => 'RBTXDCOXFigli1',
       {'pol_current_policy_guarantee_str'  => 'id elemento'} => 'RBTXDPOXIncendioFurto1',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Amici/parenti',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'RBTXDPOXSituazione0',
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => '(profilefield[:veh_new_used_vehicle_str] == "U") ? "RBTXDPOXSituazione2" : "RBTXDPOXSituazione1"',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'RBTXDPOXSituazione0',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => '(profilefield[:veh_new_used_vehicle_str] == "U") ? "RBTXDPOXSituazione2" : "RBTXDPOXSituazione1"',
       {'pol_leasing_str' => 'no'} => 'RBTXDPOXLeasing1',
       {'pol_payment_str' => 'carta di credito'} => '',
       {'pol_privacy_1_str' => 'id elemento web1'} => 'RBTXPRIXConsensoA0',
@@ -569,6 +518,7 @@ module Provider2Genertel
       {'pol_theft_fire_coverage_web_id_str'  => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
 
   }
+  
   end
 
 end

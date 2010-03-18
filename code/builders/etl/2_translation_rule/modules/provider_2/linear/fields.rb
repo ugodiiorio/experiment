@@ -1,13 +1,8 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider2Linear
+
   def build_hash_sect_1()
 
-    #     target_values["fname_fvalue"]
-
-    @target_values = Hash.new
+     @target_values = Hash.new
 
     @target_values = {
        {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => '7',
@@ -300,8 +295,8 @@ module Provider2Linear
       {'own_owner_sex_str' => 'C'} => 'PersonaGiuridica ',
       {'driv_driving_license_month_of_issue_str' => '09'} => 'Settembre',
       {'pol_risk_certificate_str' => 'si'} => 'Sì',
-      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'È assicurata con tariffa Bonus-Malus',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo'} => 'Deve essere assicurata per la prima volta',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'È assicurata con tariffa Bonus-Malus',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Deve essere assicurata per la prima volta',
 
       {'pol_matriculation_date_month_str' => '01'} => 'Gennaio',
       {'pol_matriculation_date_month_str' => '02'} => 'Febbraio',
@@ -315,51 +310,9 @@ module Provider2Linear
       {'pol_matriculation_date_month_str' => '10'} => 'Ottobre',
       {'pol_matriculation_date_month_str' => '11'} => 'Novembre',
       {'pol_matriculation_date_month_str' => '12'} => 'Dicembre',
+
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #  costruisci hash ["field_name + field_value","target"]
   end
 
   def build_hash_sect_2()
@@ -395,10 +348,9 @@ module Provider2Linear
       {'pol_client_type_str' => 'C'} => '//input[@name=fisgiur and @value="3"]',
       {'pol_driver_less_than_26_yrs_str' => 'S'} => '21',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'PassaParola',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Polizza annuale in Bonus Malus con classe CIP/CU assegnata',
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Hai appena acquistato il veicolo (meno di 3 mesi)',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Polizza annuale in Bonus Malus con classe CIP/CU assegnata',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Hai appena acquistato il veicolo (meno di 3 mesi)',
       {'pol_instalment_str' => 'annuale'} => 'Frazionamento Annuale',
-#      {'pol_instalment_str' => 'semestrale'} => 'Frazionamento Semestrale',
       {'pol_leasing_str' => 'no'} => 'vincoli_moto',
       {'pol_matriculation_date_month_str' => '01'} => 'Gennaio',
       {'pol_matriculation_date_month_str' => '02'} => 'Febbraio',

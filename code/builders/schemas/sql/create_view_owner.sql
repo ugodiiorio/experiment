@@ -12,4 +12,4 @@ AS
         own_owner_residence_province_str,
         own_owner_residence_str
     FROM
-        company_insurance_profiles
+        kte_driver.company_insurance_profiles

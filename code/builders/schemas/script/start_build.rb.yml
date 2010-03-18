@@ -1,6 +1,6 @@
 --- 
 app_settings:
-  as_building_schema: "driver"
+  as_building_schema: "all"
   #driver, monitor, target
 
 

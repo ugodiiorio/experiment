@@ -66,6 +66,6 @@ AS
         veh_vehicle_use_str,
         veh_weight_to_be_towed_num
     FROM
-        company_insurance_profiles
+        kte_driver.company_insurance_profiles
     WHERE
         key_sector_id_str='sect_4'

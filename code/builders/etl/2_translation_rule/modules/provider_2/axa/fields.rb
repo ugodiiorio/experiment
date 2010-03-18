@@ -23,9 +23,8 @@ module Provider2Axa
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '5,200,000 € - 5,200,000 € - 5,200,000 €',
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
-      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'Il contraente presenta l\'attestato di rischio',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Veicolo assicurato per la 1^ volta dopo voltura al P.R.A.',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Il contraente presenta l\'attestato di rischio',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
       {'pol_type_of_contract_str' => 'bonus/malus'} => 'Bonus/Malus',
       {'pol_number_plate_type_str' => 'definitiva'} => 'Definitiva',
       {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
@@ -38,11 +37,7 @@ module Provider2Axa
 
     }
 
-
-  
-
 end
-
 
 def build_hash_sect_2()
 
@@ -73,8 +68,8 @@ def build_hash_sect_2()
       {'pol_BM_assigned_str' => '16'} => '16',
       {'pol_BM_assigned_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Il contraente presenta l\'attestato di rischio',
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Il contraente presenta l\'attestato di rischio',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_property_type_to_be_insured_str' => 'motociclo'} => 'Motociclo',
       {'pol_public_liability_exemption_str' => '0 Euro'} => '0 Euro',
@@ -121,8 +116,8 @@ def build_hash_sect_3()
       {'pol_BM_assigned_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Il contraente presenta l\'attestato di rischio',
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Il contraente presenta l\'attestato di rischio',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
       {'pol_property_type_to_be_insured_str' => 'ciclomotore'} => 'Ciclomotore',
       {'pol_public_liability_exemption_str' => '0 Euro'} => '0 Euro',
       {'pol_public_liability_exemption_str' => '500 Euro'} => '500 Euro',
@@ -147,8 +142,8 @@ def build_hash_sect_4()
 
     {'pol_client_type_str' => 'C'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'Il contraente presenta l\'attestato di rischio',
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Il contraente presenta l\'attestato di rischio',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
       {'pol_number_plate_type_str' => 'definitiva'} => 'Definitiva',
       {'pol_pejus_cu_str' => '0%'} => '0%',
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3,000,000 € - 2,500,000 € - 500,000 €',

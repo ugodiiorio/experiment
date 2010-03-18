@@ -1,11 +1,6 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider2ZurichConnect
+  
   def build_hash_sect_1()
-
-    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
@@ -291,11 +286,8 @@ module Provider2ZurichConnect
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
       {'own_owner_sex_str' => 'C'} => 'PersonaGiuridica',
-#      {'own_owner_sex_str' => 'M'} => 'MaschioPR',
-#      {'own_owner_sex_str' => 'F'} => 'FemminaPR',
-#      {'own_owner_sex_str' => 'C'} => 'PersonaGiuridicaPR',
-      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'L\'automobile e\' gia\' assicurata con un contratto in Bonus/Malus',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo'} => 'Sto acquistando un\'auto usata e mi assicuro per la prima volta',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'L\'automobile e\' gia\' assicurata con un contratto in Bonus/Malus',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Sto acquistando un\'auto usata e mi assicuro per la prima volta',
       {'veh_stabilizer_str' => 'no'} => 'NO',
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Coniugato senza figli',
       {'driv_studies_str' => 'Diploma'} => 'Diploma',
@@ -310,52 +302,8 @@ module Provider2ZurichConnect
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'chkInfortuniConducente',
       {'pol_theft_fire_coverage_premium_id_str' => 'id elemento'} => 'chkIncendioFurto',
 
-
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #  costruisci hash ["field_name + field_value","target"]
   end
 
   def build_hash_sect_2()
@@ -397,8 +345,8 @@ module Provider2ZurichConnect
       {'pol_claims_total_number_str'  => '3'} => '4 sinistri e oltre                                                                                                                                                                                      ',
       {'pol_family_members_insured_with_company_str' => '0'} => 'NO',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
-      {'pol_insurance_situation_str' => 'veicolo già assicurato con atr'} => 'L\'automobile e\' gia\' assicurata con un contratto in Bonus/Malus',
-      {'pol_insurance_situation_str' => '1a immatricolazione dopo l’acquisto del veicolo'} => 'Sto acquistando un\'auto usata e mi assicuro per la prima volta',
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'L\'automobile e\' gia\' assicurata con un contratto in Bonus/Malus',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Sto acquistando un\'auto usata e mi assicuro per la prima volta',
       {'pol_matriculation_date_month_str' => '01'} => 'gennaio',
       {'pol_matriculation_date_month_str' => '02'} => 'febbraio',
       {'pol_matriculation_date_month_str' => '03'} => 'marzo',
