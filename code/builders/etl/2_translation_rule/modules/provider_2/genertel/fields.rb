@@ -558,7 +558,7 @@ module Provider2Genertel
       {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
-      {'veh_alarm_str' => 'no'} => 'Nessun antifurto',
+      {'veh_alarm_str' => 'nessuno'} => 'Nessun antifurto',
       {'veh_vehicle_shelter_str' => 'box privato'} => 'RBTXDVEXCustodia0',
       {'veh_vehicle_use_str' => 'privato'} => 'Privato',
 

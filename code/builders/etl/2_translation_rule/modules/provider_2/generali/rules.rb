@@ -1,6 +1,5 @@
 module Provider2Generali
   
-  
   def build_hash_sect_1()
 
     @rule_values ={}
@@ -142,7 +141,7 @@ module Provider2Generali
       'veh_liquid_fuel_transportation_str'  => 'copy_field' ,
       'veh_loading_unloading_str'  => 'copy_field' ,
       'veh_make_previous_vehicle_str'  => 'copy_field' ,
-      'veh_make_str'  => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = " regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
+      'veh_make_str'  => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
       'veh_marble_blocks_str'  => 'copy_field' ,
       'veh_model_str'  => 'make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
       'veh_modification_made_str'  => 'copy_field' ,
@@ -281,6 +280,7 @@ module Provider2Generali
     @rule_values = {
 
       'own_owner_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'pol_bersani_str' => 'translate_field',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_client_type_str' => 'translate_field',
@@ -292,6 +292,7 @@ module Provider2Generali
       'pol_nr_of_paid_claims_3_yr_str' => 'translate_field',
       'pol_nr_of_paid_claims_4_yr_str' => 'translate_field',
       'pol_nr_of_paid_claims_5_yr_str' => 'translate_field',
+      'pol_property_type_to_be_insured_str'  => 'copy_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_residence_province_str' => 'translate_field',
@@ -325,10 +326,12 @@ module Provider2Generali
     @rule_values = {
 
       'own_owner_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'pol_bersani_str' => 'translate_field',
       'pol_client_type_str' => 'translate_field',
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
+      'pol_property_type_to_be_insured_str'  => 'copy_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_residence_province_str' => 'translate_field',
@@ -360,10 +363,12 @@ module Provider2Generali
     @rule_values = {
 
       'own_owner_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'pol_bersani_str' => 'translate_field',
       'pol_client_type_str' => 'translate_field',
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
+      'pol_property_type_to_be_insured_str'  => 'copy_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_quotation_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',

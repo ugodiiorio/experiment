@@ -1,9 +1,5 @@
 module Provider2Fonsai
 
-
-
-
-
   def build_hash_sect_1()
 
     @rule_values ={}
@@ -146,7 +142,7 @@ module Provider2Fonsai
       'veh_liquid_fuel_transportation_str'  => 'copy_field' ,
       'veh_loading_unloading_str'  => 'copy_field' ,
       'veh_make_previous_vehicle_str'  => 'copy_field' ,
-      'veh_make_str'  => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = " regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
+      'veh_make_str'  => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
       'veh_marble_blocks_str'  => 'copy_field' ,
       'veh_model_str'  => 'make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
       'veh_modification_made_str'  => 'copy_field' ,
@@ -283,6 +279,7 @@ module Provider2Fonsai
     @rule_values = {
 
       'own_owner_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_coming_from_BM_num' => 'translate_field',
       'pol_bersani_str' => 'translate_field',
@@ -319,6 +316,7 @@ module Provider2Fonsai
     @rule_values = {
 
       'own_owner_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'pol_bersani_str' => 'translate_field',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_coming_from_BM_num' => 'translate_field',
@@ -348,6 +346,7 @@ module Provider2Fonsai
     @rule_values = {
 
       'own_owner_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'pol_bersani_str' => 'translate_field',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_coming_from_BM_num' => 'translate_field',

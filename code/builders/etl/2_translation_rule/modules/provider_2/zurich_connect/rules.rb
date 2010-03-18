@@ -285,6 +285,7 @@ module Provider2ZurichConnect
       'driv_job_str' => 'job=profilefield[:driv_job_str]; jregexp_mod = "regexpi:([A-Za-z0-9])*";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ; el.split("/"); el.each do |el2|; jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)*(\\\\s)*" end; end ; jregexp_mod = jregexp_mod + "\\\\b" ;',
       'driv_studies_str'  => 'translate_field' ,
       'own_owner_sex_str' => 'translate_field',
+      'own_owner_specification_str'  => 'copy_field',
       'pol_bersani_str'  => 'translate_field',
       'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_BM_assigned_str' => 'translate_field',

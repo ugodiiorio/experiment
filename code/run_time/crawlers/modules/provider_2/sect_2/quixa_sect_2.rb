@@ -1,13 +1,10 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				01/03/2010						              #
+#				17/03/2010						              #
 #############################################
 
-#gem "selenium-client", ">=1.2.13"
-#require "selenium/client"
-
-class QuixaSect1 < Test::Unit::TestCase
+class QuixaSect2 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
@@ -70,7 +67,6 @@ class QuixaSect1 < Test::Unit::TestCase
     end
   end
 
-  
   def teardown
 	  @selenium_driver.close_current_browser_session if @selenium_driver
 #    assert_equal [], @verification_errors
@@ -85,6 +81,7 @@ class QuixaSect1 < Test::Unit::TestCase
       page_2
       page_3
       page_4
+      page_5
       
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -105,34 +102,40 @@ class QuixaSect1 < Test::Unit::TestCase
 
   def page_1
 
-    open_page(@url) #"http://www.quixa.it/simulator.aspx?SimObject=CAR"
+    open_page(@url) #"http://www.quixa.it/simulator.aspx?SimObject=MOTORCYCLE"
 
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlBrand", get('@make'))
+    click_option(get('@vehicle_type'))
 
-    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", get('@matriculation_date'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlFuelType", get('@fuel'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlKmPerYear", get('@km_per_yr'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVehicleUse", get('@habitual_vehicle_use'))
-
-    click_option(get('@alarm'))
-
-    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
+    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnCreateSimulation"
+  	sleep @sleep*3
 
   end
 
   def page_2
 
-#      wait_for_alert()
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlBrand", get('@make'))
 
+    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_txt1stPlate", get('@matriculation_date'))
+
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlModel", get('@model'))
+
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlVersion", get('@set_up'))
+
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlKmPerYear", get('@km_per_yr'))
+
+    click_option(get('@alarm'))
+
+    click_option(get('@passenger_transportation'))
+
+    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
+  	sleep @sleep*3
+
+  end
+
+  def page_3
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_option(get('@leasing'))
 
     click_option(get('@client_type'))
@@ -155,56 +158,52 @@ class QuixaSect1 < Test::Unit::TestCase
       when FirstPolicy
         if Individual === (page.get_text("//label[@for='#{get('@client_type')}']") =~ /fisica/i)
           select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlSelectBersani", get('@bersani'))
-          /(si)+/.match(page.get_selected_label(@last_element)) ? \
-                        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned')) : nil
+          /(si)+/.match(page.get_selected_label(@last_element)) ? select_bersani : nil
         end
       else
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCongenere", get('@coming_from_company'))
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", get('@nr_of_paid_claims_1_yr'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", get('@nr_of_paid_claims_2_yr'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", get('@nr_of_paid_claims_3_yr'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", get('@nr_of_paid_claims_4_yr'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", get('@nr_of_paid_claims_5_yr'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", get('@nr_of_paid_claims_this_yr'))
+        select_last_years_claims
       end
 
     type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
 
-    click_option(get('@driver_less_than_26_yrs'))
-
     click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
+  	sleep @sleep*3
 
-  end
-
-  def page_3
-
-    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-    sleep @sleep*2
-    
   end
 
   def page_4
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
+    sleep @sleep*5
     
+  end
+
+  def page_5
+    
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     case get("@rca_on_off")
       when 'on'
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@instalment')) #ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@payment'))
 
-        click_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-        click_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-        click_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-        click_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-        click_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-        click_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-        click_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-        click_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
         click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
+      	sleep @sleep*2
 
         wait_for_elm get("@rca_premium_id")
-#        assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
+
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
@@ -217,8 +216,8 @@ class QuixaSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-    assert_equal @url, page.get_location
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{page.get_title.upcase}"}
+    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
   end
 
   def select_option(id, value = nil)
@@ -249,11 +248,17 @@ class QuixaSect1 < Test::Unit::TestCase
     assert_equal page.get_value(@last_element), "on"
   end
 
+  def uncheck_checkbox(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's unchecked checkbox element: [#{@last_element}]"}
+    page_uncheck @last_element
+    assert_equal page.get_value(@last_element), "off"
+  end
+
   def click_button(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
-    page_click @last_element
-  	sleep @sleep*3
+    page_click_button @last_element
   end
 
   def is_checked?(id, value = nil)
@@ -267,10 +272,22 @@ class QuixaSect1 < Test::Unit::TestCase
    page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
+	def page_click_button(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button = #{element}"}
+	  page.click element
+	end
+
 	def page_click(element)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on element = #{element}"}
-#	  wait_for_elm(element)
+	  wait_for_elm(element)
 	  page.click element
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
+	end
+
+	def page_uncheck(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Uncheck element = #{element}"}
+	  wait_for_elm(element)
+	  page.uncheck element
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
@@ -292,9 +309,9 @@ class QuixaSect1 < Test::Unit::TestCase
 
   def wait_for_select(combo_name, label)
   	sleep @sleep
-    raise RangeError, "Wait for select failed! Element cannot be nil" unless combo_name
-    raise RangeError, "Wait for select failed! Label cannot be nil" unless label
-    raise RangeError, "Wait for select failed! Label cannot be nil" unless label.gsub!("label=","")
+    assert_not_nil combo_name
+    assert_not_nil label
+    assert_not_nil label.gsub!("label=","")
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
@@ -303,21 +320,32 @@ class QuixaSect1 < Test::Unit::TestCase
   def wait_for_elm(name)
   	sleep @sleep
 	  page.wait_for_element name
-		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug("#{__FILE__} => #{method_name}") \
-                               {"#{@kte.company} => Waiting combo "+ name;} } \
-                                if page.is_visible("ctl00_UpdateProgress1") \
-                                if page.element? "ctl00_UpdateProgress1"
-	  raise RangeError, "Wait for element failed! Element not present = #{name}" unless page.element? name
-#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element name = #{name}"}
+    assert_is_element_present(name)
 
   end
 
   def is_present?(name)
 	  present = page.is_element_present name
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
-	  visible = page.is_visible name if present
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"} if present
+    if present
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
+      visible = page.is_visible name
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
+    end
     return present
+  end
+
+  def select_bersani
+    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
+  end
+
+  def select_last_years_claims
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", get('@nr_of_paid_claims_1_yr'))
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", get('@nr_of_paid_claims_2_yr'))
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", get('@nr_of_paid_claims_3_yr'))
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", get('@nr_of_paid_claims_4_yr'))
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", get('@nr_of_paid_claims_5_yr'))
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", get('@nr_of_paid_claims_this_yr'))
   end
 
   def get_premium(p)
@@ -330,14 +358,17 @@ class QuixaSect1 < Test::Unit::TestCase
     premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
-    raise RangeError, "Price cannot be equal to zero" unless premium.to_i > 0
+    assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"
     @kte.rc_premium = premium
 
   end
 
-#	def wait_for_alert()
-#		!8.times{ break if (page.alert?); sleep 1; puts "Waiting alert ..."; }
-#		page.alert() if page.alert?
-#	end
+  def assert_is_element_present(element)
+		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug("#{__FILE__} => #{method_name}") \
+                               {"#{@kte.company} => Waiting combo "+ name;} } \
+                                if page.is_visible("ctl00_UpdateProgress1") \
+                                if page.element? "ctl00_UpdateProgress1"
+	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
+  end
 
 end
