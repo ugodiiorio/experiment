@@ -22,7 +22,7 @@ module FieldMappingProvider2Sect2
       'pol_BM_assigned_str' => 'infield[:pol_BM_assigned_str].strip.downcase',
       'pol_claims_total_number_str' => 'infield[:pol_claims_total_number_str].strip.downcase',
       'pol_client_type_str' => 'infield[:pol_client_type_str].strip.downcase',
-      'pol_coming_from_BM_num'  => 'bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end' ,
+      'pol_coming_from_BM_str'  => 'bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end' ,
       'pol_driver_less_than_26_yrs_str' => 'infield[:pol_driver_less_than_26_yrs_str].strip.downcase',
       'pol_driver_zip_code_str' => 'infield[:pol_driver_zip_code_str].strip.downcase',
       'pol_family_members_insured_with_company_str' =>  '0',

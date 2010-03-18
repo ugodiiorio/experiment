@@ -291,7 +291,7 @@ module Provider2Directline
       'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_car_already_insured_with_company_str'  => 'translate_field' ,
-      'pol_coming_from_BM_num' => 'translate_field',
+      'pol_coming_from_BM_str' => 'translate_field',
       'pol_driver_less_than_26_yrs_str'  => 'translate_field' ,
       'pol_driver_accident_coverage_code_str' => 'copy_field' ,
       'pol_driver_accident_coverage_on_off_str' => 'copy_field' ,
