@@ -46,7 +46,7 @@ module Provider2Generali
       'pol_claims_total_number_str'  => 'copy_field' ,
       'pol_client_type_str'  => 'translate_field' ,
       'pol_cohabiting_children_str'  => 'copy_field' ,
-      'pol_coming_from_BM_num'  => 'copy_field' ,
+      'pol_coming_from_BM_str'  => 'copy_field' ,
       'pol_coming_from_company_str'  => 'copy_field' ,
       'pol_current_policy_guarantee_str'  => 'copy_field' ,
       'pol_defined_drive_str'  => 'copy_field' ,

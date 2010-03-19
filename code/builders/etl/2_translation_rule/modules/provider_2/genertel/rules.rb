@@ -68,7 +68,7 @@ module Provider2Genertel
       'pol_claims_total_number_str' => 'copy_field',
       'pol_client_type_str' => 'translate_field',
       'pol_cohabiting_children_str' => 'translate_field',
-      'pol_coming_from_BM_num' => 'translate_field',
+      'pol_coming_from_BM_str' => 'translate_field',
       'pol_coming_from_company_str' => 'copy_field',
       'pol_contingency_protection_code_str' => 'copy_field',
       'pol_contingency_protection_on_off_str' => 'copy_field',
