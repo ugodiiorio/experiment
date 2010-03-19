@@ -59,7 +59,7 @@ module Provider1Conte
       'own_owner_residence_str' =>  'copy_field',
       'driv_birth_state_str' => 'copy_field',
       'pol_minikasko_code_str' => 'copy_field',
-      'driv_job_str' => 'job=profilefield[:driv_job_str].strip; jregexp_mod = "regexpi:([A-Za-z0-9])*";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ; el.split("/"); el.each do |el2|; jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)*(\\\\s)*" end; end ; jregexp_mod = jregexp_mod + "\\\\b" ;',
+      'driv_job_str' => 'job=profilefield[:driv_job_str].strip; jregexp_mod = "regexpi:([A-Za-z0-9])*";jregexpi_mod_array = job.split("/");jregexpi_mod_array.each do |el| ; el.split("/"); el.each do |el2|;jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end; end ;jregexp_mod = jregexp_mod + "(impiegato)\\\\b" ; ;',
       'driv_job_2_str' => 'copy_field',
       'pol_bersani_str' => 'translate_field',
       'driv_civil_status_str' => 'translate_field',
