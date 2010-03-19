@@ -82,7 +82,6 @@ module Provider1Directline
       {'own_owner_sex_str' => 'M'} => '//input[@name=sessoContraente and @value="M"]',
       {'own_owner_sex_str' => 'F'} => '//input[@name=sessoContraente and @value="F"]',
       {'own_owner_sex_str' => 'C'} => '//input[@name=sessoContraente and @value="M"]',
-      {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
     
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => '//*[@id="id_radio_bm"]',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//table/tbody/tr[10]/td/table/tbody/tr[3]/td[2]/input',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...

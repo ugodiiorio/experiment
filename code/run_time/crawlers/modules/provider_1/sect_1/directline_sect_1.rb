@@ -81,6 +81,10 @@ class DirectlineSect1 < Test::Unit::TestCase
       page_2
       page_3
       page_4
+      page_5
+      page_6
+      page_7
+      page_8
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -119,82 +123,87 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_2
 
+    type_text("iddatadinascita", get('@birth_date'))
+    click_option(get('@owner_sex'))
+    select_option "idstatocivile", get("@civil_status")
+    select_option "/qol/application/beans/vo/VoContraente.strCodProfessione", get("@job")
+    type_text("iddatadinascita", get('@owner_zip_code'))
+    select_option "/qol/application/beans/vo/VoContraente.strAnniPatente", get("@driving_license_yrs")
+    click_option(get('@subscriber_is_driver'))
+    click_option(get('@subscriber_is_owner'))
 
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlBrand", get('@make'))
-
-    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", get('@matriculation_date'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlFuelType", get('@fuel'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlKmPerYear", get('@km_per_yr'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVehicleUse", get('@habitual_vehicle_use'))
+    click_button "SUBMIT"
+   	sleep @sleep*3
 
   end
 
-#  def page_2
-#
-##      wait_for_alert()
-#    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-#    click_option(get('@leasing'))
-#
-#    click_option(get('@client_type'))
-#
-#    case page.get_text("//label[@for='#{@last_element}']") =~ /fisica/i
-#      when Individual
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCountry", get('@citizenship'))
-#        click_option(get('@owner_sex'))
-#        type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", get('@birth_date'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", get('@job'))
-#      else
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
-#    end
-#
-#    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", get('@insurance_situation'))
-#    case page.get_selected_label(@last_element) =~ /prima polizza/i
-#      when FirstPolicy
-#        if Individual === (page.get_text("//label[@for='#{get('@client_type')}']") =~ /fisica/i)
-#          select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlSelectBersani", get('@bersani'))
-#          /(si)+/.match(page.get_selected_label(@last_element)) ? select_bersani : nil
-#        end
-#      else
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCongenere", get('@coming_from_company'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
-#        select_last_years_claims
-#      end
-#
-#    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
-#
-#    click_option(get('@driver_less_than_26_yrs'))
-#
-#    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-#    sleep @sleep*3
-#
-#  end
-
   def page_3
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-  	sleep @sleep*5
+    select_option "numConducentiU26Dich", get("@driver_less_than_26_yrs")
+    type_text("Numauto", get('@family_car'))
+    click_option(get('@family_members_insured_with_company'))
+
+    click_button "SUBMIT"
+   	sleep @sleep*3
 
   end
 
   def page_4
 
+    select_option "classeProvenienzaAuto", get("@bm_assigned")
+    select_option "classeAssegnazioneAuto", get("@coming_from_bm")
+    click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
+    click_option(get('@claims_total_number'))
+    type_text("annoprimaimmatricolazione", get('@matriculation_date'))
+    type_text("annoprimaimmatricolazione", get('@purchase_date_year'))
+    select_option "classeProvenienzaAuto", get("@make")
+    select_option "classeAssegnazioneAuto", get("@model")
+
+    click_button "SUBMIT"
+   	sleep @sleep*3
+
+  end
+
+  def page_5
+
+    select_option "classeAssegnazioneAuto", get("@set_up")
+    select_option "classeAssegnazioneAuto", get("@habitual_vehicle_use")
+    type_text("KMPercorsi", get('@km_per_yr'))
+    click_option(get('@vehicle_use'))
+
+    click_button "SUBMIT"
+   	sleep @sleep*3
+
+  end
+
+  def page_6
+
+    select_option "iCodAntifurto", get("@alarm")
+    select_option "iCodRicoveroNotturno", get("@vehicle_shelter")
+    type_text("valoreauto", get('@vehicle_value'))
+
+    click_button "SUBMIT"
+   	sleep @sleep*3
+
+  end
+
+  def page_7
+
+    sleep @sleep*1
+    click_button "SUBMIT"
+   	sleep @sleep*3
+
+  end
+
+  def page_8
+
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     case get("@rca_on_off")
       when 'on'
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@instalment')) #ATTENTION! Always use 1 year split
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@payment'))
+
+        select_option("SelM_RCA", get('@public_liability_indemnity_limit'))
+        select_option("SelRateizzazione", get('@instalment')) #ATTENTION! Always use 1 year split
+        select_option("SelFSM_RCA", get('@public_liability_exemption'))
 
         uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
         uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
@@ -205,7 +214,7 @@ class DirectlineSect1 < Test::Unit::TestCase
         uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
         uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
-        click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
+        click_button "RICALCOLA"
       	sleep @sleep*2
 
         wait_for_elm get("@rca_premium_id")
