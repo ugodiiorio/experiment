@@ -82,9 +82,9 @@ module Provider1Directline
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '5.000.000/1.000.000',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '5.000.000/1.000.000',
       {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
-      {'own_owner_sex_str' => 'M'} => '//input[@name=sessoContraente and @value="M"]',
-      {'own_owner_sex_str' => 'F'} => '//input[@name=sessoContraente and @value="F"]',
-      {'own_owner_sex_str' => 'C'} => '//input[@name=sessoContraente and @value="M"]',
+      {'own_owner_sex_str' => 'M'} => '//input[@name="sessoContraente" and @value="M"]',
+      {'own_owner_sex_str' => 'F'} => '//input[@name="sessoContraente" and @value="F"]',
+      {'own_owner_sex_str' => 'C'} => '//input[@name="sessoContraente" and @value="M"]',
       {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
     
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'id_radio_bm',
