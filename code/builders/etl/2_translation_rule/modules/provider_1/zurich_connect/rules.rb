@@ -69,7 +69,7 @@ module Provider1ZurichConnect
       'pol_BM_particular_cases_str' => 'copy_field',
       'pol_car_already_insured_with_company_str' => 'copy_field',
       'pol_claims_total_number_malus_str'=> 'copy_field',
-      'pol_claims_total_number_str' => 'copy_field',
+      'pol_claims_total_number_str' => 'translate_field',
       'pol_client_type_str' => 'copy_field',
       'pol_cohabiting_children_str' => 'copy_field',
       'pol_coming_from_BM_str' => 'copy_field',

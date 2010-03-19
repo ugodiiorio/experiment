@@ -181,7 +181,7 @@ module Provider2Quixa
       {'pol_residence_province_str' => 'VB'} => 'VERBANO CUSIO OSSOLA',
       {'pol_residence_province_str' => 'VC'} => 'VERCELLI',
       {'pol_residence_province_str' => 'VR'} => 'VERONA',
-      {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
+      {'pol_residence_province_str' => 'VV'} => 'VIBO VALENZIA',
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
@@ -291,7 +291,7 @@ module Provider2Quixa
       {'own_owner_residence_province_str' => 'VB'} => 'VERBANO CUSIO OSSOLA',
       {'own_owner_residence_province_str' => 'VC'} => 'VERCELLI',
       {'own_owner_residence_province_str' => 'VR'} => 'VERONA',
-      {'own_owner_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
+      {'own_owner_residence_province_str' => 'VV'} => 'VIBO VALENZIA',
       {'own_owner_residence_province_str' => 'VI'} => 'VICENZA',
       {'own_owner_residence_province_str' => 'VT'} => 'VITERBO',
 
