@@ -118,20 +118,20 @@ class DialogoSect1 < Test::Unit::TestCase
     type_text("contentSubView:contentForm:decorrenza", @rate_date)
     click_option(get('@insurance_situation'))
 
-    case page.get_text(@last_element) =~ /ASSICURATO/i
-      when Individual
-        select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@BM_assigned'))
-        select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))
-      else
-        click_option(get('@bersani'))
-        if /(si)+/.match(page.get_selected_label(@last_element))
-          select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@BM_assigned'))
-        else
-          nil
-        end
+    if (page.get_attribute("#{@last_element}@value") == "3")
+      select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
+      select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))
+    else
+      click_option(get('@bersani'))
+      if (page.get_attribute("#{@last_element}@value") == "Y")
+        select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
+      end
     end
 
-    click "contentSubView:contentForm:buttonNext"
+
+    #FUNZIONANTE FIN QUI!!!!
+    click button "//[@id='contentSubView:contentForm:buttonNext']"
+    @selenium.wait_for_page_to_load $wait_for_page_to_load
 
   end
 
@@ -378,10 +378,7 @@ class DialogoSect1 < Test::Unit::TestCase
   	sleep @sleep
     assert_not_nil combo_name
     assert_not_nil label
-    assert_not_nil label.gsub!("label=","")
-#    raise RangeError, "Wait for select failed! Element cannot be nil" unless combo_name
-#    raise RangeError, "Wait for select failed! Label cannot be nil" unless label
-#    raise RangeError, "Wait for select failed! Label cannot be nil" unless label.gsub!("label=","")
+    assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)

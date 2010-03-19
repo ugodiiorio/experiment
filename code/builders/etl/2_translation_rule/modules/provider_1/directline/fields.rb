@@ -21,6 +21,8 @@ module Provider1Directline
       {'pol_collision_premium_id_str' => 'id elemento'} => 'chk_2',
       {'pol_already_benefit_from_bersani_str' => 'no'} => 'id_radio_tipo_bm_2',
 
+      {'pol_collision_web_id_str' => 'id elemento'} => 'chk_2',
+
       {'pol_bersani_ref_vehicle_number_plate_str' => 'no'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[13]/td[2]/input[3]',
       {'pol_driver_less_than_26_yrs_str' => 'N'} => 'Nessuno',
       {'pol_driver_less_than_26_yrs_str' => 'S'} => 'Un conducente',
