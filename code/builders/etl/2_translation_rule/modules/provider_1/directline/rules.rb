@@ -114,7 +114,8 @@ module Provider1Directline
       'pol_bersani_policy_expiring_date_str' => 'Chronic.parse(profilefield[:pol_bersani_expiring_date_str]).strftime("%d/%m/%Y");',
       'pol_bersani_ref_vehicle_number_plate_str' => 'translate_field',
       'pol_blukasko_code_str' => 'copy_field',
-      'pol_claims_total_number_str' => 'copy_field',
+      'pol_claims_total_number_str' => 'profilefield[:pol_claims_total_number_str].to_i > 0  ? "//input[@name="Sinistri5a" and @value="T"]" : "//input[@name="Sinistri5a" and @value="F"]";',
+     
       'pol_cohabiting_children_str' => 'copy_field',
       'pol_contingency_protection_code_str' => 'copy_field',
       'pol_current_policy_guarantee_str' => 'copy_field',
@@ -130,7 +131,7 @@ module Provider1Directline
       'pol_exclusive_drive_str' => 'copy_field',
       'pol_free_drive_str' => 'copy_field',
       'pol_minikasko_code_str' => 'copy_field',
-      'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => 'copy_field',
+      'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => 'profilefield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str].to_i == 5 ? "//input[@name="Assic5a" and @value="T"]" : "//input[@name="Assic5a" and @value="F"]";',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
       'pol_number_of_NI_NA_yrs_during_5_yrs_str' => 'copy_field',
       'pol_number_plate_type_str' => 'copy_field',
