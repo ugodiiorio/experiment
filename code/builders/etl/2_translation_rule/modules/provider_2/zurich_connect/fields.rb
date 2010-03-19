@@ -5,7 +5,7 @@ module Provider2ZurichConnect
     @target_values = Hash.new
 
     @target_values = {
-        {'pol_blukasko_web_id_str' => 'id elemento'} => 'chkKaskoParziale',
+      {'pol_blukasko_web_id_str' => 'id elemento'} => 'chkKaskoParziale',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'chkInfortuniConducente',
       {'pol_driving_licence_withdrawal_guarantee_web_id_str' => 'id elemento'} => 'chkRitiroPatente',
       {'pol_glasses_web_id_str' => 'id elemento'} => 'chkComplementareARD',
@@ -14,6 +14,10 @@ module Provider2ZurichConnect
       {'pol_natural_events_web_id_str' => 'id elemento'} => 'chkEventiNaturali',
       {'pol_road_assistance_web_id_str' => 'id elemento'} => 'chkAssistenza',
       {'pol_social_political_events_web_id_str' => 'id elemento'} => 'chkEventiSociopolitici',
+      {'pol_claims_total_number_str'  => '0'} => 'Nessun sinistro                                                                                                                                                                                         ',
+      {'pol_claims_total_number_str'  => '1'} => '1 sinistro                                                                                                                                                                                              ',
+      {'pol_claims_total_number_str'  => '2'} => '2 sinistri                                                                                                                                                                                              ',
+      {'pol_claims_total_number_str'  => '3'} => '4 sinistri e oltre                                                                                                                                                                                      ',
 
       {'pol_driving_type_str' => 'esperta'} => 'Guida Esperta',
       {'pol_driving_type_str' => 'libera'} => 'Guida Libera',
@@ -308,9 +312,9 @@ module Provider2ZurichConnect
 
   def build_hash_sect_2()
 
-  @target_values = {}
+    @target_values = {}
 
-  @target_values = {
+    @target_values = {
 
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Coniugato senza figli',
       {'driv_studies_str' => 'Diploma'} => 'Diploma',
@@ -379,7 +383,7 @@ module Provider2ZurichConnect
       {'pol_road_assistance_web_id_str' => 'id elemento'} => 'chkAssistenza',
       {'pol_theft_fire_coverage_web_id_str'  => 'id elemento'} => 'chkIncendioFurto',
 
-  }
+    }
   end
   
 end
