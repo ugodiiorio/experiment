@@ -150,8 +150,8 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_4
 
-    select_option "classeProvenienzaAuto", get("@bm_assigned")
-    select_option "classeAssegnazioneAuto", get("@coming_from_bm")
+    select_option "classeProvenienzaAuto", get("@coming_from_bm")
+    select_option "classeAssegnazioneAuto", get("@bm_assigned")
     click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
     click_option(get('@claims_total_number'))
     type_text("annoprimaimmatricolazione", get('@matriculation_date'))
@@ -167,6 +167,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_5
 
+    page_click "allestimentoAuto"
     select_option "allestimentoAuto", get("@set_up")
     select_option "UsoPra", get("@habitual_vehicle_use")
     type_text("KMPercorsi", get('@km_per_yr'))
@@ -181,7 +182,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     select_option "iCodAntifurto", get("@alarm")
     select_option "iCodRicoveroNotturno", get("@vehicle_shelter")
-    type_text("valoreauto", get('@vehicle_value'))
+    #type_text("valoreauto", get('@vehicle_value'))
 
     click_button "SUBMIT"
    	sleep @sleep*3
@@ -190,7 +191,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_7
 
-    sleep @sleep*1
+    sleep @sleep*5
     click_button "AVANTI"
    	sleep @sleep*3
 
