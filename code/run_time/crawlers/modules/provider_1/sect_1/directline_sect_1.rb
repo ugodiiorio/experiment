@@ -127,7 +127,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     click_option(get('@owner_sex'))
     select_option "idstatocivile", get("@civil_status")
     select_option "/qol/application/beans/vo/VoContraente.strCodProfessione", get("@job")
-    type_text("iddatadinascita", get('@owner_zip_code'))
+    type_text("CAP", get('@owner_zip_code'))
     select_option "/qol/application/beans/vo/VoContraente.strAnniPatente", get("@driving_license_yrs")
     click_option(get('@subscriber_is_driver'))
     click_option(get('@subscriber_is_owner'))
@@ -155,23 +155,24 @@ class DirectlineSect1 < Test::Unit::TestCase
     click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
     click_option(get('@claims_total_number'))
     type_text("annoprimaimmatricolazione", get('@matriculation_date'))
-    type_text("annoprimaimmatricolazione", get('@purchase_date_year'))
-    select_option "classeProvenienzaAuto", get("@make")
-    select_option "classeAssegnazioneAuto", get("@model")
+    type_text("dataacquistoauto", get('@purchase_date_year'))
+    select_option "select_marca", get("@make")
+    page_click @last_element
+    select_option "select_modelli", get("@model")
 
-    click_button "SUBMIT"
+    click_button "PROSEGUI"
    	sleep @sleep*3
 
   end
 
   def page_5
 
-    select_option "classeAssegnazioneAuto", get("@set_up")
-    select_option "classeAssegnazioneAuto", get("@habitual_vehicle_use")
+    select_option "allestimentoAuto", get("@set_up")
+    select_option "UsoPra", get("@habitual_vehicle_use")
     type_text("KMPercorsi", get('@km_per_yr'))
     click_option(get('@vehicle_use'))
 
-    click_button "SUBMIT"
+    click_button "PROSEGUI"
    	sleep @sleep*3
 
   end
@@ -190,7 +191,7 @@ class DirectlineSect1 < Test::Unit::TestCase
   def page_7
 
     sleep @sleep*1
-    click_button "SUBMIT"
+    click_button "AVANTI"
    	sleep @sleep*3
 
   end
@@ -347,20 +348,6 @@ class DirectlineSect1 < Test::Unit::TestCase
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
     end
     return present
-  end
-
-  def select_bersani
-    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
-  end
-
-  def select_last_years_claims
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", get('@nr_of_paid_claims_5_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", get('@nr_of_paid_claims_4_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", get('@nr_of_paid_claims_3_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", get('@nr_of_paid_claims_2_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", get('@nr_of_paid_claims_1_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", get('@nr_of_paid_claims_this_yr'))
   end
 
   def get_premium(p)
