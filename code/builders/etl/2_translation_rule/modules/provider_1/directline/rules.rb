@@ -114,7 +114,7 @@ module Provider1Directline
       'pol_bersani_policy_expiring_date_str' => 'Chronic.parse(profilefield[:pol_bersani_policy_expiring_date_str]).strftime("%d/%m/%Y");',
       'pol_bersani_ref_vehicle_number_plate_str' => 'translate_field',
       'pol_blukasko_code_str' => 'copy_field',
-      'pol_claims_total_number_str' => 'profilefield[:pol_claims_total_number_str].to_i > 0  ? "//input[@name=\"Sinistri5a\" and @value=\"T\"]" : "//input[@name=\"Sinistri5a\" and @value=\"F\"]";',
+      'pol_claims_total_number_str' => 'profilefield[:pol_claims_total_number_str].to_i > 0  ? "//input[@name=\"Sinistri5a\" and @value=\"F\"]" : "//input[@name=\"Sinistri5a\" and @value=\"T\"]";',
      
       'pol_cohabiting_children_str' => 'copy_field',
       'pol_contingency_protection_code_str' => 'copy_field',
