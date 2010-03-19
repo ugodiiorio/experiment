@@ -28,7 +28,7 @@ database_settings:
 app_settings:
   as_provider_id: 'provider_1'
   as_company_group_id: 'all_provider_1'
-  as_company_id: 'dialogo'
+  as_company_id: 'directline'
   as_sector_id: 'sect_1'
   as_working_set_id: 'prov_1_20100301'
   as_rate_id: '20100410'

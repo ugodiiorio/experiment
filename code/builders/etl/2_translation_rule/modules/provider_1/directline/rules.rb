@@ -111,7 +111,7 @@ module Provider1Directline
       'pol_act_of_vandalism_code_str' => 'copy_field',
       'pol_already_benefit_from_bersani_str' => 'copy_field',
       'pol_athmospheric_events_code_str' => 'copy_field',
-      'pol_bersani_policy_expiring_date_str' => 'Chronic.parse(profilefield[:pol_bersani_expiring_date_str]).strftime("%d/%m/%Y");',
+      'pol_bersani_policy_expiring_date_str' => 'Chronic.parse(profilefield[:pol_bersani_policy_expiring_date_str]).strftime("%d/%m/%Y");',
       'pol_bersani_ref_vehicle_number_plate_str' => 'translate_field',
       'pol_blukasko_code_str' => 'copy_field',
       'pol_claims_total_number_str' => 'copy_field',
