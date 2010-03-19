@@ -232,7 +232,6 @@ module Provider1Directline
       'pol_act_of_vandalism_code_str' => 'copy_field',
       'pol_record_id_str' => 'copy_field',
       'driv_job_2_str' => 'copy_field',
-      'pol_driver_less_than_26_yrs_str'=> 'copy_field' ,
       'pol_subscriber_is_holder_str'=> 'copy_field' ,
       'pol_theft_fire_coverage_code_str'=> 'copy_field' ,
       'pol_theft_fire_coverage_on_off_str'=> 'copy_field' ,
