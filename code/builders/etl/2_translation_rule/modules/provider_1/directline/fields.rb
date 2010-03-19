@@ -18,7 +18,7 @@ module Provider1Directline
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'chk_8',
       {'pol_natural_events_web_id_str' => 'id elemento'} => 'chk_5',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'chk_1',
-      {'pol_collision_premium_id_str' => 'id elemento'} => 'chk_2',
+      {'pol_collision_web_id_str' => 'id elemento'} => 'chk_2',
 
       {'pol_bersani_ref_vehicle_number_plate_str' => 'no'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[13]/td[2]/input[3]',
       {'pol_driver_less_than_26_yrs_str' => 'N'} => 'Nessuno',
