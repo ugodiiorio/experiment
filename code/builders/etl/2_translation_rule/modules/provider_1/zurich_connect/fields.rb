@@ -290,7 +290,7 @@ module Provider1ZurichConnect
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
       {'own_owner_sex_str' => 'C'} => 'PersonaGiuridica',
-     {'pol_claims_total_number_str'  => '0'} => 'Nessun sinistro                                                                                                                                                                                         ',
+      {'pol_claims_total_number_str'  => '0'} => 'Nessun sinistro                                                                                                                                                                                         ',
       {'pol_claims_total_number_str'  => '1'} => '1 sinistro                                                                                                                                                                                              ',
       {'pol_claims_total_number_str'  => '2'} => '2 sinistri                                                                                                                                                                                              ',
       {'pol_claims_total_number_str'  => '3'} => '4 sinistri e oltre                                                                                                                                                                                      ',
