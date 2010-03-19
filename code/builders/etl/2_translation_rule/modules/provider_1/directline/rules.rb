@@ -33,7 +33,7 @@ module Provider1Directline
       'veh_cv_num'=> 'copy_field',
       'driv_driving_license_month_of_issue_str' => 'copy_field',
       'driv_driver_sex_str' => 'copy_field',
-      'driv_job_str' => 'job=profilefield[:driv_job_str]; jregexp_mod = "regexpi:([A-Za-z0-9])*";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ; el.split("/"); el.each do |el2|; jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)*(\\\\s)*" end; end ; jregexp_mod = jregexp_mod + "\\\\b" ;',
+      'driv_job_str' => 'job=profilefield[:driv_job_str];jregexp_mod = "regexpi:([A-Za-z0-9])*";jregexpi_mod_array = job.split("/");jregexpi_mod_array.each do |el| ; el.split("/"); el.each do |el2|;jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end; end ;jregexp_mod = jregexp_mod + "(impiegato)\\\\b" ;',
       'pol_bersani_str' => 'translate_field',
       'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
       'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',

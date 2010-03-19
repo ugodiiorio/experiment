@@ -118,7 +118,7 @@ module FieldMappingProvider2Sect1
       'pol_second_driver_str'  => nil ,
       'pol_subscriber_is_driver_str'  => 'if infield[:own_owner_sex_str].strip.upcase == "M"; "si"; elsif infield[:own_owner_sex_str].strip.upcase == "F"; "si"; else "no"; end' ,
       'pol_subscriber_is_holder_str'  => '"si"' ,
-      'pol_subscriber_is_owner_str'  => '"si"' ,
+      'pol_subscriber_is_owner_str'  => 'if infield[:own_owner_sex_str].strip.upcase == "M"; "si"; elsif infield[:own_owner_sex_str].strip.upcase == "F"; "si"; else "no"; end' ,
       'pol_type_of_contract_str'  => '"polizza nuova"' ,
       'pol_vehicle_continuous_use_no_of_mths_str'  => nil ,
       'veh_abs_str'  => 'infield[:veh_abs_str].strip.downcase' ,
@@ -232,7 +232,7 @@ module FieldMappingProvider2Sect1
       'pol_natural_events_act_of_vandalism_web_id_str'  => '"id elemento"' ,
       'pol_natural_events_code_str'  => nil ,
       'pol_natural_events_on_off_str'  => nil ,
-      'pol_natural_events_premium_id_str'  => '"id elemento"' ,
+      'pol_natural_events_premium_id_str'  => '"id elemento"' ,ow
       'pol_natural_events_web_id_str'  => '"id elemento"' ,
       'pol_road_assistance_code_str'  => nil ,
       'pol_road_assistance_indemnity_limit_str'  => nil ,

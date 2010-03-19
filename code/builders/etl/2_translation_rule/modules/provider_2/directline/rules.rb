@@ -20,7 +20,7 @@ module Provider2Directline
       'driv_heir_str'  => 'copy_field' ,
       'driv_italian_residence_starting_yrs_num'  => 'copy_field' ,
       'driv_job_2_str'  => 'copy_field' ,
-      'driv_job_str'  => 'job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
+      'driv_job_str'  => 'job=profilefield[:driv_job_str];jregexp_mod = "regexpi:([A-Za-z0-9])*";jregexpi_mod_array = job.split("/");jregexpi_mod_array.each do |el| ; el.split("/"); el.each do |el2|;jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end; end ;jregexp_mod = jregexp_mod + "(impiegato)\\\\b" ;' ,
       'driv_residence_same_as_home_address_str'  => 'copy_field' ,
       'driv_studies_str'  => 'copy_field' ,
       'own_owner_residence_province_str'  => 'copy_field' ,
@@ -282,7 +282,7 @@ module Provider2Directline
     @rule_values = {
 
       'driv_civil_status_str'  => 'copy_field' ,
-      'driv_job_str' => 'job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
+      'driv_job_str' => 'job=profilefield[:driv_job_str]; jregexp_mod = "regexpi:([A-Za-z0-9])*";jregexpi_mod_array = job.split("/");jregexpi_mod_array.each do |el| ; el.split("/"); el.each do |el2|;jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end; end ;jregexp_mod = jregexp_mod + "(impiegato)\\\\b" ;' ,
       'driv_driving_license_yrs_str' => 'x = ""; if profilefield[:driv_driving_license_yrs_str].to_i == 1; x="Si, da 1 anno"; elsif profilefield[:driv_driving_license_yrs_str].to_i == 2; x="Si, da 2 anni"; elsif profilefield[:driv_driving_license_yrs_str].to_i == 3; x="Si, da 3 anni"; else  x="Si, da oltre 3 anni" end;' ,
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str'  => 'copy_field',
@@ -291,7 +291,7 @@ module Provider2Directline
       'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_car_already_insured_with_company_str'  => 'translate_field' ,
-      'pol_coming_from_BM_num' => 'translate_field',
+      'pol_coming_from_BM_str' => 'translate_field',
       'pol_driver_less_than_26_yrs_str'  => 'translate_field' ,
       'pol_driver_accident_coverage_code_str' => 'copy_field' ,
       'pol_driver_accident_coverage_on_off_str' => 'copy_field' ,
