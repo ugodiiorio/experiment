@@ -82,8 +82,9 @@ class ZurichConnectSect1 < Test::Unit::TestCase
       page_1
       page_2
       page_3
-#      page_4
-#      page_5
+      page_4
+      page_5
+      page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -122,6 +123,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
     select_option("ddlSituazioneAssicurativa",get('@insurance_situation'))
     case page.get_selected_label(@last_element) =~ /prima volta/i
       when FirstTime
+        @first_time_insured = true
         select_option("DropBersani1", get('@bersani'))
       else
       end
@@ -148,7 +150,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
         select_option("ddlNazionalita", get('@citizenship'))
         select_option("ddlstatociv2", get('@civil_status'))
         select_option("ddlTitoloStudio", get('@studies'))
-        select_option("ddlprofessione", "OPERAIO") #get('@job')) ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        select_option("ddlprofessione", get('@job'))
     end
 
     type_text("txtCapResidenza", get('@driver_zip_code'))
@@ -164,15 +166,16 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   def page_3
 
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option("ddlAlimentazione", get('@fuel'))
     sleep @sleep*2
-    select_option("ddlMeseImm", get('@matriculation_date_month')) #ATTENTION!!!!!!!!!!!!!!!!!!! mesi numerici vs mesi alfabetici
+    select_option("ddlMeseImm", get('@matriculation_date_month'))
     sleep @sleep*2
     select_option("ddlAnno", get('@matriculation_date_year'))
     sleep @sleep*2
     select_option("ddlMarca", get('@make'))
     sleep @sleep*2
-    select_option("ddlModello", get('@model')) #ATTENTION 1a vs 1°
+    select_option("ddlModello", get('@model'))
     sleep @sleep*2
     select_option("ddlAllestimento", get('@set_up'))
 
@@ -188,7 +191,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
     select_option("ddlairbag", get('@airbag'))
     sleep @sleep*2
     select_option("ddlABS", get('@abs'))
-#    select_option("ddlStabiliz", get('@stabilizer'))  ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    select_option("ddlStabiliz", get('@stabilizer'))
     sleep @sleep*2
     select_option("ddlGancioTraino", get('@tow_hook'))
 
@@ -199,40 +202,60 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   def page_4
 
-      if $Polizza_nuova_auto_nuova
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    case @first_time_insured
+      when true
+        select_option("ddlClasseUniversale", get('@bm_assigned'))
       else
-        if $Polizza_nuova_auto_usata
-        else
-          select "ddlClasseUniversale", "label="+							$Classe_BM
-          click "//option[@value='"+										$N_sinistri_5_anni+"']"
-        end
-      end
-        click "btnAvanti"
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
-
-        click "//img[@alt='Calcola il premio']"
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
-
-      @selenium.wait_for_element "ddlMassimaleRCA"
-      lab = @selenium.get_selected_label "ddlMassimaleRCA"
-      @@logger.debug('ZurichTest.test_new => ' + $compagnia) {"Massimale RCA di default = "+lab}
-      if (lab.strip != $Massimale_RCA.strip)
-        select "ddlMassimaleRCA", "label="+ 						$Massimale_RCA
-        sleep 3
-      end
-      click $No_incendio_furto
-      click $No_infortuni_conducente
-      click "btnCalcola"
-      @selenium.wait_for_page_to_load $wait_for_page_to_load
-
-      premio = @selenium.get_text("lblvPremioAnnualeLordoSconto")
-      #premio = @selenium.get_text("lblvPremioAnnualeLordo")
-      str = premio.split
-      premio = str[0]
-      premio = premio.gsub(".","") if premio
-      premio = premio.gsub(",",".") if premio
-      #premium2 = @selenium.get_text("//div[@id='lblvPremioAnnualeLordo']")
+        select_option("ddlClasseUniversale", get('@bm_assigned'))
+        select_option("ddlNSinistriPen5anni", get('@claims_total_number'))
+        select_option("ddlAnniAssicurazione", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
     end
+    
+    click_button "Avanti"
+    page_wait
+    
+  end
+
+  def page_5
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    click_button "//img[@alt='Calcola il premio']"
+    page_wait
+
+  end
+
+  def page_premium
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    case get("@rca_on_off")
+      when 'on'
+        select_option("ddlTipoGuida", get('@driving_type'))
+        select_option("ddlMassimaleRCA", get('@public_liability_indemnity_limit'))
+
+        uncheck_checkbox(get('@road_assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+        uncheck_checkbox(get('social_political_events_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+        uncheck_checkbox(get('@natural_events_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+        uncheck_checkbox(get('@driving_licence_withdrawal_guarantee_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+        uncheck_checkbox(get('@blukasko_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+
+        select_option("ddlFrazionamento", get('@instalment'))
+        click_button "btnCalcola"
+        page_wait
+
+        wait_for_elm get("@rca_premium_id")
+#        assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
+        get_premium(get("@rca_premium_id"))
+      else
+        raise RangeError, "RC cover cannot be off"
+    end
+
+  end
 	
   def open_page(id, value = nil)
     @last_element, @last_value = id, value
@@ -334,7 +357,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
   	sleep @sleep
     assert_not_nil combo_name
     assert_not_nil label
-    assert_not_nil label.gsub!("label=","")
+    assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
@@ -354,20 +377,6 @@ class ZurichConnectSect1 < Test::Unit::TestCase
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
     end
     return present
-  end
-
-  def select_bersani
-    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
-  end
-
-  def select_last_years_claims
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", get('@nr_of_paid_claims_1_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", get('@nr_of_paid_claims_2_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", get('@nr_of_paid_claims_3_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", get('@nr_of_paid_claims_4_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", get('@nr_of_paid_claims_5_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", get('@nr_of_paid_claims_this_yr'))
   end
 
   def get_premium(p)
