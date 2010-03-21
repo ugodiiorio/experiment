@@ -38,6 +38,22 @@ module KteExt
       }
   end
 
+  def start_range(p)
+
+    profile_range = @kte.profile.split('..').inject { |s,e| s.to_i..e.to_i }
+    profile_range.is_a?(Range) ? first_profile = profile_range.first : first_profile = 1
+    return first_profile
+    
+  end
+
+  def end_range(p)
+
+    profile_range = @kte.profile.split('..').inject { |s,e| s.to_i..e.to_i }
+    profile_range.is_a?(Range) ? end_profile = profile_range.end : end_profile = p
+    return end_profile
+
+  end
+
   def normalize(var)
 
     arr_var = var.to_s.split("_")

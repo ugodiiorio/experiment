@@ -15,7 +15,7 @@ module DbSetters
   OK = "OK"
   DUPLICATE_KEY = "Duplicate entry"
 
-  def locked_profile?()
+  def not_free_profile?()
 
     begin
       @new_lock= false
@@ -122,7 +122,14 @@ module DbSetters
   end
   
   def count_profiles(db)
-    count = db.from(:company_insurance_profiles).count
+    ds = db.from(:company_insurance_profiles).filter(
+                                    :key_provider_id_str => :$p1,
+                                    :key_sector_id_str => :$p2,
+                                    :key_company_id_str => :$p3,
+                                    :key_working_set_id_str => :$p4)
+    ps = ds.prepare(:select, :select_count_profiles)
+    count = ps.call(:p1=>@kte.provider, :p2=>@kte.sector, :p3=>@kte.company, :p4=>@kte.working_set).count
+
     return count
   end
 

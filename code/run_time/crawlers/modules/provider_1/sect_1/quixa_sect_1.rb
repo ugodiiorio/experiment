@@ -332,8 +332,9 @@ class QuixaSect1 < Test::Unit::TestCase
   end
 
   def select_bersani
-    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
+    sleep @sleep*2
+    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
   end
 
   def select_last_years_claims

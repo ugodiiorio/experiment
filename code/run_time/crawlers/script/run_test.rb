@@ -15,7 +15,7 @@ require "test/unit/error"
 require "test/unit/ui/console/testrunner"
 
 class RunTest
-  attr_reader :kte, :browser, :host, :port, :wait_for_page_to_load, :timeout_in_secs, :sleep_typing, :url
+  attr_reader :kte, :browser, :host, :port, :wait_for_page_to_load, :timeout_in_secs, :url
 
   MODULE_FOLDER, UTILS = 'modules', 'utils.rb'
   DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
@@ -44,7 +44,7 @@ class RunTest
     @port = @kte.port
     @wait_for_page_to_load = @kte.wait_for_page_to_load
     @timeout_in_secs = @kte.timeout_in_sec
-    @kte.sleep_typing < 1 ? @sleep_typing = @kte.sleep_typing + 0.01*rand(200) : @sleep_typing = @kte.sleep_typing
+    @kte.sleep_typing < 1 ? @kte.sleep_typing = @kte.sleep_typing + 0.01*rand(200) : @kte.sleep_typing
     @sector_view = view_hash
     
     db_profile = db_connect(@kte.db_driver)

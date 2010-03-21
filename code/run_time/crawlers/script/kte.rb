@@ -25,11 +25,10 @@ include KteExt
 
 class KTE
   attr_reader :logger, :company_group, :company, :provider, :sector, :working_set, :rate, :rate_date
-  attr_reader :sleep_typing, :sleep_between_profiles, :max_profiles
   attr_reader :log_device, :log_level
   attr_reader :port, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
   attr_reader :db_host, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
-  attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result
+  attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result, :max_profiles, :sleep_typing, :sleep_between_profiles
 
   def initialize
     begin
@@ -177,16 +176,16 @@ class KTE
       while true
         break if profiles_count.to_i() == @kte.max_profiles.to_i()
 
-        @already_locked = nil
+        @not_free = nil
 
         if is_numeric?(@kte.profile)
 
           @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
           break unless @kte.profile.to_i.between?(1, profiles)
     #      case @kte.company
-          @already_locked = locked_profile?
+          @not_free = not_free_profile?
     #      end
-          if @already_locked
+          if @not_free
             @logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
             break
           else
@@ -197,14 +196,15 @@ class KTE
             @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
           end
         else #il profilo assicurativo non è fissato
-          i = 1
-          while i <= profiles do
+          from_profile = start_range(profiles)
+          to_profile = end_range(profiles)
+          while from_profile <= to_profile do
       #      case @kte.company
-            @kte.profile = i
+            @kte.profile = from_profile
             @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
-            @already_locked = locked_profile?
+            @not_free = not_free_profile?
       #      end
-            unless @already_locked
+            unless @not_free
               @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
               @test_suite.run()
               profiles_count = profiles_count + 1
@@ -213,8 +213,8 @@ class KTE
             end
             break if profiles_count.to_i() == @kte.max_profiles.to_i()
       #        @logger.info "Break Profili Cycle"
-            i += 1
-            sleep @kte.sleep_between_profiles.to_i unless @already_locked
+            from_profile += 1
+            sleep @kte.sleep_between_profiles.to_i unless @not_free
           end
           if profiles_count == 0
             @logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
