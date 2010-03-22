@@ -79,8 +79,9 @@ class DialogoSect1 < Test::Unit::TestCase
 
       page_1
       page_2
-#      page_3
-#      page_4
+      page_3
+      page_4
+      page_5
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -119,8 +120,15 @@ class DialogoSect1 < Test::Unit::TestCase
     click_option(get('@insurance_situation'))
 
     if (page.get_attribute("#{@last_element}@value") == "3")
+      
       select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
-      select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))
+      if page.get_selected_label(@last_element) =~ /almeno un anno/i
+        select_option("contentSubView:contentForm:sinistriCausati6", get('@nr_of_paid_claims_5_yr'))
+        select_option("contentSubView:contentForm:anniAssicurati6", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
+      else
+        select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))
+      end
+
     else
       click_option(get('@bersani'))
       if (page.get_attribute("#{@last_element}@value") == "Y")
@@ -128,156 +136,109 @@ class DialogoSect1 < Test::Unit::TestCase
       end
     end
 
-
-    #FUNZIONANTE FIN QUI!!!!
-    click button "//[@id='contentSubView:contentForm:buttonNext']"
-    @selenium.wait_for_page_to_load $wait_for_page_to_load
+    click_button "contentSubView:contentForm:buttonNext"
+   	sleep @sleep*3
 
   end
 
-#  def page_3
-#
-#    case page.get_text("//label[@for='#{@last_element}']") =~ /fisica/i
-#      when Individual
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCountry", get('@citizenship'))
-#        click_option(get('@owner_sex'))
-#        type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", get('@birth_date'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", get('@job'))
-#      else
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
-#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
-#    end
-#      if $Polizza_nuova_auto_nuova
-#        click "//input[@name='contentSubView:contentForm:attualeSituazione' and @value='1']"
-#        type "contentSubView:contentForm:decorrenza", 								$Data_decorrenza
-#        click "//input[@name='contentSubView:contentForm:bonusMalusRadio' and @value='N']"		#no bersani
-#      else
-#        if $Polizza_nuova_auto_usata
-#          click "//input[@name='contentSubView:contentForm:attualeSituazione' and @value='2']"
-#          type "contentSubView:contentForm:decorrenza", 							$Data_decorrenza
-#          click "//input[@name='contentSubView:contentForm:bonusMalusRadio' and @value='N']"		#no bersani
-#        else
-#          click 																	$Situazione_assicurativa_BM
-#          type "contentSubView:contentForm:decorrenza", 							$Data_decorrenza
-#          select "contentSubView:contentForm:classeAssegnazioneCu", "label="+ 	$Classe_BM
-#          select "contentSubView:contentForm:sinistriCausati4", "label="+			$N_sinistri_4_anni
-#        end
-#      end
-#
-#        click "contentSubView:contentForm:buttonNext"
-#        @selenium.wait_for_page_to_load $wait_for_page_to_load
-#
-#      click  																			$Conducenti_Dialogo
-#        click 																			$Intestatario_Driver_Dialogo
-#      click 																			$Intestatario_Proprietario_Dialogo
-#      click 																			$Cointestazione_Dialogo
-#      click "//input[@name='contentSubView:contentForm:MFRProprietario' and @value='"+ $Sesso + "']"
-#      click																			$Proprietario_is_conducente
-#        type "contentSubView:contentForm:DataNascitaProprietario", 						$Data_nascita
-#        select "contentSubView:contentForm:AnniPatenteProprietario", "label="+			$N_anni_patente
-#        select "contentSubView:contentForm:ProfessioneProprietario", "label="+			$Professione
-#        select "contentSubView:contentForm:NazionalitaProprietario", "label="+			$Nazionalita
-#    #    type "contentSubView:contentForm:ZipCodeProprietario", 						$Cap_new
-#
-#
-#    #    click "contentSubView:contentForm:buttonNext"
-#    #    @selenium.wait_for_page_to_load $wait_for_page_to_load
-#    #
-#    #	if $Cap == "22063"
-#    #		sleep 5
-#    #	end
-#        type "contentSubView:contentForm:ZipCodeProprietario", 							$Cap
-#      @selenium.key_up "contentSubView:contentForm:ZipCodeProprietario", "\13"
-#    #	sleep 3
-#    #	click "contentSubView:contentForm:backPD"
-#    #	sleep 3
-#    #    click "contentSubView:contentForm:buttonNext"
-#    #    @selenium.wait_for_page_to_load $wait_for_page_to_load
-#      sleep 3
-#        click "contentSubView:contentForm:buttonNext"
-#        @selenium.wait_for_page_to_load $wait_for_page_to_load
-#
-#      if $Polizza_nuova_auto_nuova
-#        type "contentSubView:vehicleForm:chooseAuto:registration", 							$Data_imm_classe_14_mese + "/" + $Data_decorrenza_anno
-#      else
-#        if $Polizza_nuova_auto_usata
-#          type "contentSubView:vehicleForm:chooseAuto:registration", 						$Data_immatricolazione_mese + "/" + $Data_immatricolazione_anno
-#        else
-#          type "contentSubView:vehicleForm:chooseAuto:registration", 						$Data_immatricolazione_mese + "/" + $Data_immatricolazione_anno
-#        end
-#      end
-#
-#        select "contentSubView:vehicleForm:chooseAuto:brands", "label="+							$Marca_auto
-#      sleep 3
-#      select "contentSubView:vehicleForm:chooseAuto:models", "label="+							$Modello_auto
-#      sleep 3
-#
-#
-#      type "preparations", 																	$Allestimento_auto
-#        select "contentSubView:vehicleForm:chooseAuto:preparationsCombo", "label="+ 			$Allestimento_auto
-#        type "contentSubView:vehicleForm:chooseAuto:preparationsHidden", 						$Allestimento_auto
-#
-#        type "contentSubView:vehicleForm:chooseAuto:kms", 											$N_km
-#        type "contentSubView:vehicleForm:chooseAuto:insurableValue", 								$Valore_auto
-#      click 																			$Ricovero_notturno
-#        click "contentSubView:vehicleForm:next"
-#        @selenium.wait_for_page_to_load $wait_for_page_to_load
-#
-#      sleep 5
-#    #	click "contentSubView:detailForm:buttonNextImg_2"
-#    #	@selenium.wait_for_page_to_load $wait_for_page_to_load
-#      mywindow = "http://www.dialogo.it/DialogoInternet/pages/quote/quotationData.faces"
-#      @last_element = mywindow
-#      @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Open in a new browser window the page " + mywindow}
-#      @selenium.open_window mywindow, "myWindow"
-##      @selenium.open_window "","myWindow"
-#      @selenium.select_window "myWindow"
-##      @selenium.wait_for_page_to_load $wait_for_page_to_load
-#
-#      sleep 3
-#
-#    #	@selenium.wait_for_element "contentSubView:quotationTabletForm:proposalTable:0:platinumSelectBox"
-#    #	lab = @selenium.get_selected_label "contentSubView:quotationTabletForm:proposalTable:0:platinumSelectBox"
-#    #	@@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Massimale RCA di default = "+lab}
-#    #	if (lab != $Massimale_RCA)
-#    #		select "contentSubView:quotationTabletForm:proposalTable:0:platinumSelectBox", "label="+ $Massimale_RCA
-#    #		click "buttonRecomputeImg"
-#    #		@selenium.wait_for_page_to_load $wait_for_page_to_load
-#    #	end
-#
-#      wait_for_elm("contentSubView:quotationTabletForm:proposalTable:0:_id133")
-#      lab = @selenium.get_selected_label "contentSubView:quotationTabletForm:proposalTable:0:_id133"
-#      @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Massimale RCA di default = "+lab}
-#      if (lab != $Massimale_RCA)
-#        select "contentSubView:quotationTabletForm:proposalTable:0:_id133", "label="+ $Massimale_RCA
-#        click "buttonRecomputeImg"
-##        @selenium.wait_for_page_to_load $wait_for_page_to_load
-#        sleep 5
-#        wait_for_elm("//div[@id='sbox_Costo Annuale']/span")
-#      end
-#
-#
-#      uncheck "contentSubView:quotationTabletForm:proposalTable:1:_id147"
-#      uncheck "contentSubView:quotationTabletForm:proposalTable:2:_id147"
-#      uncheck "contentSubView:quotationTabletForm:proposalTable:3:_id147"
-#      uncheck "contentSubView:quotationTabletForm:proposalTable:7:_id147"
-#
-#      click "buttonRecomputeImg"
-#
-#      sleep 5
-#      wait_for_elm get("@rca_premium_id")
-#      get_premium(get("@rca_premium_id"))
-#
-#      wait_for_elm("//div[@id='sbox_Costo Annuale']/span")
-#      str = premio.split
-#      premio = str[1]
-#      premio = premio.gsub(".","") if premio
-#      premio = premio.gsub(",",".") if premio
-#      @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"gsub premio = " + premio.to_s}
-#    end
+  def page_3
+    
+    click_option(get('@driving_type'))
+    click_option(get('@subscriber_is_driver'))
+    click_option(get('@num_of_owners'))
 
+    click_option(get('@subscriber_is_owner'))
+    if (page.get_attribute("#{@last_element}@value") == "Y")
+
+      click_option(get('@owner_sex'))
+      if (get('@owner_specification') != 'C')
+        type_text("contentSubView:contentForm:DataNascitaProprietario", get('@birth_date'))
+        select_option("contentSubView:contentForm:AnniPatenteProprietario", get('@driving_license_yrs'))
+        select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
+      end
+      select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
+      type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
+      page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
+
+    else
+
+      click_option(get('@driver_is_owner'))
+      select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
+      type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
+
+      type_text("contentSubView:contentForm:DataNascitaConducente", get('@birth_date'))
+      click_option(get('@driver_sex'))
+
+      select_option("contentSubView:contentForm:AnniPatenteConducente", get('@driving_license_yrs'))
+      select_option("contentSubView:contentForm:ProfessioneConducente", get('@job'))
+      type_text("contentSubView:contentForm:ZipCodeConducente", get('@driver_zip_code'))
+      page.fire_event "contentSubView:contentForm:ZipCodeConducente", "blur"
+
+    end
+
+    click_button "contentSubView:contentForm:buttonNext"
+   	sleep @sleep*3
+
+  end
+
+  def page_4
+
+    type_text("contentSubView:vehicleForm:chooseAuto:registration", get('@matriculation_date'))
+
+    select_option "contentSubView:vehicleForm:chooseAuto:brands", get("@make")
+    page.fire_event "contentSubView:vehicleForm:chooseAuto:brands", "blur"
+    select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
+    page.fire_event "contentSubView:vehicleForm:chooseAuto:models", "blur"
+#    select_option "preparations", get("@set_up")
+#    page.fire_event "preparations", "blur"
+    type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
+    type_text("contentSubView:vehicleForm:chooseAuto:insurableValue", get('@vehicle_value'))
+    click_option(get('@tow_hook'))
+    click_option(get('@vehicle_shelter'))
+    click_option(get('@number_plate_type'))
+    
+    click_button "contentSubView:vehicleForm:next"
+   	sleep @sleep*3
+
+  end
+
+  def page_5
+    
+    click_button "//img[@alt='Calcola il tuo PREVENTIVO']"
+    sleep @sleep*3
+
+  end
+
+  def page_6
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    case get("@rca_on_off")
+      when 'on'
+
+        select_option("massRCA", get('@public_liability_indemnity_limit'))
+        select_option("franchigiaCombo", get('@public_liability_exemption'))
+
+        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+
+        click_button "//img[@alt='Ricalcola']"
+        sleep @sleep*3
+
+        wait_for_elm get("@rca_premium_id")
+#        assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
+        get_premium(get("@rca_premium_id"))
+      else
+        raise RangeError, "RC cover cannot be off"
+    end
+
+  end
+  
   def open_page(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
@@ -398,20 +359,6 @@ class DialogoSect1 < Test::Unit::TestCase
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
     end
     return present
-  end
-
-  def select_bersani
-    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
-  end
-
-  def select_last_years_claims
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", get('@nr_of_paid_claims_1_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", get('@nr_of_paid_claims_2_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", get('@nr_of_paid_claims_3_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", get('@nr_of_paid_claims_4_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", get('@nr_of_paid_claims_5_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", get('@nr_of_paid_claims_this_yr'))
   end
 
   def get_premium(p)

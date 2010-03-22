@@ -384,7 +384,7 @@ module Provider1Dialogo
       {'pol_driving_type_str' => 'esperta'} => '//input[@name="contentSubView:contentForm:chooseAuto:casoAss" and @value="HE"]',
       {'pol_driving_type_str' => 'libera'} => '//input[@name="contentSubView:contentForm:chooseAuto:casoAss" and @value="HNE"]',
       {'pol_driving_type_str' => 'esclusiva'} => '//input[@name="contentSubView:contentForm:chooseAuto:casoAss" and @value="EX"]',
-      {'veh_num_of_owners_str' => '1'} => '//input[@name="contentSubView:contentForm:chooseAuto:Cointest2" and @value="N"]',
+      {'veh_num_of_owners_str' => '1'} => '//input[@name="contentSubView:contentForm:chooseAuto:Cointest" and @value="N"]',
       {'pol_subscriber_is_driver_str' => 'si'} => '//input[@name="contentSubView:contentForm:chooseAuto:contrIsDriv" and @value="Y"]',
       {'pol_subscriber_is_driver_str' => 'no'} => '//input[@name="contentSubView:contentForm:chooseAuto:contrIsDriv" and @value="N"]',
       {'pol_subscriber_is_owner_str' => 'si'} => '//input[@name="contentSubView:contentForm:chooseAuto:contrIsOwn" and @value="Y"]',
@@ -398,9 +398,9 @@ module Provider1Dialogo
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
       {'pol_instalment_str' => 'annuale'} => 'contentSubView:quotationTabletForm:proposalTable:8:_id147',
       {'pol_instalment_str' => 'semestrale'} => 'contentSubView:quotationTabletForm:proposalTable:9:_id147',
-      {'pol_number_plate_type_str' => 'definitiva'} => '//input[@name="contentSubView:vehicleForm:foreignRegistrationand" @value="true"]',
+      {'pol_number_plate_type_str' => 'definitiva'} => '//input[@name="contentSubView:vehicleForm:foreignRegistration" @value="true"]',
       {'veh_vehicle_shelter_str' => 'box privato'} => '//input[@name="contentSubView:vehicleForm:garage" and @value="true"]',
-      {'veh_tow_hook_str' => 'no'} => '//input[@name="contentSubView:vehicleForm:hook" and @value="true"]',
+      {'veh_tow_hook_str' => 'no'} => '//input[@name="contentSubView:vehicleForm:hook" and @value="false"]',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola'
       
     }
