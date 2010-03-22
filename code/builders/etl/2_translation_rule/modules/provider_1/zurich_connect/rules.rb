@@ -203,7 +203,7 @@ module Provider1ZurichConnect
       'pol_theft_fire_coverage_code_str'=> 'copy_field' ,
       'pol_theft_fire_coverage_on_off_str'=> 'copy_field' ,
       'pol_theft_fire_coverage_premium_id_str'=> 'copy_field' ,
-      'pol_theft_fire_coverage_web_id_str'=> 'copy_field' ,
+      'pol_theft_fire_coverage_web_id_str'=> 'translate_field' ,
       'pol_theft_fire_minimum_uncoverage_exemption_str' => 'copy_field',
       'pol_type_of_contract_str' => 'copy_field',
       'pol_vehicle_continuous_use_no_of_mths_str'=> 'copy_field' ,
