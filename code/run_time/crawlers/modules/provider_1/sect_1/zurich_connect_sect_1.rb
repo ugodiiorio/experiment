@@ -41,7 +41,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 #      vehicle_age = 1
 #      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
 
-      @url = eval(site.url)
+      @url = site.url
       @sleep = @kte.sleep_typing
 #      @verification_errors = []
 

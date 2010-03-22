@@ -1,8 +1,16 @@
-all_provider_1#quixa#url="http://www.quixa.it/simulator.aspx?SimObject=CAR"
-linear_provider_2#linear#url="http://www.linear.it
-quixa_provider_2#quixa#url="http://www.quixa.it/simulator.aspx?SimObject=CAR"
-conte_provider_2#conte
-dialogo_provider_2#dialogo
-directline_provider_2#directline
-genertel_provider_2#genertel
-zurich_connect_provider_2#zurich_connect
+all_provider_1#quixa#case sector; when "sect_1"; url="http://www.quixa.it/simulator.aspx?SimObject=CAR"; when "sect_2"; url="http://www.quixa.it/simulator.aspx?SimObject=MOTORCYCLE"; else; url=nil; end; url
+all_provider_1#zurich_connect#case sector; when "sect_1"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneAuto"; when "sect_2"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneMoto"; else; url=nil; end; url
+all_provider_1#conte#url="http://www.conte.it"
+all_provider_1#linear#url="http://www.linear.it/default.asp
+all_provider_1#directline#url="http://www.directline.it/index.jhtml?page=/index.jhtml"
+all_provider_1#dialogo#case sector; when "sect_1"; url="http://www.dialogo.it/DialogoInternet/homePageClear.faces?goTo=prev"; when "sect_2"; url="http://www.dialogo.it/DialogoInternet/homePageClear.faces?goTo=prevMoto"; else; url=nil; end; url
+all_provider_1#genertel#url="http://www.genertel.it"
+all_provider_1#genialloyd#url="http://www.genialloyd.it"
+linear_provider_2#linear#url="http://www.linear.it/default.asp
+quixa_provider_2#quixa#case sector; when "sect_1"; url="http://www.quixa.it/simulator.aspx?SimObject=CAR"; when "sect_2"; url="http://www.quixa.it/simulator.aspx?SimObject=MOTORCYCLE"; else; url=nil; end; url
+conte_provider_2#conte#url="http://www.conte.it"
+dialogo_provider_2#dialogo#case sector; when "sect_1"; url="http://www.dialogo.it/DialogoInternet/homePageClear.faces?goTo=prev"; when "sect_2"; url="http://www.dialogo.it/DialogoInternet/homePageClear.faces?goTo=prevMoto"; else; url=nil; end; url
+directline_provider_2#directline#url="http://www.directline.it/index.jhtml?page=/index.jhtml"
+genertel_provider_2#genertel#url="http://www.genertel.it"
+zurich_connect_provider_2#zurich_connect#case sector; when "sect_1"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneAuto"; when "sect_2"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneMoto"; else; url=nil; end; url
+genialloyd_provider_2#genialloyd#url="http://www.genialloyd.it"
