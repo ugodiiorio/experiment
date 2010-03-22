@@ -46,9 +46,10 @@ class RunTest
     @timeout_in_secs = @kte.timeout_in_sec
     @kte.sleep_typing < 1 ? @kte.sleep_typing = @kte.sleep_typing + 0.01*rand(200) : @kte.sleep_typing
     @sector_view = view_hash
-    
+
+    sector = @kte.sector
     db_profile = db_connect(@kte.db_driver)
-    @url = get_url(db_profile)
+    @url = eval(get_url(db_profile))
     db_disconnect(db_profile)
     
   end
