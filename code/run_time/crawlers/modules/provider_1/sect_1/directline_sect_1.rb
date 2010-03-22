@@ -41,7 +41,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 #      vehicle_age = 1
 #      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
 
-      @url = eval(site.url)
+      @url = site.url
       @sleep = @kte.sleep_typing
 #      @verification_errors = []
 
@@ -77,6 +77,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     begin
       @last_element, @last_value = nil, nil
 
+      page_0
       page_1
       page_2
       page_3
@@ -105,9 +106,15 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   private # all methods that follow will be made private: not accessible for outside objects
 
-  def page_1
+  def page_0
 
-    open_page(@url) #"http://www.directline.it/qol/application/preventivo/nq/InformazioniGenerali.jhtml;jsessionid=LYSWTWQKO0NA3QFIAEFCFFQ?risktype=REGL"
+    open_page(@url)
+    click_button "//img[@src='/images/bottone_lancio_preventivo-auto.gif']"
+   	sleep @sleep*3
+
+  end
+  
+  def page_1
 
     click_option(get('@insurance_situation'))
     (page.get_attribute("#{@last_element}@value") == "XX") ? click_option(get('@bersani')) : nil
@@ -167,6 +174,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_5
 
+    sleep @sleep*4
     page_click "allestimentoAuto"
     select_option "allestimentoAuto", get("@set_up")
     select_option "UsoPra", get("@habitual_vehicle_use")
@@ -182,7 +190,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     select_option "iCodAntifurto", get("@alarm")
     select_option "iCodRicoveroNotturno", get("@vehicle_shelter")
-    #type_text("valoreauto", get('@vehicle_value'))
+    type_text("valoreauto", get('@vehicle_value'))
 
     click_button "SUBMIT"
    	sleep @sleep*3
@@ -207,6 +215,8 @@ class DirectlineSect1 < Test::Unit::TestCase
         select_option("SelRateizzazione", get('@instalment')) #ATTENTION! Always use 1 year split
         select_option("SelFSM_RCA", get('@public_liability_exemption'))
 
+      # e il BONUS PROTETTO!?!? si checka o no?
+      #  uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_id'))
         uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
         uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
         uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
@@ -217,7 +227,7 @@ class DirectlineSect1 < Test::Unit::TestCase
         uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
         click_button "RICALCOLA"
-      	sleep @sleep*2
+      	sleep @sleep*4
 
         wait_for_elm get("@rca_premium_id")
 #        assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }

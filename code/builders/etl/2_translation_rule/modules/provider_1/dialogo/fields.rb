@@ -398,7 +398,7 @@ module Provider1Dialogo
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
       {'pol_instalment_str' => 'annuale'} => 'contentSubView:quotationTabletForm:proposalTable:8:_id147',
       {'pol_instalment_str' => 'semestrale'} => 'contentSubView:quotationTabletForm:proposalTable:9:_id147',
-      {'pol_number_plate_type_str' => 'definitiva'} => '//input[@name="contentSubView:vehicleForm:foreignRegistration" @value="true"]',
+      {'pol_number_plate_type_str' => 'definitiva'} => '//input[@name="contentSubView:vehicleForm:foreignRegistration" and @value="false"]',
       {'veh_vehicle_shelter_str' => 'box privato'} => '//input[@name="contentSubView:vehicleForm:garage" and @value="true"]',
       {'veh_tow_hook_str' => 'no'} => '//input[@name="contentSubView:vehicleForm:hook" and @value="false"]',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola'

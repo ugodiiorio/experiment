@@ -41,7 +41,7 @@ class DialogoSect1 < Test::Unit::TestCase
 #      vehicle_age = 1
 #      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
 
-      @url = eval(site.url)
+      @url = site.url
       @sleep = @kte.sleep_typing
 #      @verification_errors = []
 
@@ -82,6 +82,7 @@ class DialogoSect1 < Test::Unit::TestCase
       page_3
       page_4
       page_5
+      page_6
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -190,7 +191,7 @@ class DialogoSect1 < Test::Unit::TestCase
     select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
     page.fire_event "contentSubView:vehicleForm:chooseAuto:models", "blur"
 #    select_option "preparations", get("@set_up")
-#    page.fire_event "preparations", "blur"
+   # page.fire_event "preparations", "blur"
     type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
     type_text("contentSubView:vehicleForm:chooseAuto:insurableValue", get('@vehicle_value'))
     click_option(get('@tow_hook'))
@@ -214,7 +215,7 @@ class DialogoSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     case get("@rca_on_off")
       when 'on'
-
+sleep @sleep*3
         select_option("massRCA", get('@public_liability_indemnity_limit'))
         select_option("franchigiaCombo", get('@public_liability_exemption'))
 

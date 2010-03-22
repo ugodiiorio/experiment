@@ -20,7 +20,7 @@ module Provider1Directline
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'chk_1',
       {'pol_collision_premium_id_str' => 'id elemento'} => 'chk_2',
       {'pol_already_benefit_from_bersani_str' => 'no'} => 'id_radio_tipo_bm_2',
-      {'pol_public_liability_exemption_str' => 'no'} => 'Nessuno',
+      {'pol_public_liability_exemption_str' => 'no'} => 'nessuno',
       {'pol_collision_web_id_str' => 'id elemento'} => 'chk_2',
       {'veh_km_per_yr_str' => '15000'} => '15',
       {'pol_bersani_ref_vehicle_number_plate_str' => 'no'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[13]/td[2]/input[3]',
@@ -85,7 +85,6 @@ module Provider1Directline
       {'own_owner_sex_str' => 'M'} => '//input[@name="sessoContraente" and @value="M"]',
       {'own_owner_sex_str' => 'F'} => '//input[@name="sessoContraente" and @value="F"]',
       {'own_owner_sex_str' => 'C'} => '//input[@name="sessoContraente" and @value="M"]',
-      {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
     
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'id_radio_bm',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//input[@name="tipoPolizza" and @value="AN"]',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
@@ -93,9 +92,9 @@ module Provider1Directline
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Sposato/a',
       {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'Tragitto Casa-Lavoro/Tempo libero',
       {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
-      {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
+      {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo libero',
       {'veh_vehicle_use_str' => 'privato'} => '//form/table[2]/tbody/tr[15]/td[2]/table/tbody/tr[2]/td/input',
-      {'pol_RCA_premium_id_str' => 'id elemento'} => 'premioRCADiv',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '//font[@class="premio_scontato"]',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',
