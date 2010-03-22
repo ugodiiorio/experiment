@@ -88,7 +88,7 @@ module Provider2Conte
       'pol_family_car_num'  => 'copy_field' ,
       'pol_family_members_insured_with_company_str'  => 'copy_field' ,
       'pol_first_claim_month_str'  => 'copy_field' ,
-      'pol_first_claim_year_str'  => 'copy_field' ,
+      'pol_first_claim_year_str' => 'Chronic.parse(profilefield[:pol_first_claim_year_str].to_s + " years before now").strftime("%Y")',
       'pol_free_drive_str'  => 'copy_field' ,
       'pol_leasing_str'  => 'copy_field' ,
       'pol_motorcycle_driving_ability_str'  => 'copy_field' ,

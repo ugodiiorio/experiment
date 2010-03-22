@@ -11,6 +11,7 @@ module Provider1Directline
     @target_values = Hash.new
 
     @target_values = {
+      {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'chk_0',
       {'pol_act_of_vandalisme_web_id_str' => 'id elemento'} => 'chk_4',
       {'pol_assistance_web_id_str' => 'id elemento'} => 'chk_7',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'chk_6',
@@ -93,7 +94,7 @@ module Provider1Directline
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Sposato/a',
       {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'Tragitto Casa-Lavoro/Tempo libero',
       {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
-      {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
+      {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo libero',
       {'veh_vehicle_use_str' => 'privato'} => '//form/table[2]/tbody/tr[15]/td[2]/table/tbody/tr[2]/td/input',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'premioRCADiv',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
