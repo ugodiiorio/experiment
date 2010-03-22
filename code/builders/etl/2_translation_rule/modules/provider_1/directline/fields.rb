@@ -11,6 +11,7 @@ module Provider1Directline
     @target_values = Hash.new
 
     @target_values = {
+      {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'chk_0',
       {'pol_act_of_vandalisme_web_id_str' => 'id elemento'} => 'chk_4',
       {'pol_assistance_web_id_str' => 'id elemento'} => 'chk_7',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'chk_6',

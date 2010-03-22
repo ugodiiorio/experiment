@@ -262,7 +262,7 @@ module Provider2Directline
       'pol_protected_bonus_code_str' => 'copy_field' ,
       'pol_protected_bonus_on_off_str' => 'copy_field' ,
       'pol_protected_bonus_premium_id_str' => 'copy_field' ,
-      'pol_protected_bonus_web_id_str' => 'copy_field' ,
+      'pol_protected_bonus_web_id_str' => 'translate_field' ,
       'pol_protection_24_code_str' => 'copy_field' ,
       'pol_protection_24_on_off_str' => 'copy_field' ,
       'pol_protection_24_premium_id_str' => 'copy_field' ,
