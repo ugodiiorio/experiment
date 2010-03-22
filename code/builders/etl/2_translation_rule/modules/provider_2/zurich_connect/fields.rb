@@ -301,9 +301,9 @@ module Provider2ZurichConnect
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '3'} => '3 anni',
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '4'} => '4 anni',
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '5'} => '5 anni',
-      {'pol_RCA_premium_id' => 'id elemento'} => 'lblvPremioAnnualeLordoSconto',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => 'lblvPremioAnnualeLordoSconto',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'chkInfortuniConducente',
-      {'pol_theft_fire_coverage_premium_id_str' => 'id elemento'} => 'chkIncendioFurto',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'chkIncendioFurto',
 
     }
 

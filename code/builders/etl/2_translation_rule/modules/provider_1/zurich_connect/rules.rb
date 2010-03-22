@@ -11,7 +11,7 @@ module Provider1ZurichConnect
 
     @rule_values = {
       'pol_first_claim_month_str' => 'copy_field',
-      'pol_first_claim_year_str' => 'copy_field',
+      'pol_first_claim_year_str' => '(profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i > 0 || profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i > 0 ) ? "SI" : "NO" ',
       'pol_second_claim_month_str' => 'copy_field',
       'pol_second_claim_year_str'  => 'copy_field',
       'driv_birth_place_str' => 'copy_field',
@@ -144,7 +144,8 @@ module Provider1ZurichConnect
       'pol_nr_of_paid_claims_2_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_3_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_4_yr_str' => 'copy_field',
-      'pol_nr_of_paid_claims_5_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[:pol_nr_of_paid_claims_2_yr_str].to_i; t= profilefield[:pol_nr_of_paid_claims_3_yr_str].to_i; w= profilefield[:pol_nr_of_paid_claims_4_yr_str].to_i; q= profilefield[:pol_nr_of_paid_claims_5_yr_str].to_i; sin= x+y+z+t+w+q',
+      'pol_nr_of_paid_claims_5_yr_str' => 'copy_field',
+#      'pol_nr_of_paid_claims_5_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[:pol_nr_of_paid_claims_2_yr_str].to_i; t= profilefield[:pol_nr_of_paid_claims_3_yr_str].to_i; w= profilefield[:pol_nr_of_paid_claims_4_yr_str].to_i; q= profilefield[:pol_nr_of_paid_claims_5_yr_str].to_i; sin= x+y+z+t+w+q',
       'pol_nr_of_paid_claims_this_yr_str' => 'copy_field',
       'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => 'translate_field',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
@@ -170,7 +171,7 @@ module Provider1ZurichConnect
       'pol_public_liability_young_exemption_str' => 'copy_field',
       'pol_quotation_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
-      'pol_RCA_on_off_strr' => 'copy_field',
+      'pol_RCA_on_off_str' => 'copy_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
