@@ -63,7 +63,6 @@ module Provider1Conte
       'driv_job_2_str' => 'copy_field',
       'pol_bersani_str' => 'translate_field',
       'driv_civil_status_str' => 'translate_field',
-      'pol_driver_accident_coverage_code_str' => 'copy_field',
       'pol_driver_zip_code_str' => 'copy_field',
       'pol_subscriber_is_driver_str' => 'translate_field',
       'pol_subscriber_is_owner_str' => 'translate_field',
@@ -197,7 +196,6 @@ module Provider1Conte
       'pol_contingency_protection_web_id_str' => 'copy_field',
       'pol_contingency_protection_premium_id_str' => 'copy_field',
       'pol_driver_accident_coverage_on_off_str' => 'copy_field',
-      'pol_driver_accident_coverage_web_id_str' => 'copy_field',
       'pol_driver_accident_coverage_web_id_str'  => 'translate_field' ,
       'pol_driver_accident_indemnity_limit_str' => 'copy_field',
       'pol_driving_licence_withdrawal_guarantee_code_str' => 'copy_field',
@@ -291,6 +289,7 @@ module Provider1Conte
       'pol_protection_24_on_off_str' => 'copy_field' ,
       'pol_protection_24_premium_id_str' => 'copy_field' ,
       'pol_protection_24_web_id_str' => 'copy_field' ,
+       'pol_driver_accident_coverage_premium_id_str' => 'copy_field' ,
     }
 
   end
