@@ -209,6 +209,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
       else
         select_option("ddlClasseUniversale", get('@bm_assigned'))
         select_option("ddlNSinistriPen5anni", get('@claims_total_number'))
+        page.get_selected_label(@last_element) =~ /1/i ? select_option("ddlUltimoBiennio", get('@first_claim_year')) : nil
         select_option("ddlAnniAssicurazione", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
     end
     

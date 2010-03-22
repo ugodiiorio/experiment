@@ -56,6 +56,7 @@ AS
         pol_BM_particular_cases_str,
         pol_car_already_insured_with_company_str,
         pol_claims_total_number_str,
+        pol_first_claim_year_str,
         pol_client_type_str,
         pol_cohabiting_children_str,
         pol_coming_from_BM_str,

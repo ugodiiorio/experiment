@@ -57,10 +57,10 @@ module DbSetters
   def profile_locked?(bool)
 		case bool
 		when false
-      @logger.warn(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile availability NOT PASSED"}
+      @logger.warn(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile #{@kte.profile} availability with state #{@state} NOT PASSED"}
       return true
 		else
-      @logger.debug(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile availability PASSED"}
+      @logger.debug(__FILE__ +  ' => ' + method_name) {"#{@kte.company} => Check profile #{@kte.profile} availability with state #{@state} PASSED"}
       return false
 		end
   end

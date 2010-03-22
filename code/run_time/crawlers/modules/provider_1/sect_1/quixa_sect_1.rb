@@ -149,7 +149,8 @@ class QuixaSect1 < Test::Unit::TestCase
     end
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", get('@insurance_situation'))
-    case page.get_selected_label(@last_element) =~ /prima polizza/i
+    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
+    case get('@insurance_situation') =~ /prima polizza/i
       when FirstPolicy
         if Individual === (page.get_text("//label[@for='#{get('@client_type')}']") =~ /fisica/i)
           select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlSelectBersani", get('@bersani'))
@@ -160,8 +161,6 @@ class QuixaSect1 < Test::Unit::TestCase
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
         select_last_years_claims
       end
-
-    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
 
     click_option(get('@driver_less_than_26_yrs'))
 
@@ -334,7 +333,7 @@ class QuixaSect1 < Test::Unit::TestCase
   def select_bersani
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
     sleep @sleep*2
-    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
+    /(medesimo proprietario)+/.match(get('@bersani')) ? select_last_years_claims : nil
   end
 
   def select_last_years_claims
