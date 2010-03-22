@@ -77,12 +77,12 @@ class DialogoSect1 < Test::Unit::TestCase
     begin
       @last_element, @last_value = nil, nil
 
+      page_intro
       page_1
       page_2
       page_3
       page_4
-      page_5
-      page_6
+      page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -103,16 +103,15 @@ class DialogoSect1 < Test::Unit::TestCase
 
   private # all methods that follow will be made private: not accessible for outside objects
 
-  def page_1
+  def page_intro
 
     open_page(@url) #url="http://www.dialogo.it/DialogoInternet/home.faces"
-
     click_button "//img[@alt='Preventivo Auto in 5 click']"
     page_wait
 
   end
 
-  def page_2
+  def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
@@ -138,12 +137,13 @@ class DialogoSect1 < Test::Unit::TestCase
     end
 
     click_button "contentSubView:contentForm:buttonNext"
-   	sleep @sleep*3
+    page_wait
 
   end
 
-  def page_3
+  def page_2
     
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_option(get('@driving_type'))
     click_option(get('@subscriber_is_driver'))
     click_option(get('@num_of_owners'))
@@ -178,12 +178,13 @@ class DialogoSect1 < Test::Unit::TestCase
     end
 
     click_button "contentSubView:contentForm:buttonNext"
-   	sleep @sleep*3
+    page_wait
 
   end
 
-  def page_4
+  def page_3
 
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     type_text("contentSubView:vehicleForm:chooseAuto:registration", get('@matriculation_date'))
 
     select_option "contentSubView:vehicleForm:chooseAuto:brands", get("@make")
@@ -199,23 +200,25 @@ class DialogoSect1 < Test::Unit::TestCase
     click_option(get('@number_plate_type'))
     
     click_button "contentSubView:vehicleForm:next"
-   	sleep @sleep*3
+    page_wait
 
   end
 
-  def page_5
+  def page_4
     
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_button "//img[@alt='Calcola il tuo PREVENTIVO']"
-    sleep @sleep*3
+    page_wait
 
   end
 
-  def page_6
+  def page_premium
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    case get("@rca_on_off")
+    @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
+    case @last_value
       when 'on'
-sleep @sleep*3
+        sleep @sleep*2
         select_option("massRCA", get('@public_liability_indemnity_limit'))
         select_option("franchigiaCombo", get('@public_liability_exemption'))
 
@@ -231,8 +234,8 @@ sleep @sleep*3
         click_button "//img[@alt='Ricalcola']"
         sleep @sleep*3
 
-        wait_for_elm get("@rca_premium_id")
-#        assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
+        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+        wait_for_elm @last_value
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
@@ -292,8 +295,8 @@ sleep @sleep*3
 
   def is_checked?(id, value = nil)
     @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => is it checked checkbox: [#{@last_element}]?"}
     present = is_present?(@last_element)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked? - #{page.is_checked(@last_element)}"} if present
   	return present ? page.is_checked(@last_element) : nil
   end
 
