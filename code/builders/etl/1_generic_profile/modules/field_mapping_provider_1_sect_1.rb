@@ -22,7 +22,7 @@ module FieldMappingProvider1Sect1
       'driv_job_str' =>  'infield[:driv_job_str] == \'\' ? nil : infield[:driv_job_str].strip.downcase',
       'driv_residence_same_as_home_address_str' =>  '"si"',
       'driv_studies_str' =>  '"Diploma"',
-      'own_owner_sex_str' =>  'infield[:driv_driver_sex_str].upcase.slice(0,1)',
+      'own_owner_sex_str' =>  'x = infield[:driv_driver_sex_str].slice(0,1); x=="S" ? x="C": x=x',
       'own_owner_specification_str' =>  'x = infield[:driv_driver_sex_str].upcase.slice(0,1); x=="S" ? x="C": x=x',
       'own_owner_zip_code_str' =>  'infield[:pol_driver_zip_code_str].strip',
       'own_owner_residence_province_str' =>  'infield[:pol_residence_province_str].strip'   ,
