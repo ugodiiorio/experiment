@@ -174,7 +174,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_5
 
-    sleep @sleep*4
+    sleep @sleep*5
     page_click "allestimentoAuto"
     select_option "allestimentoAuto", get("@set_up")
     select_option "UsoPra", get("@habitual_vehicle_use")
@@ -216,7 +216,7 @@ class DirectlineSect1 < Test::Unit::TestCase
         select_option("SelFSM_RCA", get('@public_liability_exemption'))
 
       # e il BONUS PROTETTO!?!? si checka o no?
-      #  uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_id'))
+        uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_id'))
         uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
         uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
         uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
