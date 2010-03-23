@@ -52,10 +52,6 @@ class ConTeTest < Test::Unit::TestCase
 
     begin
       @last_element = nil
-      #  	@selenium.set_timeout("80000")
-      #  	@selenium.set_speed 1000
-      #  	@selenium.set_timeout(110000)
-      #	  @selenium.type "name=q", "rspec"
       @selenium.open "https://preventivo.conte.it/calculator/"
       sleep 7
 

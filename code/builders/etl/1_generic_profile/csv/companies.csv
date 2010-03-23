@@ -1,6 +1,6 @@
 all_provider_1#quixa#case sector; when "sect_1"; url="http://www.quixa.it/simulator.aspx?SimObject=CAR"; when "sect_2"; url="http://www.quixa.it/simulator.aspx?SimObject=MOTORCYCLE"; else; url=nil; end; url
 all_provider_1#zurich_connect#case sector; when "sect_1"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneAuto"; when "sect_2"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneMoto"; else; url=nil; end; url
-all_provider_1#conte#url="http://www.conte.it"
+all_provider_1#conte#url="https://preventivo.conte.it/calculator/"
 all_provider_1#linear#url="http://www.linear.it/default.asp
 all_provider_1#directline#url="http://www.directline.it/preventivi-assicurazioni-rca/calcola-preventivo-assicurazione.jhtml"
 all_provider_1#dialogo#url="http://www.dialogo.it/DialogoInternet/home.faces"
@@ -8,7 +8,7 @@ all_provider_1#genertel#url="https://www.genertel.it/WEBsgw/start?CONV_CODE=vpre
 all_provider_1#genialloyd#url="http://www.genialloyd.it"
 linear_provider_2#linear#url="http://www.linear.it/default.asp
 quixa_provider_2#quixa#case sector; when "sect_1"; url="http://www.quixa.it/simulator.aspx?SimObject=CAR"; when "sect_2"; url="http://www.quixa.it/simulator.aspx?SimObject=MOTORCYCLE"; else; url=nil; end; url
-conte_provider_2#conte#url="http://www.conte.it"
+conte_provider_2#conte#url="https://preventivo.conte.it/calculator/"
 dialogo_provider_2#dialogo#url="http://www.dialogo.it/DialogoInternet/home.faces"
 directline_provider_2#directline#url="http://www.directline.it/preventivi-assicurazioni-rca/calcola-preventivo-assicurazione.jhtml"
 genertel_provider_2#genertel#url="https://www.genertel.it/WEBsgw/start?CONV_CODE=vprev0001&TYPE_CODE=01&CALLERURL=http://www.genertel.it/assicurazioni/index.jhtml&CONVENTION_CODE=WP0&SEGMENT_CODE=WP0&PROMO_CODE=WP0"
