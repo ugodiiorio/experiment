@@ -245,7 +245,7 @@ module Provider1ZurichConnect
       'veh_rent_str'=> 'copy_field' ,
       'veh_rent_with_driver_str'=> 'copy_field' ,
       'veh_set_up_previous_vehicle_str' => 'copy_field',
-      'veh_set_up_str' => 'make=profilefield[:veh_set_up_str]; make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/ª/,"a" ); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))+" end; regexp_mod = regexp_mod + ").+";',
+      'veh_set_up_str' => 'datas = (DateTime::now - profilefield[:pol_matriculation_date_str].to_i.year).strftime("%y"); make=profilefield[:veh_set_up_str]; make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/ª/,"a" ); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:(([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))+" end; regexp_mod = regexp_mod + ").+";")([0-9]*/" + datas + ")*"',
       'veh_stabilizer_str' => 'translate_field',
       'veh_third_party_str'=> 'copy_field' ,
       'veh_tow_hook_str' => 'translate_field',
