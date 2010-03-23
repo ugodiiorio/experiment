@@ -95,7 +95,7 @@ module Provider1Directline
       {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
       {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo libero',
       {'veh_vehicle_use_str' => 'privato'} => '//form/table[2]/tbody/tr[15]/td[2]/table/tbody/tr[2]/td/input',
-      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[3]/tbody/tr[12]/td[3]/table/tbody/tr/td/div/font',#'//font[@class="premio_scontato"]',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '//div[@id="premioTotaleAnnuoEuroDiv"]/font[@class="premio_scontato"]',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'ANCONA',
