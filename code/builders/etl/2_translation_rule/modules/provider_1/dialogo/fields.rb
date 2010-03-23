@@ -1,12 +1,6 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider1Dialogo
-  # da correggere il file di mara con gli input anziche gli x path
-  def build_hash_sect_1()
 
-    #     target_values["fname_fvalue"]
+  def build_hash_sect_1()
 
     @target_values = Hash.new
 
@@ -380,7 +374,7 @@ module Provider1Dialogo
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => '//input[@name="contentSubView:contentForm:attualeSituazione" and @value="3"]',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//input[@name="contentSubView:contentForm:attualeSituazione" and @value="1"]',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//input[@name="contentSubView:contentForm:attualeSituazione" and @value="2"]',
-      
+
       {'pol_driving_type_str' => 'esperta'} => '//input[@name="contentSubView:contentForm:chooseAuto:casoAss" and @value="HE"]',
       {'pol_driving_type_str' => 'libera'} => '//input[@name="contentSubView:contentForm:chooseAuto:casoAss" and @value="HNE"]',
       {'pol_driving_type_str' => 'esclusiva'} => '//input[@name="contentSubView:contentForm:chooseAuto:casoAss" and @value="EX"]',
@@ -402,53 +396,9 @@ module Provider1Dialogo
       {'veh_vehicle_shelter_str' => 'box privato'} => '//input[@name="contentSubView:vehicleForm:garage" and @value="true"]',
       {'veh_tow_hook_str' => 'no'} => '//input[@name="contentSubView:vehicleForm:hook" and @value="false"]',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola'
-      
+
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #  costruisci hash ["field_name + field_value","target"]
   end
-
 
 end
