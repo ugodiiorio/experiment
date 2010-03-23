@@ -1,12 +1,6 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider1Directline
 
   def build_hash_sect_1()
-
-    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
@@ -318,50 +312,6 @@ module Provider1Directline
       {'own_owner_residence_province_str' => 'VT'} => 'VITERBO',
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #  costruisci hash ["field_name + field_value","target"]
   end
-
 
 end
