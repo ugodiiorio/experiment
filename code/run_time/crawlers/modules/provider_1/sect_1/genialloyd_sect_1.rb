@@ -28,7 +28,7 @@ class GenialloydTest < Test::Unit::TestCase
         :browser => $browser,
   #			:browser => "*safari",
         :url => "http://www.genialloyd.it",
-        :timeout_in_seconds => $timeout_in_sec
+        :timeout_in_seconds => $time_out
 
       @selenium.start_new_browser_session
       @selenium.set_context("test_new")
@@ -51,8 +51,6 @@ class GenialloydTest < Test::Unit::TestCase
 
     begin
     @last_element = nil
-    #  	@selenium.boolean_array_command("jsonFactory.searchLocalityByZipCode", "20135")
-    #	@selenium.http_post "{\"id\":2,\"method\":\"jsonFactory.searchLocalityByZipCode\",\"params\":[\"20135\",\"GDaZpGLIVgqVHxGTStPMsOr\"]}"
     @selenium.open "/"
     @selenium.click "//div[@id='content1']/a"
     @selenium.wait_for_page_to_load $wait_for_page_to_load
@@ -73,8 +71,11 @@ class GenialloydTest < Test::Unit::TestCase
       end
 
     click $Sesso
+    @selenium.focus("loc")
+    click "loc"
     type "loc",						$Cap
-    @selenium.key_up("loc","\13" )
+    @selenium.key_press("loc","\\9" )
+    sleep 1
     type "dataNasc", $Data_nascita   
 #    click "//input[@value='Avanti']"
     select "professione", "label="+ $Professione
@@ -83,8 +84,10 @@ class GenialloydTest < Test::Unit::TestCase
     type "emailFascicolo", $e_mail
     click "//input[@value='Avanti']"
     @selenium.wait_for_page_to_load $wait_for_page_to_load
-    click "//div[4]/div/div[2]/a[2]"
-    @selenium.wait_for_page_to_load $wait_for_page_to_load
+    if @selenium.is_element_present("//div[4]/div/div[2]/a[2]")
+      click "//div[4]/div/div[2]/a[2]"
+      @selenium.wait_for_page_to_load $wait_for_page_to_load
+    end
     select "month", "label="+ $Data_immatricolazione_mese
     select "year", "label=" + $Data_immatricolazione_anno
     select "marca", "label=" + $Marca_auto

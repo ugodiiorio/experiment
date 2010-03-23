@@ -3,15 +3,10 @@
 $LOAD_PATH << File.join(File.dirname(__FILE__))
 
 require "rubygems"
-gem "rspec", ">=1.2.6"
 gem "selenium-client", ">=1.2.16"
 require "selenium/client"
-#require 'test/spec'
-#require "selenium/rspec/spec_helper"
 
 require "test/unit"
-require "test/unit/testresult"
-require "test/unit/error"
 require "test/unit/ui/console/testrunner"
 
 class RunTest

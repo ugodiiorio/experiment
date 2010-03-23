@@ -81,7 +81,7 @@ class QuixaSect1 < Test::Unit::TestCase
       page_1
       page_2
       page_3
-      page_4
+      page_premium
       
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -177,10 +177,11 @@ class QuixaSect1 < Test::Unit::TestCase
     
   end
 
-  def page_4
+  def page_premium
     
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    case get("@rca_on_off")
+    @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
+    case @last_value
       when 'on'
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
 #        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@instalment')) #ATTENTION! Always use 1 year split
@@ -198,7 +199,8 @@ class QuixaSect1 < Test::Unit::TestCase
         click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
       	sleep @sleep*2
 
-        wait_for_elm get("@rca_premium_id")
+        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+        wait_for_elm @last_value
 #        assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
         get_premium(get("@rca_premium_id"))
       else
@@ -259,8 +261,8 @@ class QuixaSect1 < Test::Unit::TestCase
 
   def is_checked?(id, value = nil)
     @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => is it checked checkbox: [#{@last_element}]?"}
     present = is_present?(@last_element)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked? - #{page.is_checked(@last_element)}"} if present
   	return present ? page.is_checked(@last_element) : nil
   end
 
@@ -307,7 +309,7 @@ class QuixaSect1 < Test::Unit::TestCase
   	sleep @sleep
     assert_not_nil combo_name
     assert_not_nil label
-    assert_not_nil label.gsub!("label=","")
+    assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
@@ -317,7 +319,6 @@ class QuixaSect1 < Test::Unit::TestCase
   	sleep @sleep
 	  page.wait_for_element name
     assert_is_element_present(name)
-
   end
 
   def is_present?(name)
