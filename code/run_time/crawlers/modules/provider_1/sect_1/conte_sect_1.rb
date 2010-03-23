@@ -28,7 +28,7 @@ class ConTeTest < Test::Unit::TestCase
         #:browser => "*safari",
       :browser => $browser,
         :url => "http://www.conte.it",
-        :timeout_in_seconds => $timeout_in_sec
+        :timeout_in_seconds => $time_out
 
       @selenium.start_new_browser_session
       @selenium.set_context("test_new")
@@ -52,10 +52,6 @@ class ConTeTest < Test::Unit::TestCase
 
     begin
       @last_element = nil
-      #  	@selenium.set_timeout("80000")
-      #  	@selenium.set_speed 1000
-      #  	@selenium.set_timeout(110000)
-      #	  @selenium.type "name=q", "rspec"
       @selenium.open "https://preventivo.conte.it/calculator/"
       sleep 7
 
@@ -106,14 +102,14 @@ class ConTeTest < Test::Unit::TestCase
       select "page:marca", "label="+     $Marca_auto
 
       #      type "page:marca",  										$Marca_auto
-      #          @selenium.key_up "page:marca", "\13"
+      #          @selenium.key_up "page:marca", "\\115"
       #click "//li[@onclick='SrchMarca.setResult(" + 				$Codice_marca + ");']"
       #         click "//li[@onclick='srchMarcaIst.setResult(" + 			$Codice_marca + ");']"
       @selenium.fire_event "page:marca", "onchange"
 sleep 10
 select "page:modelloAuto", "label="+     $Modello_auto
 #      	type "page:modelloAuto",  										$Modello_auto
-#      	@selenium.key_up "page:modelloAuto", "\13"
+#      	@selenium.key_up "page:modelloAuto", "\\115"
       #	#click "//li[@onclick='SrchModello.setResult(" + 			$Codice_modello + ");']"
 #      	click "//li[@onclick='srchModelloIst.setResult(" + 			$Codice_modello + ");']"
 #      	@selenium.fire_event "page:modelloAuto", "blur"
@@ -124,7 +120,7 @@ sleep 5
 #      type "page:allestimento", allestimento
       select "page:allestimento", "label="+     $Allestimento_auto
 #      type "page:allestimento", $Allestimento_auto
-      @selenium.key_up "page:allestimento", "\13"
+      @selenium.key_up "page:allestimento", "\\115"
       #click "//li[@onclick='SrchAllest.setResult(" + 				$Codice_allestimento + ");']"
 #      click "//li[@onclick='srchAllestIst.setResult(" + 				$Codice_allestimento + ");']"
       @selenium.fire_event "page:allestimento", "blur"
@@ -149,7 +145,7 @@ sleep 5
       select "page:provincia_di_nascita", "label=" + 				$Provincia_residenza
       @selenium.fire_event "page:provincia_di_nascita", "onchange"
       type "page:comune_di_nascita", 								$Comune_residenza
-      @selenium.key_up "page:comune_di_nascita", "\13"
+      @selenium.key_up "page:comune_di_nascita", "\\115"
       #click "//li[@onclick='SrchComNas.setResult(" + 				$Codice_comune + ");']"
       click "//li[@onclick='srchComNasIst.setResult(" + 				$Codice_comune + ");']"
       @selenium.fire_event "page:comune_di_nascita", "blur"
@@ -167,21 +163,21 @@ sleep 5
       sleep 2
       click "//li[@onclick='srchComResIst.setResult(" + 				$Codice_comune + ");']"
       sleep 2
-      #@selenium.key_up "page:comune_di_residenza", "\13"
+      #@selenium.key_up "page:comune_di_residenza", "\\115"
       sleep 2
       @selenium.fire_event "page:comune_di_residenza", "blur"
       sleep 2
 
       #ORIGINALE:
       type "page:comune_di_residenza", 							$Comune_residenza
-      #	@selenium.key_up "page:comune_di_residenza", "\13"
+      #	@selenium.key_up "page:comune_di_residenza", "\\115"
       #	#click "//li[@onclick='SrchComRes.setResult(" + 				$Codice_comune + ");']"
       #	click "//li[@onclick='srchComResIst.setResult(" + 				$Codice_comune + ");']"
       #	@selenium.fire_event "page:comune_di_residenza", "blur"
       #	#sleep 1
 
       type "page:toponimo_residenza", 							$Toponimo
-      @selenium.key_up "page:toponimo_residenza", "\13"
+      @selenium.key_up "page:toponimo_residenza", "\\115"
       #click "//li[@onclick='SrchToponimi.vals.flagAltri=0;SrchToponimi.setResult(9);']"   #Codice via
       click "//li[@onclick='srchToponimiIst.flagAltri=0;srchToponimiIst.setResult(9);']"
       @selenium.fire_event "page:toponimo_residenza", "blur"
@@ -194,7 +190,7 @@ sleep 5
 
       type "page:professione_conducente_principale", 				$Professione
       @selenium.fire_event "page:professione_conducente_principale", "blur"
-      @selenium.key_up "page:professione_conducente_principale", "\13"
+      @selenium.key_up "page:professione_conducente_principale", "\\115"
       #click "//li[@onclick='SrchProf.setResult(357);']"   #Codice "Impiegato Azienda"
       click "//li[@onclick='srchProfIst.setResult(357);']"   #Codice "Impiegato Azienda"
       select "page:stato_civile", "label=" + 						$Stato_civile
