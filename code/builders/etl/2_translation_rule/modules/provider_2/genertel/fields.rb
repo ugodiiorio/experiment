@@ -6,7 +6,7 @@ module Provider2Genertel
 
     @target_values = {
 
-     {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
+      {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX7X5',
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX6X5',
       {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
@@ -63,32 +63,31 @@ module Provider2Genertel
       {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 10,000,000.00',
       {'pol_public_liability_indemnity_limit_str' => '18,000,000'} => '€ 10,000,000.00',
       {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 10,000,000.00',
-      {'veh_airbag_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[11]/div[2]/div/div/div/div/img',
-      {'veh_abs_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[12]/div[2]/div/div/div/div/img',
-      {'veh_vehicle_shelter_str' => 'box privato'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[13]/div[2]/div/div/div/div/img',
-      {'pol_privacy_1_str' => 'id elemento web1'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[2]/div[2]/div/div/div/div/img',
-      {'pol_privacy_2_str' => 'id elemento web2'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div[2]/div/div/div/div/img',
+      {'veh_airbag_str' => 'si'} => 'RBTXDVEXAirbag0',
+      {'veh_abs_str' => 'si'} => 'RBTXDVEXAbs0',
+      {'veh_vehicle_shelter_str' => 'box privato'} => 'RBTXDVEXCustodia0',
+      {'pol_privacy_1_str' => 'id elemento web1'} => 'RBTXPRIXConsensoA0',
+      {'pol_privacy_2_str' => 'id elemento web2'} => 'RBTXPRIXConsensoB0',
       {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'N'} => 'RBTXDCOXEspUnoDueCond1',
       {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'S'} => 'RBTXDCOXEspUnoDueCond0',
       {'pol_subscriber_is_driver_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[2]/div[2]/div/div/div/div/img',
-      {'pol_cohabiting_children_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[4]/div[2]/div/div/div/div/img',
-      {'pol_privacy_3_str' => 'id elemento web3'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[4]/div[2]/div/div/div/div/img',
-      {'pol_road_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[6]/td[4]/div/div/div/img',
-      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/div[2]/div[5]/div/div[3]/div/table/tbody/tr[7]/td[4]/div/div/div/img',
-      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/form[2]/div/div/p/label[2]/span',
+      {'pol_cohabiting_children_str' => 'si'} => 'RBTXDCOXFigli0',
+      {'pol_privacy_3_str' => 'id elemento web3'} => 'RBTXPRIXConsensoC0',
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div/div/img',
-      {'pol_bersani_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/img',
-      {'pol_bersani_str' => 'si'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div/div[2]/div/div/div/div/img',
-      {'pol_current_policy_guarantee_str' => 'nessuna'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div/div[6]/div[5]/div/div/div/img',
-      {'pol_insurance_situation_str' => '1a immatricolazione'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div[2]/div/div/img',
-      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div/div/div/div/div/div/img',
-      {'pol_leasing_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[5]/div[2]/div[2]/div/div[2]/div/div/img',
-      {'pol_subscriber_is_owner_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[11]/div[2]/div/div[2]/div/div/img',
-      {'pol_subscriber_is_owner_str' => 'si'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[11]/div[2]/div/div/div/div/img',
+      {'pol_bersani_str' => 'no'} => 'RBTXDPOXBersani1',
+      {'pol_bersani_str' => 'convivente'} => 'RBTXDPOXBersani0',
+      {'pol_bersani_str' => 'veicolo'} => 'RBTXDPOXBersani0',
+      {'pol_current_policy_guarantee_str' => 'nessuna'} => 'CHXXDPOXNessunaGaranzia',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'RBTXDPOXSituazione1',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'RBTXDPOXSituazione2',
+      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'RBTXDPOXSituazione0',
+      {'pol_leasing_str' => 'no'} => 'RBTXDPOXLeasing1',
+      {'pol_subscriber_is_owner_str' => 'no'} => 'RBTXDP1XProprietarioContraente1',
+      {'pol_subscriber_is_owner_str' => 'si'} => 'RBTXDP1XProprietarioContraente0',
       {'pol_client_type_str' => 'persona giuridica'} => 'RBTXDP1XContraente1',
-      {'driv_driver_sex_str' => 'F'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[4]/div[2]/div/div[2]/div/div/img',
+      {'driv_driver_sex_str' => 'F'} => 'RBTXDP3XSessoMF1',
       {'pol_client_type_str' => 'persona fisica'} => 'RBTXDP1XContraente0',
-      {'driv_driver_sex_str' => 'M'} => '/html/body/form[3]/div/div/div[2]/div[4]/div/div[4]/div[2]/div/div/div/div/img',
+      {'driv_driver_sex_str' => 'M'} => 'RBTXDP3XSessoMF0',
       {'own_owner_sex_str' => 'M'} => 'RBTXDP1XSessoMF0',
       {'own_owner_sex_str' => 'F'} => 'RBTXDP1XSessoMF1',
 
@@ -97,11 +96,10 @@ module Provider2Genertel
       {'veh_fuel_str' => 'D'} => 'Diesel',
       {'veh_fuel_str' => 'G'} => 'GPL/Metano',
       {'veh_fuel_str' => 'M'} => 'GPL/Metano',
-      #      {'veh_alarm_str' => 'immobilizer'} => 'Immobilizzatore con allarme',
-      {'veh_alarm_str' => 'nessuno'} => 'Immobilizzatore senza allarme',
-      {'pol_BM_1_more_than_1_year_str' => 'si'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div/div[4]/div[2]/div/div/div/div/img',
-      #      {'pol_nr_of_paid_claims_3_yr_str' => 'N/A'} => 'N.A.',
-      #      {'pol_nr_of_paid_claims_3_yr_str' => 'N/D'} => 'N.A.',
+      {'veh_alarm_str' => 'immobilizer'} => 'Immobilizzatore senza allarme',
+      {'pol_BM_1_more_than_1_year_str' => 'si'} => 'RBTXDPOXClasseUnoDomanda0',
+      {'pol_BM_1_more_than_1_year_str' => 'no'} => 'RBTXDPOXClasseUnoDomanda1',
+
       {'pol_bersani_ref_vehicle_number_plate_str' => 'ab123dc'} => 'ab123dc',
       {'veh_vehicle_use_str' => 'privato'} => 'Privato',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
@@ -331,9 +329,9 @@ module Provider2Genertel
 
   def build_hash_sect_2()
 
-  @target_values = {}
+    @target_values = {}
 
-  @target_values = {
+    @target_values = {
 
       {'driv_job_2_str' => 'campo tecnico per genertel'} => 'index 1',
       {'own_owner_sex_str' => 'M'} => 'RBTXDP1XSessoMF0',
@@ -517,7 +515,7 @@ module Provider2Genertel
       {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
       {'pol_theft_fire_coverage_web_id_str'  => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
 
-  }
+    }
   
   end
 
