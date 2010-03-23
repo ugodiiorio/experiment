@@ -219,7 +219,7 @@ class DirectlineSect1 < Test::Unit::TestCase
         select_option("SelRateizzazione", get('@instalment')) #ATTENTION! Always use 1 year split
         select_option("SelFSM_RCA", get('@public_liability_exemption'))
 
-        uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_id'))
+        uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
         uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
         uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
         uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))

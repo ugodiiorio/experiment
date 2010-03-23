@@ -191,8 +191,7 @@ class DialogoSect1 < Test::Unit::TestCase
     page.fire_event "contentSubView:vehicleForm:chooseAuto:brands", "blur"
     select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
     page.fire_event "contentSubView:vehicleForm:chooseAuto:models", "blur"
-#    select_option "preparations", get("@set_up")
-   # page.fire_event "preparations", "blur"
+    select_option "preparations", get("@set_up")
     type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
     type_text("contentSubView:vehicleForm:chooseAuto:insurableValue", get('@vehicle_value'))
     click_option(get('@tow_hook'))
