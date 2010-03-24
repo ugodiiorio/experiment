@@ -106,7 +106,7 @@ module Provider1Genialloyd
       'pol_glasses_web_id_str' => 'translate_field',
       'pol_how_do_you_know_the_company_str' => 'translate_field',
       'pol_instalment_str' => 'translate_field',
-      'pol_insurance_situation_str' => 'translate_field',
+      'pol_insurance_situation_str' => '(profilefield[:pol_bersani_str]== "convivente" ||profilefield[:pol_bersani_str]== "veicolo" ) ? "situazione3" : ( profilefield[:pol_insurance_situation_str] =~ /assicurato/i ? "situazione1" : "situazione2")',
       'pol_kasko_code_str' => 'copy_field',
       'pol_kasko_minimum_uncoverage'=> 'copy_field' ,
       'pol_kasko_on_off_str' => 'copy_field',
