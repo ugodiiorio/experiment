@@ -93,6 +93,12 @@ module Provider1Quixa
       {'pol_public_liability_indemnity_limit_str' => '18000000'} => '18.000.000 € - 15.000.000 € - 3.000.000 €',
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '12.000.000 € - 10.000.000 € - 2.000.000 €',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6.000.000 € - 5.000.000 € - 1.000.000 €',
+
+      {'pol_public_liability_indemnity_limit_str' => '1600000'} => '3.000.000 € - 2.500.000 € - 500.000 €',
+      {'pol_public_liability_indemnity_limit_str' => '2500000'} => '3.000.000 € - 2.500.000 € - 500.000 €',
+      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '6.000.000 € - 5.000.000 € - 1.000.000 €',
+      {'pol_public_liability_indemnity_limit_str' => '800000'} => '3.000.000 € - 2.500.000 € - 500.000 €',
+
       {'veh_alarm_str' => 'immobilizer'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_rbtSatelliteLocationNo',
       {'veh_fuel_str' => 'B'} => 'Benzina',
       {'veh_fuel_str' => 'D'} => 'Diesel',
