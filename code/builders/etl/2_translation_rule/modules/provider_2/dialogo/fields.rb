@@ -5,13 +5,13 @@ module Provider2Dialogo
     @target_values = Hash.new
 
     @target_values = {
-      {'pol_assistance_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:1:_id147',
-      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:3:_id147',
-      {'pol_easy_driver_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:7:_id147',
-      {'pol_glasses_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:6:_id147',
-      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
-      {'pol_assistance_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:5:_id147',
-      {'pol_assistance_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:4:_id147',
+      {'pol_assistance_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Assistenza\']/input',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Infortuni al conducente\']/input',
+      {'pol_easy_driver_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Easy Driver\']/input',
+      {'pol_glasses_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Rottura cristalli\']/input',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Tutela legale\']/input',
+      {'pol_social_political_events_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Eventi socio-politici e naturali\']/input',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Incendio e Furto\']/input',
 
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
@@ -391,10 +391,9 @@ module Provider2Dialogo
       {'driv_driver_sex_str' => 'M'} => '//input[@name="contentSubView:contentForm:SessoConducente" and @value="M"]',
       {'driv_driver_sex_str' => 'F'} => '//input[@name="contentSubView:contentForm:SessoConducente" and @value="F"]',
       {'veh_vehicle_use_str' => 'privato'} => '//input[@name="contentSubView:contentForm:vehicleUsage" and @value="01"]',
-      {'pol_RCA_premium_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:2:_id147',
-
-      {'pol_instalment_str' => 'annuale'} => 'contentSubView:quotationTabletForm:proposalTable:8:_id147',
-      {'pol_instalment_str' => 'semestrale'} => 'contentSubView:quotationTabletForm:proposalTable:9:_id147',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '//div[@id=\'sbox_Costo Annuale\']/span',
+      {'pol_instalment_str' => 'annuale'} => '//div[@id=\'sbox_Costo Annuale\']/input',
+      {'pol_instalment_str' => 'semestrale'} => '//div[@id=\'sbox_Costo Semestrale\']/input',
       {'pol_number_plate_type_str' => 'definitiva'} => '//input[@name="contentSubView:vehicleForm:foreignRegistrationand" @value="true"]',
       {'veh_vehicle_shelter_str' => 'box privato'} => '//input[@name="contentSubView:vehicleForm:garage" and @value="true"]',
       {'veh_tow_hook_str' => 'no'} => '//input[@name="contentSubView:vehicleForm:hook" and @value="true"]',
