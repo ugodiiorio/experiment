@@ -12,6 +12,7 @@ module Provider1Dialogo
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Tutela legale\']/input',
       {'pol_social_political_events_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Eventi socio-politici e naturali\']/input',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Incendio e Furto\']/input',
+      {'pol_public_liability_exemption_str' => 'no'} => 'Nessuna',
 
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',

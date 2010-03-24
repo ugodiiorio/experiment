@@ -38,12 +38,12 @@ class DialogoSect1 < Test::Unit::TestCase
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
 
-#      vehicle_age = 1
-#      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
+      #      vehicle_age = 1
+      #      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
 
       @url = site.url
       @sleep = @kte.sleep_typing
-#      @verification_errors = []
+      #      @verification_errors = []
 
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
@@ -55,13 +55,13 @@ class DialogoSect1 < Test::Unit::TestCase
         :url => @url
 
       @selenium_driver.start_new_browser_session
-#      @selenium.set_context("test_new")
+      #      @selenium.set_context("test_new")
 
     rescue Errno::ECONNREFUSED => ex
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
-#      @verification_errors[@verification_errors.size] = ex.message
+      #      @verification_errors[@verification_errors.size] = ex.message
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
@@ -69,7 +69,7 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def teardown
 	  @selenium_driver.close_current_browser_session if @selenium_driver
-#    assert_equal [], @verification_errors
+    #    assert_equal [], @verification_errors
   end
 
   def test_site
@@ -225,28 +225,28 @@ class DialogoSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
-      when 'on'
-        sleep @sleep*2
-        select_option("massRCA", get('@public_liability_indemnity_limit')) #ATTENTION!!!!!!!!!!!!!!!!!!!!!!
-        select_option("franchigiaCombo", get('@public_liability_exemption')) # ATTENTION!!!!!!!!!!!!!!!!!!!!!!
+    when 'on'
+      sleep @sleep*2
+      select_option("//select[@name='contentSubView:quotationTabletForm:proposalTable:0:_id132']", get('@public_liability_indemnity_limit'))
+      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption')) # ATTENTION!!!!!!!!!!!!!!!!!!!!!!
 
-        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+      uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+      uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+      uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+      uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+      uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+      uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      uncheck_checkbox(get('@easy_driver_web_id')) if is_checked?(get('@easy_driver_web_id'))
 
-        click_button "//img[@alt='Ricalcola']"
-        sleep @sleep*3
+      click_button "//img[@alt='Ricalcola']"
+      sleep @sleep*3
 
-        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id") #//div[@id='sbox_Costo Annuale']/span - //div[@id='sbox_Costo Semestrale']/span
-        wait_for_elm @last_value
-        get_premium(get("@rca_premium_id"))
-      else
-        raise RangeError, "RC cover cannot be off"
+      @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id") #//div[@id='sbox_Costo Annuale']/span - //div[@id='sbox_Costo Semestrale']/span
+      wait_for_elm @last_value
+      get_premium(get("@rca_premium_id"))
+    else
+      raise RangeError, "RC cover cannot be off"
     end
 
   end
@@ -309,7 +309,7 @@ class DialogoSect1 < Test::Unit::TestCase
   end
 
   def page_wait
-   page.wait_for_page_to_load site.wait_for_page_to_load
+    page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
 	def page_click_button(element)

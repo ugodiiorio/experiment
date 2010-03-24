@@ -97,7 +97,7 @@ module Provider2Dialogo
       'pol_privacy_2_str' => 'copy_field' ,
       'pol_privacy_3_str' => 'copy_field' ,
       'pol_property_type_to_be_insured_str' => 'copy_field' ,
-      'pol_public_liability_exemption_str' => 'copy_field' ,
+      'pol_public_liability_exemption_str' => 'translate_field' ,
       'pol_public_liability_indemnity_limit_str' => 'translate_field' ,
       'pol_public_liability_type_str' => 'copy_field' ,
       'pol_public_liability_young_exemption_str ' => 'copy_field' ,
