@@ -119,15 +119,11 @@ class GenialloydSect1 < Test::Unit::TestCase
     if page.get_attribute("#{@last_element}@id") == "situazione3"
       click_option(get('@bersani'))
       type_text("targa2", get('@bersani_ref_vehicle_number_plate'))
-    else
-      nil
     end
 
     click_option(get('@owner_sex'))
     type_text("loc", get('@owner_zip_code'))
     page.key_press("loc","\\9" )
-#    sleep @sleep*2
-#    select_option "sel_loc", get("@owner_residence_province")
     if get('@owner_specification')!="C"
       type_text("dataNasc", get('@birth_date'))
       select_option "paese", get("@citizenship")
@@ -138,7 +134,7 @@ class GenialloydSect1 < Test::Unit::TestCase
     select_option "comboFontePubblicitaria", get("@how_do_you_know_the_company")
     type_text("emailFascicolo", get('@e_mail'))
 
-    click_button '//input[@value="Avanti"]'
+    click_button '//*[@value="Avanti"]'
    	page_wait
 
     if page.is_element_present('//div[@id="mb_contents"]/div[2]/a[2]')
@@ -175,9 +171,13 @@ class GenialloydSect1 < Test::Unit::TestCase
     select_option "percorrenza", get("@km_per_yr")
     click_option(get('@vehicle_shelter'))
     click_option(get('@vehicle_use'))
-    select_option "classeCU", get("@bm_assigned")
-    select_option "sinistriUltimiAnni", get("@claims_total_number")
-    select_option "sinistriUltimiDueAnni", get("@nr_of_paid_claims_1_yr")
+
+    if get('@insurance_situation') != "situazione2"
+      select_option "classeCU", get("@bm_assigned")
+      select_option "sinistriUltimiAnni", get("@claims_total_number")
+      select_option "sinistriUltimiDueAnni", get("@nr_of_paid_claims_1_yr")
+    end
+
     type_text("date2", @rate_date)
 
     click_button '//input[@value="Avanti"]'
@@ -205,12 +205,12 @@ class GenialloydSect1 < Test::Unit::TestCase
 #        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
 #        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
 #        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
-#
-#        click_button "b_recalculate"
-#        sleep @sleep*5
-#
-#        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
-#        wait_for_elm @last_value
+
+        click_button "b_recalculate"
+        sleep @sleep*5
+
+        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+        wait_for_elm @last_value
 
         get_premium(get("@rca_premium_id"))
       else

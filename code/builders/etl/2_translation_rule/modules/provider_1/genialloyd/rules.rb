@@ -57,7 +57,7 @@ module Provider1Genialloyd
       'pol_blukasko_on_off_str' => 'copy_field',
       'pol_blukasko_premium_id_str' => 'copy_field',
       'pol_blukasko_web_id_str' => 'copy_field',
-      'pol_BM_assigned_str' => 'profilefield[:pol_bersani_str] == "no" ? translate_field : ( profilefield[:pol_BM_assigned_str].to_i == 0 ? "1 B/M" : translate_field)',
+      'pol_BM_assigned_str' => 'profilefield[:pol_bersani_str] == "no" ? translate_field : ( profilefield[:pol_BM_assigned_str].to_i == -1 ? "1 B/M" : translate_field)',
       'pol_BM_in_risk_certificate_str' => 'copy_field',
       'pol_BM_1_more_than_1_year_str' => 'copy_field',
       'pol_BM_particular_cases_str' => 'copy_field',
