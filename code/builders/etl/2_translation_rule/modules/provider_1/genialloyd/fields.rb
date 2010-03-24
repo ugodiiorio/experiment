@@ -5,16 +5,16 @@ module Provider1Genialloyd
     @target_values = Hash.new
 
     @target_values = {
-      {'pol_assistance_web_id_str' => 'id elemento'} => '157',
-      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => '76',
-      {'pol_driving_licence_withdrawal_guarantee_web_id_str' => 'id elemento'} => '155',
-      {'pol_glasses_web_id_str' => 'id elemento'} => '107',
-      {'pol_kasko_web_id_str' => 'id elemento'} => '103',
-      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '106',
-      {'pol_natural_events_act_of_vandalism_web_id_str' => 'id elemento'} => '109',
-      {'pol_natural_events_web_id_str' => 'id elemento'} => '108',
-      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '101',
-      {'pol_protected_bonus_web_id_str' => 'id elemento'} => '162',
+      {'pol_assistance_web_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[6]/td[1]/div/span/label',#'157',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[5]/td[1]/div/span/label',#'76',
+      {'pol_driving_licence_withdrawal_guarantee_web_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[8]/td[1]/div/span/label',#'155',
+      {'pol_glasses_web_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[4]/td[1]/div/span/label',#'107'
+      {'pol_kasko_web_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[9]/td[1]/div/span/label',#'103',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[7]/td[1]/div/span/label',#'106',
+      {'pol_natural_events_act_of_vandalism_web_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[10]/td[1]/div/span/label',#'109',
+      {'pol_natural_events_web_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[11]/td[1]/div/span/label',#'108',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[12]/td[1]/div/span/label',#'101',
+      {'pol_protected_bonus_web_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[3]/td[1]/div/span/label',#'162',
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
@@ -285,7 +285,7 @@ module Provider1Genialloyd
       {'own_owner_sex_str' => 'M'} => 'tipologia1',
       {'own_owner_sex_str' => 'F'} => 'tipologia2',
       {'own_owner_sex_str' => 'C'} => 'tipologia4',
-      {'pol_RCA_premium_id' => 'id elemento'} => '//span[@id="t_v_int"]'
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '//html/body/div/div/div[2]/form/div[9]/table/tbody/tr[2]/td[4]/div/span/strong[@class="colonnaPremioUnchecked floatRight"]'
 
     }
 

@@ -71,7 +71,7 @@ class GenialloydSect1 < Test::Unit::TestCase
 	  @selenium_driver.close_current_browser_session if @selenium_driver
 #    assert_equal [], @verification_errors
   end
-  
+
   def test_site
 
     begin
@@ -81,7 +81,6 @@ class GenialloydSect1 < Test::Unit::TestCase
       page_1
       page_2
       page_3
-      page_4
       page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
@@ -99,7 +98,7 @@ class GenialloydSect1 < Test::Unit::TestCase
       @kte.test_result = ex_message
       raise ex.class, ex_message
     end
-    
+
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
@@ -127,7 +126,8 @@ class GenialloydSect1 < Test::Unit::TestCase
     click_option(get('@owner_sex'))
     type_text("loc", get('@owner_zip_code'))
     page.key_press("loc","\\9" )
-    select_option "sel_loc", get("@owner_residence_province")
+#    sleep @sleep*2
+#    select_option "sel_loc", get("@owner_residence_province")
     if get('@owner_specification')!="C"
       type_text("dataNasc", get('@birth_date'))
       select_option "paese", get("@citizenship")
@@ -195,20 +195,23 @@ class GenialloydSect1 < Test::Unit::TestCase
         select_option("bean.codiceSelectedMassimale(97)", get('@public_liability_indemnity_limit'))
         click_option(get('@instalment'))
 
-        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      # Si è deciso di prendere il premio della RCA senza tener conto di tutte le garanzie
 
-        click_button "b_recalculate"
-        sleep @sleep*5
+#        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+#        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+#        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+#        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+#        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+#        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+#        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+#        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+#
+#        click_button "b_recalculate"
+#        sleep @sleep*5
+#
+#        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+#        wait_for_elm @last_value
 
-        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
-        wait_for_elm @last_value
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
@@ -342,9 +345,9 @@ class GenialloydSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
-    assert premium.split[0] != nil, @last_element.inspect
-    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
-    premium = premium.split[0].gsub(".","")
+    assert premium != nil, @last_element.inspect
+    assert premium.to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    premium = premium.gsub(".","")
     premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
