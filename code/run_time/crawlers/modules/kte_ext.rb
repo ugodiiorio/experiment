@@ -40,16 +40,20 @@ module KteExt
 
   def start_range(p)
 
-    profile_range = @kte.profile.split('..').inject { |s,e| s.to_i..e.to_i }
-    profile_range.is_a?(Range) ? first_profile = profile_range.first : first_profile = 1
+    @profile_array = @kte.profile.split(',')
+    @profile_array.size > 1 ? first_profile = 0 : first_profile = 1
+    profile_range = @kte.profile.split('..').inject { |s,e| s.to_i..e.to_i } unless @profile_array.size > 1
+    profile_range.is_a?(Range) ? first_profile = profile_range.first : first_profile = 1 unless @profile_array.size > 1
     return first_profile
     
   end
 
   def end_range(p)
 
-    profile_range = @kte.profile.split('..').inject { |s,e| s.to_i..e.to_i }
-    profile_range.is_a?(Range) ? end_profile = profile_range.end : end_profile = p
+    @profile_array = @kte.profile.split(',')
+    @profile_array.size > 1 ? end_profile = (@profile_array.size.to_i - 1) : end_profile = p
+    profile_range = @kte.profile.split('..').inject { |s,e| s.to_i..e.to_i } unless @profile_array.size > 1
+    profile_range.is_a?(Range) ? end_profile = profile_range.end : end_profile = p unless @profile_array.size > 1
     return end_profile
 
   end

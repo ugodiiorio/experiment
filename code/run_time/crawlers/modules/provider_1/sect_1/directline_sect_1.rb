@@ -38,12 +38,8 @@ class DirectlineSect1 < Test::Unit::TestCase
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
 
-#      vehicle_age = 1
-#      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
-
       @url = site.url
       @sleep = @kte.sleep_typing
-#      @verification_errors = []
 
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
@@ -55,13 +51,11 @@ class DirectlineSect1 < Test::Unit::TestCase
         :url => @url
 
       @selenium_driver.start_new_browser_session
-#      @selenium.set_context("test_new")
 
     rescue Errno::ECONNREFUSED => ex
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
-#      @verification_errors[@verification_errors.size] = ex.message
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
@@ -194,8 +188,8 @@ class DirectlineSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option "iCodAntifurto", get("@alarm")
     select_option "iCodRicoveroNotturno", get("@vehicle_shelter")
-    type_text("valoreauto", get('@vehicle_value'))
-
+    /^,00/.match(get_value("valoreauto")) ? type_text("valoreauto", get('@vehicle_value')) : nil
+    
     click_button "SUBMIT"
    	page_wait
 
@@ -254,7 +248,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
     page_select @last_element, "#{@last_value}"
-    assert_equal page.get_selected_label(@last_element), @last_value unless /(regexpi)*/.match(@last_element)
+    assert_equal "label=#{page.get_selected_label(@last_element)}", @last_value unless @last_value =~ /regexpi/i
   end
 
   def type_text(id, value = nil)
@@ -262,6 +256,12 @@ class DirectlineSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
     page_type @last_element, "#{@last_value}"
     assert_equal page.get_value(@last_element), @last_value
+  end
+
+  def get_value(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's getting value for element: [#{@last_element}]"}
+    return page_value @last_element
   end
 
   def click_option(id, value = nil)
@@ -328,6 +328,12 @@ class DirectlineSect1 < Test::Unit::TestCase
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
+	def page_value(element)
+	  wait_for_elm(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => got value = #{page.get_value(element)} for element #{element}"}
+	  return page.get_value element
+	end
+
 	def page_select(element, label)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from combo = #{element} a #{label}"}
 	  wait_for_select(element, label)
@@ -344,7 +350,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
-	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
+	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless label =~ /regexpi/i
   end
 
   def wait_for_elm(name)
@@ -367,9 +373,9 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
-    assert premium.split[0] != nil, @last_element.inspect
-    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
-    premium = premium.split[0].gsub(".","")
+    assert premium.split("€")[1] != nil, @last_element.inspect
+    assert premium.split("€")[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    premium = premium.split("€")[1].gsub(".","")
     premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}

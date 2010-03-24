@@ -200,7 +200,7 @@ class KTE
           to_profile = end_range(profiles)
           while from_profile <= to_profile do
       #      case @kte.company
-            @kte.profile = from_profile
+            @profile_array.size > 1 ? @kte.profile = @profile_array[from_profile] : @kte.profile = from_profile
             @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
             @not_free = not_free_profile?
       #      end
