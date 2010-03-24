@@ -223,7 +223,7 @@ class QuixaSect1 < Test::Unit::TestCase
     @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
     page_select @last_element, "#{@last_value}"
-    assert_equal page.get_selected_label(@last_element), @last_value unless @last_value =~ /regexpi/i
+    assert_equal "label=#{page.get_selected_label(@last_element)}", @last_value unless @last_value =~ /regexpi/i
   end
 
   def type_text(id, value = nil)
