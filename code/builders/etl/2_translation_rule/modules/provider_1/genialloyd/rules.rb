@@ -238,7 +238,7 @@ module Provider1Genialloyd
       'veh_rent_str'=> 'copy_field' ,
       'veh_rent_with_driver_str'=> 'copy_field' ,
       'veh_set_up_previous_vehicle_str' => 'copy_field',
-      'veh_set_up_str' => 'make=profilefield[:veh_set_up_str];make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/benzina/i ,"bz" );make= make.gsub(/ª/,"a" );  make= make.gsub(/(?![0-9]+)p.*(\\s)+/i, " p "); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "$";',
+      'veh_set_up_str' => 'make=profilefield[:veh_set_up_str];make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/benzina/i ,"bz." );make= make.gsub(/ª/,"a" );  make= make.gsub(/(?![0-9]+)p.*(\\s)+/i, " p "); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "$";',
       'veh_stabilizer_str' => 'copy_field',
       'veh_third_party_str'=> 'copy_field' ,
       'veh_tow_hook_str' => 'copy_field',
