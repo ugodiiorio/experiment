@@ -1,10 +1,5 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider1Dialogo
 
-  #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
   def build_hash_sect_1()
 
     @rule_values ={}
@@ -277,7 +272,5 @@ module Provider1Dialogo
     }
 
   end
-
-  #  def build_hash_regexp_sect_1_prov_12()  a regime i provider si chiameranno prov_1, prov_2 etc
 
 end

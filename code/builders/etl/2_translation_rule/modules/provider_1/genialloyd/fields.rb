@@ -1,12 +1,6 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider1Genialloyd
   
   def build_hash_sect_1()
-
-    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
@@ -267,15 +261,13 @@ module Provider1Genialloyd
       {'pol_BM_assigned_str' => '7'} => '7 B/M',
       {'pol_BM_assigned_str' => '8'} => '8 B/M',
       {'pol_BM_assigned_str' => '9'} => '9 B/M',
-      {'veh_vehicle_shelter_str' => 'box privato'} => 'box1',
+      {'veh_vehicle_shelter_str' => 'box privato'} => 'radio3',
       {'pol_bersani_str' => 'no'} => 'no',
-      #      {'pol_nr_of_paid_claims_2_yr_str' => '2'} => 'Due',
       {'pol_claims_total_number_str' => '2'} => 'Due',
       {'pol_driving_type_str' => 'esperta'} => 'guida1',
       {'pol_driving_type_str' => 'esclusiva'} => 'guida2',
       {'pol_driving_type_str' => 'libera'} => 'guida3',
       {'veh_alarm_str' => 'immobilizer'} => 'Immobilizer/Elettronico',
-      #      {'pol_nr_of_paid_claims_2_yr_str' => '0'} => 'Nessuno',
       {'pol_claims_total_number_str' => '0'} => 'Nessuno',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
       {'veh_vehicle_use_str' => 'privato'} => 'radio5',
@@ -289,64 +281,14 @@ module Provider1Genialloyd
       {'pol_bersani_str' => 'veicolo'} => 'situazione3',
       {'pol_client_type_str' => 'persona fisica'} => 'tipologia1',
       {'pol_client_type_str' => 'persona giuridica'} => 'tipologia4',
-      #      {'pol_nr_of_paid_claims_2_yr_str' => '1'} => 'Uno',
       {'pol_claims_total_number_str' => '1'} => 'Uno',
-#      {'driv_driver_sex_str' => 'M'} => 'tipologia1',
-#      {'driv_driver_sex_str' => 'F'} => 'tipologia2',
       {'own_owner_sex_str' => 'M'} => 'tipologia1',
-#      {'driv_driver_sex_str' => 'C'} => 'tipologia4',
       {'own_owner_sex_str' => 'F'} => 'tipologia2',
       {'own_owner_sex_str' => 'C'} => 'tipologia4',
-      {'pol_RCA_premium_id' => 'id elemento'} => '/html/body/div/div/div[2]/form/div[9]/div[2]/div'
-
-
+      {'pol_RCA_premium_id' => 'id elemento'} => '//span[@id="t_v_int"]'
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #  costruisci hash ["field_name + field_value","target"]
   end
-
 
 end

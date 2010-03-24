@@ -145,13 +145,30 @@ class DialogoSect1 < Test::Unit::TestCase
     
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_option(get('@driving_type'))
+    sleep @sleep*2
     click_option(get('@subscriber_is_driver'))
+    click_option(get('@subscriber_is_owner'))
     click_option(get('@num_of_owners'))
 
-    click_option(get('@subscriber_is_owner'))
-    if (page.get_attribute("#{@last_element}@value") == "Y")
+    if (page.get_attribute("#{get('@subscriber_is_driver')}@value") == "Y")
 
       click_option(get('@owner_sex'))
+      sleep @sleep*2
+      click_option(get('@driver_is_owner'))
+      type_text("contentSubView:contentForm:DataNascitaProprietario", get('@birth_date'))
+      select_option("contentSubView:contentForm:AnniPatenteProprietario", get('@driving_license_yrs'))
+      select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
+      select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
+      type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
+      page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
+      sleep @sleep*2
+      is_present?("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
+
+    else
+
+      click_option(get('@owner_sex'))
+      sleep @sleep*2
+      click_option(get('@driver_is_owner'))
       if (get('@owner_specification') != 'C')
         type_text("contentSubView:contentForm:DataNascitaProprietario", get('@birth_date'))
         select_option("contentSubView:contentForm:AnniPatenteProprietario", get('@driving_license_yrs'))
@@ -160,20 +177,13 @@ class DialogoSect1 < Test::Unit::TestCase
       select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
       type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
       page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
-
-    else
-
-      click_option(get('@driver_is_owner'))
-      select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
-      type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
+      sleep @sleep*2
+      is_present?("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
 
       type_text("contentSubView:contentForm:DataNascitaConducente", get('@birth_date'))
       click_option(get('@driver_sex'))
-
       select_option("contentSubView:contentForm:AnniPatenteConducente", get('@driving_license_yrs'))
       select_option("contentSubView:contentForm:ProfessioneConducente", get('@job'))
-      type_text("contentSubView:contentForm:ZipCodeConducente", get('@driver_zip_code'))
-      page.fire_event "contentSubView:contentForm:ZipCodeConducente", "blur"
 
     end
 
@@ -187,11 +197,10 @@ class DialogoSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     type_text("contentSubView:vehicleForm:chooseAuto:registration", get('@matriculation_date'))
 
-    select_option "contentSubView:vehicleForm:chooseAuto:brands", get("@make")
-    page.fire_event "contentSubView:vehicleForm:chooseAuto:brands", "blur"
-    select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
-    page.fire_event "contentSubView:vehicleForm:chooseAuto:models", "blur"
-    select_option "preparations", get("@set_up")
+    select_brand
+    select_model
+    select_preparation
+
     type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
     type_text("contentSubView:vehicleForm:chooseAuto:insurableValue", get('@vehicle_value'))
     click_option(get('@tow_hook'))
@@ -218,8 +227,8 @@ class DialogoSect1 < Test::Unit::TestCase
     case @last_value
       when 'on'
         sleep @sleep*2
-        select_option("massRCA", get('@public_liability_indemnity_limit'))
-        select_option("franchigiaCombo", get('@public_liability_exemption'))
+#        select_option("massRCA", get('@public_liability_indemnity_limit')) ATTENTION!!!!!!!!!!!!!!!!!!!!!!
+#        select_option("franchigiaCombo", get('@public_liability_exemption')) ATTENTION!!!!!!!!!!!!!!!!!!!!!!
 
         uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
         uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
@@ -233,7 +242,7 @@ class DialogoSect1 < Test::Unit::TestCase
         click_button "//img[@alt='Ricalcola']"
         sleep @sleep*3
 
-        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id") #//div[@id='sbox_Costo Annuale']/span - //div[@id='sbox_Costo Semestrale']/span
         wait_for_elm @last_value
         get_premium(get("@rca_premium_id"))
       else
@@ -364,6 +373,10 @@ class DialogoSect1 < Test::Unit::TestCase
     return present
   end
 
+  def assert_is_element_present(element)
+	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
+  end
+
   def get_premium(p)
 
     @last_element = p
@@ -379,8 +392,39 @@ class DialogoSect1 < Test::Unit::TestCase
 
   end
 
-  def assert_is_element_present(element)
-	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
+  def select_brand
+
+    select_option "contentSubView:vehicleForm:chooseAuto:brands", get("@make")
+    sleep @sleep*2
+    
+  end
+
+  def select_model
+
+    select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
+    sleep @sleep*2
+    model = page.get_selected_label(@last_element)
+    page.focus @last_element
+    type_text(@last_element, model)
+    page.key_up("contentSubView:vehicleForm:chooseAuto:models","\\13" )
+    sleep @sleep*2
+
+  end
+
+  def select_preparation
+
+    @last_element, @last_value = "preparations", get("@set_up")
+    page.focus @last_element
+    page.type_keys(@last_element, @last_value)
+    sleep @sleep*2
+    @last_element, @last_value = "//span/ul/li[1]", "#{get("@kw")} KW"
+    unless is_present?(@last_element)
+      get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
+      page.type_keys("preparations", @last_value)
+    end
+    wait_for_elm(@last_element)
+    click_button @last_element
+
   end
 
 end
