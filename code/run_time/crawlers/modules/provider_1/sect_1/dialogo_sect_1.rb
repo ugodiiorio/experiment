@@ -227,8 +227,8 @@ class DialogoSect1 < Test::Unit::TestCase
     case @last_value
       when 'on'
         sleep @sleep*2
-#        select_option("massRCA", get('@public_liability_indemnity_limit')) ATTENTION!!!!!!!!!!!!!!!!!!!!!!
-#        select_option("franchigiaCombo", get('@public_liability_exemption')) ATTENTION!!!!!!!!!!!!!!!!!!!!!!
+        select_option("massRCA", get('@public_liability_indemnity_limit')) #ATTENTION!!!!!!!!!!!!!!!!!!!!!!
+        select_option("franchigiaCombo", get('@public_liability_exemption')) # ATTENTION!!!!!!!!!!!!!!!!!!!!!!
 
         uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
         uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
