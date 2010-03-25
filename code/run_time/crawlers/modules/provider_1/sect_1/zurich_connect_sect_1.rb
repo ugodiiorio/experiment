@@ -375,11 +375,15 @@ class ZurichConnectSect1 < Test::Unit::TestCase
   def is_present?(name)
 	  present = page.is_element_present name
     if present
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is present?: #{present}"}
       visible = page.is_visible name
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is visible #{visible}"}
     end
     return present
+  end
+
+  def assert_is_element_present(element)
+	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
   def get_premium(p)
@@ -397,8 +401,4 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   end
 
-  def assert_is_element_present(element)
-	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
-  end
-  	
 end

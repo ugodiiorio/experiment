@@ -325,9 +325,9 @@ class QuixaSect1 < Test::Unit::TestCase
   def is_present?(name)
 	  present = page.is_element_present name
     if present
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is present?: #{present}"}
       visible = page.is_visible name
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is visible #{visible}"}
     end
     return present
   end
@@ -367,7 +367,7 @@ class QuixaSect1 < Test::Unit::TestCase
                                {"#{@kte.company} => Waiting combo "+ name;} } \
                                 if page.is_visible("ctl00_UpdateProgress1") \
                                 if page.element? "ctl00_UpdateProgress1"
-	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
+	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
 #	def wait_for_alert()

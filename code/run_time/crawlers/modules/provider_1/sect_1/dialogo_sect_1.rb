@@ -274,6 +274,12 @@ class DialogoSect1 < Test::Unit::TestCase
     assert_equal page.get_value(@last_element), @last_value
   end
 
+  def type_keys(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
+    page_keys @last_element, "#{@last_value}"
+  end
+
   def click_option(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked option button element: [#{@last_element}]"}
@@ -334,7 +340,16 @@ class DialogoSect1 < Test::Unit::TestCase
 	def page_type(element, label)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
+    page.focus element
 	  page.type element, label
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
+	end
+
+	def page_keys(element, label)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
+	  wait_for_elm(element)
+    page.focus element
+	  page.type_keys element, label
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
@@ -366,15 +381,15 @@ class DialogoSect1 < Test::Unit::TestCase
   def is_present?(name)
 	  present = page.is_element_present name
     if present
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is present?: #{present}"}
       visible = page.is_visible name
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is visible #{visible}"}
     end
     return present
   end
 
   def assert_is_element_present(element)
-	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
+	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
   def get_premium(p)
@@ -413,17 +428,15 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def select_preparation
 
-    @last_element, @last_value = "preparations", get("@set_up")
-    page.focus @last_element
-    page.type_keys(@last_element, @last_value)
+    get("@cv") == 0 ? cv_kw = "#{get("@cv")} CV - #{get("@kw")} KW" : cv_kw = "#{get("@kw")} KW"
+    type_keys("preparations", get("@set_up"))
     sleep @sleep*2
-    @last_element, @last_value = "//span/ul/li[1]", "#{get("@kw")} KW"
+    @last_element, @last_value = "//span/ul/li", "#{cv_kw}"
     unless is_present?(@last_element)
       get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
-      page.type_keys("preparations", @last_value)
+      type_keys("preparations", @last_value)
     end
-    wait_for_elm(@last_element)
-    click_button @last_element
+    click_button "//span/ul/li"
 
   end
 
