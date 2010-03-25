@@ -69,7 +69,7 @@ class DirectlineSect1 < Test::Unit::TestCase
   def test_site
 
     begin
-      @last_element, @last_value = nil, nil
+      @last_element, @last_value, @one_driver_young = nil, nil, nil
 
       page_intro
       page_1
@@ -143,8 +143,27 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option "numConducentiU26Dich", get("@driver_less_than_26_yrs")
+    @last_value =~ /un conducente/i ? @one_driver_young = true : @one_driver_young = false
     type_text("Numauto", get('@family_car'))
     click_option(get('@family_members_insured_with_company'))
+
+    click_button "SUBMIT"
+   	page_wait
+
+    page_more_drivers if @one_driver_young
+
+  end
+
+  def page_more_drivers
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    driver_birth_date = format_date(Chronic.parse("25 year ago tomorrow"))
+    type_text("dataNascitaConducenteUno", driver_birth_date)
+    click_option "//input[@name='sessoConducenteUno' and @value='#{get("@owner_specification")}']"
+    select_option "/qol/application/beans/vo/VoConducenteUno.strCodStatoCivile", get("@civil_status")
+    select_option "/qol/application/beans/vo/VoConducenteUno.strCodProfessione", get("@job")
+    type_text("CAP", get('@owner_zip_code'))
+    select_option "/qol/application/beans/vo/VoConducenteUno.strAnniPatente", "index=5"
 
     click_button "SUBMIT"
    	page_wait
@@ -248,7 +267,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
     page_select @last_element, "#{@last_value}"
-    assert_equal "label=#{page.get_selected_label(@last_element)}", @last_value unless @last_value =~ /regexpi/i
+    assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
   end
 
   def type_text(id, value = nil)
@@ -350,7 +369,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
-	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless label =~ /regexpi/i
+	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless label =~ /regexpi/i unless label =~ /index=/i
   end
 
   def wait_for_elm(name)

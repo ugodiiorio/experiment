@@ -273,7 +273,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
     @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
     page_select @last_element, "#{@last_value}"
-    assert_equal "label=#{page.get_selected_label(@last_element)}", @last_value unless @last_value =~ /regexpi/i
+    assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
   end
 
   def type_text(id, value = nil)
@@ -363,7 +363,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
     assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
-	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless label =~ /regexpi/i
+	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless label =~ /regexpi/i unless label =~ /index=/i
   end
 
   def wait_for_elm(name)
