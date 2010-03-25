@@ -121,6 +121,12 @@ class LinearSect1 < Test::Unit::TestCase
       type_text("sinistri15anno_anno", get('@nr_of_paid_claims_this_yr'))
     elsif get("@insurance_situation")=~ /bersani/i
       select_option "cond_ass_cb", get("@insurance_situation")
+
+      if page.is_element_present('//img[@alt="prosegui"]')
+        click_button '//img[@alt="prosegui"]'
+        page_wait
+      end
+
       select_option "tipoattestato_bersani", get("@coming_from_company")
       type_text("targa_bersani", get('@bersani_ref_vehicle_number_plate'))
     end
@@ -148,6 +154,7 @@ class LinearSect1 < Test::Unit::TestCase
     sleep @sleep*2
     select_option "allestimento_auto", get("@set_up")
 
+    (is_present?(get('@gas_methane_supply'))) ? click_option(get('@gas_methane_supply')) : nil
     click_option(get('@alarm'))
 
     select_option "ricovero_auto", get("@vehicle_shelter")
@@ -171,6 +178,7 @@ class LinearSect1 < Test::Unit::TestCase
     select_option "stato_nascita_istat", get("@citizenship")
     click_option(get('@driver_sex'))
     type_text("comune_residenza", get('@residence'))
+    page.fire_event 'comune_residenza', 'blur'
 
     select_option "patente_mese", get("@driving_license_month_of_issue")
     select_option "patente_anno", get("@driving_license_year_of_issue")
@@ -188,10 +196,8 @@ class LinearSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     click_option(get('@client_type'))
-    type_text("comune_residenza", get('@owner_residence'))
 
-    if page.get_selected_label(@last_element) =~ /fisica/i
-
+    if (page.get_attribute("#{@last_element}@value") == "0")
       select_option "nascita_giorno", get("@birth_date_day")
       select_option "nascita_mese", get("@birth_date_month")
       select_option "nascita_anno", get("@birth_date_year")
@@ -199,11 +205,13 @@ class LinearSect1 < Test::Unit::TestCase
       click_option(get('@owner_sex'))
       select_option "patente_mese", get("@driving_license_month_of_issue")
       select_option "patente_anno", get("@driving_license_year_of_issue")
-
-      click_button 'nextStep'
-      page_wait
-
     end
+
+    type_text("comune_residenza", get('@owner_residence'))
+    #page.fire_event 'comune_residenza', 'blur'
+
+    click_button 'nextStep'
+    page_wait
 
   end
 
