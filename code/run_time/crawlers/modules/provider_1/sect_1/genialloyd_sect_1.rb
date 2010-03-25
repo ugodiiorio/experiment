@@ -195,7 +195,7 @@ class GenialloydSect1 < Test::Unit::TestCase
         select_option("bean.codiceSelectedMassimale(97)", get('@public_liability_indemnity_limit'))
         click_option(get('@instalment'))
 
-      # Si è deciso di prendere il premio della RCA senza tener conto di tutte le garanzie
+      # we take simple RCA premium value without considering all the other guarantees premiums
 
 #        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
 #        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))

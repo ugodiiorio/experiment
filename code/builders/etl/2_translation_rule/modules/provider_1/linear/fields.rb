@@ -1,11 +1,5 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider1Linear
   def build_hash_sect_1()
-
-    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
@@ -262,6 +256,7 @@ module Provider1Linear
       {'pol_BM_assigned_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_driver_less_than_26_yrs_str' => 'S'} => '21',
+      {'pol_driver_less_than_26_yrs_str' => 'N'} => 'Nessuno',
       {'pol_client_type_str' => 'persona fisica'} => '//input[@name=fisgiur and @value="0"]',
       {'pol_client_type_str' => 'persona giuridica'} => '//input[@name=fisgiur and @value="3"]',
       {'own_owner_sex_str' => 'M'} => '//input[@name=sesso and @value="1"]',
@@ -292,7 +287,6 @@ module Provider1Linear
       {'driv_driving_license_month_of_issue_str' => '05'} => 'Maggio',
       {'driv_driving_license_month_of_issue_str' => '03'} => 'Marzo',
       {'own_owner_sex_str' => 'M'} => 'Maschio ',
-      {'pol_driver_less_than_26_yrs_str' => 'N'} => 'Nessuno',
       {'pol_risk_certificate_str' => 'no'} => 'No',
       {'driv_driving_license_month_of_issue_str' => '11'} => 'Novembre',
       {'driv_driving_license_month_of_issue_str' => '10'} => 'Ottobre',
@@ -306,50 +300,6 @@ module Provider1Linear
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #  costruisci hash ["field_name + field_value","target"]
   end
-
 
 end
