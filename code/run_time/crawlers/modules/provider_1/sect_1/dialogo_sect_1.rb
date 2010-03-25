@@ -278,7 +278,6 @@ class DialogoSect1 < Test::Unit::TestCase
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
     page_keys @last_element, "#{@last_value}"
-    assert_equal page.get_value(@last_element), @last_value unless value =~ /regexpi/i
   end
 
   def click_option(id, value = nil)
