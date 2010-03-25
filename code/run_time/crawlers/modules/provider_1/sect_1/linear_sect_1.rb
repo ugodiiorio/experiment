@@ -104,7 +104,7 @@ class LinearSect1 < Test::Unit::TestCase
   def page_intro
 
     open_page(@url)
-    click_button "//img[@src='http://www.linear.it/images/btn_ok.gif']"
+    click_button '//img[@alt="OK"]'
    	page_wait
 
   end
@@ -166,7 +166,7 @@ class LinearSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     select_option "nascita_giorno", get("@birth_date_day")
-    select_option "nascita_mese", 'index='+ get("@birth_date_month")
+    select_option "nascita_mese", get("@birth_date_month")
     select_option "nascita_anno", get("@birth_date_year")
     select_option "stato_nascita_istat", get("@citizenship")
     click_option(get('@driver_sex'))
