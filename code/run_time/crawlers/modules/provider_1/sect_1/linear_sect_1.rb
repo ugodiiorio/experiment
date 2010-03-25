@@ -114,24 +114,24 @@ class LinearSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     if get("@insurance_situation")=~ /bonus-malus/i
-      select_option "//html/body/div[2]/div/form/div/div[4]/div[2]/div/div[7]/select/optgroup/option", get("@insurance_situation")
+      select_option 'cond_ass_cb', get("@insurance_situation")
       select_option "frazionamento_cb", get("@instalment")
       select_option "anni_continuita_ass", get("@nr_of_yrs_insured_in_the_last_5_yrs")
       type_text("sinistri15anno_mese", get('@claims_total_number'))
       type_text("sinistri15anno_anno", get('@nr_of_paid_claims_this_yr'))
     elsif get("@insurance_situation")=~ /bersani/i
-      select_option "//html/body/div[2]/div/form/div/div[4]/div[2]/div/div[7]/select/optgroup[2]/option[2]", get("@insurance_situation")
+      select_option "cond_ass_cb", get("@insurance_situation")
       select_option "tipoattestato_bersani", get("@coming_from_company")
       type_text("targa_bersani", get('@bersani_ref_vehicle_number_plate'))
     end
 
     select_option "decorrenza_giorno", @rate_date.slice(0,2)
-    select_option "decorrenza_mese", @rate_date.slice(3,2)
+    select_option "decorrenza_mese", 'index='+ @rate_date.slice(3,2)
     select_option "decorrenza_anno", @rate_date.slice(6,4)
 
     select_option "classe_merito_cb", get("@bm_assigned")
 
-    button 'nextStep'
+    click_button 'nextStep'
    	page_wait
 
   end
@@ -151,11 +151,12 @@ class LinearSect1 < Test::Unit::TestCase
     click_option(get('@alarm'))
 
     select_option "ricovero_auto", get("@vehicle_shelter")
-    select_option "utilizzo_auto", get("@vehicle_use")
+    select_option "utilizzo_auto", get("@habitual_vehicle_use")
     type_text("km_anno", get('@km_per_yr'))
+    type_text("valore_commerciale", get('@vehicle_value'))
     click_option(get('@leasing'))
 
-   _button 'nextStep'
+    click_button 'nextStep'
    	page_wait
 
   end
@@ -165,7 +166,7 @@ class LinearSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     select_option "nascita_giorno", get("@birth_date_day")
-    select_option "nascita_mese", get("@birth_date_month")
+    select_option "nascita_mese", 'index='+ get("@birth_date_month")
     select_option "nascita_anno", get("@birth_date_year")
     select_option "stato_nascita_istat", get("@citizenship")
     click_option(get('@driver_sex'))
@@ -177,7 +178,7 @@ class LinearSect1 < Test::Unit::TestCase
     click_option(get('@car_already_insured_with_company'))
     click_option(get('@driver_is_owner'))
 
-   _button 'nextStep'
+    click_button 'nextStep'
    	page_wait
 
   end
@@ -199,7 +200,7 @@ class LinearSect1 < Test::Unit::TestCase
       select_option "patente_mese", get("@driving_license_month_of_issue")
       select_option "patente_anno", get("@driving_license_year_of_issue")
 
-      button 'nextStep'
+      click_button 'nextStep'
       page_wait
 
     end
@@ -211,7 +212,7 @@ class LinearSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option "conoscenza", get("@how_do_you_know_the_company")
     
-    button 'nextStep'
+    click_button 'nextStep'
     page_wait
     
   end
