@@ -31,7 +31,7 @@ module Provider2ZurichConnect
       'veh_model_str' => 'make=profilefield[:veh_model_str]; make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/ª/,"a" );  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "$";',
       'veh_make_str' => 'make=profilefield[:veh_make_str]; make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/ª/,"a" );  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "$";',
 #      'driv_job_str' => 'job=profilefield[:driv_job_str]; job= job.gsub(/pensionato/i,"pensionat" ); jregexp_mod = "regexpi:([A-Za-z0-9])*";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length < 3 ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(niente)\\\\b"',
-      'driv_job_str' => 'job=profilefield[:driv_job_str]; job= job.gsub(/pensionato/i,"pensionat" ); jregexp_mod = "regexpi:([A-Za-z0-9])*(";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length < 3 ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(impiegato))\\\\b"',
+      'driv_job_str' => 'job=profilefield[:driv_job_str]; job= job.gsub(/pensionato/i,"pensionat" ); job= job.gsub(/disoccupato/i,"in cerca di occupazione" ); jregexp_mod = "regexpi:([A-Za-z0-9])*(";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length < 3 ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(impiegato))\\\\b"',
 
       'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%-1m"); x = x.to_i - 1 ;y= "index=" + x.to_s',
       'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
@@ -80,7 +80,7 @@ module Provider2ZurichConnect
       'pol_driver_zip_code_str'  => 'copy_field' ,
       'pol_driving_license_suspension_str'  => 'copy_field' ,
       'pol_driving_license_withdrawal_indemnity_limit_str'  => 'copy_field' ,
-      'pol_driving_type_str' => 'profilefield[:pol_birth_date_str].to_i > 25 ? translate_field : "Guida Libera"',
+      'pol_driving_type_str' => '(profilefield[:pol_birth_date_str].to_i > 25 && profilefield[:own_owner_specification_str] != "C" )? translate_field : "Guida Libera"',
       'pol_drunkenness_fine_str'  => 'copy_field' ,
       'pol_exclusive_drive_str'  => 'copy_field' ,
       'pol_family_car_num'  => 'copy_field' ,
