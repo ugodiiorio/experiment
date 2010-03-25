@@ -50,7 +50,7 @@ module Provider1Linear
       'pol_bersani_ref_vehicle_number_plate_str' => 'copy_field',
       'pol_bersani_str' => 'copy_field',
       'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
-      'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years)strftime("%-1m"); y= "index=" + x',
+      'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%-1m"); y= "index=" + x',
       'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
       'pol_blukasko_code_str' => 'copy_field',

@@ -13,7 +13,7 @@ module Provider1Linear
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '3',
       {'pol_protected_bonus_web_id_str' => 'id elemento'} => '2',
       {'pol_protection_24_web_id_str' => 'id elemento'} => '/html/body/div[2]/div/form/div/div[5]/div[2]/table[2]/tbody/tr[17]/td[3]/input',
-{'veh_km_per_yr_str' => '10000'} => '10',
+      {'veh_km_per_yr_str' => '10000'} => '10',
 
       {'pol_driver_is_owner_str' => 'si'} => '//input[@id="fsgiur" and @value="1"]',
       {'pol_driver_is_owner_str' => 'no'} => '//input[@id="fsgiur" and @value="0"]',
@@ -295,7 +295,7 @@ module Provider1Linear
       {'driv_driving_license_month_of_issue_str' => '11'} => 'Novembre',
       {'driv_driving_license_month_of_issue_str' => '10'} => 'Ottobre',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'PassaParola',
-       {'driv_driving_license_month_of_issue_str' => '09'} => 'Settembre',
+      {'driv_driving_license_month_of_issue_str' => '09'} => 'Settembre',
       {'pol_risk_certificate_str' => 'si'} => 'Sì',
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'È assicurata con tariffa Bonus-Malus',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Deve essere assicurata per la prima volta',
