@@ -1,17 +1,17 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				01/03/2010						              #
+#				17/03/2010						              #
 #############################################
 
-class QuixaSect1 < Test::Unit::TestCase
+class ZurichConnectSect1 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
 
-  FirstPolicy = 0..100
-  Individual = 0..100
-  
+  FirstTime = 0..100
+  NotIndividual = true
+
   def get(var)
     var_value = site.instance_variable_get(var)
     return var_value.to_s.strip
@@ -33,7 +33,7 @@ class QuixaSect1 < Test::Unit::TestCase
 
       site.load_sector
       site.load_person
-      
+
       @rc_cover_code, @kte.rc_cover_code = get('@rca_code'), get('@rca_code')
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
@@ -67,22 +67,25 @@ class QuixaSect1 < Test::Unit::TestCase
     end
   end
 
-  
+
   def teardown
 	  @selenium_driver.close_current_browser_session if @selenium_driver
 #    assert_equal [], @verification_errors
   end
-  
+
   def test_site
 
     begin
-      @last_element, @last_value = nil, nil
+      @last_element, @last_value, @first_time_insured = nil, nil, nil
 
+      page_intro
       page_1
       page_2
       page_3
+      page_4
+      page_5
       page_premium
-      
+
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
 
@@ -102,103 +105,150 @@ class QuixaSect1 < Test::Unit::TestCase
 
   private # all methods that follow will be made private: not accessible for outside objects
 
-  def page_1
+  def page_intro
 
-    open_page(@url) #"http://www.quixa.it/simulator.aspx?SimObject=CAR"
+    open_page(@url) #url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneAuto"
 
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlBrand", get('@make'))
-
-    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", get('@matriculation_date'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlFuelType", get('@fuel'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlKmPerYear", get('@km_per_yr'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVehicleUse", get('@habitual_vehicle_use'))
-
-    click_option(get('@alarm'))
-
-    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-  	sleep @sleep*3
+    click_button "//img[@alt='Fai il preventivo']"
+    page_wait
 
   end
 
-  def page_2
+  def page_1
 
-#      wait_for_alert()
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    click_option(get('@leasing'))
+    select_option("ddlFonteConoscenza", get("@how_do_you_know_the_company"))
+    select_option("ddlFamiglia", get("@family_members_insured_with_company"))
 
-    click_option(get('@client_type'))
-
-    case page.get_text("//label[@for='#{@last_element}']") =~ /fisica/i
-      when Individual
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCountry", get('@citizenship'))
-        click_option(get('@owner_sex'))
-        type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", get('@birth_date'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", get('@job'))
+    select_option("ddlSituazioneAssicurativa",get('@insurance_situation'))
+    case page.get_selected_label(@last_element) =~ /prima volta/i
+      when FirstTime
+        @first_time_insured = true
+        select_option("DropBersani1", get('@bersani'))
       else
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
-    end
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", get('@insurance_situation'))
-    sleep @sleep*2
-    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
-    case get('@insurance_situation') =~ /prima polizza/i
-      when FirstPolicy
-        if Individual === (page.get_text("//label[@for='#{get('@client_type')}']") =~ /fisica/i)
-          select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlSelectBersani", get('@bersani'))
-          /(si)+/.match(page.get_selected_label(@last_element)) ? select_bersani : nil
-        end
-      else
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCongenere", get('@coming_from_company'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
-        select_last_years_claims
       end
 
-    click_option(get('@driver_less_than_26_yrs'))
+    type_text("txtDataDecorrenzaPolizza", @rate_date)
+    type_text("txtDataScadenza", @rate_date)
+    select_option("ddlContraenteProp", get("@subscriber_is_owner"))
+    select_option("DDLNumeroCointestatari", get("@num_of_owners"))
 
-    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-    sleep @sleep*3
+    click_button "Avanti"
+    page_wait
 
+  end
+  
+  def page_2
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    click_option(get('@owner_sex'))
+    page_wait
+    case page.get_attribute("#{@last_element}@tabindex").to_i == 3
+      when NotIndividual
+      else
+        type_text("txtDataNascita", get('@birth_date'))
+        select_option("ddlNazionalita", get('@citizenship'))
+        select_option("ddlstatociv2", get('@civil_status'))
+        select_option("ddlTitoloStudio", get('@studies'))
+        select_option("ddlprofessione", get('@job'))
+    end
+
+    type_text("txtCapResidenza", get('@driver_zip_code'))
+    click_button "btnLocalita"
+#        case page.get_selected_label("ddlLocalita") =~ /Seleziona una voce/i
+    page_wait
+    select_option("ddlLocalita", get('@residence'))
+
+    click_button "Avanti"
+    page_wait
+    
   end
 
   def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-  	sleep @sleep*5
+    select_option("ddlAlimentazione", get('@fuel'))
+    sleep @sleep*2
+    select_option("ddlMeseImm", get('@matriculation_date_month'))
+    sleep @sleep*2
+    select_option("ddlAnno", get('@matriculation_date_year'))
+    sleep @sleep*2
+    select_option("ddlMarca", get('@make'))
+    sleep @sleep*2
+    select_option("ddlModello", get('@model'))
+    sleep @sleep*2
+    select_option("ddlAllestimento", get('@set_up'))
+
+    click_button "Avanti"
+    page_wait
+
+    select_option("ddlAntifurto", get('@alarm'))
+    sleep @sleep*2
+    type_text("txtValoriVeicoli", get('@vehicle_value'))
+    type_text("txtValoriAccessori", get('@accesories_value'))
+    select_option("ddlanti", get('@antiskid'))
+    sleep @sleep*2
+    select_option("ddlairbag", get('@airbag'))
+    sleep @sleep*2
+    select_option("ddlABS", get('@abs'))
+    select_option("ddlStabiliz", get('@stabilizer'))
+    sleep @sleep*2
+    select_option("ddlGancioTraino", get('@tow_hook'))
+
+    click_button "Avanti"
+    page_wait
     
   end
 
-  def page_premium
+  def page_4
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    case @first_time_insured
+      when true
+        select_option("ddlClasseUniversale", get('@bm_assigned'))
+      else
+        select_option("ddlClasseUniversale", get('@bm_assigned'))
+        select_option("ddlNSinistriPen5anni", get('@claims_total_number'))
+        page.get_selected_label(@last_element) =~ /1/i ? select_option("ddlUltimoBiennio", get('@first_claim_year')) : nil
+        select_option("ddlAnniAssicurazione", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
+    end
     
+    click_button "btnAvanti"
+    page_wait
+    
+  end
+
+  def page_5
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    click_button "//img[@alt='Calcola il premio']"
+    page_wait
+
+  end
+
+  def page_premium
+
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@instalment'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@payment'))
+        select_option("ddlTipoGuida", get('@driving_type'))
+        select_option("ddlMassimaleRCA", get('@public_liability_indemnity_limit'))
 
-        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+        uncheck_checkbox(get('@road_assistance_web_id')) if is_checked?(get('@road_assistance_web_id'))
         uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
         uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+        uncheck_checkbox(get('@social_political_events_web_id')) if is_checked?(get('@social_political_events_web_id'))
         uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
         uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+        uncheck_checkbox(get('@natural_events_web_id')) if is_checked?(get('@natural_events_web_id'))
         uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+        uncheck_checkbox(get('@driving_licence_withdrawal_guarantee_web_id')) if is_checked?(get('@driving_licence_withdrawal_guarantee_web_id'))
+        uncheck_checkbox(get('@blukasko_web_id')) if is_checked?(get('@blukasko_web_id'))
 
-        click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
-      	sleep @sleep*2
+        select_option("ddlFrazionamento", get('@instalment'))
+        click_button "btnCalcola"
+        page_wait
 
         @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
         wait_for_elm @last_value
@@ -209,7 +259,7 @@ class QuixaSect1 < Test::Unit::TestCase
     end
 
   end
-
+	
   def open_page(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
@@ -332,19 +382,8 @@ class QuixaSect1 < Test::Unit::TestCase
     return present
   end
 
-  def select_bersani
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
-    sleep @sleep*2
-    /(medesimo proprietario)+/.match(get('@bersani')) ? select_last_years_claims : nil
-  end
-
-  def select_last_years_claims
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", get('@nr_of_paid_claims_5_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", get('@nr_of_paid_claims_4_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", get('@nr_of_paid_claims_3_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", get('@nr_of_paid_claims_2_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", get('@nr_of_paid_claims_1_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", get('@nr_of_paid_claims_this_yr'))
+  def assert_is_element_present(element)
+	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
   def get_premium(p)
@@ -362,16 +401,4 @@ class QuixaSect1 < Test::Unit::TestCase
 
   end
 
-  def assert_is_element_present(element)
-		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug("#{__FILE__} => #{method_name}") \
-                               {"#{@kte.company} => Waiting combo "+ name;} } \
-                                if page.is_visible("ctl00_UpdateProgress1") \
-                                if page.element? "ctl00_UpdateProgress1"
-	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
-  end
-
-#	def wait_for_alert()
-#		!8.times{ break if (page.alert?); sleep 1; puts "Waiting alert ..."; }
-#		page.alert() if page.alert?
-#	end
 end

@@ -13,7 +13,7 @@ module Provider1Linear
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '3',
       {'pol_protected_bonus_web_id_str' => 'id elemento'} => '2',
       {'pol_protection_24_web_id_str' => 'id elemento'} => '/html/body/div[2]/div/form/div/div[5]/div[2]/table[2]/tbody/tr[17]/td[3]/input',
-      {'veh_km_per_yr_str' => '10000'} => '10',
+      {'veh_km_per_yr_str' => '15000'} => '15',
 
       {'pol_driver_is_owner_str' => 'si'} => '//input[@id="fsgiur" and @value="1"]',
       {'pol_driver_is_owner_str' => 'no'} => '//input[@id="fsgiur" and @value="0"]',
@@ -262,8 +262,8 @@ module Provider1Linear
       {'pol_client_type_str' => 'persona giuridica'} => '//input[@name=fisgiur and @value="3"]',
       {'own_owner_sex_str' => 'M'} => '//input[@name=sesso and @value="1"]',
       {'own_owner_sex_str' => 'F'} => '//input[@name=sesso and @value="2"]',
-      {'driv_driver_sex_str' => 'M'} => '//input[@name=sesso and @value="1"]',
-      {'driv_driver_sex_str' => 'F'} => '//input[@name=sesso and @value="2"]',
+      {'driv_driver_sex_str' => 'M'} => '//input[@name="sesso" and @value="1"]',
+      {'driv_driver_sex_str' => 'F'} => '//input[@name="sesso" and @value="2"]',
 
       {'veh_alarm_str' => 'immobilizer'} => 'antifurto_auto',
       {'pol_leasing_str' => 'no'} => 'vincoli_auto',

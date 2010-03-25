@@ -18,6 +18,7 @@ AS
         driv_driver_sex_str,
         driv_driving_license_points_str,
         driv_driving_license_type_str,
+        driv_driving_license_month_of_issue_str,
         driv_driving_license_year_of_issue_str,
         driv_driving_license_yrs_str,
         driv_heir_str,

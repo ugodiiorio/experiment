@@ -8,8 +8,8 @@ require "mysql"
 require 'logger'
 require 'chronic'
 require 'active_support'
-require "modules/specific_profile"
-
+MODULE = '../modules/specific_profile.rb'
+require("#{File.join(File.dirname(__FILE__))}/#{MODULE}")
 Mysql::Time = 7
 
 def init()
