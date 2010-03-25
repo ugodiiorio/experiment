@@ -260,10 +260,10 @@ module Provider2Linear
       {'pol_driver_less_than_26_yrs_str' => 'S'} => '21',
       {'pol_client_type_str' => 'persona fisica'} => '//input[@name=fisgiur and @value="0"]',
       {'pol_client_type_str' => 'persona giuridica'} => '//input[@name=fisgiur and @value="3"]',
-      {'own_owner_sex_str' => 'M'} => '//input[@name=sesso and @value="1"]',
-      {'own_owner_sex_str' => 'F'} => '//input[@name=sesso and @value="2"]',
-      {'driv_driver_sex_str' => 'M'} => '//input[@name=sesso and @value="1"]',
-      {'driv_driver_sex_str' => 'F'} => '//input[@name=sesso and @value="2"]',
+      {'own_owner_sex_str' => 'M'} => '//input[@name="sesso" and @value="1"]',
+      {'own_owner_sex_str' => 'F'} => '//input[@name="sesso" and @value="2"]',
+      {'driv_driver_sex_str' => 'M'} => '//input[@name="sesso" and @value="1"]',
+      {'driv_driver_sex_str' => 'F'} => '//input[@name="sesso" and @value="2"]',
 
       {'veh_alarm_str' => 'nessuno'} => 'no',
       {'pol_leasing_str' => 'no'} => 'vincoli_auto',
@@ -322,8 +322,8 @@ module Provider2Linear
 
     @target_values = {
 
-      {'driv_driver_sex_str' => 'M'} => '//input[@name=sesso and @value="1"]',
-      {'driv_driver_sex_str' => 'F'} => '//input[@name=sesso and @value="2"]',
+      {'driv_driver_sex_str' => 'M'} => '//input[@name="sesso" and @value="1"]',
+      {'driv_driver_sex_str' => 'F'} => '//input[@name="sesso" and @value="2"]',
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'No, il veicolo non è assicurato con Linear S.p.A.',
       {'pol_BM_assigned_str' => '-1'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
