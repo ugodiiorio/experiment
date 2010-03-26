@@ -285,7 +285,7 @@ module Provider1Genialloyd
       {'own_owner_sex_str' => 'M'} => 'tipologia1',
       {'own_owner_sex_str' => 'F'} => 'tipologia2',
       {'own_owner_sex_str' => 'C'} => 'tipologia4',
-      {'pol_RCA_premium_id_str' => 'id elemento'} => '//html/body/div/div/div[2]/form/div[9]/table/tbody/tr[2]/td[4]/div/span/strong[@class="colonnaPremioUnchecked floatRight"]'
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '//div[@id=\'customizedOffering\']/table/tbody/tr[2]/td[4]/div/span/strong'
 
     }
 
