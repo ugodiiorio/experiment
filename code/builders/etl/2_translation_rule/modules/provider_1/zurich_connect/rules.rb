@@ -29,7 +29,7 @@ module Provider1ZurichConnect
       'driv_heir_str' => 'copy_field',
       'driv_italian_residence_starting_yrs_num' => 'copy_field',
       'driv_job_2_str' => 'copy_field',
-      'driv_job_str' => 'job=profilefield[:driv_job_str]; job= job.gsub(/pensionato/i,"pensionat" );  job= job.gsub(/disoccupato/i,"in cerca di occup." );jregexp_mod = "regexpi:([A-Za-z0-9])*(";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length < 2 ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(seleziona))\\\\b"',
+      'driv_job_str' => 'job=profilefield[:driv_job_str]; job= job.gsub(/pensionato/i,"pensionat" );  job= job.gsub(/disoccupato/i,"in cerca di occup." );jregexp_mod = "regexpi:([A-Za-z0-9])*(";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length <  ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(niente))\\\\b"',
       'driv_residence_same_as_home_address_str' => 'copy_field',
       'driv_studies_str' => 'translate_field',
       'own_owner_sex_str' => 'translate_field',
