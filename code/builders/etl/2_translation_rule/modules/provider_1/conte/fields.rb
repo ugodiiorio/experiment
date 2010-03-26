@@ -1,11 +1,5 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider1Conte
   def build_hash_sect_1()
-
-    #     target_values["fname_fvalue"]
 
     @target_values = Hash.new
 
@@ -420,73 +414,12 @@ module Provider1Conte
       {'pol_driving_type_str' => 'libera'} => 'page:radioGuidatori:2',
       {'pol_driving_type_str' => 'esclusiva'} => 'page:radioGuidatori:0',
       {'pol_driving_type_str' => 'esperta'} => 'page:radioGuidatori:1',
-      {'pol_matriculation_date_month_str' => '01'} => 'Gennaio',
-      {'pol_matriculation_date_month_str' => '02'} => 'Febbraio',
-      {'pol_matriculation_date_month_str' => '03'} => 'Marzo',
-      {'pol_matriculation_date_month_str' => '04'} => 'Aprile',
-      {'pol_matriculation_date_month_str' => '05'} => 'Maggio',
-      {'pol_matriculation_date_month_str' => '06'} => 'Giugno',
-      {'pol_matriculation_date_month_str' => '07'} => 'Luglio',
-      {'pol_matriculation_date_month_str' => '08'} => 'Agosto',
-      {'pol_matriculation_date_month_str' => '09'} => 'Settembre',
-      {'pol_matriculation_date_month_str' => '10'} => 'Ottobre',
-      {'pol_matriculation_date_month_str' => '11'} => 'Novembre',
-      {'pol_matriculation_date_month_str' => '12'} => 'Dicembre',
       {'pol_claims_total_number_str' => '0'} => 'page:sinistri_cc:1',
       {'pol_claims_total_number_str' => '1'} => 'page:sinistri_cc:0',
       {'pol_claims_total_number_str' => '2'} => 'page:sinistri_cc:0',
-    
-
-
-
-
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #  costruisci hash ["field_name + field_value","target"]
   end
-
 
 end

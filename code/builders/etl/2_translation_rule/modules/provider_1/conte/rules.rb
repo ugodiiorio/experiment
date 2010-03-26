@@ -1,10 +1,5 @@
-#!/usr/bin/ruby
-
-# Module defined in specific_profile.rb file
-
 module Provider1Conte
 
-  #  def build_hash_regexp_sect_1_prov_1()  a regime i provider si chiameranno prov_1 etc
   def build_hash_sect_1()
 
     @rule_values ={}
@@ -35,7 +30,7 @@ module Provider1Conte
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
       'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
+      'pol_matriculation_date_month_str' => 'x = (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%-1m"); y= "index=" + x',
       'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
       'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'pol_policy_starting_date_str' => 'copy_field',
@@ -294,8 +289,5 @@ module Provider1Conte
     }
 
   end
-
-  #  def build_hash_regexp_sect_1_prov_12()  a regime i provider si chiameranno prov_1, prov_2 etc
- 
 
 end
