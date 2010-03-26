@@ -160,7 +160,8 @@ class LinearSect1 < Test::Unit::TestCase
     select_option "ricovero_auto", get("@vehicle_shelter")
     select_option "utilizzo_auto", get("@habitual_vehicle_use")
     type_text("km_anno", get('@km_per_yr'))
-    is_editable?("valore_commerciale") ? type_text("valore_commerciale", get('@vehicle_value')) : nil
+    is_editable?("valore_commerciale") ? ((get_value("valore_commerciale")).gsub(".", "").to_i < 5000 ? nil : type_text("valore_commerciale", get('@vehicle_value'))) : nil
+     
     click_option(get('@leasing'))
 
     click_button 'nextStep'
@@ -404,6 +405,19 @@ class LinearSect1 < Test::Unit::TestCase
     assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"
     @kte.rc_premium = premium
 
+  end
+
+
+  def page_value(element)
+	  wait_for_elm(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => got value = #{page.get_value(element)} for element #{element}"}
+	  return page.get_value element
+	end
+
+    def get_value(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's getting value for element: [#{@last_element}]"}
+    return page_value @last_element
   end
 
   def assert_is_element_present(element)
