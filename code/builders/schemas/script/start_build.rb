@@ -63,7 +63,7 @@ def init()
   @db_default_target = database_settings['ds_db_default_target'] || "kte_target"
   @db_default_monitor = database_settings['ds_db_default_monitor'] || "kte_monitor"
   @db_default_driver = database_settings['ds_db_default_driver'] || "kte_driver"
-  @schema = app_settings['as_building_schema'] || "all"
+  @schema = app_settings['as_building_schema'] || "monitor"
 
   @log_device = logger_settings['ls_device'] || "/home/notroot/git/piper_nigrum/builders/log/schemas.log"
   @log_level = logger_settings['ls_level'] || 2

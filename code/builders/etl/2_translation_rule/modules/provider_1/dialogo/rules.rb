@@ -52,7 +52,7 @@ module Provider1Dialogo
       'own_owner_specification_str' => 'copy_field',
       'own_owner_residence_province_str' =>  'translate_field'   ,
       'own_owner_residence_str' =>  'copy_field',
-      'driv_job_str' => 'job=profilefield[:driv_job_str]; jregexp_mod = "regexpi:([A-Za-z0-9])*(";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length < 3 ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(impiegato))\\\\b"',
+      'driv_job_str' => 'job=profilefield[:driv_job_str]; jregexp_mod = "regexpi:([A-Za-z0-9])*(";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length < 3 ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(niente))\\\\b"',
       'pol_bersani_str' => 'translate_field',
       'pol_driver_accident_coverage_code_str' => 'copy_field',
       'pol_driver_zip_code_str' => 'copy_field',

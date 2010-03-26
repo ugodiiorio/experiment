@@ -21,7 +21,7 @@ AS
         pol_claims_total_number_malus_str,
         pol_claims_total_number_str,
         pol_client_type_str,
-        pol_coming_from_BM_num,
+        pol_coming_from_BM_str,
         pol_driver_zip_code_str,
         pol_instalment_str,
         pol_insurance_situation_str,
