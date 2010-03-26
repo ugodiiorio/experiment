@@ -653,7 +653,7 @@ class BuildDriverSchema
     mysql.query("CREATE TABLE " + @db_default_driver + ".companies (
         key_companies_group_id_str 	VARCHAR(32)  NOT NULL,
         key_company_id_str 	VARCHAR(32)  NOT NULL,
-        site_url_str 	VARCHAR(256)  NOT NULL,
+        site_url_str 	VARCHAR(512)  NOT NULL,
         PRIMARY KEY (key_companies_group_id_str, key_company_id_str)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
