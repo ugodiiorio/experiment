@@ -265,6 +265,7 @@ module Provider2Linear
       {'driv_driver_sex_str' => 'M'} => '//input[@name="sesso" and @value="1"]',
       {'driv_driver_sex_str' => 'F'} => '//input[@name="sesso" and @value="2"]',
 
+      {'pol_coming_from_company_str' => 'generali'} => 'No, il veicolo non è assicurato con Linear S.p.A.',
       {'pol_car_already_insured_with_company_str' => 'no'} => '//input[@name="famiglia" and @value="0"]',
       {'veh_alarm_str' => 'nessuno'} => 'no',
       {'pol_leasing_str' => 'no'} => 'vincoli_auto',

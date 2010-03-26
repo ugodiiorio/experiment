@@ -104,7 +104,7 @@ class LinearSect1 < Test::Unit::TestCase
   def page_intro
 
     open_page(@url)
-    click_button '//img[@alt="OK"]'
+    click_button '//img[@alt="Preventivo automobile"]'
    	page_wait
 
   end
@@ -124,7 +124,7 @@ class LinearSect1 < Test::Unit::TestCase
 
       if page.is_element_present('//img[@alt="prosegui"]')
         click_button '//img[@alt="prosegui"]'
-        page_wait
+#        page_wait
       end
 
       select_option "tipoattestato_bersani", get("@coming_from_company")

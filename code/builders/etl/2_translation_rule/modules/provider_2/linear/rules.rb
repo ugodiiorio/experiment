@@ -69,7 +69,7 @@ module Provider2Linear
       'pol_client_type_str' => 'translate_field',
       'pol_cohabiting_children_str' => 'copy_field',
       'pol_coming_from_BM_str' => 'copy_field',
-      'pol_coming_from_company_str' => 'copy_field',
+      'pol_coming_from_company_str' => 'translate_field',
       'pol_contingency_protection_code_str' => 'copy_field',
       'pol_contingency_protection_on_off_str' => 'copy_field',
       'pol_contingency_protection_premium_id_str' => 'copy_field',
