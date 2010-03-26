@@ -160,7 +160,7 @@ class LinearSect1 < Test::Unit::TestCase
     select_option "ricovero_auto", get("@vehicle_shelter")
     select_option "utilizzo_auto", get("@habitual_vehicle_use")
     type_text("km_anno", get('@km_per_yr'))
-    #type_text("valore_commerciale", get('@vehicle_value'))
+    type_text("valore_commerciale", get('@vehicle_value'))
     click_option(get('@leasing'))
 
     click_button 'nextStep'
