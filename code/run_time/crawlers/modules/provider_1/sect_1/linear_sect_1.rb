@@ -39,7 +39,7 @@ class LinearSect1 < Test::Unit::TestCase
       @rate_date = format_date(@kte.rate_date)
       @url = site.url
       @sleep = @kte.sleep_typing
-#      @verification_errors = []
+      #      @verification_errors = []
 
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
@@ -51,13 +51,13 @@ class LinearSect1 < Test::Unit::TestCase
         :url => @url
 
       @selenium_driver.start_new_browser_session
-#      @selenium.set_context("test_new")
+      #      @selenium.set_context("test_new")
 
     rescue Errno::ECONNREFUSED => ex
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
-#      @verification_errors[@verification_errors.size] = ex.message
+      #      @verification_errors[@verification_errors.size] = ex.message
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
@@ -65,7 +65,7 @@ class LinearSect1 < Test::Unit::TestCase
 
   def teardown
 	  @selenium_driver.close_current_browser_session if @selenium_driver
-#    assert_equal [], @verification_errors
+    #    assert_equal [], @verification_errors
   end
 
   def test_site
@@ -124,7 +124,7 @@ class LinearSect1 < Test::Unit::TestCase
 
       if page.is_element_present('//img[@alt="prosegui"]')
         click_button '//img[@alt="prosegui"]'
-#        page_wait
+        #        page_wait
       end
 
       select_option "tipoattestato_bersani", get("@coming_from_company")
@@ -160,7 +160,7 @@ class LinearSect1 < Test::Unit::TestCase
     select_option "ricovero_auto", get("@vehicle_shelter")
     select_option "utilizzo_auto", get("@habitual_vehicle_use")
     type_text("km_anno", get('@km_per_yr'))
-    #type_text("valore_commerciale", get('@vehicle_value'))
+    is_editable?("valore_commerciale") ? type_text("valore_commerciale", get('@vehicle_value')) : nil
     click_option(get('@leasing'))
 
     click_button 'nextStep'
@@ -230,30 +230,30 @@ class LinearSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
-      when 'on'
-        sleep @sleep*2
-        select_option("massimale_1", get('@public_liability_indemnity_limit'))
+    when 'on'
+      sleep @sleep*2
+      select_option("massimale_1", get('@public_liability_indemnity_limit'))
 
       # all guarantees appears to be unchecked and anyway we take simple RCA premium value
 
-#        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-#        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-#        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-#        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-#        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-#        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-#        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-#        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
-#
-#        click_button "b_recalculate"
-#        sleep @sleep*5
-#
-#        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
-#        wait_for_elm @last_value
+      #        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+      #        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+      #        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+      #        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+      #        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+      #        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+      #        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+      #        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      #
+      #        click_button "b_recalculate"
+      #        sleep @sleep*5
+      #
+      #        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+      #        wait_for_elm @last_value
 
-        get_premium(get("@rca_premium_id"))
-      else
-        raise RangeError, "RC cover cannot be off"
+      get_premium(get("@rca_premium_id"))
+    else
+      raise RangeError, "RC cover cannot be off"
     end
 
   end  
@@ -316,7 +316,7 @@ class LinearSect1 < Test::Unit::TestCase
   end
 
   def page_wait
-   page.wait_for_page_to_load site.wait_for_page_to_load
+    page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
 	def page_click_button(element)
@@ -371,7 +371,7 @@ class LinearSect1 < Test::Unit::TestCase
   end
 
   def is_present?(name)
-	  present = page.is_element_present name
+	  present = page.is_element_present(name)
     if present
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
       visible = page.is_visible name
@@ -379,6 +379,17 @@ class LinearSect1 < Test::Unit::TestCase
     end
     return present
   end
+
+  def is_editable?(name)
+	  present = page.is_editable name
+    if present
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => field is editable?: #{present}"}
+      visible = page.is_editable name
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => field is editable #{visible}"}
+    end
+    return present
+  end
+
 
   def get_premium(p)
 
