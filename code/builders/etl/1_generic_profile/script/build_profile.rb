@@ -7,7 +7,8 @@ require 'logger'
 require "mysql"
 require "yaml"
 
-require "modules/profile"
+MODULE = '../modules/profile.rb'
+require("#{File.join(File.dirname(__FILE__))}/#{MODULE}")
 
 def init()
 
