@@ -113,15 +113,15 @@ class LinearSect1 < Test::Unit::TestCase
     
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
+    select_option 'cond_ass_cb', get("@insurance_situation")
     if get("@insurance_situation")=~ /bonus-malus/i
-      select_option 'cond_ass_cb', get("@insurance_situation")
+      #      select_option 'cond_ass_cb', get("@insurance_situation")
       select_option "frazionamento_cb", get("@instalment")
       select_option "anni_continuita_ass", get("@nr_of_yrs_insured_in_the_last_5_yrs")
       type_text("sinistri15anno_mese", get('@claims_total_number'))
       type_text("sinistri15anno_anno", get('@nr_of_paid_claims_this_yr'))
     elsif get("@insurance_situation")=~ /bersani/i
-      select_option "cond_ass_cb", get("@insurance_situation")
-
+      #      select_option "cond_ass_cb", get("@insurance_situation")
       if page.is_element_present('//img[@alt="prosegui"]')
         click_button '//img[@alt="prosegui"]'
         #        page_wait

@@ -172,7 +172,7 @@ module Provider1ZurichConnect
       'pol_quotation_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
-      'pol_RCA_premium_id_str' => 'sitas=profilefield[:pol_insurance_situation_str]; sitas =~ /assicurato/i ? "lblvPremioAnnualeLordoSconto" : "lblvPremioAnnualeLordo"',
+      'pol_RCA_premium_id_str' => 'translate_field',
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'translate_field',
