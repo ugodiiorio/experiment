@@ -183,8 +183,6 @@ class LinearSect1 < Test::Unit::TestCase
     sleep @sleep*3
     is_present?("localita") ? select_option("localita", "index=1") : nil
 
-#    page.fire_event 'comune_residenza', 'blur'
-
     select_option "patente_mese", get("@driving_license_month_of_issue")
     select_option "patente_anno", get("@driving_license_year_of_issue")
     select_option "eta_inferiore", get("@driver_less_than_26_yrs")
