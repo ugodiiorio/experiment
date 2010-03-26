@@ -179,7 +179,11 @@ class LinearSect1 < Test::Unit::TestCase
     select_option "stato_nascita_istat", get("@citizenship")
     click_option(get('@driver_sex'))
     type_text("comune_residenza", get('@residence'))
-    page.fire_event 'comune_residenza', 'blur'
+    page.fire_event "comune_residenza" , "blur"
+    sleep @sleep*3
+    is_present?("localita") ? select_option("localita", "index=1") : nil
+
+#    page.fire_event 'comune_residenza', 'blur'
 
     select_option "patente_mese", get("@driving_license_month_of_issue")
     select_option "patente_anno", get("@driving_license_year_of_issue")
