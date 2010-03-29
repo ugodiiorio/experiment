@@ -55,7 +55,7 @@ module Provider1Conte
       'driv_birth_state_str' => 'copy_field',
       'pol_minikasko_code_str' => 'copy_field',
       #      'driv_job_str' => 'job=profilefield[:driv_job_str]; jregexp_mod = "regexpi:([A-Za-z0-9])*(";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length < 3 ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(niente))\\\\b"',
-      'driv_job_str' => 'copy_field',
+      'driv_job_str' => 'translate_field',
       'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
       'driv_job_2_str' => 'copy_field',
       'pol_bersani_str' => 'translate_field',
