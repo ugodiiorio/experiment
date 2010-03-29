@@ -10,6 +10,7 @@ class GenertelSect1 < Test::Unit::TestCase
   alias :page :selenium_driver
 
   FirstTime = 0..100
+  F4 = "\\115"
   NotIndividual = true
 
   def get(var)
@@ -78,7 +79,7 @@ class GenertelSect1 < Test::Unit::TestCase
       @last_element, @last_value, @first_time_insured = nil, nil, nil
 
       page_intro
-#      page_1
+      page_1
 #      page_2
 #      page_3
 #      page_4
@@ -106,84 +107,57 @@ class GenertelSect1 < Test::Unit::TestCase
 
   def page_intro
   
-    open_page(@url) #url="https://www.genertel.it/WEBsgw/start?CONV_CODE=vprev0001&TYPE_CODE=01&CALLERURL=http://www.genertel.it/assicurazioni/index.jhtml&CONVENTION_CODE=WP0&SEGMENT_CODE=WP0&PROMO_CODE=WP0"
+    open_page(@url) #url="http://www.genertel.it/assicurazioni/auto/genertel_web_classic.jhtml"
+    click_button_item "link"
     page_wait
+
 
   end
 
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    click "LBLXDPOXClienteRbt1"
+    click_option(get('@insurance_situation'))
+    sleep @sleep*2
 
-    if $Polizza_nuova_auto_nuova
-      click $Situaziona_assicurativa = "RBTXDPOXSituazione1"   #veicolo nuovo no contratto bonus malus
-    else
-      if $Polizza_nuova_auto_usata
-        click $Situaziona_assicurativa = "RBTXDPOXSituazione2"
+    case is_present?("LBLXDPOXCUGenNoBersani")
+      when false
+        select_fake_option("CBXXDPOXSinistri", get('@nr_of_paid_claims_2_yr'), "//body/div[8]/div/div", "LBLXCBXXDPOXSinistriVal")
+        select_fake_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXCUGenertel")
+        if get('@nr_of_paid_claims_2_yr') == "0" && get('@bm_assigned') == "1"
+          click_option(get('@bm_1_more_than_1_year'))
+          assert is_present?("HLPXDPOXClasseUnoXNota"), true, "Super Bonus Genertel must to be present" if @last_element =~ /ClasseUnoDomanda0/i
+        end
+        click_option(get('@current_policy_guarantee'))
       else
-        click $Situaziona_assicurativa = "RBTXDPOXSituazione0"
-      end
+        click_option(get('@bersani'))
+        if @last_element =~ /Bersani0/i
+          type_text("TBXXDPOXTargaVeicoloFam", get('@bersani_ref_vehicle_number_plate'))
+          select_fake_option("CBXXDPOXCUAssegnataFam", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXClasseGenBersani")
+        end
     end
 
-    if !$Contratto_esistente then
-      click "LBLXDPOXCUGenNoBersani"
-      begin
-          assert @selenium.is_text_present("Classe Genertel = 14")
-      rescue Test::Unit::AssertionFailedError
-          @verification_errors << $! + ' is_text_present("Classe Genertel = 14")'
-          raise RangeError, "New contract, Classe Genertel must to be 14"
-      end
-    end
+    type_text("DBXXDPOXDataDecorrenza", @rate_date)
+    click_option(get('@leasing'))
+    click_button_item "LBLXDPOXAvanti"
+    page_wait
 
-    if $Polizza_nuova_auto_nuova
-    else
-      if $Polizza_nuova_auto_usata
-      else
-        click "CBXXDPOXSinistri"
-        type "CBXXDPOXSinistri", $N_sinistri_2_anni
-        @selenium.key_up "CBXXDPOXSinistri", "\\115"
-        sleep 1
-        click "//body/div[8]/div/div"
-        sleep 2
-#          raise RangeError, "Wrong claims selection" unless @selenium.get_text("LBLXCBXXDPOXSinistriVal").to_s == $N_sinistri_2_anni.to_s
+  end
 
-#          click "//div[3]/div/div/div/div"                  #$N_sinistri_2_anni
-#          @selenium.mouse_down("//div[3]/div/div/div/div")
-#          sleep 3
-#          @selenium.mouse_move_at("//div[3]/div/div/div/div", "#{$N_sinistri_2_anni.to_i*50 + 50},768")
-#          sleep 3
-#          @selenium.mouse_up("//div[3]/div/div/div/div")
-#          sleep 3
+  def select_fake_option(id, value, item = nil, assert_item = nil)
 
-        click "CBXXDPOXCUAssegnata"
-        type "CBXXDPOXCUAssegnata", $Classe_BM.to_s
-        @selenium.key_up "CBXXDPOXCUAssegnata", "\\115"
-        sleep 1
-        click "//body/div[8]/div/div" if $Classe_BM.to_i > 1
-        click "//body/div[8]/div/div[1]" if $Classe_BM.to_i == 1
-        sleep 2
-#          raise RangeError, "Wrong B/M selection" unless @selenium.get_text("LBLXDPOXCUGenertel") == $Classe_BM.to_s
-
-#          click "//div[3]/div[2]/div[2]/div/div/div/div"    #$Classe_BM
-#          @selenium.mouse_down("//div[3]/div[2]/div[2]/div/div/div/div")
-#          sleep 3
-#          @selenium.mouse_move_at("//div[3]/div[2]/div[2]/div/div/div/div", "#{$Classe_BM.to_i*20},768")
-#          sleep 3
-#          @selenium.mouse_up("//div[3]/div[2]/div[2]/div/div/div/div")
-#          sleep 5
-##          assert !60.times{ break if (@selenium.is_element_present("LBLXSLDXDPOXCUAssegnataVal") rescue false); sleep 1 }
-#          raise RangeError, "Wrong Classe BM with slider selection" unless @selenium.get_text("LBLXSLDXDPOXCUAssegnataVal") == $Classe_BM
-
-        click "//div[2]/div/div[2]/div/div/img" if $N_sinistri_2_anni == 0 and $Classe_BM == 1      #$Ultimi_2_anni_classe_1
-        click "//div[5]/div/div/div/img"                  #Nessuna garanzia aggiuntiva
-      end
-    end
-
-    type "DBXXDPOXDataDecorrenza", $Data_decorrenza                    #mm/dd/yyyy
-
-    click "LBLXDPOXAvanti"
-    @selenium.wait_for_page_to_load $wait_for_page_to_load
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+    type_text(@last_element, @last_value)
+    page.key_up(@last_element, F4)
+    sleep @sleep
+    click_button_item(item, @last_value) if item
+    @last_element = assert_item
+    wait_for_elm(@last_element)
+    assert_equal page.get_text(@last_element), @last_value if assert_item
+  end
+  
+  def page_2
 
     type "NBXXDVEXAnnoImmat", $Data_immatricolazione_anno
 
@@ -448,11 +422,17 @@ class GenertelSect1 < Test::Unit::TestCase
     assert_equal page.get_value(@last_element), @last_value
   end
 
+  def type_keys(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
+    page_keys @last_element, @last_value
+  end
+
   def click_option(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked option button element: [#{@last_element}]"}
     page_click @last_element
-    assert_equal page.get_value(@last_element), "on"
+#    assert_equal page.get_value(@last_element), "on"
   end
 
   def click_checkbox(id, value = nil)
@@ -469,10 +449,10 @@ class GenertelSect1 < Test::Unit::TestCase
     assert_equal page.get_value(@last_element), "off"
   end
 
-  def click_button(id, value = nil)
+  def click_button_item(id, value = nil)
     @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
-    page_click_button @last_element
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button/item element: [#{@last_element}]"}
+    page_click_button_item @last_element
   end
 
   def is_checked?(id, value = nil)
@@ -483,11 +463,11 @@ class GenertelSect1 < Test::Unit::TestCase
   end
 
   def page_wait
-   page.wait_for_page_to_load site.wait_for_page_to_load
+    page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
-	def page_click_button(element)
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button = #{element}"}
+	def page_click_button_item(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button/item = #{element}"}
 	  page.click element
 	end
 
@@ -495,7 +475,7 @@ class GenertelSect1 < Test::Unit::TestCase
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on element = #{element}"}
 	  wait_for_elm(element)
 	  page.click element
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
+#	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
 	def page_uncheck(element)
@@ -508,7 +488,16 @@ class GenertelSect1 < Test::Unit::TestCase
 	def page_type(element, label)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
+    page.focus element
 	  page.type element, label
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
+	end
+
+	def page_keys(element, label)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
+	  wait_for_elm(element)
+    page.focus element
+	  page.type_keys element, label
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 

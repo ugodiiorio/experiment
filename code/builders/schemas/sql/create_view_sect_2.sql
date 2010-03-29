@@ -70,6 +70,7 @@ AS
         pol_blukasko_premium_id_str,
         pol_blukasko_web_id_str,
         pol_BM_assigned_str,
+        pol_BM_1_more_than_1_year_str,
         pol_BM_particular_cases_str,
         pol_car_already_insured_with_company_str,
         pol_claims_total_number_malus_str,
