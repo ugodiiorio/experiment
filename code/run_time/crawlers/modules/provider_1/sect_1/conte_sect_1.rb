@@ -143,10 +143,11 @@ class ConteSect1 < Test::Unit::TestCase
     click_button 'page:continua_step01'
 
     type_text("page:valore_veicolo", get('@vehicle_value'))
+    page.fire_event 'page:valore_veicolo', 'blur'
     select_option "page:ricovero_notturno", get("@vehicle_shelter")
     select_option "page:antifurto", get("@alarm")
     select_option "page:uso_prevalente", get("@habitual_vehicle_use")
-    select_option "@km_per_yr", get("@km_per_yr")
+    select_option "page:km_anno", get("@km_per_yr")
     click_option(get('@modification_made'))
     click_option(get('@bersani'))
     select_option "page:classeCU", get("@bm_assigned")
@@ -166,21 +167,47 @@ class ConteSect1 < Test::Unit::TestCase
     type_text("page:conducente_nascita", get('@birth_date'))
     click_option(get('@citizenship'))
     select_option "page:provincia_di_nascita", get("@birth_province")
+    page.click "page:comune_di_nascita"
     type_text("page:comune_di_nascita", get('@birth_place'))
-#    page.fire_event 'comune_residenza', 'blur'
+#    sleep @sleep*1
+    page.click "page:comune_di_nascita"
+    page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
+
+#    page.fire_event 'page:comune_di_nascita', 'focus'
+#    page.key_press("page:comune_di_nascita","\\9" )
+#    page.key_up "page:comune_di_nascita", "\\115"
+
+#      #click "//li[@onclick='SrchComNas.setResult(" + 				$Codice_comune + ");']"
+#      click "//li[@onclick='srchComNasIst.setResult(" + 				$Codice_comune + ");']"
+#      @selenium.fire_event "page:comune_di_nascita", "blur"
+#      #sleep 1
+#      click "page:buttonContinua"
+#
+#    page.fire_event 'page:comune_di_nascita', 'focus'
+#    sleep @sleep*2
+#    page.key_press("page:comune_di_nascita","\\13" )
+
+#    page.fire_event 'page:comune_di_nascita', 'blur'
+#    page.click '//html/body/center/table/tbody/tr[4]/td/table[2]/tbody/tr/td/form/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr[8]/td/table/tbody/tr[3]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/div/ul/span/li'
 
     click_button 'page:buttonContinua'
 
-    select_option "page:provincia_di_nascita", get("@birth_province")
-    type_text("page:comune_di_nascita", get('@birth_place'))
+    select_option "page:provincia_di_residenza", get("@residence_province")
+    page.click "page:comune_di_residenza"
+    type_text("page:comune_di_residenza", get('@residence'))
+    page.click "page:comune_di_residenza"
+    page.click "//div[@id='risultatiSrchComRes']/ul/span/li"
+
     type_text("page:toponimo_residenza", get('@toponym'))
     type_text("page:indirizzo_residenza", get('@address_street'))
     type_text("page:numero_residenza", get('@address_num'))
+    page.click 'page:cap_di_residenza'
     select_option "page:cap_di_residenza", get("@owner_zip_code")
 
     click_button 'page:buttonContinua2'
 
     type_text("page:professione_conducente_principale", get('@job'))
+
     select_option "page:stato_civile", get("@civil_status")
     click_option(get('@cohabiting_children'))
     type_text("page:eta_conseguimento_patente", get('@driving_license_yrs'))
@@ -246,7 +273,7 @@ class ConteSect1 < Test::Unit::TestCase
     case @last_value
       when 'on'
         sleep @sleep*2
-        select_option("page:quota_info:0:tipoRCA", get('@public_liability_type'))
+#        select_option("page:quota_info:0:tipoRCA", get('@public_liability_type'))
         select_option("page:quota_info:0:massimaleRCA", get('@public_liability_indemnity_limit'))
       # all guarantees appears to be unchecked and anyway we take simple RCA premium value
 

@@ -84,7 +84,7 @@ module Provider2Directline
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'id_radio_bm',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//input[@name="tipoPolizza" and @value="AN"]',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//input[@name="tipoPolizza" and @value="AU"]',
-      {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Sposato/a',
+      {'driv_civil_status_str' => 'Coniugato con figli'} => 'Sposato/a',
       {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'Tragitto Casa-Lavoro/Tempo libero',
       {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
       {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',
@@ -320,7 +320,7 @@ module Provider2Directline
 
     @target_values = {
       
-      {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Sposato/a',
+      {'driv_civil_status_str' => 'Coniugato con figli'} => 'Sposato/a',
       {'own_owner_sex_str' => 'M'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[3]/td[5]/input',
       {'own_owner_sex_str' => 'F'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[3]/td[5]/input[3]',
       {'pol_already_benefit_from_bersani_str' => 'no'} => '//*[@id="id_radio_tipo_bm_2"]',

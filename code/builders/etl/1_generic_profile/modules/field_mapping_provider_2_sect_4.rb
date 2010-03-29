@@ -8,9 +8,6 @@ module FieldMappingProvider2Sect4
 
     @field_rule_values = {
 
-      'pol_nr_of_yrs_without_claims_str'  => 'infield[:pol_claims_total_number_str].to_i == 1 ? X=4 : x=5;' ,
-     
-
       'own_owner_specification_str'  => 'if infield[:own_owner_sex_str].strip.upcase == "M"; infield[:own_owner_sex_str].strip.upcase; elsif infield[:own_owner_sex_str].strip.upcase == "F"; infield[:own_owner_sex_str].strip.upcase; else "C"; end' ,
       'own_owner_zip_code_str' =>'infield[:own_owner_zip_code_str].strip.downcase',
       'pol_record_id_str' =>'infield[:pol_record_id_str].strip.downcase',
@@ -25,6 +22,7 @@ module FieldMappingProvider2Sect4
       'pol_nr_of_paid_claims_4_yr_str' =>'infield[:pol_nr_of_paid_claims_4_yr_str].strip.downcase',
       'pol_nr_of_paid_claims_5_yr_str' =>'infield[:pol_nr_of_paid_claims_5_yr_str].strip.downcase',
       'pol_nr_of_paid_claims_this_yr_str' =>'infield[:pol_nr_of_paid_claims_this_yr_str].strip.downcase',
+      'pol_nr_of_yrs_without_claims_str'  => 'infield[:pol_claims_total_number_str].to_i == 1 ? X=4 : x=5;' ,
       'pol_policy_starting_date_day_str'  => '"si calcola runtime"' ,
       'pol_policy_starting_date_month_str'  => '"si calcola runtime"' ,
       'pol_policy_starting_date_str'  => '"si calcola runtime"' ,

@@ -11,7 +11,7 @@ module FieldMappingProvider2Sect1
       'driv_birth_province_str'  => 'infield[:pol_residence_province_str].strip.upcase' ,
       'driv_birth_state_str'  => '"ITALIA"' ,
       'driv_citizenship_str'  => '"ITALIA"' ,
-      'driv_civil_status_str'  => '"coniugato con figli"' ,
+      'driv_civil_status_str'  => '"Coniugato con figli"',
       'driv_driver_sex_str'  => 'infield[:driv_driver_sex_str].strip.upcase' ,
       'driv_driving_experience_str'  => nil ,
       'driv_driving_license_month_of_issue_str'  => 'infield[:driv_driving_license_yrs_str]' ,

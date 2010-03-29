@@ -70,7 +70,7 @@ module Provider1Conte
       'pol_residence_province_str' => 'translate_field',
       'pol_glasses_code_str' => 'copy_field',
       'pol_kasko_minimum_uncoverage_str' => 'copy_field',
-      'pol_payment_str' => 'copy_field',
+      'pol_payment_str' => 'translate_field',
       'veh_fuel_str' => 'translate_field',
       'driv_birth_place_str' => 'copy_field',
       'driv_birth_province_str' => 'translate_field',
