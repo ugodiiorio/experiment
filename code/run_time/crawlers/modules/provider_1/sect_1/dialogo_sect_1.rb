@@ -277,7 +277,7 @@ class DialogoSect1 < Test::Unit::TestCase
   def type_keys(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
-    page_keys @last_element, "#{@last_value}"
+    page_keys @last_element, @last_value
   end
 
   def click_option(id, value = nil)
