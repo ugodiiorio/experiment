@@ -46,7 +46,7 @@ module Provider1Dialogo
       'veh_vehicle_value_str' => 'copy_field',
 #      'veh_set_up_str' => 'kw=profilefield[:veh_kw_num].to_s;make=profilefield[:veh_set_up_str]; make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/ª/,"a" ); make= make.gsub(/tddi/i, "TD DI");  make= make.gsub(/tdci/i, "TD CI"); make= make.gsub(/5p./i, "5 PT");make= make.gsub(/3p./i, "3 PT");  make= make.gsub(/turbodiesel/i, "TD"); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+([A-Za-z0-9])*" + kw + ".* kw";',
       'veh_set_up_str' => '"allestimento"',
-      'driv_driving_license_yrs_str' =>'x = (profilefield[:driv_driving_license_yrs_str].to_i - 18).to_i; if x < 1; y="meno di un anno"; elsif x <= 2; y="da uno a due anni"; elsif x <= 10; y="da due a dieci anni"; else  y="da oltre dieci anni" end;',
+      'driv_driving_license_yrs_str' =>'x = (profilefield[:driv_driving_license_yrs_str].to_i - 18).to_i; if x <= 1; y="meno di un anno"; elsif x <= 2; y="da uno a due anni"; elsif x <= 10; y="da due a dieci anni"; else  y="da oltre dieci anni" end;',
       'pol_how_do_you_know_the_company_str' => 'translate_field',
       'veh_vehicle_shelter_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
