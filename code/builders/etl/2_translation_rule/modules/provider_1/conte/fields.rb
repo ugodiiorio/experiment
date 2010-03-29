@@ -15,6 +15,27 @@ module Provider1Conte
       {'pol_natural_events_web_id_str' => 'id elemento'} => 'page:quota_info:4:garanziaChecked',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'page:quota_info:1:garanziaChecked',
 
+      {'driv_job_str' => 'DIPENDENTE/IMPIEGATO/FUNZIONARIO/DIRIGENTE'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'insegnante'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'libero professionista'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'casalinga'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'militare'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'operaio'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'ecclesiastico'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'pensionato da lavoro'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'medico'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'libero professionista'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'studente'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'artigiano'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'autista professionista'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'avvocato'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'commerciante'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'disoccupato'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'imprenditore/industriale'} => 'page:quota_info:1:garanziaChecked',
+      {'driv_job_str' => 'ingegnere'} => 'page:quota_info:1:garanziaChecked',
+
+
+
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
