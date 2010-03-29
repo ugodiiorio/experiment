@@ -112,7 +112,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_option(get('@insurance_situation'))
-    (page.get_attribute("#{@last_element}@value") == "XX") ? click_option(get('@bersani')) : nil
+    (page.get_attribute("#{@last_element}@value") == "XX") ? click_option(get('@already_benefit_from_bersani')) : nil
     type_text("dataInizioValidita", @rate_date)
     type_text("Targa", get('@bersani_ref_vehicle_number_plate'))
     select_option "ConoscenzaAllState", get("@how_do_you_know_the_company")
@@ -173,15 +173,26 @@ class DirectlineSect1 < Test::Unit::TestCase
   def page_4
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    select_option "classeProvenienzaAuto", get("@coming_from_bm")
-    select_option "classeAssegnazioneAuto", get("@bm_assigned")
-    click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
-    click_option(get('@claims_total_number'))
+
     type_text("annoprimaimmatricolazione", get('@matriculation_date'))
     type_text("dataacquistoauto", get('@purchase_date_year'))
     select_option "select_marca", get("@make")
     page_click @last_element
     select_option "select_modelli", get("@model")
+
+    if get('@insurance_situation') == 'id_radio_bm'
+      select_option "classeProvenienzaAuto", get("@coming_from_bm")
+      select_option "classeAssegnazioneAuto", get("@bm_assigned")
+      click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
+      click_option(get('@claims_total_number'))
+    else
+      click_option(get('@bersani'))
+      if page.get_attribute("#{@last_element}@value") != "0"
+        type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
+        select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
+        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
+      end
+    end
 
     click_button "PROSEGUI"
    	page_wait
