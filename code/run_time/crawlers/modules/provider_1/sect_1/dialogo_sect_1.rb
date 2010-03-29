@@ -239,7 +239,7 @@ class DialogoSect1 < Test::Unit::TestCase
       uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
       uncheck_checkbox(get('@easy_driver_web_id')) if is_checked?(get('@easy_driver_web_id'))
 
-#      click_button "//img[@alt='Ricalcola']"
+      click_button "//img[@alt='Ricalcola']"
       sleep @sleep*3
 
       @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id") #//div[@id='sbox_Costo Annuale']/span - //div[@id='sbox_Costo Semestrale']/span
@@ -277,7 +277,7 @@ class DialogoSect1 < Test::Unit::TestCase
   def type_keys(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
-    page_keys @last_element, "#{@last_value}"
+    page_keys @last_element, @last_value
   end
 
   def click_option(id, value = nil)

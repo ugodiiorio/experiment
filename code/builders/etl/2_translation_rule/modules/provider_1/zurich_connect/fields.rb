@@ -285,6 +285,12 @@ module Provider1ZurichConnect
       {'pol_public_liability_indemnity_limit_str' => '18000000'} => '20.000.000 UNICO',
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '6.000.000 UNICO',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6.000.000 UNICO',
+
+      {'pol_public_liability_indemnity_limit_str' => '1600000'} => '20.000.000 UNICO',
+      {'pol_public_liability_indemnity_limit_str' => '2500000'} => '50.000.000 UNICO',
+      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '50.000.000 UNICO',
+      {'pol_public_liability_indemnity_limit_str' => '800000'} => '2.500.000 - 500.000',
+
       {'pol_defined_drive_str' => 'si'} => 'Guida Esperta',
       {'pol_free_drive_str' => 'si'} => 'Guida Libera',
       {'own_owner_sex_str' => 'M'} => 'Maschio',
@@ -308,7 +314,7 @@ module Provider1ZurichConnect
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '3'} => '3 anni',
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '4'} => '4 anni',
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '5'} => '5 anni',
-#      {'pol_RCA_premium_id_str' => 'id elemento'} => 'lblvPremioAnnualeLordoSconto',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => 'lblvPremioAnnualeLordo lblvPremioAnnualeLordoSconto',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'chkInfortuniConducente',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'chkIncendioFurto',
 

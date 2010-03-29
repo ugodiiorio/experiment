@@ -251,7 +251,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
         page_wait
 
         @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
-        wait_for_elm @last_value
+#        wait_for_elm @last_value
 #        assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
         get_premium(get("@rca_premium_id"))
       else
@@ -388,7 +388,9 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   def get_premium(p)
 
-    @last_element = p
+    p_array = p.split(" ")
+    is_present?(p_array[1]) ? @last_element = p_array[1] : @last_element = p_array[0]
+#    @last_element = p
     premium = page.get_text(@last_element)
     assert premium.split[0] != nil, @last_element.inspect
     assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect

@@ -1,6 +1,47 @@
-cd /home/notroot/git/KTE/code/builders/etl/2_translation_rule/script
-# mysql -u root -pkub01d --database=kte_driver -e "delete from translation_rules"
-ruby build_translation_rules.rb /home/notroot/git/KTE/code/yamls/translation_rule.yml
-# mysql -u root -pkub01d --database=kte_driver -e "delete from translated_fields"
-ruby build_translated_fields.rb /home/notroot/git/KTE/code/yamls/translated_field.yml
+#!/bin/bash
+cd /home/notroot/git/KTE/code/builders/etl/1_generic_profile/script
+if [ "$1" = "" ]; then
+	echo "Pass y or n if you want delete or not the mysql tables (ie. ./etl_1.sh y n)"
+else
+	if [ "$2" = "" ]; then
+		echo "Pass y or n if you want delete or not the mysql tables (ie. ./etl_1.sh y n)"
+	else
+		if [ "$1" = "y" ]; then
+			echo @@@ $1 @@@
+			echo "Starting ..."
+			echo "delete table field_mapping"
+			mysql -u root -pkub01d --database=kte_driver -e "delete from field_mapping"
+			ruby build_field_mapping.rb /home/notroot/git/KTE/code/yamls/field_mapping.yml
+			if [ "$2" = "y" ]; then
+				echo @@@ $2 @@@
+				echo "Starting ..."
+				echo "delete table insurance_profiles"
+				mysql -u root -pkub01d --database=kte_driver -e "delete from insurance_profiles"
+				ruby build_profile.rb /home/notroot/git/KTE/code/yamls/profile.yml
+			else
+				echo @@@ $2 @@@
+				echo "Starting ..."
+				echo "NOT delete table insurance_profiles"
+				ruby build_profile.rb /home/notroot/git/KTE/code/yamls/profile.yml
+			fi
+		else
+			echo @@@ $1 @@@
+			echo "Starting ..."
+			echo "NOT delete table field mapping"
+			ruby build_field_mapping.rb /home/notroot/git/KTE/code/yamls/field_mapping.yml
+			if [ "$2" = "y" ]; then
+				echo @@@ $2 @@@
+				echo "Starting ..."
+				echo "delete table insurance_profiles"
+				mysql -u root -pkub01d --database=kte_driver -e "delete from insurance_profiles"
+				ruby build_profile.rb /home/notroot/git/KTE/code/yamls/profile.yml
+			else
+				echo @@@ $2 @@@
+				echo "Starting ..."
+				echo "NOT delete table insurance_profiles"
+				ruby build_profile.rb /home/notroot/git/KTE/code/yamls/profile.yml
+			fi
+		fi
+	fi
+fi
 
