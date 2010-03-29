@@ -106,7 +106,7 @@ module Provider1Genertel
       {'pol_BM_1_more_than_1_year_str' => 'si'} => 'RBTXDPOXClasseUnoDomanda0',
       {'pol_BM_1_more_than_1_year_str' => 'no'} => 'RBTXDPOXClasseUnoDomanda1',
 
-      {'pol_bersani_ref_vehicle_number_plate_str' => 'ab123dc'} => 'ab123dc',
+      {'pol_bersani_ref_vehicle_number_plate_str' => 'ab123cd'} => 'ab123cd',
       {'veh_vehicle_use_str' => 'privato'} => 'Privato',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
