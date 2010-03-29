@@ -15,7 +15,7 @@ module FieldMappingProvider1Sect1
       'driv_driving_license_points_str' =>  '20',
       'driv_driving_license_type_str' =>  '"B"',
       'driv_driving_license_year_of_issue_str' =>  'infield[:driv_driver_sex_str].strip.length == 3 ? infield[:driv_driver_sex_str].slice(1, 2) : "30"',
-      'driv_driving_license_yrs_str' =>  'infield[:driv_driver_sex_str].slice(1, 2)',
+      'driv_driving_license_yrs_str' =>  'infield[:driv_driver_sex_str].strip.length == 3 ? infield[:driv_driver_sex_str].slice(1, 2) : "30"',
       'driv_heir_str' =>  '"no"',
       'driv_italian_residence_starting_yrs_num' =>  '(DateTime::now - 5.years).strftime("%Y")',
       'driv_job_2_str' =>  '"campo tecnico per genertel"',

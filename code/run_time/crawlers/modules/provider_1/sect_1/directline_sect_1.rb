@@ -63,7 +63,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def teardown
 	  @selenium_driver.close_current_browser_session if @selenium_driver
-#    assert_equal [], @verification_errors
+    #    assert_equal [], @verification_errors
   end
 
   def test_site
@@ -192,8 +192,8 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     page_click "allestimentoAuto"
-#    select_option "allestimentoAuto", get("@set_up")
-select_set_up "allestimentoAuto", get("@set_up")
+    #    select_option "allestimentoAuto", get("@set_up")
+    select_set_up "allestimentoAuto", get("@set_up")
     select_option "UsoPra", get("@habitual_vehicle_use")
     type_text("KMPercorsi", get('@km_per_yr'))
     click_option(get('@vehicle_use'))
@@ -228,29 +228,29 @@ select_set_up "allestimentoAuto", get("@set_up")
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
-      when 'on'
-        select_option("SelM_RCA", get('@public_liability_indemnity_limit'))
-        select_option("SelRateizzazione", get('@instalment')) #ATTENTION! Always use 1 year split
-        select_option("SelFSM_RCA", get('@public_liability_exemption'))
+    when 'on'
+      select_option("SelM_RCA", get('@public_liability_indemnity_limit'))
+      select_option("SelRateizzazione", get('@instalment')) #ATTENTION! Always use 1 year split
+      select_option("SelFSM_RCA", get('@public_liability_exemption'))
 
-        uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
-        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
+      uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+      uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+      uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+      uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+      uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+      uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+      uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+      uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
-        click_button "RICALCOLA"
-      	sleep @sleep*3
+      click_button "RICALCOLA"
+      sleep @sleep*3
 
-        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
-        wait_for_elm @last_value
-        get_premium(get("@rca_premium_id"))
-      else
-        raise RangeError, "RC cover cannot be off"
+      @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+      wait_for_elm @last_value
+      get_premium(get("@rca_premium_id"))
+    else
+      raise RangeError, "RC cover cannot be off"
     end
 
   end
@@ -269,6 +269,23 @@ select_set_up "allestimentoAuto", get("@set_up")
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
     page_select @last_element, "#{@last_value}"
     assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
+  end
+
+
+  def select_set_up(id, value = nil)
+    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value.split("|")[0]}"
+#    value_array = value.split("|")
+#    @last_value = value_array[0]
+#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+    page_select @last_element, "#{@last_value}"
+    if /(seleziona)+/i.match(page.get_selected_label(@last_element))
+      @last_value = "label=#{value.split("|")[1]}"
+      page_select @last_element, "#{@last_value}"
+    else
+      nil
+    end
+#
+     assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
   end
 
   def type_text(id, value = nil)
@@ -319,7 +336,7 @@ select_set_up "allestimentoAuto", get("@set_up")
   end
 
   def page_wait
-   page.wait_for_page_to_load site.wait_for_page_to_load
+    page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
 	def page_click_button(element)
