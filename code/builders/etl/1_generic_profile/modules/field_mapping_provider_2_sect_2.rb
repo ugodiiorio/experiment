@@ -82,7 +82,7 @@ module FieldMappingProvider2Sect2
       'veh_set_up_str' => 'a=infield[:veh_set_up_str].strip; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); f= h.gsub(/ª/,"a" );',
 
       'driv_citizenship_str' => "'ITALIA'",
-      'driv_civil_status_str' => "'coniugato con figli'",
+      'driv_civil_status_str' => "'Coniugato con figli'",
       'driv_driving_license_points_str' => "'20'",
       'driv_driving_license_type_str' => "'A senza limiti'",
       'driv_heir_str' => "'no'",

@@ -29,7 +29,7 @@ class BuildDriverSchema
       pers_sex_str	VARCHAR(128) NOT NULL,
 			pers_name_str					VARCHAR(64) NOT NULL,
 			pers_surname_str		VARCHAR(64) NOT NULL,
-			pers_birth_place_str 			VARCHAR(128),
+			pers_first_birth_place_str 			VARCHAR(128),
 			pers_address_street_str			VARCHAR(128),
 			pers_address_num_num			INT(2),
 			pers_phone_type_str			VARCHAR(128),

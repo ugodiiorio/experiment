@@ -421,7 +421,7 @@ module Provider1Conte
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'page:situazione_1:0',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'page:situazione_1:0',
       {'pol_driving_license_suspension_str' => 'no'} => 'page:sospensione_patente_contraente:1',
-      {'driv_civil_status_str' => 'Coniugato senza figli'} => 'coniugato/a o convivente',
+      {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Coniugato/Coniugata',
       {'driv_driving_license_type_str' => 'B'} => 'B (auto)',
       {'pol_client_type_str' => 'persona fisica'} => 'page:relazione_contraente_proprietario_passo1:0',
       {'pol_client_type_str' => 'persona giuridica'} => 'page:relazione_contraente_proprietario_passo1:1',
