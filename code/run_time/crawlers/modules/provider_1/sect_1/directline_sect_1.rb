@@ -192,7 +192,8 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     page_click "allestimentoAuto"
-    select_option "allestimentoAuto", get("@set_up")
+#    select_option "allestimentoAuto", get("@set_up")
+select_set_up "allestimentoAuto", get("@set_up")
     select_option "UsoPra", get("@habitual_vehicle_use")
     type_text("KMPercorsi", get('@km_per_yr'))
     click_option(get('@vehicle_use'))
