@@ -269,7 +269,7 @@ module Provider1Directline
       'veh_use_for_shops_str'=> 'copy_field' ,
       'veh_weight_to_be_towed_num'=> 'copy_field' ,
       'veh_purchase_date_str' => '(Chronic.parse(@rate_date) - profilefield[:veh_purchase_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'veh_purchase_date_year_num' => 'profilefield[:veh_purchase_date_str].to_i == 0 ? (Chronic.parse(@rate_date) - 1.months).strftime("%Y") : (Chronic.parse(@rate_date) - profilefield[:veh_purchase_date_str].to_i.years).strftime("%Y")',
+      'veh_purchase_date_year_num' => 'profilefield[:pol_insurance_situation_str] =~ /usato/ ? (Chronic.parse(@rate_date) - 1.months).strftime("%Y") : (Chronic.parse(@rate_date) - profilefield[:veh_purchase_date_str].to_i.years).strftime("%Y")',
       'veh_purchase_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:veh_purchase_date_str].to_i.years).strftime("%m")',
       'veh_purchase_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:veh_purchase_date_str].to_i.years).strftime("%d")',
       'pol_collision_code_str' => 'copy_field' ,
