@@ -103,6 +103,8 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_intro
 
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    
     open_page(@url)
    	page_wait
 
@@ -165,11 +167,15 @@ class ConteSect1 < Test::Unit::TestCase
     click_option(get('@driver_sex'))
     type_text("page:conducente_nascita", get('@birth_date'))
     click_option(get('@citizenship'))
-    select_option "page:provincia_di_nascita", get("@birth_province")
-
-    type_keys("page:comune_di_nascita", get('@birth_place'))
-    sleep @sleep*2
-    page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
+    if get('@citizenship') == "page:conducente_nazione:0" #ITALIA
+      select_option "page:provincia_di_nascita", get("@birth_province")
+      type_keys("page:comune_di_nascita", get('@birth_place'))
+      sleep @sleep*2
+      page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
+    else #ESTERO
+      select_option "page:conducente_principale_nazione_estera", get("@birth_state")
+      type_text("page:anno_residenza_italia", get('@italian_residence_starting_yrs'))
+    end
 
     click_button 'page:buttonContinua'
 
@@ -203,6 +209,8 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_4
 
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    
     click_option(get('@drunkenness_fine'))
     click_option(get('@driving_license_suspension'))
     click_option(get('@other_vehicle_use'))
@@ -237,6 +245,8 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_5
 
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    
     click_option(get('@driving_type'))
     click_option(get('@payment'))
     click_option('page:metodoDiPagamento2:0')
