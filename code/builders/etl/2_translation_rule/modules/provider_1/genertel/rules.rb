@@ -237,7 +237,7 @@ module Provider1Genertel
       'veh_make_str' => 'copy_field',
       'veh_modification_made_str' => 'copy_field',
       'veh_new_used_vehicle_str' => 'copy_field',
-      'veh_num_of_owners_str' => 'copy_field',
+      'veh_num_of_owners_str' => '"RBTXDCOXCondAbituale0"',
       'veh_passenger_transportation_str'=> 'copy_field' ,
       'veh_product_sector_str'=> 'copy_field' ,
       'veh_purchase_date_day_str' => 'copy_field',

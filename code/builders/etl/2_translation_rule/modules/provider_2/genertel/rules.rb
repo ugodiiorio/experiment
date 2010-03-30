@@ -230,7 +230,7 @@ module Provider2Genertel
       'veh_model_str' => 'make=profilefield[:veh_model_str]; make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); ',
        'veh_modification_made_str' => 'copy_field',
       'veh_new_used_vehicle_str' => 'copy_field',
-      'veh_num_of_owners_str' => 'copy_field',
+      'veh_num_of_owners_str' => '"RBTXDCOXCondAbituale0"',
       'veh_passenger_transportation_str'=> 'copy_field' ,
       'veh_product_sector_str'=> 'copy_field' ,
       'veh_purchase_date_day_str' => 'copy_field',

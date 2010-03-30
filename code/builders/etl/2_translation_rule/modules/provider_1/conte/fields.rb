@@ -393,8 +393,8 @@ module Provider1Conte
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
       {'pol_subscriber_is_driver_str' => 'si'} => 'page:conducente_principale:0',
-      {'pol_subscriber_is_owner_str' => 'si'} => 'page:contraente_proprietario:0',
-      {'pol_subscriber_is_owner_str' => 'no'} => 'page:contraente_proprietario:1',
+#      {'pol_subscriber_is_owner_str' => 'si'} => 'page:contraente_proprietario:0',
+#      {'pol_subscriber_is_owner_str' => 'no'} => 'page:contraente_proprietario:1',
       {'pol_cohabiting_children_str' => 'si'} => 'page:figli_minori:0',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_instalment_str' => 'semestrale'} => 'Semestrale',
@@ -432,9 +432,9 @@ module Provider1Conte
       {'pol_driving_type_str' => 'libera'} => 'page:radioGuidatori:2',
       {'pol_driving_type_str' => 'esclusiva'} => 'page:radioGuidatori:0',
       {'pol_driving_type_str' => 'esperta'} => 'page:radioGuidatori:1',
-      {'pol_claims_total_number_str' => '0'} => 'page:sinistri_cc:1',
-      {'pol_claims_total_number_str' => '1'} => 'page:sinistri_cc:0',
-      {'pol_claims_total_number_str' => '2'} => 'page:sinistri_cc:0',
+#      {'pol_claims_total_number_str' => '0'} => 'page:sinistri_cc:1',
+#      {'pol_claims_total_number_str' => '1'} => 'page:sinistri_cc:0',
+#      {'pol_claims_total_number_str' => '2'} => 'page:sinistri_cc:0',
 
     }
 
