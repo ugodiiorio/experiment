@@ -199,10 +199,15 @@ class ConteSect1 < Test::Unit::TestCase
     select_option "page:stato_civile", get("@civil_status")
     click_option(get('@cohabiting_children'))
     type_text("page:eta_conseguimento_patente", get('@driving_license_yrs'))
+    page.fire_event("page:eta_conseguimento_patente", 'blur')
+    if is_present?("page:anno_conseguimento_patente")
+      type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
+      select_option "page:mese_conseguimento_patente", get("@driving_license_month_of_issue")
+    end
     select_option "page:tipo_patente", get("@driving_license_type")
     select_option "page:punti_patente", get("@driving_license_points")
 
-    click_button '//*[@id="page:buttonContinua3"]'
+    click_button 'page:buttonContinua3'
     page_wait
 
   end

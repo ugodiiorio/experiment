@@ -435,6 +435,7 @@ module Provider1Conte
       {'pol_claims_total_number_str' => '0'} => 'page:sinistri_cc:1',
       {'pol_claims_total_number_str' => '1'} => 'page:sinistri_cc:0',
       {'pol_claims_total_number_str' => '2'} => 'page:sinistri_cc:0',
+      {'driv_driving_license_month_of_issue_str' => 'translate_field'} => 'gennaio'
 
     }
 
