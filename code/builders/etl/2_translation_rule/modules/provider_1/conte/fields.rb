@@ -33,8 +33,6 @@ module Provider1Conte
       {'driv_job_str' => 'imprenditore/industriale'} => 'Imprenditore generico',
       {'driv_job_str' => 'ingegnere'} => 'Ingegnere test',
 
-
-
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
       {'own_owner_residence_province_str' => 'AN'} => 'ANCONA',
