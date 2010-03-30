@@ -12,7 +12,7 @@ module Provider1Linear
       'driv_birth_place_str' => 'copy_field',
       'driv_birth_province_str' => 'copy_field',
       'driv_birth_state_str' => 'copy_field',
-      'driv_citizenship_str' => 'copy_field',
+      'driv_citizenship_str' => 'profilefield[:driv_citizenship_str] == "GRAN BRETAGNA" ? "REGNO UNITO" : copy_field',
       'driv_civil_status_str' => 'copy_field',
       'driv_driver_sex_str' => 'translate_field',
       'driv_driving_experience_str'=> 'copy_field',
