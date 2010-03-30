@@ -91,7 +91,7 @@ module Provider2Genertel
       {'pol_subscriber_is_driver_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[2]/div[2]/div/div/div/div/img',
       {'pol_cohabiting_children_str' => 'si'} => 'RBTXDCOXFigli0',
       {'pol_privacy_3_str' => 'id elemento web3'} => 'RBTXPRIXConsensoC0',
-      {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => '/html/body/form[3]/div/div/div[2]/div[4]/div[4]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div/div/img',
+      {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'RBTXDPOXAssicuratoGen1',
       {'pol_bersani_str' => 'no'} => 'RBTXDPOXBersani1',
       {'pol_bersani_str' => 'convivente'} => 'RBTXDPOXBersani0',
       {'pol_bersani_str' => 'veicolo'} => 'RBTXDPOXBersani0',
