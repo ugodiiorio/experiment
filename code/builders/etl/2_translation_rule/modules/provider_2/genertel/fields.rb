@@ -34,7 +34,7 @@ module Provider2Genertel
       {'veh_vehicle_value_str' => '5000'} => 'index 1',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'LBLXRIEXValuta',
       {'veh_km_per_yr_str' => 'campo tecnico per genertel'} => 'index 1',
-      {'driv_job_2_str' => 'campo tecnico per genertel'} => 'index 1',
+      {'driv_job_2_str' => 'campo tecnico per genertel'} => 'Altro',
       #      {'pol_nr_of_paid_claims_3_yr_str' => '0'} => '0',
       {'pol_BM_assigned_str' => '-1'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',

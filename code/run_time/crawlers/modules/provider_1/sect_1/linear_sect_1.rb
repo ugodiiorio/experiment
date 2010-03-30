@@ -127,7 +127,7 @@ class LinearSect1 < Test::Unit::TestCase
         #        page_wait
       end
 
-      select_option "tipoattestato_bersani", get("@coming_from_company")
+      select_option "tipoattestato_bersani", get("@bersani_ref_vehicle_insured_with_company")
       type_text("targa_bersani", get('@bersani_ref_vehicle_number_plate'))
     end
 
@@ -416,7 +416,7 @@ class LinearSect1 < Test::Unit::TestCase
 	  return page.get_value element
 	end
 
-    def get_value(id, value = nil)
+  def get_value(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's getting value for element: [#{@last_element}]"}
     return page_value @last_element
