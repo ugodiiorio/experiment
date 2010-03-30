@@ -24,6 +24,7 @@ AS
         driv_heir_str,
         driv_italian_residence_starting_yrs_num,
         driv_job_str,
+        driv_job_2_str,
         driv_residence_same_as_home_address_str,
         driv_studies_str,
         own_owner_sex_str,

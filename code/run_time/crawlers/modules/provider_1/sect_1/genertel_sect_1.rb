@@ -9,9 +9,10 @@ class GenertelSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
-  FirstTime = 0..100
   F4 = "\\115"
-  NotIndividual = true
+  NotIndividual = "C"
+  Other = 'Altro'
+  Debug = 0
 
   def get(var)
     var_value = site.instance_variable_get(var)
@@ -44,7 +45,7 @@ class GenertelSect1 < Test::Unit::TestCase
 
       @url = site.url
       @sleep = @kte.sleep_typing
-#      @verification_errors = []
+      @log_level = @kte.log_level
 
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
@@ -76,12 +77,12 @@ class GenertelSect1 < Test::Unit::TestCase
   def test_site
 
     begin
-      @last_element, @last_value, @first_time_insured = nil, nil, nil
+      @last_element, @last_value, @first_time_insured, @bersani = nil, nil, nil, nil
 
       page_intro
       page_1
-#      page_2
-#      page_3
+      page_2
+      page_3
 #      page_4
 #      page_5
 #      page_premium
@@ -111,7 +112,6 @@ class GenertelSect1 < Test::Unit::TestCase
     click_button_item "link"
     page_wait
 
-
   end
 
   def page_1
@@ -130,10 +130,13 @@ class GenertelSect1 < Test::Unit::TestCase
         end
         click_option(get('@current_policy_guarantee'))
       else
+        @first_time_insured = true
         click_option(get('@bersani'))
         if @last_element =~ /Bersani0/i
+          @bersani = true
           type_text("TBXXDPOXTargaVeicoloFam", get('@bersani_ref_vehicle_number_plate'))
           select_fake_option("CBXXDPOXCUAssegnataFam", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXClasseGenBersani")
+          click_option(get('@bersani_ref_car_already_insured_with_company'))
         end
     end
 
@@ -144,167 +147,94 @@ class GenertelSect1 < Test::Unit::TestCase
 
   end
 
-  def select_fake_option(id, value, item = nil, assert_item = nil)
-
-    @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
-    type_text(@last_element, @last_value)
-    page.key_up(@last_element, F4)
-    sleep @sleep
-    click_button_item(item, @last_value) if item
-    @last_element = assert_item
-    wait_for_elm(@last_element)
-    assert_equal page.get_text(@last_element), @last_value if assert_item
-  end
-  
   def page_2
 
-    type "NBXXDVEXAnnoImmat", $Data_immatricolazione_anno
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    type_text("NBXXDVEXAnnoImmat", get('@matriculation_date_year'))
 
-    click "CBXXDVEXMarca"
-    type "CBXXDVEXMarca", $Marca_auto #FORD #FIAT #VOLKSWAGEN
-    @selenium.key_up "CBXXDVEXMarca", "\\115"
-    sleep 1
-    click "//td[2]" #"//div[42]/table/tbody/tr/td[2]"
-    raise RangeError, "Wrong car company selection" unless @selenium.get_value("CBXXDVEXMarca").upcase == $Marca_auto.upcase
-#      @selenium.fire_event "CBXXDVEXMarca", "blur"
+    select_fake_option("CBXXDVEXMarca", get('@make'), "//td[2]")
+    sleep @sleep
+    select_fake_option("CBXXDVEXModello", get('@model'), "//body/div[8]/div/div")
+    sleep @sleep
+    select_fake_option("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
+    sleep @sleep
+    select_fake_option("CBXXDVEXAlimentazione", get('@fuel'), "//body/div[8]/div/div")
+    type_text("TBXXDVEXAllestimento", get('@set_up'))
+    select_fake_option("CBXXDVEXPotenzaCv", get('@cv'), "//body/div[8]/div/div")
+    type_text("NBXXDVEXValoreVeicolo", get('@vehicle_value'))
+    select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[9]/div/div")
 
-    click "CBXXDVEXModello"
-    type "CBXXDVEXModello", $Modello_auto #FOCUS/FOCUS C-MAX #PANDA 2 SERIE #GOLF 5 SERIE
-    @selenium.key_up "CBXXDVEXModello", "\\115"
-    sleep 1
-    click "//body/div[8]/div/div"
-    raise RangeError, "Wrong car model selection" unless @selenium.get_value("CBXXDVEXModello").upcase == $Modello_auto.upcase
-#      @selenium.fire_event "CBXXDVEXModello", "blur"
+    click_option(get('@airbag'))
+    click_option(get('@abs'))
+    click_option(get('@vehicle_shelter'))
 
-    click "CBXXDVEXAllestimento"
-    type "CBXXDVEXAllestimento", $Allestimento_auto #FOCUS C-MAX 1.6 TDCI (110CV) (07/2005) #PANDA 1.2 DYNAMIC (03/2005) #GOLF 2.0 16V TDI 5P. SPORTLINE (10/2003)
-    @selenium.key_up("CBXXDVEXAllestimento", "\\115")
-    sleep 1
-    click "//body/div[8]/div/div"
-    raise RangeError, "Wrong car features selection" unless @selenium.get_value("CBXXDVEXAllestimento").upcase == $Allestimento_auto.upcase
-#      @selenium.fire_event "CBXXDVEXAllestimento", "blur"
+    select_fake_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
+    type_text("NBXXDVEXKmAnnui", get('@km_per_yr'))
 
-    type "NBXXDVEXValoreVeicolo", $Valore_commerciale
+    click_button_item "LBLXDVEXAvanti"
+    page_wait
+    
+  end
 
-    click "CBXXDVEXAntifurto"
-    type "CBXXDVEXAntifurto", $Tipologia_antifurto
-    @selenium.key_up("CBXXDVEXAntifurto", "\\115")
-    sleep 1
-    click "//body/div[8]/div/div"
-    raise RangeError, "Wrong car alarm selection" unless @selenium.get_value("CBXXDVEXAntifurto") == $Tipologia_antifurto
-#      @selenium.fire_event "CBXXDVEXAntifurto", "blur"
+  def page_3
 
-    click $Optional_Airbag         #"//div[2]/div/div[1]/div/div/img"
-#      click $Optional_Abs           #"//div[12]/div[2]/div/div[1]/div/div/img" must to be not selected
-    click $Ricovero_notturno       #"//div[13]/div[2]/div/div[1]/div/div/img"
-#      type "CBXXDVEXUso", "Privato"
-    type "NBXXDVEXKmAnnui", $N_km
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    click_option(get('@client_type'))
+    case get('@owner_specification')
+      when NotIndividual
+        type_text("TBXXDP1XRagSociale", "#{get('@surname')} #{get('@name')}")
+        select_fake_option("CBXXDP1XNaturaGiuridica", get('@denomination_company'), "//body/div[8]/div/div")
+        type_text("TBXXDP1XPartitaIva", get('@vat_number'))
+      else
+        type_text("TBXXDP1XNome", get('@name'))
+        type_text("TBXXDP1XCognome", get('@surname'))
+        click_option(get('@owner_sex'))
+        type_text("DBXXDP1XDataNascita", get('@birth_date'))
+        type_text("TBXXDP1XLuogoNascita", get('@birth_place'))
+        click_button_item "LBLXDP1XCalcCodFisc"
+        assert !60.times{ break if (page.get_value("TBXXDP1XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
+        assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique hometown"
+        assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing hometown"
+        select_fake_option("CBXXDP1XProfPrimoLiv", get('@job'), "//body/div[8]/div/div")
+        sleep @sleep
+        select_fake_option("CBXXDP1XProfSecondoLiv", get('@job_2'), "//body/div[8]/div/div") unless get('@job') == Other
+    end
 
-    click "LBLXDVEXAvanti"
-    @selenium.wait_for_page_to_load $wait_for_page_to_load
+    click_button_item get('@subscriber_is_owner')
 
+    select_fake_option("CBXXRSDXCodTopo", get('@toponym'), "//body/div[9]/div/div")
+    type_text("TBXXRSDXIndirizzo", get('@address_street'))
+    type_text("TBXXRSDXNCiv", get('@address_num'))
+    type_text("TBXXRSDXComune", get('@residence'))
+    select_fake_option("CBXXRSDXProv", get('@residence_province'), "//body/div[10]/div/div")
+    type_text("TBXXRSDXCAP", get('@owner_zip_code'))
 
-    click "TBXXDP1XNome"
-    type "TBXXDP1XNome", $Nome
-    @selenium.fire_event "TBXXDP1XNome", "blur"
+    type_text("TBXXRECXPrefisso1", get('@mobile_prefix'))
+    type_text("TBXXRECXNumero1", get('@mobile_number'))
+    type_text("TBXXRECXEmail", get('@e_mail'))
 
-    click "TBXXDP1XCognome"
-    type "TBXXDP1XCognome", $Cognome
-    @selenium.fire_event "TBXXDP1XCognome", "blur"
+    fill_in_parent_data_for_bersani if @bersani
 
-    click $Sesso                        #"//div[4]/div[2]/div/div[1]/div/div/img" => M #"//div[4]/div[2]/div/div[2]/div/div/img" => F
+    click_button_item "LBLXAN1XAvanti"
+    page_wait
+    
+  end
 
-    click "DBXXDP1XDataNascita"
-    type "DBXXDP1XDataNascita", $Data_nascita                    #mm/dd/yyyy
-    @selenium.fire_event "DBXXDP1XDataNascita", "blur"
+  def fill_in_parent_data_for_bersani
 
-    click "TBXXDP1XLuogoNascita"
-    type "TBXXDP1XLuogoNascita", $Luogo_nascita.strip
-#      type "TBXXDP1XLuogoNascita", "Cremona" if $Luogo_nascita.strip == "Prato"  #ATTENTION! Update profili_anagrafici table
-#      type "TBXXDP1XLuogoNascita", "Roma" if $Luogo_nascita.strip == "Forlì"     #ATTENTION! Update profili_anagrafici table
-    @selenium.fire_event "TBXXDP1XLuogoNascita", "blur"
+    type_text("TBXXDABXNome", get('@name'))
+    type_text("TBXXDABXCognome", get('@surname'))
+    click_option(get('@driver_sex'))
+    type_text("DBXXDABXDataNascita", get('@birth_date'))
+    type_text("TBXXDABXLuogoNascita", get('@birth_place'))
+    click_button_item "LBLXDABXCalcCodFisc"
+    assert !60.times{ break if (page.get_value("TBXXDABXCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
+    assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique hometown"
+    assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing hometown"
 
-    click "TBXXDP1XCodFisc"
-    click "LBLXDP1XCalcCodFisc"
-    sleep 5
-    assert !60.times{ break if (@selenium.get_value("TBXXDP1XCodFisc").length == 16 rescue false); sleep 1 }
-#      begin
-#        assert @selenium.get_value("TBXXDP1XCodFisc").length == 16
-#      rescue Test::Unit::AssertionFailedError
-#        @verification_errors << $! + " TBXXDP1XCodFisc.length == 16"
-    raise RangeError, "Not unique hometown" if @selenium.is_text_present("Seleziona il tuo luogo di nascita")
-    raise RangeError, "Not unique hometown" if @selenium.is_text_present("Inserisci il tuo luogo di nascita")
-#      end
+  end
 
-    click "CBXXDP1XProfPrimoLiv"
-    str = $Professione.split
-    type "CBXXDP1XProfPrimoLiv", str[0]
-    @selenium.key_up("CBXXDP1XProfPrimoLiv", "\\115")
-    sleep 1
-    click "//body/div[8]/div/div"
-    raise RangeError, "Wrong job first selection" unless @selenium.get_value("CBXXDP1XProfPrimoLiv") == str[0]
-#      @selenium.fire_event "CBXXDP1XProfPrimoLiv", "blur"
-
-    click "CBXXDP1XProfSecondoLiv"
-    type "CBXXDP1XProfSecondoLiv", str[1]
-    @selenium.key_up("CBXXDP1XProfSecondoLiv", "\\115")
-    sleep 1
-    click "//body/div[8]/div/div"
-    raise RangeError, "Wrong job second selection" unless @selenium.get_value("CBXXDP1XProfSecondoLiv") == str[1]
-#      @selenium.fire_event "CBXXDP1XProfSecondoLiv", "blur"
-
-    click "CBXXRSDXCodTopo"
-    type "CBXXRSDXCodTopo", $Toponimo.upcase
-    @selenium.key_up("CBXXRSDXCodTopo", "\\115")
-    sleep 1
-    click "//body/div[9]/div/div[1]"
-    raise RangeError, "Wrong toponym selection" unless @selenium.get_value("CBXXRSDXCodTopo").upcase == $Toponimo.upcase
-#      @selenium.fire_event "CBXXRSDXCodTopo", "blur"
-
-    click "TBXXRSDXIndirizzo"
-    type "TBXXRSDXIndirizzo", $Indirizzo_via
-    @selenium.fire_event "TBXXRSDXIndirizzo", "blur"
-    click "TBXXRSDXNCiv"
-    type "TBXXRSDXNCiv", $Indirizzo_num
-    @selenium.fire_event "TBXXRSDXNCiv", "blur"
-    click "TBXXRSDXComune"
-    type "TBXXRSDXComune", $Comune_residenza.strip
-    @selenium.fire_event "TBXXRSDXComune", "blur"
-
-    click "CBXXRSDXProv"
-    type "CBXXRSDXProv", $Provincia_residenza.strip.upcase
-    @selenium.key_up("CBXXRSDXProv", "\\115")
-    sleep 1
-    click "//body/div[10]/div/div"
-    raise RangeError, "Wrong town selection" unless @selenium.get_value("CBXXRSDXProv").upcase == $Provincia_residenza.strip.upcase
-#      @selenium.fire_event "CBXXRSDXProv", "blur"
-
-    click "TBXXRSDXCAP"
-    type "TBXXRSDXCAP", $Cap.strip
-    @selenium.fire_event "TBXXRSDXCAP", "blur"
-
-    click "CBXXRECXTipo1"
-    type "CBXXRECXTipo1", $Phone_type
-    @selenium.key_up("CBXXRECXTipo1", "\\115")
-    sleep 1
-    click "//body/div[11]/div/div"
-    raise RangeError, "Wrong phone type selection" unless @selenium.get_value("CBXXRECXTipo1") == "Cellulare"
-#      @selenium.fire_event "CBXXRECXTipo1", "blur"
-
-    click "TBXXRECXPrefisso1"
-    type "TBXXRECXPrefisso1", $Mobile_prefisso
-    @selenium.fire_event "TBXXRECXPrefisso1", "blur"
-    click "TBXXRECXNumero1"
-    type "TBXXRECXNumero1", $Mobile_suffisso
-    @selenium.fire_event "TBXXRECXNumero1", "blur"
-
-    click "TBXXRECXEmail"
-    type "TBXXRECXEmail", $e_mail
-    @selenium.fire_event "TBXXRECXEmail", "blur"
-
-    click "LBLXAN1XAvanti"
-    @selenium.wait_for_page_to_load $wait_for_page_to_load
+  def page_4
 
     click $Flag_figli_conviventi                #"//div[4]/div[2]/div/div[2]/div/div/img"
 
@@ -420,6 +350,8 @@ class GenertelSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
     page_type @last_element, "#{@last_value}"
     assert_equal page.get_value(@last_element), @last_value
+    page.fire_event @last_element, "blur"
+
   end
 
   def type_keys(id, value = nil)
@@ -460,6 +392,28 @@ class GenertelSect1 < Test::Unit::TestCase
     present = is_present?(@last_element)
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked? - #{page.is_checked(@last_element)}"} if present
   	return present ? page.is_checked(@last_element) : nil
+  end
+
+  def select_fake_option(id, value, item = nil, assert_item = nil)
+
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
+    case page.is_editable(@last_element)
+      when true
+      type_text(@last_element, @last_value)
+      page.key_up(@last_element, F4)
+      sleep @sleep*2
+      click_button_item(item, @last_value) if item
+      if assert_item
+        @last_element = assert_item
+        wait_for_elm(@last_element)
+        assert_equal page.get_text(@last_element), @last_value
+      else
+        assert_match(/#{@last_value}/i, page.get_value(id))
+#        assert_equal page.get_value(id).upcase, @last_value.upcase
+      end
+    end
+
   end
 
   def page_wait
