@@ -19,7 +19,7 @@ module Provider1Conte
       'pol_claims_total_number_malus_str'=> 'copy_field',
       'driv_driving_experience_str'=> 'copy_field',
       'veh_cv_num'=> 'copy_field',
-      'driv_driving_license_month_of_issue_str' => 'copy_field',
+      'driv_driving_license_month_of_issue_str' => 'translate_field',
       'pol_record_id_str' => 'copy_field',
       'driv_driver_sex_str' => 'translate_field',
       'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
