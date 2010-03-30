@@ -47,6 +47,7 @@ AS
         pol_athmospheric_events_web_id_str,
         pol_bersani_policy_expiring_date_str,
         pol_bersani_ref_vehicle_number_plate_str,
+        pol_bersani_ref_vehicle_insured_with_company_str,
         pol_bersani_str,
         pol_birth_date_str,
         pol_birth_date_day_str,
