@@ -84,6 +84,11 @@ module Provider1Directline
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'id_radio_bm',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//input[@name="tipoPolizza" and @value="AN"]',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//input[@name="tipoPolizza" and @value="AU"]',
+      {'pol_nr_of_paid_claims_this_yr_str' => '0'} => 'Nessuno',
+      {'pol_nr_of_paid_claims_this_yr_str' => '1'} => 'Uno',
+      {'pol_nr_of_paid_claims_this_yr_str' => '2'} => 'Due',
+      {'pol_nr_of_paid_claims_this_yr_str' => '3'} => 'Tre',
+      {'pol_nr_of_paid_claims_this_yr_str' => '4'} => 'Quattro o più',
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Sposato/a',
       {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'Tragitto Casa-Lavoro/Tempo libero',
       {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
