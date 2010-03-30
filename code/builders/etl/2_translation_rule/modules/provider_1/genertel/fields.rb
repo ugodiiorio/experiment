@@ -93,7 +93,7 @@ module Provider1Genertel
       {'pol_privacy_2_str' => 'id elemento web2'} => 'RBTXPRIXConsensoB0',
       {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'N'} => 'RBTXDCOXEspUnoDueCond1',
       {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'S'} => 'RBTXDCOXEspUnoDueCond0',
-      {'pol_subscriber_is_driver_str' => 'si'} => '/html/body/form[2]/div/div/div[2]/div[4]/div[3]/div/div[2]/div[2]/div/div/div/div/img',
+      {'pol_subscriber_is_driver_str' => 'si'} => 'RBTXDCOXContConducente0',
       {'pol_cohabiting_children_str' => 'si'} => 'RBTXDCOXFigli0',
       {'pol_privacy_3_str' => 'id elemento web3'} => 'RBTXPRIXConsensoC0',
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'RBTXDPOXAssicuratoGen1',
