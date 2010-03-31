@@ -15,6 +15,7 @@ module Provider1Conte
       {'pol_natural_events_web_id_str' => 'id elemento'} => 'page:quota_info:4:garanziaChecked',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'page:quota_info:1:garanziaChecked',
 
+      {'driv_job_str' => 'na'} => 'Impiegato Azienda',
       {'driv_job_str' => 'dipendente/impiegato/funzionario/dirigente'} => 'Impiegato Azienda',
       {'driv_job_str' => 'insegnante'} => 'Insegnante ausiliario',
       {'driv_job_str' => 'libero professionista'} => 'Imprenditore generico',
