@@ -153,6 +153,9 @@ class ConteSect1 < Test::Unit::TestCase
     click_option(get('@bersani'))
     select_option "page:classeCU", get("@bm_assigned")
     click_option(get('@subscriber_is_owner'))
+    if (page.get_attribute("#{@last_element}@value") == "0")
+      click_option(get('@client_type'))
+    end
     click_option(get('@subscriber_is_driver'))
 
     click_button 'page:buttonContinua'
@@ -228,7 +231,7 @@ class ConteSect1 < Test::Unit::TestCase
       select_option "page:MeseSinistroConColpa1", get("@first_claim_month")
       select_option "page:AnnoSinistroConColpa1", get("@first_claim_year")
 
-      if page.get_selected_label(@last_element) == '2'
+      if get("@nr_of_paid_claims_2_yr") == '2'
         select_option "page:MeseSinistroConColpa2", get("@second_claim_month")
         select_option "page:AnnoSinistroConColpa2", get("@second_claim_year")
       end
