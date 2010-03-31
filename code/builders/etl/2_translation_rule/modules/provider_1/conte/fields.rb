@@ -393,6 +393,7 @@ module Provider1Conte
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
       {'pol_subscriber_is_driver_str' => 'si'} => 'page:conducente_principale:0',
+       {'pol_subscriber_is_driver_str' => 'no'} => 'page:conducente_principale:0',
 #      {'pol_subscriber_is_owner_str' => 'si'} => 'page:contraente_proprietario:0',
 #      {'pol_subscriber_is_owner_str' => 'no'} => 'page:contraente_proprietario:1',
       {'pol_cohabiting_children_str' => 'si'} => 'page:figli_minori:0',
