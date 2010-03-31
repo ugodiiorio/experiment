@@ -183,21 +183,22 @@ class DirectlineSect1 < Test::Unit::TestCase
       click_option(get('@claims_total_number'))
       type_text("dataacquistoauto", get('@purchase_date_year'))
     elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="AU"]'
-      #      click_option(get('@bersani'))
-      #      if page.get_attribute("#{@last_element}@value") != "0"
+            click_option(get('@bersani'))
+            if page.get_attribute("#{@last_element}@value") != "0"
       type_text("dataacquistoauto", get('@purchase_date_year'))
       type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
       select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
       select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
+            end
     elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="AN"]'
-      #      click_option(get('@bersani'))
-      #      if page.get_attribute("#{@last_element}@value") != "0"
-      type_text("dataacquistoauto", get('@purchase_date_year'))
+            click_option(get('@bersani'))
+            if page.get_attribute("#{@last_element}@value") != "0"
+#      type_text("dataacquistoauto", get('@purchase_date_year'))
       type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
       select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
       select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
     end
-  
+            end
 
   type_text("annoprimaimmatricolazione", get('@matriculation_date'))
   #    type_text("dataacquistoauto", get('@purchase_date_year'))

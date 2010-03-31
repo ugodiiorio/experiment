@@ -124,7 +124,13 @@ class GenialloydSect1 < Test::Unit::TestCase
     click_option(get('@owner_sex'))
     type_text("loc", get('@owner_zip_code'))
     page.key_press("loc","\\9" )
-    select_option "sel_loc", "index=1"
+    loc_array  = []
+    loc_array= page.get_select_options("sel_loc")
+    if loc_array.size == 1
+      nil
+      else select_option "sel_loc", "index=1"
+    end
+#    select_option "sel_loc", "index=1"
     if get('@owner_specification')!="C"
       type_text("dataNasc", get('@birth_date'))
       select_option "paese", get("@citizenship")

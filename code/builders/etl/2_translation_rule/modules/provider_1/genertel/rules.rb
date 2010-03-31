@@ -27,7 +27,7 @@ module Provider1Genertel
       'driv_driving_license_points_str' => 'copy_field',
       'driv_driving_license_type_str' => 'copy_field',
       'driv_driving_license_year_of_issue_str' => 'copy_field',
-      'driv_driving_license_yrs_str' => 'x = (profilefield[:driv_driving_license_yrs_str].to_i - 18).to_i;  x < 3 ?  "RBTXDCOXPatenteCond0" : "RBTXDCOXPatenteCond1"',
+      'driv_driving_license_yrs_str' => 'x = (profilefield[:driv_driving_license_yrs_str].to_i - 18).to_i;  x < 3 ?  "//div[5]/div[2]/div/div[2]/div/div/img" : "//div[5]/div[2]/div/div[1]/div/div/img"',
       'driv_heir_str' => 'copy_field',
       'driv_italian_residence_starting_yrs_num' => 'copy_field',
       'driv_job_2_str' => 'translate_field',
@@ -237,7 +237,7 @@ module Provider1Genertel
       'veh_make_str' => 'copy_field',
       'veh_modification_made_str' => 'copy_field',
       'veh_new_used_vehicle_str' => 'copy_field',
-      'veh_num_of_owners_str' => '"RBTXDCOXCondAbituale0"',
+      'veh_num_of_owners_str' => 'translate_field',
       'veh_passenger_transportation_str'=> 'copy_field' ,
       'veh_product_sector_str'=> 'copy_field' ,
       'veh_purchase_date_day_str' => 'copy_field',
@@ -268,7 +268,7 @@ module Provider1Genertel
       'pol_collision_code_str' => 'copy_field' ,
       'pol_collision_on_off_str' => 'copy_field' ,
       'pol_collision_premium_id_str' => 'copy_field' ,
-      'pol_collision_web_id_str' => 'copy_field' ,
+      'pol_collision_web_id_str' => 'translated_field' ,
       'pol_protected_bonus_code_str' => 'copy_field' ,
       'pol_protected_bonus_on_off_str' => 'copy_field' ,
       'pol_protected_bonus_premium_id_str' => 'copy_field' ,
@@ -276,7 +276,7 @@ module Provider1Genertel
       'pol_protection_24_code_str' => 'copy_field' ,
       'pol_protection_24_on_off_str' => 'copy_field' ,
       'pol_protection_24_premium_id_str' => 'copy_field' ,
-      'pol_protection_24_web_id_str' => 'copy_field' ,
+      'pol_protection_24_web_id_str' => 'translated_field' ,
 
 
     }

@@ -11,12 +11,18 @@ module Provider1Genertel
     @target_values = Hash.new
 
     @target_values = {
-      {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
-      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
-      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
-      {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX9X5',
+      {'pol_collision_premium_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX2X5',
       {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
-      {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
+      {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX6X5',
+      {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX7X5',
+      {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
+      {'pol_natural_events_act_of_vandalism_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX9X5',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
+      {'pol_protection_24_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
+
+      
 
       {'driv_job_str' => 'dipendente/impiegato/funzionario/dirigente'} => 'Impiegato/a',
       {'driv_job_str' => 'insegnante'} => 'Insegnante',
@@ -35,6 +41,8 @@ module Provider1Genertel
       {'driv_job_str' => 'disoccupato'} => 'Non occupato/a',
       {'driv_job_str' => 'imprenditore/industriale'} => 'Imprenditore',
       {'driv_job_str' => 'ingegnere'} => 'Altro',
+
+      {'veh_num_of_owners_str' => '1'} => '//img',
 
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'NOTIZIE DI STAMPA',
       {'veh_vehicle_value_str' => '5000'} => 'index 1',
@@ -92,10 +100,10 @@ module Provider1Genertel
       {'veh_vehicle_shelter_str' => 'box privato'} => 'RBTXDVEXCustodia0',
       {'pol_privacy_1_str' => 'id elemento web1'} => 'RBTXPRIXConsensoA0',
       {'pol_privacy_2_str' => 'id elemento web2'} => 'RBTXPRIXConsensoB0',
-      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'N'} => 'RBTXDCOXEspUnoDueCond1',
-      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'S'} => 'RBTXDCOXEspUnoDueCond0',
+      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'N'} => '//div[3]/div[2]/div/div[2]/div/div/img',
+      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'S'} => '//div[3]/div[2]/div/div[1]/div/div/img',
       {'pol_subscriber_is_driver_str' => 'si'} => 'RBTXDCOXContConducente0',
-      {'pol_cohabiting_children_str' => 'si'} => 'RBTXDCOXFigli0',
+      {'pol_cohabiting_children_str' => 'si'} => '//div[4]/div[2]/div/div[1]/div/div/img',
       {'pol_privacy_3_str' => 'id elemento web3'} => 'RBTXPRIXConsensoC0',
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'RBTXDPOXAssicuratoGen1',
       {'pol_bersani_str' => 'no'} => 'RBTXDPOXBersani1',

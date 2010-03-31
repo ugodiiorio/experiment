@@ -6,12 +6,16 @@ module Provider2Genertel
 
     @target_values = {
 
-      {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
-      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX7X5',
-      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX6X5',
-      {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
-      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
-      {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
+       {'pol_collision_premium_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX2X5',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
+      {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX6X5',
+      {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX7X5',
+      {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
+      {'pol_natural_events_act_of_vandalism_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX9X5',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
+      {'pol_protection_24_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
 
       {'driv_job_str' => 'dipendente/impiegato/funzionario/dirigente'} => 'Impiegato/a',
       {'driv_job_str' => 'insegnante'} => 'Insegnante',
