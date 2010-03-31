@@ -76,12 +76,20 @@ module Provider1Directline
       {'pol_public_liability_indemnity_limit_str' => '18000000'} => '5.000.000/1.000.000',
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '5.000.000/1.000.000',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '5.000.000/1.000.000',
+
+
+      {'pol_public_liability_indemnity_limit_str' => '1600000'} => '2.500.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '2500000'} => '2.500.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '800000'} => '2.500.000/1.000.000',
+
+
       {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
       {'own_owner_sex_str' => 'M'} => '//input[@name="sessoContraente" and @value="M"]',
       {'own_owner_sex_str' => 'F'} => '//input[@name="sessoContraente" and @value="F"]',
       {'own_owner_sex_str' => 'C'} => '//input[@name="sessoContraente" and @value="M"]',
     
-      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => '//input[@name="tipoPolizza" and @value="XX"]',
+      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'id_radio_bm',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//input[@name="tipoPolizza" and @value="AN"]',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//input[@name="tipoPolizza" and @value="AU"]',
        {'pol_nr_of_paid_claims_this_yr_str' => '0'} => 'Nessuno',

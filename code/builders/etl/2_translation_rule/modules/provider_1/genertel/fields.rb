@@ -11,12 +11,12 @@ module Provider1Genertel
     @target_values = Hash.new
 
     @target_values = {
-      {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
-      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX7X5',
-      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX6X5',
-      {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
-      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
-      {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
+      {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
+      {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX9X5',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
+      {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
 
       {'driv_job_str' => 'dipendente/impiegato/funzionario/dirigente'} => 'Impiegato/a',
       {'driv_job_str' => 'insegnante'} => 'Insegnante',
@@ -36,6 +36,7 @@ module Provider1Genertel
       {'driv_job_str' => 'imprenditore/industriale'} => 'Imprenditore',
       {'driv_job_str' => 'ingegnere'} => 'Altro',
 
+      {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'NOTIZIE DI STAMPA',
       {'veh_vehicle_value_str' => '5000'} => 'index 1',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'LBLXRIEXValuta',
       {'veh_km_per_yr_str' => '15000'} => '15000',

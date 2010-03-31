@@ -30,7 +30,8 @@ module Provider2Genertel
       {'driv_job_str' => 'disoccupato'} => 'Non occupato/a',
       {'driv_job_str' => 'imprenditore/industriale'} => 'Imprenditore',
       {'driv_job_str' => 'ingegnere'} => 'Altro',
-
+      {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'NOTIZIE DI STAMPA',
+     
       {'veh_vehicle_value_str' => '5000'} => 'index 1',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'LBLXRIEXValuta',
       {'veh_km_per_yr_str' => 'campo tecnico per genertel'} => 'index 1',
@@ -89,7 +90,7 @@ module Provider2Genertel
       {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'N'} => 'RBTXDCOXEspUnoDueCond1',
       {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'S'} => 'RBTXDCOXEspUnoDueCond0',
       {'pol_subscriber_is_driver_str' => 'si'} => 'RBTXDCOXContConducente0',
-       {'pol_cohabiting_children_str' => 'si'} => 'RBTXDCOXFigli0',
+      {'pol_cohabiting_children_str' => 'si'} => 'RBTXDCOXFigli0',
       {'pol_privacy_3_str' => 'id elemento web3'} => 'RBTXPRIXConsensoC0',
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'RBTXDPOXAssicuratoGen1',
       {'pol_bersani_str' => 'no'} => 'RBTXDPOXBersani1',

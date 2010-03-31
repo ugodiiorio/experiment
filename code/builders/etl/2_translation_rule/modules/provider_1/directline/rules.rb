@@ -62,7 +62,7 @@ module Provider1Directline
       'veh_vehicle_use_str' => 'translate_field',
       'veh_vehicle_value_str' => 'copy_field',
       'driv_civil_status_str' => 'translate_field',
-      'driv_driving_license_yrs_str' => 'x = (profilefield[:driv_driving_license_yrs_str].to_i - 18).to_i; if x == 1; y="Si, da 1 anno"; elsif x  == 2; y="Si, da 2 anni"; elsif x  == 3; y="Si, da 3 anni"; else  y="Si, da oltre 3 anni" end;',
+      'driv_driving_license_yrs_str' => 'x = (profilefield[:driv_driving_license_yrs_str].to_i - 18).to_i; if x == 1; y="Si, da 1 anno"; elsif x  < 4; y="Si, da 2 anni"; elsif x  == 4; y="Si, da 3 anni"; else  y="Si, da oltre 3 anni" end;',
       'own_owner_sex_str' => 'translate_field',
       'own_owner_zip_code_str' => 'copy_field',
       'pol_bersani_ref_vehicle_insured_with_company_str' => 'translate_field',

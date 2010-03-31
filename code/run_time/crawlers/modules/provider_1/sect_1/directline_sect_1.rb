@@ -111,6 +111,7 @@ class DirectlineSect1 < Test::Unit::TestCase
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    sleep @sleep*2
     click_option(get('@insurance_situation'))
     (page.get_attribute("#{@last_element}@value") == "XX") ? click_option(get('@already_benefit_from_bersani')) : nil
     type_text("dataInizioValidita", @rate_date)
@@ -175,7 +176,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     
-    if get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="XX"]'
+    if get('@insurance_situation') == 'id_radio_bm'
       select_option "classeProvenienzaAuto", get("@coming_from_bm")
       select_option "classeAssegnazioneAuto", get("@bm_assigned")
       click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))

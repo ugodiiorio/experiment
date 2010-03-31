@@ -16,7 +16,7 @@ module Provider2Directline
       'driv_driving_license_points_str'  => 'copy_field' ,
       'driv_driving_license_type_str'  => 'copy_field' ,
       'driv_driving_license_year_of_issue_str'  => 'copy_field' ,
-      'driv_driving_license_yrs_str'  => 'x = "" ; if profilefield[:driv_driving_license_yrs_str].to_i == 1; x="Si, da 1 anno"; elsif profilefield[:driv_driving_license_yrs_str].to_i == 2; x="Si, da 2 anni"; elsif profilefield[:driv_driving_license_yrs_str].to_i == 3; x="Si, da 3 anni"; else  x="Si, da oltre 3 anni" end;' ,
+      'driv_driving_license_yrs_str' => 'x = (profilefield[:driv_driving_license_yrs_str].to_i - 18).to_i; if x == 1; y="Si, da 1 anno"; elsif x  < 4; y="Si, da 2 anni"; elsif x  == 4; y="Si, da 3 anni"; else  y="Si, da oltre 3 anni" end;',
       'driv_heir_str'  => 'copy_field' ,
       'driv_italian_residence_starting_yrs_num'  => 'copy_field' ,
       'driv_job_2_str'  => 'copy_field' ,
