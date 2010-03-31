@@ -125,10 +125,11 @@ class LinearSect1 < Test::Unit::TestCase
       if page.is_element_present('//img[@alt="prosegui"]')
         click_button '//img[@alt="prosegui"]'
         #        page_wait
-      end
+      
 
       select_option "tipoattestato_bersani", get("@bersani_ref_vehicle_insured_with_company")
       type_text("targa_bersani", get('@bersani_ref_vehicle_number_plate'))
+      end
     end
 
     select_option "decorrenza_giorno", @rate_date.slice(0,2)

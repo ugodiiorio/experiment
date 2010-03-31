@@ -181,11 +181,11 @@ class DirectlineSect1 < Test::Unit::TestCase
       select_option "classeAssegnazioneAuto", get("@bm_assigned")
       click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
       click_option(get('@claims_total_number'))
-      type_text("dataacquistoauto", get('@purchase_date_year'))
+#      type_text("dataacquistoauto", get('@purchase_date_year'))
     elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="AU"]'
             click_option(get('@bersani'))
             if page.get_attribute("#{@last_element}@value") != "0"
-      type_text("dataacquistoauto", get('@purchase_date_year'))
+#      type_text("dataacquistoauto", get('@purchase_date_year'))
       type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
       select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
       select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
@@ -201,7 +201,7 @@ class DirectlineSect1 < Test::Unit::TestCase
             end
 
   type_text("annoprimaimmatricolazione", get('@matriculation_date'))
-  #    type_text("dataacquistoauto", get('@purchase_date_year'))
+  is_present?("dataacquistoauto") ? type_text("dataacquistoauto", get('@purchase_date_year')) : nil
   select_option "select_marca", get("@make")
   page_click @last_element
   select_option "select_modelli", get("@model")
