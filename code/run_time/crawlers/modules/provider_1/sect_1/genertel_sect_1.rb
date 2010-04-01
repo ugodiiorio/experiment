@@ -1,7 +1,7 @@
 #############################################
-#   	Created by Kubepartners			          #
+#   	Created by Kubepartners		    #
 #                                           #
-#				22/03/2010						              #
+#				22/03/2010  #
 #############################################
 
 class GenertelSect1 < Test::Unit::TestCase
@@ -119,18 +119,6 @@ class GenertelSect1 < Test::Unit::TestCase
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-#    all_fields = []
-#    all_fields = page.get_all_buttons
-#    page.ignore_attributes_without_value(true)
-#    all_fields.each do |f|
-#      begin
-#        puts f
-#        puts page.get_attribute("#{f}@type")
-#        puts page.get_value(f) if page.get_attribute("#{f}@type") == "radio"
-#      rescue
-#        nil
-#      end
-#    end
 
     click_option(get('@insurance_situation'))
     sleep @sleep*2
@@ -169,9 +157,9 @@ class GenertelSect1 < Test::Unit::TestCase
     type_text("NBXXDVEXAnnoImmat", get('@matriculation_date_year'))
 
     select_fake_option("CBXXDVEXMarca", get('@make'), "//td[2]")
-    sleep @sleep
+    sleep @sleep*2
     select_fake_option("CBXXDVEXModello", get('@model'), "//body/div[8]/div/div")
-    sleep @sleep
+    sleep @sleep*2
     select_fake_option("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
     sleep @sleep
     select_fake_option("CBXXDVEXAlimentazione", get('@fuel'), "//body/div[8]/div/div")
@@ -255,7 +243,7 @@ class GenertelSect1 < Test::Unit::TestCase
     click_button_item get('@cohabiting_children')
     click_button_item get('@driving_license_yrs')
     if @last_element =~ /div[1]/i
-#      click_button_item get('@driver_less_25_yrs_license_less_2_yrs')
+      click_button_item get('@driver_less_25_yrs_license_less_2_yrs')
     end
     sleep @sleep
 
@@ -268,7 +256,9 @@ class GenertelSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     click_button_item get('@privacy_1')
+    sleep @sleep
     click_button_item get('@privacy_2')
+    sleep @sleep
     click_button_item get('@privacy_3')
 
     select_fake_option("CBXXINFXComeGenertel", get('@how_do_you_know_the_company'), "//div[8]/div/div") 
@@ -290,9 +280,9 @@ class GenertelSect1 < Test::Unit::TestCase
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
         select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
-        click_button_item("//td[4]/div/div/div/img")
-        is_present?("//tr[5]/td[4]/div/div/div/img") ? click_button_item("//tr[5]/td[4]/div/div/div/img") : nil
-        is_present?("//tr[7]/td[4]/div/div/div/img") ? click_button_item("//tr[7]/td[4]/div/div/div/img") : nil
+        click_button_item(get('@road_assistance_web_id'))
+        is_present?(get('@legal_assistance_web_id').split[0]) ? click_button_item(get('@legal_assistance_web_id').split[0]) : nil
+        is_present?(get('@legal_assistance_web_id').split[1]) ? click_button_item(get('@legal_assistance_web_id').split[1]) : nil
 
         page.wait_for_element("LBLXAZIXRicalcolaTot")
         page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
