@@ -223,7 +223,7 @@ module Provider1Genialloyd
       'veh_liquid_fuel_transportation_str'=> 'copy_field' ,
       'veh_loading_unloading_str'=> 'copy_field' ,
       'veh_make_previous_vehicle_str' => 'copy_field',
-      'veh_make_str' => 'make=profilefield[:veh_make_str]; make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/ª/,"a" ); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ")+" end;regexp_mod = regexp_mod + "$";',
+      'veh_make_str' => 'make=profilefield[:veh_make_str]; make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/ª/,"a" ); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ")+(\\\\s){0,1}" end;regexp_mod = regexp_mod + "$";',
       'veh_marble_blocks_str'=> 'copy_field' ,
       'veh_model_str' => 'make=profilefield[:veh_model_str];make= make.gsub(/à/,"a" ); make= make.gsub(/\//,"-" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/ª/,"a" ); make= make.gsub(/ª/, "a");regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "$";',
       'veh_modification_made_str' => 'copy_field',
