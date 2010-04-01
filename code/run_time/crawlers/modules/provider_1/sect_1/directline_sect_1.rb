@@ -300,13 +300,12 @@ def select_max(id, value = nil)
   @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
    loc_array  = []
     loc_array= page.get_select_options(@last_element)
-    if loc_array.size == 1
-      select_option "sel_loc", "index=1"
-      else select_option "sel_loc", "index=1"
+    if loc_array.size == 2
+      select_option @last_element, "index=1"
+      else page_select @last_element, "#{@last_value}"
+         assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
     end
-  page_select @last_element, "#{@last_value}"
-  assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
-end
+ end
 
 
 

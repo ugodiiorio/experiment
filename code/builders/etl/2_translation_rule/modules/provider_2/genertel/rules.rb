@@ -227,7 +227,7 @@ module Provider2Genertel
       'veh_make_str' => 'copy_field' ,
       'veh_marble_blocks_str'=> 'copy_field' ,
 #      'veh_model_str' => 'make=profilefield[:veh_model_str]; make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/ª/,"a" ); make= make.gsub(/ª s$/i, " s"); make= make.gsub(/ª/, " "); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "$";',
-      'veh_model_str' => 'make=profilefield[:veh_model_str]; make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/\(.*\)/i, " ")',
+      'veh_model_str' => 'make=profilefield[:veh_model_str]; make= make.gsub(/à/,"a" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/\(.*\)/i, " ")',
        'veh_modification_made_str' => 'copy_field',
       'veh_new_used_vehicle_str' => 'copy_field',
       'veh_num_of_owners_str' => '"RBTXDCOXCondAbituale0"',
