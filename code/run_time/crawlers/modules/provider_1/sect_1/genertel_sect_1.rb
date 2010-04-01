@@ -83,9 +83,10 @@ class GenertelSect1 < Test::Unit::TestCase
       page_1
       page_2
       page_3
-#      page_4
-#      page_5
-#      page_premium
+      page_4
+      page_5
+      page_premium
+      page_summary
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -117,6 +118,20 @@ class GenertelSect1 < Test::Unit::TestCase
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+#    all_fields = []
+#    all_fields = page.get_all_buttons
+#    page.ignore_attributes_without_value(true)
+#    all_fields.each do |f|
+#      begin
+#        puts f
+#        puts page.get_attribute("#{f}@type")
+#        puts page.get_value(f) if page.get_attribute("#{f}@type") == "radio"
+#      rescue
+#        nil
+#      end
+#    end
+
     click_option(get('@insurance_situation'))
     sleep @sleep*2
 
@@ -136,7 +151,7 @@ class GenertelSect1 < Test::Unit::TestCase
           @bersani = true
           type_text("TBXXDPOXTargaVeicoloFam", get('@bersani_ref_vehicle_number_plate'))
           select_fake_option("CBXXDPOXCUAssegnataFam", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXClasseGenBersani")
-          click_option(get('@bersani_ref_car_already_insured_with_company'))
+          click_option(get('@bersani_ref_vehicle_insured_with_company'))
         end
     end
 
@@ -150,6 +165,7 @@ class GenertelSect1 < Test::Unit::TestCase
   def page_2
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     type_text("NBXXDVEXAnnoImmat", get('@matriculation_date_year'))
 
     select_fake_option("CBXXDVEXMarca", get('@make'), "//td[2]")
@@ -179,6 +195,7 @@ class GenertelSect1 < Test::Unit::TestCase
   def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     click_option(get('@client_type'))
     case get('@owner_specification')
       when NotIndividual
@@ -193,20 +210,21 @@ class GenertelSect1 < Test::Unit::TestCase
         type_text("TBXXDP1XLuogoNascita", get('@birth_place'))
         click_button_item "LBLXDP1XCalcCodFisc"
         assert !60.times{ break if (page.get_value("TBXXDP1XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
-        assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique hometown"
-        assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing hometown"
+        assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique Hometown"
+        assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing Hometown"
+        @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Codice Fiscale: #{page.get_value("TBXXDP1XCodFisc")}"}
         select_fake_option("CBXXDP1XProfPrimoLiv", get('@job'), "//body/div[8]/div/div")
-        sleep @sleep
-        select_fake_option("CBXXDP1XProfSecondoLiv", get('@job_2'), "//body/div[8]/div/div") unless get('@job') == Other
+        sleep @sleep*2
+        select_fake_option("CBXXDP1XProfSecondoLiv", get('@job_2'), "//body/div[8]/div/div") if is_present?("CBXXDP1XProfSecondoLiv")
     end
 
     click_button_item get('@subscriber_is_owner')
 
-    select_fake_option("CBXXRSDXCodTopo", get('@toponym'), "//body/div[9]/div/div")
+    select_fake_option("CBXXRSDXCodTopo", get('@toponym'), "//body/div[8]/div/div")
     type_text("TBXXRSDXIndirizzo", get('@address_street'))
     type_text("TBXXRSDXNCiv", get('@address_num'))
     type_text("TBXXRSDXComune", get('@residence'))
-    select_fake_option("CBXXRSDXProv", get('@residence_province'), "//body/div[10]/div/div")
+    select_fake_option("CBXXRSDXProv", get('@residence_province'), "//body/div[9]/div/div")
     type_text("TBXXRSDXCAP", get('@owner_zip_code'))
 
     type_text("TBXXRECXPrefisso1", get('@mobile_prefix'))
@@ -216,119 +234,91 @@ class GenertelSect1 < Test::Unit::TestCase
     fill_in_parent_data_for_bersani if @bersani
 
     click_button_item "LBLXAN1XAvanti"
-    page_wait
+    sleep @sleep*5
+    assert !is_present?("ERRXRSDXComuni"), "Attention! Wrong or Missing Residence"
+    if is_present?("TBXXRSDXComune")
+      if page.get_value("TBXXRSDXComune") != get('@residence')
+        click_button_item("LBLXAN1XAvanti")      
+        page_wait
+      end
+    end
     
-  end
-
-  def fill_in_parent_data_for_bersani
-
-    type_text("TBXXDABXNome", get('@name'))
-    type_text("TBXXDABXCognome", get('@surname'))
-    click_option(get('@driver_sex'))
-    type_text("DBXXDABXDataNascita", get('@birth_date'))
-    type_text("TBXXDABXLuogoNascita", get('@birth_place'))
-    click_button_item "LBLXDABXCalcCodFisc"
-    assert !60.times{ break if (page.get_value("TBXXDABXCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
-    assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique hometown"
-    assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing hometown"
-
   end
 
   def page_4
 
-    click $Flag_figli_conviventi                #"//div[4]/div[2]/div/div[2]/div/div/img"
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
-    click "LBLXDCOXAvanti"
-    @selenium.wait_for_page_to_load $wait_for_page_to_load
-
-#      begin
-#        assert @selenium.get_text("GRDXRDAXGridRiepDatiPolizzaX4X0") == 'Nessuno' if $Contratto_esistente
-#      rescue Test::Unit::AssertionFailedError
-##        @verification_errors << $! + " GRDXRDAXGridRiepDatiPolizzaX4X0 == Nessuno"
-#        raise RangeError, "Wrong claims number with slider selection"
-#      end
-
-    click "//img"
-    click "//div[3]/div[2]/div/div[1]/div/div/img"
-    click "//div[4]/div[2]/div/div[1]/div/div/img"
-
-    click "CBXXINFXComeGenertel"
-    type "CBXXINFXComeGenertel", $Conoscenza_Genertel
-    @selenium.key_up("CBXXINFXComeGenertel", "\\115")
-    sleep 1
-    click "//div[8]/div/div"
-    raise RangeError, "Wrong Genertel knowledge first level" unless @selenium.get_value("CBXXINFXComeGenertel") == $Conoscenza_Genertel
-#      @selenium.fire_event "CBXXINFXComeGenertel", "blur"
-
-#      click "CBXXINFXComeGenertelSecLiv"
-#      type "CBXXINFXComeGenertelSecLiv", $Conoscenza_Genertel
-#      @selenium.key_up("CBXXINFXComeGenertelSecLiv", "\\115")
-#      sleep 1
-#      click "//div[8]/div/div"
-#      raise RangeError, "Wrong Genertel knowledge second level" unless @selenium.get_value("CBXXINFXComeGenertelSecLiv") == $Conoscenza_Genertel
-#      @selenium.fire_event "CBXXINFXComeGenertelSecLiv", "blur"
-
-    click "LBLXINFXConfermaDati"
-    @selenium.wait_for_page_to_load $wait_for_page_to_load
-
-    click "GRDXGARXGaranzieX1X3"
-    type "GRDXGARXGaranzieX1X3", "€ " + $Massimale_RCA
-    @selenium.key_up("GRDXGARXGaranzieX1X3", "\\115")
-    sleep 1
-    click "//div[8]/div/div"
-    raise RangeError, "Wrong selected Massimale RC" unless @selenium.get_value("GRDXGARXGaranzieX1X3") == "€ " + $Massimale_RCA
-#      @selenium.fire_event "GRDXGARXGaranzieX1X3", "blur"
-
-    click $Assistenza_stradale    #"//td[4]/div/div/div/img"
-
-
-
-    str = $Assistenza_legale.split
-    if $Classe_BM.to_i == 1 then
-      click str[1]
-    else
-      click str[0]
+    click_button_item get('@num_of_owners')
+    click_button_item get('@subscriber_is_driver')
+    click_button_item get('@cohabiting_children')
+    click_button_item get('@driving_license_yrs')
+    if @last_element =~ /div[1]/i
+#      click_button_item get('@driver_less_25_yrs_license_less_2_yrs')
     end
-#      click $Assistenza_legale              #"//tr[4]/td[4]/div/div/div/img" or "//tr[6]/td[4]/div/div/div/img"
+    sleep @sleep
 
-    click "LBLXAZIXRicalcolaTot" if @selenium.is_element_present("LBLXAZIXRicalcolaTot")
+    click_button_item "LBLXDCOXAvanti"
+    page_wait
+  end
 
-#      @selenium.click "GRDXGARXGaranzieX0X6"
-    assert !60.times{ break if (@selenium.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }
-    begin
-        assert @selenium.is_element_present("CVWXAZIXTotaleImp")
-    rescue Test::Unit::AssertionFailedError
-#          @verification_errors << $! + ' is_element_present("CVWXAZIXTotaleImp")'
-        raise RangeError, "CVWXAZIXTotaleImp Price element is not present on the Final page"
-    end
+  def page_5
 
-    click "LBLXAZIXAvanti"
-    @selenium.wait_for_page_to_load $wait_for_page_to_load
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    click_button_item get('@privacy_1')
+    click_button_item get('@privacy_2')
+    click_button_item get('@privacy_3')
 
-    #      @selenium.click "LBLXRIEXImporto"
-    begin
-        assert @selenium.is_element_present("LBLXRGAXNomePacchetto")
-    rescue Test::Unit::AssertionFailedError
-#          @verification_errors << $! + ' is_element_present("LBLXRIEXImporto")'
-        raise RangeError, "LBLXRGAXNomePacchetto Price element is not present on the Buy page"
-    end
-
-    premio = @selenium.get_text("LBLXRGAXNomePacchetto").split(',').slice(1)
-#      str = premio.split
-    premio = premio.split[1]
-    premio = premio.gsub(".","") if premio
-    premio = premio.gsub(",",".") if premio
-    @@logger.debug('GenertelTest.test_new => ' + $compagnia) {"gsub premio = " + premio.to_s}
-    raise RangeError, "Price cannot be nil" unless premio
-
-    raise RangeError, "Price cannot be equal to zero" unless premio.to_i > 0
-
-    $writer.result_update("OK", "New price for profile " + $profilo_assicurativo + " = " + premio)
-    $writer.profile_price( $profilo_assicurativo, $compagnia, @garanzia, $rilevazione, premio)
-    @@logger.debug('GenertelTest.test_new => ' + $compagnia) {"PREMIO = "+ premio}
+    select_fake_option("CBXXINFXComeGenertel", get('@how_do_you_know_the_company'), "//div[8]/div/div") 
+    sleep @sleep
+    click_button_item "LBLXINFXConfermaDati"
+    page_wait
 
   end
-	
+  
+  def page_premium
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+
+    @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
+    case @last_value
+      when 'on'
+        sleep @sleep*2
+        page.wait_for_element("LBLXCNAXChiudi")
+        page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
+        select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
+        click_button_item("//td[4]/div/div/div/img")
+        is_present?("//tr[5]/td[4]/div/div/div/img") ? click_button_item("//tr[5]/td[4]/div/div/div/img") : nil
+        is_present?("//tr[7]/td[4]/div/div/div/img") ? click_button_item("//tr[7]/td[4]/div/div/div/img") : nil
+
+        page.wait_for_element("LBLXAZIXRicalcolaTot")
+        page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
+        assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
+
+        page.wait_for_element("LBLXAZIXAvanti")
+        page.is_element_present("LBLXAZIXAvanti") ? click_button_item("LBLXAZIXAvanti") : nil
+        page_wait
+      else
+        raise RangeError, "RC cover cannot be off"
+    end
+    
+  end
+
+  def page_summary
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+
+    @last_element = "LBLXRGAXNomePacchetto" # get("@rca_premium_id") # ATTENTION!!!!!!!!!!!!!!!!!!!!!!
+    wait_for_elm @last_element
+#        assert is_present?("LBLXRGAXNomePacchetto"), "LBLXRGAXNomePacchetto Price element is not present on the Buy page"
+    get_premium(@last_element)
+
+  end
+  
   def open_page(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
@@ -378,13 +368,15 @@ class GenertelSect1 < Test::Unit::TestCase
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's unchecked checkbox element: [#{@last_element}]"}
     page_uncheck @last_element
+    sleep @sleep*2
+    is_checked? @last_element
     assert_equal page.get_value(@last_element), "off"
   end
 
   def click_button_item(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button/item element: [#{@last_element}]"}
-    page_click_button_item @last_element
+    page_click_button_item @last_element if is_present?(@last_element)
   end
 
   def is_checked?(id, value = nil)
@@ -394,7 +386,7 @@ class GenertelSect1 < Test::Unit::TestCase
   	return present ? page.is_checked(@last_element) : nil
   end
 
-  def select_fake_option(id, value, item = nil, assert_item = nil)
+  def select_fake_option(id, value, item, assert_item = nil)
 
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
@@ -403,7 +395,16 @@ class GenertelSect1 < Test::Unit::TestCase
       type_text(@last_element, @last_value)
       page.key_up(@last_element, F4)
       sleep @sleep*2
-      click_button_item(item, @last_value) if item
+      click_button_item(item, @last_value)
+      case item
+        when "//body/div[8]/div/div"
+          item = "//body/div[9]/div/div"
+          click_button_item(item, @last_value) if is_present?(item)
+        when "//body/div[9]/div/div"
+          item = "//body/div[10]/div/div"
+          click_button_item(item, @last_value) if is_present?(item)
+        else
+      end
       if assert_item
         @last_element = assert_item
         wait_for_elm(@last_element)
@@ -494,13 +495,28 @@ class GenertelSect1 < Test::Unit::TestCase
 	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
+  def fill_in_parent_data_for_bersani
+
+    type_text("TBXXDABXNome", get('@name'))
+    type_text("TBXXDABXCognome", get('@surname'))
+    click_option(get('@driver_sex'))
+    type_text("DBXXDABXDataNascita", get('@birth_date'))
+    type_text("TBXXDABXLuogoNascita", get('@birth_place'))
+    click_button_item "LBLXDABXCalcCodFisc"
+    assert !60.times{ break if (page.get_value("TBXXDABXCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
+    assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique hometown"
+    assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing hometown"
+
+  end
+
   def get_premium(p)
 
     @last_element = p
-    premium = page.get_text(@last_element)
-    assert premium.split[0] != nil, @last_element.inspect
-    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
-    premium = premium.split[0].gsub(".","")
+    premium = page.get_text(@last_element).split(',').slice(1)
+    premium = premium.split[1]
+    assert premium != nil, @last_element.inspect
+    assert premium.to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    premium = premium.gsub(".","")
     premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}

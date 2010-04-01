@@ -228,7 +228,7 @@ class DialogoSect1 < Test::Unit::TestCase
     when 'on'
       sleep @sleep*2
       select_option("//select[@name='contentSubView:quotationTabletForm:proposalTable:0:_id132']", get('@public_liability_indemnity_limit'))
-      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption')) # ATTENTION!!!!!!!!!!!!!!!!!!!!!!
+      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption')) 
 
       uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
       uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
@@ -242,9 +242,9 @@ class DialogoSect1 < Test::Unit::TestCase
       click_button_item "//img[@alt='Ricalcola']"
       sleep @sleep*3
 
-      @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id") #//div[@id='sbox_Costo Annuale']/span - //div[@id='sbox_Costo Semestrale']/span
-      wait_for_elm @last_value
-      get_premium(get("@rca_premium_id"))
+      @last_element = get("@rca_premium_id") #//div[@id='sbox_Costo Annuale']/span - //div[@id='sbox_Costo Semestrale']/span
+      wait_for_elm @last_element
+      get_premium(@last_element)
     else
       raise RangeError, "RC cover cannot be off"
     end
