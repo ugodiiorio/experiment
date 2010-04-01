@@ -18,7 +18,7 @@ module Provider2Conte
       'pol_client_type_str'  => 'translate_field' ,
       'pol_cohabiting_children_str'  => 'translate_field' ,
       'pol_driving_license_suspension_str'  => 'translate_field' ,
-       'pol_driving_type_str' => '(profilefield[:pol_birth_date_str].to_i > 27 && profilefield[:own_owner_specification_str] != "C" )? translate_field : "page:radioGuidatori:2"',
+       'pol_driving_type_str' => '(profilefield[:pol_birth_date_str].to_i > 28 && profilefield[:own_owner_specification_str] != "C" )? translate_field : "page:radioGuidatori:2"',
       'pol_drunkenness_fine_str'  => 'translate_field' ,
       'pol_how_do_you_know_the_company_str'  => 'translate_field' ,
       'pol_instalment_str'  => 'translate_field' ,

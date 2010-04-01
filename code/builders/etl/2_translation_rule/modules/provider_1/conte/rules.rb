@@ -131,7 +131,7 @@ module Provider1Conte
       'pol_first_claim_year_str' => 'Chronic.parse(profilefield[:pol_first_claim_year_str].to_s + " years before now").strftime("%Y")',
       'pol_second_claim_month_str' => 'copy_field',
       'pol_second_claim_year_str'  => 'Chronic.parse(profilefield[:pol_second_claim_year_str].to_s + " years before now").strftime("%Y")',
-      'pol_driving_type_str' => '(profilefield[:pol_birth_date_str].to_i > 27 && profilefield[:own_owner_specification_str] != "C" )? translate_field : "page:radioGuidatori:2"',
+      'pol_driving_type_str' => '(profilefield[:pol_birth_date_str].to_i > 28 && profilefield[:own_owner_specification_str] != "C" )? translate_field : "page:radioGuidatori:2"',
       'driv_heir_str' => 'copy_field',
       'driv_studies_str' => 'copy_field',
       'own_company_title_str' => 'copy_field',
