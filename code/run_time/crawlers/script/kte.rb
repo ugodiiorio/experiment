@@ -41,6 +41,7 @@ class KTE
         when 0, 1
           @config_file = ARGV[0]
           @config_file = __FILE__+'.yml' unless ARGV[0]
+          puts @config_file
           File.open(@config_file)
           config = YAML::load(File.open(@config_file))
           general_settings = config['general_settings']
