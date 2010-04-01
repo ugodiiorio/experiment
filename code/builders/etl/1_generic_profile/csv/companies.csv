@@ -6,7 +6,7 @@ all_provider_1#directline#url="http://www.directline.it/preventivi-assicurazioni
 all_provider_1#dialogo#url="http://www.dialogo.it/DialogoInternet/home.faces"
 all_provider_1#genertel#url="http://www.genertel.it/assicurazioni/auto/genertel_web_classic.jhtml"
 all_provider_1#genialloyd#url="http://www.genialloyd.it"
-linear_provider_2#linear#url="http://www.linear.it/default.asp
+linear_provider_2#linear#url="http://www.linear.it/default.asp"
 quixa_provider_2#quixa#case sector; when "sect_1"; url="http://www.quixa.it/simulator.aspx?SimObject=CAR"; when "sect_2"; url="http://www.quixa.it/simulator.aspx?SimObject=MOTORCYCLE"; else; url=nil; end; url
 conte_provider_2#conte#url="https://preventivo.conte.it/calculator/"
 dialogo_provider_2#dialogo#url="http://www.dialogo.it/DialogoInternet/home.faces"
