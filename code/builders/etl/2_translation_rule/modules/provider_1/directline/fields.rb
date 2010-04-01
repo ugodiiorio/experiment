@@ -64,7 +64,8 @@ module Provider1Directline
       {'pol_BM_assigned_str' => '17'} => 'Classe 17',
       {'pol_BM_assigned_str' => '18'} => 'Classe 18',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'INTERNET',
-      {'pol_subscriber_is_driver_str' => 'si'} => '//input[@name="FlagConducenteAbituale" and @value="true"]',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre form/...
+      {'pol_subscriber_is_driver_str' => 'si'} => '//input[@name="FlagConducenteAbituale" and @value="true"]',
+      {'pol_subscriber_is_driver_str' => 'no'} => '//input[@name="FlagConducenteAbituale" and @value="true"]',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre form/...
       {'pol_subscriber_is_owner_str' => 'si'} => '//input[@name="FlagIntestatario" and @value="true"]',
       {'pol_subscriber_is_owner_str' => 'no'} => '//input[@name="FlagIntestatario" and @value="true"]',
       {'pol_family_members_insured_with_company_str' => '0'} => '//form/table[2]/tbody/tr[13]/td[2]/input[3]',

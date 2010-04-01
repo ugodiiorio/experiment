@@ -31,7 +31,7 @@ module Provider1Conte
       {'driv_job_str' => 'avvocato'} => 'Avvocato',
       {'driv_job_str' => 'commerciante'} => 'Commerciante di coltelli',
       {'driv_job_str' => 'disoccupato'} => 'Disoccupato',
-      {'driv_job_str' => 'imprenditore/ industriale'} => 'Imprenditore generico',
+      {'driv_job_str' => 'imprenditore / industriale'} => 'Imprenditore generico',
       {'driv_job_str' => 'ingegnere'} => 'Ingegnere test',
 
       {'driv_job_str' => 'agente o rappresent. di commercio'} => 'Artigiano tagliatore di pietre',

@@ -253,7 +253,7 @@ def page_premium
   @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
   case @last_value
   when 'on'
-    select_option("SelM_RCA", get('@public_liability_indemnity_limit'))
+    select_max("SelM_RCA", get('@public_liability_indemnity_limit'))
     select_option("SelRateizzazione", get('@instalment')) #ATTENTION! Always use 1 year split
     select_option("SelFSM_RCA", get('@public_liability_exemption'))
 
@@ -294,6 +294,20 @@ def select_option(id, value = nil)
   page_select @last_element, "#{@last_value}"
   assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
 end
+
+def select_max(id, value = nil)
+  @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
+  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+   loc_array  = []
+    loc_array= page.get_select_options(@last_element)
+    if loc_array.size == 1
+      select_option "sel_loc", "index=1"
+      else select_option "sel_loc", "index=1"
+    end
+  page_select @last_element, "#{@last_value}"
+  assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
+end
+
 
 
 def select_set_up(id, value = nil)
