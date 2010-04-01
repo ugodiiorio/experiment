@@ -753,7 +753,6 @@ class BuildDriverSchema
         veh_set_up_str VARCHAR(128),
         veh_passenger_transportation_str VARCHAR(128),
         veh_max_capacity_ever_driven_str VARCHAR(128),
-
         pol_client_type_str VARCHAR(128),
         own_owner_sex_str VARCHAR(128),
         own_birth_date_str VARCHAR(128),
@@ -780,7 +779,6 @@ class BuildDriverSchema
         pol_nr_of_paid_claims_4_yr_str VARCHAR(128),
         pol_nr_of_paid_claims_5_yr_str VARCHAR(128),
         pol_claims_total_number_str VARCHAR(128),
-        
         pol_public_liability_exemption_str VARCHAR(128),
         pol_public_liability_indemnity_limit_str VARCHAR(128)
  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
