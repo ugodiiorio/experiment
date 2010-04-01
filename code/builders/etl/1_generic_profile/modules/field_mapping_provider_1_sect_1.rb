@@ -103,7 +103,9 @@ module FieldMappingProvider1Sect1
       'pol_nr_of_paid_claims_5_yr_str' => 'yearscert= infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]; if yearscert.to_i== 5 ;  x=  "0"   else   x="N/A"   end',
       'pol_nr_of_paid_claims_this_yr_str' => 'infield[:pol_nr_of_paid_claims_this_yr_str].strip',
       'pol_first_claim_month_str' => '"Gennaio"',
-      'pol_first_claim_year_str' => 'if claimslastyr = infield[:pol_nr_of_paid_claims_this_yr_str].to_i == 1 ; x= 0 ; elsif claimslastyr = infield[:pol_nr_of_paid_claims_1_yr_str].to_i == 1 ; x= 1;  elsif claimslastyr = infield[:pol_nr_of_paid_claims_2_yr_str].to_i == 1 ; x= 2;  elsif claimslastyr = infield[:pol_nr_of_paid_claims_3_yr_str].to_i == 1 ; x= 3; end ;' ,
+      'pol_first_claim_year_str' => 'claimscert = infield[:pol_claims_total_number_str]; claimslastyr = infield[:pol_nr_of_paid_claims_this_yr_str]; claimscert.to_i ==  0 ? x=0 : if  claimslastyr.to_i > 0 ; x= 0; else x= 2; end; ',
+
+#      'pol_first_claim_year_str' => 'if claimslastyr = infield[:pol_nr_of_paid_claims_this_yr_str].to_i == 1 ; x= 0 ; elsif claimslastyr = infield[:pol_nr_of_paid_claims_1_yr_str].to_i == 1 ; x= 1;  elsif claimslastyr = infield[:pol_nr_of_paid_claims_2_yr_str].to_i == 1 ; x= 2;  elsif claimslastyr = infield[:pol_nr_of_paid_claims_3_yr_str].to_i == 1 ; x= 3; end ;' ,
       'pol_second_claim_month_str' => '"Gennaio"',
       'pol_second_claim_year_str' => 'claimscert = infield[:pol_claims_total_number_str]; claimslastyr = infield[:pol_nr_of_paid_claims_this_yr_str]; if claimscert.to_i == 2 && claimslastyr.to_i == 1 ; x= 2; elsif claimscert.to_i == 2 && claimslastyr.to_i == 0 ; x= 3 else x= 1; end; ',
       'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' =>  'infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str].strip',
