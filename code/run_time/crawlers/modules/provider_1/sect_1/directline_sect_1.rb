@@ -204,7 +204,7 @@ class DirectlineSect1 < Test::Unit::TestCase
   is_present?("dataacquistoauto") ? type_text("dataacquistoauto", get('@purchase_date_year')) : nil
   select_option "select_marca", get("@make")
   page_click @last_element
-  select_option "select_modelli", get("@model")
+  select_set_up "select_modelli", get("@model")
 
 
   click_button "PROSEGUI"

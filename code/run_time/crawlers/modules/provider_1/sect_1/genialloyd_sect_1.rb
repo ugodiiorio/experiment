@@ -125,6 +125,7 @@ class GenialloydSect1 < Test::Unit::TestCase
     type_text("loc", get('@owner_zip_code'))
     page.key_press("loc","\\9" )
     loc_array  = []
+    sleep @sleep*2
     loc_array= page.get_select_options("sel_loc")
     if loc_array.size == 1
       nil
