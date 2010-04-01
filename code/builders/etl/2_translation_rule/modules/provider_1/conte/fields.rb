@@ -33,12 +33,10 @@ module Provider1Conte
       {'driv_job_str' => 'disoccupato'} => 'Disoccupato',
       {'driv_job_str' => 'imprenditore / industriale'} => 'Imprenditore generico',
       {'driv_job_str' => 'ingegnere'} => 'Ingegnere test',
-
-      {'driv_job_str' => 'agente o rappresent. di commercio'} => 'Artigiano tagliatore di pietre',
-      {'driv_job_str' => 'altri'} => 'Autista',
-      {'driv_job_str' => 'architetto'} => 'Avvocato',
-      {'driv_job_str' => 'agricoltore'} => 'Commerciante di coltelli',
-
+      {'driv_job_str' => 'agente o rappresent. di commercio'} => 'Rappresentante commerciale',
+      {'driv_job_str' => 'altri'} => 'Altro',
+      {'driv_job_str' => 'architetto'} => 'Architetto',
+      {'driv_job_str' => 'agricoltore'} => 'Agricoltore',
 
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
@@ -92,6 +90,7 @@ module Provider1Conte
       {'own_owner_residence_province_str' => 'LO'} => 'LODI',
       {'own_owner_residence_province_str' => 'LU'} => 'LUCCA',
       {'own_owner_residence_province_str' => 'MC'} => 'MACERATA',
+      {'own_owner_residence_province_str' => 'MD'} => 'MEDIO CAMPIDANO',
       {'own_owner_residence_province_str' => 'MN'} => 'MANTOVA',
       {'own_owner_residence_province_str' => 'MS'} => 'MASSA CARRARA',
       {'own_owner_residence_province_str' => 'MT'} => 'MATERA',
@@ -203,6 +202,7 @@ module Provider1Conte
       {'pol_residence_province_str' => 'LO'} => 'LODI',
       {'pol_residence_province_str' => 'LU'} => 'LUCCA',
       {'pol_residence_province_str' => 'MC'} => 'MACERATA',
+      {'pol_residence_province_str' => 'MD'} => 'MEDIO CAMPIDANO',
       {'pol_residence_province_str' => 'MN'} => 'MANTOVA',
       {'pol_residence_province_str' => 'MS'} => 'MASSA CARRARA',
       {'pol_residence_province_str' => 'MT'} => 'MATERA',
