@@ -258,6 +258,13 @@ module Provider1Genialloyd
       {'pol_public_liability_indemnity_limit_str' => '3000000'} => '6MIL (3+3)',
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '12MIL (6+6)',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '12MIL (6+6)',
+
+
+      {'pol_public_liability_indemnity_limit_str' => '1600000'} => '6MIL (3+3)',
+      {'pol_public_liability_indemnity_limit_str' => '2500000'} => '6MIL (3+3)',
+      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '12MIL (6+6)',
+      {'pol_public_liability_indemnity_limit_str' => '800000'} => '6MIL (3+3)',
+
       {'pol_BM_assigned_str' => '7'} => '7 B/M',
       {'pol_BM_assigned_str' => '8'} => '8 B/M',
       {'pol_BM_assigned_str' => '9'} => '9 B/M',
