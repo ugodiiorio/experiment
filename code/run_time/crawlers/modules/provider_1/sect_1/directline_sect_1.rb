@@ -313,14 +313,12 @@ def select_set_up(id, value = nil)
   @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value.split("|")[0]}"
   #    value_array = value.split("|")
   #    @last_value = value_array[0]
-  #    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
   page_select @last_element, "#{@last_value}"
-  if /(seleziona)+/i.match(page.get_selected_label(@last_element))
-    @last_value = "label=#{value.split("|")[1]}"
-    page_select @last_element, "#{@last_value}"
-  else
-    nil
-  end
+#  if /(seleziona)+/i.match(page.get_selected_label(@last_element))
+   page.get_selected_label(@last_element) =~ /(seleziona)+/i  ?  (@last_value = "label=#{value.split("|")[1]}" ; page_select @last_element, "#{@last_value}")  : nil
+    
+ 
   #
   assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
 end
