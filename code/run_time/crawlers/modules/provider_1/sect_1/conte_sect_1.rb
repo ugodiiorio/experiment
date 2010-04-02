@@ -258,11 +258,9 @@ class ConteSect1 < Test::Unit::TestCase
     click_option(get('@driving_type'))
     click_option(get('@payment'))
     click_option('page:metodoDiPagamento2:0')
-    
 
     click_button 'page:buttonCalcolaPremioAppoggio'
     page_wait
-
 
   end
 
@@ -273,25 +271,27 @@ class ConteSect1 < Test::Unit::TestCase
     case @last_value
       when 'on'
         sleep @sleep*2
-#        select_option("page:quota_info:0:tipoRCA", get('@public_liability_type'))
         select_option("page:quota_info:0:massimaleRCA", get('@public_liability_indemnity_limit'))
-     
-      # we take simple RCA premium value so we don't need to uncheck anything
+      
+        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+        uncheck_checkbox(get('@road_assistance_web_id')) if is_checked?(get('@road_assistance_web_id'))
+        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
-#        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-#        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-#        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-#        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-#        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-#        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-#        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-#        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
-#
-#        click_button "b_recalculate"
-#        sleep @sleep*5
-#
-#        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
-#        wait_for_elm @last_value
+        page.fire_event 'page:quota_info:0:massimaleRCA', 'change'
+        sleep @sleep*4
+        wait_for_elm('page:ricalcola_but')
+        page_click_button 'page:ricalcola_but'
+        
+        page_wait
+
+        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+        wait_for_elm @last_value
 
         get_premium(get("@rca_premium_id"))
       else
