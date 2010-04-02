@@ -39,7 +39,7 @@ class LinearSect1 < Test::Unit::TestCase
       @rate_date = format_date(@kte.rate_date)
       @url = site.url
       @sleep = @kte.sleep_typing
-#      @verification_errors = []
+      #      @verification_errors = []
 
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
@@ -51,13 +51,13 @@ class LinearSect1 < Test::Unit::TestCase
         :url => @url
 
       @selenium_driver.start_new_browser_session
-#      @selenium.set_context("test_new")
+      #      @selenium.set_context("test_new")
 
     rescue Errno::ECONNREFUSED => ex
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
-#      @verification_errors[@verification_errors.size] = ex.message
+      #      @verification_errors[@verification_errors.size] = ex.message
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
@@ -65,7 +65,7 @@ class LinearSect1 < Test::Unit::TestCase
 
   def teardown
 	  @selenium_driver.close_current_browser_session if @selenium_driver
-#    assert_equal [], @verification_errors
+    #    assert_equal [], @verification_errors
   end
 
   def test_site
@@ -104,7 +104,7 @@ class LinearSect1 < Test::Unit::TestCase
   def page_intro
 
     open_page(@url)
-    click_button "//img[@src='http://www.linear.it/images/btn_ok.gif']"
+    click_button '//img[@alt="Preventivo automobile"]'
    	page_wait
 
   end
@@ -113,16 +113,23 @@ class LinearSect1 < Test::Unit::TestCase
     
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
+    select_option 'cond_ass_cb', get("@insurance_situation")
     if get("@insurance_situation")=~ /bonus-malus/i
-      select_option 'cond_ass_cb', get("@insurance_situation")
+      #      select_option 'cond_ass_cb', get("@insurance_situation")
       select_option "frazionamento_cb", get("@instalment")
       select_option "anni_continuita_ass", get("@nr_of_yrs_insured_in_the_last_5_yrs")
       type_text("sinistri15anno_mese", get('@claims_total_number'))
       type_text("sinistri15anno_anno", get('@nr_of_paid_claims_this_yr'))
     elsif get("@insurance_situation")=~ /bersani/i
-      select_option "cond_ass_cb", get("@insurance_situation")
-      select_option "tipoattestato_bersani", get("@coming_from_company")
+      #      select_option "cond_ass_cb", get("@insurance_situation")
+      if page.is_element_present('//img[@alt="prosegui"]')
+        click_button '//img[@alt="prosegui"]'
+        #        page_wait
+      
+
+      select_option "tipoattestato_bersani", get("@bersani_ref_vehicle_insured_with_company")
       type_text("targa_bersani", get('@bersani_ref_vehicle_number_plate'))
+      end
     end
 
     select_option "decorrenza_giorno", @rate_date.slice(0,2)
@@ -148,12 +155,14 @@ class LinearSect1 < Test::Unit::TestCase
     sleep @sleep*2
     select_option "allestimento_auto", get("@set_up")
 
+    (is_present?(get('@gas_methane_supply'))) ? click_option(get('@gas_methane_supply')) : nil
     click_option(get('@alarm'))
 
     select_option "ricovero_auto", get("@vehicle_shelter")
     select_option "utilizzo_auto", get("@habitual_vehicle_use")
     type_text("km_anno", get('@km_per_yr'))
-    type_text("valore_commerciale", get('@vehicle_value'))
+    is_editable?("valore_commerciale") ? ((get_value("valore_commerciale")).gsub(".", "").to_i < 5000 ? nil : type_text("valore_commerciale", get('@vehicle_value'))) : nil
+     
     click_option(get('@leasing'))
 
     click_button 'nextStep'
@@ -166,11 +175,14 @@ class LinearSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     select_option "nascita_giorno", get("@birth_date_day")
-    select_option "nascita_mese", 'index='+ get("@birth_date_month")
+    select_option "nascita_mese", get("@birth_date_month")
     select_option "nascita_anno", get("@birth_date_year")
     select_option "stato_nascita_istat", get("@citizenship")
     click_option(get('@driver_sex'))
     type_text("comune_residenza", get('@residence'))
+    page.fire_event "comune_residenza" , "blur"
+    sleep @sleep*3
+    is_present?("localita") ? select_option("localita", "index=1") : nil
 
     select_option "patente_mese", get("@driving_license_month_of_issue")
     select_option "patente_anno", get("@driving_license_year_of_issue")
@@ -188,10 +200,8 @@ class LinearSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     click_option(get('@client_type'))
-    type_text("comune_residenza", get('@owner_residence'))
 
-    if page.get_selected_label(@last_element) =~ /fisica/i
-
+    if (page.get_attribute("#{@last_element}@value") == "0")
       select_option "nascita_giorno", get("@birth_date_day")
       select_option "nascita_mese", get("@birth_date_month")
       select_option "nascita_anno", get("@birth_date_year")
@@ -199,11 +209,13 @@ class LinearSect1 < Test::Unit::TestCase
       click_option(get('@owner_sex'))
       select_option "patente_mese", get("@driving_license_month_of_issue")
       select_option "patente_anno", get("@driving_license_year_of_issue")
-
-      click_button 'nextStep'
-      page_wait
-
     end
+
+    type_text("comune_residenza", get('@owner_residence'))
+    #page.fire_event 'comune_residenza', 'blur'
+
+    click_button 'nextStep'
+    page_wait
 
   end
 
@@ -222,30 +234,30 @@ class LinearSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
-      when 'on'
-        sleep @sleep*2
-        select_option("massimale_1", get('@public_liability_indemnity_limit'))
+    when 'on'
+      sleep @sleep*2
+      select_option("massimale_1", get('@public_liability_indemnity_limit'))
 
       # all guarantees appears to be unchecked and anyway we take simple RCA premium value
 
-#        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-#        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-#        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-#        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-#        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-#        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-#        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-#        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
-#
-#        click_button "b_recalculate"
-#        sleep @sleep*5
-#
-#        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
-#        wait_for_elm @last_value
+      #        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+      #        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+      #        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+      #        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+      #        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+      #        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+      #        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+      #        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      #
+      #        click_button "b_recalculate"
+      #        sleep @sleep*5
+      #
+      #        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+      #        wait_for_elm @last_value
 
-        get_premium(get("@rca_premium_id"))
-      else
-        raise RangeError, "RC cover cannot be off"
+      get_premium(get("@rca_premium_id"))
+    else
+      raise RangeError, "RC cover cannot be off"
     end
 
   end  
@@ -308,7 +320,7 @@ class LinearSect1 < Test::Unit::TestCase
   end
 
   def page_wait
-   page.wait_for_page_to_load site.wait_for_page_to_load
+    page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
 	def page_click_button(element)
@@ -363,7 +375,7 @@ class LinearSect1 < Test::Unit::TestCase
   end
 
   def is_present?(name)
-	  present = page.is_element_present name
+	  present = page.is_element_present(name)
     if present
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
       visible = page.is_visible name
@@ -371,6 +383,17 @@ class LinearSect1 < Test::Unit::TestCase
     end
     return present
   end
+
+  def is_editable?(name)
+	  present = page.is_editable name
+    if present
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => field is editable?: #{present}"}
+      visible = page.is_editable name
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => field is editable #{visible}"}
+    end
+    return present
+  end
+
 
   def get_premium(p)
 
@@ -385,6 +408,19 @@ class LinearSect1 < Test::Unit::TestCase
     assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"
     @kte.rc_premium = premium
 
+  end
+
+
+  def page_value(element)
+	  wait_for_elm(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => got value = #{page.get_value(element)} for element #{element}"}
+	  return page.get_value element
+	end
+
+  def get_value(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's getting value for element: [#{@last_element}]"}
+    return page_value @last_element
   end
 
   def assert_is_element_present(element)

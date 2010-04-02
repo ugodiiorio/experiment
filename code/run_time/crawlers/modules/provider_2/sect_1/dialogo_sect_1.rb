@@ -106,7 +106,7 @@ class DialogoSect1 < Test::Unit::TestCase
   def page_intro
 
     open_page(@url) #url="http://www.dialogo.it/DialogoInternet/home.faces"
-    click_button "//img[@alt='Preventivo Auto in 5 click']"
+    click_button_item "//img[@alt='Preventivo Auto in 5 click']"
     page_wait
 
   end
@@ -136,7 +136,7 @@ class DialogoSect1 < Test::Unit::TestCase
       end
     end
 
-    click_button "contentSubView:contentForm:buttonNext"
+    click_button_item "contentSubView:contentForm:buttonNext"
     page_wait
 
   end
@@ -187,7 +187,7 @@ class DialogoSect1 < Test::Unit::TestCase
 
     end
 
-    click_button "contentSubView:contentForm:buttonNext"
+    click_button_item "contentSubView:contentForm:buttonNext"
     page_wait
 
   end
@@ -207,7 +207,7 @@ class DialogoSect1 < Test::Unit::TestCase
     click_option(get('@vehicle_shelter'))
     click_option(get('@number_plate_type'))
     
-    click_button "contentSubView:vehicleForm:next"
+    click_button_item "contentSubView:vehicleForm:next"
     page_wait
 
   end
@@ -215,7 +215,7 @@ class DialogoSect1 < Test::Unit::TestCase
   def page_4
     
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    click_button "//img[@alt='Calcola il tuo PREVENTIVO']"
+    click_button_item "//img[@alt='Calcola il tuo PREVENTIVO']"
     page_wait
 
   end
@@ -228,7 +228,7 @@ class DialogoSect1 < Test::Unit::TestCase
     when 'on'
       sleep @sleep*2
       select_option("//select[@name='contentSubView:quotationTabletForm:proposalTable:0:_id132']", get('@public_liability_indemnity_limit'))
-      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption')) # ATTENTION!!!!!!!!!!!!!!!!!!!!!!
+      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption')) 
 
       uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
       uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
@@ -239,12 +239,12 @@ class DialogoSect1 < Test::Unit::TestCase
       uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
       uncheck_checkbox(get('@easy_driver_web_id')) if is_checked?(get('@easy_driver_web_id'))
 
-#      click_button "//img[@alt='Ricalcola']"
+      click_button_item "//img[@alt='Ricalcola']"
       sleep @sleep*3
 
-      @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id") #//div[@id='sbox_Costo Annuale']/span - //div[@id='sbox_Costo Semestrale']/span
-      wait_for_elm @last_value
-      get_premium(get("@rca_premium_id"))
+      @last_element = get("@rca_premium_id") #//div[@id='sbox_Costo Annuale']/span - //div[@id='sbox_Costo Semestrale']/span
+      wait_for_elm @last_element
+      get_premium(@last_element)
     else
       raise RangeError, "RC cover cannot be off"
     end
@@ -277,7 +277,7 @@ class DialogoSect1 < Test::Unit::TestCase
   def type_keys(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
-    page_keys @last_element, "#{@last_value}"
+    page_keys @last_element, @last_value
   end
 
   def click_option(id, value = nil)
@@ -301,10 +301,10 @@ class DialogoSect1 < Test::Unit::TestCase
     assert_equal page.get_value(@last_element), "off"
   end
 
-  def click_button(id, value = nil)
+  def click_button_item(id, value = nil)
     @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
-    page_click_button @last_element
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button/item element: [#{@last_element}]"}
+    page_click_button_item @last_element
   end
 
   def is_checked?(id, value = nil)
@@ -318,8 +318,8 @@ class DialogoSect1 < Test::Unit::TestCase
     page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
-	def page_click_button(element)
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button = #{element}"}
+	def page_click_button_item(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button/item = #{element}"}
 	  page.click element
 	end
 
@@ -436,7 +436,7 @@ class DialogoSect1 < Test::Unit::TestCase
       get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
       type_keys("preparations", @last_value)
     end
-    click_button "//span/ul/li"
+    click_button_item "//span/ul/li"
 
   end
 
