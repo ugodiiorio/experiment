@@ -97,7 +97,7 @@ class KTE
       @sector 				              = ARGV[21] || app_settings['as_sector_id'] || "sect_1"
       @working_set 	         			  = ARGV[22] || app_settings['as_working_set_id'] || "prov_1_20100201"
       @rate	                        = ARGV[7] || app_settings['as_rate_id'] || "today"
-      @start_date                    = ARGV[19] || app_settings['as_rate_date'] || '10th day next month'
+      @start_date                    = ARGV[19] || app_settings['as_rate_date'] || 'tomorrow'
       @rate_date                    = Chronic.parse(@start_date)
 
       @log_device                   = ARGV[12] || logger_settings['ls_device'] || "/home/notroot/git/KTE/code/run_time/log/"
