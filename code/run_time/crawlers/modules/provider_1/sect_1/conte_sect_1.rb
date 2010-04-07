@@ -440,10 +440,11 @@ class ConteSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
-#    assert premium.split[0] != nil, @last_element.inspect
-#    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
-#    premium = premium.split[1].gsub(".","")
-#    premium = premium.gsub(",",".")
+    assert premium != nil, @last_element.inspect
+    assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    str = premium.split
+    premium = str[1].gsub(".","") if str[1].count(",") > 0
+    premium = premio.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
     assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"

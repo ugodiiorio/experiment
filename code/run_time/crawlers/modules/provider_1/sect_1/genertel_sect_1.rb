@@ -129,7 +129,8 @@ class GenertelSect1 < Test::Unit::TestCase
         select_fake_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXCUGenertel")
         if get('@nr_of_paid_claims_2_yr') == "0" && get('@bm_assigned') == "1"
           click_option(get('@bm_1_more_than_1_year'))
-          assert !is_present?("HLPXDPOXClasseUnoXNota"), "Super Bonus Genertel must to be present" if @last_element =~ /ClasseUnoDomanda0/i
+          sleep @sleep*2
+          assert is_present?("HLPXDPOXClasseUnoXNota"), "Super Bonus Genertel must to be present" if @last_element =~ /ClasseUnoDomanda0/i
         end
         click_option(get('@current_policy_guarantee'))
       else
@@ -492,7 +493,7 @@ class GenertelSect1 < Test::Unit::TestCase
 
     type_text("TBXXDABXNome", get('@name'))
     type_text("TBXXDABXCognome", get('@surname'))
-    click_option(get('@driver_sex'))
+    click_option(get('@driver_sex').split("|")[0])
     type_text("DBXXDABXDataNascita", get('@birth_date'))
     type_text("TBXXDABXLuogoNascita", get('@birth_place'))
     click_button_item "LBLXDABXCalcCodFisc"
@@ -506,7 +507,7 @@ class GenertelSect1 < Test::Unit::TestCase
 
     type_text("TBXXDP3XNome", get('@name'))
     type_text("TBXXDP3XCognome", get('@surname'))
-    click_option(get('@driver_sex'))
+    click_option(get('@driver_sex').split("|")[1])
     type_text("DBXXDP3XDataNascita", get('@birth_date'))
     type_text("TBXXDP3XLuogoNascita", get('@birth_place'))
     click_button_item "LBLXDP3XCalcCodFisc"
