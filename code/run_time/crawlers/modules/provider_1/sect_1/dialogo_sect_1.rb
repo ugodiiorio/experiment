@@ -428,10 +428,10 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def select_preparation
 
-    get("@cv") == 0 ? cv_kw = "#{get("@cv")} CV - #{get("@kw")} KW" : cv_kw = "#{get("@kw")} KW"
+    kw = "- #{get("@kw")} KW -"
     type_keys("preparations", get("@set_up"))
     sleep @sleep*2
-    @last_element, @last_value = "//span/ul/li", "#{cv_kw}"
+    @last_element, @last_value = "//span/ul/li", "#{kw}"
     unless is_present?(@last_element)
       get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
       type_keys("preparations", @last_value)

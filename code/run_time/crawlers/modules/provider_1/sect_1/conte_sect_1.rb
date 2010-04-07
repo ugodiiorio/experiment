@@ -446,7 +446,7 @@ class ConteSect1 < Test::Unit::TestCase
 #    premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
-#    assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"
+    assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"
     @kte.rc_premium = premium
 
   end
