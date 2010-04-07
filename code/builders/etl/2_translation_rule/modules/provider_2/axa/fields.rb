@@ -5,10 +5,7 @@ module Provider2Axa
     @target_values = {}
 
     @target_values = {
-      {'veh_fuel_str' => 'B'} => 'Benzina',
-      {'veh_fuel_str' => 'D'} => 'Diesel',
-      {'veh_fuel_str' => 'G'} => 'GPL',
-      {'veh_fuel_str' => 'M'} => 'Metano',
+      
       {'pol_public_liability_exemption_str' => 'no'} => '0 Euro',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'veh_tow_hook_str' => 'no'} => '//input[@name="TRAINO" and @value="0"]',
@@ -36,9 +33,8 @@ module Provider2Axa
       {'pol_number_plate_type_str' => 'definitiva'} => 'Definitiva',
       {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
       {'veh_vehicle_type_str' => 'autovettura'} => 'Autovettura',
-      {'pol_client_type_str' => 'M'} => '//input[@name="PFIS" and @value="1"]',
-      {'pol_client_type_str' => 'F'} => '//input[@name="PFIS" and @value="1"]',
-      {'pol_client_type_str' => 'C'} => '//input[@name="PFIS" and @value="0"]',
+      {'pol_client_type_str' => 'persona fisica'} => '//input[@name="PFIS" and @value="1"]',
+      {'pol_client_type_str' => 'persona giuridica'} => '//input[@name="PFIS" and @value="0"]',
       {'veh_vehicle_use_str' => 'privato'} => 'Privato',
       {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/form/div[2]/div/div[5]/div/table/tbody/tr[3]/td[4]',
 
