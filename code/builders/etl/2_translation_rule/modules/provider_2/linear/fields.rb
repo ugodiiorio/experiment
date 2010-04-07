@@ -326,6 +326,9 @@ module Provider2Linear
 
       {'driv_driver_sex_str' => 'M'} => '//input[@name="sesso" and @value="1"]',
       {'driv_driver_sex_str' => 'F'} => '//input[@name="sesso" and @value="2"]',
+      {'own_owner_sex_str' => 'M'} => '//input[@name="sesso" and @value="1"]',
+      {'own_owner_sex_str' => 'F'} => '//input[@name="sesso" and @value="2"]',
+
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'No, il veicolo non è assicurato con Linear S.p.A.',
       {'pol_BM_assigned_str' => '-1'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
@@ -346,10 +349,13 @@ module Provider2Linear
       {'pol_BM_assigned_str' => '16'} => '16',
       {'pol_BM_assigned_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
-      {'pol_client_type_str' => 'M'} => '//input[@name="fisgiur" and @value="0"]',
-      {'pol_client_type_str' => 'F'} => '//input[@name="fisgiur" and @value="0"]',
-      {'pol_client_type_str' => 'C'} => '//input[@name="fisgiur" and @value="3"]',
-      {'pol_driver_less_than_26_yrs_str' => 'S'} => '21',
+      {'pol_car_already_insured_with_company_str' => 'no'} => '//input[@name="famiglia" and @value="0"]',
+      {'pol_client_type_str' => 'persona fisica'} => '//input[@name="fisgiur" and @value="0"]',
+      {'pol_client_type_str' => 'persona giuridica'} => '//input[@name="fisgiur" and @value="3"]',
+      {'pol_driver_is_owner_str' => 'si'} => '//input[@id="proprietario" and @value="proprietario_si"]',
+      {'pol_driver_is_owner_str' => 'no'} => '//input[@id="proprietario" and @value="proprietario_no"]',
+      {'pol_driver_less_than_26_yrs_str' => 'si'} => '21',
+      {'pol_driver_less_than_26_yrs_str' => 'no'} => 'Nessuno',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'PassaParola',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Polizza annuale in Bonus Malus con classe CIP/CU assegnata',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Hai appena acquistato il veicolo (meno di 3 mesi)',
@@ -367,16 +373,16 @@ module Provider2Linear
       {'pol_matriculation_date_month_str' => '10'} => 'Ottobre',
       {'pol_matriculation_date_month_str' => '11'} => 'Novembre',
       {'pol_matriculation_date_month_str' => '12'} => 'Dicembre',
-      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '€ 3.000.000,00 unico',
-      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 5.000.000,00 unico',
-      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '€ 5.000.000,00 unico',
-      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '€ 5.000.000,00 unico',
-      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '€ 5.000.000,00 unico',
-      {'veh_vehicle_shelter_str' => 'box privato'} => 'Garage',
-      
+      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '€ 3.000.000,00 unico',
+      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 5.000.000,00 unico',
+      {'pol_public_liability_indemnity_limit_str' => '18,000,000'} => '€ 5.000.000,00 unico',
+      {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 5.000.000,00 unico',
+      {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '€ 5.000.000,00 unico',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => '4',
       {'pol_legal_assistance_web_id_str'  => 'id elemento'} => '3',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'totaleImporto',
+      
+      {'veh_vehicle_shelter_str' => 'box privato'} => 'Garage',
 
     }
   end
