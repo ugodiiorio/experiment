@@ -126,20 +126,23 @@ class AxaSect1 < Test::Unit::TestCase
     click_option(get('@client_type'))
     if (page.get_attribute("#{@last_element}@value") == "1")
       type_text("ETASOG", get('@birth_date'))
-      select_option "SEX", get('@driver_sex')
+      select_option "SEX", get('@owner_sex')
       select_option "ATT", get('@job')
     end
     type_text("CAPRES", get('@owner_zip_code'))
 
     select_option "DPRCA", get('@insurance_situation')
-    if page.get_text("//label[@for='#{@last_element}']") =~ /attestato/i
-      type_text("NSIN2", get('@nr_of_paid_claims_1_yr'))
-    end
     select_option "ALIM", get('@fuel')
     type_text("ETAVEI", get('@matriculation_date'))
     click_option(get('@tow_hook'))
     select_option "PPUSOV", get('@vehicle_use')
     type_text("NSIN", get('@claims_total_number'))
+    
+    if get('@insurance_situation') =~ /attestato/i
+      type_text("NSIN2", get('@nr_of_paid_claims_1_yr'))
+      type_text("ANSPAG", get('@nr_of_yrs_without_claims'))
+    end
+
     select_option "TIPTGA", get('@number_plate_type')
     
     select_option "MARCA", get("@make")
