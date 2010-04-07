@@ -123,7 +123,7 @@ class DialogoSect1 < Test::Unit::TestCase
       
       select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
       if page.get_selected_label(@last_element) =~ /almeno un anno/i
-        select_option("contentSubView:contentForm:sinistriCausati6", get('@nr_of_paid_claims_5_yr'))
+        select_option("contentSubView:contentForm:sinistriCausati6", get('@claims_total_number'))
         select_option("contentSubView:contentForm:anniAssicurati6", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
       else
         select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))

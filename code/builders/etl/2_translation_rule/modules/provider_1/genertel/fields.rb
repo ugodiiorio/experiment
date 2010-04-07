@@ -117,9 +117,9 @@ module Provider1Genertel
       {'pol_subscriber_is_owner_str' => 'no'} => 'RBTXDP1XProprietarioContraente1',
       {'pol_subscriber_is_owner_str' => 'si'} => 'RBTXDP1XProprietarioContraente0',
       {'pol_client_type_str' => 'persona giuridica'} => 'RBTXDP1XContraente1',
-      {'driv_driver_sex_str' => 'F'} => 'RBTXDABXSessoMF1',
+      {'driv_driver_sex_str' => 'F'} => 'RBTXDP3XSessoMF1',
       {'pol_client_type_str' => 'persona fisica'} => 'RBTXDP1XContraente0',
-      {'driv_driver_sex_str' => 'M'} => 'RBTXDABXSessoMF0',
+      {'driv_driver_sex_str' => 'M'} => 'RBTXDP3XSessoMF0',
       {'own_owner_sex_str' => 'M'} => 'RBTXDP1XSessoMF0',
       {'own_owner_sex_str' => 'F'} => 'RBTXDP1XSessoMF1',
 

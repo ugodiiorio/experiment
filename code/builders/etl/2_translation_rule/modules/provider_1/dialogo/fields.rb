@@ -371,6 +371,12 @@ module Provider1Dialogo
       {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '3000000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '€ 5.000.000,00 - € 5.000.000,00 - € 5.000.000,00',
+
+       {'pol_public_liability_indemnity_limit_str' => '1600000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '2500000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '€ 5.000.000,00 - € 5.000.000,00 - € 5.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '800000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+
       {'pol_BM_assigned_str' => '-1'} => '1 da almeno un anno',
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => '//input[@name="contentSubView:contentForm:attualeSituazione" and @value="3"]',
       {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//input[@name="contentSubView:contentForm:attualeSituazione" and @value="1"]',
