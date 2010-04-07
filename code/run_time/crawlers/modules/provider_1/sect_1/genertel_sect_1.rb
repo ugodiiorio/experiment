@@ -243,7 +243,7 @@ class GenertelSect1 < Test::Unit::TestCase
     click_button_item get('@subscriber_is_driver')
     click_button_item get('@cohabiting_children')
     click_button_item get('@driving_license_yrs')
-    if @last_element =~ /div[1]/i
+    if @last_element =~ /div\[1\]/i
       click_button_item get('@driver_less_25_yrs_license_less_2_yrs')
     end
     sleep @sleep
