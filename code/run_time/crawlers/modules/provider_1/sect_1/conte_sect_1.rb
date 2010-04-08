@@ -113,6 +113,7 @@ class ConteSect1 < Test::Unit::TestCase
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     select_option "page:text_1CNSC", get("@how_do_you_know_the_company")
     click_option(get('@insurance_situation'))
@@ -129,6 +130,7 @@ class ConteSect1 < Test::Unit::TestCase
   def page_2
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     type_text("page:dataEffetto", @rate_date)
     select_option "page:mese_immatricolazione", get("@matriculation_date_month")
@@ -166,6 +168,7 @@ class ConteSect1 < Test::Unit::TestCase
   def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     click_option(get('@driver_sex'))
     type_text("page:conducente_nascita", get('@birth_date'))
@@ -184,8 +187,8 @@ class ConteSect1 < Test::Unit::TestCase
 
     select_option "page:provincia_di_residenza", get("@residence_province")
     type_keys("page:comune_di_residenza", get('@residence'))
-    sleep @sleep*2
     page.click "//div[@id='risultatiSrchComRes']/ul/span/li"
+    sleep @sleep*2
 
     type_text("page:toponimo_residenza", get('@toponym'))
     type_text("page:indirizzo_residenza", get('@address_street'))
@@ -196,8 +199,8 @@ class ConteSect1 < Test::Unit::TestCase
     click_button 'page:buttonContinua2'
 
     type_keys("page:professione_conducente_principale", get('@job'))
-    sleep @sleep*2
     page.click "//div[@id='risultatiSrchProf']/ul/span/li"
+    sleep @sleep*2
 
     select_option "page:stato_civile", get("@civil_status")
     click_option(get('@cohabiting_children'))
@@ -218,6 +221,7 @@ class ConteSect1 < Test::Unit::TestCase
   def page_4
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     
     click_option(get('@drunkenness_fine'))
     click_option(get('@driving_license_suspension'))
@@ -254,6 +258,7 @@ class ConteSect1 < Test::Unit::TestCase
   def page_5
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     
     click_option(get('@driving_type'))
     click_option(get('@payment'))
@@ -267,32 +272,34 @@ class ConteSect1 < Test::Unit::TestCase
   def page_premium
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'
         sleep @sleep*2
         select_option("page:quota_info:0:massimaleRCA", get('@public_liability_indemnity_limit'))
       
-        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-        uncheck_checkbox(get('@road_assistance_web_id')) if is_checked?(get('@road_assistance_web_id'))
-        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+#        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+#        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+#        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+#        uncheck_checkbox(get('@road_assistance_web_id')) if is_checked?(get('@road_assistance_web_id'))
+#        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+#        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+#        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+#        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+#        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
         page.fire_event 'page:quota_info:0:massimaleRCA', 'change'
         sleep @sleep*4
-        wait_for_elm('page:ricalcola_but')
-        page_click_button 'page:ricalcola_but'
-        
-        page_wait
+#        wait_for_elm('page:ricalcola_but')
+        if is_present?('page:ricalcola_but')
+          page_click_button 'page:ricalcola_but'
+          page_wait
+        end
 
         @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
         wait_for_elm @last_value
-
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
@@ -307,6 +314,7 @@ class ConteSect1 < Test::Unit::TestCase
     sleep @sleep
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
   end
 
   def select_option(id, value = nil)
@@ -397,6 +405,8 @@ class ConteSect1 < Test::Unit::TestCase
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
     page.focus element
+    page.key_up element, "\\115"
+    sleep @sleep*2
 	  page.type_keys element, label
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
@@ -440,11 +450,12 @@ class ConteSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
+    puts premium
     assert premium != nil, @last_element.inspect
     assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
-    str = premium.split
-    premium = str[1].gsub(".","") if str[1].count(",") > 0
-    premium = premio.gsub(",",".")
+    premium = premium.split[1]
+    premium.count(",") > 0 ? premium.gsub(".","") : nil
+    premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
     assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"

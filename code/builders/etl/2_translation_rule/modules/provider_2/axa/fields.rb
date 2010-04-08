@@ -6,7 +6,7 @@ module Provider2Axa
 
     @target_values = {
       
-      {'pol_public_liability_exemption_str' => 'no'} => '0 Euro',
+      {'pol_public_liability_exemption_str' => '0'} => '0 Euro',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'veh_tow_hook_str' => 'no'} => '//input[@name="TRAINO" and @value="0"]',
       {'pol_defined_drive_str' => 'si'} => '//input[@name="_RCA17" and @value="1"]',
@@ -14,29 +14,23 @@ module Provider2Axa
       {'pol_exclusive_drive_str' => 'si'} => '//input[@name="_RCA18" and @value="1"]',
       {'pol_exclusive_drive_str' => 'no'} => '//input[@name="_RCA18" and @value="0"]',
       {'pol_renounce_compensation_str' => 'no'} => '//input[@name="_RCA03" and @value="0"]',
-
-      {'pol_public_liability_indemnity_limit_str' => '800000'} => '3,000,000 € - 2,500,000 € - 500,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '1600000'} => '3,000,000 € - 2,500,000 € - 500,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '2500000'} => '3,000,000 € - 2,500,000 € - 500,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '3,000,000 € - 2,500,000 € - 500,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '6,000,000 € - 5,000,000 € - 1,000,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6,000,000 € - 6,000,000 € - 6,000,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '15,000,000 € - 15,000,000 € - 15,000,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '20,000,000 € - 20,000,000 € - 20,000,000 €',
-      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '25,000,000 € - 25,000,000 € - 25,000,000 €',
-
+      
+      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => 'regexpi:(3,000,000.*)+(\s)*(2,500,000.*)+(\s)*(500,000.*)+(\s)*$',
+      {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => 'regexpi:(6,000,000.*)+(\s)*(6,000,000.*)+(\s)*(6,000,000.*)+(\s)*$',
+      {'pol_public_liability_indemnity_limit_str' => '10,000,000'} => 'regexpi:(15,000,000.*)+(\s)*(15,000,000.*)+(\s)*(15,000,000.*)+(\s)*$',
+      
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Il contraente presenta l\'attestato di rischio',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
-      {'pol_type_of_contract_str' => 'bonus/malus'} => 'Bonus/Malus',
+      {'pol_quotation_str' => 'bm'} => 'Bonus/Malus',
       {'pol_number_plate_type_str' => 'definitiva'} => 'Definitiva',
       {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
       {'veh_vehicle_type_str' => 'autovettura'} => 'Autovettura',
       {'pol_client_type_str' => 'persona fisica'} => '//input[@name="PFIS" and @value="1"]',
       {'pol_client_type_str' => 'persona giuridica'} => '//input[@name="PFIS" and @value="0"]',
       {'veh_vehicle_use_str' => 'privato'} => 'Privato',
-      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/form/div[2]/div/div[5]/div/table/tbody/tr[3]/td[4]',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '//html/body/form/div[2]/div/div[5]/div/table/tbody/tr[3]/td[4]',
 
     }
 
@@ -158,7 +152,7 @@ def build_hash_sect_4()
       {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '25,000,000 € - 25,000,000 € - 25,000,000 €',
       {'pol_property_type_to_be_insured_str' => 'autocarro per trasporto persone o cose'} => 'Autocarro',
       {'pol_quotation_str' => 'fissa'} => 'Fissa',
-      {'pol_quotation_str' => 'franchigia'} => 'Franchigia',
+      {'pol_quotation_str' => 'BM'} => 'Bonus/Malus',
       {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
       {'veh_fuel_str' => 'diesel'} => 'Diesel',
       {'veh_hook_str' => 'no'} => 'No',
