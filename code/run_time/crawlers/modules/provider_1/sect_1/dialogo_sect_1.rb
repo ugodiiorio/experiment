@@ -9,6 +9,9 @@ class DialogoSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   FirstPolicy = 0..100
   Individual = 0..100
 
@@ -102,6 +105,8 @@ class DialogoSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
 
   def page_intro
 
@@ -426,18 +431,18 @@ class DialogoSect1 < Test::Unit::TestCase
 
   end
 
-  def select_preparation
-
-    kw = "#{get("@kw")} KW"
-    type_keys("preparations", get("@set_up"))
-    sleep @sleep*2
-    @last_element, @last_value = "//span/ul/li", "#{kw}"
-    unless is_present?(@last_element)
-      get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
-      type_keys("preparations", @last_value)
-    end
-    click_button_item "//span/ul/li"
-
-  end
-
+#  def select_preparation
+#
+#    kw = "#{get("@kw")} KW"
+#    type_keys("preparations", get("@set_up"))
+#    sleep @sleep*2
+#    @last_element, @last_value = "//span/ul/li", "#{kw}"
+#    unless is_present?(@last_element)
+#      get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
+#      type_keys("preparations", @last_value)
+#    end
+#    click_button_item "//span/ul/li"
+#
+#  end
+#
 end

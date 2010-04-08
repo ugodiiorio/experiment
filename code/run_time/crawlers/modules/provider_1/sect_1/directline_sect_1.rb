@@ -204,7 +204,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     is_present?("dataacquistoauto") ? type_text("dataacquistoauto", get('@purchase_date_year')) : nil
     select_option "select_marca", get("@make")
     page_click @last_element
-    select_set_up "select_modelli", get("@model")
+    select_model_set_up "select_modelli", get("@model")
 
 
     click_button "PROSEGUI"
@@ -217,7 +217,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     page_click "allestimentoAuto"
     #    select_option "allestimentoAuto", get("@set_up")
-    select_set_up "allestimentoAuto", get("@set_up")
+    select_model_set_up "allestimentoAuto", get("@set_up")
     select_option "UsoPra", get("@habitual_vehicle_use")
     type_text("KMPercorsi", get('@km_per_yr'))
     click_option(get('@vehicle_use'))
@@ -307,31 +307,34 @@ class DirectlineSect1 < Test::Unit::TestCase
     end
   end
 
-
-
-  def select_set_up(id, value = nil)
+  def select_model_set_up(id, value)
     @last_element, @last_value = id, (value =~ /index=/i)? value : value.split("|")[0]
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
-    option_array =[]
-    option_array = page.get_select_options(@last_element)
-    @num_of_el = 0
-    index = 0
-     while index < option_array.length
-          @num_of_el  += 1
-          break if option_array[index] =~ /#{@last_value.gsub("regexpi:","")}/i
-          index += 1
-        end
+
+    begin
+      page_select(@last_element, "label=#{@last_value}")
+    rescue Exception => ex
+      case value.split("|").size
+        when 1
+          raise ex
+        else
+          @last_value = "label=#{value.split("|")[1]}"
+          page_select @last_element, "#{@last_value}"
+      end
+    end
     
-    @num_of_el == option_array.length ? (@last_value = "label=#{value.split("|")[1]}" ;  page_select @last_element, "#{@last_value}" ) : ( page_select @last_element, "label=#{@last_value}" )
-
-
-    #    while index < option_array.length
-    #      option_array[index] =~ /#{@last_value.gsub("regexpi:","")}/i  ? (page.select "#{@last_element}", "label=#{@last_value}" ; break) :  @num_of_el  += 1
-    #      index += 1
-    #    end
-    #    @num_of_el == option_array.length ? (@last_value = "label=#{value.split("|")[1]}" ; page.select "#{@last_element}", "#{@last_value}") : nil
-
-    assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
+#    option_array =[]
+#    option_array = page.get_select_options(@last_element)
+#    @num_of_el = 0
+#    index = 0
+#    while index < option_array.length
+#      @num_of_el  += 1
+#      break if option_array[index] =~ /#{@last_value.gsub("regexpi:","")}/i
+#      index += 1
+#    end
+#
+#    @num_of_el == option_array.length ? (@last_value = "label=#{value.split("|")[1]}" ;  page_select @last_element, "#{@last_value}" ) : ( page_select @last_element, "label=#{@last_value}" )
+#    assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
   end
 
   def type_text(id, value = nil)
