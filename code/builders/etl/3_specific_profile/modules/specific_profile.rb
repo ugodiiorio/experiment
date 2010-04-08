@@ -52,7 +52,7 @@ module Specific_Profile
             stmt_upd_profile = @stmt_upd_profile.sub("@@profile_field@@", @profile_field)
             stmt = @dbh.prepare(stmt_upd_profile)
             stmt.execute(comp_profile_value, @id_profile, @provider_id, @sector_id, @company_id, @working_set_id)
-            @profile_num += stmt.affected_rows().to_i
+            @upd_profile_num += stmt.affected_rows().to_i
           end
     #
           @logger.warn(__LINE__) \
@@ -77,7 +77,7 @@ module Specific_Profile
     begin
       stmt_comp_profile = @dbh.prepare(@stmt_ins_profile)
       stmt_comp_profile.execute(@id_profile, @provider_id, @sector_id, @company_id, @working_set_id)
-      @profile_num += stmt_comp_profile.affected_rows().to_i
+      @ins_profile_num += stmt_comp_profile.affected_rows().to_i
       stmt_comp_profile.close
     rescue Mysql::Error => e
       case e.errno.to_s
