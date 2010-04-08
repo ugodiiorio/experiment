@@ -1,16 +1,13 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				17/03/2010						              #
+#				08/04/2010						              #
 #############################################
 
-class DialogoSect1 < Test::Unit::TestCase
+class ZurichSect1 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
-
-  SHARED = 'shared.rb'
-  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
 
   FirstPolicy = 0..100
   Individual = 0..100
@@ -40,13 +37,9 @@ class DialogoSect1 < Test::Unit::TestCase
       @rc_cover_code, @kte.rc_cover_code = get('@rca_code'), get('@rca_code')
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
-
-      #      vehicle_age = 1
-      #      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
-
       @url = site.url
       @sleep = @kte.sleep_typing
-      #      @verification_errors = []
+#      @verification_errors = []
 
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
@@ -58,13 +51,13 @@ class DialogoSect1 < Test::Unit::TestCase
         :url => @url
 
       @selenium_driver.start_new_browser_session
-      #      @selenium.set_context("test_new")
+#      @selenium.set_context("test_new")
 
     rescue Errno::ECONNREFUSED => ex
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
-      #      @verification_errors[@verification_errors.size] = ex.message
+#      @verification_errors[@verification_errors.size] = ex.message
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
@@ -72,7 +65,7 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def teardown
 	  @selenium_driver.close_current_browser_session if @selenium_driver
-    #    assert_equal [], @verification_errors
+#    assert_equal [], @verification_errors
   end
 
   def test_site
@@ -85,6 +78,7 @@ class DialogoSect1 < Test::Unit::TestCase
       page_2
       page_3
       page_4
+      page_5
       page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
@@ -102,126 +96,224 @@ class DialogoSect1 < Test::Unit::TestCase
       @kte.test_result = ex_message
       raise ex.class, ex_message
     end
+
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
-  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
-  include Shared
 
   def page_intro
 
-    open_page(@url) #url="http://www.dialogo.it/DialogoInternet/home.faces"
-    click_button_item "//img[@alt='Preventivo Auto in 5 click']"
-    page_wait
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+
+    open_page(@url)
+   	page_wait
 
   end
 
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
-    click_option(get('@vehicle_use'))
-    type_text("contentSubView:contentForm:decorrenza", @rate_date)
-    click_option(get('@insurance_situation'))
 
-    if (page.get_attribute("#{@last_element}@value") == "3")
-      
-      select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
-      if page.get_selected_label(@last_element) =~ /almeno un anno/i
-        select_option("contentSubView:contentForm:sinistriCausati6", get('@claims_total_number'))
-        select_option("contentSubView:contentForm:anniAssicurati6", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
-      else
-        select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))
-      end
+    click_option(get('@privacy1'))
 
-    else
-      click_option(get('@bersani'))
-      if (page.get_attribute("#{@last_element}@value") == "Y")
-        select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
-      end
-    end
-
-    click_button_item "contentSubView:contentForm:buttonNext"
-    page_wait
+    click_button 'Step successivo'
+   	page_wait
 
   end
 
   def page_2
-    
+
+
+
+    select_option "page:text_1CNSC", get("@how_do_you_know_the_company")
+    click_option(get('@insurance_situation'))
+    if (page.get_attribute("#{@last_element}@value") == "-1")
+      click_option(get('@new_used_vehicle'))
+    end
+    click_option(get('@privacy_1'))
+
+    click_button 'page:buttonContinua'
+   	page_wait
+
+  end
+
+  def page_2
+
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    click_option(get('@driving_type'))
-    sleep @sleep*2
-    click_option(get('@subscriber_is_driver'))
-    click_option(get('@subscriber_is_owner'))
-    click_option(get('@num_of_owners'))
 
-    if (page.get_attribute("#{get('@subscriber_is_driver')}@value") == "Y")
+    select_option "tip_veic", get("@property_type_to_be_insured")
+    select_option "frm_contr", get("@quotation")
 
+    page.click 'buttonCOD_MARC'
+    page_wait
+    select_option "COD_MARCDomini", get("@make")
+    page.click 'buttonCOD_MARC'
+    page_wait
+
+    page.click 'buttonCOD_MODE'
+    page_wait
+    select_option "COD_MODEDomini", get("@make")
+    page.click 'buttonCOD_MODE'
+    page_wait
+
+    page.click 'buttonCOD_ALLE'
+    page_wait
+    select_option "COD_ALLEDomini", get("@make")
+    page.click 'buttonCOD_ALLE'
+    page_wait
+
+    click_option(get('@client_type'))
+    if (page.get_attribute("#{@last_element}@id") == "TIP_PERS_F")
       click_option(get('@owner_sex'))
-      sleep @sleep*2
-      click_option(get('@driver_is_owner'))
-      type_text("contentSubView:contentForm:DataNascitaProprietario", get('@birth_date'))
-      select_option("contentSubView:contentForm:AnniPatenteProprietario", get('@driving_license_yrs'))
-      select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
-      select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
-      type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
-      page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
-      sleep @sleep*2
-      is_present?("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
-
-    else
-
-      click_option(get('@owner_sex'))
-      sleep @sleep*2
-      click_option(get('@driver_is_owner'))
-      if (get('@owner_specification') != 'C')
-        type_text("contentSubView:contentForm:DataNascitaProprietario", get('@birth_date'))
-        select_option("contentSubView:contentForm:AnniPatenteProprietario", get('@driving_license_yrs'))
-        select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
-      end
-      select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
-      type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
-      page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
-      sleep @sleep*2
-      is_present?("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
-
-      type_text("contentSubView:contentForm:DataNascitaConducente", get('@birth_date'))
-      click_option(get('@driver_sex'))
-      select_option("contentSubView:contentForm:AnniPatenteConducente", get('@driving_license_yrs'))
-      select_option("contentSubView:contentForm:ProfessioneConducente", get('@job'))
-
+      select_option "gg_DAT_NASC", get("@birth_date_day")
+      select_option "mm_DAT_NASC", get("@birth_date_month")
+      select_option "aaaa_DAT_NASC", get("@birth_date_year")
     end
 
-    click_button_item "contentSubView:contentForm:buttonNext"
+    page.click 'buttonCODPRO35'
     page_wait
+    select_option "CODPRO35Domini", get("@job")
+    page.click 'buttonCODPRO35'
+    page_wait
+
+    click_option(get('@type_of_contract'))
+
+
+
+
+    type_text("page:dataEffetto", @rate_date)
+    select_option "page:mese_immatricolazione", get("@matriculation_date_month")
+    type_text("page:anno_immatricolazione", get("@matriculation_date_year"))
+    type_text("page:anno_acquisto", get("@purchase_date_year"))
+    select_option "page:alimentazione", get("@fuel")
+    select_option "page:marca", get("@make")
+    sleep @sleep*2
+    select_option "page:modelloAuto", get("@model")
+    sleep @sleep*2
+    select_option "page:allestimento", get("@set_up")
+
+    click_button 'page:continua_step01'
+
+    type_text("page:valore_veicolo", get('@vehicle_value'))
+    page.fire_event 'page:valore_veicolo', 'blur'
+    select_option "page:ricovero_notturno", get("@vehicle_shelter")
+    select_option "page:antifurto", get("@alarm")
+    select_option "page:uso_prevalente", get("@habitual_vehicle_use")
+    select_option "page:km_anno", get("@km_per_yr")
+    click_option(get('@modification_made'))
+    click_option(get('@bersani'))
+    select_option "page:classeCU", get("@bm_assigned")
+    click_option(get('@subscriber_is_owner'))
+    if (page.get_attribute("#{@last_element}@value") == "0")
+      click_option(get('@client_type'))
+    end
+    click_option(get('@subscriber_is_driver'))
+
+    click_button 'page:buttonContinua'
+   	page_wait
 
   end
 
   def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    type_text("contentSubView:vehicleForm:chooseAuto:registration", get('@matriculation_date'))
 
-    select_brand
-    select_model
-    select_preparation
+    click_option(get('@driver_sex'))
+    type_text("page:conducente_nascita", get('@birth_date'))
+    click_option(get('@citizenship'))
+    if get('@citizenship') == "page:conducente_nazione:0" #ITALIA
+      select_option "page:provincia_di_nascita", get("@birth_province")
+      type_keys("page:comune_di_nascita", get('@birth_place'))
+      sleep @sleep*2
+      page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
+    else #ESTERO
+      select_option "page:conducente_principale_nazione_estera", get("@birth_state")
+      type_text("page:anno_residenza_italia", get('@italian_residence_starting_yrs'))
+    end
 
-    type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
-    type_text("contentSubView:vehicleForm:chooseAuto:insurableValue", get('@vehicle_value'))
-    click_option(get('@tow_hook'))
-    click_option(get('@vehicle_shelter'))
-    click_option(get('@number_plate_type'))
-    
-    click_button_item "contentSubView:vehicleForm:next"
+    click_button 'page:buttonContinua'
+
+    select_option "page:provincia_di_residenza", get("@residence_province")
+    type_keys("page:comune_di_residenza", get('@residence'))
+    sleep @sleep*2
+    page.click "//div[@id='risultatiSrchComRes']/ul/span/li"
+
+    type_text("page:toponimo_residenza", get('@toponym'))
+    type_text("page:indirizzo_residenza", get('@address_street'))
+    type_text("page:numero_residenza", get('@address_num'))
+    page.click 'page:cap_di_residenza'
+    select_option "page:cap_di_residenza", get("@owner_zip_code")
+
+    click_button 'page:buttonContinua2'
+
+    type_keys("page:professione_conducente_principale", get('@job'))
+    sleep @sleep*2
+    page.click "//div[@id='risultatiSrchProf']/ul/span/li"
+
+    select_option "page:stato_civile", get("@civil_status")
+    click_option(get('@cohabiting_children'))
+    type_text("page:eta_conseguimento_patente", get('@driving_license_yrs'))
+    page.fire_event("page:eta_conseguimento_patente", 'blur')
+    if is_present?("page:anno_conseguimento_patente")
+      type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
+      select_option "page:mese_conseguimento_patente", get("@driving_license_month_of_issue")
+    end
+    select_option "page:tipo_patente", get("@driving_license_type")
+    select_option "page:punti_patente", get("@driving_license_points")
+
+    click_button 'page:buttonContinua3'
     page_wait
 
   end
 
   def page_4
-    
+
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    click_button_item "//img[@alt='Calcola il tuo PREVENTIVO']"
+
+    click_option(get('@drunkenness_fine'))
+    click_option(get('@driving_license_suspension'))
+    click_option(get('@other_vehicle_use'))
+
+    click_button '//*[@class="continua_button"]/table/tbody/tr/td/a/img'#'page:buttonContinua6'
+
+    click_option(get('@claims_total_number'))
+    if (page.get_attribute("#{@last_element}@value") == "1")
+      select_option "page:numero_sinistri_cc", get("@nr_of_paid_claims_2_yr")
+      select_option "page:MeseSinistroConColpa1", get("@first_claim_month")
+      select_option "page:AnnoSinistroConColpa1", get("@first_claim_year")
+
+      if get("@nr_of_paid_claims_2_yr") == '2'
+        select_option "page:MeseSinistroConColpa2", get("@second_claim_month")
+        select_option "page:AnnoSinistroConColpa2", get("@second_claim_year")
+      end
+
+    end
+
+    click_button 'page:buttonContinua14'
+
+    type_text("page:cognome_contraente", get('@name'))
+    type_text("page:nome_contraente", get('@surname'))
+    type_text("page:email_contraente", get('@e_mail'))
+    type_text("page:prefisso_cellulare_contraente", get('@mobile_prefix'))
+    type_text("page:cellulare_contraente", get('@mobile_number'))
+
+    click_button 'page:buttonContinua3'
     page_wait
+
+  end
+
+  def page_5
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+
+    click_option(get('@driving_type'))
+    click_option(get('@payment'))
+    click_option('page:metodoDiPagamento2:0')
+
+
+    click_button 'page:buttonCalcolaPremioAppoggio'
+    page_wait
+
 
   end
 
@@ -230,32 +322,35 @@ class DialogoSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
-    when 'on'
-      sleep @sleep*2
-      select_option("//select[@name='contentSubView:quotationTabletForm:proposalTable:0:_id132']", get('@public_liability_indemnity_limit'))
-      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption')) 
+      when 'on'
+        sleep @sleep*2
+#        select_option("page:quota_info:0:tipoRCA", get('@public_liability_type'))
+        select_option("page:quota_info:0:massimaleRCA", get('@public_liability_indemnity_limit'))
 
-      uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-      uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-      uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-      uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-      uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-      uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-      uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
-      uncheck_checkbox(get('@easy_driver_web_id')) if is_checked?(get('@easy_driver_web_id'))
+      # we take simple RCA premium value so we don't need to uncheck anything
 
-      click_button_item "//img[@alt='Ricalcola']"
-      sleep @sleep*3
+        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
-      @last_element = get("@rca_premium_id") #//div[@id='sbox_Costo Annuale']/span - //div[@id='sbox_Costo Semestrale']/span
-      wait_for_elm @last_element
-      get_premium(@last_element)
-    else
-      raise RangeError, "RC cover cannot be off"
+        click_button "b_recalculate"
+        sleep @sleep*5
+
+        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+        wait_for_elm @last_value
+
+        get_premium(get("@rca_premium_id"))
+      else
+        raise RangeError, "RC cover cannot be off"
     end
 
   end
-  
+
   def open_page(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
@@ -306,10 +401,10 @@ class DialogoSect1 < Test::Unit::TestCase
     assert_equal page.get_value(@last_element), "off"
   end
 
-  def click_button_item(id, value = nil)
+  def click_button(id, value = nil)
     @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button/item element: [#{@last_element}]"}
-    page_click_button_item @last_element
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
+    page_click_button @last_element
   end
 
   def is_checked?(id, value = nil)
@@ -320,11 +415,11 @@ class DialogoSect1 < Test::Unit::TestCase
   end
 
   def page_wait
-    page.wait_for_page_to_load site.wait_for_page_to_load
+   page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
-	def page_click_button_item(element)
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button/item = #{element}"}
+	def page_click_button(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button = #{element}"}
 	  page.click element
 	end
 
@@ -345,12 +440,11 @@ class DialogoSect1 < Test::Unit::TestCase
 	def page_type(element, label)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
-    page.focus element
 	  page.type element, label
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
-	def page_keys(element, label)
+  def page_keys(element, label)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
     page.focus element
@@ -374,7 +468,7 @@ class DialogoSect1 < Test::Unit::TestCase
     assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
-	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless label =~ /regexpi/i unless label =~ /index=/i
+	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
   end
 
   def wait_for_elm(name)
@@ -386,23 +480,19 @@ class DialogoSect1 < Test::Unit::TestCase
   def is_present?(name)
 	  present = page.is_element_present name
     if present
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is present?: #{present}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
       visible = page.is_visible name
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is visible #{visible}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
     end
     return present
-  end
-
-  def assert_is_element_present(element)
-	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
   def get_premium(p)
 
     @last_element = p
     premium = page.get_text(@last_element)
-    assert premium.split[1] != nil, @last_element.inspect
-    assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    assert premium.split[0] != nil, @last_element.inspect
+    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
     premium = premium.split[1].gsub(".","")
     premium = premium.gsub(",",".")
 
@@ -412,37 +502,8 @@ class DialogoSect1 < Test::Unit::TestCase
 
   end
 
-  def select_brand
-
-    select_option "contentSubView:vehicleForm:chooseAuto:brands", get("@make")
-    sleep @sleep*2
-    
+  def assert_is_element_present(element)
+	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
   end
 
-  def select_model
-
-    select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
-    sleep @sleep*2
-    model = page.get_selected_label(@last_element)
-    page.focus @last_element
-    type_text(@last_element, model)
-    page.key_up("contentSubView:vehicleForm:chooseAuto:models","\\13" )
-    sleep @sleep*2
-
-  end
-
-#  def select_preparation
-#
-#    kw = "#{get("@kw")} KW"
-#    type_keys("preparations", get("@set_up"))
-#    sleep @sleep*2
-#    @last_element, @last_value = "//span/ul/li", "#{kw}"
-#    unless is_present?(@last_element)
-#      get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
-#      type_keys("preparations", @last_value)
-#    end
-#    click_button_item "//span/ul/li"
-#
-#  end
-#
 end

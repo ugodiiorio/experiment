@@ -9,6 +9,9 @@ class DialogoSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   FirstPolicy = 0..100
   Individual = 0..100
 
@@ -102,6 +105,8 @@ class DialogoSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
 
   def page_intro
 
@@ -123,7 +128,7 @@ class DialogoSect1 < Test::Unit::TestCase
 
       select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
       if page.get_selected_label(@last_element) =~ /almeno un anno/i
-        select_option("contentSubView:contentForm:sinistriCausati6", get('@nr_of_paid_claims_5_yr'))
+        select_option("contentSubView:contentForm:sinistriCausati6", get('@claims_total_number'))
         select_option("contentSubView:contentForm:anniAssicurati6", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
       else
         select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))
@@ -423,20 +428,6 @@ class DialogoSect1 < Test::Unit::TestCase
     type_text(@last_element, model)
     page.key_up("contentSubView:vehicleForm:chooseAuto:models","\\13" )
     sleep @sleep*2
-
-  end
-
-  def select_preparation
-
-    cv_kw = "#{get("@cv")} CV - #{get("@kw")} KW"
-    type_keys("preparations", get("@set_up"))
-    sleep @sleep*2
-    @last_element, @last_value = "//span/ul/li", "#{cv_kw}"
-    unless is_present?(@last_element)
-      get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
-      type_keys("preparations", @last_value)
-    end
-    click_button_item "//span/ul/li"
 
   end
 

@@ -139,9 +139,9 @@ class ConteSect1 < Test::Unit::TestCase
     select_option "page:alimentazione", get("@fuel")
     select_option "page:marca", get("@make")
     sleep @sleep*2
-    select_option "page:modelloAuto", get("@model")
+    select_model_set_up("page:modelloAuto", get("@model"))
     sleep @sleep*2
-    select_option "page:allestimento", get("@set_up")
+    select_model_set_up("page:allestimento", get("@set_up"))
 
     click_button 'page:continua_step01'
     sleep @sleep
@@ -457,6 +457,23 @@ class ConteSect1 < Test::Unit::TestCase
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
     end
     return present
+  end
+
+  def select_model_set_up(id, value)
+    @last_element, @last_value = id, (value =~ /index=/i)? value : value.split("|")[0]
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+
+    begin
+      page_select(@last_element, "label=#{@last_value}")
+    rescue Exception => ex
+      case value.split("|").size
+        when 1
+          raise ex
+        else
+          @last_value = "label=#{value.split("|")[1]}"
+          page_select @last_element, "#{@last_value}"
+      end
+    end
   end
 
   def get_premium(p)
