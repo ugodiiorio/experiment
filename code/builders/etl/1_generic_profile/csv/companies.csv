@@ -15,3 +15,4 @@ directline_provider_2#directline#url="http://www.directline.it/preventivi-assicu
 genertel_provider_2#genertel#url="https://www.genertel.it/WEBsgw/start?CONV_CODE=vprev0001&TYPE_CODE=01&CALLERURL=http://www.genertel.it/assicurazioni/index.jhtml&CONVENTION_CODE=WP0&SEGMENT_CODE=WP0&PROMO_CODE=WP0"
 zurich_connect_provider_2#zurich_connect#case sector; when "sect_1"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneAuto"; when "sect_2"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneMoto"; else; url=nil; end; url
 genialloyd_provider_2#genialloyd#url="http://www.genialloyd.it"
+zurich_provider_2#zurich#url="http://webquoting.zurich.it/IndexAction.do"
