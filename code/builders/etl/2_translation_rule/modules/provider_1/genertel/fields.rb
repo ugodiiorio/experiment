@@ -39,8 +39,9 @@ module Provider1Genertel
       {'driv_job_str' => 'avvocato'} => 'Libero professionista',
       {'driv_job_str' => 'commerciante'} => 'Commerciante/esercente',
       {'driv_job_str' => 'disoccupato'} => 'Non occupato/a',
-      {'driv_job_str' => 'imprenditore/industriale'} => 'Imprenditore',
+      {'driv_job_str' => 'imprenditore / industriale'} => 'Imprenditore',
       {'driv_job_str' => 'ingegnere'} => 'Altro',
+      {'driv_job_str' => 'agente o rappresent. di commercio'} => 'Agente/rappresentante',
 
       {'veh_num_of_owners_str' => '1'} => '//img',
 

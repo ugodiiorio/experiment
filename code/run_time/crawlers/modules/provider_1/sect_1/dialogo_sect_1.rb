@@ -428,7 +428,7 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def select_preparation
 
-    kw = "- #{get("@kw")} KW -"
+    kw = "#{get("@kw")} KW"
     type_keys("preparations", get("@set_up"))
     sleep @sleep*2
     @last_element, @last_value = "//span/ul/li", "#{kw}"
