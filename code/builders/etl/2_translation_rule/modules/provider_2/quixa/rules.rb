@@ -168,7 +168,7 @@ module Provider2Quixa
       'pol_RCA_on_off_str' => 'copy_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_renounce_compensation_str' => 'copy_field',
-      'pol_residence_province_str' => 'translate_field',
+      'pol_residence_province_str' => 'copy_field',
       'pol_residence_str' => 'copy_field',
       'pol_risk_certificate_str' => 'copy_field',
       'pol_road_assistance_code_str' => 'copy_field',
