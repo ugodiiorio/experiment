@@ -131,7 +131,7 @@ module FieldMappingProvider2Sect1
       'veh_capacity_num' => 'infield[:veh_capacity_num].strip',
       'veh_corrosive_oily_gas_liquid_transportation_str' => nil,
       'veh_cv_num' => 'infield[:veh_cv_num].strip',
-      'veh_fuel_str' => 'infield[:veh_fuel_str].strip.upcase',
+      'veh_fuel_str' => 'infield[:veh_fuel_str].strip.downcase',
       'veh_full_load_total_weight_num' => nil,
       'veh_gas_methane_supply_str' => '"no"',
       'veh_gprs_str' => '"no"',
