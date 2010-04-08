@@ -17,7 +17,7 @@ module Provider2Axa
       
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => 'regexpi:(3,000,000.*)+(\s)*(2,500,000.*)+(\s)*(500,000.*)+(\s)*$',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => 'regexpi:(6,000,000.*)+(\s)*(6,000,000.*)+(\s)*(6,000,000.*)+(\s)*$',
-      {'pol_public_liability_indemnity_limit_str' => '10,000,000'} => 'regexpi:(15,000,000.*)+(\s)*(15,000,000.*)+(\s)*(15,000,000.*)+(\s)*$',
+      {'pol_public_liability_indemnity_limit_str' => '10,000,000'} => 'regexpi:(10,000,000.*)+(\s)*(10,000,000.*)+(\s)*(10,000,000.*)+(\s)*$',
       
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
