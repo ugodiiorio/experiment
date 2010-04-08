@@ -120,7 +120,7 @@ module FieldMappingProvider2Sect1
       'pol_subscriber_is_driver_str' => 'if infield[:own_owner_sex_str].strip.upcase == "M"; "si"; elsif infield[:own_owner_sex_str].strip.upcase == "F"; "si"; else "no"; end',
       'pol_subscriber_is_holder_str' => '"si"',
       'pol_subscriber_is_owner_str' => 'if infield[:own_owner_sex_str].strip.upcase == "M"; "si"; elsif infield[:own_owner_sex_str].strip.upcase == "F"; "si"; else "no"; end',
-      'pol_type_of_contract_str' => '"polizza nuova"',
+      'pol_type_of_contract_str' => "'nuova polizza'",
       'pol_vehicle_continuous_use_no_of_mths_str' => nil,
       'veh_abs_str' => 'infield[:veh_abs_str].strip.downcase',
       'veh_accesories_value_str' => '"0"',
