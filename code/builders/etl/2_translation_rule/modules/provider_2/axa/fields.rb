@@ -34,15 +34,15 @@ module Provider2Axa
 
     }
 
-end
+  end
 
-def build_hash_sect_2()
+  def build_hash_sect_2()
 
-  @target_values = {}
+    @target_values = {}
 
-  @target_values = {
+    @target_values = {
 
-    {'driv_driving_experience_str' => 'si'} => 'Sì',
+      {'driv_driving_experience_str' => 'si'} => 'Sì',
       {'driv_driving_experience_str' => 'no'} => 'No',
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
@@ -81,17 +81,17 @@ def build_hash_sect_2()
       {'veh_fuel_str' => 'benzina'} => 'Benzina',
       {'veh_vehicle_type_str' => 'motociclo'} => 'Motociclo'
 
-  }
+    }
 
-end
-  
-def build_hash_sect_3()
+  end
 
-  @target_values = {}
+  def build_hash_sect_3()
 
-  @target_values = {
-      
-    {'own_owner_sex_str' => 'M'} => 'Maschio',
+    @target_values = {}
+
+    @target_values = {
+
+      {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
       {'pol_BM_assigned_str' => '1 da almeno 1 anno'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
@@ -127,17 +127,17 @@ def build_hash_sect_3()
       {'veh_vehicle_type_str' => 'ciclomotore'} => 'Ciclomotore',
       {'veh_fuel_str' => 'benzina'} => 'Benzina'
 
-  }
+    }
 
-end
+  end
 
-def build_hash_sect_4()
+  def build_hash_sect_4()
 
-  @target_values = {}
+    @target_values = {}
 
-  @target_values = {
+    @target_values = {
 
-    {'pol_client_type_str' => 'C'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input',
+      {'pol_client_type_str' => 'C'} => '/html/body/form/table/tbody/tr/td[2]/div/div[2]/table[3]/tbody/tr/td/div/table/tbody/tr[3]/th/div[2]/input',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Il contraente presenta l\'attestato di rischio',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
@@ -161,8 +161,8 @@ def build_hash_sect_4()
       {'veh_third_party_str' => 'Conto terzi'} => 'Conto terzi (cose)',
       {'veh_vehicle_type_str' => 'autocarro per trasporto persone o cose'} => 'Autocarro',
 
-    }
+      }
 
-end
+  end
 
 end
