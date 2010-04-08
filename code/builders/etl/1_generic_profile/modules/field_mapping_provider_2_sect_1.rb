@@ -91,7 +91,7 @@ module FieldMappingProvider2Sect1
       'pol_other_vehicle_use_str' => nil,
       'pol_partner_garages_str' => '"no"',
       'pol_passenger_str' => nil,
-      'pol_payment_str' => "carta di credito", 
+      'pol_payment_str' => '"carta di credito"',
       'pol_pejus_cu_str' => nil,
       'pol_policy_starting_date_day_str' => '"si calcola runtime"',
       'pol_policy_starting_date_month_str' => '"si calcola runtime"',
