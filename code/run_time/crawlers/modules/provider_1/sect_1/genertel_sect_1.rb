@@ -9,10 +9,13 @@ class GenertelSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   F4 = "\\115"
   NotIndividual = "C"
-  Other = 'Altro'
-  Debug = 0
+  Other = "Altro"
+  CompanyType = "Societa' a responsabilita limitata"
 
   def get(var)
     var_value = site.instance_variable_get(var)
@@ -106,6 +109,8 @@ class GenertelSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
 
   def page_intro
   
@@ -189,7 +194,7 @@ class GenertelSect1 < Test::Unit::TestCase
     case get('@owner_specification')
       when NotIndividual
         type_text("TBXXDP1XRagSociale", "#{get('@surname')} #{get('@name')}")
-        select_fake_option("CBXXDP1XNaturaGiuridica", get('@denomination_company'), "//body/div[8]/div/div")
+        select_fake_option("CBXXDP1XNaturaGiuridica", CompanyType, "//body/div[8]/div/div")
         type_text("TBXXDP1XPartitaIva", get('@vat_number'))
       else
         type_text("TBXXDP1XNome", get('@name'))
@@ -507,11 +512,11 @@ class GenertelSect1 < Test::Unit::TestCase
 
     type_text("TBXXDP3XNome", get('@name'))
     type_text("TBXXDP3XCognome", get('@surname'))
-    click_option(get('@driver_sex').split("|")[1])
+    get('@driver_sex').split("|").size < 2 ? raise(RangeError, "Missing or invalid driver sex!") : click_option(get('@driver_sex').split("|")[1])
     type_text("DBXXDP3XDataNascita", get('@birth_date'))
     type_text("TBXXDP3XLuogoNascita", get('@birth_place'))
     click_button_item "LBLXDP3XCalcCodFisc"
-    assert !60.times{ break if (page.get_value("TBXXDP3XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
+    assert !60.times{ break if (page.get_value("TBXXDP3XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale!"
     assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique Hometown"
     assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing Hometown"
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Codice Fiscale: #{page.get_value("TBXXDP3XCodFisc")}"}

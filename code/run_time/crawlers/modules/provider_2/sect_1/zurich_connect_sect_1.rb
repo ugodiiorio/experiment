@@ -9,6 +9,9 @@ class ZurichConnectSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   FirstTime = 0..100
   NotIndividual = true
 
@@ -104,6 +107,8 @@ class ZurichConnectSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
 
   def page_intro
 
@@ -175,9 +180,9 @@ class ZurichConnectSect1 < Test::Unit::TestCase
     sleep @sleep*2
     select_option("ddlMarca", get('@make'))
     sleep @sleep*2
-    select_option("ddlModello", get('@model'))
+    select_model_set_up("ddlModello", get('@model'))
     sleep @sleep*2
-    select_option("ddlAllestimento", get('@set_up'))
+    select_model_set_up("ddlAllestimento", get('@set_up'))
 
     click_button "Avanti"
     page_wait

@@ -9,6 +9,9 @@ class ConteSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   FirstPolicy = 0..100
   Individual = 0..100
 
@@ -100,6 +103,8 @@ class ConteSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
 
   def page_intro
 
@@ -457,23 +462,6 @@ class ConteSect1 < Test::Unit::TestCase
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
     end
     return present
-  end
-
-  def select_model_set_up(id, value)
-    @last_element, @last_value = id, (value =~ /index=/i)? value : value.split("|")[0]
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
-
-    begin
-      page_select(@last_element, "label=#{@last_value}")
-    rescue Exception => ex
-      case value.split("|").size
-        when 1
-          raise ex
-        else
-          @last_value = "label=#{value.split("|")[1]}"
-          page_select @last_element, "#{@last_value}"
-      end
-    end
   end
 
   def get_premium(p)
