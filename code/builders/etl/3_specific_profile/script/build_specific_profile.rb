@@ -85,7 +85,7 @@ def init()
   @log_level = logger_settings['ls_level'] || 2
   @datetime_format = logger_settings['ls_datetime_format'] || "%Y-%m-%d %H:%M:%S"
 
-  @id_profile, @profile_num, @row_num = 0, 0, 0
+  @id_profile, @ins_profile_num, @upd_profile_num, @row_num = 0, 0, 0
 
 end
 
@@ -262,8 +262,8 @@ end
 
 def summary()
 #  puts "Number of input rows parsed: #{@row_num}"
-#  puts "Number of profile rows inserted: #{@profile_num}"
-  puts "Number of profile rows updated: #{@profile_num}"
+  puts "Number of profile rows inserted: #{@ins_profile_num}"
+  puts "Number of profile rows updated: #{@upd_profile_num}"
 
 end
 
