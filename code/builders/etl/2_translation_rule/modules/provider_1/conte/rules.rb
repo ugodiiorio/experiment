@@ -48,7 +48,7 @@ module Provider1Conte
       'pol_how_do_you_know_the_company_str' => 'translate_field',
       'veh_habitual_vehicle_use_str' => 'translate_field',
       'veh_vehicle_shelter_str' => 'translate_field',
-      'pol_residence_str' => 'res=profilefield[:pol_residence_str]; res.gsub("VILLA D ALME", "VILLA D\'ALME");',
+      'pol_residence_str' => 'res=profilefield[:pol_residence_str]; res.gsub("VILLA D ALME", "VILLA D\'ALME"); res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI");',
       'own_owner_specification_str' => 'copy_field',
       'own_owner_residence_province_str' =>  'translate_field'   ,
       'own_owner_residence_str' =>  'copy_field',
