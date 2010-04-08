@@ -9,10 +9,13 @@ class GenertelSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   F4 = "\\115"
   NotIndividual = "C"
-  Other = 'Altro'
-  Debug = 0
+  Other = "Altro"
+  CompanyType = "Societa' a responsabilita limitata"
 
   def get(var)
     var_value = site.instance_variable_get(var)
@@ -106,6 +109,8 @@ class GenertelSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
 
   def page_intro
   
@@ -129,7 +134,8 @@ class GenertelSect1 < Test::Unit::TestCase
         select_fake_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXCUGenertel")
         if get('@nr_of_paid_claims_2_yr') == "0" && get('@bm_assigned') == "1"
           click_option(get('@bm_1_more_than_1_year'))
-          assert is_present?("HLPXDPOXClasseUnoXNota"), true, "Super Bonus Genertel must to be present" if @last_element =~ /ClasseUnoDomanda0/i
+          sleep @sleep*2
+          assert is_present?("HLPXDPOXClasseUnoXNota"), "Super Bonus Genertel must to be present" if @last_element =~ /ClasseUnoDomanda0/i
         end
         click_option(get('@current_policy_guarantee'))
       else
@@ -188,7 +194,7 @@ class GenertelSect1 < Test::Unit::TestCase
     case get('@owner_specification')
       when NotIndividual
         type_text("TBXXDP1XRagSociale", "#{get('@surname')} #{get('@name')}")
-        select_fake_option("CBXXDP1XNaturaGiuridica", get('@denomination_company'), "//body/div[8]/div/div")
+        select_fake_option("CBXXDP1XNaturaGiuridica", CompanyType, "//body/div[8]/div/div")
         type_text("TBXXDP1XPartitaIva", get('@vat_number'))
       else
         type_text("TBXXDP1XNome", get('@name'))
@@ -242,10 +248,12 @@ class GenertelSect1 < Test::Unit::TestCase
     click_button_item get('@subscriber_is_driver')
     click_button_item get('@cohabiting_children')
     click_button_item get('@driving_license_yrs')
-    if @last_element =~ /div[1]/i
+    if @last_element =~ /div\[1\]/i
       click_button_item get('@driver_less_25_yrs_license_less_2_yrs')
     end
     sleep @sleep
+
+    customary_driver_data if get('@owner_specification') == NotIndividual
 
     click_button_item "LBLXDCOXAvanti"
     page_wait
@@ -316,6 +324,7 @@ class GenertelSect1 < Test::Unit::TestCase
     sleep @sleep
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
   end
 
   def select_option(id, value = nil)
@@ -489,13 +498,28 @@ class GenertelSect1 < Test::Unit::TestCase
 
     type_text("TBXXDABXNome", get('@name'))
     type_text("TBXXDABXCognome", get('@surname'))
-    click_option(get('@driver_sex'))
+    click_option(get('@driver_sex').split("|")[0])
     type_text("DBXXDABXDataNascita", get('@birth_date'))
     type_text("TBXXDABXLuogoNascita", get('@birth_place'))
     click_button_item "LBLXDABXCalcCodFisc"
     assert !60.times{ break if (page.get_value("TBXXDABXCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
     assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique hometown"
     assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing hometown"
+
+  end
+
+  def customary_driver_data
+
+    type_text("TBXXDP3XNome", get('@name'))
+    type_text("TBXXDP3XCognome", get('@surname'))
+    get('@driver_sex').split("|").size < 2 ? raise(RangeError, "RC cover cannot be off") : click_option(get('@driver_sex').split("|")[1])
+    type_text("DBXXDP3XDataNascita", get('@birth_date'))
+    type_text("TBXXDP3XLuogoNascita", get('@birth_place'))
+    click_button_item "LBLXDP3XCalcCodFisc"
+    assert !60.times{ break if (page.get_value("TBXXDP3XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
+    assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique Hometown"
+    assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing Hometown"
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Codice Fiscale: #{page.get_value("TBXXDP3XCodFisc")}"}
 
   end
 

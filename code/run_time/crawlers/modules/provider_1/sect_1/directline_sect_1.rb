@@ -9,6 +9,9 @@ class DirectlineSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   FirstPolicy = 0..100
   Individual = 0..100
 
@@ -99,6 +102,8 @@ class DirectlineSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
 
   def page_intro
 
@@ -307,22 +312,22 @@ class DirectlineSect1 < Test::Unit::TestCase
     end
   end
 
-  def select_model_set_up(id, value)
-    @last_element, @last_value = id, (value =~ /index=/i)? value : value.split("|")[0]
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
-
-    begin
-      page_select(@last_element, "label=#{@last_value}")
-    rescue Exception => ex
-      case value.split("|").size
-        when 1
-          raise ex
-        else
-          @last_value = "label=#{value.split("|")[1]}"
-          page_select @last_element, "#{@last_value}"
-      end
-    end
-    
+#  def select_model_set_up(id, value)
+#    @last_element, @last_value = id, (value =~ /index=/i)? value : value.split("|")[0]
+#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+#
+#    begin
+#      page_select(@last_element, "label=#{@last_value}")
+#    rescue Exception => ex
+#      case value.split("|").size
+#        when 1
+#          raise ex
+#        else
+#          @last_value = "label=#{value.split("|")[1]}"
+#          page_select @last_element, "#{@last_value}"
+#      end
+#    end
+#
 #    option_array =[]
 #    option_array = page.get_select_options(@last_element)
 #    @num_of_el = 0
@@ -335,7 +340,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 #
 #    @num_of_el == option_array.length ? (@last_value = "label=#{value.split("|")[1]}" ;  page_select @last_element, "#{@last_value}" ) : ( page_select @last_element, "label=#{@last_value}" )
 #    assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
-  end
+#  end
 
   def type_text(id, value = nil)
     @last_element, @last_value = id, value
