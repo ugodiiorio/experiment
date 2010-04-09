@@ -6,8 +6,8 @@ module Provider2Zurich
 
     @target_values = {
       
-      {'veh_fuel_str' => 'Benzina'} => 'COD_TCMB_B',
-      {'veh_fuel_str' => 'Diesel'} => 'COD_TCMB_D',
+      {'veh_fuel_str' => 'benzina'} => 'COD_TCMB_B',
+      {'veh_fuel_str' => 'diesel'} => 'COD_TCMB_D',
       {'pol_risk_certificate_str' => 'si'} => 'CODPRO71_1',
       {'pol_BM_assigned_str' => '-1'} => '01',
       {'pol_BM_assigned_str' => '1'} => '02',
@@ -50,7 +50,7 @@ module Provider2Zurich
       {'pol_privacy_1_str' => 'id elemento web1'} => '//*[@id="check1"]',
       {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'AUTOVETTURA SERVIZIO PRIVATO',
       {'veh_vehicle_type_str' => 'autovettura'} => 'AUTOVETTURA',
-      {'pol_RCA_premium_id_str' => 'id elemento'} => '/html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => '//html/body/div/div/div/form/table[2]/tbody/tr[5]/td[2]/strong',
 
     }
 
