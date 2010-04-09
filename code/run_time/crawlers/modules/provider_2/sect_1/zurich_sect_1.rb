@@ -194,10 +194,15 @@ class ZurichSect1 < Test::Unit::TestCase
       type_text("NUM_SINI", get('@claims_total_number'))
       type_text("SINANN86", get('@nr_of_paid_claims_1_yr'))
       type_text("COD_LIM1", get('@number_of_ni_na_yrs_during_5_yrs'))
+    end
 
+    if page.get_value("DES_MODE").match('')
+      type_text("DES_MODE", get("@model"))
     end
 
     click_option(get('@fuel'))
+    type_text("POT_FISC", get('@cv'))
+    type_text("KW0_POTE", get('@kw'))
 
     page.click 'buttonMAX_SINI'
     page.wait_for_pop_up('DominiPopup', 30000)
@@ -215,6 +220,10 @@ class ZurichSect1 < Test::Unit::TestCase
     select_option "mm_DAT_1IMM", get("@matriculation_date_month")
     select_option "aaaa_DAT_1IMM", get("@matriculation_date_year")
 
+    if page.get_value("KG0_MASS").match('')
+      type_text("KG0_MASS", get("@full_load_total_weight"))
+    end
+
     page.click 'buttonCODNAZ74'
     page.wait_for_pop_up('DominiPopup', 30000)
     page.select_window('DominiPopup')
@@ -229,7 +238,7 @@ class ZurichSect1 < Test::Unit::TestCase
     page.click 'buttonCODIDE82'
     page.wait_for_pop_up('DominiPopup', 30000)
     page.select_window('DominiPopup')
-    select_option "CODNAZ74Domini", get("@residence_province")
+    select_option "CODIDE82Domini", get("@residence_province")
     page.click 'buttonCODIDE82'
     page.select_window(nil)
     
@@ -251,9 +260,6 @@ class ZurichSect1 < Test::Unit::TestCase
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'
-#        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
-#        wait_for_elm @last_value
-
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
