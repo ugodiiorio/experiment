@@ -277,7 +277,7 @@ module Provider2Linear
   end
 
   def build_hash_sect_2()
-
+ 
     @rule_values = Hash.new
 
     @rule_values ={}
@@ -287,23 +287,35 @@ module Provider2Linear
       'driv_citizenship_str' => 'copy_field',
       'driv_driver_sex_str' => 'translate_field',
       'own_owner_specification_str'  => 'copy_field',
+      'own_owner_sex_str' => 'translate_field',
+      
+      'own_owner_residence_str' =>  'copy_field',
+      
       'pol_bersani_ref_vehicle_insured_with_company_str' => 'translate_field',
       'pol_bersani_ref_vehicle_number_plate_str' => 'copy_field',
+  
       'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
-      'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
+      'pol_birth_date_month_str' => 'x=(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%-1m"); y= "index=" + x',
+      'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
+
       'pol_BM_assigned_str' => 'translate_field',
-      'pol_car_already_insured_with_company_str' => 'copy_field',
+      'pol_car_already_insured_with_company_str' => 'translate_field',
       'pol_client_type_str' => 'translate_field',
+      'pol_claims_total_number_malus_str'=> 'copy_field',
+      'pol_claims_total_number_str' => 'copy_field',
+      'pol_driver_is_owner_str' => 'translate_field',
       'pol_driver_less_than_26_yrs_str' => 'translate_field',
       'pol_how_do_you_know_the_company_str' => 'translate_field',
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'profilefield[:pol_bersani_str] == "no" ? translate_field : "Da assicurare secondo la legge Bersani"',
       'pol_leasing_str' => 'translate_field',
-      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%-1m"); y= "index=" + x',
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
-      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+
+      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length < 3 ? profilefield[:pol_matriculation_date_str] : Chronic.parse( profilefield[:pol_matriculation_date_str]).strftime("%d")',
+      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length < 3 ? profilefield[:pol_matriculation_date_str] : ( x= Chronic.parse( profilefield[:pol_matriculation_date_str]).strftime("%m") ; y= "index=" + x )',
+      'pol_matriculation_date_str' => 'copy_field',
+      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length < 3 ? profilefield[:pol_matriculation_date_str] : Chronic.parse(profilefield[:pol_matriculation_date_str]).strftime("%Y") ',
+
       'pol_nr_of_paid_claims_1_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_2_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_3_yr_str' => 'copy_field',
@@ -323,10 +335,11 @@ module Provider2Linear
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_residence_str' => 'copy_field',
       'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
+      'veh_model_str' => 'make=profilefield[:veh_model_str]; marca=profilefield[:veh_make_str]; all=profilefield[:veh_set_up_str]; if  marca == "BMW" ; regexp_mod = "regexpi:^" + all.split(" ")[0] else make= make.gsub(/à/,"a" ); make= make.gsub(/è/,"e" );make= make.gsub(/é/,"e" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/[0-9]+ª(\\s)+s.*/i, ""); make= make.gsub(/[0-9]+ª-*/i, ""); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "$"; end',
       'veh_set_up_str' => 'make=profilefield[:veh_set_up_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',
       'veh_vehicle_shelter_str' => 'translate_field',
       'veh_vehicle_type_str'  => 'copy_field',
-
+      'veh_vehicle_value_str' => 'copy_field',
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_on_off_str' => 'copy_field',
       'pol_road_assistance_web_id_str' => 'translate_field',

@@ -9,8 +9,10 @@ module FieldMappingProvider2Sect2
     @field_rule_values = {
       'driv_birth_place_str'  => 'infield[:pol_residence_str].strip.upcase' ,
       'driv_birth_state_str'  => '"ITALIA"' ,
-      'own_owner_residence_province_str'  => 'infield[:own_owner_residence_province_str].strip.upcase' ,
+      
       'own_owner_residence_str'  => 'infield[:own_owner_residence_str].strip.upcase' ,
+      'pol_residence_province_str'  => 'infield[:pol_residence_province_str].strip.upcase' ,
+      'pol_residence_str'  => 'infield[:pol_residence_str].strip.upcase' ,
       'pol_BM_1_more_than_1_year_str' => 'infield[:pol_BM_assigned_str].strip.to_i == 0 ? "si" : "no"',
       'pol_free_drive_str' => '"si"',
       'pol_defined_drive_str' => '"no"',
@@ -21,8 +23,8 @@ module FieldMappingProvider2Sect2
       'pol_motorcycle_driving_ability_str'  => '"si"',
       'pol_nr_of_yrs_without_claims_str'  => 'infield[:pol_claims_total_number_str].to_i == 1 ? X=4 : x=5;' ,
       'pol_number_of_NI_NA_yrs_during_5_yrs_str'  => 'sitass=infield[:pol_insurance_situation_str];  if sitass=~/1a*\\s*[(A-Za-z0-9)*(\\s)*]*/ ; x= 5; else x=0 end;' ,
-      
 
+      'pol_driver_is_owner_str'  => 'if infield[:pol_client_type_str].strip.downcase == "persona fisica"; "si"; else "no"; end' ,
 
       'driv_birth_province_str' => 'infield[:pol_residence_province_str].strip.upcase',
       'driv_driver_sex_str'  => 'infield[:driv_driver_sex_str].strip.upcase' ,

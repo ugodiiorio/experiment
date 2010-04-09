@@ -26,6 +26,7 @@ include KteExt
 class KTE
   attr_reader :logger, :company_group, :company, :provider, :sector, :working_set, :rate, :rate_date
   attr_reader :log_device, :log_level
+  attr_reader :use_case
   attr_reader :port, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
   attr_reader :db_host, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
   attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result, :max_profiles, :sleep_typing, :sleep_between_profiles
@@ -70,7 +71,7 @@ class KTE
         raise ex
       ensure
           config = {:general_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
-          general_settings = {:gs_profile_sleep_in_seconds =>nil, :gs_profile_id =>nil,
+          general_settings = {:gs_profile_sleep_in_seconds =>nil, :gs_profile_id =>nil, :gs_use_case =>nil,
                               :gs_typing_sleep_in_seconds =>nil, :gs_max_number_of_profiles =>nil} unless general_settings
           logger_settings = {:ls_device =>nil, :ls_level =>nil,
                              :ls_shift_age =>nil, :ls_shift_size =>nil,
@@ -86,18 +87,19 @@ class KTE
                           :as_working_set_id =>nil} unless app_settings
       end
 
-      @sleep_typing					        = ARGV[6] || general_settings['gs_typing_sleep_in_seconds'] || 1
-      @sleep_between_profiles       = ARGV[8] || general_settings['gs_profile_sleep_in_seconds'] || "10" # sleep in seconds between one profile execution and the next
-      @max_profiles                 = ARGV[9] || general_settings['gs_max_number_of_profiles'] || "1" # max number of profiles to execute in the running task
-      @profile                    	= ARGV[0] || general_settings['gs_profile_id'] || "100"
+      @sleep_typing					        = ARGV[6]  || general_settings['gs_typing_sleep_in_seconds'] || 1
+      @sleep_between_profiles       = ARGV[8]  || general_settings['gs_profile_sleep_in_seconds'] || "10" # sleep in seconds between one profile execution and the next
+      @max_profiles                 = ARGV[9]  || general_settings['gs_max_number_of_profiles'] || "1" # max number of profiles to execute in the running task
+      @profile                    	= ARGV[0]  || general_settings['gs_profile_id'] || "100"
+      @use_case                     = ARGV[28] || general_settings['gs_use_case'] || ''
 
       @company_group     			      = ARGV[23] || app_settings['as_company_group_id'] || "all_provider_1"
-      @company 	        			      = ARGV[1] || app_settings['as_company_id'] || "quixa"
+      @company 	        			      = ARGV[1]  || app_settings['as_company_id'] || "quixa"
       @provider 	        			    = ARGV[20] || app_settings['as_provider_id'] || "quixa"
       @sector 				              = ARGV[21] || app_settings['as_sector_id'] || "sect_1"
       @working_set 	         			  = ARGV[22] || app_settings['as_working_set_id'] || "prov_1_20100201"
-      @rate	                        = ARGV[7] || app_settings['as_rate_id'] || "today"
-      @start_date                    = ARGV[19] || app_settings['as_rate_date'] || 'tomorrow'
+      @rate	                        = ARGV[7]  || app_settings['as_rate_id'] || "today"
+      @start_date                   = ARGV[19] || app_settings['as_rate_date'] || 'tomorrow'
       @rate_date                    = Chronic.parse(@start_date)
 
       @log_device                   = ARGV[12] || logger_settings['ls_device'] || "/home/notroot/git/KTE/code/run_time/log/"
@@ -105,14 +107,14 @@ class KTE
       @datetime_format              = ARGV[14] || logger_settings['ls_datetime_format'] || "%Y-%m-%d %H:%M:%S"
     #  shift_age = logger_settings['ls_shift_age'] || 'daily'
     #  shift_size = logger_settings['ls_shift_size'] || 1048576
-      @port 				                = ARGV[2] || selenium_settings['ss_selenium_port'] || "4444"
+      @port 				                = ARGV[2]  || selenium_settings['ss_selenium_port'] || "4444"
       @selenium_io                  = ARGV[15] || selenium_settings['ss_io_device'] || STDOUT
       @selenium_out_level           = ARGV[16] || selenium_settings['ss_output_level'] || 3
       @timeout_in_sec               = ARGV[10] || selenium_settings['ss_timeout_in_seconds'] || 30
       @wait_for_page_to_load        = ARGV[11] || selenium_settings['ss_wait_for_page_to_load'] || 30000
       @browser_type 			          = ARGV[24] || selenium_settings['ss_browser_type'] || "*chrome"
 
-      @db_host						          = ARGV[5] || database_settings['ds_db_host'] || "localhost"
+      @db_host						          = ARGV[5]  || database_settings['ds_db_host'] || "localhost"
       @db_conn_user                 = ARGV[17] || database_settings['ds_conn_user'] || 'kte'
       @db_conn_pwd                  = ARGV[18] || database_settings['ds_conn_pwd'] || ''
 
@@ -120,7 +122,12 @@ class KTE
       @db_monitor                   = ARGV[26] || database_settings['ds_db_monitor'] || 'kte_monitor'
       @db_target                    = ARGV[27] || database_settings['ds_db_target'] || 'kte_target'
 
-      @log_device += "#{@provider}_#{@sector}_#{@company}.log" unless @log_device == STDOUT
+      case @use_case.empty?
+        when true
+          @log_device += "#{@provider}_#{@sector}_#{@company}.log" unless @log_device == STDOUT
+        else
+          @log_device += "#{@provider}_#{@use_case}.log" unless @log_device == STDOUT
+      end
 #      @selenium_io += @provider + @sector + @company + ".run.txt" unless @selenium_io == STDOUT
     end
   end
