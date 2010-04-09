@@ -230,7 +230,7 @@ AS
         veh_set_up_str,
         veh_vehicle_shelter_str,
         veh_vehicle_type_str,
-        veh_vehicle_value_str
+        veh_vehicle_value
     FROM
         kte_driver.company_insurance_profiles
     WHERE
