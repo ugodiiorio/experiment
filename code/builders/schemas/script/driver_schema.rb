@@ -743,7 +743,7 @@ class BuildDriverSchema
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
     mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_2_input_file (
-        pol_provider_company_id_str   VARCHAR(128),
+        pol_provider_company_id_str   VARCHAR(128), 
         pol_record_id_str VARCHAR(32) NOT NULL,
         pol_policy_starting_date_str VARCHAR(128),
         veh_make_str VARCHAR(128),

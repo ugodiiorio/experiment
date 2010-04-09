@@ -64,7 +64,7 @@ class LinearSect2 < Test::Unit::TestCase
   end
 
   def teardown
-	  @selenium_driver.close_current_browser_session if @selenium_driver
+	 # @selenium_driver.close_current_browser_session if @selenium_driver
     #    assert_equal [], @verification_errors
   end
 
