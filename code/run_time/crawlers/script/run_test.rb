@@ -133,6 +133,7 @@ class RunTest
       if result.passed?
         db_target = db_connect(@kte.db_target)
         insert_premium(db_target)
+        store_parameters(db_target) if @kte.store_params
 
         update_result(db_monitor, OK, @kte.test_result, RUN)
         @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{"@"*20} PROFILE #{@kte.profile}-[#{@kte.record}] EXECUTED WITH PREMIUM #{@kte.rc_premium} € #{"@"*20}"}
@@ -144,10 +145,10 @@ class RunTest
       end
 
     rescue Sequel::DatabaseError => e
-      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => MYSQL ERROR #{e.class} with message: #{e}"} if @logger
+      @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{"@"*20} MYSQL ERROR #{e.class} with message: #{e} - EXECUTION FOR PROFILE #{@kte.profile}-#{@kte.record} ABORTED #{"@"*20}"} if @logger
       raise e
     rescue Exception => ex
-      @logger.fatal("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class} with message: #{ex.message}"} if @logger
+      @logger.fatal("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{"@"*20} #{ex.class} with message: #{ex.message} - EXECUTION FOR PROFILE #{@kte.profile}-#{@kte.record} ABORTED #{"@"*20}"} if @logger
       raise ex
     ensure
       db_disconnect(db_monitor) if db_monitor

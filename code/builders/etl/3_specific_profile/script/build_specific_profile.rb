@@ -263,7 +263,7 @@ end
 def summary()
 #  puts "Number of input rows parsed: #{@row_num}"
   puts "Number of profile rows inserted: #{@ins_profile_num}"
-  puts "Number of profile rows updated: #{@upd_profile_num}"
+  puts "Number of profile fields updated: #{@upd_profile_num}"
 
 end
 

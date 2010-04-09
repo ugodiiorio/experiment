@@ -170,6 +170,28 @@ module DbSetters
 
   end
 
+  def store_parameters(db)
+
+    db.transaction do
+      ps = db[:rate_parameters].prepare(:insert, :insert_for_premium,
+                                      :key_insurance_profiles_id_num => :$p1,
+                                      :key_provider_id_str => :$p2,
+                                      :key_sector_id_str => :$p3,
+                                      :key_company_id_str => :$p4,
+                                      :key_working_set_id_str => :$p5,
+                                      :key_rate_id_str => :$p6,
+                                      :key_cover_id_str => :$p7,
+                                      :record_id_str => :$p8,
+                                      :car_make_str => :$p9,
+                                      :car_model_str => :$p10,
+                                      :car_preparation_str => :$p11,
+                                      :job_str => :$p12)
+      ps.call(:p1=>@kte.profile, :p2=>@kte.provider, :p3=>@kte.sector, :p4=>@kte.company, :p5=>@kte.working_set, :p6=>@kte.rate, 
+              :p7=>@kte.rc_cover_code, :p8=>@kte.record, :p9=>@kte.car_make, :p10=>@kte.car_model, :p11=>@kte.car_preparation, :p12=>@kte.job)
+    end
+
+  end
+
   def select_sector(db, v)
     ds = db.from(v).filter(:key_insurance_profiles_id_num => :$p1,
                                     :key_provider_id_str => :$p2,

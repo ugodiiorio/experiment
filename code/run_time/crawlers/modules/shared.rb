@@ -52,8 +52,23 @@ module Shared
         else
           @last_value = "label=#{value.split("|")[1]}"
           page_select @last_element, "#{@last_value}"
-          @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched! Using secondary regex value"}
+          @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched! Using secondary regex value with selected label #{page.get_selected_label(@last_element)}"}
       end
+    end
+  end
+
+  def store_parameter(parameter, value)
+
+    case parameter
+      when :make
+        @kte.car_make = value
+      when :model
+        @kte.car_model = value
+      when :preparation
+        @kte.car_preparation = value
+      when :job
+        @kte.job = value
+      else
     end
   end
 
