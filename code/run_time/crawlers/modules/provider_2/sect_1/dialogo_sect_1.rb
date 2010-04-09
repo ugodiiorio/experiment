@@ -9,6 +9,9 @@ class DialogoSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   FirstPolicy = 0..100
   Individual = 0..100
 
@@ -102,6 +105,8 @@ class DialogoSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
 
   def page_intro
 
@@ -120,10 +125,10 @@ class DialogoSect1 < Test::Unit::TestCase
     click_option(get('@insurance_situation'))
 
     if (page.get_attribute("#{@last_element}@value") == "3")
-
+      
       select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
       if page.get_selected_label(@last_element) =~ /almeno un anno/i
-        select_option("contentSubView:contentForm:sinistriCausati6", get('@nr_of_paid_claims_5_yr'))
+        select_option("contentSubView:contentForm:sinistriCausati6", get('@claims_total_number'))
         select_option("contentSubView:contentForm:anniAssicurati6", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
       else
         select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))
@@ -142,7 +147,7 @@ class DialogoSect1 < Test::Unit::TestCase
   end
 
   def page_2
-
+    
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_option(get('@driving_type'))
     sleep @sleep*2
@@ -206,14 +211,14 @@ class DialogoSect1 < Test::Unit::TestCase
     click_option(get('@tow_hook'))
     click_option(get('@vehicle_shelter'))
     click_option(get('@number_plate_type'))
-
+    
     click_button_item "contentSubView:vehicleForm:next"
     page_wait
 
   end
 
   def page_4
-
+    
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_button_item "//img[@alt='Calcola il tuo PREVENTIVO']"
     page_wait
@@ -228,7 +233,7 @@ class DialogoSect1 < Test::Unit::TestCase
     when 'on'
       sleep @sleep*2
       select_option("//select[@name='contentSubView:quotationTabletForm:proposalTable:0:_id132']", get('@public_liability_indemnity_limit'))
-      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption'))
+      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption')) 
 
       uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
       uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
@@ -250,7 +255,7 @@ class DialogoSect1 < Test::Unit::TestCase
     end
 
   end
-
+  
   def open_page(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
@@ -411,7 +416,7 @@ class DialogoSect1 < Test::Unit::TestCase
 
     select_option "contentSubView:vehicleForm:chooseAuto:brands", get("@make")
     sleep @sleep*2
-
+    
   end
 
   def select_model
@@ -426,18 +431,18 @@ class DialogoSect1 < Test::Unit::TestCase
 
   end
 
-  def select_preparation
-
-    cv_kw = "#{get("@cv")} CV - #{get("@kw")} KW"
-    type_keys("preparations", get("@set_up"))
-    sleep @sleep*2
-    @last_element, @last_value = "//span/ul/li", "#{cv_kw}"
-    unless is_present?(@last_element)
-      get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
-      type_keys("preparations", @last_value)
-    end
-    click_button_item "//span/ul/li"
-
-  end
-
+#  def select_preparation
+#
+#    kw = "#{get("@kw")} KW"
+#    type_keys("preparations", get("@set_up"))
+#    sleep @sleep*2
+#    @last_element, @last_value = "//span/ul/li", "#{kw}"
+#    unless is_present?(@last_element)
+#      get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
+#      type_keys("preparations", @last_value)
+#    end
+#    click_button_item "//span/ul/li"
+#
+#  end
+#
 end

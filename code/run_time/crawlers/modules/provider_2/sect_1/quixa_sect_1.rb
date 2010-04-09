@@ -9,6 +9,9 @@ class QuixaSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   FirstPolicy = 0..100
   Individual = 0..100
   
@@ -101,6 +104,8 @@ class QuixaSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
 
   def page_1
 
@@ -110,9 +115,9 @@ class QuixaSect1 < Test::Unit::TestCase
 
     type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", get('@matriculation_date'))
 
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model'))
+    select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model'))
 
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
+    select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlFuelType", get('@fuel'))
 
@@ -185,7 +190,7 @@ class QuixaSect1 < Test::Unit::TestCase
     case @last_value
       when 'on'
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@instalment'))
+#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@instalment'))
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@payment'))
 
         uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))

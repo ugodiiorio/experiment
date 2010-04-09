@@ -9,6 +9,9 @@ class GenialloydSect1 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   FirstPolicy = 0..100
   Individual = 0..100
 
@@ -102,6 +105,8 @@ class GenialloydSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
 
   def page_intro
 
@@ -161,9 +166,9 @@ class GenialloydSect1 < Test::Unit::TestCase
 
     select_option "marca", get("@make")
     sleep @sleep*2
-    select_option "modello", get("@model")
+    select_model_set_up("modello", get("@model"))
     sleep @sleep*2
-    select_option "selAllestimento", get("@set_up")
+    select_model_set_up("selAllestimento", get("@set_up"))
     click_option(get('@gas_methane_supply'))
     select_option "antifurto", get("@alarm")
 

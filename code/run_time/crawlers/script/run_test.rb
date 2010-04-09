@@ -12,16 +12,10 @@ require "test/unit/ui/console/testrunner"
 class RunTest
   attr_reader :kte, :browser, :host, :port, :wait_for_page_to_load, :timeout_in_secs, :url
 
-  MODULE_FOLDER, UTILS = 'modules', 'utils.rb'
-  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
-#  UTILS = 'utils.rb'
+  TEST_CASE_FOLDER, USE_CASE_FOLDER = 'modules', 'use_case'
+  TC_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', TEST_CASE_FOLDER)
+  UC_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', USE_CASE_FOLDER)
   KO, OK, RUN, FREE = "KO", "OK", "RUN", "FREE"
-#  OK = "OK"
-#  RUN = "RUN"
-#  FREE = "FREE"
-
-#  require("#{File.join(DLN_LIBRARY_PATH)}/#{UTILS}")
-#  include Utils
 
 	def initialize(kte = nil)
 
@@ -112,13 +106,19 @@ class RunTest
     @kte = @@kte
     begin
 
-      selenium_class = ("#{@kte.company}_#{@kte.sector}").camelize
-
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Starting Selenium Page at #{Time.new().to_s()} for profile #{@kte.profile}"}
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Test case log file initializing ..."}
 
 #      start_selenium
-      require("#{File.join(DLN_LIBRARY_PATH, @kte.provider, @kte.sector)}/#{@kte.company}_#{@kte.sector}.rb")
+      case @kte.use_case.empty?
+        when true
+          selenium_class = ("#{@kte.company}_#{@kte.sector}").camelize
+          require("#{File.join(TC_LIBRARY_PATH, @kte.provider, @kte.sector)}/#{@kte.company}_#{@kte.sector}.rb")
+        else
+          selenium_class = ("#{@kte.company}_#{@kte.use_case}").camelize
+          require("#{File.join(UC_LIBRARY_PATH, @kte.provider)}/#{@kte.company}_#{@kte.use_case}.rb")
+      end
+
       test = Test::Unit::UI::Console::TestRunner.new Kernel.const_get(selenium_class)
       result = test.start
       test_errors = result.instance_variable_get("@errors")[0]
