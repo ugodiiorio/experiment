@@ -52,6 +52,7 @@ module Shared
         else
           @last_value = "label=#{value.split("|")[1]}"
           page_select @last_element, "#{@last_value}"
+          @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched! Using secondary regex value"}
       end
     end
   end
