@@ -80,7 +80,7 @@ class QuixaSect2 < Test::Unit::TestCase
 
     begin
       @last_element, @last_value = nil, nil
-
+      page_0
       page_1
       page_2
       page_3
@@ -107,19 +107,22 @@ class QuixaSect2 < Test::Unit::TestCase
   require("#{DLN_LIBRARY_PATH}/#{SHARED}")
   include Shared
 
-  def page_1
+  def page_0
 
     open_page(@url) #"http://www.quixa.it/simulator.aspx?SimObject=MOTORCYCLE"
 
     click_option(get('@vehicle_type'))
 
     page_click("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnCreateSimulation")
+  end
+
+  def page_1
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlBrand", get('@make'))
 
     type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_txt1stPlate", get('@matriculation_date'))
 
-    select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlModel", get('@model')) if(get('@model') )
+    select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlModel", get('@model')) 
 
     select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlVersion", get('@set_up'))
 
