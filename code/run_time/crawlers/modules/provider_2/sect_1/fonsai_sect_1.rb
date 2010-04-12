@@ -1,16 +1,15 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				26/03/2010						              #
+#				12/04/2010						              #
 #############################################
 
-class ConteSect1 < Test::Unit::TestCase
+require 'gtk2'
+
+class FonsaiSect1 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
-
-  SHARED = 'shared.rb'
-  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
 
   FirstPolicy = 0..100
   Individual = 0..100
@@ -76,13 +75,10 @@ class ConteSect1 < Test::Unit::TestCase
     begin
       @last_element, @last_value = nil, nil
 
-      page_intro
       page_1
-      page_2
-      page_3
-      page_4
-      page_5
-      page_premium
+#      page_2
+#      page_3
+#      page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -103,221 +99,180 @@ class ConteSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
-  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
-  include Shared
-
-  def page_intro
-
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    
-    open_page(@url)
-   	page_wait
-
-  end
 
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    select_option "page:text_1CNSC", get("@how_do_you_know_the_company")
-    click_option(get('@insurance_situation'))
-    if (page.get_attribute("#{@last_element}@value") == "-1")
-      click_option(get('@new_used_vehicle'))
-    end
-    click_option(get('@privacy_1'))
-
-    click_button 'page:buttonContinua'
+    open_page(@url)
    	page_wait
-    
+
+    select_option "vehicleSector", get('property_type_to_be_insured')
+    select_option "tipoVeicolo", get('vehicle_type')
+    select_option "usoVeicolo", get('vehicle_use')
+    select_option "situation", get('@insurance_situation')
+    click_button "input"
+    page_wait
+
   end
 
   def page_2
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    type_text("page:dataEffetto", @rate_date)
-    select_option "page:mese_immatricolazione", get("@matriculation_date_month")
-    type_text("page:anno_immatricolazione", get("@matriculation_date_year"))
-    type_text("page:anno_acquisto", get("@purchase_date_year"))
-    select_option "page:alimentazione", get("@fuel")
-    select_option "page:marca", get("@make")
-    sleep @sleep*2
-    select_model_set_up("page:modelloAuto", get("@model"))
-    sleep @sleep*2
-    select_model_set_up("page:allestimento", get("@set_up"))
+    select_option "tip_veic", get("@property_type_to_be_insured")
+    select_option "frm_contr", get("@quotation")
 
-    click_button 'page:continua_step01'
-    sleep @sleep
+    wait_for_elm('buttonCOD_MARC')
+    page.click 'buttonCOD_MARC'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "COD_MARCDomini", get("@make")
+    page.click 'buttonCOD_MARC'
+    page.select_window(nil)
 
-    type_text("page:valore_veicolo", get('@vehicle_value'))
-    page.fire_event 'page:valore_veicolo', 'blur'
-    select_option "page:ricovero_notturno", get("@vehicle_shelter")
-    select_option "page:antifurto", get("@alarm")
-    select_option "page:uso_prevalente", get("@habitual_vehicle_use")
-    select_option "page:km_anno", get("@km_per_yr")
-    click_option(get('@modification_made'))
-    click_option(get('@bersani'))
-    select_option "page:classeCU", get("@bm_assigned")
-    click_option(get('@subscriber_is_owner'))
+    page.click 'buttonCOD_MODE'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "COD_MODEDomini", get("@model")
+    page.click 'buttonCOD_MODE'
+    page.select_window(nil)
 
-    if (page.get_attribute("#{@last_element}@value") == "0")
-      click_option(get('@client_type'))
+    if get("@model").match('altro') == nil
+      page.click 'buttonCOD_ALLE'
+      page.wait_for_pop_up('DominiPopup', 30000)
+      page.select_window('DominiPopup')
+      select_option "COD_ALLEDomini", get("@set_up")
+      page.click 'buttonCOD_ALLE'
+      page.select_window(nil)
     end
 
-    click_option(get('@subscriber_is_driver'))
+    click_option(get('@client_type'))
+    if (page.get_attribute("#{@last_element}@id") == "TIP_PERS_F")
+      click_option(get('@owner_sex'))
+      select_option "gg_DAT_NASC", get("@birth_date_day")
+      select_option "mm_DAT_NASC", get("@birth_date_month")
+      select_option "aaaa_DAT_NASC", get("@birth_date_year")
 
-    click_button 'page:buttonContinua'
+      page.click 'buttonCODPRO35'
+      page.wait_for_pop_up('DominiPopup', 30000)
+      page.select_window('DominiPopup')
+      select_option "CODPRO35Domini", get("@job")
+      page.click 'buttonCODPRO35'
+      page.select_window(nil)
+    else
+      page.click 'buttonCODPRO35'
+      page.wait_for_pop_up('DominiPopup', 30000)
+      page.select_window('DominiPopup')
+      select_option "CODPRO35Domini", get("@denomination_company")
+      page.click 'buttonCODPRO35'
+      page.select_window(nil)
+    end
+
+    click_option(get('@type_of_contract'))
+
+    page.click 'buttonFLG_RISC'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "FLG_RISCDomini", get("@insurance_situation")
+    page.click 'buttonFLG_RISC'
+    page.select_window(nil)
+
+    click_option(get('@heir'))
+
+    click_button 'Button2'
    	page_wait
-    
+
   end
 
   def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    click_option(get('@driver_sex'))
-    type_text("page:conducente_nascita", get('@birth_date'))
-    click_option(get('@citizenship'))
+    if get('@insurance_situation') =~ /proveniente/i
+      click_option(get('@risk_certificate'))
 
-    if get('@citizenship') == "page:conducente_nazione:0" #ITALIA
-      select_option "page:provincia_di_nascita", get("@birth_province")
-      type_keys("page:comune_di_nascita", get('@birth_place'))
-      sleep @sleep
-      page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
-    else #ESTERO
-      select_option "page:conducente_principale_nazione_estera", get("@birth_state")
-      type_text("page:anno_residenza_italia", get('@italian_residence_starting_yrs'))
+      page.click 'buttonCIP_CLAS'
+      page.wait_for_pop_up('DominiPopup', 30000)
+      page.select_window('DominiPopup')
+      select_option "CIP_CLASDomini", get("@bm_assigned")
+      page.click 'buttonCIP_CLAS'
+      page.select_window(nil)
+
+      type_text("NUM_SINI", get('@claims_total_number'))
+      type_text("SINANN86", get('@nr_of_paid_claims_1_yr'))
+      type_text("COD_LIM1", get('@number_of_ni_na_yrs_during_5_yrs'))
     end
 
-    click_button 'page:buttonContinua'
-    sleep @sleep
-
-    select_option "page:provincia_di_residenza", get("@residence_province")
-
-    type_keys("page:comune_di_residenza", get('@residence'))
-    sleep @sleep
-    page.click "//ul[@id='ulResult']/span[1]/li"
-    assert_equal page.get_value(@last_element).upcase, @last_value.upcase
-
-    type_text("page:toponimo_residenza", get('@toponym'))
-    type_text("page:indirizzo_residenza", get('@address_street'))
-    type_text("page:numero_residenza", get('@address_num'))
-    select_option "page:cap_di_residenza", get("@owner_zip_code"), "value"
-
-    click_button 'page:buttonContinua2'
-    sleep @sleep
-
-    type_keys("page:professione_conducente_principale", get('@job'))
-    sleep @sleep
-    page.click "//div[@id='risultatiSrchProf']/ul/span/li"
-
-    select_option "page:stato_civile", get("@civil_status")
-    click_option(get('@cohabiting_children'))
-    type_text("page:eta_conseguimento_patente", get('@driving_license_yrs'))
-    page.fire_event("page:eta_conseguimento_patente", 'blur')
-
-    if is_present?("page:anno_conseguimento_patente")
-      type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
-      select_option "page:mese_conseguimento_patente", get("@driving_license_month_of_issue")
+    if page.get_value("DES_MODE").match('')
+      type_text("DES_MODE", get("@model"))
     end
 
-    select_option "page:tipo_patente", get("@driving_license_type")
-    select_option "page:punti_patente", get("@driving_license_points")
+    click_option(get('@fuel'))
+    type_text("POT_FISC", get('@cv'))
+    type_text("KW0_POTE", get('@kw'))
 
-    click_button 'page:buttonContinua3'
-    page_wait
+    page.click 'buttonMAX_SINI'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "MAX_SINIDomini", get("@public_liability_indemnity_limit")
+    page.click 'buttonMAX_SINI'
+    page.select_window(nil)
 
-  end
+    click_option(get('@defined_drive'))
+    click_option(get('@exclusive_drive'))
+    click_option(get('@free_drive'))
+    click_option(get('@tow_hook'))
 
-  def page_4
+    select_option "gg_DAT_1IMM", get("@matriculation_date_day")
+    select_option "mm_DAT_1IMM", get("@matriculation_date_month")
+    select_option "aaaa_DAT_1IMM", get("@matriculation_date_year")
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-    
-    click_option(get('@drunkenness_fine'))
-    click_option(get('@driving_license_suspension'))
-    click_option(get('@other_vehicle_use'))
-
-#    click_button '//*[@class="continua_button"]/table/tbody/tr/td/a/img'#'page:buttonContinua6'
-    is_present?("page:buttonContinua6") ? click_button("page:buttonContinua6") : click_button("page:buttonContinua198")
-    sleep @sleep
-
-    click_option(get('@claims_total_number'))
-
-    if (page.get_attribute("#{@last_element}@value") == "1")
-      select_option "page:numero_sinistri_cc", get("@nr_of_paid_claims_2_yr")
-      select_option "page:MeseSinistroConColpa1", get("@first_claim_month")
-      select_option "page:AnnoSinistroConColpa1", get("@first_claim_year")
-
-      if get("@nr_of_paid_claims_2_yr") == '2'
-        select_option "page:MeseSinistroConColpa2", get("@second_claim_month")
-        select_option "page:AnnoSinistroConColpa2", get("@second_claim_year")
-      end
-
+    if page.get_value("KG0_MASS").match('')
+      type_text("KG0_MASS", get("@full_load_total_weight"))
     end
 
-    click_button 'page:buttonContinua14'
-    sleep @sleep
+    page.click 'buttonCODNAZ74'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "CODNAZ74Domini", get("@citizenship")
+    page.click 'buttonCODNAZ74'
+    page.select_window(nil)
 
-    type_text("page:cognome_contraente", get('@name'))
-    type_text("page:nome_contraente", get('@surname'))
-    type_text("page:email_contraente", get('@e_mail'))
-    type_text("page:prefisso_cellulare_contraente", get('@mobile_prefix'))
-    type_text("page:cellulare_contraente", get('@mobile_number'))
+    select_option "gg_DATDIN87", get("@birth_date_day")
+    select_option "mm_DATDIN87", get("@birth_date_month")
+    select_option "aaaa_DATDIN87", get("@birth_date_year")
 
-    click_button 'page:buttonContinua3'
-    page_wait
+    page.click 'buttonCODIDE82'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "CODIDE82Domini", get("@residence_province")
+    page.click 'buttonCODIDE82'
+    page.select_window(nil)
 
-  end
+    page.click 'buttonCODIDE81'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "CODIDE81Domini", get("@residence")
+    page.click 'buttonCODIDE81'
+    page.select_window(nil)
 
-  def page_5
-
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-    
-    click_option(get('@driving_type'))
-    click_option(get('@payment'))
-    click_option('page:metodoDiPagamento2:0')
-
-    click_button 'page:buttonCalcolaPremioAppoggio'
-    page_wait
+    click_button 'step1'
+   	page_wait
 
   end
 
   def page_premium
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'
-        sleep @sleep*2
-        select_option("page:quota_info:0:massimaleRCA", get('@public_liability_indemnity_limit'))
-      
-#        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-#        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-#        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-#        uncheck_checkbox(get('@road_assistance_web_id')) if is_checked?(get('@road_assistance_web_id'))
-#        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-#        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-#        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-#        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-#        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
-
-        page.fire_event 'page:quota_info:0:massimaleRCA', 'change'
-        sleep @sleep*2
-        if is_present?('page:ricalcola_but')
-          page_click_button 'page:ricalcola_but'
-          page_wait
-        end
-
-        @last_element = get("@rca_premium_id")
-        wait_for_elm @last_element
-        sleep @sleep*2
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
@@ -331,10 +286,11 @@ class ConteSect1 < Test::Unit::TestCase
     page.open @last_element
     sleep @sleep
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
   end
 
-  def select_option(id, value, option = "label")
-    @last_element, @last_value = id, (value =~ /index=/i)? value : "#{option}=#{value}"
+  def select_option(id, value = nil)
+    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
     page_select @last_element, "#{@last_value}"
     assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
@@ -421,11 +377,7 @@ class ConteSect1 < Test::Unit::TestCase
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
     page.focus element
-    page.key_up element, "\\115"
-    sleep @sleep*2
 	  page.type_keys element, label
-	  page.type_keys element, " "
-    page.key_press element, "\\8"
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
@@ -442,7 +394,7 @@ class ConteSect1 < Test::Unit::TestCase
   	sleep @sleep
     assert_not_nil combo_name
     assert_not_nil label
-    assert_not_nil label.split("=")[1] #unless (label =~ /index=/i) unless (label =~ /value=/i)
+    assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
@@ -468,11 +420,9 @@ class ConteSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
-    assert premium != nil, @last_element.inspect
-    assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
-    premium = premium.split[1]
-    premium.count(",") > 0 ? premium.gsub(".","") : nil
-    premium = premium.gsub(",",".")
+    assert premium.split[0] != nil, @last_element.inspect
+    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    premium = premium.split[1].gsub(".",",")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
     assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"
