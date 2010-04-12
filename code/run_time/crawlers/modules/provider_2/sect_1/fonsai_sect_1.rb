@@ -1,10 +1,12 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				08/04/2010						              #
+#				12/04/2010						              #
 #############################################
 
-class ZurichSect1 < Test::Unit::TestCase
+require 'gtk2'
+
+class FonsaiSect1 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
@@ -73,10 +75,10 @@ class ZurichSect1 < Test::Unit::TestCase
     begin
       @last_element, @last_value = nil, nil
 
-      page_intro
       page_1
-      page_2
-      page_premium
+#      page_2
+#      page_3
+#      page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -98,20 +100,24 @@ class ZurichSect1 < Test::Unit::TestCase
 
   private # all methods that follow will be made private: not accessible for outside objects
 
-  def page_intro
+  def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
     open_page(@url)
-    click_option(get('@privacy_1'))
-
-    click_button '//input[@value="Step successivo"]'
    	page_wait
+
+    select_option "vehicleSector", get('property_type_to_be_insured')
+    select_option "tipoVeicolo", get('vehicle_type')
+    select_option "usoVeicolo", get('vehicle_use')
+    select_option "situation", get('@insurance_situation')
+    click_button "input"
+    page_wait
 
   end
 
-  def page_1
+  def page_2
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
@@ -126,7 +132,7 @@ class ZurichSect1 < Test::Unit::TestCase
     select_option "COD_MARCDomini", get("@make")
     page.click 'buttonCOD_MARC'
     page.select_window(nil)
-    
+
     page.click 'buttonCOD_MODE'
     page.wait_for_pop_up('DominiPopup', 30000)
     page.select_window('DominiPopup')
@@ -181,7 +187,7 @@ class ZurichSect1 < Test::Unit::TestCase
 
   end
 
-  def page_2
+  def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
@@ -235,7 +241,7 @@ class ZurichSect1 < Test::Unit::TestCase
     select_option "CODNAZ74Domini", get("@citizenship")
     page.click 'buttonCODNAZ74'
     page.select_window(nil)
-    
+
     select_option "gg_DATDIN87", get("@birth_date_day")
     select_option "mm_DATDIN87", get("@birth_date_month")
     select_option "aaaa_DATDIN87", get("@birth_date_year")
@@ -246,7 +252,7 @@ class ZurichSect1 < Test::Unit::TestCase
     select_option "CODIDE82Domini", get("@residence_province")
     page.click 'buttonCODIDE82'
     page.select_window(nil)
-    
+
     page.click 'buttonCODIDE81'
     page.wait_for_pop_up('DominiPopup', 30000)
     page.select_window('DominiPopup')

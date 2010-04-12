@@ -100,6 +100,7 @@ class AxaSect1 < Test::Unit::TestCase
   def page_intro
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
     
     open_page(@url)
     click_button '//input[@value="Calcola il tuo preventivo"]'
@@ -110,6 +111,7 @@ class AxaSect1 < Test::Unit::TestCase
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
     type_text('dataDiValidita', @rate_date)
 
@@ -171,6 +173,8 @@ class AxaSect1 < Test::Unit::TestCase
   def page_premium
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
+
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'
