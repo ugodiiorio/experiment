@@ -5,10 +5,11 @@ module Provider2Generali
     @target_values = {}
 
     @target_values = {
-      {'veh_fuel_str' => 'B'} => 'Benzina',
-      {'veh_fuel_str' => 'D'} => 'Diesel',
-      {'veh_fuel_str' => 'G'} => 'GPL',
-      {'veh_fuel_str' => 'M'} => 'Metano',
+
+      {'own_owner_sex_str' => 'M'} => 'Maschio',
+      {'own_owner_sex_str' => 'F'} => 'Femmina',
+      {'veh_fuel_str' => 'benzina'} => 'Benzina',
+      {'veh_fuel_str' => 'diesel'} => 'Diesel',
       {'veh_alarm_str' => 'nessuno'} => ' Nessuno o altro',
       {'pol_risk_certificate_str' => 'si'} => 'TIPO_DICH_ATTESTAZIONE',
       {'pol_bersani_str' => 'si'} => 'Si - rilasciato da altra Compagnia',
@@ -74,11 +75,13 @@ module Provider2Generali
       {'pol_driver_sex_str' => 'F'} => 'Femmina',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Gia\' assicurato con Bonus/Malus',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima Immatricolazione',
-
+      {'pol_instalment_str' => 'annuale'} => '//*[@id="RB_POLIZZA_ANNUALE"]',
       {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
       {'pol_driving_type_str' => 'esclusiva'} => 'Conducente esclusivo',
       {'pol_driving_type_str' => 'libera'} => 'Conducente qualsiasi',
       {'pol_driving_type_str' => 'definita'} => 'Conducente \"coniugi\"',
+      {'pol_quotation_str' => 'bm'} => '//*[@id="CLAUSOLA_TARIFFA_0"]',
+      {'pol_quotation_str' => 'franchigia'} => '//*[@id="CLAUSOLA_TARIFFA_0"]',
       {'veh_vehicle_use_str' => 'privato'} => 'Privato',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'TOTALE_PI_CL_10',
       {'pol_residence_province_str' => 'AG'} => 'AG - AGRIGENTO',
@@ -549,7 +552,7 @@ module Provider2Generali
       {'pol_public_liability_indemnity_limit_str' => '15,000,000'} => '15000000',
       {'pol_public_liability_indemnity_limit_str' => '20,000,000'} => '20000000',
       {'pol_public_liability_indemnity_limit_str' => '26,000,000'} => '26000000',
-      {'pol_quotation_str' => 'BM'} => '//*[@id="CLAUSOLA_TARIFFA_0"]',
+      {'pol_quotation_str' => 'bm'} => '//*[@id="CLAUSOLA_TARIFFA_0"]',
       {'pol_quotation_str' => 'franchigia'} => '//*[@id="CLAUSOLA_TARIFFA_0"]',
       {'pol_RCA_premium_id_str' => 'id elemento'} => '//*[@id="TOTALE_PI"]',
       {'pol_residence_province_str' => 'AG'} => 'AG - AGRIGENTO',
