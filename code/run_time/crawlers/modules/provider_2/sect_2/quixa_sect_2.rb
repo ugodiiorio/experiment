@@ -1,7 +1,7 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				17/03/2010						              #
+#				01/03/2010						              #
 #############################################
 
 class QuixaSect2 < Test::Unit::TestCase
@@ -9,9 +9,12 @@ class QuixaSect2 < Test::Unit::TestCase
   alias :site :suite_test
   alias :page :selenium_driver
 
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
+
   FirstPolicy = 0..100
   Individual = 0..100
-  
+
   def get(var)
     var_value = site.instance_variable_get(var)
     return var_value.to_s.strip
@@ -33,7 +36,7 @@ class QuixaSect2 < Test::Unit::TestCase
 
       site.load_sector
       site.load_person
-      
+
       @rc_cover_code, @kte.rc_cover_code = get('@rca_code'), get('@rca_code')
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
@@ -41,7 +44,7 @@ class QuixaSect2 < Test::Unit::TestCase
 #      vehicle_age = 1
 #      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
 
-      @url = eval(site.url)
+      @url = site.url
       @sleep = @kte.sleep_typing
 #      @verification_errors = []
 
@@ -67,11 +70,12 @@ class QuixaSect2 < Test::Unit::TestCase
     end
   end
 
+
   def teardown
 	  @selenium_driver.close_current_browser_session if @selenium_driver
 #    assert_equal [], @verification_errors
   end
-  
+
   def test_site
 
     begin
@@ -80,9 +84,8 @@ class QuixaSect2 < Test::Unit::TestCase
       page_1
       page_2
       page_3
-      page_4
-      page_5
-      
+      page_premium
+
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
 
@@ -100,41 +103,41 @@ class QuixaSect2 < Test::Unit::TestCase
     end
   end
 
+  private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
+
   def page_1
 
     open_page(@url) #"http://www.quixa.it/simulator.aspx?SimObject=MOTORCYCLE"
 
     click_option(get('@vehicle_type'))
 
-    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnCreateSimulation"
-  	sleep @sleep*3
+    page_click("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnCreateSimulation")
+
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlBrand", get('@make'))
+
+    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_txt1stPlate", get('@matriculation_date'))
+
+    select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlModel", get('@model')) if(get('@model') )
+
+    select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlVersion", get('@set_up'))
+
+    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlKmPerYear", get('@km_per_yr'))
+ 
+    click_option(get('@alarm'))
+
+    click_option(get('@passenger_transportation'))
+
+    click_button("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward")
+
+  sleep @sleep*3
 
   end
 
   def page_2
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlBrand", get('@make'))
-
-    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_txt1stPlate", get('@matriculation_date'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlModel", get('@model'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlVersion", get('@set_up'))
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlKmPerYear", get('@km_per_yr'))
-
-    click_option(get('@alarm'))
-
-    click_option(get('@passenger_transportation'))
-
-    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-  	sleep @sleep*3
-
-  end
-
-  def page_3
-
+#      wait_for_alert()
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_option(get('@leasing'))
 
@@ -154,7 +157,9 @@ class QuixaSect2 < Test::Unit::TestCase
     end
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", get('@insurance_situation'))
-    case page.get_selected_label(@last_element) =~ /prima polizza/i
+    sleep @sleep*2
+    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
+    case get('@insurance_situation') =~ /prima polizza/i
       when FirstPolicy
         if Individual === (page.get_text("//label[@for='#{get('@client_type')}']") =~ /fisica/i)
           select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlSelectBersani", get('@bersani'))
@@ -166,28 +171,27 @@ class QuixaSect2 < Test::Unit::TestCase
         select_last_years_claims
       end
 
-    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
-
-    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
-  	sleep @sleep*3
-
-  end
-
-  def page_4
-
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
     sleep @sleep*5
-    
+
   end
 
-  def page_5
-    
+  def page_3
+
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    case get("@rca_on_off")
+    click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
+  	sleep @sleep*5
+
+  end
+
+  def page_premium
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
+    case @last_value
       when 'on'
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddl_P01_Max", get('@public_liability_indemnity_limit'))
-
+#        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@instalment'))
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_ddlChargeType", get('@payment'))
 
         uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
@@ -202,8 +206,9 @@ class QuixaSect2 < Test::Unit::TestCase
         click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnReCalculation"
       	sleep @sleep*2
 
-        wait_for_elm get("@rca_premium_id")
-
+        @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
+        wait_for_elm @last_value
+#        assert !60.times{ break if (page.get_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_DA_Prize").split[0].to_s.match(/[a-zA-Z]/) == nil rescue false); sleep 1 }
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
@@ -263,8 +268,8 @@ class QuixaSect2 < Test::Unit::TestCase
 
   def is_checked?(id, value = nil)
     @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => is it checked checkbox: [#{@last_element}]?"}
     present = is_present?(@last_element)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked? - #{page.is_checked(@last_element)}"} if present
   	return present ? page.is_checked(@last_element) : nil
   end
 
@@ -311,7 +316,7 @@ class QuixaSect2 < Test::Unit::TestCase
   	sleep @sleep
     assert_not_nil combo_name
     assert_not_nil label
-    assert_not_nil label.gsub!("label=","")
+    assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless label =~ /regexpi/i unless label =~ /index=/i
@@ -321,7 +326,6 @@ class QuixaSect2 < Test::Unit::TestCase
   	sleep @sleep
 	  page.wait_for_element name
     assert_is_element_present(name)
-
   end
 
   def is_present?(name)
@@ -335,8 +339,9 @@ class QuixaSect2 < Test::Unit::TestCase
   end
 
   def select_bersani
-    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
+    sleep @sleep*2
+    /(medesimo proprietario)+/.match(get('@bersani')) ? select_last_years_claims : nil
   end
 
   def select_last_years_claims
@@ -371,4 +376,8 @@ class QuixaSect2 < Test::Unit::TestCase
 	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
+#	def wait_for_alert()
+#		!8.times{ break if (page.alert?); sleep 1; puts "Waiting alert ..."; }
+#		page.alert() if page.alert?
+#	end
 end
