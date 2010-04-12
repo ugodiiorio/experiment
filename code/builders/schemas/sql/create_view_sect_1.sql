@@ -209,6 +209,7 @@ AS
         veh_capacity_num,
         veh_cv_num,
         veh_fuel_str,
+        veh_full_load_total_weight_num,
         veh_gas_methane_supply_str,
         veh_gprs_str,
         veh_habitual_vehicle_use_str,

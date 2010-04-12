@@ -34,6 +34,23 @@ class BuildTargetSchema
 			      PRIMARY KEY (key_insurance_profiles_id_num,key_provider_id_str,key_sector_id_str,key_company_id_str,key_working_set_id_str,key_rate_id_str,key_cover_id_str)
             ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 			
+	mysql.query("CREATE TABLE " + @db_default_target + ".rate_parameters (
+            key_insurance_profiles_id_num 	int(5) UNSIGNED NOT NULL,
+            key_provider_id_str 	VARCHAR(20) NOT NULL,
+            key_sector_id_str 	VARCHAR(20)  NOT NULL,
+            key_company_id_str 	VARCHAR(20)  NOT NULL,
+            key_working_set_id_str 	VARCHAR(20) NOT NULL,
+            key_rate_id_str varchar(8)  NOT NULL,
+            key_cover_id_str varchar(20)  NOT NULL,
+            record_id_str varchar(32),
+		        car_make_str varchar(128)  NOT NULL,
+		        car_model_str varchar(128)  NOT NULL,
+		        car_preparation_str varchar(128)  NOT NULL,
+		        job_str varchar(128)  NOT NULL,
+            last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+			      PRIMARY KEY (key_insurance_profiles_id_num,key_provider_id_str,key_sector_id_str,key_company_id_str,key_working_set_id_str,key_rate_id_str,key_cover_id_str)
+            ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
+
 		mysql.close()
 
     		puts "\n - " + @db_default_target + " tables schema creation finished"

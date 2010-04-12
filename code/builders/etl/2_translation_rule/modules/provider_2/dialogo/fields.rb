@@ -454,10 +454,12 @@ module Provider2Dialogo
       {'veh_passenger_transportation_str'  => 'no'} => '/html/body/div/div[3]/div/form/div/fieldset/div[2]/table/tbody/tr/td[2]/label/input',
       {'veh_vehicle_shelter_str' => 'box privato'} => '/html/body/div/div[3]/div/form/div/fieldset/div[7]/table/tbody/tr/td/label/input',
       {'veh_vehicle_type_str' => 'motociclo'} => '/html/body/div/div[3]/div/form/fieldset/table/tbody/tr[3]/td/div/table/tbody/tr/td/label/input',
-      {'veh_vehicle_use_str' => 'privato'} => '/html/body/div/div[3]/div/form/fieldset/div/table/tbody/tr/td/label/input',
+      {'veh_vehicle_use_str' => 'privato'} => '//input[@name="contentSubView:contentForm:vehicleUsage" and @value="other"',
+
+
 
     }
-
+#/html/body/div/div[3]/div/form/fieldset/div/table/tbody/tr/td/label/input
   end
 
 end

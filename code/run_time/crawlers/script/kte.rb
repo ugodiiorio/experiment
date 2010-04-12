@@ -26,10 +26,12 @@ include KteExt
 class KTE
   attr_reader :logger, :company_group, :company, :provider, :sector, :working_set, :rate, :rate_date
   attr_reader :log_device, :log_level
-  attr_reader :use_case
+  attr_reader :use_case, :store_params
   attr_reader :port, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
   attr_reader :db_host, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
-  attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result, :max_profiles, :sleep_typing, :sleep_between_profiles
+  attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result
+  attr_accessor :car_make, :car_model, :car_preparation, :job
+  attr_accessor :max_profiles, :sleep_typing, :sleep_between_profiles
 
   def initialize
     begin
@@ -71,7 +73,8 @@ class KTE
         raise ex
       ensure
           config = {:general_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
-          general_settings = {:gs_profile_sleep_in_seconds =>nil, :gs_profile_id =>nil, :gs_use_case =>nil,
+          general_settings = {:gs_profile_sleep_in_seconds =>nil, :gs_profile_id =>nil, 
+                              :gs_use_case =>nil, :gs_store_params =>nil,
                               :gs_typing_sleep_in_seconds =>nil, :gs_max_number_of_profiles =>nil} unless general_settings
           logger_settings = {:ls_device =>nil, :ls_level =>nil,
                              :ls_shift_age =>nil, :ls_shift_size =>nil,
@@ -92,6 +95,7 @@ class KTE
       @max_profiles                 = ARGV[9]  || general_settings['gs_max_number_of_profiles'] || "1" # max number of profiles to execute in the running task
       @profile                    	= ARGV[0]  || general_settings['gs_profile_id'] || "100"
       @use_case                     = ARGV[28] || general_settings['gs_use_case'] || ''
+      @store_params                 = ARGV[28] || general_settings['gs_store_params'] || false
 
       @company_group     			      = ARGV[23] || app_settings['as_company_group_id'] || "all_provider_1"
       @company 	        			      = ARGV[1]  || app_settings['as_company_id'] || "quixa"

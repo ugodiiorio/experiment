@@ -4,10 +4,13 @@
 #				17/03/2010						              #
 #############################################
 
-class DialogoSect1 < Test::Unit::TestCase
+class DialogoSect2 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
+
+  SHARED = 'shared.rb'
+  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
 
   FirstPolicy = 0..100
   Individual = 0..100
@@ -38,12 +41,12 @@ class DialogoSect1 < Test::Unit::TestCase
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
 
-#      vehicle_age = 1
-#      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
+      #      vehicle_age = 1
+      #      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
 
-      @url = eval(site.url)
+      @url = site.url
       @sleep = @kte.sleep_typing
-#      @verification_errors = []
+      #      @verification_errors = []
 
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
@@ -55,21 +58,21 @@ class DialogoSect1 < Test::Unit::TestCase
         :url => @url
 
       @selenium_driver.start_new_browser_session
-#      @selenium.set_context("test_new")
+      #      @selenium.set_context("test_new")
 
     rescue Errno::ECONNREFUSED => ex
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
-#      @verification_errors[@verification_errors.size] = ex.message
+      #      @verification_errors[@verification_errors.size] = ex.message
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
   end
 
   def teardown
-	  @selenium_driver.close_current_browser_session if @selenium_driver
-#    assert_equal [], @verification_errors
+	#  @selenium_driver.close_current_browser_session if @selenium_driver
+    #    assert_equal [], @verification_errors
   end
 
   def test_site
@@ -77,10 +80,12 @@ class DialogoSect1 < Test::Unit::TestCase
     begin
       @last_element, @last_value = nil, nil
 
+      page_intro
       page_1
       page_2
-#      page_3
-#      page_4
+      page_3
+      page_4
+      page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -100,170 +105,157 @@ class DialogoSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
+  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
+  include Shared
+
+  def page_intro
+
+    open_page(@url) #url="http://www.dialogo.it/DialogoInternet/home.faces"
+    click_button_item "//img[@alt='Preventivi Moto']"
+    page_wait
+
+  end
 
   def page_1
 
-    open_page(@url) #url="http://www.dialogo.it/DialogoInternet/home.faces"
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
+    click_option(get('@vehicle_use'))
+    type_text("contentSubView:contentForm:decorrenza", @rate_date)
+    click_option(get('@insurance_situation'))
 
-    click_button "//img[@alt='Preventivo Auto in 5 click']"
+    if (page.get_attribute("#{@last_element}@value") == "3")
+      
+      select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
+      if page.get_selected_label(@last_element) =~ /almeno un anno/i
+        select_option("contentSubView:contentForm:sinistriCausati6", get('@claims_total_number'))
+        select_option("contentSubView:contentForm:anniAssicurati6", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
+      else
+        select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))
+      end
+
+    else
+      click_option(get('@bersani'))
+      if (page.get_attribute("#{@last_element}@value") == "Y")
+        select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
+      end
+    end
+
+    click_button_item "contentSubView:contentForm:buttonNext"
     page_wait
-    
+
   end
 
   def page_2
-
+    
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-#      page_click "contentSubView:contentForm:knowledgeSelect"
-    select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
+    click_option(get('@driving_type'))
+    sleep @sleep*2
+    click_option(get('@subscriber_is_driver'))
+    click_option(get('@subscriber_is_owner'))
+    click_option(get('@num_of_owners'))
 
-    click_option(get('@vehicle_use'))
-    click_option(get('@insurance_situation'))
-    type_text("contentSubView:contentForm:decorrenza", @rate_date)
+    if (page.get_attribute("#{get('@subscriber_is_driver')}@value") == "Y")
+
+      click_option(get('@owner_sex'))
+      sleep @sleep*2
+      click_option(get('@driver_is_owner'))
+      type_text("contentSubView:contentForm:DataNascitaProprietario", get('@birth_date'))
+      select_option("contentSubView:contentForm:AnniPatenteProprietario", get('@driving_license_yrs'))
+      select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
+      select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
+      type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
+      page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
+      sleep @sleep*2
+      is_present?("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
+
+    else
+
+      click_option(get('@owner_sex'))
+      sleep @sleep*2
+      click_option(get('@driver_is_owner'))
+      if (get('@owner_specification') != 'C')
+        type_text("contentSubView:contentForm:DataNascitaProprietario", get('@birth_date'))
+        select_option("contentSubView:contentForm:AnniPatenteProprietario", get('@driving_license_yrs'))
+        select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
+      end
+      select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
+      type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
+      page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
+      sleep @sleep*2
+      is_present?("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
+
+      type_text("contentSubView:contentForm:DataNascitaConducente", get('@birth_date'))
+      click_option(get('@driver_sex'))
+      select_option("contentSubView:contentForm:AnniPatenteConducente", get('@driving_license_yrs'))
+      select_option("contentSubView:contentForm:ProfessioneConducente", get('@job'))
+
+    end
+
+    click_button_item "contentSubView:contentForm:buttonNext"
+    page_wait
+
   end
 
   def page_3
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    type_text("contentSubView:vehicleForm:chooseAuto:registration", get('@matriculation_date'))
+
+    select_brand
+    select_model
+    select_preparation
+
+    type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
+    type_text("contentSubView:vehicleForm:chooseAuto:insurableValue", get('@vehicle_value'))
+    click_option(get('@tow_hook'))
+    click_option(get('@vehicle_shelter'))
+    click_option(get('@number_plate_type'))
     
-    case page.get_text("//label[@for='#{@last_element}']") =~ /fisica/i
-      when Individual
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlCountry", get('@citizenship'))
-        click_option(get('@owner_sex'))
-        type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", get('@birth_date'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", get('@job'))
-      else
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
-        select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
+    click_button_item "contentSubView:vehicleForm:next"
+    page_wait
+
+  end
+
+  def page_4
+    
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    click_button_item "//img[@alt='Calcola il tuo PREVENTIVO']"
+    page_wait
+
+  end
+
+  def page_premium
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
+    case @last_value
+    when 'on'
+      sleep @sleep*2
+      select_option("//select[@name='contentSubView:quotationTabletForm:proposalTable:0:_id132']", get('@public_liability_indemnity_limit'))
+      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption')) 
+
+      uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+      uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+      uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+      uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+      uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+      uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+      uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      uncheck_checkbox(get('@easy_driver_web_id')) if is_checked?(get('@easy_driver_web_id'))
+
+      click_button_item "//img[@alt='Ricalcola']"
+      sleep @sleep*3
+
+      @last_element = get("@rca_premium_id") #//div[@id='sbox_Costo Annuale']/span - //div[@id='sbox_Costo Semestrale']/span
+      wait_for_elm @last_element
+      get_premium(@last_element)
+    else
+      raise RangeError, "RC cover cannot be off"
     end
-      if $Polizza_nuova_auto_nuova
-        click "//input[@name='contentSubView:contentForm:attualeSituazione' and @value='1']"
-        type "contentSubView:contentForm:decorrenza", 								$Data_decorrenza
-        click "//input[@name='contentSubView:contentForm:bonusMalusRadio' and @value='N']"		#no bersani
-      else
-        if $Polizza_nuova_auto_usata
-          click "//input[@name='contentSubView:contentForm:attualeSituazione' and @value='2']"
-          type "contentSubView:contentForm:decorrenza", 							$Data_decorrenza
-          click "//input[@name='contentSubView:contentForm:bonusMalusRadio' and @value='N']"		#no bersani
-        else
-          click 																	$Situazione_assicurativa_BM
-          type "contentSubView:contentForm:decorrenza", 							$Data_decorrenza
-          select "contentSubView:contentForm:classeAssegnazioneCu", "label="+ 	$Classe_BM
-          select "contentSubView:contentForm:sinistriCausati4", "label="+			$N_sinistri_4_anni
-        end
-      end
 
-        click "contentSubView:contentForm:buttonNext"
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
-
-      click  																			$Conducenti_Dialogo
-        click 																			$Intestatario_Driver_Dialogo
-      click 																			$Intestatario_Proprietario_Dialogo
-      click 																			$Cointestazione_Dialogo
-      click "//input[@name='contentSubView:contentForm:MFRProprietario' and @value='"+ $Sesso + "']"
-      click																			$Proprietario_is_conducente
-        type "contentSubView:contentForm:DataNascitaProprietario", 						$Data_nascita
-        select "contentSubView:contentForm:AnniPatenteProprietario", "label="+			$N_anni_patente
-        select "contentSubView:contentForm:ProfessioneProprietario", "label="+			$Professione
-        select "contentSubView:contentForm:NazionalitaProprietario", "label="+			$Nazionalita
-    #    type "contentSubView:contentForm:ZipCodeProprietario", 						$Cap_new
-
-
-    #    click "contentSubView:contentForm:buttonNext"
-    #    @selenium.wait_for_page_to_load $wait_for_page_to_load
-    #
-    #	if $Cap == "22063"
-    #		sleep 5
-    #	end
-        type "contentSubView:contentForm:ZipCodeProprietario", 							$Cap
-      @selenium.key_up "contentSubView:contentForm:ZipCodeProprietario", "\13"
-    #	sleep 3
-    #	click "contentSubView:contentForm:backPD"
-    #	sleep 3
-    #    click "contentSubView:contentForm:buttonNext"
-    #    @selenium.wait_for_page_to_load $wait_for_page_to_load
-      sleep 3
-        click "contentSubView:contentForm:buttonNext"
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
-
-      if $Polizza_nuova_auto_nuova
-        type "contentSubView:vehicleForm:chooseAuto:registration", 							$Data_imm_classe_14_mese + "/" + $Data_decorrenza_anno
-      else
-        if $Polizza_nuova_auto_usata
-          type "contentSubView:vehicleForm:chooseAuto:registration", 						$Data_immatricolazione_mese + "/" + $Data_immatricolazione_anno
-        else
-          type "contentSubView:vehicleForm:chooseAuto:registration", 						$Data_immatricolazione_mese + "/" + $Data_immatricolazione_anno
-        end
-      end
-
-        select "contentSubView:vehicleForm:chooseAuto:brands", "label="+							$Marca_auto
-      sleep 3
-      select "contentSubView:vehicleForm:chooseAuto:models", "label="+							$Modello_auto
-      sleep 3
-
-
-      type "preparations", 																	$Allestimento_auto
-        select "contentSubView:vehicleForm:chooseAuto:preparationsCombo", "label="+ 			$Allestimento_auto
-        type "contentSubView:vehicleForm:chooseAuto:preparationsHidden", 						$Allestimento_auto
-
-        type "contentSubView:vehicleForm:chooseAuto:kms", 											$N_km
-        type "contentSubView:vehicleForm:chooseAuto:insurableValue", 								$Valore_auto
-      click 																			$Ricovero_notturno
-        click "contentSubView:vehicleForm:next"
-        @selenium.wait_for_page_to_load $wait_for_page_to_load
-
-      sleep 5
-    #	click "contentSubView:detailForm:buttonNextImg_2"
-    #	@selenium.wait_for_page_to_load $wait_for_page_to_load
-      mywindow = "http://www.dialogo.it/DialogoInternet/pages/quote/quotationData.faces"
-      @last_element = mywindow
-      @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Open in a new browser window the page " + mywindow}
-      @selenium.open_window mywindow, "myWindow"
-#      @selenium.open_window "","myWindow"
-      @selenium.select_window "myWindow"
-#      @selenium.wait_for_page_to_load $wait_for_page_to_load
-
-      sleep 3
-
-    #	@selenium.wait_for_element "contentSubView:quotationTabletForm:proposalTable:0:platinumSelectBox"
-    #	lab = @selenium.get_selected_label "contentSubView:quotationTabletForm:proposalTable:0:platinumSelectBox"
-    #	@@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Massimale RCA di default = "+lab}
-    #	if (lab != $Massimale_RCA)
-    #		select "contentSubView:quotationTabletForm:proposalTable:0:platinumSelectBox", "label="+ $Massimale_RCA
-    #		click "buttonRecomputeImg"
-    #		@selenium.wait_for_page_to_load $wait_for_page_to_load
-    #	end
-
-      wait_for_elm("contentSubView:quotationTabletForm:proposalTable:0:_id133")
-      lab = @selenium.get_selected_label "contentSubView:quotationTabletForm:proposalTable:0:_id133"
-      @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"Massimale RCA di default = "+lab}
-      if (lab != $Massimale_RCA)
-        select "contentSubView:quotationTabletForm:proposalTable:0:_id133", "label="+ $Massimale_RCA
-        click "buttonRecomputeImg"
-#        @selenium.wait_for_page_to_load $wait_for_page_to_load
-        sleep 5
-        wait_for_elm("//div[@id='sbox_Costo Annuale']/span")
-      end
-
-
-      uncheck "contentSubView:quotationTabletForm:proposalTable:1:_id147"
-      uncheck "contentSubView:quotationTabletForm:proposalTable:2:_id147"
-      uncheck "contentSubView:quotationTabletForm:proposalTable:3:_id147"
-      uncheck "contentSubView:quotationTabletForm:proposalTable:7:_id147"
-
-      click "buttonRecomputeImg"
-
-      sleep 5
-      wait_for_elm get("@rca_premium_id")
-      get_premium(get("@rca_premium_id"))
-
-      wait_for_elm("//div[@id='sbox_Costo Annuale']/span")
-      str = premio.split
-      premio = str[1]
-      premio = premio.gsub(".","") if premio
-      premio = premio.gsub(",",".") if premio
-      @@logger.debug('DialogoTest.test_new => ' + $compagnia) {"gsub premio = " + premio.to_s}
-    end
-	
+  end
+  
   def open_page(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
@@ -287,6 +279,12 @@ class DialogoSect1 < Test::Unit::TestCase
     assert_equal page.get_value(@last_element), @last_value
   end
 
+  def type_keys(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
+    page_keys @last_element, @last_value
+  end
+
   def click_option(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked option button element: [#{@last_element}]"}
@@ -308,25 +306,25 @@ class DialogoSect1 < Test::Unit::TestCase
     assert_equal page.get_value(@last_element), "off"
   end
 
-  def click_button(id, value = nil)
+  def click_button_item(id, value = nil)
     @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
-    page_click_button @last_element
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button/item element: [#{@last_element}]"}
+    page_click_button_item @last_element
   end
 
   def is_checked?(id, value = nil)
     @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => is it checked checkbox: [#{@last_element}]?"}
     present = is_present?(@last_element)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked? - #{page.is_checked(@last_element)}"} if present
   	return present ? page.is_checked(@last_element) : nil
   end
 
   def page_wait
-   page.wait_for_page_to_load site.wait_for_page_to_load
+    page.wait_for_page_to_load site.wait_for_page_to_load
   end
 
-	def page_click_button(element)
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button = #{element}"}
+	def page_click_button_item(element)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on button/item = #{element}"}
 	  page.click element
 	end
 
@@ -347,7 +345,16 @@ class DialogoSect1 < Test::Unit::TestCase
 	def page_type(element, label)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
+    page.focus element
 	  page.type element, label
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
+	end
+
+	def page_keys(element, label)
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
+	  wait_for_elm(element)
+    page.focus element
+	  page.type_keys element, label
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
@@ -364,10 +371,7 @@ class DialogoSect1 < Test::Unit::TestCase
   	sleep @sleep
     assert_not_nil combo_name
     assert_not_nil label
-    assert_not_nil label.gsub!("label=","")
-#    raise RangeError, "Wait for select failed! Element cannot be nil" unless combo_name
-#    raise RangeError, "Wait for select failed! Label cannot be nil" unless label
-#    raise RangeError, "Wait for select failed! Label cannot be nil" unless label.gsub!("label=","")
+    assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless label =~ /regexpi/i unless label =~ /index=/i
@@ -393,27 +397,13 @@ class DialogoSect1 < Test::Unit::TestCase
 	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
-  def select_bersani
-    /(medesimo proprietario)+/.match(page.get_selected_label(@last_element)) ? select_last_years_claims : nil
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
-  end
-
-  def select_last_years_claims
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano1", get('@nr_of_paid_claims_1_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano2", get('@nr_of_paid_claims_2_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano3", get('@nr_of_paid_claims_3_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano4", get('@nr_of_paid_claims_4_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano5", get('@nr_of_paid_claims_5_yr'))
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlano0", get('@nr_of_paid_claims_this_yr'))
-  end
-
   def get_premium(p)
 
     @last_element = p
     premium = page.get_text(@last_element)
-    assert premium.split[0] != nil, @last_element.inspect
-    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
-    premium = premium.split[0].gsub(".","")
+    assert premium.split[1] != nil, @last_element.inspect
+    assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    premium = premium.split[1].gsub(".","")
     premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
@@ -422,5 +412,37 @@ class DialogoSect1 < Test::Unit::TestCase
 
   end
 
-end
+  def select_brand
 
+    select_option "contentSubView:vehicleForm:chooseAuto:brands", get("@make")
+    sleep @sleep*2
+    
+  end
+
+  def select_model
+
+    select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
+    sleep @sleep*2
+    model = page.get_selected_label(@last_element)
+    page.focus @last_element
+    type_text(@last_element, model)
+    page.key_up("contentSubView:vehicleForm:chooseAuto:models","\\13" )
+    sleep @sleep*2
+
+  end
+
+#  def select_preparation
+#
+#    kw = "#{get("@kw")} KW"
+#    type_keys("preparations", get("@set_up"))
+#    sleep @sleep*2
+#    @last_element, @last_value = "//span/ul/li", "#{kw}"
+#    unless is_present?(@last_element)
+#      get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
+#      type_keys("preparations", @last_value)
+#    end
+#    click_button_item "//span/ul/li"
+#
+#  end
+#
+end
