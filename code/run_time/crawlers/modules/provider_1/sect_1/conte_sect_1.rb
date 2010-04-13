@@ -151,8 +151,8 @@ class ConteSect1 < Test::Unit::TestCase
     click_button 'page:continua_step01'
     sleep @sleep
 
-    type_text("page:valore_veicolo", get('@vehicle_value'))
-    page.fire_event 'page:valore_veicolo', 'blur'
+    type_text("page:valore_veicolo", get('@vehicle_value')) if page.is_visible "page:valore_veicolo"
+    page.fire_event 'page:valore_veicolo', 'blur' if page.is_visible "page:valore_veicolo"
     select_option "page:ricovero_notturno", get("@vehicle_shelter")
     select_option "page:antifurto", get("@alarm")
     select_option "page:uso_prevalente", get("@habitual_vehicle_use")
@@ -218,6 +218,7 @@ class ConteSect1 < Test::Unit::TestCase
     click_option(get('@cohabiting_children'))
     type_text("page:eta_conseguimento_patente", get('@driving_license_yrs'))
     page.fire_event("page:eta_conseguimento_patente", 'blur')
+    sleep @sleep
 
     if is_present?("page:anno_conseguimento_patente")
       type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
