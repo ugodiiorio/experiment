@@ -159,9 +159,6 @@ class FonsaiSect1 < Test::Unit::TestCase
 
     type_captcha
 
-    click_button "//div[@id='avantiD']/input"
-    page_wait
-
     click_button "//div[@class='floatRight']/input"
     page_wait
 
@@ -344,17 +341,22 @@ class FonsaiSect1 < Test::Unit::TestCase
 
   def type_captcha
 
-    captcha_error = true
     decode_captcha()
+
+    captcha_error, i = true, 0
+    sleep @sleep*2
     while captcha_error
-      if @selenium.is_text_present("Rilevati i seguenti errori") && @selenium.is_text_present("Captcha non validato")
-        puts "Captcha Error"
+      if page.is_text_present("Rilevati i seguenti errori") && page.is_text_present("Captcha non validato")
+        i+= 1
+        @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => DeCaptcher Error tentative n. #{i.to_s}"}
         decode_captcha
+        captcha_error = false if i == 3
       else
         captcha_error = false
       end
     end
-    type_text "captcha", @captcha_text.strip.gsub(" ", "")
+
+    assert page.is_text_present("Captcha non validato") == false, "DECAPTCHER ERROR! Invalid captcha #{@captcha_text}"
 
   end
 
@@ -372,13 +374,18 @@ class FonsaiSect1 < Test::Unit::TestCase
     sleep @sleep
     pixbuf = clipboard.wait_for_image
     sleep 1
-    puts "#{File.join(File.dirname(__FILE__))}/captcha.jpg"
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Captcha image file: #{File.join(File.dirname(__FILE__))}/captcha.jpg"}
     pixbuf.save("#{File.join(File.dirname(__FILE__))}/captcha.jpg", "jpeg", {"quality"=>100})
     sleep @sleep
     set_vars("#{File.join(File.dirname(__FILE__))}/captcha.jpg", "kpdecap", "decaptcher1")
     captcha_file = File.new(@file)
     @captcha_text = curl(captcha_file)
-    puts "output captcha decoded text: " + @captcha_text
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => Output captcha decoded text: #{@captcha_text}"}
+
+    type_text "captcha", @captcha_text.strip.gsub(" ", "")
+
+    click_button "//div[@id='avantiD']/input"
+    page_wait
 
   end
 
