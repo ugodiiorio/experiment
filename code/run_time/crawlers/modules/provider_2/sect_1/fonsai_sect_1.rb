@@ -75,10 +75,13 @@ class FonsaiSect1 < Test::Unit::TestCase
     begin
       @last_element, @last_value = nil, nil
 
+      page_intro
       page_1
       page_2
-#      page_3
-#      page_premium
+      page_3
+      page_4
+      page_5
+      page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -100,7 +103,7 @@ class FonsaiSect1 < Test::Unit::TestCase
 
   private # all methods that follow will be made private: not accessible for outside objects
 
-  def page_1
+  def page_intro
 
     open_page(@url)
 
@@ -108,13 +111,19 @@ class FonsaiSect1 < Test::Unit::TestCase
     select_option "tipoVeicolo", get('@vehicle_type')
     select_option "usoVeicolo", get('@vehicle_use')
     select_option "situation", get('@insurance_situation')
-    sleep @sleep
+
+    if get('@insurance_situation') =~ /prima/i
+      click_option(get('@bersani'))
+    end
+
+    sleep @sleep*2
+
     click_button "input"
     page_wait
 
   end
 
-  def page_2
+  def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
@@ -123,10 +132,34 @@ class FonsaiSect1 < Test::Unit::TestCase
     select_option "modello", get('@model')
     select_option "allestimento", get('@set_up')
     type_text "percorrenza", get('@km_per_yr')
-    click_option "trainoN"
-    click_option "boxGprsN"
+    click_option(get('@tow_hook'))
+    click_option(get('@alarm'))
+
     click_button "//div[@id='avantiD']/input"
    	page_wait
+
+  end
+
+  def page_2
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
+
+    select_option "tipo", get('@client_type')
+
+    if get('@client_type') == 'Persona fisica'
+      select_option "sesso", get('@owner_sex')
+      type_text "dateOfBirth", get('@birth_date')
+      select_option "professione", get('@job')
+    end
+
+    type_keys "cap", get('@owner_zip_code')
+    page.fire_event("cap", "blur")
+    page.key_up("city","\\115")
+    select_option "city", get('@residence')
+
+    click_button "//div[@id='indietroD']/input"
+    page_wait
 
   end
 
@@ -135,37 +168,61 @@ class FonsaiSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    select_option "tipo", "label=Persona giuridica"
-    type_keys "cap", "24030"
-    page.fire_event("cap", "blur")
-    page.key_up("city","\\115")
-    select_option "city", "CARVICO"
-    sleep 2
-    click_button "//div[@id='indietroD']/input"
-    page_wait
+    type_text "decorrenza", @rate_date
+    
+    if get('@insurance_situation') =~ /prima/i
 
-    type_text "decorrenza", "20/04/2010"
-    click_option "attRiskY"
-    type_text "dataScadContrPrec", "20/04/2010"
-    select_option "family", "label=0"
-    select_option "tipocond", "label=Conducente esperto"
-    sleep 2
-    click_option "autoPrestoBeneN"
+      if is_present?(get('@coming_from_company')) #true for inherited bersani
+        click_option get('@coming_from_company')
+      end
+
+      if is_present?('bonusNucleo') #true for not inherited bersani
+        select_option 'bonusNucleo', get("@BM_particular_cases")
+      end
+      
+    else
+      click_option get('@risk_certificate')
+      type_text "dataScadContrPrec", @rate_date
+    end
+
+    select_option "family", get("@car_already_insured_with_company")
+    select_option "tipocond", get("@driving_type")
+    click_option get("partner_garages")
+
     click_button "//div[@class='floatRight']/input"
     page_wait
 
-    select_option "cua", "label=1"
-    select_option "cup", "label=2"
+  end
+
+  def page_4
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
+
+    select_option "cua", get("@bm_assigned")
+    select_option "cup", get("@coming_from_bm")
+
+    if get('@insurance_situation') =~ /assicurato/i
+      select_option "r3", get("@nr_of_paid_claims_3_yr")
+      select_option "r2", get("@nr_of_paid_claims_2_yr")
+      select_option "r1", get("@nr_of_paid_claims_1_yr")
+      select_option "r0", get("@nr_of_paid_claims_this_yr")
+    end
 
     type_captcha
 
     click_button "//div[@class='floatRight']/input"
     page_wait
 
-    select_option "massimale", "label=€ 3.000.000,00"
-    sleep 3
+  end
 
-    puts "PREMIO: " + page.get_text("//span[@id='premio']")
+  def page_5
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
+
+    click_button "//div[@class='floatRight']/input"
+    page_wait
 
   end
 
@@ -173,6 +230,10 @@ class FonsaiSect1 < Test::Unit::TestCase
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
+
+    select_option "massimale", get("public_liability_indemnity_limit")
+    select_option "massimale", get("public_liability_exemption")
+    sleep @sleep*2
 
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
