@@ -135,76 +135,40 @@ class FonsaiSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    if get('@insurance_situation') =~ /proveniente/i
-      click_option(get('@risk_certificate'))
+    select_option "tipo", "label=Persona giuridica"
+    type_keys "cap", "24030"
+    page.fire_event("cap", "blur")
+    page.key_up("city","\\115")
+    select_option "city", "CARVICO"
+    sleep 2
+    click_button "//div[@id='indietroD']/input"
+    page_wait
 
-      page.click 'buttonCIP_CLAS'
-      page.wait_for_pop_up('DominiPopup', 30000)
-      page.select_window('DominiPopup')
-      select_option "CIP_CLASDomini", get("@bm_assigned")
-      page.click 'buttonCIP_CLAS'
-      page.select_window(nil)
+    type_text "decorrenza", "20/04/2010"
+    click_option "attRiskY"
+    type_text "dataScadContrPrec", "20/04/2010"
+    select_option "family", "label=0"
+    select_option "tipocond", "label=Conducente esperto"
+    sleep 2
+    click_option "autoPrestoBeneN"
+    click_button "//div[@class='floatRight']/input"
+    page_wait
 
-      type_text("NUM_SINI", get('@claims_total_number'))
-      type_text("SINANN86", get('@nr_of_paid_claims_1_yr'))
-      type_text("COD_LIM1", get('@number_of_ni_na_yrs_during_5_yrs'))
-    end
+    select_option "cua", "label=1"
+    select_option "cup", "label=2"
 
-    if page.get_value("DES_MODE").match('')
-      type_text("DES_MODE", get("@model"))
-    end
+    type_captcha
 
-    click_option(get('@fuel'))
-    type_text("POT_FISC", get('@cv'))
-    type_text("KW0_POTE", get('@kw'))
+    click_button "//div[@id='avantiD']/input"
+    page_wait
 
-    page.click 'buttonMAX_SINI'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "MAX_SINIDomini", get("@public_liability_indemnity_limit")
-    page.click 'buttonMAX_SINI'
-    page.select_window(nil)
+    click_button "//div[@class='floatRight']/input"
+    page_wait
 
-    click_option(get('@defined_drive'))
-    click_option(get('@exclusive_drive'))
-    click_option(get('@free_drive'))
-    click_option(get('@tow_hook'))
+    select_option "massimale", "label=€ 3.000.000,00"
+    sleep 3
 
-    select_option "gg_DAT_1IMM", get("@matriculation_date_day")
-    select_option "mm_DAT_1IMM", get("@matriculation_date_month")
-    select_option "aaaa_DAT_1IMM", get("@matriculation_date_year")
-
-    if page.get_value("KG0_MASS").match('')
-      type_text("KG0_MASS", get("@full_load_total_weight"))
-    end
-
-    page.click 'buttonCODNAZ74'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "CODNAZ74Domini", get("@citizenship")
-    page.click 'buttonCODNAZ74'
-    page.select_window(nil)
-
-    select_option "gg_DATDIN87", get("@birth_date_day")
-    select_option "mm_DATDIN87", get("@birth_date_month")
-    select_option "aaaa_DATDIN87", get("@birth_date_year")
-
-    page.click 'buttonCODIDE82'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "CODIDE82Domini", get("@residence_province")
-    page.click 'buttonCODIDE82'
-    page.select_window(nil)
-
-    page.click 'buttonCODIDE81'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "CODIDE81Domini", get("@residence")
-    page.click 'buttonCODIDE81'
-    page.select_window(nil)
-
-    click_button 'step1'
-   	page_wait
+    puts "PREMIO: " + page.get_text("//span[@id='premio']")
 
   end
 
@@ -376,6 +340,66 @@ class FonsaiSect1 < Test::Unit::TestCase
 
   def assert_is_element_present(element)
 	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
+  end
+
+  def type_captcha
+
+    captcha_error = true
+    decode_captcha()
+    while captcha_error
+      if @selenium.is_text_present("Rilevati i seguenti errori") && @selenium.is_text_present("Captcha non validato")
+        puts "Captcha Error"
+        decode_captcha
+      else
+        captcha_error = false
+      end
+    end
+    type_text "captcha", @captcha_text.strip.gsub(" ", "")
+
+  end
+
+  def decode_captcha
+
+    page.context_menu "//div[@id='captchaDataDom']/img"
+    sleep 1
+    page.key_press_native(40)
+    page.key_press_native(40)
+    page.key_press_native(10)
+    sleep @sleep
+
+    # get the clipboard
+    clipboard = Gtk::Clipboard.get(Gdk::Selection::CLIPBOARD)
+    sleep @sleep
+    pixbuf = clipboard.wait_for_image
+    sleep 1
+    puts "#{File.join(File.dirname(__FILE__))}/captcha.jpg"
+    pixbuf.save("#{File.join(File.dirname(__FILE__))}/captcha.jpg", "jpeg", {"quality"=>100})
+    sleep @sleep
+    set_vars("#{File.join(File.dirname(__FILE__))}/captcha.jpg", "kpdecap", "decaptcher1")
+    captcha_file = File.new(@file)
+    @captcha_text = curl(captcha_file)
+    puts "output captcha decoded text: " + @captcha_text
+
+  end
+
+  def set_vars(p1, p2, p3=nil)
+
+    @file, @user, @pwd = p1, p2, p3
+    @function = "'picture2'"
+    @pict_to = "'0'"
+    @pict_type = "'0'"
+    @uri = "http://poster.decaptcher.com/"
+
+  end
+
+  def curl(file)
+
+    result = %x[curl -F pict=@#{file.path} -F username=#{@user} -F password=#{@pwd} -F function=#{@function} -F pict_to=#{@pict_to} -F pict_type=#{@pict_type} #{@uri}]
+    puts result
+    my_arr = result.split("|")
+    puts my_arr[0].to_i
+    return my_arr[5].to_s if my_arr[0].to_i == 0
+
   end
 
 end
