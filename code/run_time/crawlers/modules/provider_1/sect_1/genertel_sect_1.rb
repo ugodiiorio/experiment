@@ -12,7 +12,6 @@ class GenertelSect1 < Test::Unit::TestCase
   SHARED = 'shared.rb'
   DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
 
-  F4 = "\\115"
   NotIndividual = "C"
   Other = "Altro"
   CompanyType = "Societa' a responsabilita limitata"
@@ -166,13 +165,14 @@ class GenertelSect1 < Test::Unit::TestCase
     sleep @sleep*2
     select_fake_option("CBXXDVEXModello", get('@model'), "//body/div[8]/div/div")
     sleep @sleep*2
+#    type_model_set_up("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div") # to uncomment when regexp present in DB
     select_fake_option("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
     sleep @sleep
     select_fake_option("CBXXDVEXAlimentazione", get('@fuel'), "//body/div[8]/div/div")
-    type_text("TBXXDVEXAllestimento", get('@set_up'))
-    select_fake_option("CBXXDVEXPotenzaCv", get('@cv'), "//body/div[8]/div/div")
+    type_text("TBXXDVEXAllestimento", get('@set_up')) if is_present?("TBXXDVEXAllestimento")
+    select_fake_option("CBXXDVEXPotenzaCv", get('@cv'), "//body/div[8]/div/div") if is_present?("CBXXDVEXPotenzaCv")
     type_text("NBXXDVEXValoreVeicolo", get('@vehicle_value'))
-    select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[9]/div/div")
+    select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
 
     click_option(get('@airbag'))
     click_option(get('@abs'))
@@ -385,6 +385,28 @@ class GenertelSect1 < Test::Unit::TestCase
   	return present ? page.is_checked(@last_element) : nil
   end
 
+  def type_model_set_up(id, value, item)
+
+    @last_element, @last_value = id, value
+    page.type(@last_element, " ")
+    sleep @sleep
+    page.key_press(@last_element, "\\8")
+    page.key_up(@last_element, F4)
+
+    value.split("|").each do |regex|
+      load_text_element_array.each do |e|
+        if e =~ /#{regex}/i
+          @matched = true
+          @last_value = e
+          break
+        end
+      end
+      break if @matched
+    end
+    @matched ? select_fake_option(@last_element, @last_value, item) : assert(page.get_value(@last_element) =~ /#{@last_value}/i, page.get_value(id).inspect)
+
+  end
+
   def select_fake_option(id, value, item, assert_item = nil)
 
     @last_element, @last_value = id, value
@@ -409,8 +431,7 @@ class GenertelSect1 < Test::Unit::TestCase
         wait_for_elm(@last_element)
         assert_equal page.get_text(@last_element), @last_value
       else
-        assert_match(/#{@last_value}/i, page.get_value(id))
-#        assert_equal page.get_value(id).upcase, @last_value.upcase
+        assert page.get_value(id) =~ /#{@last_value}/i, page.get_value(id).inspect
       end
     end
 
