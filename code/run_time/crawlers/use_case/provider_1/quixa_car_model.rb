@@ -115,6 +115,8 @@ class QuixaCarModel < Test::Unit::TestCase
 
     select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
 
+    sleep @sleep*3
+
   end
 
   def open_page(id, value = nil)
