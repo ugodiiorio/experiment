@@ -165,8 +165,8 @@ class GenertelSect1 < Test::Unit::TestCase
     sleep @sleep*2
     select_fake_option("CBXXDVEXModello", get('@model'), "//body/div[8]/div/div")
     sleep @sleep*2
-#    type_model_set_up("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div") # to uncomment when regexp present in DB
-    select_fake_option("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
+    type_model_set_up("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div") # to uncomment when regexp present in DB
+#    select_fake_option("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
     sleep @sleep
     select_fake_option("CBXXDVEXAlimentazione", get('@fuel'), "//body/div[8]/div/div")
     type_text("TBXXDVEXAllestimento", get('@set_up')) if is_present?("TBXXDVEXAllestimento")
@@ -393,8 +393,8 @@ class GenertelSect1 < Test::Unit::TestCase
     page.key_press(@last_element, "\\8")
     page.key_up(@last_element, F4)
 
-    value.split("|").each do |regex|
-      load_text_element_array.each do |e|
+    @last_value.split("|").each do |regex|
+      load_text_element_array(item).each do |e|
         if e =~ /#{regex}/i
           @matched = true
           @last_value = e
@@ -431,7 +431,7 @@ class GenertelSect1 < Test::Unit::TestCase
         wait_for_elm(@last_element)
         assert_equal page.get_text(@last_element), @last_value
       else
-        assert page.get_value(id) =~ /#{@last_value}/i, page.get_value(id).inspect
+#        assert page.get_value(id) =~ /#{@last_value}/i, page.get_value(id).inspect
       end
     end
 
