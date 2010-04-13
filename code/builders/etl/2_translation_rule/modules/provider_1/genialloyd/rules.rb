@@ -12,7 +12,7 @@ module Provider1Genialloyd
       'driv_birth_place_str' => 'copy_field',
       'driv_birth_province_str' => 'copy_field',
       'driv_birth_state_str' => 'copy_field',
-      'driv_citizenship_str' => 'profilefield[:driv_citizenship_str] == "GRAN BRETAGNA" ? "GRAN BRETAGNA IRL. NORD" : copy_field',
+      'driv_citizenship_str' => 'profilefield[:driv_citizenship_str].gsub("GRAN BRETAGNA","GRAN BRETAGNA IRL. NORD").gsub("CECOSLOVACCHIA","REPUBBLICA CECA")',
       'driv_civil_status_str' => 'copy_field',
       'driv_driver_sex_str' => 'copy_field',
       'driv_driving_experience_str'=> 'copy_field',
