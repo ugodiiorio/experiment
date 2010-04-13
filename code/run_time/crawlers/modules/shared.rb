@@ -58,29 +58,6 @@ module Shared
     end
   end
 
-  def type_model_set_up(id, value, item)
-
-    case @kte.provider
-
-    when PROVIDER1
-      @last_element, @last_value = id, value
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
-
-      page.type(@last_element, " ")
-      sleep @sleep
-      page.key_press(@last_element, "\\8")
-      page.key_up(@last_element, F4)
-
-      select_fake_option(@last_element, load_text_element_array(item)[1], item)
-
-    when PROVIDER2
-      select_fake_option(id, value, item)
-    else
-      nil
-    end
-
-  end
-
   def select_max(id, value)
     @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
@@ -113,15 +90,14 @@ module Shared
 
   def load_text_element_array(e)
 
-    preparation_arr, i = [], 1
+    text_arr, i = [], 1
     item = "#{e}[#{i}]"
     while is_present?(item) == true
-      preparation_arr << page.get_text(item)
-#      puts page.get_text(item)
+      text_arr << page.get_text(item)
       i += 1
       item = "#{e}[#{i}]"
     end
-    return preparation_arr
+    return text_arr
 
   end
 
