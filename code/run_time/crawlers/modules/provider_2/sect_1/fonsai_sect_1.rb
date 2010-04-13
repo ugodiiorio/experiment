@@ -1,16 +1,15 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				26/03/2010						              #
+#				12/04/2010						              #
 #############################################
 
-class ConteSect1 < Test::Unit::TestCase
+require 'gtk2'
+
+class FonsaiSect1 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
-
-  SHARED = 'shared.rb'
-  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
 
   FirstPolicy = 0..100
   Individual = 0..100
@@ -76,13 +75,10 @@ class ConteSect1 < Test::Unit::TestCase
     begin
       @last_element, @last_value = nil, nil
 
-      page_intro
       page_1
       page_2
-      page_3
-      page_4
-      page_5
-      page_premium
+#      page_3
+#      page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@kte.test_result}]"}
@@ -103,222 +99,84 @@ class ConteSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
-  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
-  include Shared
-
-  def page_intro
-
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    
-    open_page(@url)
-   	page_wait
-
-  end
 
   def page_1
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    open_page(@url)
 
-    select_option "page:text_1CNSC", get("@how_do_you_know_the_company")
-    click_option(get('@insurance_situation'))
-    if (page.get_attribute("#{@last_element}@value") == "-1")
-      click_option(get('@new_used_vehicle'))
-    end
-    click_option(get('@privacy_1'))
+    select_option "vehicleSector", get('@property_type_to_be_insured')
+    select_option "tipoVeicolo", get('@vehicle_type')
+    select_option "usoVeicolo", get('@vehicle_use')
+    select_option "situation", get('@insurance_situation')
+    sleep @sleep
+    click_button "input"
+    page_wait
 
-    click_button 'page:buttonContinua'
-   	page_wait
-    
   end
 
   def page_2
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    type_text("page:dataEffetto", @rate_date)
-    select_option "page:mese_immatricolazione", get("@matriculation_date_month")
-    type_text("page:anno_immatricolazione", get("@matriculation_date_year"))
-    type_text("page:anno_acquisto", get("@purchase_date_year"))
-    select_option "page:alimentazione", get("@fuel")
-    select_option "page:marca", get("@make")
-    sleep @sleep*2
-    select_model_set_up("page:modelloAuto", get("@model"))
-    sleep @sleep*2
-    select_model_set_up("page:allestimento", get("@set_up"))
-
-    click_button 'page:continua_step01'
-    sleep @sleep
-
-    type_text("page:valore_veicolo", get('@vehicle_value')) if page.is_visible "page:valore_veicolo"
-    page.fire_event 'page:valore_veicolo', 'blur' if page.is_visible "page:valore_veicolo"
-    select_option "page:ricovero_notturno", get("@vehicle_shelter")
-    select_option "page:antifurto", get("@alarm")
-    select_option "page:uso_prevalente", get("@habitual_vehicle_use")
-    select_option "page:km_anno", get("@km_per_yr")
-    click_option(get('@modification_made'))
-    click_option(get('@bersani'))
-    select_option "page:classeCU", get("@bm_assigned")
-    click_option(get('@subscriber_is_owner'))
-
-    if (page.get_attribute("#{@last_element}@value") == "0")
-      click_option(get('@client_type'))
-    end
-
-    click_option(get('@subscriber_is_driver'))
-
-    click_button 'page:buttonContinua'
+    select_option "marca", get('@make')
+    select_option "modello", get('@model')
+    select_option "allestimento", get('@set_up')
+    type_text "percorrenza", get('@km_per_yr')
+    click_option "trainoN"
+    click_option "boxGprsN"
+    click_button "//div[@id='avantiD']/input"
    	page_wait
-    
+
   end
 
   def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    click_option(get('@driver_sex'))
-    type_text("page:conducente_nascita", get('@birth_date'))
-    click_option(get('@citizenship'))
-
-    if get('@citizenship') == "page:conducente_nazione:0" #ITALIA
-      select_option "page:provincia_di_nascita", get("@birth_province")
-      type_keys("page:comune_di_nascita", get('@birth_place'))
-      sleep @sleep
-      page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
-    else #ESTERO
-      select_option "page:conducente_principale_nazione_estera", get("@birth_state")
-      type_text("page:anno_residenza_italia", get('@italian_residence_starting_yrs'))
-    end
-
-    click_button 'page:buttonContinua'
-    sleep @sleep
-
-    select_option "page:provincia_di_residenza", get("@residence_province")
-
-    type_keys("page:comune_di_residenza", get('@residence'))
-    sleep @sleep
-    page.click "//ul[@id='ulResult']/span[1]/li"
-    assert_equal page.get_value(@last_element).upcase, @last_value.upcase
-
-    type_text("page:toponimo_residenza", get('@toponym'))
-    type_text("page:indirizzo_residenza", get('@address_street'))
-    type_text("page:numero_residenza", get('@address_num'))
-    select_option "page:cap_di_residenza", get("@owner_zip_code"), "value"
-
-    click_button 'page:buttonContinua2'
-    sleep @sleep
-
-    type_keys("page:professione_conducente_principale", get('@job'))
-    sleep @sleep
-    page.click "//div[@id='risultatiSrchProf']/ul/span/li"
-
-    select_option "page:stato_civile", get("@civil_status")
-    click_option(get('@cohabiting_children'))
-    type_text("page:eta_conseguimento_patente", get('@driving_license_yrs'))
-    page.fire_event("page:eta_conseguimento_patente", 'blur')
-    sleep @sleep
-
-    if is_present?("page:anno_conseguimento_patente")
-      type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
-      select_option "page:mese_conseguimento_patente", get("@driving_license_month_of_issue")
-    end
-
-    select_option "page:tipo_patente", get("@driving_license_type")
-    select_option "page:punti_patente", get("@driving_license_points")
-
-    click_button 'page:buttonContinua3'
+    select_option "tipo", "label=Persona giuridica"
+    type_keys "cap", "24030"
+    page.fire_event("cap", "blur")
+    page.key_up("city","\\115")
+    select_option "city", "CARVICO"
+    sleep 2
+    click_button "//div[@id='indietroD']/input"
     page_wait
 
-  end
-
-  def page_4
-
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-    
-    click_option(get('@drunkenness_fine'))
-    click_option(get('@driving_license_suspension'))
-    click_option(get('@other_vehicle_use'))
-
-#    click_button '//*[@class="continua_button"]/table/tbody/tr/td/a/img'#'page:buttonContinua6'
-    is_present?("page:buttonContinua6") ? click_button("page:buttonContinua6") : click_button("page:buttonContinua198")
-    sleep @sleep
-
-    click_option(get('@claims_total_number'))
-
-    if (page.get_attribute("#{@last_element}@value") == "1")
-      select_option "page:numero_sinistri_cc", get("@nr_of_paid_claims_2_yr")
-      select_option "page:MeseSinistroConColpa1", get("@first_claim_month")
-      select_option "page:AnnoSinistroConColpa1", get("@first_claim_year")
-
-      if get("@nr_of_paid_claims_2_yr") == '2'
-        select_option "page:MeseSinistroConColpa2", get("@second_claim_month")
-        select_option "page:AnnoSinistroConColpa2", get("@second_claim_year")
-      end
-
-    end
-
-    click_button 'page:buttonContinua14'
-    sleep @sleep
-
-    type_text("page:cognome_contraente", get('@name'))
-    type_text("page:nome_contraente", get('@surname'))
-    type_text("page:email_contraente", get('@e_mail'))
-    type_text("page:prefisso_cellulare_contraente", get('@mobile_prefix'))
-    type_text("page:cellulare_contraente", get('@mobile_number'))
-
-    click_button 'page:buttonContinua3'
+    type_text "decorrenza", "20/04/2010"
+    click_option "attRiskY"
+    type_text "dataScadContrPrec", "20/04/2010"
+    select_option "family", "label=0"
+    select_option "tipocond", "label=Conducente esperto"
+    sleep 2
+    click_option "autoPrestoBeneN"
+    click_button "//div[@class='floatRight']/input"
     page_wait
 
-  end
+    select_option "cua", "label=1"
+    select_option "cup", "label=2"
 
-  def page_5
+    type_captcha
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-    
-    click_option(get('@driving_type'))
-    click_option(get('@payment'))
-    click_option('page:metodoDiPagamento2:0')
-
-    click_button 'page:buttonCalcolaPremioAppoggio'
+    click_button "//div[@class='floatRight']/input"
     page_wait
+
+    select_option "massimale", "label=€ 3.000.000,00"
+    sleep 3
+
+    puts "PREMIO: " + page.get_text("//span[@id='premio']")
 
   end
 
   def page_premium
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'
-        sleep @sleep*2
-        select_option("page:quota_info:0:massimaleRCA", get('@public_liability_indemnity_limit'))
-      
-#        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-#        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-#        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-#        uncheck_checkbox(get('@road_assistance_web_id')) if is_checked?(get('@road_assistance_web_id'))
-#        uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-#        uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-#        uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-#        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-#        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
-
-        page.fire_event 'page:quota_info:0:massimaleRCA', 'change'
-        sleep @sleep*2
-        if is_present?('page:ricalcola_but')
-          page_click_button 'page:ricalcola_but'
-          page_wait
-        end
-
-        @last_element = get("@rca_premium_id")
-        wait_for_elm @last_element
-        sleep @sleep*2
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
@@ -332,10 +190,12 @@ class ConteSect1 < Test::Unit::TestCase
     page.open @last_element
     sleep @sleep
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
   end
 
-  def select_option(id, value, option = "label")
-    @last_element, @last_value = id, (value =~ /index=/i)? value : "#{option}=#{value}"
+  def select_option(id, value = nil)
+    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
     page_select @last_element, "#{@last_value}"
     assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
@@ -422,11 +282,7 @@ class ConteSect1 < Test::Unit::TestCase
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
     page.focus element
-    page.key_up element, "\\115"
-    sleep @sleep*2
 	  page.type_keys element, label
-	  page.type_keys element, " "
-    page.key_press element, "\\8"
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
@@ -443,7 +299,7 @@ class ConteSect1 < Test::Unit::TestCase
   	sleep @sleep
     assert_not_nil combo_name
     assert_not_nil label
-    assert_not_nil label.split("=")[1] #unless (label =~ /index=/i) unless (label =~ /value=/i)
+    assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
@@ -469,11 +325,9 @@ class ConteSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
-    assert premium != nil, @last_element.inspect
-    assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
-    premium = premium.split[1]
-    premium.count(",") > 0 ? premium.gsub(".","") : nil
-    premium = premium.gsub(",",".")
+    assert premium.split[0] != nil, @last_element.inspect
+    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    premium = premium.split[1].gsub(".",",")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
     assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"
@@ -483,6 +337,76 @@ class ConteSect1 < Test::Unit::TestCase
 
   def assert_is_element_present(element)
 	  assert page.element?(element) == true, "Wait for element failed! Element not present = #{element}"
+  end
+
+  def type_captcha
+
+    decode_captcha()
+
+    captcha_error, i = true, 0
+    sleep @sleep*2
+    while captcha_error
+      if page.is_text_present("Rilevati i seguenti errori") && page.is_text_present("Captcha non validato")
+        i+= 1
+        @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => DeCaptcher Error tentative n. #{i.to_s}"}
+        decode_captcha
+        captcha_error = false if i == 3
+      else
+        captcha_error = false
+      end
+    end
+
+    assert page.is_text_present("Captcha non validato") == false, "DECAPTCHER ERROR! Invalid captcha #{@captcha_text}"
+
+  end
+
+  def decode_captcha
+
+    page.context_menu "//div[@id='captchaDataDom']/img"
+    sleep 1
+    page.key_press_native(40)
+    page.key_press_native(40)
+    page.key_press_native(10)
+    sleep @sleep
+
+    # get the clipboard
+    clipboard = Gtk::Clipboard.get(Gdk::Selection::CLIPBOARD)
+    sleep @sleep
+    pixbuf = clipboard.wait_for_image
+    sleep 1
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Captcha image file: #{File.join(File.dirname(__FILE__))}/captcha.jpg"}
+    pixbuf.save("#{File.join(File.dirname(__FILE__))}/captcha.jpg", "jpeg", {"quality"=>100})
+    sleep @sleep
+    set_vars("#{File.join(File.dirname(__FILE__))}/captcha.jpg", "kpdecap", "decaptcher1")
+    captcha_file = File.new(@file)
+    @captcha_text = curl(captcha_file)
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => Output captcha decoded text: #{@captcha_text}"}
+
+    type_text "captcha", @captcha_text.strip.gsub(" ", "")
+
+    click_button "//div[@id='avantiD']/input"
+    page_wait
+
+  end
+
+  def set_vars(p1, p2, p3=nil)
+
+    @file, @user, @pwd = p1, p2, p3
+    @function = "'picture2'"
+    @pict_to = "'0'"
+    @pict_type = "'0'"
+    @uri = "http://poster.decaptcher.com/"
+
+  end
+
+  def curl(file)
+
+    result = %x[curl -F pict=@#{file.path} -F username=#{@user} -F password=#{@pwd} -F function=#{@function} -F pict_to=#{@pict_to} -F pict_type=#{@pict_type} #{@uri}]
+    puts result
+    my_arr = result.split("|")
+    puts my_arr[0].to_i
+    return my_arr[5].to_s if my_arr[0].to_i == 0
+
   end
 
 end

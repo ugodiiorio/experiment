@@ -84,6 +84,7 @@ module Provider2Fonsai
       {'pol_driving_type_str' => 'definita'} => 'Conducente esperto',
       {'pol_driving_type_str' => 'libera'} => 'Qualunque conducente - soggetti diversi dalle persone fisiche',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'premio',
+      {'veh_vehicle_use_str' => 'privato'} => 'Privato',
 
     }
   end

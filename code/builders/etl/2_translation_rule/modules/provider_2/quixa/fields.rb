@@ -370,11 +370,11 @@ module Provider2Quixa
       {'pol_nr_of_paid_claims_5_yr_str' => 'N/A'} => 'N/A',
       {'pol_nr_of_paid_claims_5_yr_str' => 'N/D'} => 'N/D',
       {'pol_payment_str' => 'carta di credito'} => 'Carta di Credito',
-      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '3.000.000 € - 2.500.000 € - 500.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '25.000.000 € - 20.000.000 € - 5.000.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '18.000.000 € - 15.000.000 € - 3.000.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '12.000.000 € - 10.000.000 € - 2.000.000 €',
-      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6.000.000 € - 5.000.000 € - 1.000.000 €',
+      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3.000.000 € - 2.500.000 € - 500.000 €',
+      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '25.000.000 € - 20.000.000 € - 5.000.000 €',
+      {'pol_public_liability_indemnity_limit_str' => '18,000,000'} => '18.000.000 € - 15.000.000 € - 3.000.000 €',
+      {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '12.000.000 € - 10.000.000 € - 2.000.000 €',
+      {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6.000.000 € - 5.000.000 € - 1.000.000 €',
       {'pol_RCA_premium_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_lblVisible_MA_Prize',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
@@ -490,8 +490,7 @@ module Provider2Quixa
       {'veh_km_per_yr_str' => '15000'} => 'Tra 10.000 - 20.000',
       {'veh_passenger_transportation_str' => 'si'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtPassengerYes',
       {'veh_passenger_transportation_str' => 'no'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtPassengerNo',
-      {'veh_vehicle_type_str' => 'motociclo'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucNewSimulation_rblSimulationTypes_1',
-
+      {'veh_vehicle_type_str' => 'motociclo'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucNewSimulation_rblSimulationTypes_2',
     }
 
   end

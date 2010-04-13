@@ -52,8 +52,38 @@ module Shared
         else
           @last_value = "label=#{value.split("|")[1]}"
           page_select @last_element, "#{@last_value}"
-          @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched! Using secondary regex value"}
+          @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value with selected label #{page.get_selected_label(@last_element)}"}
       end
+    end
+  end
+
+  def select_max(id, value)
+    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+
+    begin
+      page_select(@last_element, "label=#{@last_value}")
+      assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
+    rescue Exception => ex
+      loc_array  = []
+      loc_array = page.get_select_options(@last_element)
+      page_select @last_element, "index=#{loc_array.size - 1}"
+      @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => Indemnity limit not matched for profile [#{@kte.profile}] and record [#{@record}]! Using max available value with selected label #{page.get_selected_label(@last_element)}"}
+    end
+  end
+
+  def store_parameter(parameter, value)
+
+    case parameter
+      when :make
+        @kte.car_make = value
+      when :model
+        @kte.car_model = value
+      when :preparation
+        @kte.car_preparation = value
+      when :job
+        @kte.job = value
+      else
     end
   end
 
