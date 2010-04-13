@@ -76,7 +76,7 @@ class FonsaiSect1 < Test::Unit::TestCase
       @last_element, @last_value = nil, nil
 
       page_1
-#      page_2
+      page_2
 #      page_3
 #      page_premium
 
@@ -102,16 +102,13 @@ class FonsaiSect1 < Test::Unit::TestCase
 
   def page_1
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
-
     open_page(@url)
-   	page_wait
 
-    select_option "vehicleSector", get('property_type_to_be_insured')
-    select_option "tipoVeicolo", get('vehicle_type')
-    select_option "usoVeicolo", get('vehicle_use')
+    select_option "vehicleSector", get('@property_type_to_be_insured')
+    select_option "tipoVeicolo", get('@vehicle_type')
+    select_option "usoVeicolo", get('@vehicle_use')
     select_option "situation", get('@insurance_situation')
+    sleep @sleep
     click_button "input"
     page_wait
 
@@ -122,67 +119,13 @@ class FonsaiSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    select_option "tip_veic", get("@property_type_to_be_insured")
-    select_option "frm_contr", get("@quotation")
-
-    wait_for_elm('buttonCOD_MARC')
-    page.click 'buttonCOD_MARC'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "COD_MARCDomini", get("@make")
-    page.click 'buttonCOD_MARC'
-    page.select_window(nil)
-
-    page.click 'buttonCOD_MODE'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "COD_MODEDomini", get("@model")
-    page.click 'buttonCOD_MODE'
-    page.select_window(nil)
-
-    if get("@model").match('altro') == nil
-      page.click 'buttonCOD_ALLE'
-      page.wait_for_pop_up('DominiPopup', 30000)
-      page.select_window('DominiPopup')
-      select_option "COD_ALLEDomini", get("@set_up")
-      page.click 'buttonCOD_ALLE'
-      page.select_window(nil)
-    end
-
-    click_option(get('@client_type'))
-    if (page.get_attribute("#{@last_element}@id") == "TIP_PERS_F")
-      click_option(get('@owner_sex'))
-      select_option "gg_DAT_NASC", get("@birth_date_day")
-      select_option "mm_DAT_NASC", get("@birth_date_month")
-      select_option "aaaa_DAT_NASC", get("@birth_date_year")
-
-      page.click 'buttonCODPRO35'
-      page.wait_for_pop_up('DominiPopup', 30000)
-      page.select_window('DominiPopup')
-      select_option "CODPRO35Domini", get("@job")
-      page.click 'buttonCODPRO35'
-      page.select_window(nil)
-    else
-      page.click 'buttonCODPRO35'
-      page.wait_for_pop_up('DominiPopup', 30000)
-      page.select_window('DominiPopup')
-      select_option "CODPRO35Domini", get("@denomination_company")
-      page.click 'buttonCODPRO35'
-      page.select_window(nil)
-    end
-
-    click_option(get('@type_of_contract'))
-
-    page.click 'buttonFLG_RISC'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "FLG_RISCDomini", get("@insurance_situation")
-    page.click 'buttonFLG_RISC'
-    page.select_window(nil)
-
-    click_option(get('@heir'))
-
-    click_button 'Button2'
+    select_option "marca", get('@make')
+    select_option "modello", get('@model')
+    select_option "allestimento", get('@set_up')
+    type_text "percorrenza", get('@km_per_yr')
+    click_option "trainoN"
+    click_option "boxGprsN"
+    click_button "//div[@id='avantiD']/input"
    	page_wait
 
   end
@@ -287,6 +230,7 @@ class FonsaiSect1 < Test::Unit::TestCase
     sleep @sleep
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
   end
 
   def select_option(id, value = nil)
