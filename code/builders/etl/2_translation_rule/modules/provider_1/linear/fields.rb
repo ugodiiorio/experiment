@@ -280,10 +280,10 @@ module Provider1Linear
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '€ 5.000.000,00 unico',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '€ 5.000.000,00 unico',
 
-      {'pol_public_liability_indemnity_limit_str' => '1600000'} => 'regexp:€\\s2\\.500\\.000 - 500\\.000',
-      {'pol_public_liability_indemnity_limit_str' => '2500000'} => 'regexp:€\\s2\\.500\\.000 - 500\\.000',
+      {'pol_public_liability_indemnity_limit_str' => '1600000'} => 'regexpi:€\\s2\\.500\\.000 - 500\\.000',
+      {'pol_public_liability_indemnity_limit_str' => '2500000'} => 'regexpi:€\\s2\\.500\\.000 - 500\\.000',
       {'pol_public_liability_indemnity_limit_str' => '5000000'} => '€ 5.000.000,00 unico',
-      {'pol_public_liability_indemnity_limit_str' => '800000'} => 'regexp:€\\s2\\.500\\.000 - 500\\.000',
+      {'pol_public_liability_indemnity_limit_str' => '800000'} => 'regexpi:€\\s2\\.500\\.000 - 500\\.000',
 
       {'driv_driving_license_month_of_issue_str' => '08'} => 'Agosto',
       {'veh_gas_methane_supply_str' => 'no'} => 'alimentazione_auto_no',

@@ -694,6 +694,7 @@ class BuildDriverSchema
         pol_driver_less_than_26_yrs_str   VARCHAR(128),
         pol_instalment_str   VARCHAR(128),
         pol_public_liability_indemnity_limit_str   VARCHAR(128),
+        policy   VARCHAR(32),
         pol_provider_company_id_str   VARCHAR(128)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
