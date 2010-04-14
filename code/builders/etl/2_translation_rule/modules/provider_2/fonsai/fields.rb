@@ -52,7 +52,7 @@ module Provider2Fonsai
       {'pol_coming_from_BM_str' => '17'} => '17',
       {'pol_coming_from_BM_str' => '18'} => '18',
       {'pol_coming_from_company_str' => 'generali'} => 'attRisk_A',
-      {'pol_public_liability_exemption_str' => 'no'} => 'nessuna',
+      {'pol_public_liability_exemption_str' => '0'} => 'nessuna',
       {'veh_tow_hook_str' => 'no'} => 'trainoN',
       {'veh_gprs_str' => 'no'} => 'boxGprsN',
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '€ 3.000.000,00',
