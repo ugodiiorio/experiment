@@ -130,7 +130,7 @@ class FonsaiSect1 < Test::Unit::TestCase
 
     select_option "marca", get('@make')
     select_option "modello", get('@model')
-    select_option "allestimento", get('@set_up')
+    select_option "allestimento", get('@set_up') #TODO smartellata "1.2 3 PORTE ACTIVE (immatr:01/2007)". Aggiustare regexpi
     type_text "percorrenza", get('@km_per_yr')
     click_option(get('@tow_hook'))
     click_option(get('@gprs'))
@@ -391,9 +391,8 @@ class FonsaiSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
-    assert premium.split[0] != nil, @last_element.inspect
-    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
-    premium = premium.split[1].gsub(".",",")
+    premium = premium.gsub(".","")
+    premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
     assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"

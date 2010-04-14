@@ -271,7 +271,6 @@ module FieldMappingProvider1Sect1
       'pol_protection_24_premium_id_str' => '"id elemento"',
       'pol_protection_24_web_id_str' => '"id elemento"',
 
-
     }
   end
 
