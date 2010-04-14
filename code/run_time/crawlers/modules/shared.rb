@@ -3,7 +3,6 @@
 
 module Shared
 
-  F4 = "\\115"
   PROVIDER1 = "provider_1"
   PROVIDER2 = "provider_2"
 
