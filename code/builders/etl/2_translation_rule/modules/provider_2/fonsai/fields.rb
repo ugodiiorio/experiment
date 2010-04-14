@@ -5,8 +5,10 @@ module Provider2Fonsai
     @target_values = {}
 
     @target_values = {
-      {'pol_risk_certificate_str' => 'si'} => '/html/body/form/div/div[2]/div/div[2]/div/div[4]/div[2]/span',
-      {'pol_bersani_str' => 'No'} => '/html/body/form/div/div[2]/div/div[2]/div/div[9]/div[2]/span[2]',
+      
+      {'pol_risk_certificate_str' => 'si'} => 'attRiskY',#'/html/body/form/div/div[2]/div/div[2]/div/div[4]/div[2]/span',
+      {'pol_bersani_str' => 'no'} => 'bersaniN',#'/html/body/form/div/div[2]/div/div[2]/div/div[9]/div[2]/span[2]',
+      {'pol_bersani_str' => 'si'} => 'bersaniY',#'/html/body/form/div/div[2]/div/div[2]/div/div[9]/div[2]/span[2]',
       {'pol_BM_assigned_str' => '-1'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
@@ -26,6 +28,7 @@ module Provider2Fonsai
       {'pol_BM_assigned_str' => '16'} => '16',
       {'pol_BM_assigned_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
+      {'pol_BM_particular_cases_str' => 'no'} => 'Non applicabile',
       {'pol_coming_from_BM_str' => '-1'} => '1',
       {'pol_coming_from_BM_str' => '1'} => '1',
       {'pol_coming_from_BM_str' => '2'} => '2',
@@ -45,9 +48,10 @@ module Provider2Fonsai
       {'pol_coming_from_BM_str' => '16'} => '16',
       {'pol_coming_from_BM_str' => '17'} => '17',
       {'pol_coming_from_BM_str' => '18'} => '18',
+      {'pol_coming_from_company_str' => 'generali'} => 'attRisk_A',
       {'pol_public_liability_exemption_str' => 'no'} => 'nessuna',
-      {'veh_tow_hook_str' => 'no'} => '/html/body/form/div/div[2]/div/div[2]/div/div[13]/div[2]/span[2]',
-      {'veh_gprs_str' => 'no'} => '/html/body/form/div/div[2]/div/div[2]/div/div[14]/div[2]/span[2]',
+      {'veh_tow_hook_str' => 'no'} => 'trainoN',#'/html/body/form/div/div[2]/div/div[2]/div/div[13]/div[2]/span[2]',
+      {'veh_gprs_str' => 'no'} => 'boxGprsN',#'/html/body/form/div/div[2]/div/div[2]/div/div[14]/div[2]/span[2]',
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '3000000',
       {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '25000000',
       {'pol_public_liability_indemnity_limit_str' => '18,000,000'} => '15000000',
@@ -57,20 +61,15 @@ module Provider2Fonsai
       {'pol_nr_of_paid_claims_1_yr_str' => '1'} => '1',
       {'pol_nr_of_paid_claims_2_yr_str' => '0'} => '0',
       {'pol_nr_of_paid_claims_2_yr_str' => '1'} => '1',
-
       {'pol_nr_of_paid_claims_3_yr_str' => '0'} => '0',
       {'pol_nr_of_paid_claims_3_yr_str' => '1'} => '1',
-
       {'pol_nr_of_paid_claims_4_yr_str' => '0'} => '0',
       {'pol_nr_of_paid_claims_4_yr_str' => '1'} => '1',
-
       {'pol_nr_of_paid_claims_5_yr_str' => '0'} => '0',
       {'pol_nr_of_paid_claims_5_yr_str' => '1'} => '1',
-
       {'pol_nr_of_paid_claims_this_yr_str' => '0'} => '0',
       {'pol_nr_of_paid_claims_this_yr_str' => '1'} => '1',
-
-      {'pol_partner_garages_str' => 'no'} => '/html/body/form/div/div[2]/div/div[2]/div/div[9]/div/span[2]',
+      {'pol_partner_garages_str' => 'no'} => 'autoPrestoBeneN',#'/html/body/form/div/div[2]/div/div[2]/div/div[9]/div/span[2]',
       {'own_owner_sex_str' => 'M'} => 'Uomo',
       {'own_owner_sex_str' => 'F'} => 'Donna',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Già assicurato con altra compagnia',
@@ -87,6 +86,7 @@ module Provider2Fonsai
       {'veh_vehicle_use_str' => 'privato'} => 'Privato',
 
     }
+    
   end
   
   def build_hash_sect_2()
@@ -137,7 +137,7 @@ module Provider2Fonsai
       {'pol_coming_from_BM_str' => '16'} => '16',
       {'pol_coming_from_BM_str' => '17'} => '17',
       {'pol_coming_from_BM_str' => '18'} => '18',
-      {'pol_coming_from_familiar_risk_certificate_str' => 'attest rilasc altra com'} => 'attRisk_A',
+      {'pol_risk_certificate_str' => 'attest rilasc altra com'} => 'attRisk_A',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Già assicurato con altra compagnia',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima polizza',
       {'pol_property_type_to_be_insured_str' => 'motociclo'} => 'Motoveicoli per trasporto persone',
@@ -211,7 +211,7 @@ module Provider2Fonsai
       {'pol_coming_from_BM_str' => '16'} => '16',
       {'pol_coming_from_BM_str' => '17'} => '17',
       {'pol_coming_from_BM_str' => '18'} => '18',
-      {'pol_coming_from_familiar_risk_certificate_str' => 'attest rilasc altra com'} => 'attRisk_A',
+      {'pol_risk_certificate_str' => 'attest rilasc altra com'} => 'attRisk_A',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Già assicurato con altra compagnia',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima polizza',
       {'pol_property_type_to_be_insured_str' => 'ciclomotore'} => 'Ciclomotori o Quadricicli leggeri per trasporto persone',
@@ -283,7 +283,7 @@ module Provider2Fonsai
       {'pol_coming_from_BM_str' => '16'} => '16',
       {'pol_coming_from_BM_str' => '17'} => '17',
       {'pol_coming_from_BM_str' => '18'} => '18',
-      {'pol_coming_from_familiar_risk_certificate_str' => 'attest rilasc altra com'} => 'attRisk_A',
+      {'pol_risk_certificate_str' => 'attest rilasc altra com'} => 'attRisk_A',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Già assicurato con altra compagnia',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima polizza',
       {'pol_property_type_to_be_insured_str' => 'autocarro per trasporto persone o cose'} => 'Autocarri o Autoveicoli per trasporto cose',

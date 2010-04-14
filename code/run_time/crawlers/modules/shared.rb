@@ -3,6 +3,7 @@
 
 module Shared
 
+  F4 = "\\115"
   PROVIDER1 = "provider_1"
   PROVIDER2 = "provider_2"
 
@@ -85,6 +86,19 @@ module Shared
         @kte.job = value
       else
     end
+  end
+
+  def load_text_element_array(e)
+
+    text_arr, i = [], 1
+    item = "#{e}[#{i}]"
+    while is_present?(item) == true
+      text_arr << page.get_text(item)
+      i += 1
+      item = "#{e}[#{i}]"
+    end
+    return text_arr
+
   end
 
 end
