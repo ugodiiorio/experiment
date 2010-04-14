@@ -133,7 +133,7 @@ class FonsaiSect1 < Test::Unit::TestCase
     select_option "allestimento", get('@set_up')
     type_text "percorrenza", get('@km_per_yr')
     click_option(get('@tow_hook'))
-    click_option(get('@alarm'))
+    click_option(get('@gprs'))
 
     click_button "//div[@id='avantiD']/input"
    	page_wait
@@ -187,7 +187,7 @@ class FonsaiSect1 < Test::Unit::TestCase
 
     select_option "family", get("@car_already_insured_with_company")
     select_option "tipocond", get("@driving_type")
-    click_option get("partner_garages")
+    click_option get("@partner_garages")
 
     click_button "//div[@class='floatRight']/input"
     page_wait
@@ -199,8 +199,13 @@ class FonsaiSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    select_option "cua", get("@bm_assigned")
-    select_option "cup", get("@coming_from_bm")
+    if is_present?('cua')
+      select_option "cua", get("@bm_assigned")
+    end
+
+    if is_present?('cup')
+      select_option "cup", get("@coming_from_bm")
+    end
 
     if get('@insurance_situation') =~ /assicurato/i
       select_option "r3", get("@nr_of_paid_claims_3_yr")
@@ -211,7 +216,7 @@ class FonsaiSect1 < Test::Unit::TestCase
 
     type_captcha
 
-    click_button "//div[@class='floatRight']/input"
+    click_button "//div[@id='avantiD']/input"
     page_wait
 
   end
@@ -231,8 +236,8 @@ class FonsaiSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    select_option "massimale", get("public_liability_indemnity_limit")
-    select_option "massimale", get("public_liability_exemption")
+    select_option "massimale", get("@public_liability_indemnity_limit")
+    select_option "franchigia", get("@public_liability_exemption")
     sleep @sleep*2
 
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
@@ -444,9 +449,6 @@ class FonsaiSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => Output captcha decoded text: #{@captcha_text}"}
 
     type_text "captcha", @captcha_text.strip.gsub(" ", "")
-
-    click_button "//div[@id='avantiD']/input"
-    page_wait
 
   end
 
