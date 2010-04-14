@@ -160,7 +160,9 @@ class LinearSect1 < Test::Unit::TestCase
     sleep @sleep*2
     select_model_set_up("allestimento_auto", get("@set_up"))
 
-    (is_present?(get('@gas_methane_supply'))) ? click_option(get('@gas_methane_supply')) : nil
+    edit = is_editable?(get('@gas_methane_supply'))
+
+    (is_present?(get('@gas_methane_supply'))) ? ( click_option(get('@gas_methane_supply')) if is_editable?(get('@gas_methane_supply')) ) : nil
     click_option(get('@alarm'))
 
     select_option "ricovero_auto", get("@vehicle_shelter")
