@@ -50,6 +50,7 @@ module FieldMappingProvider2Sect4
       'pol_RCA_on_off_str' => "'on'",
       'pol_RCA_premium_id_str' => "'id elemento'",
       'pol_renounce_compensation_str' => "'no'",
+      'pol_risk_certificate_str' => '"si"',
       'pol_type_of_contract_str' => "'nuova polizza'",
       'veh_alarm_str' => "'nessuno'",
       'veh_corrosive_oily_gas_liquid_transportation_str' => "'no'",

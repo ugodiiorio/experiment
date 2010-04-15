@@ -1,10 +1,10 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				09/04/2010						              #
+#				15/04/2010						              #
 #############################################
 
-class GeneraliSect1 < Test::Unit::TestCase
+class GeneraliSect3 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
@@ -80,7 +80,6 @@ class GeneraliSect1 < Test::Unit::TestCase
       page_1
       page_2
       page_3
-      page_4
       page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
@@ -112,7 +111,7 @@ class GeneraliSect1 < Test::Unit::TestCase
     open_page(@url)
 
     type_text("DATA_EFFETTO", @rate_date)
-    select_option "COD_OGG_ASSICURABILE", get("@property_type_to_be_insured")
+    select_option "COD_OGG_ASSICURABILE", get("@vehicle_type")
     select_option "STATO_ASSICURATIVO", get("@insurance_situation")
 
     if get('@insurance_situation') =~ /immatricolazione/i
@@ -162,56 +161,17 @@ class GeneraliSect1 < Test::Unit::TestCase
       page_wait
     end
 
-    type_text("ANNO", get("@matriculation_date_year"))
-    select_option "MARCA", get("@make")
-    page_wait
-
-    select_option "MODELLO", get("@model")
-    page_wait
-
-    type_text("CFIS", get("@cv"))
-    type_text("KW", get("@kw"))
-    type_text("CC", get("@capacity"))
-    select_option "ALIM", get("@fuel")
-
-    page.click '//img[@alt="cerca"]'
-    page_wait
-
-    page.click '//*[@id="TESTO_CELLA_ALLEST"]'
-    page_wait
-
-  end
-  
-  def page_3
-
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-
-    type_text("VAL_PARAMETRO_INPUT_4", get("@matriculation_date"))
-    select_option "VAL_PARAMETRO_SELECT_5", get("@vehicle_use")
-    click_option(get('@tow_hook'))
-    select_option "VAL_PARAMETRO_SELECT_7", get("@gas_methane_supply")
-    type_keys("VAL_PARAMETRO_INPUT_8", get("@capacity"))
-    type_text("VAL_PARAMETRO_INPUT_9", get("@cv"))
-    type_text("VAL_PARAMETRO_INPUT_10", get("@kw"))
-    type_keys("VAL_PARAMETRO_INPUT_11", get("@km_per_yr"))
-    select_option "VAL_PARAMETRO_SELECT_12", get("@alarm")
-    select_option "VAL_PARAMETRO_SELECT_14", get("@driving_type")
-
-    if get("@driving_type")=~ /coniugi/i
-      type_text("VAL_PARAMETRO_INPUT_15", get("@birth_date"))
-      select_option "VAL_PARAMETRO_SELECT_16", get("@owner_sex")
-      type_text("VAL_PARAMETRO_INPUT_17", get("@driving_license_points"))
-    end
-
-    click_option(get('@quotation'))
+    type_text("VAL_PARAMETRO_INPUT_0", get("@matriculation_date"))
+    select_option "VAL_PARAMETRO_SELECT_1", get("@vehicle_use")
+    select_option "VAL_PARAMETRO_SELECT_2", get("@fuel")
+    type_text("VAL_PARAMETRO_INPUT_3", get("@capacity"))
 
     page.click '//img[@alt="prosegui"]'
     page_wait
 
   end
 
-  def page_4
+  def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
