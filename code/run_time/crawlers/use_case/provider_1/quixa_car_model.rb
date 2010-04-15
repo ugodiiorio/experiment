@@ -108,12 +108,15 @@ class QuixaCarModel < Test::Unit::TestCase
     open_page(@url) #"http://www.quixa.it/simulator.aspx?SimObject=CAR"
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlBrand", get('@make'))
+    store_parameter(:make, page.get_selected_label(@last_element))
 
     type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", get('@matriculation_date'))
 
     select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model'))
+    store_parameter(:model, page.get_selected_label(@last_element))
 
     select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
+    store_parameter(:preparation, page.get_selected_label(@last_element))
 
     sleep @sleep*3
 

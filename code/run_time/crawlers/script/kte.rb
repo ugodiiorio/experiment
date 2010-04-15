@@ -90,6 +90,7 @@ class KTE
                           :as_working_set_id =>nil} unless app_settings
       end
 
+      @car_make, @car_model, @car_preparation, @job = '', '', '', ''
       @sleep_typing					        = ARGV[6]  || general_settings['gs_typing_sleep_in_seconds'] || 1
       @sleep_between_profiles       = ARGV[8]  || general_settings['gs_profile_sleep_in_seconds'] || "10" # sleep in seconds between one profile execution and the next
       @max_profiles                 = ARGV[9]  || general_settings['gs_max_number_of_profiles'] || "1" # max number of profiles to execute in the running task

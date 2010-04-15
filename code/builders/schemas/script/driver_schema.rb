@@ -667,7 +667,7 @@ class BuildDriverSchema
     mysql.query("CREATE TABLE " + @db_default_driver + ".provider_1_sect_1_input_file (
         pol_record_id_str   VARCHAR(32) NOT NULL,
         Profilo_tecnico VARCHAR(128) NOT NULL,
-        contatore   VARCHAR(128) NOT NULL,
+        contatore   INT NOT NULL,
         coeff_tecnico   VARCHAR(128),
         veh_make_str   VARCHAR(128),
         pol_matriculation_date_str   VARCHAR(128),
