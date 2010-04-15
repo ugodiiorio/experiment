@@ -51,8 +51,8 @@ module Shared
           raise ex
         else
           @last_value = "label=#{value.split("|")[1]}"
-          page_select @last_element, "#{@last_value}"
-          @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value with selected label #{page.get_selected_label(@last_element)}"}
+          page_select @last_element, @last_value
+          @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value [#{@last_value}] with selected label [#{page.get_selected_label(@last_element)}]"}
       end
     end
   end
@@ -68,7 +68,7 @@ module Shared
       loc_array  = []
       loc_array = page.get_select_options(@last_element)
       page_select @last_element, "index=#{loc_array.size - 1}"
-      @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => Indemnity limit not matched for profile [#{@kte.profile}] and record [#{@record}]! Using max available value with selected label #{page.get_selected_label(@last_element)}"}
+      @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => Indemnity limit not matched for profile [#{@kte.profile}] and record [#{@record}]! Using max available value [index=#{loc_array.size - 1}] with selected label #{page.get_selected_label(@last_element)}"}
     end
   end
 

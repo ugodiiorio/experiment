@@ -12,6 +12,7 @@ class GenertelSect1 < Test::Unit::TestCase
   SHARED = 'shared.rb'
   DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
 
+  F4 = "\\115"
   NotIndividual = "C"
   Other = "Altro"
   CompanyType = "Societa' a responsabilita limitata"
