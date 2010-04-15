@@ -148,8 +148,8 @@ class GeneraliSect3 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
-    click_option(get('@risk_certificate'))
     if (get('@insurance_situation') =~ /assicurato/i || (get('@insurance_situation') =~ /prima/i &&  get('@bersani') =~ /si/i))
+      click_option(get('@risk_certificate'))
       select_option "NUM_SIN_PAGATI_1", get("@nr_of_paid_claims_5_yr")
       select_option "NUM_SIN_PAGATI_2", get("@nr_of_paid_claims_4_yr")
       select_option "NUM_SIN_PAGATI_3", get("@nr_of_paid_claims_3_yr")
