@@ -176,7 +176,7 @@ module Provider1ZurichConnect
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'translate_field',
-      'pol_residence_str' => 'profilefield[:pol_residence_str].gsub("SAN GIOVANNI IN PERSICETO","SAN GIOVANNI IN PERSICET")',
+      'pol_residence_str' => 'profilefield[:pol_residence_str].gsub("SAN GIOVANNI IN PERSICETO","SAN GIOVANNI IN PERSICET").gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA")',
       'pol_risk_certificate_str' => 'copy_field',
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_indemnity_limit_str' => 'copy_field',
