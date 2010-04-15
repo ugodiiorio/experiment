@@ -87,16 +87,18 @@ module Shared
     end
   end
 
-  def load_text_element_array(e)
+  def find_text_element(e, regex)
 
-    text_arr, i = [], 1
+    i = 1
     item = "#{e}[#{i}]"
     while is_present?(item) == true
-      text_arr << page.get_text(item)
+      text = page.get_text(item)
+      @matched = true if text =~ /#{regex}/i
+      break if text =~ /#{regex}/i
       i += 1
       item = "#{e}[#{i}]"
     end
-    return text_arr
+    return item
 
   end
 

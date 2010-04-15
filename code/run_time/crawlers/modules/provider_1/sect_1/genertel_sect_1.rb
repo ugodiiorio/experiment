@@ -164,7 +164,8 @@ class GenertelSect1 < Test::Unit::TestCase
 
     select_fake_option("CBXXDVEXMarca", get('@make'), "//td[2]")
     sleep @sleep*2
-    select_fake_option("CBXXDVEXModello", get('@model'), "//body/div[8]/div/div")
+    type_model_set_up("CBXXDVEXModello", get('@model'), "//body/div[8]/div/div")
+#    select_fake_option("CBXXDVEXModello", @last_value, "//body/div[8]/div/div")
     sleep @sleep*2
     type_model_set_up("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
 #    select_fake_option("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
@@ -389,23 +390,21 @@ class GenertelSect1 < Test::Unit::TestCase
   def type_model_set_up(id, value, item)
 
     @last_element, @last_value, @matched = id, value, false
+    page.focus(@last_element)
     page.type(@last_element, " ")
     sleep @sleep
     page.key_press(@last_element, "\\8")
     page.key_up(@last_element, F4)
 
-    model_set_up_arr = load_text_element_array(item)
+    item = "//body/div[9]/div/div" unless is_present?(item)
     @last_value.split("|").each do |regex|
-      model_set_up_arr.each do |e|
-        if e =~ /#{regex}/i
-          @matched = true
-          @last_value = e
-          break
-        end
-      end
+      model_set_up = find_text_element(item, regex)
+      @last_value = regex
+      click_button_item(model_set_up) if @matched
       break if @matched
     end
-    @matched ? select_fake_option(@last_element, @last_value, item) : assert(page.get_value(@last_element) =~ /#{@last_value}/i, page.get_value(id).inspect)
+    @matched ? nil : assert(page.get_value(@last_element) =~ /#{@last_value}/i, page.get_value(id).inspect)
+    page.key_press(id, "\\9")
 
   end
 

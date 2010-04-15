@@ -12,7 +12,7 @@ module Provider1Genertel
 
     @target_values = {
 #      {'pol_collision_premium_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX2X5',
-      {'pol_road_assistance_web_id_str' => 'id elemento'} => '//td[4]/div/div/div/img //td[3]/div/div/div/img',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => '//td[4]/div/div/div/img',
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//tr[5]/td[4]/div/div/div/img //tr[7]/td[4]/div/div/div/img',
 #      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
 #      {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX6X5',
