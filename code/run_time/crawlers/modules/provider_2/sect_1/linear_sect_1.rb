@@ -33,6 +33,7 @@ class LinearSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
+      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -155,12 +156,16 @@ class LinearSect1 < Test::Unit::TestCase
     select_option "imm_mese", get("@matriculation_date_month")
     select_option "imm_anno", get("@matriculation_date_year")
     select_option "marca_auto", get("@make")
+    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     select_model_set_up("modello_auto", get("@model"))
+    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     select_model_set_up("allestimento_auto", get("@set_up"))
-
-    (is_present?(get('@gas_methane_supply'))) ? click_option(get('@gas_methane_supply')) : nil
+    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
+   
+    sleep @sleep*2
+    (is_present?(get('@gas_methane_supply'))) ? ( click_option(get('@gas_methane_supply')) if is_editable?(get('@gas_methane_supply')) ) : nil
     click_option(get('@alarm'))
 
     select_option "ricovero_auto", get("@vehicle_shelter")
@@ -242,7 +247,7 @@ class LinearSect1 < Test::Unit::TestCase
     when 'on'
       sleep @sleep*2
       select_option("massimale_1", get('@public_liability_indemnity_limit'))
-
+      sleep @sleep*2
       # all guarantees appears to be unchecked and anyway we take simple RCA premium value
 
       #        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))

@@ -37,6 +37,9 @@ module Shared
       nil
     end
 
+    ensure
+      store_parameter(:preparation, page.get_value("preparations")) if @store_params
+
   end
 
   def select_model_set_up(id, value)
@@ -91,7 +94,7 @@ module Shared
 
     i = 1
     item = "#{e}[#{i}]"
-    while is_present?(item) == true
+    while page.is_element_present(item) == true
       text = page.get_text(item)
       @matched = true if text =~ /#{regex}/i
       break if text =~ /#{regex}/i

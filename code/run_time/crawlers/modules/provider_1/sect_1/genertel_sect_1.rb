@@ -35,6 +35,7 @@ class GenertelSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
+      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -163,11 +164,14 @@ class GenertelSect1 < Test::Unit::TestCase
     type_text("NBXXDVEXAnnoImmat", get('@matriculation_date_year'))
 
     select_fake_option("CBXXDVEXMarca", get('@make'), "//td[2]")
+    store_parameter(:make, page.get_value("CBXXDVEXMarca")) if @store_params
     sleep @sleep*2
     type_model_set_up("CBXXDVEXModello", get('@model'), "//body/div[8]/div/div")
+    store_parameter(:model, page.get_value("CBXXDVEXModello")) if @store_params
 #    select_fake_option("CBXXDVEXModello", @last_value, "//body/div[8]/div/div")
     sleep @sleep*2
     type_model_set_up("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
+    store_parameter(:preparation, page.get_value("CBXXDVEXAllestimento")) if @store_params
 #    select_fake_option("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
     sleep @sleep
     select_fake_option("CBXXDVEXAlimentazione", get('@fuel'), "//body/div[8]/div/div")
@@ -212,6 +216,7 @@ class GenertelSect1 < Test::Unit::TestCase
         select_fake_option("CBXXDP1XProfPrimoLiv", get('@job'), "//body/div[8]/div/div")
         sleep @sleep*2
         select_fake_option("CBXXDP1XProfSecondoLiv", get('@job_2'), "//body/div[8]/div/div") if is_present?("CBXXDP1XProfSecondoLiv")
+        store_parameter(:job, page.get_value("CBXXDP1XProfPrimoLiv")) if @store_params
     end
 
     click_button_item get('@subscriber_is_owner')
@@ -390,20 +395,24 @@ class GenertelSect1 < Test::Unit::TestCase
   def type_model_set_up(id, value, item)
 
     @last_element, @last_value, @matched = id, value, false
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
     page.focus(@last_element)
     page.type(@last_element, " ")
     sleep @sleep
     page.key_press(@last_element, "\\8")
     page.key_up(@last_element, F4)
+    sleep @sleep*2
 
     item = "//body/div[9]/div/div" unless is_present?(item)
     @last_value.split("|").each do |regex|
       model_set_up = find_text_element(item, regex)
       @last_value = regex
-      click_button_item(model_set_up) if @matched
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{item}]"} if @matched
+      click_button_item(model_set_up, @last_value) if @matched
       break if @matched
+      @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value [#{@last_value}]"}
     end
-    @matched ? nil : assert(page.get_value(@last_element) =~ /#{@last_value}/i, page.get_value(id).inspect)
+    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_value(id)} with [#{@last_value}]"} : assert(page.get_value(id) =~ /#{@last_value}/i, page.get_value(id).inspect)
     page.key_press(id, "\\9")
 
   end

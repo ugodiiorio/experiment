@@ -33,6 +33,7 @@ class DialogoSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
+      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -163,6 +164,7 @@ class DialogoSect1 < Test::Unit::TestCase
       type_text("contentSubView:contentForm:DataNascitaProprietario", get('@birth_date'))
       select_option("contentSubView:contentForm:AnniPatenteProprietario", get('@driving_license_yrs'))
       select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
+      store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
       select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
       type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
       page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
@@ -415,6 +417,7 @@ class DialogoSect1 < Test::Unit::TestCase
   def select_brand
 
     select_option "contentSubView:vehicleForm:chooseAuto:brands", get("@make")
+    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     
   end
@@ -428,21 +431,8 @@ class DialogoSect1 < Test::Unit::TestCase
     type_text(@last_element, model)
     page.key_up("contentSubView:vehicleForm:chooseAuto:models","\\13" )
     sleep @sleep*2
+    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
 
   end
 
-#  def select_preparation
-#
-#    kw = "#{get("@kw")} KW"
-#    type_keys("preparations", get("@set_up"))
-#    sleep @sleep*2
-#    @last_element, @last_value = "//span/ul/li", "#{kw}"
-#    unless is_present?(@last_element)
-#      get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
-#      type_keys("preparations", @last_value)
-#    end
-#    click_button_item "//span/ul/li"
-#
-#  end
-#
 end

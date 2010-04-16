@@ -33,6 +33,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
+      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -156,6 +157,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
         select_option("ddlstatociv2", get('@civil_status'))
         select_option("ddlTitoloStudio", get('@studies'))
         select_option("ddlprofessione", get('@job'))
+        store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
     end
 
     type_text("txtCapResidenza", get('@driver_zip_code'))
@@ -179,10 +181,13 @@ class ZurichConnectSect1 < Test::Unit::TestCase
     select_option("ddlAnno", get('@matriculation_date_year'))
     sleep @sleep*2
     select_option("ddlMarca", get('@make'))
+    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     select_model_set_up("ddlModello", get('@model'))
+    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     select_model_set_up("ddlAllestimento", get('@set_up'))
+    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
 
     click_button "Avanti"
     page_wait

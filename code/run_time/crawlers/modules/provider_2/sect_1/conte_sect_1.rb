@@ -33,6 +33,7 @@ class ConteSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
+      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -143,16 +144,19 @@ class ConteSect1 < Test::Unit::TestCase
     type_text("page:anno_acquisto", get("@purchase_date_year"))
     select_option "page:alimentazione", get("@fuel")
     select_option "page:marca", get("@make")
+    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     select_model_set_up("page:modelloAuto", get("@model"))
+    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     select_model_set_up("page:allestimento", get("@set_up"))
+    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
 
     click_button 'page:continua_step01'
     sleep @sleep
 
-    type_text("page:valore_veicolo", get('@vehicle_value'))
-    page.fire_event 'page:valore_veicolo', 'blur'
+    type_text("page:valore_veicolo", get('@vehicle_value')) if page.is_visible "page:valore_veicolo"
+    page.fire_event 'page:valore_veicolo', 'blur' if page.is_visible "page:valore_veicolo"
     select_option "page:ricovero_notturno", get("@vehicle_shelter")
     select_option "page:antifurto", get("@alarm")
     select_option "page:uso_prevalente", get("@habitual_vehicle_use")
@@ -213,11 +217,13 @@ class ConteSect1 < Test::Unit::TestCase
     type_keys("page:professione_conducente_principale", get('@job'))
     sleep @sleep
     page.click "//div[@id='risultatiSrchProf']/ul/span/li"
+    store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
 
     select_option "page:stato_civile", get("@civil_status")
     click_option(get('@cohabiting_children'))
     type_text("page:eta_conseguimento_patente", get('@driving_license_yrs'))
     page.fire_event("page:eta_conseguimento_patente", 'blur')
+    sleep @sleep
 
     if is_present?("page:anno_conseguimento_patente")
       type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
