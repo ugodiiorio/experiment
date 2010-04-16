@@ -20,6 +20,7 @@ AS
         pol_bersani_str,
         pol_birth_date_str,
         pol_BM_assigned_str,
+        pol_BM_particular_cases_str,
         pol_claims_total_number_str,
         pol_client_type_str,
         pol_coming_from_BM_str,
