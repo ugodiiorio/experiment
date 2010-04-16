@@ -177,7 +177,7 @@ class FonsaiSect1 < Test::Unit::TestCase
       end
 
       if is_present?('bonusNucleo') #true for not inherited bersani
-        select_option 'bonusNucleo', get("@BM_particular_cases")
+        select_option 'bonusNucleo', get("@bm_particular_cases")
       end
       
     else
@@ -199,11 +199,11 @@ class FonsaiSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    if is_present?('cua')
+    if is_present?('//select[@id="cua"]')
       select_option "cua", get("@bm_assigned")
     end
 
-    if is_present?('cup')
+    if is_present?('//select[@id="cup"]')
       select_option "cup", get("@coming_from_bm")
     end
 
