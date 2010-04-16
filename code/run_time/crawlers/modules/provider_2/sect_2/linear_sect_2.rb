@@ -112,7 +112,7 @@ class LinearSect2 < Test::Unit::TestCase
   def page_1
     
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-
+    select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
     select_option 'cond_ass_cb', get("@insurance_situation")
     if get("@insurance_situation")=~ /bonus malus/i
       #      select_option 'cond_ass_cb', get("@insurance_situation")

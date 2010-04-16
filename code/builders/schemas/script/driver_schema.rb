@@ -667,7 +667,7 @@ class BuildDriverSchema
     mysql.query("CREATE TABLE " + @db_default_driver + ".provider_1_sect_1_input_file (
         pol_record_id_str   VARCHAR(32) NOT NULL,
         Profilo_tecnico VARCHAR(128) NOT NULL,
-        contatore   VARCHAR(128) NOT NULL,
+        contatore   INT NOT NULL,
         coeff_tecnico   VARCHAR(128),
         veh_make_str   VARCHAR(128),
         pol_matriculation_date_str   VARCHAR(128),
@@ -694,6 +694,7 @@ class BuildDriverSchema
         pol_driver_less_than_26_yrs_str   VARCHAR(128),
         pol_instalment_str   VARCHAR(128),
         pol_public_liability_indemnity_limit_str   VARCHAR(128),
+        policy   VARCHAR(32),
         pol_provider_company_id_str   VARCHAR(128)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
@@ -787,6 +788,9 @@ class BuildDriverSchema
         pol_provider_company_id_str   VARCHAR(128),
         pol_record_id_str VARCHAR(32) NOT NULL,
         pol_policy_starting_date_str VARCHAR(128),
+        veh_make_str VARCHAR(128),
+        veh_model_str VARCHAR(128),
+        pol_matriculation_date_str VARCHAR(128),
         veh_passenger_transportation_str VARCHAR(128),
         pol_client_type_str VARCHAR(128),
         own_owner_sex_str VARCHAR(128),
@@ -800,6 +804,7 @@ class BuildDriverSchema
         pol_driver_zip_code_str VARCHAR(128),
         driv_residence_str VARCHAR(128),
         pol_insurance_situation_str VARCHAR(128),
+        pol_bersani_str VARCHAR(128),
         pol_quotation_str VARCHAR(128),
         pol_BM_assigned_str VARCHAR(128),
         pol_nr_of_paid_claims_this_yr_str VARCHAR(128),

@@ -71,7 +71,7 @@ class DialogoSect2 < Test::Unit::TestCase
   end
 
   def teardown
-	#  @selenium_driver.close_current_browser_session if @selenium_driver
+    @selenium_driver.close_current_browser_session if @selenium_driver
     #    assert_equal [], @verification_errors
   end
 
@@ -121,19 +121,13 @@ class DialogoSect2 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
     click_option(get('@vehicle_use'))
+    click_option(get('@vehicle_type'))
     type_text("contentSubView:contentForm:decorrenza", @rate_date)
     click_option(get('@insurance_situation'))
 
     if (page.get_attribute("#{@last_element}@value") == "3")
-      
       select_option("contentSubView:contentForm:classeAssegnazioneCu", get('@bm_assigned'))
-      if page.get_selected_label(@last_element) =~ /almeno un anno/i
-        select_option("contentSubView:contentForm:sinistriCausati6", get('@claims_total_number'))
-        select_option("contentSubView:contentForm:anniAssicurati6", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
-      else
-        select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))
-      end
-
+      select_option("contentSubView:contentForm:sinistriCausati4", get('@nr_of_paid_claims_3_yr'))
     else
       click_option(get('@bersani'))
       if (page.get_attribute("#{@last_element}@value") == "Y")
@@ -149,48 +143,29 @@ class DialogoSect2 < Test::Unit::TestCase
   def page_2
     
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    click_option(get('@driving_type'))
+    #click_option(get('@driving_type'))
     sleep @sleep*2
-    click_option(get('@subscriber_is_driver'))
+    #click_option(get('@subscriber_is_driver'))
     click_option(get('@subscriber_is_owner'))
-    click_option(get('@num_of_owners'))
+    #click_option(get('@num_of_owners'))
+    click_option(get('@car_already_insured_with_company'))
+    click_option(get('@owner_sex'))
+    sleep @sleep*2
+    select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
+    type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
+    page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
 
-    if (page.get_attribute("#{get('@subscriber_is_driver')}@value") == "Y")
-
-      click_option(get('@owner_sex'))
-      sleep @sleep*2
-      click_option(get('@driver_is_owner'))
-      type_text("contentSubView:contentForm:DataNascitaProprietario", get('@birth_date'))
+    if (get('@owner_specification')!= "C")
+      data_di_nascita =  get('@birth_date_day') +"/"+get('@birth_date_month') +"/"+get('@birth_date_year')
+      type_text("contentSubView:contentForm:DataNascitaProprietario",data_di_nascita)
       select_option("contentSubView:contentForm:AnniPatenteProprietario", get('@driving_license_yrs'))
       select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
       select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
-      type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
-      page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
-      sleep @sleep*2
-      is_present?("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
-
-    else
-
-      click_option(get('@owner_sex'))
-      sleep @sleep*2
-      click_option(get('@driver_is_owner'))
-      if (get('@owner_specification') != 'C')
-        type_text("contentSubView:contentForm:DataNascitaProprietario", get('@birth_date'))
-        select_option("contentSubView:contentForm:AnniPatenteProprietario", get('@driving_license_yrs'))
-        select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
-      end
-      select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
-      type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
-      page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
-      sleep @sleep*2
-      is_present?("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
-
-      type_text("contentSubView:contentForm:DataNascitaConducente", get('@birth_date'))
-      click_option(get('@driver_sex'))
-      select_option("contentSubView:contentForm:AnniPatenteConducente", get('@driving_license_yrs'))
-      select_option("contentSubView:contentForm:ProfessioneConducente", get('@job'))
-
     end
+    
+
+   # Nel caso il valore di already insured sia Y si apre Il contraente del motociclo è contraente di una Polizza Auto Dialogo?
+   # dove lo trovo?
 
     click_button_item "contentSubView:contentForm:buttonNext"
     page_wait
@@ -200,15 +175,16 @@ class DialogoSect2 < Test::Unit::TestCase
   def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    type_text("contentSubView:vehicleForm:chooseAuto:registration", get('@matriculation_date'))
+    type_text("contentSubView:vehicleForm:chooseMoto:registration", get('@matriculation_date'))
 
-    select_brand
-    select_model
-    select_preparation
+    mms = get('@make')+ " "+get('@model')+ " "+get('@set_up')
 
-    type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
-    type_text("contentSubView:vehicleForm:chooseAuto:insurableValue", get('@vehicle_value'))
-    click_option(get('@tow_hook'))
+    type_text("contentSubView:vehicleForm:chooseMoto:motoDescription", mms)
+    #type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
+    type_text("contentSubView:vehicleForm:chooseMoto:capacity", get('@capacity'))
+    select_option("contentSubView:vehicleForm:chooseMoto:power", get('@fuel'))
+    type_text("contentSubView:vehicleForm:chooseMoto:insurableValue", get('@vehicle_value'))
+    #click_option(get('@tow_hook'))
     click_option(get('@vehicle_shelter'))
     click_option(get('@number_plate_type'))
     
@@ -233,16 +209,12 @@ class DialogoSect2 < Test::Unit::TestCase
     when 'on'
       sleep @sleep*2
       select_option("//select[@name='contentSubView:quotationTabletForm:proposalTable:0:_id132']", get('@public_liability_indemnity_limit'))
-      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption')) 
+      select_option("contentSubView:quotationTabletForm:proposalTable:0:_id143", get('@public_liability_exemption'))
 
       uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
       uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
       uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-      uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-      uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-      uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
       uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
-      uncheck_checkbox(get('@easy_driver_web_id')) if is_checked?(get('@easy_driver_web_id'))
 
       click_button_item "//img[@alt='Ricalcola']"
       sleep @sleep*3

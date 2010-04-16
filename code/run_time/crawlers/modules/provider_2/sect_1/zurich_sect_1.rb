@@ -101,6 +101,7 @@ class ZurichSect1 < Test::Unit::TestCase
   def page_intro
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
     open_page(@url)
     click_option(get('@privacy_1'))
@@ -113,6 +114,7 @@ class ZurichSect1 < Test::Unit::TestCase
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
     select_option "tip_veic", get("@property_type_to_be_insured")
     select_option "frm_contr", get("@quotation")
@@ -180,6 +182,9 @@ class ZurichSect1 < Test::Unit::TestCase
   end
 
   def page_2
+
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
     if get('@insurance_situation') =~ /proveniente/i
       click_option(get('@risk_certificate'))
@@ -257,6 +262,8 @@ class ZurichSect1 < Test::Unit::TestCase
   def page_premium
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
+
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'

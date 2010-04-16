@@ -160,7 +160,9 @@ class LinearSect1 < Test::Unit::TestCase
     sleep @sleep*2
     select_model_set_up("allestimento_auto", get("@set_up"))
 
-    (is_present?(get('@gas_methane_supply'))) ? click_option(get('@gas_methane_supply')) : nil
+   
+    sleep @sleep*2
+    (is_present?(get('@gas_methane_supply'))) ? ( click_option(get('@gas_methane_supply')) if is_editable?(get('@gas_methane_supply')) ) : nil
     click_option(get('@alarm'))
 
     select_option "ricovero_auto", get("@vehicle_shelter")
@@ -242,7 +244,7 @@ class LinearSect1 < Test::Unit::TestCase
     when 'on'
       sleep @sleep*2
       select_option("massimale_1", get('@public_liability_indemnity_limit'))
-
+      sleep @sleep*2
       # all guarantees appears to be unchecked and anyway we take simple RCA premium value
 
       #        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))

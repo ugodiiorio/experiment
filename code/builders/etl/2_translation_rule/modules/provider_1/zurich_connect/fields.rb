@@ -302,8 +302,8 @@ module Provider1ZurichConnect
       {'pol_claims_total_number_str'  => '3'} => '4 sinistri e oltre',
 
       {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'L\'automobile e\' gia\' assicurata con un contratto in Bonus/Malus',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Sto acquistando un\'auto usata e mi assicuro per la prima volta',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'Sto acquistando un\'auto nuova e mi assicuro per la prima volta',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => 'Sto acquistando un\'auto nuova e mi assicuro per la prima volta',
+      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'Sto acquistando un\'auto usata e mi assicuro per la prima volta',
       {'veh_stabilizer_str' => 'no'} => 'NO',
       {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Coniugato senza figli',
       {'driv_studies_str' => 'Diploma'} => 'Diploma',

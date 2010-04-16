@@ -100,8 +100,13 @@ class AxaSect1 < Test::Unit::TestCase
   def page_intro
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
     
     open_page(@url)
+
+    click_button '//img[@src="immagini/rcAutoImmagini/protezionealvolante.gif"]'
+   	page_wait
+
     click_button '//input[@value="Calcola il tuo preventivo"]'
    	page_wait
 
@@ -110,6 +115,7 @@ class AxaSect1 < Test::Unit::TestCase
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
     type_text('dataDiValidita', @rate_date)
 
@@ -135,7 +141,7 @@ class AxaSect1 < Test::Unit::TestCase
     type_text("NSIN", get('@claims_total_number'))
     
     if get('@insurance_situation') =~ /attestato/i
-      type_text("NSIN2", get('@nr_of_paid_claims_1_yr'))
+      type_text("NSIN2", get('@nr_of_paid_claims_2_yr'))
       type_text("ANSPAG", get('@nr_of_yrs_without_claims'))
     end
 
@@ -171,6 +177,8 @@ class AxaSect1 < Test::Unit::TestCase
   def page_premium
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
+
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'

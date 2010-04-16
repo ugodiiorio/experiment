@@ -300,17 +300,17 @@ class DirectlineSect1 < Test::Unit::TestCase
     assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
   end
 
-  def select_max(id, value = nil)
-    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
-    loc_array  = []
-    loc_array= page.get_select_options(@last_element)
-    if loc_array.size == 2
-      select_option @last_element, "index=1"
-    else page_select @last_element, "#{@last_value}"
-      assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
-    end
-  end
+#  def select_max(id, value = nil)
+#    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
+#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+#    loc_array  = []
+#    loc_array= page.get_select_options(@last_element)
+#    if loc_array.size == 2
+#      select_option @last_element, "index=1"
+#    else page_select @last_element, "#{@last_value}"
+#      assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
+#    end
+#  end
 
 #  def select_model_set_up(id, value)
 #    @last_element, @last_value = id, (value =~ /index=/i)? value : value.split("|")[0]
