@@ -106,7 +106,6 @@ module Provider2Zurich
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
       'pol_RCA_premium_id_str' => 'translate_field',
-      'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'copy_field',
       'pol_residence_str' => 'copy_field',
@@ -292,12 +291,12 @@ module Provider2Zurich
       'veh_fuel_str' => 'translate_field',
       'veh_vehicle_type_str' => 'translate_field',
 
+      'pol_claims_total_number_str' => 'copy_field',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
       'pol_nr_of_paid_claims_2_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_5_yr_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
-      'pol_record_id_str' => 'copy_field',
       'veh_capacity_num' => 'copy_field',
       
       'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
@@ -322,21 +321,26 @@ module Provider2Zurich
       'driv_heir_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
       'pol_privacy_1_str' => 'translate_field',
+      'pol_property_type_to_be_insured_str' => 'translate_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
+      'pol_quotation_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
-      'pol_residence_province_str' => 'translate_field',
+      'pol_risk_certificate_str' => 'translate_field',
       'pol_type_of_contract_str' => 'translate_field',
       'veh_fuel_str' => 'translate_field',
-      'veh_vehicle_type_str' => 'translate_field',
 
       'own_owner_birth_date_str' => 'copy_field',
+      'pol_claims_total_number_str' => 'copy_field',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
-      'pol_nr_of_paid_claims_2_yr_str' => 'copy_field',
-      'pol_nr_of_paid_claims_5_yr_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_residence_province_str' => 'copy_field',
 
-      'pol_quotation_str' => 'BONUS MALUS',
+      'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
+      'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
+      'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
+      'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
+      'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
       
     }
 
