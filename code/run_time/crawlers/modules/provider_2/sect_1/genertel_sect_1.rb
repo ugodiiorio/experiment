@@ -35,6 +35,7 @@ class GenertelSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
+      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -163,16 +164,21 @@ class GenertelSect1 < Test::Unit::TestCase
     type_text("NBXXDVEXAnnoImmat", get('@matriculation_date_year'))
 
     select_fake_option("CBXXDVEXMarca", get('@make'), "//td[2]")
+    store_parameter(:make, page.get_value("CBXXDVEXMarca")) if @store_params
     sleep @sleep*2
-    select_fake_option("CBXXDVEXModello", get('@model'), "//body/div[8]/div/div")
+    type_model_set_up("CBXXDVEXModello", get('@model'), "//body/div[8]/div/div")
+    store_parameter(:model, page.get_value("CBXXDVEXModello")) if @store_params
+#    select_fake_option("CBXXDVEXModello", @last_value, "//body/div[8]/div/div")
     sleep @sleep*2
-    select_fake_option("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
+    type_model_set_up("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
+    store_parameter(:preparation, page.get_value("CBXXDVEXAllestimento")) if @store_params
+#    select_fake_option("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
     sleep @sleep
     select_fake_option("CBXXDVEXAlimentazione", get('@fuel'), "//body/div[8]/div/div")
-    type_text("TBXXDVEXAllestimento", get('@set_up'))
-    select_fake_option("CBXXDVEXPotenzaCv", get('@cv'), "//body/div[8]/div/div")
+    type_text("TBXXDVEXAllestimento", get('@set_up')) if is_present?("TBXXDVEXAllestimento")
+    select_fake_option("CBXXDVEXPotenzaCv", get('@cv'), "//body/div[8]/div/div") if is_present?("CBXXDVEXPotenzaCv")
     type_text("NBXXDVEXValoreVeicolo", get('@vehicle_value'))
-    select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[9]/div/div")
+    select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
 
     click_option(get('@airbag'))
     click_option(get('@abs'))
@@ -210,6 +216,7 @@ class GenertelSect1 < Test::Unit::TestCase
         select_fake_option("CBXXDP1XProfPrimoLiv", get('@job'), "//body/div[8]/div/div")
         sleep @sleep*2
         select_fake_option("CBXXDP1XProfSecondoLiv", get('@job_2'), "//body/div[8]/div/div") if is_present?("CBXXDP1XProfSecondoLiv")
+        store_parameter(:job, page.get_value("CBXXDP1XProfPrimoLiv")) if @store_params
     end
 
     click_button_item get('@subscriber_is_owner')
@@ -287,15 +294,25 @@ class GenertelSect1 < Test::Unit::TestCase
         sleep @sleep*2
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
-        select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
         click_button_item(get('@road_assistance_web_id'))
         is_present?(get('@legal_assistance_web_id').split[0]) ? click_button_item(get('@legal_assistance_web_id').split[0]) : nil
         is_present?(get('@legal_assistance_web_id').split[1]) ? click_button_item(get('@legal_assistance_web_id').split[1]) : nil
 
+        select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
+        sleep @sleep*2
         page.wait_for_element("LBLXAZIXRicalcolaTot")
         page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
         assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
 
+        assert_equal page.get_value("GRDXGARXGaranzieX1X3"), get('@public_liability_indemnity_limit')
+#        if page.get_value("GRDXGARXGaranzieX1X3") != get('@public_liability_indemnity_limit')
+#          select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
+#          sleep @sleep*2
+#          page.wait_for_element("LBLXAZIXRicalcolaTot")
+#          page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
+#          assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
+#        end
+        
         page.wait_for_element("LBLXAZIXAvanti")
         page.is_element_present("LBLXAZIXAvanti") ? click_button_item("LBLXAZIXAvanti") : nil
         page_wait
@@ -385,6 +402,31 @@ class GenertelSect1 < Test::Unit::TestCase
   	return present ? page.is_checked(@last_element) : nil
   end
 
+  def type_model_set_up(id, value, item)
+
+    @last_element, @last_value, @matched = id, value, false
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
+    page.focus(@last_element)
+    page.type(@last_element, " ")
+    sleep @sleep
+    page.key_press(@last_element, "\\8")
+    page.key_up(@last_element, F4)
+    sleep @sleep*2
+
+    item = "//body/div[9]/div/div" unless is_present?(item)
+    @last_value.split("|").each do |regex|
+      model_set_up = find_text_element(item, regex)
+      @last_value = regex
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{item}]"} if @matched
+      click_button_item(model_set_up, @last_value) if @matched
+      break if @matched
+      @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value [#{@last_value}]"}
+    end
+    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_value(id)} with [#{@last_value}]"} : assert(page.get_value(id) =~ /#{@last_value}/i, page.get_value(id).inspect)
+    page.key_press(id, "\\9")
+
+  end
+
   def select_fake_option(id, value, item, assert_item = nil)
 
     @last_element, @last_value = id, value
@@ -404,13 +446,13 @@ class GenertelSect1 < Test::Unit::TestCase
           click_button_item(item, @last_value) if is_present?(item)
         else
       end
+      sleep @sleep*2
       if assert_item
         @last_element = assert_item
         wait_for_elm(@last_element)
         assert_equal page.get_text(@last_element), @last_value
       else
-        assert_match(/#{@last_value}/i, page.get_value(id))
-#        assert_equal page.get_value(id).upcase, @last_value.upcase
+        assert page.get_value(id) =~ /#{@last_value}/i, page.get_value(id).inspect unless @matched
       end
     end
 
@@ -512,11 +554,11 @@ class GenertelSect1 < Test::Unit::TestCase
 
     type_text("TBXXDP3XNome", get('@name'))
     type_text("TBXXDP3XCognome", get('@surname'))
-    get('@driver_sex').split("|").size < 2 ? raise(RangeError, "RC cover cannot be off") : click_option(get('@driver_sex').split("|")[1])
+    get('@driver_sex').split("|").size < 2 ? raise(RangeError, "Missing or invalid driver sex!") : click_option(get('@driver_sex').split("|")[1])
     type_text("DBXXDP3XDataNascita", get('@birth_date'))
     type_text("TBXXDP3XLuogoNascita", get('@birth_place'))
     click_button_item "LBLXDP3XCalcCodFisc"
-    assert !60.times{ break if (page.get_value("TBXXDP3XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
+    assert !60.times{ break if (page.get_value("TBXXDP3XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale!"
     assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique Hometown"
     assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing Hometown"
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Codice Fiscale: #{page.get_value("TBXXDP3XCodFisc")}"}

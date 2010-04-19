@@ -30,6 +30,32 @@ task :'rc:restart' do
  Rake::Task[:"rc:start"].execute []
 end
 
+# Start selenium server task 2
+Selenium::Rake::RemoteControlStartTask.new(:'rc2:start') do |rc|
+ rc.port = 5555
+ rc.timeout_in_seconds = 3 * 60
+ rc.background = true
+ rc.wait_until_up_and_running = true
+ rc.jar_file = SELENIUM_RC_JAR
+ rc.additional_args << " -multiWindow"
+# rc.additional_args << " -multiWindow -firefoxProfileTemplate FirefoxProfile"
+
+end
+
+# Stop selenium server task 2
+Selenium::Rake::RemoteControlStopTask.new(:'rc2:stop') do |rc|
+ rc.host = "localhost"
+ rc.port = 5555
+ rc.timeout_in_seconds = 3 * 60
+end
+
+# Restart selenium server task 2
+desc "Restart Selenium Remote Control"
+task :'rc2:restart' do
+ Rake::Task[:"rc2:stop"].execute [] rescue nil
+ Rake::Task[:"rc2:start"].execute []
+end
+
 #
 selenium_jar_file_path = SELENIUM_RC_JAR #'selenium-server-1.0-beta-2/selenium-server.jar'
 selenium_server_log_path = "rc_at_#{Time.now.strftime "%C%y_%m_%d_%H%M%S"}.log"

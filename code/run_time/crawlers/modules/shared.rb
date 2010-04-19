@@ -3,7 +3,6 @@
 
 module Shared
 
-  F4 = "\\115"
   PROVIDER1 = "provider_1"
   PROVIDER2 = "provider_2"
 
@@ -38,6 +37,9 @@ module Shared
       nil
     end
 
+    ensure
+      store_parameter(:preparation, page.get_value("preparations")) if @store_params
+
   end
 
   def select_model_set_up(id, value)
@@ -52,8 +54,8 @@ module Shared
           raise ex
         else
           @last_value = "label=#{value.split("|")[1]}"
-          page_select @last_element, "#{@last_value}"
-          @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value with selected label #{page.get_selected_label(@last_element)}"}
+          page_select @last_element, @last_value
+          @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value [#{@last_value}] with selected label [#{page.get_selected_label(@last_element)}]"}
       end
     end
   end
@@ -69,7 +71,7 @@ module Shared
       loc_array  = []
       loc_array = page.get_select_options(@last_element)
       page_select @last_element, "index=#{loc_array.size - 1}"
-      @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => Indemnity limit not matched for profile [#{@kte.profile}] and record [#{@record}]! Using max available value with selected label #{page.get_selected_label(@last_element)}"}
+      @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => Indemnity limit not matched for profile [#{@kte.profile}] and record [#{@record}]! Using max available value [index=#{loc_array.size - 1}] with selected label #{page.get_selected_label(@last_element)}"}
     end
   end
 
@@ -88,16 +90,18 @@ module Shared
     end
   end
 
-  def load_text_element_array(e)
+  def find_text_element(e, regex)
 
-    text_arr, i = [], 1
+    i = 1
     item = "#{e}[#{i}]"
-    while is_present?(item) == true
-      text_arr << page.get_text(item)
+    while page.is_element_present(item) == true
+      text = page.get_text(item)
+      @matched = true if text =~ /#{regex}/i
+      break if text =~ /#{regex}/i
       i += 1
       item = "#{e}[#{i}]"
     end
-    return text_arr
+    return item
 
   end
 

@@ -7,7 +7,7 @@ all_provider_1#dialogo#url="http://www.dialogo.it/DialogoInternet/home.faces"
 all_provider_1#genertel#url="http://www.genertel.it/assicurazioni/auto/genertel_web_classic.jhtml"
 all_provider_1#genialloyd#url="http://www.genialloyd.it"
 axa_provider_2#axa#url="http://www.axa-italia.it/java/ApplicazioneDiPreventivazione/rcAutoHome.jsp"
-conte_provider_2#conte#url="https://preventivo.conte.it/calculator/"
+conte_provider_2#conte#case sector; when "sect_1"; url="https://preventivo.conte.it/calculator/calculatorAuto.htm"; when "sect_2"; url="https://preventivo.conte.it/calculator/calculatorMoto.htm"; else; url=nil; end; url
 dialogo_provider_2#dialogo#url="http://www.dialogo.it/DialogoInternet/home.faces"
 directline_provider_2#directline#url="http://www.directline.it/preventivi-assicurazioni-rca/calcola-preventivo-assicurazione.jhtml"
 fonsai_provider_2#fonsai#url="http://preventivazionerc.gruppofondiariasai.it/jprevevo/Initial.do?isvap=A111S"

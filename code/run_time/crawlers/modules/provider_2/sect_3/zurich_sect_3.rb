@@ -1,16 +1,13 @@
 #############################################
 #   	Created by Kubepartners			          #
 #                                           #
-#				09/04/2010						              #
+#				16/04/2010						              #
 #############################################
 
-class GeneraliSect1 < Test::Unit::TestCase
+class ZurichSect3 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
-
-  SHARED = 'shared.rb'
-  DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '../..')
 
   FirstPolicy = 0..100
   Individual = 0..100
@@ -79,8 +76,6 @@ class GeneraliSect1 < Test::Unit::TestCase
       page_intro
       page_1
       page_2
-      page_3
-      page_4
       page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
@@ -102,27 +97,16 @@ class GeneraliSect1 < Test::Unit::TestCase
   end
 
   private # all methods that follow will be made private: not accessible for outside objects
-  require("#{DLN_LIBRARY_PATH}/#{SHARED}")
-  include Shared
 
   def page_intro
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
+
     open_page(@url)
+    click_option(get('@privacy_1'))
 
-    type_text("DATA_EFFETTO", @rate_date)
-    select_option "COD_OGG_ASSICURABILE", get("@property_type_to_be_insured")
-    select_option "STATO_ASSICURATIVO", get("@insurance_situation")
-
-    if get('@insurance_situation') =~ /immatricolazione/i
-      select_option "LEGGE_BERSANI", get("@bersani")
-    end
-
-    select_option "TIPOLOGIA_CLIENTE", get("@client_type")
-    click_option(get('@instalment'))
-
-    page.click '//img[@alt="prosegui"]'
+    click_button '//input[@value="Step successivo"]'
    	page_wait
 
   end
@@ -130,16 +114,38 @@ class GeneraliSect1 < Test::Unit::TestCase
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    #TODO the method "assert_equal" inside the select_option has been commented because the province value is in some way different from the selected label
-    select_option "COD_PROVINCIA", get("@residence_province")
+    select_option "tip_veic", get("@property_type_to_be_insured")
+    select_option "frm_contr", get("@quotation")
 
-    select_option "COD_COMUNE", get("@residence")
-    select_option "TIPO_SESSO", get("@owner_sex")
-    type_text("DATA_NASCITA", get("@birth_date"))
+    click_option(get('@client_type'))
+    if (page.get_attribute("#{@last_element}@id") == "TIP_PERS_F")
+      click_option(get('@owner_sex'))
+      select_option "gg_DAT_NASC", get("@birth_date_day")
+      select_option "mm_DAT_NASC", get("@birth_date_month")
+      select_option "aaaa_DAT_NASC", get("@birth_date_year")
+    end
 
-    page.click '//img[@alt="prosegui"]'
+    page.click 'buttonSIG_PROV'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "SIG_PROVDomini", get("@residence_province")
+    page.click 'buttonSIG_PROV'
+    page.select_window(nil)
+
+    click_option(get('@type_of_contract'))
+
+    page.click 'buttonFLG_RISC'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "FLG_RISCDomini", get("@insurance_situation")
+    page.click 'buttonFLG_RISC'
+    page.select_window(nil)
+
+    click_option(get('@heir'))
+
+    click_button '//input[@value="Step successivo"]'
    	page_wait
 
   end
@@ -147,89 +153,40 @@ class GeneraliSect1 < Test::Unit::TestCase
   def page_2
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    click_option(get('@risk_certificate'))
-    if (get('@insurance_situation') =~ /assicurato/i || (get('@insurance_situation') =~ /prima/i &&  get('@bersani') =~ /si/i))
-      select_option "NUM_SIN_PAGATI_1", get("@nr_of_paid_claims_5_yr")
-      select_option "NUM_SIN_PAGATI_2", get("@nr_of_paid_claims_4_yr")
-      select_option "NUM_SIN_PAGATI_3", get("@nr_of_paid_claims_3_yr")
-      select_option "NUM_SIN_PAGATI_4", get("@nr_of_paid_claims_2_yr")
-      select_option "NUM_SIN_PAGATI_5", get("@nr_of_paid_claims_1_yr")
-      select_option "NUM_SIN_PAGATI_CORR", get("@nr_of_paid_claims_this_yr")
+    if get('@insurance_situation') =~ /proveniente/i
+      click_option(get('@risk_certificate'))
 
-      page.click '//img[@alt="prosegui"]'
-      page_wait
+      page.click 'buttonCIP_CLAS'
+      page.wait_for_pop_up('DominiPopup', 30000)
+      page.select_window('DominiPopup')
+      select_option "CIP_CLASDomini", get("@bm_assigned")
+      page.click 'buttonCIP_CLAS'
+      page.select_window(nil)
+
+      type_text("NUM_SINI", get('@claims_total_number'))
+      type_text("SINANN86", get('@nr_of_paid_claims_2_yr'))
     end
 
-    type_text("ANNO", get("@matriculation_date_year"))
-    select_option "MARCA", get("@make")
-    page_wait
+    click_option(get('@fuel'))
+ 
+    page.click 'buttonMAX_SINI'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "MAX_SINIDomini", get("@public_liability_indemnity_limit")
+    page.click 'buttonMAX_SINI'
+    page.select_window(nil)
 
-    select_option "MODELLO", get("@model")
-    page_wait
-
-    type_text("CFIS", get("@cv"))
-    type_text("KW", get("@kw"))
-    type_text("CC", get("@capacity"))
-    select_option "ALIM", get("@fuel")
-
-    page.click '//img[@alt="cerca"]'
-    page_wait
-
-    page.click '//*[@id="TESTO_CELLA_ALLEST"]'
-    page_wait
+    click_button 'step1'
+   	page_wait
 
   end
   
-  def page_3
-
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-
-    type_text("VAL_PARAMETRO_INPUT_4", get("@matriculation_date"))
-    select_option "VAL_PARAMETRO_SELECT_5", get("@vehicle_use")
-    click_option(get('@tow_hook'))
-    select_option "VAL_PARAMETRO_SELECT_7", get("@gas_methane_supply")
-    type_keys("VAL_PARAMETRO_INPUT_8", get("@capacity"))
-    type_text("VAL_PARAMETRO_INPUT_9", get("@cv"))
-    type_text("VAL_PARAMETRO_INPUT_10", get("@kw"))
-    type_keys("VAL_PARAMETRO_INPUT_11", get("@km_per_yr"))
-    select_option "VAL_PARAMETRO_SELECT_12", get("@alarm")
-    select_option "VAL_PARAMETRO_SELECT_14", get("@driving_type")
-
-    if get("@driving_type")=~ /coniugi/i
-      type_text("VAL_PARAMETRO_INPUT_15", get("@birth_date"))
-      select_option "VAL_PARAMETRO_SELECT_16", get("@owner_sex")
-      type_text("VAL_PARAMETRO_INPUT_17", get("@driving_license_points"))
-    end
-
-    click_option(get('@quotation'))
-
-    page.click '//img[@alt="prosegui"]'
-    page_wait
-
-  end
-
-  def page_4
-
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-
-    if (get('@insurance_situation') =~ /assicurato/i || (get('@insurance_situation') =~ /prima/i &&  get('@bersani') =~ /si/i))
-      select_option "VAL_PARAMETRO_CT_1_1", get("@bm_assigned")
-    end
-    select_option "VAL_PARAMETRO_UEP_1_1", get("@public_liability_indemnity_limit")
-
-    page.click '//img[@alt="prosegui"]'
-    page_wait
-
-  end
-
   def page_premium
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
@@ -247,13 +204,14 @@ class GeneraliSect1 < Test::Unit::TestCase
     page.open @last_element
     sleep @sleep
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
   end
 
-  def select_option(id, value, option = "label")
-    @last_element, @last_value = id, (value =~ /index=/i)? value : "#{option}=#{value}"
+  def select_option(id, value = nil)
+    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
     page_select @last_element, "#{@last_value}"
-#    assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
+    assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
   end
 
   def type_text(id, value = nil)
@@ -337,11 +295,7 @@ class GeneraliSect1 < Test::Unit::TestCase
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
 	  wait_for_elm(element)
     page.focus element
-    page.key_up element, "\\115"
-    sleep @sleep*2
 	  page.type_keys element, label
-	  page.type_keys element, " "
-    page.key_press element, "\\8"
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
 
@@ -358,7 +312,7 @@ class GeneraliSect1 < Test::Unit::TestCase
   	sleep @sleep
     assert_not_nil combo_name
     assert_not_nil label
-    assert_not_nil label.split("=")[1] #unless (label =~ /index=/i) unless (label =~ /value=/i)
+    assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
 	  wait_for_elm combo_name
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
 	  assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless /(regexpi)*/.match(label)
@@ -384,8 +338,9 @@ class GeneraliSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
-    premium = premium.gsub(".","")
-    premium = premium.gsub(",",".")
+    assert premium.split[0] != nil, @last_element.inspect
+    assert premium.split[0].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    premium = premium.split[1].gsub(".",",")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
     assert_not_equal 0, premium.to_i, "Price cannot be equal to zero"

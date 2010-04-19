@@ -6,7 +6,7 @@ else
 	echo "Starting ..."
 	yml="/home/notroot/git/KTE/code/yamls/prov_1_sect_1_"$1
 	cd /home/notroot/git/KTE/code/run_time/rake/tasks
-	rake rc:restart
+	rake $2
 	cd /home/notroot/git/KTE/code/run_time/crawlers/script
 	echo $yml
 	ruby run.rb $yml

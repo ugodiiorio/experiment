@@ -133,7 +133,7 @@ module Provider2Conte
       'pol_second_driver_str'  => 'copy_field' ,
       'pol_subscriber_is_holder_str'  => 'copy_field' ,
       'pol_type_of_contract_str'  => 'copy_field' ,
-      'pol_vehicle_continuous_use_no_of_mths_str'  => 'copy_field' ,
+      'pol_vehicle_continuous_use_no_of_mths_str'  => 'translate_field' ,
       'veh_abs_str'  => 'copy_field' ,
       'veh_accesories_value_str'  => 'copy_field' ,
       'veh_airbag_str'  => 'copy_field' ,
@@ -289,6 +289,7 @@ module Provider2Conte
       'driv_driving_license_type_str' => 'translate_field',
       'driv_driving_license_yrs_str' => 'profilefield[:pol_birth_date_str].to_i - profilefield[:driv_driving_license_yrs_str].to_i',
       'driv_job_str' => 'copy_field',
+      'driv_driving_experience_str' => 'translate_field' ,
       'own_owner_specification_str'  => 'copy_field',
       'pol_bersani_str' => 'translate_field',
       'pol_birth_date_day_str'  => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
@@ -333,6 +334,7 @@ module Provider2Conte
       'pol_subscriber_is_owner_str' => 'translate_field',
       'pol_theft_fire_coverage_web_id_str'=> 'translate_field',
       'pol_vehicle_continuous_use_no_of_mths_str'=> 'translate_field' ,
+      'veh_fuel_str'  => 'translate_field' ,
       'veh_alarm_str' => 'translate_field',
       'veh_habitual_vehicle_use_str' => 'translate_field',
       'veh_km_per_yr_str' => 'translate_field',
@@ -348,7 +350,6 @@ module Provider2Conte
       'veh_vehicle_value_str' => 'copy_field',
       'veh_vehicle_shelter_str' => 'translate_field',
       'veh_vehicle_type_str' => 'translate_field',
-
     }
 
   end

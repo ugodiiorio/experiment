@@ -33,6 +33,7 @@ class GenialloydSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
+      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -141,6 +142,7 @@ class GenialloydSect1 < Test::Unit::TestCase
       type_text("dataNasc", get('@birth_date'))
       select_option "paese", get("@citizenship")
       select_option "professione", get("@job")
+      store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
     end
 
     click_option(get('@driving_type'))
@@ -165,10 +167,13 @@ class GenialloydSect1 < Test::Unit::TestCase
     select_option "year", get("@matriculation_date_year")
 
     select_option "marca", get("@make")
+    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     select_model_set_up("modello", get("@model"))
+    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     select_model_set_up("selAllestimento", get("@set_up"))
+    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
     click_option(get('@gas_methane_supply'))
     select_option "antifurto", get("@alarm")
 

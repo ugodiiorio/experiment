@@ -33,6 +33,7 @@ class DirectlineSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
+      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -135,6 +136,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     click_option(get('@owner_sex'))
     select_option "idstatocivile", get("@civil_status")
     select_option "/qol/application/beans/vo/VoContraente.strCodProfessione", get("@job")
+    store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
     type_text("CAP", get('@owner_zip_code'))
     select_option "/qol/application/beans/vo/VoContraente.strAnniPatente", get("@driving_license_yrs")
     click_option(get('@subscriber_is_driver'))
@@ -208,8 +210,10 @@ class DirectlineSect1 < Test::Unit::TestCase
     type_text("annoprimaimmatricolazione", get('@matriculation_date'))
     is_present?("dataacquistoauto") ? type_text("dataacquistoauto", get('@purchase_date_year')) : nil
     select_option "select_marca", get("@make")
+    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
     page_click @last_element
     select_model_set_up "select_modelli", get("@model")
+    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
 
 
     click_button "PROSEGUI"
@@ -223,6 +227,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     page_click "allestimentoAuto"
     #    select_option "allestimentoAuto", get("@set_up")
     select_model_set_up "allestimentoAuto", get("@set_up")
+    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
     select_option "UsoPra", get("@habitual_vehicle_use")
     type_text("KMPercorsi", get('@km_per_yr'))
     click_option(get('@vehicle_use'))
@@ -300,17 +305,17 @@ class DirectlineSect1 < Test::Unit::TestCase
     assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
   end
 
-  def select_max(id, value = nil)
-    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
-    loc_array  = []
-    loc_array= page.get_select_options(@last_element)
-    if loc_array.size == 2
-      select_option @last_element, "index=1"
-    else page_select @last_element, "#{@last_value}"
-      assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
-    end
-  end
+#  def select_max(id, value = nil)
+#    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
+#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
+#    loc_array  = []
+#    loc_array= page.get_select_options(@last_element)
+#    if loc_array.size == 2
+#      select_option @last_element, "index=1"
+#    else page_select @last_element, "#{@last_value}"
+#      assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
+#    end
+#  end
 
 #  def select_model_set_up(id, value)
 #    @last_element, @last_value = id, (value =~ /index=/i)? value : value.split("|")[0]

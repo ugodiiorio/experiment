@@ -33,6 +33,7 @@ class QuixaSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
+      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -112,15 +113,16 @@ class QuixaSect1 < Test::Unit::TestCase
     open_page(@url) #"http://www.quixa.it/simulator.aspx?SimObject=CAR"
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlBrand", get('@make'))
-    store_parameter(:make, page.get_selected_label(@last_element))
+    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
 
     type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", get('@matriculation_date'))
 
     select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model'))
-    store_parameter(:model, page.get_selected_label(@last_element))
+    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
 
     select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
-    store_parameter(:preparation, page.get_selected_label(@last_element))
+    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
+    sleep @sleep*2
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlFuelType", get('@fuel'))
 
@@ -142,6 +144,7 @@ class QuixaSect1 < Test::Unit::TestCase
     click_option(get('@leasing'))
 
     click_option(get('@client_type'))
+    sleep @sleep
 
     case page.get_text("//label[@for='#{@last_element}']") =~ /fisica/i
       when Individual
@@ -151,7 +154,7 @@ class QuixaSect1 < Test::Unit::TestCase
         click_option(get('@owner_sex'))
         type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBirthDate", get('@birth_date'))
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlJob", get('@job'))
-        store_parameter(:job, page.get_selected_label(@last_element))
+        store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
       else
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlProvince", get('@residence_province'))
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlMunicipality", get('@residence'))
