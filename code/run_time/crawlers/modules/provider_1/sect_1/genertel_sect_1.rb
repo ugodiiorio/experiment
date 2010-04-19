@@ -294,15 +294,25 @@ class GenertelSect1 < Test::Unit::TestCase
         sleep @sleep*2
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
-        select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
         click_button_item(get('@road_assistance_web_id'))
         is_present?(get('@legal_assistance_web_id').split[0]) ? click_button_item(get('@legal_assistance_web_id').split[0]) : nil
         is_present?(get('@legal_assistance_web_id').split[1]) ? click_button_item(get('@legal_assistance_web_id').split[1]) : nil
 
+        select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
+        sleep @sleep*2
         page.wait_for_element("LBLXAZIXRicalcolaTot")
         page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
         assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
 
+        assert_equal page.get_value("GRDXGARXGaranzieX1X3"), get('@public_liability_indemnity_limit')
+#        if page.get_value("GRDXGARXGaranzieX1X3") != get('@public_liability_indemnity_limit')
+#          select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
+#          sleep @sleep*2
+#          page.wait_for_element("LBLXAZIXRicalcolaTot")
+#          page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
+#          assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
+#        end
+        
         page.wait_for_element("LBLXAZIXAvanti")
         page.is_element_present("LBLXAZIXAvanti") ? click_button_item("LBLXAZIXAvanti") : nil
         page_wait
@@ -436,6 +446,7 @@ class GenertelSect1 < Test::Unit::TestCase
           click_button_item(item, @last_value) if is_present?(item)
         else
       end
+      sleep @sleep*2
       if assert_item
         @last_element = assert_item
         wait_for_elm(@last_element)
