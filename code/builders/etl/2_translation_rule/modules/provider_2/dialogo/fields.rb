@@ -12,7 +12,7 @@ module Provider2Dialogo
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Tutela legale\']/input',
       {'pol_social_political_events_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Eventi socio-politici e naturali\']/input',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Incendio e Furto\']/input',
-      {'pol_public_liability_exemption_str' => 'no'} => 'Nessuna',
+      {'pol_public_liability_exemption_str' => '0'} => 'Nessuna',
 
       
 
@@ -366,15 +366,30 @@ module Provider2Dialogo
       {'pol_BM_assigned_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_driver_is_owner_str' => 'no'} => '//input[@name="contentSubView:contentForm:ProprietarioConducente" and @value="N"]',
-      {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 10.000.000,00 - € 10.000.000,00 - € 10.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '8,000,000'} => '€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+
       {'pol_public_liability_indemnity_limit_str' => '15,000,000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '20,000,000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '26,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.500.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '€ 3.500.000,00 - € 3.500.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '20,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '€ 3.500.000,00 - € 3.500.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
+
+      {'pol_public_liability_indemnity_limit_str' => '1,600,000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '2,500,000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '5,000,000'} => '€ 5.000.000,00 - € 5.000.000,00 - € 5.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '8,000,000'} => '€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '15,000,000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
+
+
+      #      {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 10.000.000,00 - € 10.000.000,00 - € 10.000.000,00',
+      #      {'pol_public_liability_indemnity_limit_str' => '8,000,000'} => '€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00',
+      #      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+      #      {'pol_public_liability_indemnity_limit_str' => '20,000,000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
+      #      {'pol_public_liability_indemnity_limit_str' => '26,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+      #      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+      #       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00',
       {'pol_BM_assigned_str' => '-1'} => '1 da almeno un anno',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => '//input[@name="contentSubView:contentForm:attualeSituazione" and @value="3"]',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => '//input[@name="contentSubView:contentForm:attualeSituazione" and @value="1"]',
