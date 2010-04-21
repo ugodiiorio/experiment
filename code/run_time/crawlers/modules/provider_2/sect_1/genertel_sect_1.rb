@@ -298,6 +298,8 @@ class GenertelSect1 < Test::Unit::TestCase
         sleep @sleep*2
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
+        
+        select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//body/div[8]/div/div")
         click_button_item(get('@road_assistance_web_id')) if is_present?(get('@road_assistance_web_id'))
         uncheck_checkbox(get('@road_assistance_web_id'))
         click_button_item(get('@legal_assistance_web_id').split[0]) if is_present?(get('@legal_assistance_web_id').split[0])
@@ -305,7 +307,6 @@ class GenertelSect1 < Test::Unit::TestCase
         click_button_item(get('@legal_assistance_web_id').split[1]) if is_present?(get('@legal_assistance_web_id').split[1])
         uncheck_checkbox(get('@legal_assistance_web_id').split[1])
 
-        select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//body/div[8]/div/div")
         @last_element, @last_value = "LBLXAZIXRicalcolaTot", nil
         page.wait_for_element("LBLXAZIXRicalcolaTot")
         page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil

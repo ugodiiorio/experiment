@@ -152,8 +152,7 @@ class GenertelSect1 < Test::Unit::TestCase
 
     type_text("DBXXDPOXDataDecorrenza", @rate_date)
     page.check(get('@leasing')) if is_present?(get('@leasing'))
-    sleep @sleep*2
-#    click_checkbox(get('@leasing'))
+    click_checkbox(get('@leasing'))
     click_button_item "LBLXDPOXAvanti"
     page_wait
 
@@ -183,14 +182,11 @@ class GenertelSect1 < Test::Unit::TestCase
     select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
 
     page.check(get('@airbag')) if is_present?(get('@airbag'))
-    sleep @sleep*2
-#    click_checkbox(get('@airbag'))
+    click_checkbox(get('@airbag'))
     page.check(get('@abs')) if is_present?(get('@abs'))
-    sleep @sleep*2
-#    click_checkbox(get('@abs'))
+    click_checkbox(get('@abs'))
     page.check(get('@vehicle_shelter')) if is_present?(get('@vehicle_shelter'))
-    sleep @sleep*2
-#    click_checkbox(get('@vehicle_shelter'))
+    click_checkbox(get('@vehicle_shelter'))
 
     select_fake_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
     type_text("NBXXDVEXKmAnnui", get('@km_per_yr'))
@@ -302,13 +298,13 @@ class GenertelSect1 < Test::Unit::TestCase
         sleep @sleep*2
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
-
+        
         select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//body/div[8]/div/div")
-#        click_button_item(get('@road_assistance_web_id')) if is_present?(get('@road_assistance_web_id'))
+        click_button_item(get('@road_assistance_web_id')) if is_present?(get('@road_assistance_web_id'))
         uncheck_checkbox(get('@road_assistance_web_id'))
-#        click_button_item(get('@legal_assistance_web_id').split[0]) if is_present?(get('@legal_assistance_web_id').split[0])
+        click_button_item(get('@legal_assistance_web_id').split[0]) if is_present?(get('@legal_assistance_web_id').split[0])
         uncheck_checkbox(get('@legal_assistance_web_id').split[0])
-#        click_button_item(get('@legal_assistance_web_id').split[1]) if is_present?(get('@legal_assistance_web_id').split[1])
+        click_button_item(get('@legal_assistance_web_id').split[1]) if is_present?(get('@legal_assistance_web_id').split[1])
         uncheck_checkbox(get('@legal_assistance_web_id').split[1])
 
         @last_element, @last_value = "LBLXAZIXRicalcolaTot", nil
