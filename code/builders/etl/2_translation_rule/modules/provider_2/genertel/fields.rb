@@ -5,10 +5,10 @@ module Provider2Genertel
     @target_values = Hash.new
 
     @target_values = {
-      {'pol_road_assistance_web_id_str' => 'id elemento'} => '//td[4]/div/div/div/img',
-      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//tr[5]/td[4]/div/div/div/img //tr[7]/td[4]/div/div/div/img',
-#
-#       {'pol_collision_premium_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX2X5',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => '//td[4]/div/div/div/input',
+      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//tr[5]/td[4]/div/div/div/input //tr[7]/td[4]/div/div/div/input',
+      #    
+      #       {'pol_collision_premium_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX2X5',
       #      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
       #      {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
       #      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
@@ -20,7 +20,7 @@ module Provider2Genertel
       #      {'pol_protection_24_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
 
       {'driv_job_str' => 'agente/rappresentante'} => 'Agente/rappresentante',
-       {'driv_job_str' => 'agricoltore/allevatore'} => 'Agricoltore/allevatore',
+      {'driv_job_str' => 'agricoltore/allevatore'} => 'Agricoltore/allevatore',
       {'driv_job_str' => 'impiegato'} => 'Impiegato/a',
       {'driv_job_str' => 'dirigente'} => 'Dirigente',
       {'driv_job_str' => 'magistrato'} => 'Magistrato',
@@ -92,15 +92,15 @@ module Provider2Genertel
       {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 10,000,000,00',
       {'pol_public_liability_indemnity_limit_str' => '18,000,000'} => '€ 10.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 10.000.000,00',
-      {'veh_airbag_str' => 'si'} => 'RBTXDVEXAirbag0',
-      {'veh_abs_str' => 'si'} => 'RBTXDVEXAbs0',
-       {'veh_airbag_str' => 'no'} => 'RBTXDVEXAirbag1',
-      {'veh_abs_str' => 'no'} => 'RBTXDVEXAbs1',
-      {'veh_vehicle_shelter_str' => 'box privato'} => 'RBTXDVEXCustodia0',
+      {'veh_airbag_str' => 'si'} => 'RBTXDVEXAirbag0',  #//div[2]/div/div[1]/div/div/img
+      {'veh_abs_str' => 'si'} => 'RBTXDVEXAbs0',   #//div[12]/div[2]/div/div[1]/div/div/img
+      {'veh_airbag_str' => 'no'} => 'RBTXDVEXAirbag1',  #//div[2]/div/div[2]/div/div/img
+      {'veh_abs_str' => 'no'} => 'RBTXDVEXAbs1',    #//div[12]/div[2]/div/div[2]/div/div/img
+      {'veh_vehicle_shelter_str' => 'box privato'} => 'RBTXDVEXCustodia0',  #//div[13]/div[2]/div/div[1]/div/div/img
       {'pol_privacy_1_str' => 'id elemento web1'} => 'RBTXPRIXConsensoA0',
       {'pol_privacy_2_str' => 'id elemento web2'} => 'RBTXPRIXConsensoB0',
-      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'no'} => 'RBTXDCOXEspUnoDueCond1',
-      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'si'} => 'RBTXDCOXEspUnoDueCond0',
+      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'no'} => '//div[3]/div[2]/div/div[2]/div/div/img',
+      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'si'} => '//div[3]/div[2]/div/div[1]/div/div/img',
       {'pol_subscriber_is_driver_str' => 'si'} => 'RBTXDCOXContConducente0',
       {'pol_cohabiting_children_str' => 'no'} => 'RBTXDCOXFigli1',
       {'pol_privacy_3_str' => 'id elemento web3'} => 'RBTXPRIXConsensoC0',
@@ -110,7 +110,7 @@ module Provider2Genertel
       
       {'pol_current_policy_guarantee_str' => 'nessuna'} => 'CHXXDPOXNessunaGaranzia',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'RBTXDPOXSituazione1',
-#      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'RBTXDPOXSituazione2',
+      #      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => 'RBTXDPOXSituazione2',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'RBTXDPOXSituazione0',
       {'pol_leasing_str' => 'no'} => 'RBTXDPOXLeasing1',
       {'pol_subscriber_is_owner_str' => 'no'} => 'RBTXDP1XProprietarioContraente1',
@@ -125,8 +125,8 @@ module Provider2Genertel
       {'pol_instalment_str' => 'annuale'} => 'annuale',
       {'veh_fuel_str' => 'benzina'} => 'Benzina',
       {'veh_fuel_str' => 'diesel'} => 'Diesel',
-#      {'veh_fuel_str' => 'G'} => 'GPL/Metano',
-#      {'veh_fuel_str' => 'M'} => 'GPL/Metano',
+      #      {'veh_fuel_str' => 'G'} => 'GPL/Metano',
+      #      {'veh_fuel_str' => 'M'} => 'GPL/Metano',
       {'veh_alarm_str' => 'nessuno'} => 'Nessun antifurto',
       {'pol_BM_1_more_than_1_year_str' => 'si'} => 'RBTXDPOXClasseUnoDomanda0',
       {'pol_BM_1_more_than_1_year_str' => 'no'} => 'RBTXDPOXClasseUnoDomanda1',
@@ -387,7 +387,7 @@ module Provider2Genertel
       {'driv_job_str' => 'disoccupato'} => 'Non occupato/a',
       {'driv_job_str' => 'imprenditore'} => 'Imprenditore',
       {'driv_job_str' => 'ingegnere'} => 'Altro',
-     # {'driv_job_2_str' => 'campo tecnico per genertel'} => 'index 1',
+      # {'driv_job_2_str' => 'campo tecnico per genertel'} => 'index 1',
       {'driv_job_2_str' => 'campo tecnico per genertel'} => 'Altro',
       {'own_owner_sex_str' => 'M'} => 'RBTXDP1XSessoMF0',
       {'own_owner_sex_str' => 'F'} => 'RBTXDP1XSessoMF1',
@@ -467,11 +467,11 @@ module Provider2Genertel
       {'pol_cohabiting_children_str' => 'si'} => 'RBTXDCOXFigli0',
       {'pol_cohabiting_children_str' => 'no'} => 'RBTXDCOXFigli1',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
-#      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'N'} => 'RBTXDCOXEspUnoDueCond1',
-#      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'S'} => 'RBTXDCOXEspUnoDueCond0',
-#      {'pol_legal_assistance_web_id_str'  => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
+      #      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'N'} => 'RBTXDCOXEspUnoDueCond1',
+      #      {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'S'} => 'RBTXDCOXEspUnoDueCond0',
+      #      {'pol_legal_assistance_web_id_str'  => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'LBLXRIEXImporto',
-     # {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
+      # {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
       {'pol_theft_fire_coverage_web_id_str'  => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
       {'veh_alarm_str' => 'nessuno'} => 'Nessun antifurto',
       {'veh_vehicle_shelter_str' => 'box privato'} => 'RBTXDVEXCustodia0',
