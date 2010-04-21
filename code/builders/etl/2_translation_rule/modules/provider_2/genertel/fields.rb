@@ -102,7 +102,7 @@ module Provider2Genertel
       {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'no'} => 'RBTXDCOXEspUnoDueCond1',
       {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'si'} => 'RBTXDCOXEspUnoDueCond0',
       {'pol_subscriber_is_driver_str' => 'si'} => 'RBTXDCOXContConducente0',
-      {'pol_cohabiting_children_str' => 'si'} => 'RBTXDCOXFigli0',
+      {'pol_cohabiting_children_str' => 'no'} => 'RBTXDCOXFigli1',
       {'pol_privacy_3_str' => 'id elemento web3'} => 'RBTXPRIXConsensoC0',
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'RBTXDPOXAssicuratoGen1',
       {'pol_bersani_str' => 'no'} => 'RBTXDPOXBersani1',
@@ -127,7 +127,7 @@ module Provider2Genertel
       {'veh_fuel_str' => 'diesel'} => 'Diesel',
 #      {'veh_fuel_str' => 'G'} => 'GPL/Metano',
 #      {'veh_fuel_str' => 'M'} => 'GPL/Metano',
-      {'veh_alarm_str' => 'immobilizer'} => 'Immobilizzatore senza allarme',
+      {'veh_alarm_str' => 'nessuno'} => 'Nessun antifurto',
       {'pol_BM_1_more_than_1_year_str' => 'si'} => 'RBTXDPOXClasseUnoDomanda0',
       {'pol_BM_1_more_than_1_year_str' => 'no'} => 'RBTXDPOXClasseUnoDomanda1',
 
