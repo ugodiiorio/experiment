@@ -93,7 +93,7 @@ module Provider2Directline
       'pol_easy_driver_web_id_str'  => 'copy_field' ,
       'pol_exclusive_drive_str'  => 'copy_field' ,
       'pol_family_car_num'  => 'copy_field' ,
-      'pol_family_members_insured_with_company_str'  => 'copy_field' ,
+      'pol_family_members_insured_with_company_str'  => 'translate_field' ,
       'pol_first_claim_month_str'  => 'copy_field' ,
       'pol_first_claim_year_str'  => 'copy_field' ,
       'pol_free_drive_str'  => 'copy_field' ,

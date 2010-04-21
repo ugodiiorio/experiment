@@ -5,7 +5,8 @@ module Provider2Genertel
     @rule_values ={}
 
     @rule_values = {
-
+      'pol_RCA_code_str' =>  'copy_field',
+      'pol_RCA_on_off_str' =>  'copy_field',
       'pol_first_claim_month_str' => 'copy_field',
       'pol_first_claim_year_str' => 'copy_field',
       'pol_second_claim_month_str' => 'copy_field',
