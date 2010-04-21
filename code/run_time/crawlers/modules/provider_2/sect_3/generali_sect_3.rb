@@ -135,8 +135,11 @@ class GeneraliSect3 < Test::Unit::TestCase
     select_option "COD_PROVINCIA", get("@residence_province")
 
     select_option "COD_COMUNE", get("@residence")
-    select_option "TIPO_SESSO", get("@owner_sex")
-    type_text("DATA_NASCITA", get("@birth_date"))
+
+    if get("@client_type") =~ /fisica/i
+      select_option "TIPO_SESSO", get("@owner_sex")
+      type_text("DATA_NASCITA", get("@birth_date"))
+    end
 
     page.click '//img[@alt="prosegui"]'
    	page_wait
