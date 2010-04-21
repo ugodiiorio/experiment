@@ -14,13 +14,13 @@ module Provider2Directline
       {'pol_natural_events_web_id_str' => 'id elemento'} => 'chk_5',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'chk_1',
       {'pol_collision_premium_id_str' => 'id elemento'} => 'chk_2',
-      {'pol_public_liability_exemption_str' => 'no'} => 'Nessuno',
+      {'pol_public_liability_exemption_str' => '0'} => 'Nessuno',
       {'pol_already_benefit_from_bersani_str' => 'no'} => 'id_radio_tipo_bm_2',
 
-      {'veh_km_per_yr_str' => '15000'} => '15',
+      {'veh_km_per_yr_str' => '10000'} => '10',
       {'pol_bersani_ref_vehicle_number_plate_str' => 'no'} => '/html/body/table[2]/tbody/tr/td[4]/form/table[2]/tbody/tr[13]/td[2]/input[3]',
-      {'pol_driver_less_than_26_yrs_str' => 'N'} => 'Nessuno',
-      {'pol_driver_less_than_26_yrs_str' => 'S'} => 'Un conducente',
+      {'pol_driver_less_than_26_yrs_str' => 'no'} => 'Nessuno',
+      {'pol_driver_less_than_26_yrs_str' => 'si'} => 'Un conducente',
       {'veh_alarm_str' => 'nessuno'} => 'Nessuno',
        {'pol_bersani_str' => 'si'} => '//input[@name="/qol/application/beans/vo/VoBMAgevolata.intProvenienza" and @value="1"]',
       {'pol_bersani_str' => 'no'} => '//input[@name="/qol/application/beans/vo/VoBMAgevolata.intProvenienza" and @value="0"]',
@@ -79,12 +79,11 @@ module Provider2Directline
       {'own_owner_sex_str' => 'M'} => '//input[@name="sessoContraente" and @value="M"]',
       {'own_owner_sex_str' => 'F'} => '//input[@name="sessoContraente" and @value="F"]',
       {'own_owner_sex_str' => 'C'} => '//input[@name="sessoContraente" and @value="M"]',
-      {'veh_vehicle_shelter_str' => 'box privato'} => 'Box privato',
-
-      {'pol_insurance_situation_str' => 'veicolo gia\' assicurato con atr'} => 'id_radio_bm',
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo nuovo'} => '//input[@name="tipoPolizza" and @value="AN"]',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
-      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//input[@name="tipoPolizza" and @value="AU"]',
-      {'driv_civil_status_str' => 'Coniugato con figli'} => 'Sposato/a',
+     
+      {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'id_radio_bm',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => '//input[@name="tipoPolizza" and @value="AN"]',  #/html/body/table[2]/tbody/tr/td[4]  precede sempre table/...
+      #      {'pol_insurance_situation_str' => '1a polizza dopo l\'acquisto del veicolo usato'} => '//input[@name="tipoPolizza" and @value="AU"]',
+      {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Sposato/a',
       {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'Tragitto Casa-Lavoro/Tempo libero',
       {'veh_habitual_vehicle_use_str' => 'affari'} => 'Affari',
       {'veh_habitual_vehicle_use_str' => 'tempo libero'} => 'Tempo Libero',

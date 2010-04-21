@@ -5,7 +5,7 @@ module Provider2Conte
     @rule_values ={}
 
     @rule_values = {
-      'driv_driving_license_yrs_str'  => 'profilefield[:pol_birth_date_str].to_i - profilefield[:driv_driving_license_yrs_str].to_i' ,
+      'driv_driving_license_yrs_str'  => 'profilefield[:driv_driving_license_yrs_str]' ,
       'pol_nr_of_paid_claims_3_yr_str'  => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[:pol_nr_of_paid_claims_2_yr_str].to_i; sin= x+y+z' ,
       'driv_birth_province_str'  => 'translate_field' ,
       'driv_civil_status_str'  => 'translate_field' ,

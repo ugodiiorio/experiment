@@ -12,8 +12,9 @@ module Provider2Dialogo
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Tutela legale\']/input',
       {'pol_social_political_events_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Eventi socio-politici e naturali\']/input',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '//div[@id=\'sbox_Incendio e Furto\']/input',
-      {'pol_public_liability_exemption_str' => 'no'} => 'Nessuna',
+      {'pol_public_liability_exemption_str' => '0'} => 'Nessuna',
 
+      
 
       {'own_owner_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'own_owner_residence_province_str' => 'AL'} => 'ALESSANDRIA',
@@ -365,15 +366,30 @@ module Provider2Dialogo
       {'pol_BM_assigned_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_driver_is_owner_str' => 'no'} => '//input[@name="contentSubView:contentForm:ProprietarioConducente" and @value="N"]',
-      {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 10.000.000,00 - € 10.000.000,00 - € 10.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '8,000,000'} => '€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+
       {'pol_public_liability_indemnity_limit_str' => '15,000,000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '20,000,000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '26,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.500.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '€ 3.500.000,00 - € 3.500.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '20,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '4,000,000'} => '€ 3.500.000,00 - € 3.500.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
+
+      {'pol_public_liability_indemnity_limit_str' => '1,600,000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '2,500,000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '5,000,000'} => '€ 5.000.000,00 - € 5.000.000,00 - € 5.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '8,000,000'} => '€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '15,000,000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
+
+
+      #      {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 10.000.000,00 - € 10.000.000,00 - € 10.000.000,00',
+      #      {'pol_public_liability_indemnity_limit_str' => '8,000,000'} => '€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00',
+      #      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+      #      {'pol_public_liability_indemnity_limit_str' => '20,000,000'} => '€ 15.000.000,00 - € 15.000.000,00 - € 15.000.000,00',
+      #      {'pol_public_liability_indemnity_limit_str' => '26,000,000'} => '€ 25.000.000,00 - € 25.000.000,00 - € 25.000.000,00',
+      #      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '€ 3.000.000,00 - € 3.000.000,00 - € 3.000.000,00',
+      #       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '€ 8.000.000,00 - € 8.000.000,00 - € 8.000.000,00',
       {'pol_BM_assigned_str' => '-1'} => '1 da almeno un anno',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => '//input[@name="contentSubView:contentForm:attualeSituazione" and @value="3"]',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => '//input[@name="contentSubView:contentForm:attualeSituazione" and @value="1"]',
@@ -385,10 +401,10 @@ module Provider2Dialogo
       {'veh_num_of_owners_str' => '1'} => '//input[@name="contentSubView:contentForm:chooseAuto:Cointest" and @value="N"]',
       {'pol_subscriber_is_driver_str' => 'si'} => '//input[@name="contentSubView:contentForm:chooseAuto:contrIsDriv" and @value="Y"]',
       {'pol_subscriber_is_driver_str' => 'no'} => '//input[@name="contentSubView:contentForm:chooseAuto:contrIsDriv" and @value="N"]',
-      {'pol_subscriber_is_owner_str' => 'si'} => '/html/body/div/div[3]/div/form/div/fieldset/div/table/tbody/tr/td[2]/table/tbody/tr/td/label/input',
-      {'own_owner_sex_str' => 'M'} => '/html/body/div/div[3]/div/form/span[2]/fieldset/div[2]/table/tbody/tr/td/label/input',
-      {'own_owner_sex_str' => 'F'} => '/html/body/div/div[3]/div/form/span[2]/fieldset/div[2]/table/tbody/tr/td[2]/label/input',
-      {'own_owner_sex_str' => 'C'} => '/html/body/div/div[3]/div/form/span[2]/fieldset/div[2]/table/tbody/tr/td[3]/label/input',
+      {'pol_subscriber_is_owner_str' => 'si'} => '//input[@name="contentSubView:contentForm:chooseAuto:contrIsOwn" and @value="Y"]',
+      {'own_owner_sex_str' => 'M'} => '//input[@name="contentSubView:contentForm:MFRProprietario" and @value="M"]',
+      {'own_owner_sex_str' => 'F'} => '//input[@name="contentSubView:contentForm:MFRProprietario" and @value="F"]',
+      {'own_owner_sex_str' => 'C'} => '//input[@name="contentSubView:contentForm:MFRProprietario" and @value="E"]',
       {'pol_driver_is_owner_str' => 'si'} => '//input[@name="contentSubView:contentForm:ProprietarioConducente" and @value="Y"]',
       {'driv_driver_sex_str' => 'M'} => '//input[@name="contentSubView:contentForm:SessoConducente" and @value="M"]',
       {'driv_driver_sex_str' => 'F'} => '//input[@name="contentSubView:contentForm:SessoConducente" and @value="F"]',
@@ -396,9 +412,9 @@ module Provider2Dialogo
       {'pol_RCA_premium_id_str' => 'id elemento'} => '//div[@id=\'sbox_Costo Annuale\']/span',
       {'pol_instalment_str' => 'annuale'} => '//div[@id=\'sbox_Costo Annuale\']/input',
       {'pol_instalment_str' => 'semestrale'} => '//div[@id=\'sbox_Costo Semestrale\']/input',
-      {'pol_number_plate_type_str' => 'definitiva'} => '//input[@name="contentSubView:vehicleForm:foreignRegistration" and @value="true"]',
+      {'pol_number_plate_type_str' => 'definitiva'} => '//input[@name="contentSubView:vehicleForm:foreignRegistration" and @value="false"]',
       {'veh_vehicle_shelter_str' => 'box privato'} => '//input[@name="contentSubView:vehicleForm:garage" and @value="true"]',
-      {'veh_tow_hook_str' => 'no'} => '//input[@name="contentSubView:vehicleForm:hook" and @value="true"]',
+      {'veh_tow_hook_str' => 'no'} => '//input[@name="contentSubView:vehicleForm:hook" and @value="false"]',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola'
     }
   end
@@ -412,9 +428,9 @@ module Provider2Dialogo
       {'own_owner_sex_str' => 'M'} => '//input[@name="contentSubView:contentForm:MFRProprietario" and @value="M"]',
       {'own_owner_sex_str' => 'F'} => '//input[@name="contentSubView:contentForm:MFRProprietario" and @value="F"]',
       {'own_owner_sex_str' => 'C'} => '//input[@name="contentSubView:contentForm:MFRProprietario" and @value="E"]',
-#      {'pol_bersani_str' => 'Convivente'} => '/html/body/div/div[3]/div/form/fieldset/div[3]/div/div/table/tbody/tr/td/label/input',
-#      {'pol_bersani_str' => 'Veicolo'} => '/html/body/div/div[3]/div/form/fieldset/div[3]/div/div/table/tbody/tr/td/label/input',
-#      {'pol_bersani_str' => 'No'} => '/html/body/div/div[3]/div/form/fieldset/div[3]/div/div/table/tbody/tr/td[2]/label/input',
+      #      {'pol_bersani_str' => 'Convivente'} => '/html/body/div/div[3]/div/form/fieldset/div[3]/div/div/table/tbody/tr/td/label/input',
+      #      {'pol_bersani_str' => 'Veicolo'} => '/html/body/div/div[3]/div/form/fieldset/div[3]/div/div/table/tbody/tr/td/label/input',
+      #      {'pol_bersani_str' => 'No'} => '/html/body/div/div[3]/div/form/fieldset/div[3]/div/div/table/tbody/tr/td[2]/label/input',
       {'pol_assistance_web_id_str' => 'id elemento'} => 'contentSubView:quotationTabletForm:proposalTable:1:_id146',
       {'pol_bersani_str' => 'si'} => '//input[@name="contentSubView:contentForm:bonusMalusRadio" and @value="Y"]',
       {'pol_bersani_str' => 'no'} => '//input[@name="contentSubView:contentForm:bonusMalusRadio" and @value="N"]',
@@ -462,7 +478,7 @@ module Provider2Dialogo
       {'veh_vehicle_use_str' => 'privato'} => '//input[@name="contentSubView:contentForm:vehicleUsage" and @value="01"]',
 
     }
-#/html/body/div/div[3]/div/form/fieldset/div/table/tbody/tr/td/label/input
+    #/html/body/div/div[3]/div/form/fieldset/div/table/tbody/tr/td/label/input
   end
 
 end

@@ -9,7 +9,7 @@ module FieldMappingProvider1Sect1
       'driv_birth_province_str' =>  'infield[:pol_residence_province_str].upcase.strip',
       'driv_birth_state_str' =>  'infield[:driv_citizenship_str].upcase.strip == "SOCIETA" ? "ITALIA" : infield[:driv_citizenship_str].upcase.strip',
       'driv_citizenship_str' =>  'infield[:driv_citizenship_str].upcase.strip == "SOCIETA" ? "ITALIA" : infield[:driv_citizenship_str].upcase.strip',
-      'driv_civil_status_str' =>  '"Coniugato senza figli"',
+      'driv_civil_status_str' =>  '"Coniugato con figli"',
       'driv_driver_sex_str' =>  'x = infield[:driv_driver_sex_str].slice(0,1); x=="S" ? x="M": x=x',
       'driv_driving_license_month_of_issue_str' =>  'infield[:driv_driver_sex_str].strip.length == 3 ? infield[:driv_driver_sex_str].slice(1, 2) : "30"',
       'driv_driving_license_points_str' =>  '20',
