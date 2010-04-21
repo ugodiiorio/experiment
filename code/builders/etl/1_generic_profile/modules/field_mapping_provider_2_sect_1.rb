@@ -88,7 +88,7 @@ module FieldMappingProvider2Sect1
       'pol_number_of_NI_NA_yrs_during_5_yrs_str' => 'sitass=infield[:pol_insurance_situation_str];  if sitass=~/1a*\\s*[(A-Za-z0-9)*(\\s)*]*/ ; x= 5; else x=0 end;',
       'pol_number_plate_type_str' => '"definitiva"',
       'pol_other_policies_with_company_str' => '"no"',
-      'pol_other_vehicle_use_str' => nil,
+      'pol_other_vehicle_use_str' => '"no"',
       'pol_partner_garages_str' => '"no"',
       'pol_passenger_str' => nil,
       'pol_payment_str' => '"carta di credito"',
