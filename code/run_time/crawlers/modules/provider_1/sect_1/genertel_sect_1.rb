@@ -151,7 +151,8 @@ class GenertelSect1 < Test::Unit::TestCase
     end
 
     type_text("DBXXDPOXDataDecorrenza", @rate_date)
-    click_option(get('@leasing'))
+    page.check(get('@leasing')) if is_present?(get('@leasing'))
+    click_checkbox(get('@leasing'))
     click_button_item "LBLXDPOXAvanti"
     page_wait
 
@@ -180,9 +181,12 @@ class GenertelSect1 < Test::Unit::TestCase
     type_text("NBXXDVEXValoreVeicolo", get('@vehicle_value'))
     select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
 
-    click_option(get('@airbag'))
-    click_option(get('@abs'))
-    click_option(get('@vehicle_shelter'))
+    page.check(get('@airbag')) if is_present?(get('@airbag'))
+    click_checkbox(get('@airbag'))
+    page.check(get('@abs')) if is_present?(get('@abs'))
+    click_checkbox(get('@abs'))
+    page.check(get('@vehicle_shelter')) if is_present?(get('@vehicle_shelter'))
+    click_checkbox(get('@vehicle_shelter'))
 
     select_fake_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
     type_text("NBXXDVEXKmAnnui", get('@km_per_yr'))
@@ -372,7 +376,8 @@ class GenertelSect1 < Test::Unit::TestCase
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked checkbox element: [#{@last_element}]"}
     page_click @last_element
-    assert_equal page.get_value(@last_element), "on"
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(@last_element)}"}
+#    assert_equal page.get_value(@last_element), "on"
   end
 
   def uncheck_checkbox(id, value = nil)
@@ -380,6 +385,8 @@ class GenertelSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's unchecked checkbox element: [#{@last_element}]"}
     page_uncheck @last_element if is_present? @last_element
     sleep @sleep*2
+	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(@last_element)}"}
+#    assert_equal page.get_value(@last_element), "off" 
   end
 
   def click_button_item(id, value = nil)
