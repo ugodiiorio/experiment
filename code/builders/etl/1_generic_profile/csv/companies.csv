@@ -11,7 +11,7 @@ conte_provider_2#conte#case sector; when "sect_1"; url="https://preventivo.conte
 dialogo_provider_2#dialogo#url="http://www.dialogo.it/DialogoInternet/home.faces"
 directline_provider_2#directline#url="http://www.directline.it/preventivi-assicurazioni-rca/calcola-preventivo-assicurazione.jhtml"
 fonsai_provider_2#fonsai#url="http://preventivazionerc.gruppofondiariasai.it/jprevevo/Initial.do?isvap=A111S"
-genertel_provider_2#genertel#case sector; when "sect_1"; url="http://www.genertel.it/assicurazioni/auto/index.jhtml"; when "sect_2";url="http://www.genertel.it/assicurazioni/moto/index.jhtml"; end; url
+genertel_provider_2#genertel#case sector; when "sect_1"; url="http://www.genertel.it/assicurazioni/auto/genertel_web_classic.jhtml"; when "sect_2"; url="http://www.genertel.it/assicurazioni/moto/assicurazione_moto_classic.jhtml"; else; url=nil; end; url
 generali_provider_2#generali#url="http://www.preventivi.generali.it/PreWeb/DatiIniziali?S_SERVLET=DATIINIZIALI&INIZIO=S&S_TIPO_PREV=PRVPLUS"
 genialloyd_provider_2#genialloyd#url="http://www.genialloyd.it"
 linear_provider_2#linear#url="http://www.linear.it/default.asp"
