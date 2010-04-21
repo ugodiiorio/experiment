@@ -364,7 +364,6 @@ module Provider2Axa
 
     @rule_values = {
 
-      'own_owner_specification_str' => 'copy_field',
       'pol_client_type_str' => 'translate_field',
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
@@ -390,6 +389,7 @@ module Provider2Axa
       'pol_driving_type_str' => 'translate_field',
       'veh_use_for_shops_str' => 'translate_field',
 
+      'own_owner_specification_str' => 'copy_field',
       'own_owner_zip_code_str' => 'copy_field',
       'pol_claims_total_number_str' => 'copy_field',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
