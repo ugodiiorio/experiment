@@ -92,10 +92,14 @@ module Provider2Genertel
       {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 10,000,000,00',
       {'pol_public_liability_indemnity_limit_str' => '18,000,000'} => '€ 10.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 10.000.000,00',
-      {'veh_airbag_str' => 'si'} => '//div[2]/div/div[1]/div/div/input',  #RBTXDVEXAirbag0
-      {'veh_abs_str' => 'si'} => '//div[12]/div[2]/div/div[1]/div/div/input',   #RBTXDVEXAbs0
-      {'veh_airbag_str' => 'no'} => '//div[2]/div/div[2]/div/div/input',  #RBTXDVEXAirbag1
-      {'veh_abs_str' => 'no'} => '//div[12]/div[2]/div/div[2]/div/div/input',    #RBTXDVEXAbs1
+      {'veh_airbag_str' => 'si'} => 'RBTXDVEXAirbag0',  #
+      {'veh_abs_str' => 'si'} => 'RBTXDVEXAbs0',   #
+      #      {'veh_airbag_str' => 'si'} => '//div[11]/div[2]/div/div[1]/div/div/input',  #RBTXDVEXAirbag0
+      #      {'veh_abs_str' => 'si'} => '//div[12]/div[2]/div/div/div/div/input',   #RBTXDVEXAbs0
+      {'veh_airbag_str' => 'no'} => 'RBTXDVEXAirbag1',  #
+      {'veh_abs_str' => 'no'} => 'RBTXDVEXAbs1',    #
+      #      {'veh_airbag_str' => 'no'} => '//div[11]/div[2]/div/div[2]/div/div/input',  #RBTXDVEXAirbag1
+      #      {'veh_abs_str' => 'no'} => '//div[12]/div[2]/div/div[2]/div/div/input',    #RBTXDVEXAbs1
       {'veh_vehicle_shelter_str' => 'box privato'} =>     '//div[13]/div[2]/div/div[1]/div/div/input',  #RBTXDVEXCustodia0
       {'pol_privacy_1_str' => 'id elemento web1'} => 'RBTXPRIXConsensoA0',
       {'pol_privacy_2_str' => 'id elemento web2'} => 'RBTXPRIXConsensoB0',
