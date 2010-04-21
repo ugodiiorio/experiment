@@ -11,17 +11,6 @@ module Shared
     case @kte.provider
 
     when PROVIDER1
-#      kw = "#{get("@kw")} KW"
-#      type_keys("preparations", get("@set_up"))
-#      sleep @sleep*2
-#      @last_element, @last_value = "//span/ul/li", "#{kw}"
-#      unless is_present?(@last_element)
-#        get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
-#        type_keys("preparations", @last_value)
-#      end
-#      click_button_item "//span/ul/li"
-
-#      type_keys(@last_element, " ")
       click_button_item "contentSubView:vehicleForm:chooseAuto:downbox_f"
       sleep @sleep*2
       @last_element, @last_value = "preparations", get("@set_up")
@@ -37,6 +26,17 @@ module Shared
         @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value [#{@last_value}]"}
       end
       @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_value("preparations")} with [#{@last_value}]"} : assert(page.get_value(id) =~ /#{@last_value}/i, page.get_value("preparations").inspect)
+      
+#      kw = "#{get("@kw")} KW"
+#      type_keys("preparations", get("@set_up"))
+#      sleep @sleep*2
+#      @last_element, @last_value = "//span/ul/li", "#{kw}"
+#      unless is_present?(@last_element)
+#        get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
+#        type_keys("preparations", @last_value)
+#      end
+#      click_button_item "//span/ul/li"
+#      type_keys(@last_element, " ")
 
     when PROVIDER2
       cv_kw = "#{get("@cv")} CV - #{get("@kw")} KW"
