@@ -370,7 +370,7 @@ class DialogoSect1 < Test::Unit::TestCase
 	end
 
   def wait_for_select(combo_name, label)
-  	sleep @sleep
+  	sleep @sleep*2
     assert_not_nil combo_name
     assert_not_nil label
     assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
@@ -425,12 +425,12 @@ class DialogoSect1 < Test::Unit::TestCase
   def select_model
 
     select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
-    sleep @sleep*2
+    sleep @sleep
     model = page.get_selected_label(@last_element)
     page.focus @last_element
     type_text(@last_element, model)
     page.key_up("contentSubView:vehicleForm:chooseAuto:models","\\13" )
-    sleep @sleep*2
+    sleep @sleep
     store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
 
   end

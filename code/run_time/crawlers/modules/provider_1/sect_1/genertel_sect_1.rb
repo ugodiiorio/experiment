@@ -376,8 +376,6 @@ class GenertelSect1 < Test::Unit::TestCase
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked checkbox element: [#{@last_element}]"}
     page_click @last_element
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(@last_element)}"}
-#    assert_equal page.get_value(@last_element), "on"
   end
 
   def uncheck_checkbox(id, value = nil)
@@ -385,8 +383,6 @@ class GenertelSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's unchecked checkbox element: [#{@last_element}]"}
     page_uncheck @last_element if is_present? @last_element
     sleep @sleep*2
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(@last_element)}"}
-#    assert_equal page.get_value(@last_element), "off" 
   end
 
   def click_button_item(id, value = nil)
