@@ -217,7 +217,7 @@ class ConteSect1 < Test::Unit::TestCase
     type_keys("page:professione_conducente_principale", get('@job'))
     sleep @sleep
     page.click "//div[@id='risultatiSrchProf']/ul/span/li"
-    store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
+    store_parameter(:job, page.get_value(@last_element)) if @store_params
 
     select_option "page:stato_civile", get("@civil_status")
     click_option(get('@cohabiting_children'))
