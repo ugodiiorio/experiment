@@ -226,6 +226,7 @@ AS
         veh_num_of_owners_str,
         veh_passenger_transportation_str,
         veh_purchase_date_str,
+        veh_purchase_date_year_num,
         veh_set_up_previous_vehicle_str,
         veh_set_up_str,
         veh_vehicle_shelter_str,
