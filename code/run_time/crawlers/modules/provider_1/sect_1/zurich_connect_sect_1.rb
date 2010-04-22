@@ -160,9 +160,8 @@ class ZurichConnectSect1 < Test::Unit::TestCase
         store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
     end
 
-    type_text("txtCapResidenza", get('@driver_zip_code'))
+    type_text("txtCapResidenza", fix_zip_code(get('@driver_zip_code')))
     click_button "btnLocalita"
-#        case page.get_selected_label("ddlLocalita") =~ /Seleziona una voce/i
     page_wait
     select_option("ddlLocalita", get('@residence'))
 
