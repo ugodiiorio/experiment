@@ -122,4 +122,29 @@ module Shared
 
   end
 
+  def fix_zip_code(zip_code)
+
+    zip_code_hash = {}
+    zip_code_hash = {
+      '15121' => '15100',
+      '29121' => '29100',
+      '38121' => '38100',
+      '41121' => '41100',
+      '42121' => '42100',
+      '43121' => '43100',
+      '44121' => '44100',
+      '47121' => '47100',
+      '47521' => '47023',
+      '47921' => '47900',
+      '48121' => '48100',
+      '61121' => '61100',
+      '71121' => '71100',
+      '74121' => '74100',
+      }
+
+    zip_code_hash[zip_code]? fixed_zip_code = zip_code_hash[zip_code] : fixed_zip_code = zip_code
+    return fixed_zip_code
+
+  end
+
 end
