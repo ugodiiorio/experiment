@@ -14,7 +14,7 @@ module Provider2Directline
       {'pol_natural_events_web_id_str' => 'id elemento'} => 'chk_5',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'chk_1',
       {'pol_collision_premium_id_str' => 'id elemento'} => 'chk_2',
-      {'pol_public_liability_exemption_str' => '0'} => 'Nessuno',
+      {'pol_public_liability_exemption_str' => '0'} => 'nessuno',
       {'pol_already_benefit_from_bersani_str' => 'no'} => 'id_radio_tipo_bm_2',
 
       {'veh_km_per_yr_str' => '10000'} => '10',
