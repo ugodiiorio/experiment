@@ -8,6 +8,7 @@ module Shared
 
   def select_preparation
 
+    @alternate_car = false
     case @kte.provider
 
     when PROVIDER1
@@ -23,6 +24,7 @@ module Shared
         @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{item}]"} if @matched
         click_button_item(model_set_up, @last_value) if @matched
         break if @matched
+        @alternate_car = true
         @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value [#{@last_value}]"}
       end
       @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_value("preparations")} with [#{@last_value}]"} : assert(page.get_value(id) =~ /#{@last_value}/i, page.get_value("preparations").inspect)
@@ -63,6 +65,7 @@ module Shared
     @last_element, @last_value = id, (value =~ /index=/i)? value : value.split("|")[0]
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
 
+    @alternate_car = false
     begin
       page_select(@last_element, "label=#{@last_value}")
     rescue Exception => ex
@@ -72,6 +75,7 @@ module Shared
         else
           @last_value = "label=#{value.split("|")[1]}"
           page_select @last_element, @last_value
+          @alternate_car = true
           @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value [#{@last_value}] with selected label [#{page.get_selected_label(@last_element)}]"}
       end
     end
@@ -98,9 +102,9 @@ module Shared
       when :make
         @kte.car_make = value
       when :model
-        @kte.car_model = value
+        @alternate_car ? @kte.car_model = "@ALTERNATE CAR MODEL@ - #{value}" : @kte.car_model = value
       when :preparation
-        @kte.car_preparation = value
+        @alternate_car ? @kte.car_preparation = "@ALTERNATE CAR PREPARATION@ - #{value}" : @kte.car_preparation = value
       when :job
         @kte.job = value
       else
