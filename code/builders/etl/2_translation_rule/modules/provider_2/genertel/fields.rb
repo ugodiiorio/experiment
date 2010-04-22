@@ -89,7 +89,7 @@ module Provider2Genertel
       {'pol_coming_from_BM_str' => '18'} => '18',
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '€ 3.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '€ 6.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 10,000,000,00',
+      {'pol_public_liability_indemnity_limit_str' => '10,000,000'} => '€ 10,000,000,00',
       {'pol_public_liability_indemnity_limit_str' => '18,000,000'} => '€ 10.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 10.000.000,00',
       {'veh_airbag_str' => 'si'} => 'RBTXDVEXAirbag0',  #
