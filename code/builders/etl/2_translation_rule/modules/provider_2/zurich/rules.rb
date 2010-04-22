@@ -353,10 +353,9 @@ module Provider2Zurich
     @rule_values = {
 
       'driv_heir_str' => 'translate_field',
-      'own_owner_specification_str' => 'copy_field',
+      'own_owner_zip_code_str' => 'translate_field',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
-      'pol_quotation_str' => 'translate_field',
       'pol_pejus_cu_str' => 'translate_field',
       'pol_privacy_1_str' => 'translate_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
@@ -364,19 +363,24 @@ module Provider2Zurich
       'pol_residence_str' => 'translate_field',
       'pol_residence_province_str' => 'translate_field',
       'pol_type_of_contract_str' => 'translate_field',
+      'veh_fuel_str' => 'translate_field',
       'veh_loading_unloading_str' => 'translate_field',
       'veh_marble_blocks_str' => 'translate_field',
       'veh_transportation_of_dangerous_goods_A_str' => 'translate_field',
       'veh_transportation_of_dangerous_goods_B_str' => 'translate_field',
 
+      'own_owner_specification_str' => 'copy_field',
       'pol_claims_total_number_str' => 'copy_field',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
+      'pol_number_of_NI_NA_yrs_during_5_yrs_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_residence_province_str' => 'copy_field',
       'veh_full_load_total_weight_num' => 'copy_field',
 
+      'pol_property_type_to_be_insured_str' => '(profilefield[:veh_third_party_str]== "conto proprio") ? " AUTOCARRO TRASP.COSE CONTO PROPRIO" : " AUTOCARRO TRASP.COSE CONTO TERZI"',
+      'pol_quotation_str' => '(profilefield[:veh_full_load_total_weight_num].to_i<60) ?  "NO CLAIMS DISCOUNT" : "TARIFFA FISSA"',
       'pol_risk_certificate_str' => '(profilefield[:pol_insurance_situation_str]== "1a immatricolazione") ? "//*[@id=\"CODPRO71_9\"]" : "//*[@id=\"CODPRO71_1\"]"',
-      'veh_vehicle_type_str' => '(profilefield[:veh_third_party_str]== "Conto proprio") ? " AUTOCARRO TRASP.COSE CONTO PROPRIO" : " AUTOCARRO TRASP.COSE CONTO TERZI"',
 
     }
 
