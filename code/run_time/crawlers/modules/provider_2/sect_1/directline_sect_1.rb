@@ -121,7 +121,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     click_option(get('@insurance_situation'))
     (page.get_attribute("#{@last_element}@value") == "XX") ? click_option(get('@already_benefit_from_bersani')) : nil
     type_text("dataInizioValidita", @rate_date)
-    type_text("Targa", get('@bersani_ref_vehicle_number_plate'))
+#    type_text("Targa", get('@bersani_ref_vehicle_number_plate'))
     select_option "ConoscenzaAllState", get("@how_do_you_know_the_company")
 
     click_button "SUBMIT"
