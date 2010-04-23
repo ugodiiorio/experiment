@@ -162,16 +162,33 @@ class ZurichSect4 < Test::Unit::TestCase
 
     type_text("NUM_SINI", get('@claims_total_number'))
     type_text("NUM_ANNI", get('@nr_of_yrs_without_claims'))
-    type_text("COD_LIM1", get('@number_of_ni_na_yrs_during_5_yrs'))
-
-    page.click 'buttonCOD_CLAS'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "COD_CLASDomini", 'index=0'
-    page.click 'buttonCOD_CLAS'
-    page.select_window(nil)
 
     type_text("QUIPES43", get('@full_load_total_weight'))
+    
+    if get("@quotation") =~ /claims/i
+      type_text("COD_LIM1", get('@number_of_ni_na_yrs_during_5_yrs'))
+
+      page.click 'buttonCOD_CLAS'
+      page.wait_for_pop_up('DominiPopup', 30000)
+      page.select_window('DominiPopup')
+      select_option "COD_CLASDomini", 'index=0'
+      page.click 'buttonCOD_CLAS'
+      page.select_window(nil)
+    else
+
+      if is_present?('VAL_LIM1')
+        type_text("VAL_LIM1", get('@claims_total_number'))
+      end
+
+      page.click 'buttonCOD_PEJU'
+      page.wait_for_pop_up('DominiPopup', 30000)
+      page.select_window('DominiPopup')
+      select_option "COD_PEJUDomini", 'index=0'
+      page.click 'buttonCOD_PEJU'
+      page.select_window(nil)
+    end
+
+    sleep @sleep*2
  
     page.click 'buttonMAX_SINI'
     page.wait_for_pop_up('DominiPopup', 30000)
