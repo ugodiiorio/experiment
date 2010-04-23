@@ -69,10 +69,10 @@ module Provider2Generali
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
       'pol_leasing_str' => 'copy_field',
-      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str].slice(3,7) : copy_field )  : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str].slice(3,7) : copy_field )  : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str].slice(3,7) : copy_field )  : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str].slice(3,7) : copy_field )  : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
+      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',      'pol_motorcycle_driving_ability_str' => 'copy_field',
       'pol_motorcycle_driving_ability_str' => 'copy_field',
       'pol_nr_of_paid_claims_1_yr_str' => 'translate_field',
       'pol_nr_of_paid_claims_2_yr_str' => 'translate_field',
@@ -294,6 +294,7 @@ module Provider2Generali
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_residence_province_str' => 'translate_field',
+      'pol_risk_certificate_str' => 'translate_field',
       'veh_fuel_str' => 'translate_field',
       'veh_vehicle_use_str' => 'translate_field',
 
@@ -305,12 +306,12 @@ module Provider2Generali
 
       'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
       'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
+      'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
-      'pol_birth_date_str' => 'european_date = \'%d%m%Y\'; (Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime((european_date).to_s',
-      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
-      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
+      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',      'pol_motorcycle_driving_ability_str' => 'copy_field',
       'veh_vehicle_type_str' => '(profilefield[:veh_passenger_transportation_str]== "si") ? "Motociclo due posti" : "Motociclo posto unico"',
 
     }
@@ -345,6 +346,7 @@ module Provider2Generali
       'veh_vehicle_use_str' => 'translate_field',
 
       'pol_birth_date_str' => 'copy_field',
+      'pol_motorcycle_driving_ability_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
       'pol_residence_str' => 'copy_field',
@@ -354,11 +356,10 @@ module Provider2Generali
       'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
       'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
-      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
-
+      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
+      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'veh_vehicle_type_str' => '(profilefield[:veh_passenger_transportation_str]== "si") ? "Ciclomotore 2 posti" : "Ciclomotore posto unico"',
 
     }
@@ -401,10 +402,10 @@ module Provider2Generali
       'veh_full_load_total_weight_num' => 'copy_field',
       'veh_weight_to_be_towed_num' => 'copy_field',
 
-      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str].slice(3,7) : copy_field )  : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str].slice(3,7) : copy_field )  : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str].slice(3,7) : copy_field )  : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str].slice(3,7) : copy_field )  : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
+      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'veh_vehicle_use_str' => '(profilefield[:veh_third_party_str]== "Conto proprio") ? " Cose conto proprio" : " Cose conto terzi"',
 
     }

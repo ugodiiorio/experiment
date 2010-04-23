@@ -151,7 +151,8 @@ class GenertelSect1 < Test::Unit::TestCase
     end
 
     type_text("DBXXDPOXDataDecorrenza", @rate_date)
-    click_option(get('@leasing'))
+    page.check(get('@leasing')) if is_present?(get('@leasing'))
+    click_checkbox(get('@leasing'))
     click_button_item "LBLXDPOXAvanti"
     page_wait
 
@@ -180,9 +181,12 @@ class GenertelSect1 < Test::Unit::TestCase
     type_text("NBXXDVEXValoreVeicolo", get('@vehicle_value'))
     select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
 
-    click_option(get('@airbag'))
-    click_option(get('@abs'))
-    click_option(get('@vehicle_shelter'))
+    page.check(get('@airbag')) if is_present?(get('@airbag'))
+    click_checkbox(get('@airbag'))
+    page.check(get('@abs')) if is_present?(get('@abs'))
+    click_checkbox(get('@abs'))
+    page.check(get('@vehicle_shelter')) if is_present?(get('@vehicle_shelter'))
+    click_checkbox(get('@vehicle_shelter'))
 
     select_fake_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
     type_text("NBXXDVEXKmAnnui", get('@km_per_yr'))
@@ -294,26 +298,22 @@ class GenertelSect1 < Test::Unit::TestCase
         sleep @sleep*2
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
-        click_button_item(get('@road_assistance_web_id'))
-        is_present?(get('@legal_assistance_web_id').split[0]) ? click_button_item(get('@legal_assistance_web_id').split[0]) : nil
-        is_present?(get('@legal_assistance_web_id').split[1]) ? click_button_item(get('@legal_assistance_web_id').split[1]) : nil
+        
+        select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//body/div[8]/div/div")
+        click_button_item(get('@road_assistance_web_id')) if is_present?(get('@road_assistance_web_id'))
+        uncheck_checkbox(get('@road_assistance_web_id'))
+        click_button_item(get('@legal_assistance_web_id').split[0]) if is_present?(get('@legal_assistance_web_id').split[0])
+        uncheck_checkbox(get('@legal_assistance_web_id').split[0])
+        click_button_item(get('@legal_assistance_web_id').split[1]) if is_present?(get('@legal_assistance_web_id').split[1])
+        uncheck_checkbox(get('@legal_assistance_web_id').split[1])
 
-        select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
-        sleep @sleep*2
+        @last_element, @last_value = "LBLXAZIXRicalcolaTot", nil
         page.wait_for_element("LBLXAZIXRicalcolaTot")
         page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
         assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
 
-        assert_equal page.get_value("GRDXGARXGaranzieX1X3"), get('@public_liability_indemnity_limit')
-#        if page.get_value("GRDXGARXGaranzieX1X3") != get('@public_liability_indemnity_limit')
-#          select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
-#          sleep @sleep*2
-#          page.wait_for_element("LBLXAZIXRicalcolaTot")
-#          page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
-#          assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
-#        end
-        
         page.wait_for_element("LBLXAZIXAvanti")
+        assert_equal page.get_value("GRDXGARXGaranzieX1X3"), get('@public_liability_indemnity_limit')
         page.is_element_present("LBLXAZIXAvanti") ? click_button_item("LBLXAZIXAvanti") : nil
         page_wait
       else
@@ -327,7 +327,7 @@ class GenertelSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
-    @last_element = "LBLXRGAXNomePacchetto" # get("@rca_premium_id") # ATTENTION!!!!!!!!!!!!!!!!!!!!!!
+    @last_element, @last_value = "LBLXRGAXNomePacchetto", nil # get("@rca_premium_id") # ATTENTION!!!!!!!!!!!!!!!!!!!!!!
     wait_for_elm @last_element
 #        assert is_present?("LBLXRGAXNomePacchetto"), "LBLXRGAXNomePacchetto Price element is not present on the Buy page"
     get_premium(@last_element)
@@ -377,16 +377,13 @@ class GenertelSect1 < Test::Unit::TestCase
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked checkbox element: [#{@last_element}]"}
     page_click @last_element
-    assert_equal page.get_value(@last_element), "on"
   end
 
   def uncheck_checkbox(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's unchecked checkbox element: [#{@last_element}]"}
-    page_uncheck @last_element
+    page_uncheck @last_element if is_present? @last_element
     sleep @sleep*2
-    is_checked? @last_element
-    assert_equal page.get_value(@last_element), "off"
   end
 
   def click_button_item(id, value = nil)
@@ -476,7 +473,6 @@ class GenertelSect1 < Test::Unit::TestCase
 
 	def page_uncheck(element)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Uncheck element = #{element}"}
-	  wait_for_elm(element)
 	  page.uncheck element
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end

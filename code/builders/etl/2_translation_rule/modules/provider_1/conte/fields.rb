@@ -4,7 +4,8 @@ module Provider1Conte
     @target_values = Hash.new
 
     @target_values = {
-      {'pol_RCA_premium_id_str' => 'id elemento'} => 'page:quota_info:0:colonna_Premi',
+            {'pol_RCA_premium_id_str' => 'id elemento'} => 'page:quota_info:0:colonna_Premi',
+#      {'pol_RCA_premium_id_str' => 'id elemento'} => '//*[@id=\"page:colonna_PremioRataLordo\"]/b',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'page:quota_info:6:garanziaChecked',
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'page:quota_info:8:garanziaChecked',
       {'pol_road_assistance_web_id_str' => 'id elemento'} => 'page:quota_info:7:garanziaChecked',

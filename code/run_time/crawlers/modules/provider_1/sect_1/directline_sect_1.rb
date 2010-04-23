@@ -121,7 +121,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     click_option(get('@insurance_situation'))
     (page.get_attribute("#{@last_element}@value") == "XX") ? click_option(get('@already_benefit_from_bersani')) : nil
     type_text("dataInizioValidita", @rate_date)
-    type_text("Targa", get('@bersani_ref_vehicle_number_plate'))
+#    type_text("Targa", get('@bersani_ref_vehicle_number_plate'))
     select_option "ConoscenzaAllState", get("@how_do_you_know_the_company")
 
     click_button "SUBMIT"
@@ -195,7 +195,7 @@ class DirectlineSect1 < Test::Unit::TestCase
         #      type_text("dataacquistoauto", get('@purchase_date_year'))
         type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
         select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
-        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
+        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@bm_assigned")
       end
     elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="AN"]'
       click_option(get('@bersani'))
@@ -203,7 +203,7 @@ class DirectlineSect1 < Test::Unit::TestCase
         #      type_text("dataacquistoauto", get('@purchase_date_year'))
         type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
         select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
-        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
+        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@bm_assigned")
       end
     end
 
@@ -240,7 +240,7 @@ class DirectlineSect1 < Test::Unit::TestCase
   def page_6
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    select_option "iCodAntifurto", get("@alarm")
+    is_editable?("iCodAntifurto") ? (select_option "iCodAntifurto", get("@alarm"))  : nil
     select_option "iCodRicoveroNotturno", get("@vehicle_shelter")
     /^,00/.match(get_value("valoreauto")) ? type_text("valoreauto", get('@vehicle_value')) : nil
     
@@ -393,6 +393,17 @@ class DirectlineSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked? - #{page.is_checked(@last_element)}"} if present
     return present ? page.is_checked(@last_element) : nil
   end
+
+    def is_editable?(name)
+	  present = page.is_editable name
+    if present
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => field is editable?: #{present}"}
+      visible = page.is_editable name
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => field is editable #{visible}"}
+    end
+    return present
+  end
+
 
   def page_wait
     page.wait_for_page_to_load site.wait_for_page_to_load

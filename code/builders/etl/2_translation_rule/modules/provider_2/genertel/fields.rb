@@ -89,14 +89,18 @@ module Provider2Genertel
       {'pol_coming_from_BM_str' => '18'} => '18',
       {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '€ 3.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '€ 6.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 10,000,000,00',
+      {'pol_public_liability_indemnity_limit_str' => '10,000,000'} => '€ 10,000,000,00',
       {'pol_public_liability_indemnity_limit_str' => '18,000,000'} => '€ 10.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 10.000.000,00',
-      {'veh_airbag_str' => 'si'} => 'RBTXDVEXAirbag0',  #//div[2]/div/div[1]/div/div/img
-      {'veh_abs_str' => 'si'} => 'RBTXDVEXAbs0',   #//div[12]/div[2]/div/div[1]/div/div/img
-      {'veh_airbag_str' => 'no'} => 'RBTXDVEXAirbag1',  #//div[2]/div/div[2]/div/div/img
-      {'veh_abs_str' => 'no'} => 'RBTXDVEXAbs1',    #//div[12]/div[2]/div/div[2]/div/div/img
-      {'veh_vehicle_shelter_str' => 'box privato'} => 'RBTXDVEXCustodia0',  #//div[13]/div[2]/div/div[1]/div/div/img
+      {'veh_airbag_str' => 'si'} => 'RBTXDVEXAirbag0',  #
+      {'veh_abs_str' => 'si'} => 'RBTXDVEXAbs0',   #
+      #      {'veh_airbag_str' => 'si'} => '//div[11]/div[2]/div/div[1]/div/div/input',  #RBTXDVEXAirbag0
+      #      {'veh_abs_str' => 'si'} => '//div[12]/div[2]/div/div/div/div/input',   #RBTXDVEXAbs0
+      {'veh_airbag_str' => 'no'} => 'RBTXDVEXAirbag1',  #
+      {'veh_abs_str' => 'no'} => 'RBTXDVEXAbs1',    #
+      #      {'veh_airbag_str' => 'no'} => '//div[11]/div[2]/div/div[2]/div/div/input',  #RBTXDVEXAirbag1
+      #      {'veh_abs_str' => 'no'} => '//div[12]/div[2]/div/div[2]/div/div/input',    #RBTXDVEXAbs1
+      {'veh_vehicle_shelter_str' => 'box privato'} =>     '//div[13]/div[2]/div/div[1]/div/div/input',  #RBTXDVEXCustodia0
       {'pol_privacy_1_str' => 'id elemento web1'} => 'RBTXPRIXConsensoA0',
       {'pol_privacy_2_str' => 'id elemento web2'} => 'RBTXPRIXConsensoB0',
       {'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'no'} => '//div[3]/div[2]/div/div[2]/div/div/img',
@@ -131,7 +135,7 @@ module Provider2Genertel
       {'pol_BM_1_more_than_1_year_str' => 'si'} => 'RBTXDPOXClasseUnoDomanda0',
       {'pol_BM_1_more_than_1_year_str' => 'no'} => 'RBTXDPOXClasseUnoDomanda1',
 
-      {'pol_bersani_ref_vehicle_number_plate_str' => 'ab123dc'} => 'ab123dc',
+      {'pol_bersani_ref_vehicle_number_plate_str' => 'ab123cd'} => 'ab123cd',
       {'veh_vehicle_use_str' => 'privato'} => 'Privato',
       {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',

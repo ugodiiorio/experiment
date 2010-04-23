@@ -133,7 +133,6 @@ class GeneraliSect4 < Test::Unit::TestCase
 
     #TODO the method "assert_equal" inside the select_option has been commented because the province value is in some way different from the selected label
     select_option "COD_PROVINCIA", get("@residence_province")
-
     select_option "COD_COMUNE", get("@residence")
 
     if get("@client_type") =~ /fisica/i
