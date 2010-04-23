@@ -384,6 +384,7 @@ module Provider2Generali
       {'pol_residence_province_str' => 'VS'} => 'VS - MEDIO CAMPIDANO',
       {'pol_residence_province_str' => 'VT'} => 'VT - VITERBO',
       {'pol_residence_province_str' => 'VV'} => 'VV - VIBO VALENTIA',
+      {'pol_risk_certificate_str' => 'si'} => 'TIPO_DICH_ATTESTAZIONE',
       {'veh_fuel_str' => 'benzina'} => ' Benzina (motore solo a benzina)  ',
       {'veh_vehicle_use_str' => 'privato'} => 'Privato',
 

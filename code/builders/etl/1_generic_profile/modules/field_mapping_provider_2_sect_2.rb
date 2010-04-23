@@ -7,6 +7,7 @@ module FieldMappingProvider2Sect2
     @field_rule_values = {}
 
     @field_rule_values = {
+
       'driv_birth_place_str'  => 'infield[:pol_residence_str].strip.upcase' ,
       'driv_birth_state_str'  => '"ITALIA"' ,
       
