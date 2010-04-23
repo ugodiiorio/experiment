@@ -195,7 +195,7 @@ class DirectlineSect1 < Test::Unit::TestCase
         #      type_text("dataacquistoauto", get('@purchase_date_year'))
         type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
         select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
-        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
+        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@bm_assigned")
       end
     elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="AN"]'
       click_option(get('@bersani'))
@@ -203,7 +203,7 @@ class DirectlineSect1 < Test::Unit::TestCase
         #      type_text("dataacquistoauto", get('@purchase_date_year'))
         type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
         select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
-        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
+        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@bm_assigned")
       end
     end
 
