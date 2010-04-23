@@ -119,7 +119,7 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def page_1
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
     click_option(get('@vehicle_use'))
     type_text("contentSubView:contentForm:decorrenza", @rate_date)
@@ -149,7 +149,7 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def page_2
     
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_option(get('@driving_type'))
     sleep @sleep*2
     click_option(get('@subscriber_is_driver'))
@@ -201,11 +201,13 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def page_3
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     type_text("contentSubView:vehicleForm:chooseAuto:registration", get('@matriculation_date'))
 
     select_brand
+    sleep @sleep*2
     select_model
+    sleep @sleep*2
     select_preparation
 
     type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
@@ -221,7 +223,7 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def page_4
     
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_button_item "//img[@alt='Calcola il tuo PREVENTIVO']"
     page_wait
 
@@ -229,7 +231,7 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def page_premium
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
     when 'on'
@@ -264,7 +266,7 @@ class DialogoSect1 < Test::Unit::TestCase
     page.open @last_element
     sleep @sleep
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
   end
 
   def select_option(id, value = nil)

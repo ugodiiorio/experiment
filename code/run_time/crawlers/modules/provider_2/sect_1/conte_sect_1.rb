@@ -109,16 +109,16 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_intro
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    
     open_page(@url)
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
    	page_wait
 
   end
 
   def page_1
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     select_option "page:text_1CNSC", get("@how_do_you_know_the_company")
@@ -135,7 +135,7 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_2
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     type_text("page:dataEffetto", @rate_date)
@@ -179,7 +179,7 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_3
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     click_option(get('@driver_sex'))
@@ -222,12 +222,22 @@ class ConteSect1 < Test::Unit::TestCase
     select_option "page:stato_civile", get("@civil_status")
     click_option(get('@cohabiting_children'))
     type_text("page:eta_conseguimento_patente", get('@driving_license_yrs'))
-    page.fire_event("page:eta_conseguimento_patente", 'blur')
-    sleep @sleep
+    page.focus @last_element
+    sleep @sleep*2
+    page.fire_event(@last_element, 'blur')
 
-    if is_present?("page:anno_conseguimento_patente")
-      type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
-      select_option "page:mese_conseguimento_patente", get("@driving_license_month_of_issue")
+    if page.is_visible("page:anno_conseguimento_patente")
+#      type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
+#      select_option "page:mese_conseguimento_patente", get("@driving_license_month_of_issue")
+      @last_element = "page:anno_conseguimento_patente"
+  	  @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{@last_element} value for profile [#{@kte.profile}] = #{page.get_value(@last_element)}"}
+      if page.get_value(@last_element).to_i >= Time.now.year
+        select_option("page:mese_conseguimento_patente", "index=#{Time.now.month}")
+      else
+        @last_element = "page:mese_conseguimento_patente"
+        @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{@last_element} value = #{page.get_selected_value(@last_element)}"}
+        @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => visible #{@last_element} text = #{page.get_selected_label(@last_element)}"}
+      end
     end
 
     select_option "page:tipo_patente", get("@driving_license_type")
@@ -240,7 +250,7 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_4
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     
     click_option(get('@drunkenness_fine'))
@@ -281,7 +291,7 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_5
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     
     click_option(get('@driving_type'))
@@ -295,13 +305,13 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_premium
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'
-        sleep @sleep*2
+        is_present?("//span[@class='error']") ? raise(RangeError, "Verifica tecnica, chiamare Call Center => check birthdate year against driver license year!") : nil
         select_option("page:quota_info:0:massimaleRCA", get('@public_liability_indemnity_limit'))
       
 #        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
@@ -314,14 +324,14 @@ class ConteSect1 < Test::Unit::TestCase
 #        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
 #        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
-        page.fire_event 'page:quota_info:0:massimaleRCA', 'change'
-        sleep @sleep*2
+#        page.fire_event 'page:quota_info:0:massimaleRCA', 'change'
+        sleep @sleep*3
         if is_present?('page:ricalcola_but')
-          page_click_button 'page:ricalcola_but'
+          click_button 'page:ricalcola_but'
           page_wait
         end
 
-        @last_element = get("@rca_premium_id")
+        @last_element, @last_value = get("@rca_premium_id"), nil
         wait_for_elm @last_element
         sleep @sleep*2
         get_premium(get("@rca_premium_id"))
@@ -460,12 +470,13 @@ class ConteSect1 < Test::Unit::TestCase
     assert_is_element_present(name)
   end
 
-  def is_present?(name)
-	  present = page.is_element_present name
+  def is_present?(element)
+    @last_element = element
+	  present = page.is_element_present element
     if present
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
-      visible = page.is_visible name
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element #{element} is present?: #{present}"}
+      visible = page.is_visible element
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element #{element} is visible #{visible}"}
     end
     return present
   end
@@ -474,7 +485,8 @@ class ConteSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
-    assert premium != nil, @last_element.inspect
+	  assert !60.times{ break if (premium.split[1]) != nil; sleep 1 }, @last_element.inspect
+#    assert premium.split[1] != nil, @last_element.inspect
     assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
     premium = premium.split[1]
     premium.count(",") > 0 ? premium.gsub(".","") : nil

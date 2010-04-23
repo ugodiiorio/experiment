@@ -122,7 +122,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   def page_1
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option("ddlFonteConoscenza", get("@how_do_you_know_the_company"))
     select_option("ddlFamiglia", get("@family_members_insured_with_company"))
 
@@ -146,7 +146,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
   
   def page_2
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_option(get('@owner_sex'))
     page_wait
     case page.get_attribute("#{@last_element}@tabindex").to_i == 3
@@ -172,7 +172,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   def page_3
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option("ddlAlimentazione", get('@fuel'))
     sleep @sleep*2
     select_option("ddlMeseImm", get('@matriculation_date_month'))
@@ -211,7 +211,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   def page_4
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     case @first_time_insured
       when true
         select_option("ddlClasseUniversale", get('@bm_assigned'))
@@ -229,7 +229,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   def page_5
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     click_button "//img[@alt='Calcola il premio']"
     page_wait
 
@@ -237,7 +237,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
 
   def page_premium
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'
@@ -275,7 +275,7 @@ class ZurichConnectSect1 < Test::Unit::TestCase
     page.open @last_element
     sleep @sleep
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
   end
 
   def select_option(id, value = nil)
