@@ -15,7 +15,7 @@ module Provider2Linear
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => '3',
       {'pol_protected_bonus_web_id_str' => 'id elemento'} => '2',
       {'pol_protection_24_web_id_str' => 'id elemento'} => '/html/body/div[2]/div/form/div/div[5]/div[2]/table[2]/tbody/tr[17]/td[3]/input',
-      {'veh_km_per_yr_str' => '10000'} => '05',
+      {'veh_km_per_yr_str' => '10000'} => '10',
 
       {'pol_driver_is_owner_str' => 'si'} => '//input[@id="proprietario" and @value="proprietario_si"]',
       {'pol_driver_is_owner_str' => 'no'} => '//input[@id="proprietario" and @value="proprietario_no"]',
