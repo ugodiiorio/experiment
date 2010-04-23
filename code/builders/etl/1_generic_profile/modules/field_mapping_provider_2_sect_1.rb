@@ -49,7 +49,7 @@ module FieldMappingProvider2Sect1
       'pol_claims_total_number_str' => 'infield[:pol_claims_total_number_str].strip',
       'pol_client_type_str' => 'infield[:pol_client_type_str].strip.downcase',
       'pol_cohabiting_children_str' => '"no"',
-      'pol_coming_from_BM_str' => 'bm=infield[:pol_BM_assigned_str]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == 0 ? cbm ="0" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  cbm= bm.to_i - 2;  else  cbm = bm.to_i + 1 end',
+      'pol_coming_from_BM_str' => 'bm=infield[:pol_BM_assigned_str]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == 0 ? cbm ="0" : if claimsyear.to_i > 0 && bm.to_i > 2 ;  cbm= bm.to_i - 2;  else  cbm = bm.to_i + 1 end',
       'pol_coming_from_company_str' => '"generali"',
       'pol_current_policy_guarantee_str' => '"nessuna"',
       'pol_defined_drive_str' => 'infield[:pol_driving_type_str].strip.downcase == "esperta" ? "si" : "no"',
