@@ -98,16 +98,21 @@ module Shared
 
   def store_parameter(parameter, value)
 
-    case parameter
-      when :make
-        @kte.car_make = value
-      when :model
-        @alternate_car ? @kte.car_model = "@ALTERNATE CAR MODEL@ - #{value}" : @kte.car_model = value
-      when :preparation
-        @alternate_car ? @kte.car_preparation = "@ALTERNATE CAR PREPARATION@ - #{value}" : @kte.car_preparation = value
-      when :job
-        @kte.job = value
+    case value
+      when nil
+        @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => rate parameter: [#{parameter}] has a nil value: [#{value}]"}
       else
+        case parameter
+          when :make
+            @kte.car_make = value
+          when :model
+            @alternate_car ? @kte.car_model = "@ALTERNATE CAR MODEL@ - #{value}" : @kte.car_model = value
+          when :preparation
+            @alternate_car ? @kte.car_preparation = "@ALTERNATE CAR PREPARATION@ - #{value}" : @kte.car_preparation = value
+          when :job
+            @kte.job = value
+          else
+        end
     end
   end
 

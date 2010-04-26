@@ -29,7 +29,7 @@ class RunTest
 
     @kte = @@kte
     @kte.rc_premium, @kte.test_result = nil, nil
-    @kte.car_make, @kte.car_model, @kte.car_preparation, @kte.job = nil, nil, nil, nil
+    @kte.car_make, @kte.car_model, @kte.car_preparation, @kte.job = '', '', '', ''
     @browser = @kte.browser_type
     @host = @kte.db_host
     @port = @kte.port
