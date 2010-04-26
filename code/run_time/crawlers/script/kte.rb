@@ -182,8 +182,6 @@ class KTE
       db_disconnect(db_profile)
 
       @kte.max_profiles = profiles if @kte.max_profiles.to_i() == 0
-      @test_suite = RunTest.new(@kte)
-    #  @test_suite.setup
 
       profiles_count = 0
       while true
@@ -203,7 +201,9 @@ class KTE
             break
           else
             @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
-            @test_suite.run()
+            test_suite = RunTest.new(@kte)
+            test_suite.run()
+            test_suite = nil
             profiles_count = profiles_count + 1
             @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
             @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
@@ -219,7 +219,9 @@ class KTE
       #      end
             unless @not_free
               @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
-              @test_suite.run()
+              test_suite = RunTest.new(@kte)
+              test_suite.run()
+              test_suite = nil
               profiles_count = profiles_count + 1
               @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
               @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
@@ -247,6 +249,7 @@ class KTE
         @logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
         @logger.close unless @kte.log_device == STDOUT
       end
+      @kte = nil
       Test::Unit.run=true unless Test::Unit.run?
 
     end

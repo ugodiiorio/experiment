@@ -28,6 +28,8 @@ class RunTest
   def selenium_setup
 
     @kte = @@kte
+    @kte.rc_premium, @kte.test_result = nil, nil
+    @kte.car_make, @kte.car_model, @kte.car_preparation, @kte.job = nil, nil, nil, nil
     @browser = @kte.browser_type
     @host = @kte.db_host
     @port = @kte.port
@@ -119,10 +121,11 @@ class RunTest
           require("#{File.join(UC_LIBRARY_PATH, @kte.provider)}/#{@kte.company}_#{@kte.use_case}.rb")
       end
 
-      test = Test::Unit::UI::Console::TestRunner.new Kernel.const_get(selenium_class)
-      result = test.start
+      testcase = Test::Unit::UI::Console::TestRunner.new Kernel.const_get(selenium_class)
+      result = testcase.start
       test_errors = result.instance_variable_get("@errors")[0]
       test_failures = result.instance_variable_get("@failures")[0]
+      testcase = nil
 
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => SELENIUM TEST SUITE RESULT: #{test_errors}"} if test_errors
       @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => SELENIUM TEST SUITE RESULT: #{test_failures}"} if test_failures

@@ -4,7 +4,7 @@
 #				19/03/2010						              #
 #############################################
 
-class DirectlineSect1 < Test::Unit::TestCase
+class DirectlineSect2 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
@@ -82,7 +82,7 @@ class DirectlineSect1 < Test::Unit::TestCase
       page_4
       page_5
       page_6
-      page_7
+#      page_7
       page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
@@ -109,21 +109,20 @@ class DirectlineSect1 < Test::Unit::TestCase
   def page_intro
 
     open_page(@url)
-    click_button "//img[@src='/images/bottone_lancio_preventivo-auto.gif']"
+    click_button "//img[@src='/images/bottone_lancio_preventivo-moto.gif']"
    	page_wait
 
   end
   
   def page_1
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     sleep @sleep*2
     click_option(get('@insurance_situation'))
     (page.get_attribute("#{@last_element}@value") == "XX") ? click_option(get('@already_benefit_from_bersani')) : nil
     type_text("dataInizioValidita", @rate_date)
-#    type_text("Targa", get('@bersani_ref_vehicle_number_plate'))
+   # type_text("Targa", get('@bersani_ref_vehicle_number_plate'))
+    select_option "riskType", get("@vehicle_type")
     select_option "ConoscenzaAllState", get("@how_do_you_know_the_company")
 
     click_button "SUBMIT"
@@ -133,12 +132,10 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_2
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-
-    type_text("iddatadinascita", get('@birth_date'))
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    type_text("datadinascita", get('@birth_date'))
     click_option(get('@owner_sex'))
-    select_option "idstatocivile", get("@civil_status")
+    select_option "/qol/application/beans/vo/VoContraente.strCodStatoCivile", get("@civil_status")
     select_option "/qol/application/beans/vo/VoContraente.strCodProfessione", get("@job")
     store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
     type_text("CAP", get('@owner_zip_code'))
@@ -153,9 +150,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_3
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option "numConducentiU26Dich", get("@driver_less_than_26_yrs")
     @last_value =~ /un conducente/i ? @one_driver_young = true : @one_driver_young = false
     type_text("Numauto", get('@family_car'))
@@ -170,9 +165,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_more_drivers
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     driver_birth_date = format_date(Chronic.parse("25 year ago tomorrow"))
     type_text("dataNascitaConducenteUno", driver_birth_date)
     click_option "//input[@name='sessoConducenteUno' and @value='#{get("@owner_specification")}']"
@@ -188,41 +181,41 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_4
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+
     
     if get('@insurance_situation') == 'id_radio_bm'
-      select_option "classeProvenienzaAuto", get("@coming_from_bm")
-      select_option "classeAssegnazioneAuto", get("@bm_assigned")
+      select_option "classeProvenienzaMoto", get("@coming_from_bm")
+      select_option "classeAssegnazioneMoto", get("@bm_assigned")
       click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
       click_option(get('@claims_total_number'))
       #      type_text("dataacquistoauto", get('@purchase_date_year'))
-    elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="AU"]'
+    elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="MU"]'
       click_option(get('@bersani'))
       if page.get_attribute("#{@last_element}@value") != "0"
         #      type_text("dataacquistoauto", get('@purchase_date_year'))
         type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
         select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
-        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@bm_assigned")
+        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
       end
-    elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="AN"]'
+    elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="MN"]'
       click_option(get('@bersani'))
       if page.get_attribute("#{@last_element}@value") != "0"
         #      type_text("dataacquistoauto", get('@purchase_date_year'))
         type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
         select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
-        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@bm_assigned")
+        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
       end
     end
 
-    type_text("annoprimaimmatricolazione", get('@matriculation_date'))
+    type_text("annoprimaimmatricolazione_m", get('@matriculation_date'))
     is_present?("dataacquistoauto") ? type_text("dataacquistoauto", get('@purchase_date_year')) : nil
-    select_option "select_marca", get("@make")
-    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
-    sleep @sleep*2
-    page_click @last_element
-    select_model_set_up "select_modelli", get("@model")
-    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
+    select_option "/qol/application/beans/vo/VoAuto.strCodMarca", get("@make")
+    type_text("modelloautomobile", get('@model'))
+#    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
+#    page_click @last_element
+#    select_model_set_up "select_modelli", get("@model")
+#    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
 
 
     click_button "PROSEGUI"
@@ -232,13 +225,13 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_5
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+#    page_click "allestimentoAuto"
+#    #    select_option "allestimentoAuto", get("@set_up")
+#    select_model_set_up "allestimentoAuto", get("@set_up")
+#    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
 
-    page_click "allestimentoAuto"
-    #    select_option "allestimentoAuto", get("@set_up")
-    select_model_set_up "allestimentoAuto", get("@set_up")
-    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
+    type_text("cilindrata", get('@capacity'))
     select_option "UsoPra", get("@habitual_vehicle_use")
     type_text("KMPercorsi", get('@km_per_yr'))
     click_option(get('@vehicle_use'))
@@ -250,10 +243,8 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def page_6
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-
-    is_editable?("iCodAntifurto") ? (select_option "iCodAntifurto", get("@alarm"))  : nil
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+#    select_option "iCodAntifurto", get("@alarm")
     select_option "iCodRicoveroNotturno", get("@vehicle_shelter")
     /^,00/.match(get_value("valoreauto")) ? type_text("valoreauto", get('@vehicle_value')) : nil
     
@@ -262,35 +253,23 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   end
 
-  def page_7
-
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    click_button "AVANTI"
-    page_wait
-
-  end
+#  def page_7
+#
+#    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+#    click_button "AVANTI"
+#    page_wait
+#
+#  end
 
   def page_premium
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
     when 'on'
       select_max("SelM_RCA", get('@public_liability_indemnity_limit'))
       select_option("SelRateizzazione", get('@instalment')) #ATTENTION! Always use 1 year split
       select_option("SelFSM_RCA", get('@public_liability_exemption'))
-
-      uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
-      uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-      uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-      uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-      uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-      uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-      uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-      uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-      uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
       click_button "RICALCOLA"
       sleep @sleep*3
@@ -310,8 +289,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     page.open @last_element
     sleep @sleep
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
   end
 
   def select_option(id, value = nil)
@@ -321,47 +299,6 @@ class DirectlineSect1 < Test::Unit::TestCase
     assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
   end
 
-#  def select_max(id, value = nil)
-#    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
-#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
-#    loc_array  = []
-#    loc_array= page.get_select_options(@last_element)
-#    if loc_array.size == 2
-#      select_option @last_element, "index=1"
-#    else page_select @last_element, "#{@last_value}"
-#      assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
-#    end
-#  end
-
-#  def select_model_set_up(id, value)
-#    @last_element, @last_value = id, (value =~ /index=/i)? value : value.split("|")[0]
-#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
-#
-#    begin
-#      page_select(@last_element, "label=#{@last_value}")
-#    rescue Exception => ex
-#      case value.split("|").size
-#        when 1
-#          raise ex
-#        else
-#          @last_value = "label=#{value.split("|")[1]}"
-#          page_select @last_element, "#{@last_value}"
-#      end
-#    end
-#
-#    option_array =[]
-#    option_array = page.get_select_options(@last_element)
-#    @num_of_el = 0
-#    index = 0
-#    while index < option_array.length
-#      @num_of_el  += 1
-#      break if option_array[index] =~ /#{@last_value.gsub("regexpi:","")}/i
-#      index += 1
-#    end
-#
-#    @num_of_el == option_array.length ? (@last_value = "label=#{value.split("|")[1]}" ;  page_select @last_element, "#{@last_value}" ) : ( page_select @last_element, "label=#{@last_value}" )
-#    assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
-#  end
 
   def type_text(id, value = nil)
     @last_element, @last_value = id, value
@@ -409,17 +346,6 @@ class DirectlineSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked? - #{page.is_checked(@last_element)}"} if present
     return present ? page.is_checked(@last_element) : nil
   end
-
-    def is_editable?(name)
-	  present = page.is_editable name
-    if present
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => field is editable?: #{present}"}
-      visible = page.is_editable name
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => field is editable #{visible}"}
-    end
-    return present
-  end
-
 
   def page_wait
     page.wait_for_page_to_load site.wait_for_page_to_load
