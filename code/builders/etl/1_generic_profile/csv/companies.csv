@@ -2,7 +2,7 @@ all_provider_1#quixa#case sector; when "sect_1"; url="http://www.quixa.it/simula
 all_provider_1#zurich_connect#case sector; when "sect_1"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneAuto"; when "sect_2"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneMoto"; else; url=nil; end; url
 all_provider_1#conte#url="https://preventivo.conte.it/calculator/"
 all_provider_1#linear#url="http://www.linear.it/Contenuti/Preventivo_home.asp"
-all_provider_1#directline#url="http://www.directline.it/preventivi-assicurazioni-rca/calcola-preventivo-assicurazione.jhtml"
+all_provider_1#directline#url="http://www.directline.it/iw-runtime/preventivi/"
 all_provider_1#dialogo#url="http://www.dialogo.it/DialogoInternet/home.faces"
 all_provider_1#genertel#url="http://www.genertel.it/assicurazioni/auto/genertel_web_classic.jhtml"
 all_provider_1#genialloyd#url="http://www.genialloyd.it"
