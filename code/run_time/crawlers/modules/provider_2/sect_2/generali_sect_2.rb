@@ -167,7 +167,7 @@ class GeneraliSect2 < Test::Unit::TestCase
     type_text("VAL_PARAMETRO_INPUT_0", get("@matriculation_date"))
     select_option "VAL_PARAMETRO_SELECT_1", get("@vehicle_use")
     select_option "VAL_PARAMETRO_SELECT_2", get("@fuel")
-    type_text("VAL_PARAMETRO_INPUT_3", get("@capacity"))
+    type_keys("VAL_PARAMETRO_INPUT_3", get("@capacity"))
 
     page.click '//img[@alt="prosegui"]'
     page_wait

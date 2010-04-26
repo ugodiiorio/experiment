@@ -131,6 +131,7 @@ class GeneraliSect4 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
+    sleep @sleep*2
     #TODO the method "assert_equal" inside the select_option has been commented because the province value is in some way different from the selected label
     select_option "COD_PROVINCIA", get("@residence_province")
     select_option "COD_COMUNE", get("@residence")
