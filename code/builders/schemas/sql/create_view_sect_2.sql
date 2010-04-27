@@ -203,6 +203,7 @@ AS
         pol_theft_fire_coverage_web_id_str,
         pol_theft_fire_minimum_uncoverage_exemption_str,
         pol_type_of_contract_str,
+        pol_vehicle_continuous_use_no_of_mths_str,
         veh_abs_str,
         veh_accesories_value_str,
         veh_vehicle_use_str,

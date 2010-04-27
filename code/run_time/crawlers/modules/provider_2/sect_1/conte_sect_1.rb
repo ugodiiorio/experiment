@@ -202,20 +202,20 @@ class ConteSect1 < Test::Unit::TestCase
     select_option "page:provincia_di_residenza", get("@residence_province")
 
     type_keys("page:comune_di_residenza", get('@residence'))
-    sleep @sleep
+    wait_for_elm("//ul[@id='ulResult']/span[1]/li")
     page.click "//ul[@id='ulResult']/span[1]/li"
     assert_equal page.get_value(@last_element).upcase, @last_value.upcase
 
     type_text("page:toponimo_residenza", get('@toponym'))
     type_text("page:indirizzo_residenza", get('@address_street'))
     type_text("page:numero_residenza", get('@address_num'))
-    select_option "page:cap_di_residenza", get("@owner_zip_code"), "value"
+    select_option "page:cap_di_residenza", fix_zip_code(get("@owner_zip_code")), "value"
 
     click_button 'page:buttonContinua2'
     sleep @sleep
 
     type_keys("page:professione_conducente_principale", get('@job'))
-    sleep @sleep
+    wait_for_elm("//div[@id='risultatiSrchProf']/ul/span/li")
     page.click "//div[@id='risultatiSrchProf']/ul/span/li"
     store_parameter(:job, page.get_value(@last_element)) if @store_params
 
@@ -278,8 +278,8 @@ class ConteSect1 < Test::Unit::TestCase
     click_button 'page:buttonContinua14'
     sleep @sleep
 
-    type_text("page:cognome_contraente", get('@name'))
-    type_text("page:nome_contraente", get('@surname'))
+    type_text("page:cognome_contraente",get('@surname'))
+    type_text("page:nome_contraente", get('@name') )
     type_text("page:email_contraente", get('@e_mail'))
     type_text("page:prefisso_cellulare_contraente", get('@mobile_prefix'))
     type_text("page:cellulare_contraente", get('@mobile_number'))
@@ -331,9 +331,8 @@ class ConteSect1 < Test::Unit::TestCase
           page_wait
         end
 
-        @last_element, @last_value = get("@rca_premium_id"), nil
-        wait_for_elm @last_element
-        sleep @sleep*2
+        sleep @sleep
+        wait_for_elm  get("@rca_premium_id")
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
@@ -346,7 +345,7 @@ class ConteSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+   # assert_match(/#{@url.split("?")[0]}/i, page.get_location)
   end
 
   def select_option(id, value, option = "label")
