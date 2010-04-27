@@ -132,7 +132,9 @@ class GenertelSect1 < Test::Unit::TestCase
     case is_present?("LBLXDPOXCUGenNoBersani")
       when false
         fake_select_option("CBXXDPOXSinistri", get('@nr_of_paid_claims_2_yr'), "//body/div[8]/div/div", "LBLXCBXXDPOXSinistriVal")
+        sleep @sleep
         fake_select_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXCUGenertel")
+        sleep @sleep
         if get('@nr_of_paid_claims_2_yr') == "0" && get('@bm_assigned') == "1"
           click_option(get('@bm_1_more_than_1_year'))
           sleep @sleep*2
@@ -435,7 +437,7 @@ class GenertelSect1 < Test::Unit::TestCase
       when true
       type_text(@last_element, @last_value)
       page.key_up(@last_element, F4)
-      sleep @sleep*2
+      sleep @sleep
       click_button_item(item, @last_value)
       case item
         when "//body/div[8]/div/div"

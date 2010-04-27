@@ -166,10 +166,11 @@ class DialogoSect1 < Test::Unit::TestCase
       select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
       store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
       select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
+      page.focus "contentSubView:contentForm:ZipCodeProprietario"
       type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
       page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
       sleep @sleep*2
-      is_present?("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
+      page.is_visible("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
 
     else
 
@@ -426,7 +427,8 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def select_model
 
-    select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
+    select_model_set_up "contentSubView:vehicleForm:chooseAuto:models", get("@model")
+#    select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
     sleep @sleep
     model = page.get_selected_label(@last_element)
     page.focus @last_element
