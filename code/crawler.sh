@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ "$1" = "" ]; then
-	echo "Pass the company yaml file name on command line argument (ie. ./crawler.sh quixa 1)"
+	echo "Pass the company yaml file name on command line argument (ie. ./crawler.sh quixa 7)"
 else 
 	if [ "$2" = "" ]; then
 		echo "Pass the selenium rc number on command line argument (ie. ./crawler.sh quixa 7)"

@@ -427,7 +427,8 @@ class DialogoSect1 < Test::Unit::TestCase
 
   def select_model
 
-    select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
+    select_model_set_up "contentSubView:vehicleForm:chooseAuto:models", get("@model")
+#    select_option "contentSubView:vehicleForm:chooseAuto:models", get("@model")
     sleep @sleep
     model = page.get_selected_label(@last_element)
     page.focus @last_element
