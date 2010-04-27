@@ -209,7 +209,7 @@ class ConteSect1 < Test::Unit::TestCase
     type_text("page:toponimo_residenza", get('@toponym'))
     type_text("page:indirizzo_residenza", get('@address_street'))
     type_text("page:numero_residenza", get('@address_num'))
-    select_option "page:cap_di_residenza", get("@owner_zip_code"), "value"
+    select_option "page:cap_di_residenza", fix_zip_code(get("@owner_zip_code")), "value"
 
     click_button 'page:buttonContinua2'
     sleep @sleep
