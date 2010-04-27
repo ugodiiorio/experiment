@@ -42,7 +42,7 @@ module Provider2Quixa
       {'own_owner_sex_str' => 'F'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_1',
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Veicolo già assicurato con attestato di rischio',
-      {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima Polizza dopo l\'acquisto di un veicolo',
+      {'pol_insurance_situation_str' => '1a immatricolazione'} => "Prima Polizza dopo l'acquisto di un veicolo",
       {'pol_leasing_str' => 'no'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rbtLeasingNo',
       {'pol_nr_of_paid_claims_1_yr_str' => '0'} => '0',
       {'pol_nr_of_paid_claims_1_yr_str' => '1'} => '1',

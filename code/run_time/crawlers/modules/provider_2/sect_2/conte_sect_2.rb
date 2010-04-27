@@ -1,10 +1,10 @@
 #############################################
-#   	Created by Kubepartners			          #
+#   	Created by Ugo Di Iorio			          #
 #                                           #
-#				26/03/2010						              #
+#				12/04/2010						              #
 #############################################
 
-class ConteSect1 < Test::Unit::TestCase
+class ConteSect2 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
@@ -111,7 +111,7 @@ class ConteSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     
     open_page(@url)
-   	page_wait
+    page_wait
 
   end
 
@@ -125,8 +125,8 @@ class ConteSect1 < Test::Unit::TestCase
     if (page.get_attribute("#{@last_element}@value") == "-1")
       click_option(get('@new_used_vehicle'))
     end
+    select_option "page:cosa_vuoi",get("@vehicle_type")
     click_option(get('@privacy_1'))
-
     click_button 'page:buttonContinua'
    	page_wait
     
@@ -141,12 +141,9 @@ class ConteSect1 < Test::Unit::TestCase
     select_option "page:mese_immatricolazione", get("@matriculation_date_month")
     type_text("page:anno_immatricolazione", get("@matriculation_date_year"))
     type_text("page:anno_acquisto", get("@purchase_date_year"))
-    select_option "page:alimentazione", get("@fuel")
     select_option "page:marca", get("@make")
-    sleep @sleep*2
-    select_model_set_up("page:modelloAuto", get("@model"))
-    sleep @sleep*2
-    select_model_set_up("page:allestimento", get("@set_up"))
+    sleep @sleep*3
+    select_model_set_up("page:modello", get("@model"))
 
     click_button 'page:continua_step01'
     sleep @sleep
@@ -156,9 +153,14 @@ class ConteSect1 < Test::Unit::TestCase
     select_option "page:ricovero_notturno", get("@vehicle_shelter")
     select_option "page:antifurto", get("@alarm")
     select_option "page:uso_prevalente", get("@habitual_vehicle_use")
+    type_text("page:cilindrataPiuAlta", get('@driving_experience'))
     select_option "page:km_anno", get("@km_per_yr")
-    click_option(get('@modification_made'))
+    select_option "page:mesiGuidaContinua", get("@vehicle_continuous_use_no_of_mths")
+
     click_option(get('@bersani'))
+
+    click_option(get('@modification_made'))
+    sleep @sleep
     select_option "page:classeCU", get("@bm_assigned")
     click_option(get('@subscriber_is_owner'))
 
@@ -179,14 +181,15 @@ class ConteSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     click_option(get('@driver_sex'))
-    type_text("page:conducente_nascita", get('@birth_date'))
+    type_text("page:conducente_nascita",get('@birth_date'))
     click_option(get('@citizenship'))
 
     if get('@citizenship') == "page:conducente_nazione:0" #ITALIA
       select_option "page:provincia_di_nascita", get("@birth_province")
       type_keys("page:comune_di_nascita", get('@birth_place'))
       sleep @sleep
-      page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
+     page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
+      # page.click "//div[@id='risultatiSrchClose']/ul/span/li"
     else #ESTERO
       select_option "page:conducente_principale_nazione_estera", get("@birth_state")
       type_text("page:anno_residenza_italia", get('@italian_residence_starting_yrs'))
@@ -200,12 +203,13 @@ class ConteSect1 < Test::Unit::TestCase
     type_keys("page:comune_di_residenza", get('@residence'))
     wait_for_elm("//ul[@id='ulResult']/span[1]/li")
     page.click "//ul[@id='ulResult']/span[1]/li"
-    assert_equal page.get_value(@last_element).upcase, @last_value.upcase
+   # assert_equal page.get_value(@last_element).upcase, @last_value.upcase
 
     type_text("page:toponimo_residenza", get('@toponym'))
     type_text("page:indirizzo_residenza", get('@address_street'))
     type_text("page:numero_residenza", get('@address_num'))
     select_option "page:cap_di_residenza", get("@owner_zip_code"), "value"
+    #click_option(get('@residence_same_as_home_address'))
 
     click_button 'page:buttonContinua2'
     sleep @sleep
@@ -262,8 +266,8 @@ class ConteSect1 < Test::Unit::TestCase
     click_button 'page:buttonContinua14'
     sleep @sleep
 
-    type_text("page:cognome_contraente",get('@surname'))
-    type_text("page:nome_contraente", get('@name') )
+    type_text("page:cognome_contraente", get('@name'))
+    type_text("page:nome_contraente", get('@surname'))
     type_text("page:email_contraente", get('@e_mail'))
     type_text("page:prefisso_cellulare_contraente", get('@mobile_prefix'))
     type_text("page:cellulare_contraente", get('@mobile_number'))
@@ -297,7 +301,7 @@ class ConteSect1 < Test::Unit::TestCase
       when 'on'
         sleep @sleep*2
         select_option("page:quota_info:0:massimaleRCA", get('@public_liability_indemnity_limit'))
-      
+
 #        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
 #        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
 #        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
@@ -311,13 +315,14 @@ class ConteSect1 < Test::Unit::TestCase
         page.fire_event 'page:quota_info:0:massimaleRCA', 'change'
         sleep @sleep*2
         if is_present?('page:ricalcola_but')
-          page_click_button 'page:ricalcola_but'
+          click_button 'page:ricalcola_but'
           page_wait
         end
 
-        sleep @sleep
+
         wait_for_elm  get("@rca_premium_id")
         get_premium(get("@rca_premium_id"))
+
       else
         raise RangeError, "RC cover cannot be off"
     end
@@ -329,7 +334,7 @@ class ConteSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-   # assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    #assert_match(/#{@url.split("?")[0]}/i, page.get_location)
   end
 
   def select_option(id, value, option = "label")
