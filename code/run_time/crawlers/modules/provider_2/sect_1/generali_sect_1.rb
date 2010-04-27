@@ -132,12 +132,15 @@ class GeneraliSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
+    sleep @sleep*2
     #TODO the method "assert_equal" inside the select_option has been commented because the province value is in some way different from the selected label
     select_option "COD_PROVINCIA", get("@residence_province")
-
     select_option "COD_COMUNE", get("@residence")
-    select_option "TIPO_SESSO", get("@owner_sex")
-    type_text("DATA_NASCITA", get("@birth_date"))
+
+    if get("@client_type") =~ /fisica/i
+      select_option "TIPO_SESSO", get("@owner_sex")
+      type_text("DATA_NASCITA", get("@birth_date"))
+    end
 
     page.click '//img[@alt="prosegui"]'
    	page_wait
@@ -169,9 +172,9 @@ class GeneraliSect1 < Test::Unit::TestCase
     select_option "MODELLO", get("@model")
     page_wait
 
-    type_text("CFIS", get("@cv"))
-    type_text("KW", get("@kw"))
-    type_text("CC", get("@capacity"))
+    type_keys("CFIS", get("@cv"))
+    type_keys("KW", get("@kw"))
+    type_keys("CC", get("@capacity"))
     select_option "ALIM", get("@fuel")
 
     page.click '//img[@alt="cerca"]'

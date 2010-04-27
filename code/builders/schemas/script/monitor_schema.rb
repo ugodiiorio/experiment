@@ -32,7 +32,7 @@ class BuildMonitorSchema
             key_rate_id_str varchar(8)  NOT NULL,
             state_str  varchar(10) DEFAULT 'NOT RUN',
             result_str  varchar(10) DEFAULT NULL,
-            result_message_str varchar(512) DEFAULT NULL,
+            result_message_str varchar(1024) DEFAULT NULL,
             start_update TIMESTAMP DEFAULT 0,
             last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
             PRIMARY KEY (key_insurance_profiles_id_num,key_provider_id_str,key_sector_id_str,key_company_id_str,key_working_set_id_str,key_rate_id_str)

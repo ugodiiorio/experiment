@@ -7,6 +7,7 @@ module FieldMappingProvider2Sect2
     @field_rule_values = {}
 
     @field_rule_values = {
+
       'driv_birth_place_str'  => 'infield[:pol_residence_str].strip.upcase' ,
       'driv_birth_state_str'  => '"ITALIA"' ,
       
@@ -40,9 +41,10 @@ module FieldMappingProvider2Sect2
       'pol_BM_assigned_str' => 'infield[:pol_BM_assigned_str].strip.downcase',
       'pol_claims_total_number_str' => 'infield[:pol_claims_total_number_str].strip.downcase',
       'pol_client_type_str' => 'infield[:pol_client_type_str].strip.downcase',
-      'pol_coming_from_BM_str'  => 'bm=infield[:pol_BM_assigned_srt]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end' ,
+      'pol_coming_from_BM_str'  => 'bm=infield[:pol_BM_assigned_str]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end' ,
       'pol_driver_less_than_26_yrs_str' => 'infield[:pol_driver_less_than_26_yrs_str].strip.downcase',
       'pol_driver_zip_code_str' => 'cap = infield[:pol_driver_zip_code_str].strip.downcase; cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
+      'pol_family_car_num' => '1',
       'pol_family_members_insured_with_company_str' =>  '0',
       'pol_first_claim_month_str'  => '"Gennaio"' ,
       'pol_first_claim_year_str'  => 'if claimslastyr = infield[:pol_nr_of_paid_claims_this_yr_str].to_i == 1 ; (DateTime::now).strftime("%Y") elsif claimslastyr = infield[:pol_nr_of_paid_claims_1_yr_str].to_i == 1 ; (DateTime::now - 1.year).strftime("%Y"); elsif claimslastyr = infield[:pol_nr_of_paid_claims_2_yr_str].to_i == 1 ; (DateTime::now - 2.year).strftime("%Y"); elsif claimslastyr = infield[:pol_nr_of_paid_claims_3_yr_str].to_i == 1 ; (DateTime::now - 3.year).strftime("%Y"); end ;' ,
@@ -81,6 +83,10 @@ module FieldMappingProvider2Sect2
       'veh_new_used_vehicle_str'  => 'if infield[:pol_matriculation_date_str].to_i > 0 ; x= "U" else x= "N" end',
       'veh_passenger_transportation_str' => 'infield[:veh_passenger_transportation_str].strip.downcase',
       'veh_previous_set_up_str' => 'a=infield[:veh_previous_set_up_str].strip; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); f= h.gsub(/ª/,"a" );',
+      'veh_purchase_date_day_str' => 'infield[:pol_matriculation_date_str].strip',
+      'veh_purchase_date_month_str' => 'infield[:pol_matriculation_date_str].strip',
+      'veh_purchase_date_str' => 'infield[:pol_matriculation_date_str].strip',
+      'veh_purchase_date_year_num' => 'infield[:pol_matriculation_date_str].strip',
       'veh_set_up_str' => 'a=infield[:veh_set_up_str].strip; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); f= h.gsub(/ª/,"a" );',
       'veh_purchase_date_day_str' => 'infield[:pol_matriculation_date_str].strip',
       'veh_purchase_date_month_str' => 'infield[:pol_matriculation_date_str].strip',
@@ -222,7 +228,7 @@ module FieldMappingProvider2Sect2
       'pol_protected_bonus_code_str' => nil,
       'pol_protected_bonus_on_off_str' => nil,
       'pol_protected_bonus_premium_id_str' => nil,
-      'pol_protected_bonus_web_id_str' => nil,
+      'pol_protected_bonus_web_id_str' => '"id elemento"',
       'pol_protection_24_code_str' => nil,
       'pol_protection_24_on_off_str' => nil,
       'pol_protection_24_premium_id_str' => nil,

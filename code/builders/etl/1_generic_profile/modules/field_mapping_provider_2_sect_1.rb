@@ -1,4 +1,4 @@
-module FieldMappingProvider2Sect1
+ module FieldMappingProvider2Sect1
 
   def build_hash_field_rule()
 
@@ -12,7 +12,7 @@ module FieldMappingProvider2Sect1
       'driv_birth_province_str' => 'infield[:pol_residence_province_str].strip.upcase',
       'driv_birth_state_str' => '"ITALIA"',
       'driv_citizenship_str' => '"ITALIA"',
-      'driv_civil_status_str' => '"Coniugato con figli"',
+      'driv_civil_status_str' => '"Coniugato senza figli"',
       'driv_driver_sex_str' => 'infield[:driv_driver_sex_str].strip.upcase',
       'driv_driving_experience_str' => nil,
       'driv_driving_license_month_of_issue_str' => 'infield[:driv_driving_license_yrs_str]',
@@ -49,7 +49,7 @@ module FieldMappingProvider2Sect1
       'pol_claims_total_number_str' => 'infield[:pol_claims_total_number_str].strip',
       'pol_client_type_str' => 'infield[:pol_client_type_str].strip.downcase',
       'pol_cohabiting_children_str' => '"no"',
-      'pol_coming_from_BM_str' => 'bm=infield[:pol_BM_assigned_str]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == 0 ? cbm ="0" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  cbm= bm.to_i - 2;  else  cbm = bm.to_i + 1 end',
+      'pol_coming_from_BM_str' => 'bm=infield[:pol_BM_assigned_str]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == 0 ? cbm ="0" : if claimsyear.to_i > 0 && bm.to_i > 2 ;  cbm= bm.to_i - 2;  else  cbm = bm.to_i + 1 end',
       'pol_coming_from_company_str' => '"generali"',
       'pol_current_policy_guarantee_str' => '"nessuna"',
       'pol_defined_drive_str' => 'infield[:pol_driving_type_str].strip.downcase == "esperta" ? "si" : "no"',
@@ -261,15 +261,15 @@ module FieldMappingProvider2Sect1
       'pol_collision_code_str' => nil,
       'pol_collision_on_off_str' => nil,
       'pol_collision_premium_id_str' => nil,
-      'pol_collision_web_id_str' => nil,
+      'pol_collision_web_id_str' => '"id elemento"',
       'pol_protected_bonus_code_str' => nil,
       'pol_protected_bonus_on_off_str' => nil,
       'pol_protected_bonus_premium_id_str' => nil,
-      'pol_protected_bonus_web_id_str' => nil,
+      'pol_protected_bonus_web_id_str' => '"id elemento"',
       'pol_protection_24_code_str' => nil,
       'pol_protection_24_on_off_str' => nil,
       'pol_protection_24_premium_id_str' => nil,
-      'pol_protection_24_web_id_str' => nil,
+      'pol_protection_24_web_id_str' => '"id elemento"',
 
 
     }

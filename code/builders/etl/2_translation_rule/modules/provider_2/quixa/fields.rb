@@ -487,7 +487,7 @@ module Provider2Quixa
       {'pol_residence_province_str' => 'VI'} => 'VICENZA',
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
       {'veh_alarm_str' => 'nessuno'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtSatelliteLocationNo',
-      {'veh_km_per_yr_str' => '15000'} => 'Tra 10.000 - 20.000',
+      {'veh_km_per_yr_str' => '10000'} => 'Tra 10.000 - 20.000',
       {'veh_passenger_transportation_str' => 'si'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtPassengerYes',
       {'veh_passenger_transportation_str' => 'no'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtPassengerNo',
       {'veh_vehicle_type_str' => 'motociclo'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucNewSimulation_rblSimulationTypes_2',

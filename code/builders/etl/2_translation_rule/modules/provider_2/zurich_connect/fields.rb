@@ -72,7 +72,7 @@ module Provider2ZurichConnect
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'L\'automobile e\' gia\' assicurata con un contratto in Bonus/Malus',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Sto acquistando un\'auto usata e mi assicuro per la prima volta',
       {'veh_stabilizer_str' => 'no'} => 'NO',
-      {'driv_civil_status_str' => 'Coniugato con figli'} => 'Coniugato senza figli',
+      {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Coniugato senza figli',
       {'driv_studies_str' => 'diploma'} => 'Diploma',
       {'veh_num_of_owners_str' => '1'} => '1',
       {'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => '1'} => '1 anno',

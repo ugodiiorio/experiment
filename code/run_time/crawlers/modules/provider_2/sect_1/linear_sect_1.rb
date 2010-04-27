@@ -33,6 +33,7 @@ class LinearSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
+      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -116,7 +117,7 @@ class LinearSect1 < Test::Unit::TestCase
 
   def page_1
     
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     select_option 'cond_ass_cb', get("@insurance_situation")
     if get("@insurance_situation")=~ /bonus-malus/i
@@ -150,17 +151,21 @@ class LinearSect1 < Test::Unit::TestCase
 
   def page_2
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     select_option "imm_mese", get("@matriculation_date_month")
     select_option "imm_anno", get("@matriculation_date_year")
     select_option "marca_auto", get("@make")
+    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     select_model_set_up("modello_auto", get("@model"))
+    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
     select_model_set_up("allestimento_auto", get("@set_up"))
-
-    (is_present?(get('@gas_methane_supply'))) ? click_option(get('@gas_methane_supply')) : nil
+    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
+   
+    sleep @sleep*2
+    (is_present?(get('@gas_methane_supply'))) ? ( click_option(get('@gas_methane_supply')) if is_editable?(get('@gas_methane_supply')) ) : nil
     click_option(get('@alarm'))
 
     select_option "ricovero_auto", get("@vehicle_shelter")
@@ -177,7 +182,7 @@ class LinearSect1 < Test::Unit::TestCase
 
   def page_3
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     select_option "nascita_giorno", get("@birth_date_day")
     select_option "nascita_mese", get("@birth_date_month")
@@ -202,7 +207,7 @@ class LinearSect1 < Test::Unit::TestCase
 
   def page_4
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
     click_option(get('@client_type'))
 
@@ -226,7 +231,7 @@ class LinearSect1 < Test::Unit::TestCase
 
   def page_5
     
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     select_option "conoscenza", get("@how_do_you_know_the_company")
     
     click_button 'nextStep'
@@ -236,13 +241,13 @@ class LinearSect1 < Test::Unit::TestCase
   
   def page_premium
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
     when 'on'
       sleep @sleep*2
       select_option("massimale_1", get('@public_liability_indemnity_limit'))
-
+      sleep @sleep*2
       # all guarantees appears to be unchecked and anyway we take simple RCA premium value
 
       #        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
@@ -273,7 +278,7 @@ class LinearSect1 < Test::Unit::TestCase
     page.open @last_element
     sleep @sleep
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
   end
 
   def select_option(id, value = nil)
