@@ -1,10 +1,10 @@
 #############################################
-#   	Created by Kubepartners			          #
+#   	Created by Ugo Di Iorio			          #
 #                                           #
-#				26/03/2010						              #
+#				12/04/2010						              #
 #############################################
 
-class ConteSect1 < Test::Unit::TestCase
+class ConteSect2 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
   alias :site :suite_test
   alias :page :selenium_driver
@@ -33,7 +33,6 @@ class ConteSect1 < Test::Unit::TestCase
       @suite_test.selenium_setup
       @kte = @suite_test.kte
       @logger = @kte.logger
-      @store_params = @kte.store_params
 
       site.load_sector
       site.load_person
@@ -109,16 +108,16 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_intro
 
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    
     open_page(@url)
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-   	page_wait
+    page_wait
 
   end
 
   def page_1
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     select_option "page:text_1CNSC", get("@how_do_you_know_the_company")
@@ -126,8 +125,8 @@ class ConteSect1 < Test::Unit::TestCase
     if (page.get_attribute("#{@last_element}@value") == "-1")
       click_option(get('@new_used_vehicle'))
     end
+    select_option "page:cosa_vuoi",get("@vehicle_type")
     click_option(get('@privacy_1'))
-
     click_button 'page:buttonContinua'
    	page_wait
     
@@ -135,34 +134,33 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_2
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     type_text("page:dataEffetto", @rate_date)
     select_option "page:mese_immatricolazione", get("@matriculation_date_month")
     type_text("page:anno_immatricolazione", get("@matriculation_date_year"))
     type_text("page:anno_acquisto", get("@purchase_date_year"))
-    select_option "page:alimentazione", get("@fuel")
     select_option "page:marca", get("@make")
-    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
-    sleep @sleep*2
-    select_model_set_up("page:modelloAuto", get("@model"))
-    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
-    sleep @sleep*2
-    select_model_set_up("page:allestimento", get("@set_up"))
-    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
+    sleep @sleep*3
+    select_model_set_up("page:modello", get("@model"))
 
     click_button 'page:continua_step01'
     sleep @sleep
 
-    type_text("page:valore_veicolo", get('@vehicle_value')) if page.is_visible "page:valore_veicolo"
-    page.fire_event 'page:valore_veicolo', 'blur' if page.is_visible "page:valore_veicolo"
+    type_text("page:valore_veicolo", get('@vehicle_value'))
+    page.fire_event 'page:valore_veicolo', 'blur'
     select_option "page:ricovero_notturno", get("@vehicle_shelter")
     select_option "page:antifurto", get("@alarm")
     select_option "page:uso_prevalente", get("@habitual_vehicle_use")
+    type_text("page:cilindrataPiuAlta", get('@driving_experience'))
     select_option "page:km_anno", get("@km_per_yr")
-    click_option(get('@modification_made'))
+    select_option "page:mesiGuidaContinua", get("@vehicle_continuous_use_no_of_mths")
+
     click_option(get('@bersani'))
+
+    click_option(get('@modification_made'))
+    sleep @sleep
     select_option "page:classeCU", get("@bm_assigned")
     click_option(get('@subscriber_is_owner'))
 
@@ -179,18 +177,19 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_3
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     click_option(get('@driver_sex'))
-    type_text("page:conducente_nascita", get('@birth_date'))
+    type_text("page:conducente_nascita",get('@birth_date'))
     click_option(get('@citizenship'))
 
     if get('@citizenship') == "page:conducente_nazione:0" #ITALIA
       select_option "page:provincia_di_nascita", get("@birth_province")
       type_keys("page:comune_di_nascita", get('@birth_place'))
       sleep @sleep
-      page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
+     page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
+      # page.click "//div[@id='risultatiSrchClose']/ul/span/li"
     else #ESTERO
       select_option "page:conducente_principale_nazione_estera", get("@birth_state")
       type_text("page:anno_residenza_italia", get('@italian_residence_starting_yrs'))
@@ -204,12 +203,13 @@ class ConteSect1 < Test::Unit::TestCase
     type_keys("page:comune_di_residenza", get('@residence'))
     wait_for_elm("//ul[@id='ulResult']/span[1]/li")
     page.click "//ul[@id='ulResult']/span[1]/li"
-    assert_equal page.get_value(@last_element).upcase, @last_value.upcase
+   # assert_equal page.get_value(@last_element).upcase, @last_value.upcase
 
     type_text("page:toponimo_residenza", get('@toponym'))
     type_text("page:indirizzo_residenza", get('@address_street'))
     type_text("page:numero_residenza", get('@address_num'))
-    select_option "page:cap_di_residenza", fix_zip_code(get("@owner_zip_code")), "value"
+    select_option "page:cap_di_residenza", get("@owner_zip_code"), "value"
+    #click_option(get('@residence_same_as_home_address'))
 
     click_button 'page:buttonContinua2'
     sleep @sleep
@@ -217,27 +217,15 @@ class ConteSect1 < Test::Unit::TestCase
     type_keys("page:professione_conducente_principale", get('@job'))
     wait_for_elm("//div[@id='risultatiSrchProf']/ul/span/li")
     page.click "//div[@id='risultatiSrchProf']/ul/span/li"
-    store_parameter(:job, page.get_value(@last_element)) if @store_params
 
     select_option "page:stato_civile", get("@civil_status")
     click_option(get('@cohabiting_children'))
     type_text("page:eta_conseguimento_patente", get('@driving_license_yrs'))
-    page.focus @last_element
-    sleep @sleep*2
-    page.fire_event(@last_element, 'blur')
+    page.fire_event("page:eta_conseguimento_patente", 'blur')
 
-    if page.is_visible("page:anno_conseguimento_patente")
-#      type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
-#      select_option "page:mese_conseguimento_patente", get("@driving_license_month_of_issue")
-      @last_element = "page:anno_conseguimento_patente"
-  	  @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{@last_element} value for profile [#{@kte.profile}] = #{page.get_value(@last_element)}"}
-      if page.get_value(@last_element).to_i >= Time.now.year
-        select_option("page:mese_conseguimento_patente", "index=#{Time.now.month}")
-      else
-        @last_element = "page:mese_conseguimento_patente"
-        @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{@last_element} value = #{page.get_selected_value(@last_element)}"}
-        @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => visible #{@last_element} text = #{page.get_selected_label(@last_element)}"}
-      end
+    if is_present?("page:anno_conseguimento_patente")
+      type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
+      select_option "page:mese_conseguimento_patente", get("@driving_license_month_of_issue")
     end
 
     select_option "page:tipo_patente", get("@driving_license_type")
@@ -250,7 +238,7 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_4
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     
     click_option(get('@drunkenness_fine'))
@@ -278,8 +266,8 @@ class ConteSect1 < Test::Unit::TestCase
     click_button 'page:buttonContinua14'
     sleep @sleep
 
-    type_text("page:cognome_contraente",get('@surname'))
-    type_text("page:nome_contraente", get('@name') )
+    type_text("page:cognome_contraente", get('@name'))
+    type_text("page:nome_contraente", get('@surname'))
     type_text("page:email_contraente", get('@e_mail'))
     type_text("page:prefisso_cellulare_contraente", get('@mobile_prefix'))
     type_text("page:cellulare_contraente", get('@mobile_number'))
@@ -291,7 +279,7 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_5
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     
     click_option(get('@driving_type'))
@@ -305,15 +293,15 @@ class ConteSect1 < Test::Unit::TestCase
 
   def page_premium
 
-    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'
-        is_present?("//span[@class='error']") ? raise(RangeError, "Verifica tecnica, chiamare Call Center => check birthdate year against driver license year!") : nil
+        sleep @sleep*2
         select_option("page:quota_info:0:massimaleRCA", get('@public_liability_indemnity_limit'))
-      
+
 #        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
 #        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
 #        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
@@ -324,16 +312,17 @@ class ConteSect1 < Test::Unit::TestCase
 #        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
 #        uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
-#        page.fire_event 'page:quota_info:0:massimaleRCA', 'change'
-        sleep @sleep*3
+        page.fire_event 'page:quota_info:0:massimaleRCA', 'change'
+        sleep @sleep*2
         if is_present?('page:ricalcola_but')
           click_button 'page:ricalcola_but'
           page_wait
         end
 
-        sleep @sleep
+
         wait_for_elm  get("@rca_premium_id")
         get_premium(get("@rca_premium_id"))
+
       else
         raise RangeError, "RC cover cannot be off"
     end
@@ -345,7 +334,7 @@ class ConteSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-   # assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    #assert_match(/#{@url.split("?")[0]}/i, page.get_location)
   end
 
   def select_option(id, value, option = "label")
@@ -469,13 +458,12 @@ class ConteSect1 < Test::Unit::TestCase
     assert_is_element_present(name)
   end
 
-  def is_present?(element)
-    @last_element = element
-	  present = page.is_element_present element
+  def is_present?(name)
+	  present = page.is_element_present name
     if present
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element #{element} is present?: #{present}"}
-      visible = page.is_visible element
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element #{element} is visible #{visible}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is present?: #{present}"}
+      visible = page.is_visible name
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => checkbox is visible #{visible}"}
     end
     return present
   end
@@ -484,8 +472,7 @@ class ConteSect1 < Test::Unit::TestCase
 
     @last_element = p
     premium = page.get_text(@last_element)
-	  assert !60.times{ break if (premium.split[1]) != nil; sleep 1 }, @last_element.inspect
-#    assert premium.split[1] != nil, @last_element.inspect
+    assert premium != nil, @last_element.inspect
     assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
     premium = premium.split[1]
     premium.count(",") > 0 ? premium.gsub(".","") : nil
