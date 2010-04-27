@@ -328,6 +328,7 @@ module Provider1Directline
 #      {'pol_residence_province_str' => 'VS'} => 'MEDIO CAMPIDANO',
 #      {'pol_residence_province_str' => 'VT'} => 'VITERBO',
 #      {'pol_residence_province_str' => 'VV'} => 'VIBO VALENTIA',
+      {'pol_subscriber_is_driver_str' => 'no'} => 'policyHolder_isOwner_TRUE',
       {'pol_subscriber_is_driver_str' => 'si'} => 'policyHolder_isOwner_TRUE',
       {'pol_subscriber_is_owner_str' => 'si'} => 'policyHolder_isMainDriver_TRUE',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'INCENDIO',
