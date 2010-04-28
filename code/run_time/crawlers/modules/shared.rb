@@ -11,7 +11,7 @@ module Shared
     @alternate_car = false
     case @kte.provider
 
-    when PROVIDER1
+    when PROVIDER1, PROVIDER2
       click_button_item "contentSubView:vehicleForm:chooseAuto:downbox_f"
       sleep @sleep*2
       @last_element, @last_value = "preparations", get("@set_up")
@@ -40,7 +40,7 @@ module Shared
 #      click_button_item "//span/ul/li"
 #      type_keys(@last_element, " ")
 
-    when PROVIDER2
+    else
       cv_kw = "#{get("@cv")} CV - #{get("@kw")} KW"
       type_keys("preparations", get("@set_up"))
       sleep @sleep*2
@@ -52,8 +52,6 @@ module Shared
       end
       click_button_item "//span/ul/li"
 
-    else
-      nil
     end
 
     ensure

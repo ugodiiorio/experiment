@@ -128,9 +128,9 @@ class DirectlineSect1 < Test::Unit::TestCase
       click_option(get('@already_benefit_from_bersani'))
 
       page.click('classeBMProvenienza_link')
-      page.click(get("@coming_from_bm"))
+      page.click('//*[@id="classeBMProvenienza_list"]/li[@rel="'+get("@coming_from_bm")+'"]')
       page.click('classeBMAssegnazione_link')
-      page.click(get("@bm_assigned"))
+      page.click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
       
       click_option(get('@claims_total_number'))
       click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
@@ -143,7 +143,7 @@ class DirectlineSect1 < Test::Unit::TestCase
         click_option(get('@bersani_ref_vehicle_insured_with_company'))
         
         page.click('classeBMAssegnazione_link')
-        page.click(get("@bm_assigned"))
+        page.click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
       end
 
       click_option(get('@bersani_ref_vehicle_number_plate'))
@@ -168,13 +168,13 @@ class DirectlineSect1 < Test::Unit::TestCase
     type_text("policyHolder_bornMonth", get('@birth_date_month'))
     type_text("policyHolder_bornYear", get('@birth_date_year'))
 
-    click_option(get('@owner_sex'))
+    click_option('policyHolder_sex_'+get("@owner_sex")+'')
 
     page.click('policyHolder_maritalStatus_link')
-    page.click(get("@civil_status"))
+    page.click('//*[@id="policyHolder_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
 
     page.click('policyHolder_profession_link')
-    page.click(get("@job"))
+    page.click('//*[@id="policyHolder_profession_list"]/li[@rel="'+get("@job")+'"]')
 
     type_text("policyHolder_zipCode", get('@owner_zip_code'))
 
@@ -182,15 +182,15 @@ class DirectlineSect1 < Test::Unit::TestCase
     enhanced_town_select('policyHolder_town_li_',get("@residence"))
 
     page.click('policyHolder_drivingLicencePossess_link')
-    page.click(get("@driving_license_yrs"))
+    page.click('//*[@id="policyHolder_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
     
     click_option(get('@subscriber_is_driver'))
     click_option(get('@subscriber_is_owner'))
 
     page.click('numeroConducentiMinori26Anni_link')
-    page.click(get("@driver_less_than_26_yrs"))
+    page.click('//*[@id="numeroConducentiMinori26Anni_list"]/li[@rel="'+get("@driver_less_than_26_yrs")+'"]')
     
-    if get("@driver_less_than_26_yrs") == 'numeroConducentiMinori26Anni_li_2'
+    if get("@driver_less_than_26_yrs") == '1'
       page_more_drivers
     end
 
@@ -208,13 +208,13 @@ class DirectlineSect1 < Test::Unit::TestCase
     type_text("under26First_bornMonth", Chronic.parse("25 year ago tomorrow").strftime("%m"))
     type_text("under26First_bornYear", Chronic.parse("25 year ago tomorrow").strftime("%Y"))
 
-    click_option(get('@owner_sex')) #under26First_sex_MASCHIO   -    under26First_sex_FEMMINA
+    click_option('under26First_sex_'+get("@owner_sex")+'')
 
     page.click('under26First_maritalStatus_link')
-    page.click(get("@civil_status"))
+    page.click('//*[@id="under26First_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
 
     page.click('under26First_profession_link')
-    page.click(get("@job"))
+    page.click('//*[@id="under26First_profession_list"]/li[@rel="'+get("@job")+'"]')
 
     type_text("under26First_zipCode", get('@owner_zip_code'))
 
@@ -222,7 +222,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     enhanced_town_select('under26First_town_li_',get("@residence"))
     
     page.click('under26First_drivingLicencePossess_link')
-    page.click(get("@driving_license_yrs"))
+    page.click('//*[@id="under26First_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
 
   end
 
@@ -243,30 +243,30 @@ class DirectlineSect1 < Test::Unit::TestCase
     enhanced_model_select (get("@model"))
 
     page.click('alimentazioneVeicolo_link')
-    enhanced_fuel_select(get("@fuel"))
+    page.click('//*[@id="alimentazioneVeicolo_list"]/li[@rel="'+get("@fuel")+'"]')
 
     page.click('allestimentoVeicolo_link')
     enhanced_set_up_select (get("@set_up"))
 
     page.click('tipoAntifurtoVeicolo_link')
-    page.click(get("@alarm"))
+    page.click('//*[@id="tipoAntifurtoVeicolo_list"]/li[@rel="'+get("@alarm")+'"]')
 
     page.click('usoAbitualeVeicolo_link')
-    page.click(get("@habitual_vehicle_use"))
+    page.click('//*[@id="usoAbitualeVeicolo_list"]/li[@rel="'+get("@habitual_vehicle_use")+'"]')
 
     type_text("kmAnnuiPercorsiVeicolo", get('@km_per_yr'))
 
     click_option(get('@vehicle_use'))
 
     page.click('ricoveroVeicolo_link')
-    page.click(get("@vehicle_shelter"))
+    page.click('//*[@id="ricoveroVeicolo_list"]/li[@rel="'+get("@vehicle_shelter")+'"]')
 
     if (page.get_value('valoreVeicolo') == "")
       type_text("valoreVeicolo", get('@vehicle_value'))
     end
 
     page.click('numeroVeicoliFamiliariPosseduti_link')
-    page.click(get("@family_car"))
+    page.click('//*[@id="numeroVeicoliFamiliariPosseduti_list"]/li[@rel="'+get("@family_car")+'"]')
 
     click_button "btnContinua"
    	page_wait
@@ -281,7 +281,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     click_button "btnContinua"
 
     page.click('fonti_link')
-    page.click(get("@how_do_you_know_the_company"))
+    page.click('//*[@id="fonti_list"]/li[@rel="'+get("@how_do_you_know_the_company")+'"]')
     
     click_button "//img[@alt='Vedi il premio']"
     page_wait
@@ -298,13 +298,13 @@ class DirectlineSect1 < Test::Unit::TestCase
     when 'on'
 
       page.click('RCA_LIMIT_0_link')
-      page.click(get("@public_liability_indemnity_limit"))
+      page.click('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
 
       page.click('RCA_DEDUCTIBLE_0_link')
-      page.click(get("@public_liability_exemption"))
+      page.click('//*[@id="RCA_DEDUCTIBLE_0_list"]/li[@rel="'+get("@public_liability_exemption")+'"]')
 
       page.click('frazionamento_link')
-      page.click(get("@instalment"))
+      page.click('//*[@id="frazionamento_list"]/li[@rel="'+get("@instalment")+'"]')
 
       uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
       uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
@@ -316,6 +316,7 @@ class DirectlineSect1 < Test::Unit::TestCase
       uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
       uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
 
+      sleep @sleep*5
       get_premium(get("@rca_premium_id"))
     else
       raise RangeError, "RC cover cannot be off"
@@ -507,19 +508,6 @@ class DirectlineSect1 < Test::Unit::TestCase
       label= '//*[@id="modelloVeicolo_li_'+i.to_s+'"]/span'
       text = page.get_text(label)
       break if text =~ /#{model.gsub("regexpi:","")}/i || i==300
-      i += 1
-    end
-
-    page.click label
-  end
-
-  def enhanced_fuel_select(fuel)
-    i = 0
-    text = ""
-    while true
-      label= '//*[@id="alimentazioneVeicolo_li_'+i.to_s+'"]/span'
-      text = page.get_text(label)
-      break if text == fuel || i==10
       i += 1
     end
 
