@@ -298,7 +298,11 @@ class DirectlineSect1 < Test::Unit::TestCase
     when 'on'
 
       page.click('RCA_LIMIT_0_link')
-      page.click('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
+      if is_present?('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
+        page.click('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
+      else
+        page.click('//*[@id="RCA_LIMIT_0_list"]/li[last()]')
+      end
 
       page.click('RCA_DEDUCTIBLE_0_link')
       page.click('//*[@id="RCA_DEDUCTIBLE_0_list"]/li[@rel="'+get("@public_liability_exemption")+'"]')
