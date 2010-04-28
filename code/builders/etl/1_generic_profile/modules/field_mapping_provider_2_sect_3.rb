@@ -43,7 +43,7 @@ module FieldMappingProvider2Sect3
       'veh_passenger_transportation_str' => 'infield[:veh_passenger_transportation_str].strip.downcase',
       'pol_public_liability_exemption_str' => 'infield[:pol_public_liability_exemption_str].strip.downcase',
       'pol_public_liability_indemnity_limit_str' => 'infield[:pol_public_liability_indemnity_limit_str].strip.downcase',
-      'pol_public_liability_young_exemption_str ' => '"no"',
+      'pol_public_liability_young_exemption_str' => '"no"',
       'pol_quotation_str' => 'infield[:pol_quotation_str].strip.downcase',
       'pol_record_id_str' => 'infield[:pol_record_id_str].strip.downcase',
       'pol_residence_province_str' => 'infield[:pol_residence_province_str].strip.upcase',

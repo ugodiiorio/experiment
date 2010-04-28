@@ -1,5 +1,4 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+# String Pattern matching algorithm
 
 $LOAD_PATH << File.join("~/.gem/ruby/1.8/gems/")
 
@@ -258,7 +257,7 @@ comboConte =["Focus 1.6i 16V cat SW Ambiente",
 "Focus 2.0i 16V cat 5p. Zetec"]
 
 
-match(comboConte,"Focs 1.x  TDCi 1s0CV cat 5p. Ambiente").sort {|a, b|
+match(comboConte,"Focs 1.1  TDCi 105CV cat 5p. Ambiente").sort {|a, b|
   if a[1] == b[1]
     (a[2] <=> b[2])
   else

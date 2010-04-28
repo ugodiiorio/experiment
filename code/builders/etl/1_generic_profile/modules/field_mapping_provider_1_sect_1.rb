@@ -5,7 +5,7 @@ module FieldMappingProvider1Sect1
     @field_rule_values = {}
 
     @field_rule_values = {
-      'driv_birth_place_str' =>  'infield[:pol_residence_str].upcase.strip',
+      'driv_birth_place_str' =>  'place= infield[:pol_residence_str].upcase.strip;place = place.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA");place = place.gsub("PORTO SANT ELPIDIO","PORTO SANT\'ELPIDIO");',
       'driv_birth_province_str' =>  'infield[:pol_residence_province_str].upcase.strip',
       'driv_birth_state_str' =>  'infield[:driv_citizenship_str].upcase.strip == "SOCIETA" ? "ITALIA" : infield[:driv_citizenship_str].upcase.strip',
       'driv_citizenship_str' =>  'infield[:driv_citizenship_str].upcase.strip == "SOCIETA" ? "ITALIA" : infield[:driv_citizenship_str].upcase.strip',
@@ -26,7 +26,7 @@ module FieldMappingProvider1Sect1
       'own_owner_specification_str' =>  'x = infield[:driv_driver_sex_str].upcase.slice(0,1); x=="S" ? x="C": x=x',
       'own_owner_zip_code_str' =>  'cap = infield[:pol_driver_zip_code_str].strip; cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
       'own_owner_residence_province_str' =>  'infield[:pol_residence_province_str].strip'   ,
-      'own_owner_residence_str' =>  'infield[:pol_residence_str].strip',
+      'own_owner_residence_str' =>  'residence = infield[:pol_residence_str].strip; residence = residence.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA");residence = residence.gsub("PORTO SANT ELPIDIO","PORTO SANT\'ELPIDIO");',
       'pol_act_of_vandalism_premium_id_str' =>  '"id elemento"',
       'pol_act_of_vandalisme_web_id_str' =>  '"id elemento"',
       'pol_already_benefit_from_bersani_str' =>  '"no"',
