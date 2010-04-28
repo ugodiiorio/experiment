@@ -237,16 +237,16 @@ class DirectlineSect1 < Test::Unit::TestCase
     type_text("annoAcquistoVeicolo", get("@purchase_date_year"))
 
     page_click('marcaVeicolo_link')
-    enhanced_make_select (get("@make"))
+    enhanced_make_select(get("@make"))
 
     page_click('modelloVeicolo_link')
-    enhanced_model_select (get("@model"))
+    enhanced_model_select(get("@model"))
 
     page_click('alimentazioneVeicolo_link')
     page_click('//*[@id="alimentazioneVeicolo_list"]/li[@rel="'+get("@fuel")+'"]')
 
     page_click('allestimentoVeicolo_link')
-    enhanced_set_up_select (get("@set_up"))
+    enhanced_set_up_select(get("@set_up"))
 
     page_click('tipoAntifurtoVeicolo_link')
     page_click('//*[@id="tipoAntifurtoVeicolo_list"]/li[@rel="'+get("@alarm")+'"]')
@@ -310,15 +310,24 @@ class DirectlineSect1 < Test::Unit::TestCase
       page_click('frazionamento_link')
       page_click('//*[@id="frazionamento_list"]/li[@rel="'+get("@instalment")+'"]')
 
-      uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
-      uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-      uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-      uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-      uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-      uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-      uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-      uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-      uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      click_button(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
+      uncheck_checkbox(get('@protected_bonus_web_id'))
+      click_button(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+      uncheck_checkbox(get('@assistance_web_id'))
+      click_button(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+      uncheck_checkbox(get('@legal_assistance_web_id'))
+      click_button(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+      uncheck_checkbox(get('@driver_accident_coverage_web_id'))
+      click_button(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+      uncheck_checkbox(get('@contingency_protection_web_id'))
+      click_button(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+      uncheck_checkbox(get('@glasses_web_id'))
+      click_button(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+      uncheck_checkbox(get('@kasko_web_id'))
+      click_button(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+      uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id'))
+      click_button(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      uncheck_checkbox(get('@theft_fire_coverage_web_id'))
 
       get_premium(get("@rca_premium_id"))
     else
@@ -360,14 +369,14 @@ class DirectlineSect1 < Test::Unit::TestCase
   def uncheck_checkbox(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's unchecked checkbox element: [#{@last_element}]"}
-    page_uncheck @last_element
-    assert_equal page.get_value(@last_element), "off"
+    page_uncheck @last_element  if is_present? @last_element
+    sleep @sleep*2
   end
 
   def click_button(id, value = nil)
     @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
-    page_click_button @last_element
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button/item element: [#{@last_element}]"}
+    page_click_button @last_element if is_present?(@last_element)
   end
 
   def is_checked?(id, value = nil)
@@ -375,6 +384,16 @@ class DirectlineSect1 < Test::Unit::TestCase
     present = is_present?(@last_element)
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked? - #{page.is_checked(@last_element)}"} if present
     return present ? page.is_checked(@last_element) : nil
+  end
+
+  def is_present?(name)
+    present = page.is_element_present name
+    if present
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is present?: #{present}"}
+      visible = page.is_visible name
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is visible #{visible}"}
+    end
+    return present
   end
 
   def is_editable?(name)
@@ -426,16 +445,6 @@ class DirectlineSect1 < Test::Unit::TestCase
     sleep @sleep
     page.wait_for_element name
     assert_is_element_present(name)
-  end
-
-  def is_present?(name)
-    present = page.is_element_present name
-    if present
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is present?: #{present}"}
-      visible = page.is_visible name
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is visible #{visible}"}
-    end
-    return present
   end
 
   def assert_is_element_present(element)
