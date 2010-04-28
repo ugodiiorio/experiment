@@ -31,7 +31,7 @@ class RunTest
     @kte.rc_premium, @kte.test_result = nil, nil
     @kte.car_make, @kte.car_model, @kte.car_preparation, @kte.job = '', '', '', ''
     @browser = @kte.browser_type
-    @host = @kte.db_host
+    @host = @kte.selenium_host
     @port = @kte.port
     @wait_for_page_to_load = @kte.wait_for_page_to_load
     @timeout_in_secs = @kte.timeout_in_sec

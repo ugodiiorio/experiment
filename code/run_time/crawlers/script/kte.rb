@@ -27,7 +27,7 @@ class KTE
   attr_reader :logger, :company_group, :company, :provider, :sector, :working_set, :rate, :rate_date
   attr_reader :log_device, :log_level
   attr_reader :use_case, :store_params
-  attr_reader :port, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
+  attr_reader :port, :selenium_host, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
   attr_reader :db_host, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
   attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result
   attr_accessor :car_make, :car_model, :car_preparation, :job
@@ -79,7 +79,7 @@ class KTE
           logger_settings = {:ls_device =>nil, :ls_level =>nil,
                              :ls_shift_age =>nil, :ls_shift_size =>nil,
                              :ls_datetime_format =>nil} unless logger_settings
-          selenium_settings = {:ss_selenium_port =>nil, :ss_wait_for_page_to_load =>nil,
+          selenium_settings = {:ss_selenium_port =>nil, :ss_selenium_host =>nil, :ss_wait_for_page_to_load =>nil,
                                :ss_timeout_in_seconds =>nil, :ss_io_device =>nil,
                                :ss_output_level =>nil, :ss_browser_type =>nil} unless selenium_settings
           database_settings = {:ds_engine_type =>nil, :ds_conn_user =>nil,
@@ -96,7 +96,7 @@ class KTE
       @max_profiles                 = ARGV[9]  || general_settings['gs_max_number_of_profiles'] || "1" # max number of profiles to execute in the running task
       @profile                    	= ARGV[0]  || general_settings['gs_profile_id'] || "100"
       @use_case                     = ARGV[28] || general_settings['gs_use_case'] || ''
-      @store_params                 = ARGV[28] || general_settings['gs_store_params'] || false
+      @store_params                 = ARGV[29] || general_settings['gs_store_params'] || false
 
       @company_group     			      = ARGV[23] || app_settings['as_company_group_id'] || "all_provider_1"
       @company 	        			      = ARGV[1]  || app_settings['as_company_id'] || "quixa"
@@ -113,6 +113,7 @@ class KTE
     #  shift_age = logger_settings['ls_shift_age'] || 'daily'
     #  shift_size = logger_settings['ls_shift_size'] || 1048576
       @port 				                = ARGV[2]  || selenium_settings['ss_selenium_port'] || "4444"
+      @selenium_host                = ARGV[30]  || selenium_settings['ss_selenium_host'] || "localhost"
       @selenium_io                  = ARGV[15] || selenium_settings['ss_io_device'] || STDOUT
       @selenium_out_level           = ARGV[16] || selenium_settings['ss_output_level'] || 3
       @timeout_in_sec               = ARGV[10] || selenium_settings['ss_timeout_in_seconds'] || 30

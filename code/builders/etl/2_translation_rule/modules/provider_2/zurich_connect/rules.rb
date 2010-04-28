@@ -161,7 +161,7 @@ module Provider2ZurichConnect
       'veh_rent_str'  => 'copy_field' ,
       'veh_rent_with_driver_str'  => 'copy_field' ,
       'veh_set_up_previous_vehicle_str'  => 'copy_field' ,
-      'veh_stabilizer_str'  => 'copy_field' ,
+      'veh_stabilizer_str'  => 'translate_field' ,
       'veh_third_party_str'  => 'copy_field' ,
       'veh_toxic_gas_explosive_transportation_str'  => 'copy_field' ,
       'veh_transportation_of_dangerous_goods_A_str'  => 'copy_field' ,
