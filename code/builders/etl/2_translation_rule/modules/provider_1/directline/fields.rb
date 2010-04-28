@@ -18,6 +18,8 @@ module Provider1Directline
       {'driv_job_str' => 'dipendente/impiegato/funzionario/dirigente'} => 'IMPIEGATO',
       {'driv_job_str' => 'disoccupato'} => 'DISOCCUPATO',
       {'driv_job_str' => 'ecclesiastico'} => 'ECCLESIASTICO',
+      {'driv_job_str' => 'ingegnere'} => 'LIBERO_PROFESSIONISTA',
+      {'driv_job_str' => 'insegnante'} => 'INSEGNANTE',
       {'driv_job_str' => 'imprenditore / industriale'} => 'IMPRENDITORE',
       {'driv_job_str' => 'libero professionista'} => 'LIBERO_PROFESSIONISTA',
       {'driv_job_str' => 'medico'} => 'PERSONALE_MEDICO',
