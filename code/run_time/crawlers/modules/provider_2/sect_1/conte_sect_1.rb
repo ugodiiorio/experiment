@@ -130,7 +130,7 @@ class ConteSect1 < Test::Unit::TestCase
 
     click_button 'page:buttonContinua'
    	page_wait
-    
+
   end
 
   def page_2
@@ -174,7 +174,7 @@ class ConteSect1 < Test::Unit::TestCase
 
     click_button 'page:buttonContinua'
    	page_wait
-    
+
   end
 
   def page_3
@@ -252,7 +252,7 @@ class ConteSect1 < Test::Unit::TestCase
 
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-    
+
     click_option(get('@drunkenness_fine'))
     click_option(get('@driving_license_suspension'))
     click_option(get('@other_vehicle_use'))
@@ -293,7 +293,7 @@ class ConteSect1 < Test::Unit::TestCase
 
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-    
+
     click_option(get('@driving_type'))
     click_option(get('@payment'))
     click_option('page:metodoDiPagamento2:0')
@@ -313,7 +313,7 @@ class ConteSect1 < Test::Unit::TestCase
       when 'on'
         is_present?("//span[@class='error']") ? raise(RangeError, "Verifica tecnica, chiamare Call Center => check birthdate year against driver license year!") : nil
         select_option("page:quota_info:0:massimaleRCA", get('@public_liability_indemnity_limit'))
-      
+
 #        uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
 #        uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
 #        uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
@@ -332,7 +332,8 @@ class ConteSect1 < Test::Unit::TestCase
         end
 
         sleep @sleep
-        wait_for_elm  get("@rca_premium_id")
+        @last_element, @last_value = get("@rca_premium_id"), nil
+        wait_for_elm @last_element
         get_premium(get("@rca_premium_id"))
       else
         raise RangeError, "RC cover cannot be off"
@@ -345,7 +346,7 @@ class ConteSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-   # assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
   end
 
   def select_option(id, value, option = "label")
