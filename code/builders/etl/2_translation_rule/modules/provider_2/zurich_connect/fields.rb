@@ -14,6 +14,7 @@ module Provider2ZurichConnect
       {'pol_natural_events_web_id_str' => 'id elemento'} => 'chkEventiNaturali',
       {'pol_road_assistance_web_id_str' => 'id elemento'} => 'chkAssistenza',
       {'pol_social_political_events_web_id_str' => 'id elemento'} => 'chkEventiSociopolitici',
+
       {'pol_claims_total_number_str'  => '0'} => 'Nessun sinistro',
       {'pol_claims_total_number_str'  => '1'} => '1 sinistro',
       {'pol_claims_total_number_str'  => '2'} => '2 sinistri',
