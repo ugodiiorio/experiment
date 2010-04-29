@@ -146,7 +146,7 @@ class DirectlineSect1 < Test::Unit::TestCase
         page_click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
       end
 
-      click_option(get('@bersani_ref_vehicle_number_plate'))
+      click_option('//input[@id="targaConosciuta_" and @name="motorQuoteModel.targaConosciuta" and @value="FALSE"]') #plate always checked 'no'
 
     end
 

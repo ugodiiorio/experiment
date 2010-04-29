@@ -45,7 +45,7 @@ module Provider1Directline
 #      'pol_athmospheric_events_web_id_str' => 'copy_field',
 #      'pol_bersani_policy_expiring_date_str' => 'Chronic.parse(profilefield[:pol_bersani_policy_expiring_date_str]).strftime("%d/%m/%Y");',
       'pol_bersani_ref_vehicle_insured_with_company_str' => 'translate_field',
-      'pol_bersani_ref_vehicle_number_plate_str' => 'translate_field',
+      'pol_bersani_ref_vehicle_number_plate_str' => 'copy_field',
       'pol_bersani_str' => 'translate_field',
       'pol_birth_date_day_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
       'pol_birth_date_month_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',

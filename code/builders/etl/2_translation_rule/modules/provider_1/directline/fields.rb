@@ -145,7 +145,6 @@ module Provider1Directline
       {'pol_already_benefit_from_bersani_str' => 'no'} => 'usataAgevolazioneBersani_FALSE',
       {'pol_assistance_web_id_str' => 'id elemento'} => 'SOS_MOTOR',
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'polizzaProvenienzaDirectLine_FALSE',
-      {'pol_bersani_ref_vehicle_number_plate_str' => 'ab123cd'} => '//input[@id="targaConosciuta_" and @name="motorQuoteModel.targaConosciuta" and @value="FALSE"]',
       {'pol_bersani_str' => 'convivente'} => 'usaAgevolazioneBersani_TRUE',
       {'pol_bersani_str' => 'no'} => 'usaAgevolazioneBersani_FALSE',
       {'pol_bersani_str' => 'veicolo'} => 'usaAgevolazioneBersani_TRUE',
