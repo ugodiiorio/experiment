@@ -179,7 +179,7 @@ class FonsaiSect2 < Test::Unit::TestCase
     end
 
     if is_present?(get('@coming_from_company'))
-#      click_option get('@coming_from_company')
+      click_option get('@coming_from_company')
     end
 
     click_button "//div[@class='floatRight']/input"

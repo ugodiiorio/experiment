@@ -176,6 +176,7 @@
       'veh_vehicle_use_str' => '"privato"',
       'veh_vehicle_value_str' => '"5000"',
       'veh_weight_to_be_towed_num' => nil,
+      
       'pol_act_of_vandalism_code_str' => nil,
       'pol_act_of_vandalism_minimum_uncoverage_str' => nil,
       'pol_act_of_vandalism_on_off_str' => nil,
