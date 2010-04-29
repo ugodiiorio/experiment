@@ -188,8 +188,9 @@ class ConteSect1 < Test::Unit::TestCase
 
     if get('@citizenship') == "page:conducente_nazione:0" #ITALIA
       select_option "page:provincia_di_nascita", get("@birth_province")
-      type_keys("page:comune_di_nascita", get('@birth_place'))
-      sleep @sleep
+      type_keys("page:comune_di_nascita", get('@birth_place').to_s[0,1])
+      wait_for_elm("//div[@id='risultatiSrchComNas']/ul/span/li")
+      type_keys("page:comune_di_nascita", get('@birth_place').to_s[1..-1])
       page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
     else #ESTERO
       select_option "page:conducente_principale_nazione_estera", get("@birth_state")
@@ -201,10 +202,11 @@ class ConteSect1 < Test::Unit::TestCase
 
     select_option "page:provincia_di_residenza", get("@residence_province")
 
-    type_keys("page:comune_di_residenza", get('@residence'))
+    type_keys("page:comune_di_residenza", get('@residence').to_s[0,1])
     wait_for_elm("//ul[@id='ulResult']/span[1]/li")
+    type_keys("page:comune_di_residenza", get('@residence').to_s[1..-1])
     page.click "//ul[@id='ulResult']/span[1]/li"
-    assert_equal page.get_value(@last_element).upcase, @last_value.upcase
+    assert_equal page.get_value(@last_element).upcase, get('@residence').upcase
 
     type_text("page:toponimo_residenza", get('@toponym'))
     type_text("page:indirizzo_residenza", get('@address_street'))

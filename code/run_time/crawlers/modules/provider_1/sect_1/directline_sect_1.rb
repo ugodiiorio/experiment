@@ -122,15 +122,15 @@ class DirectlineSect1 < Test::Unit::TestCase
     click_option(get('@privacy_1'))
     click_button "//img[@id='btnPrivacy']"
 
-    page.click(get('@insurance_situation'))
+    page_click(get('@insurance_situation'))
 
     if get('@insurance_situation') =~ /bg_radio1/i
       click_option(get('@already_benefit_from_bersani'))
 
-      page.click('classeBMProvenienza_link')
-      page.click('//*[@id="classeBMProvenienza_list"]/li[@rel="'+get("@coming_from_bm")+'"]')
-      page.click('classeBMAssegnazione_link')
-      page.click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
+      page_click('classeBMProvenienza_link')
+      page_click('//*[@id="classeBMProvenienza_list"]/li[@rel="'+get("@coming_from_bm")+'"]')
+      page_click('classeBMAssegnazione_link')
+      page_click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
       
       click_option(get('@claims_total_number'))
       click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
@@ -142,11 +142,11 @@ class DirectlineSect1 < Test::Unit::TestCase
       if get('@bersani') == 'usaAgevolazioneBersani_TRUE'
         click_option(get('@bersani_ref_vehicle_insured_with_company'))
         
-        page.click('classeBMAssegnazione_link')
-        page.click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
+        page_click('classeBMAssegnazione_link')
+        page_click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
       end
 
-      click_option(get('@bersani_ref_vehicle_number_plate'))
+      click_option('//input[@id="targaConosciuta_" and @name="motorQuoteModel.targaConosciuta" and @value="FALSE"]') #plate always checked 'no'
 
     end
 
@@ -170,25 +170,25 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     click_option('policyHolder_sex_'+get("@owner_sex")+'')
 
-    page.click('policyHolder_maritalStatus_link')
-    page.click('//*[@id="policyHolder_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
+    page_click('policyHolder_maritalStatus_link')
+    page_click('//*[@id="policyHolder_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
 
-    page.click('policyHolder_profession_link')
-    page.click('//*[@id="policyHolder_profession_list"]/li[@rel="'+get("@job")+'"]')
+    page_click('policyHolder_profession_link')
+    page_click('//*[@id="policyHolder_profession_list"]/li[@rel="'+get("@job")+'"]')
 
     type_text("policyHolder_zipCode", get('@owner_zip_code'))
 
-    page.click('policyHolder_town_link')
+    page_click('policyHolder_town_link')
     enhanced_town_select('policyHolder_town_li_',get("@residence"))
 
-    page.click('policyHolder_drivingLicencePossess_link')
-    page.click('//*[@id="policyHolder_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
+    page_click('policyHolder_drivingLicencePossess_link')
+    page_click('//*[@id="policyHolder_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
     
     click_option(get('@subscriber_is_driver'))
     click_option(get('@subscriber_is_owner'))
 
-    page.click('numeroConducentiMinori26Anni_link')
-    page.click('//*[@id="numeroConducentiMinori26Anni_list"]/li[@rel="'+get("@driver_less_than_26_yrs")+'"]')
+    page_click('numeroConducentiMinori26Anni_link')
+    page_click('//*[@id="numeroConducentiMinori26Anni_list"]/li[@rel="'+get("@driver_less_than_26_yrs")+'"]')
     
     if get("@driver_less_than_26_yrs") == '1'
       page_more_drivers
@@ -210,19 +210,19 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     click_option('under26First_sex_'+get("@owner_sex")+'')
 
-    page.click('under26First_maritalStatus_link')
-    page.click('//*[@id="under26First_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
+    page_click('under26First_maritalStatus_link')
+    page_click('//*[@id="under26First_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
 
-    page.click('under26First_profession_link')
-    page.click('//*[@id="under26First_profession_list"]/li[@rel="'+get("@job")+'"]')
+    page_click('under26First_profession_link')
+    page_click('//*[@id="under26First_profession_list"]/li[@rel="'+get("@job")+'"]')
 
     type_text("under26First_zipCode", get('@owner_zip_code'))
 
-    page.click('under26First_town_link')
+    page_click('under26First_town_link')
     enhanced_town_select('under26First_town_li_',get("@residence"))
     
-    page.click('under26First_drivingLicencePossess_link')
-    page.click('//*[@id="under26First_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
+    page_click('under26First_drivingLicencePossess_link')
+    page_click('//*[@id="under26First_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
 
   end
 
@@ -236,37 +236,37 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     type_text("annoAcquistoVeicolo", get("@purchase_date_year"))
 
-    page.click('marcaVeicolo_link')
-    enhanced_make_select (get("@make"))
+    page_click('marcaVeicolo_link')
+    enhanced_make_select(get("@make"))
 
-    page.click('modelloVeicolo_link')
-    enhanced_model_select (get("@model"))
+    page_click('modelloVeicolo_link')
+    enhanced_model_select(get("@model"))
 
-    page.click('alimentazioneVeicolo_link')
-    page.click('//*[@id="alimentazioneVeicolo_list"]/li[@rel="'+get("@fuel")+'"]')
+    page_click('alimentazioneVeicolo_link')
+    page_click('//*[@id="alimentazioneVeicolo_list"]/li[@rel="'+get("@fuel")+'"]')
 
-    page.click('allestimentoVeicolo_link')
-    enhanced_set_up_select (get("@set_up"))
+    page_click('allestimentoVeicolo_link')
+    enhanced_set_up_select(get("@set_up"))
 
-    page.click('tipoAntifurtoVeicolo_link')
-    page.click('//*[@id="tipoAntifurtoVeicolo_list"]/li[@rel="'+get("@alarm")+'"]')
+    page_click('tipoAntifurtoVeicolo_link')
+    page_click('//*[@id="tipoAntifurtoVeicolo_list"]/li[@rel="'+get("@alarm")+'"]')
 
-    page.click('usoAbitualeVeicolo_link')
-    page.click('//*[@id="usoAbitualeVeicolo_list"]/li[@rel="'+get("@habitual_vehicle_use")+'"]')
+    page_click('usoAbitualeVeicolo_link')
+    page_click('//*[@id="usoAbitualeVeicolo_list"]/li[@rel="'+get("@habitual_vehicle_use")+'"]')
 
     type_text("kmAnnuiPercorsiVeicolo", get('@km_per_yr'))
 
     click_option(get('@vehicle_use'))
 
-    page.click('ricoveroVeicolo_link')
-    page.click('//*[@id="ricoveroVeicolo_list"]/li[@rel="'+get("@vehicle_shelter")+'"]')
+    page_click('ricoveroVeicolo_link')
+    page_click('//*[@id="ricoveroVeicolo_list"]/li[@rel="'+get("@vehicle_shelter")+'"]')
 
     if (page.get_value('valoreVeicolo') == "")
       type_text("valoreVeicolo", get('@vehicle_value'))
     end
 
-    page.click('numeroVeicoliFamiliariPosseduti_link')
-    page.click('//*[@id="numeroVeicoliFamiliariPosseduti_list"]/li[@rel="'+get("@family_car")+'"]')
+    page_click('numeroVeicoliFamiliariPosseduti_link')
+    page_click('//*[@id="numeroVeicoliFamiliariPosseduti_list"]/li[@rel="'+get("@family_car")+'"]')
 
     click_button "btnContinua"
    	page_wait
@@ -280,8 +280,8 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     click_button "btnContinua"
 
-    page.click('fonti_link')
-    page.click('//*[@id="fonti_list"]/li[@rel="'+get("@how_do_you_know_the_company")+'"]')
+    page_click('fonti_link')
+    page_click('//*[@id="fonti_list"]/li[@rel="'+get("@how_do_you_know_the_company")+'"]')
     
     click_button "//img[@alt='Vedi il premio']"
     page_wait
@@ -297,26 +297,38 @@ class DirectlineSect1 < Test::Unit::TestCase
     case @last_value
     when 'on'
 
-      page.click('RCA_LIMIT_0_link')
-      page.click('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
+      page_click('RCA_LIMIT_0_link')
+      if is_present?('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
+        page_click('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
+      else
+        page_click('//*[@id="RCA_LIMIT_0_list"]/li[last()]')
+      end
 
-      page.click('RCA_DEDUCTIBLE_0_link')
-      page.click('//*[@id="RCA_DEDUCTIBLE_0_list"]/li[@rel="'+get("@public_liability_exemption")+'"]')
+      page_click('RCA_DEDUCTIBLE_0_link')
+      page_click('//*[@id="RCA_DEDUCTIBLE_0_list"]/li[@rel="'+get("@public_liability_exemption")+'"]')
 
-      page.click('frazionamento_link')
-      page.click('//*[@id="frazionamento_list"]/li[@rel="'+get("@instalment")+'"]')
+      page_click('frazionamento_link')
+      page_click('//*[@id="frazionamento_list"]/li[@rel="'+get("@instalment")+'"]')
 
-      uncheck_checkbox(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
-      uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-      uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-      uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-      uncheck_checkbox(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
-      uncheck_checkbox(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
-      uncheck_checkbox(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
-      uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
-      uncheck_checkbox(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      click_button(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
+      uncheck_checkbox(get('@protected_bonus_web_id'))
+      click_button(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+      uncheck_checkbox(get('@assistance_web_id'))
+      click_button(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+      uncheck_checkbox(get('@legal_assistance_web_id'))
+      click_button(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+      uncheck_checkbox(get('@driver_accident_coverage_web_id'))
+      click_button(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+      uncheck_checkbox(get('@contingency_protection_web_id'))
+      click_button(get('@glasses_web_id')) if is_checked?(get('@glasses_web_id'))
+      uncheck_checkbox(get('@glasses_web_id'))
+      click_button(get('@kasko_web_id')) if is_checked?(get('@kasko_web_id'))
+      uncheck_checkbox(get('@kasko_web_id'))
+      click_button(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
+      uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id'))
+      click_button(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      uncheck_checkbox(get('@theft_fire_coverage_web_id'))
 
-      sleep @sleep*5
       get_premium(get("@rca_premium_id"))
     else
       raise RangeError, "RC cover cannot be off"
@@ -332,13 +344,6 @@ class DirectlineSect1 < Test::Unit::TestCase
     assert_match(/#{@url.split("?")[0]}/i, page.get_location)
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
-  end
-
-  def select_option(id, value = nil)
-    @last_element, @last_value = id, (value =~ /index=/i)? value : "label=#{value}"
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's selected option element: [#{@last_element}] with label value: [#{@last_value}]"}
-    page_select @last_element, "#{@last_value}"
-    assert_equal page.get_selected_label(@last_element), value unless value =~ /regexpi/i unless value =~ /index=/i
   end
 
   def type_text(id, value = nil)
@@ -361,24 +366,17 @@ class DirectlineSect1 < Test::Unit::TestCase
     assert_equal page.get_value(@last_element), "on"
   end
 
-  def click_checkbox(id, value = nil)
-    @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked checkbox element: [#{@last_element}]"}
-    page_click @last_element
-    assert_equal page.get_value(@last_element), "on"
-  end
-
   def uncheck_checkbox(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's unchecked checkbox element: [#{@last_element}]"}
-    page_uncheck @last_element
-    assert_equal page.get_value(@last_element), "off"
+    page_uncheck @last_element  if is_present? @last_element
+    sleep @sleep*2
   end
 
   def click_button(id, value = nil)
     @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button element: [#{@last_element}]"}
-    page_click_button @last_element
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked button/item element: [#{@last_element}]"}
+    page_click_button @last_element if is_present?(@last_element)
   end
 
   def is_checked?(id, value = nil)
@@ -386,6 +384,16 @@ class DirectlineSect1 < Test::Unit::TestCase
     present = is_present?(@last_element)
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked? - #{page.is_checked(@last_element)}"} if present
     return present ? page.is_checked(@last_element) : nil
+  end
+
+  def is_present?(name)
+    present = page.is_element_present name
+    if present
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is present?: #{present}"}
+      visible = page.is_visible name
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is visible #{visible}"}
+    end
+    return present
   end
 
   def is_editable?(name)
@@ -411,7 +419,6 @@ class DirectlineSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on element = #{element}"}
     wait_for_elm(element)
     page.click element
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
   end
 
   def page_uncheck(element)
@@ -434,39 +441,10 @@ class DirectlineSect1 < Test::Unit::TestCase
     return page.get_value element
   end
 
-  def page_select(element, label)
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from combo = #{element} a #{label}"}
-    wait_for_select(element, label)
-    page.select element, label
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_selected_value(element)}"}
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => visible element text = #{page.get_selected_label(element)}"}
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => all element options = #{page.get_select_options(element)}"}
-  end
-
-  def wait_for_select(combo_name, label)
-    sleep @sleep
-    assert_not_nil combo_name
-    assert_not_nil label
-    assert_not_nil label.gsub!("label=","") unless (label =~ /index=/i)
-    wait_for_elm combo_name
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => combo is present: #{page.element? combo_name}"}
-    assert !60.times{ break if (page.get_select_options(combo_name).include?(label)); sleep 1 }	unless label =~ /regexpi/i unless label =~ /index=/i
-  end
-
   def wait_for_elm(name)
     sleep @sleep
     page.wait_for_element name
     assert_is_element_present(name)
-  end
-
-  def is_present?(name)
-    present = page.is_element_present name
-    if present
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is present?: #{present}"}
-      visible = page.is_visible name
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{name} is visible #{visible}"}
-    end
-    return present
   end
 
   def assert_is_element_present(element)
@@ -489,6 +467,9 @@ class DirectlineSect1 < Test::Unit::TestCase
   end
 
   def enhanced_make_select(make)
+
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from make combo the element #{make}"}
+
     i = 0
     text = ""
     while true
@@ -498,10 +479,16 @@ class DirectlineSect1 < Test::Unit::TestCase
       i += 1
     end
 
-    page.click label
+    page_click label
+
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on make combo"}
+
   end
 
   def enhanced_model_select(model)
+
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from model combo the element #{model}"}
+
     i = 0
     text = ""
     while true
@@ -511,10 +498,16 @@ class DirectlineSect1 < Test::Unit::TestCase
       i += 1
     end
 
-    page.click label
+    page_click label
+
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on model combo"}
+
   end
 
   def enhanced_set_up_select(set_up)
+
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from setup combo the element #{set_up}"}
+
     i = 0
     text = ""
     while true
@@ -524,10 +517,16 @@ class DirectlineSect1 < Test::Unit::TestCase
       i += 1
     end
 
-    page.click label
+    page_click label
+
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on setup combo"}
+
   end
 
   def enhanced_town_select(path, town)
+
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from residence combo the element #{town}"}
+
     i = 0
     text = ""
     while true
@@ -537,7 +536,10 @@ class DirectlineSect1 < Test::Unit::TestCase
       i += 1
     end
 
-    page.click label
+    page_click label
+
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on residence combo"}
+
   end
   
 end

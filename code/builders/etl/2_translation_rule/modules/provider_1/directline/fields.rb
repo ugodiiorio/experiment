@@ -18,6 +18,8 @@ module Provider1Directline
       {'driv_job_str' => 'dipendente/impiegato/funzionario/dirigente'} => 'IMPIEGATO',
       {'driv_job_str' => 'disoccupato'} => 'DISOCCUPATO',
       {'driv_job_str' => 'ecclesiastico'} => 'ECCLESIASTICO',
+      {'driv_job_str' => 'ingegnere'} => 'LIBERO_PROFESSIONISTA',
+      {'driv_job_str' => 'insegnante'} => 'INSEGNANTE',
       {'driv_job_str' => 'imprenditore / industriale'} => 'IMPRENDITORE',
       {'driv_job_str' => 'libero professionista'} => 'LIBERO_PROFESSIONISTA',
       {'driv_job_str' => 'medico'} => 'PERSONALE_MEDICO',
@@ -143,7 +145,6 @@ module Provider1Directline
       {'pol_already_benefit_from_bersani_str' => 'no'} => 'usataAgevolazioneBersani_FALSE',
       {'pol_assistance_web_id_str' => 'id elemento'} => 'SOS_MOTOR',
       {'pol_bersani_ref_vehicle_insured_with_company_str' => 'no'} => 'polizzaProvenienzaDirectLine_FALSE',
-      {'pol_bersani_ref_vehicle_number_plate_str' => 'ab123cd'} => '//input[@id="targaConosciuta_" and @name="motorQuoteModel.targaConosciuta" and @value="FALSE"]',
       {'pol_bersani_str' => 'convivente'} => 'usaAgevolazioneBersani_TRUE',
       {'pol_bersani_str' => 'no'} => 'usaAgevolazioneBersani_FALSE',
       {'pol_bersani_str' => 'veicolo'} => 'usaAgevolazioneBersani_TRUE',
@@ -206,15 +207,15 @@ module Provider1Directline
       {'pol_privacy_1_str' => 'id elemento web1'} => 'optinPrivacy',
       {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'BONUS_PROTETTO',
       {'pol_public_liability_exemption_str' => 'no'} => '1',
-      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '6', #5.000.000/1.000.000',
-      {'pol_public_liability_indemnity_limit_str' => '1600000'} => '3', #2.500.000/1.000.000
-      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '6', #5.000.000/1.000.000',
-      {'pol_public_liability_indemnity_limit_str' => '2500000'} => '3', #2.500.000/1.000.000
-      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '6', #5.000.000/1.000.000',
-      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '5', #3.600.000/1.000.000
-      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '6', #5.000.000/1.000.000',
-      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '6', #5.000.000/1.000.000',
       {'pol_public_liability_indemnity_limit_str' => '800000'} => '3', #2.500.000/1.000.000
+      {'pol_public_liability_indemnity_limit_str' => '1600000'} => '3', #2.500.000/1.000.000
+      {'pol_public_liability_indemnity_limit_str' => '2500000'} => '3', #2.500.000/1.000.000
+      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '5', #3.600.000/1.000.000
+      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '---', #5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '---', #5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '---', #5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '---', #5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '---', #5.000.000/1.000.000',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'totale_premio_annuo_promozione',
 #      {'pol_residence_province_str' => 'AG'} => 'AGRIGENTO',
 #      {'pol_residence_province_str' => 'AL'} => 'ALESSANDRIA',
