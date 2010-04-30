@@ -172,8 +172,7 @@ class DirectlineSect2 < Test::Unit::TestCase
 
     type_text("policyHolder_zipCode", get('@owner_zip_code'))
 
-    my_page_click('policyHolder_town_link')
-    enhanced_town_select('policyHolder_town_li_',get("@residence"))
+    enhanced_town_select('policyHolder_town_link',get("@residence"), "//*[@id='policyHolder_town_li_?']/span")
 
     my_page_click('policyHolder_drivingLicencePossess_link')
     my_page_click('//*[@id="policyHolder_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
@@ -201,8 +200,7 @@ class DirectlineSect2 < Test::Unit::TestCase
     
     type_text("annoAcquistoVeicolo", get("@purchase_date_year"))
 
-    my_page_click('marcaVeicolo_link')
-    enhanced_make_select (get("@make"))
+    enhanced_make_select('marcaVeicolo_link', get("@make"), "//*[@id='marcaVeicolo_li_?']/span")
 
     type_text("modelloVeicolo", get("@model"))
 
@@ -250,8 +248,7 @@ class DirectlineSect2 < Test::Unit::TestCase
 
     type_text("under26First_zipCode", get('@owner_zip_code'))
 
-    my_page_click('under26First_town_link')
-    enhanced_town_select('under26First_town_li_',get("@residence"))
+    enhanced_town_select('under26First_town_link',get("@residence"), "//*[@id='under26First_town_li_?']/span")
 
     my_page_click('under26First_drivingLicencePossess_link')
     my_page_click('//*[@id="under26First_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
@@ -485,40 +482,56 @@ def get_premium(p)
 
   end
 
-  def enhanced_make_select(make)
-    i = 0
-    text = ""
-    while true
-      label= '//*[@id="marcaVeicolo_li_'+i.to_s+'"]/span'
-      text = page.get_text(label)
-      break if text =~ /#{make.gsub("regexpi:","")}/i || i==300
-      i += 1
-    end
+  def enhanced_make_select(id, value, item)
 
-    page.click label
-  end
-  
-def enhanced_town_select(path, town)
+    @last_element, @last_value, @matched = id, value, false
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
 
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from residence combo the element #{town}"}
+    my_page_click(@last_element)
+    span = find_span_element(item, @last_value.gsub("regexpi:",""), 0)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{span.gsub("regexpi:","")}]"} if @matched
+    my_page_click(span) if @matched
 
-    label = find_text_element(path, town)
-
-    if @matched
-      my_page_click label
-    else if page.is_element_present('//*[@id="policyHolder_town_li_1"]/span')
-            my_page_click '//*[@id="policyHolder_town_li_1"]/span'
-          else  if page.is_element_present('//*[@id="policyHolder_town_li_0"]/span')
-            my_page_click '//*[@id="policyHolder_town_li_0"]/span'
-                else
-                  raise RangeError, "Town not coherent with zip code"
-          end
-      end
-
-      # raise RangeError, "Town not coherent with zip code"
-    end
-
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on residence combo"}
+    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_text(id)} for [#{@last_value.gsub("regexpi:","")}]"} : assert(page.get_text(id) =~ /#{@last_value.gsub("regexpi:","")}/i, page.get_text(id).inspect)
+    page.key_press(id, "\\9")
 
   end
+
+  def enhanced_town_select(id, value, item)
+
+    @last_element, @last_value, @matched = id, value, false
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
+
+    my_page_click(@last_element)
+
+    span = find_span_element(item, @last_value, 0)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{span}]"} if @matched
+    my_page_click(span) if @matched
+
+    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_text(id)} for [#{@last_value}]"} : assert(page.get_text(id) =~ /#{@last_value}/i, page.get_text(id).inspect)
+    page.key_press(id, "\\9")
+
+  end
+
+#  def enhanced_town_select(path, town)
+#
+#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from residence combo the element #{town}"}
+#
+#    span = find_span_element(path, town)
+#
+#    unless @matched
+#      if page.is_element_present('//*[@id="policyHolder_town_li_1"]/span')
+#          my_page_click '//*[@id="policyHolder_town_li_1"]/span'
+#      else if page.is_element_present('//*[@id="policyHolder_town_li_0"]/span')
+#          my_page_click '//*[@id="policyHolder_town_li_0"]/span'
+#            else
+#              raise RangeError, "Town not coherent with zip code"
+#            end
+#      end
+#    end
+#
+#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on residence combo"}
+#
+#  end
+
 end
