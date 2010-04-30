@@ -300,7 +300,7 @@ module Provider2Linear
       'pol_bersani_ref_vehicle_insured_with_company_str' => 'translate_field',
       'pol_bersani_ref_vehicle_number_plate_str' => 'copy_field',
   
-      'pol_birth_date_day_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
+      'pol_birth_date_day_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%-1d")',
       'pol_birth_date_month_str' => 'x=(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%-1m"); y= "index=" + x',
       'pol_birth_date_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_birth_date_year_num' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
