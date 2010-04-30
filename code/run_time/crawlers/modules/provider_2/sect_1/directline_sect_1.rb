@@ -113,7 +113,7 @@ class DirectlineSect1 < Test::Unit::TestCase
    	page_wait
 
   end
-
+  
   def page_1
 
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
@@ -124,6 +124,10 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     page_click(get('@insurance_situation'))
 
+    type_text("giornoDecorrenzaPolizza", @rate_date.slice(0,2))
+    type_text("meseDecorrenzaPolizza", @rate_date.slice(3,2))
+    type_text("annoDecorrenzaPolizza", @rate_date.slice(6,4))
+
     if get('@insurance_situation') =~ /bg_radio1/i
       click_option(get('@already_benefit_from_bersani'))
 
@@ -131,7 +135,7 @@ class DirectlineSect1 < Test::Unit::TestCase
       page_click('//*[@id="classeBMProvenienza_list"]/li[@rel="'+get("@coming_from_bm")+'"]')
       page_click('classeBMAssegnazione_link')
       page_click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
-
+      
       click_option(get('@claims_total_number'))
       click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
 
@@ -141,7 +145,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
       if get('@bersani') == 'usaAgevolazioneBersani_TRUE'
         click_option(get('@bersani_ref_vehicle_insured_with_company'))
-
+        
         page_click('classeBMAssegnazione_link')
         page_click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
       end
@@ -149,10 +153,6 @@ class DirectlineSect1 < Test::Unit::TestCase
       click_option('//input[@id="targaConosciuta_" and @name="motorQuoteModel.targaConosciuta" and @value="FALSE"]') #plate always checked 'no'
 
     end
-
-    type_text("giornoDecorrenzaPolizza", @rate_date.slice(0,2))
-    type_text("meseDecorrenzaPolizza", @rate_date.slice(3,2))
-    type_text("annoDecorrenzaPolizza", @rate_date.slice(6,4))
 
     click_button "btnContinua"
    	page_wait
@@ -178,18 +178,17 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     type_text("policyHolder_zipCode", get('@owner_zip_code'))
 
-    page_click('policyHolder_town_link')
-    enhanced_town_select('policyHolder_town_li_',get("@residence"))
+    enhanced_town_select('policyHolder_town_link',get("@residence"), "//*[@id='policyHolder_town_li_?']/span")
 
     page_click('policyHolder_drivingLicencePossess_link')
     page_click('//*[@id="policyHolder_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
-
+    
     click_option(get('@subscriber_is_driver'))
     click_option(get('@subscriber_is_owner'))
 
     page_click('numeroConducentiMinori26Anni_link')
     page_click('//*[@id="numeroConducentiMinori26Anni_list"]/li[@rel="'+get("@driver_less_than_26_yrs")+'"]')
-
+    
     if get("@driver_less_than_26_yrs") == '1'
       page_more_drivers
     end
@@ -218,9 +217,8 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     type_text("under26First_zipCode", get('@owner_zip_code'))
 
-    page_click('under26First_town_link')
-    enhanced_town_select('under26First_town_li_',get("@residence"))
-
+    enhanced_town_select('under26First_town_link',get("@residence"), "//*[@id='under26First_town_li_?']/span")
+    
     page_click('under26First_drivingLicencePossess_link')
     page_click('//*[@id="under26First_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
 
@@ -236,17 +234,14 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     type_text("annoAcquistoVeicolo", get("@purchase_date_year"))
 
-    page_click('marcaVeicolo_link')
-    enhanced_make_select(get("@make"))
+    enhanced_make_select('marcaVeicolo_link', get("@make"), "//*[@id='marcaVeicolo_li_?']/span")
 
-    page_click('modelloVeicolo_link')
-    enhanced_model_select(get("@model"))
+    enhanced_model_set_up_select('modelloVeicolo_link',get("@model"), "//*[@id='modelloVeicolo_li_?']/span")
 
     page_click('alimentazioneVeicolo_link')
     page_click('//*[@id="alimentazioneVeicolo_list"]/li[@rel="'+get("@fuel")+'"]')
 
-    page_click('allestimentoVeicolo_link')
-    enhanced_set_up_select(get("@set_up"))
+    enhanced_model_set_up_select('allestimentoVeicolo_link', get("@set_up"), "//*[@id='allestimentoVeicolo_li_?']/span")
 
     page_click('tipoAntifurtoVeicolo_link')
     page_click('//*[@id="tipoAntifurtoVeicolo_list"]/li[@rel="'+get("@alarm")+'"]')
@@ -282,7 +277,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     page_click('fonti_link')
     page_click('//*[@id="fonti_list"]/li[@rel="'+get("@how_do_you_know_the_company")+'"]')
-
+    
     click_button "//img[@alt='Vedi il premio']"
     page_wait
 
@@ -466,84 +461,58 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   end
 
-  def enhanced_make_select(make)
+  def enhanced_make_select(id, value, item)
 
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => looking for element #{make} in make combo"}
+    @last_element, @last_value, @matched = id, value, false
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
 
-    i = 0
-    text = ""
-    while true
-      label= '//*[@id="marcaVeicolo_li_'+i.to_s+'"]/span'
-      text = page.get_text(label)
-      break if text =~ /#{make.gsub("regexpi:","")}/i || i==300
-      i += 1
-    end
+    page_click(@last_element)
+    span = find_span_element(item, @last_value.gsub("regexpi:",""), 0)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{span.gsub("regexpi:","")}]"} if @matched
+    page_click(span) if @matched
 
-    page_click label
-
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on make combo"}
+    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_text(id)} for [#{@last_value.gsub("regexpi:","")}]"} : assert(page.get_text(id) =~ /#{@last_value.gsub("regexpi:","")}/i, page.get_text(id).inspect)
+    page.key_press(id, "\\9")
 
   end
 
-  def enhanced_model_select(model)
+  def enhanced_model_set_up_select(id,value, item)
 
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => looking for element #{model} in model combo"}
+    @last_element, @last_value, @matched = id, value, false
+    @alternate_car = false
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
 
-    i = 0
-    text = ""
-    while true
-      label= '//*[@id="modelloVeicolo_li_'+i.to_s+'"]/span'
-      text = page.get_text(label)
-      break if text =~ /#{model.gsub("regexpi:","")}/i || i==300
-      i += 1
+    page_click(@last_element)
+
+    @last_value.split("|").each do |regex|
+      span = find_span_element(item, regex.gsub("regexpi:",""), 0)
+      @last_value = regex.gsub("regexpi:","")
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{span}]"} if @matched
+      page_click(span) if @matched
+      break if @matched
+      @alternate_car = true
+      @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value [#{@last_value}]"}
     end
 
-    page_click label
-
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on model combo"}
+    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_text(id)} for [#{@last_value}]"} : assert(page.get_text(id) =~ /#{@last_value}/i, page.get_text(id).inspect)
+    page.key_press(id, "\\9")
 
   end
 
-  def enhanced_set_up_select(set_up)
+  def enhanced_town_select(id, value, item)
 
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => looking for element #{set_up} in setup combo"}
+    @last_element, @last_value, @matched = id, value, false
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
 
-    i = 0
-    text = ""
-    while true
-      label= '//*[@id="allestimentoVeicolo_li_'+i.to_s+'"]/span'
-      text = page.get_text(label)
-      break if text =~ /#{set_up.gsub("regexpi:","")}/i || i==300
-      i += 1
-    end
+    page_click(@last_element)
 
-    page_click label
+    span = find_span_element(item, @last_value, 0)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{span}]"} if @matched
+    page_click(span) if @matched
 
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on setup combo"}
+    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_text(id)} for [#{@last_value}]"} : assert(page.get_text(id) =~ /#{@last_value}/i, page.get_text(id).inspect)
+    page.key_press(id, "\\9")
 
   end
-
-  def enhanced_town_select(path, town)
-
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => looking for element #{town} in residence combo"}
-
-    i = 0
-    text = ""
-    while is_present?("'//*[@id="'+path+i.to_s+'"]/span'")
-      label= '//*[@id="'+path+i.to_s+'"]/span'
-      text = page.get_text(label)
-      break if text == town
-      i += 1
-    end
-
-    if text != town
-      label = '//*[@id="'+path+'1"]/span'
-    end
-
-    page_click label
-
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on residence combo"}
-
-  end
-
+  
 end
