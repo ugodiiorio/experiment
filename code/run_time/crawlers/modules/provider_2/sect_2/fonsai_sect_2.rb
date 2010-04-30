@@ -151,6 +151,7 @@ class FonsaiSect2 < Test::Unit::TestCase
 
     type_keys "cap", get('@owner_zip_code')
     page.fire_event("cap", "blur")
+    sleep @sleep
     page.key_up("city","\\115")
     select_option "city", get('@residence')
 
@@ -179,7 +180,7 @@ class FonsaiSect2 < Test::Unit::TestCase
     end
 
     if is_present?(get('@coming_from_company'))
-#      click_option get('@coming_from_company')
+      click_option get('@coming_from_company')
     end
 
     click_button "//div[@class='floatRight']/input"
@@ -207,7 +208,7 @@ class FonsaiSect2 < Test::Unit::TestCase
       select_option "r0", get("@nr_of_paid_claims_this_yr")
     end
 
-#    type_captcha
+    type_captcha
 
     click_button "//div[@id='avantiD']/input"
     page_wait

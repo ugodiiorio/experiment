@@ -73,7 +73,7 @@ module Provider1Conte
       'pol_kasko_minimum_uncoverage_str' => 'copy_field',
       'pol_payment_str' => 'translate_field',
       'veh_fuel_str' => 'translate_field',
-      'driv_birth_place_str' => 'res=profilefield[:driv_birth_place_str]; res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA"); res.gsub("VILLA D ALME", "VILLA D\'ALME"); res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res.gsub("PORTO SANT ELPIDIO","PORTO SANT\'ELPIDIO"); res.gsub("DOLCE","DOLCE\'");',
+      'driv_birth_place_str' => 'res = profilefield[:driv_birth_place_str].upcase.strip;res = res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA");res = res.gsub("PORTO SANT ELPIDIO","PORTO SANT\'ELPIDIO"); res.gsub("VILLA D ALME", "VILLA D\'ALME"); res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res.gsub("DOLCE","DOLCE\'");',
       'driv_birth_province_str' => 'translate_field',
       'driv_driving_license_points_str' => 'translate_field',
       'driv_driving_license_type_str' => 'translate_field',

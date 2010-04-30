@@ -1,11 +1,11 @@
-#############################################
-#   	Created by Kubepartners			          #
-#                                           #
-#				19/03/2010                          #
-#					                                  #
-#     modified: 26/04/2010                  #
-#                         	                #
-#############################################
+############################################
+#   	Created by Kubepartners              #
+#                                          #
+#				19/03/2010                         #
+#                                          #
+#     modified: 26/04/2010                 #
+#                                          #
+############################################
 
 class DirectlineSect1 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
@@ -312,6 +312,8 @@ class DirectlineSect1 < Test::Unit::TestCase
 
       click_button(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
       uncheck_checkbox(get('@protected_bonus_web_id'))
+      click_button(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      uncheck_checkbox(get('@theft_fire_coverage_web_id'))
       click_button(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
       uncheck_checkbox(get('@assistance_web_id'))
       click_button(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
@@ -326,8 +328,6 @@ class DirectlineSect1 < Test::Unit::TestCase
       uncheck_checkbox(get('@kasko_web_id'))
       click_button(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
       uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id'))
-      click_button(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
-      uncheck_checkbox(get('@theft_fire_coverage_web_id'))
 
       get_premium(get("@rca_premium_id"))
     else
@@ -536,6 +536,10 @@ class DirectlineSect1 < Test::Unit::TestCase
       i += 1
     end
 
+    if i==10
+      label = label= '//*[@id="'+path+'1"]/span'
+    end
+    
     page_click label
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on residence combo"}
