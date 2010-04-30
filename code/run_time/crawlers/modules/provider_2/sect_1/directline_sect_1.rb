@@ -537,7 +537,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     end
 
     if i==10
-      label = label= '//*[@id="'+path+'1"]/span'
+      label = '//*[@id="'+path+'1"]/span'
     end
 
     page_click label
