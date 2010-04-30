@@ -1,11 +1,11 @@
-###################################
-#   	Created by Kubepartners     #
-#                                 #
-#				19/03/2010                #
-#                                 #
-#     modified: 26/04/2010        #
-#                         	      #
-###################################
+############################################
+#   	Created by Kubepartners              #
+#                                          #
+#				19/03/2010                         #
+#                                          #
+#     modified: 26/04/2010                 #
+#                                          #
+############################################
 
 class DirectlineSect1 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
