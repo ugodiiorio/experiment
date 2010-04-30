@@ -34,7 +34,7 @@ module FieldMappingProvider2Sect2
       'pol_bersani_str' => 'infield[:pol_bersani_str].strip.downcase',
       'pol_birth_date_str' => 'infield[:pol_birth_date_str].strip.downcase',
       'pol_BM_1_more_than_1_year_str' => 'infield[:pol_BM_assigned_str].strip.to_i == 0 ? "si" : "no"',
-      'pol_BM_assigned_str' => 'infield[:pol_BM_assigned_str].strip.downcase',
+      'pol_BM_assigned_str' => 'infield[:pol_BM_assigned_str]==""  ? "14" : infield[:pol_BM_assigned_str].strip.downcase',
       'pol_BM_particular_cases_str' => '"no"',
       'pol_car_already_insured_with_company_str' => "'no'",
       'pol_car_policy_with_company_str' => "'no'",

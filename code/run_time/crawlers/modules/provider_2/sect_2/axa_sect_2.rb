@@ -146,10 +146,10 @@ class AxaSect2 < Test::Unit::TestCase
     type_text("ETAVEI", get('@matriculation_date'))
     select_option "MARCA", get("@make")
 
-    click_button '//input[@value="Avanti"]'
+    sleep @sleep*3
 
-    select_option "ALLEST", get("@model")
-    select_option "_ESPG",get("@driving_experience")
+    select_option "ALLEST", get("@set_up")
+    select_option "_ESPG", get("@driving_experience")
     click_button '//input[@value="Avanti"]'
     page_wait
 
@@ -160,7 +160,7 @@ class AxaSect2 < Test::Unit::TestCase
     if is_present?("MARCA2")
      select_option "MARCA2", get("@make")
      page_wait
-     select_option "ALLES2", get("@model")
+     select_option "ALLES2", get("@set_up")
     end
 
     select_option "PPFRAZ", get("@instalment")
