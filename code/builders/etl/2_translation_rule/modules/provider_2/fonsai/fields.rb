@@ -143,7 +143,7 @@ module Provider2Fonsai
       {'pol_coming_from_BM_str' => '16'} => '16',
       {'pol_coming_from_BM_str' => '17'} => '17',
       {'pol_coming_from_BM_str' => '18'} => '18',
-      {'pol_coming_from_company_str' => 'generali'} => 'attRisk_A',
+      {'pol_coming_from_company_str' => 'Generali'} => 'attRisk_A',
       {'pol_risk_certificate_str' => 'si'} => 'attRiskY',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Già assicurato con altra compagnia',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Prima polizza',

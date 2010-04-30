@@ -157,17 +157,17 @@ class AxaSect1 < Test::Unit::TestCase
     end
 
     select_option "PPFRAZ", get("@instalment")
-    select_option "*MRCA", get('@public_liability_indemnity_limit')
     select_option "AXABM", get("@bm_assigned")
     select_option "FTARIF", get("@quotation")
 
     click_button 'clausole'
     page_wait
 
-#    click_option(get('@renounce_compensation'))
-#    click_option(get('@exclusive_drive'))
-#    click_option(get('@defined_drive'))
-#    select_option "*FRCA", get("@public_liability_exemption")
+    click_option(get('@renounce_compensation'))
+    click_option(get('@exclusive_drive'))
+    click_option(get('@defined_drive'))
+    select_option "*MRCA", get('@public_liability_indemnity_limit')
+    select_option "*FRCA", get("@public_liability_exemption")
 
     click_button 'btnCalcolaPremio'
     page_wait
