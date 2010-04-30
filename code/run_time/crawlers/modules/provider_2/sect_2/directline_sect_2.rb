@@ -66,7 +66,7 @@ class DirectlineSect2 < Test::Unit::TestCase
   end
 
   def teardown
-	  #@selenium_driver.close_current_browser_session if @selenium_driver
+	  @selenium_driver.close_current_browser_session if @selenium_driver
     #    assert_equal [], @verification_errors
   end
 
@@ -309,7 +309,7 @@ class DirectlineSect2 < Test::Unit::TestCase
 
       click_button(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
       uncheck_checkbox(get('@theft_fire_coverage_web_id'))
-
+      sleep @sleep*2
       get_premium(get("@rca_premium_id"))
     else
       raise RangeError, "RC cover cannot be off"
@@ -505,8 +505,16 @@ def enhanced_town_select(path, town)
     label = find_text_element(path, town)
 
     if @matched
-      page_click label
-    else
+      my_page_click label
+    else if page.is_element_present('//*[@id="policyHolder_town_li_1"]/span')
+            my_page_click '//*[@id="policyHolder_town_li_1"]/span'
+          else  if page.is_element_present('//*[@id="policyHolder_town_li_0"]/span')
+            my_page_click '//*[@id="policyHolder_town_li_0"]/span'
+                else
+                  raise RangeError, "Town not coherent with zip code"
+          end
+      end
+
       # raise RangeError, "Town not coherent with zip code"
     end
 
