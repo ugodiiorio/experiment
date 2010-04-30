@@ -468,7 +468,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def enhanced_make_select(make)
 
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from make combo the element #{make}"}
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => looking for element #{make} in make combo"}
 
     i = 0
     text = ""
@@ -487,7 +487,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def enhanced_model_select(model)
 
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from model combo the element #{model}"}
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => looking for element #{model} in model combo"}
 
     i = 0
     text = ""
@@ -506,7 +506,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def enhanced_set_up_select(set_up)
 
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from setup combo the element #{set_up}"}
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => looking for element #{set_up} in setup combo"}
 
     i = 0
     text = ""
@@ -525,18 +525,18 @@ class DirectlineSect1 < Test::Unit::TestCase
 
   def enhanced_town_select(path, town)
 
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from residence combo the element #{town}"}
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => looking for element #{town} in residence combo"}
 
     i = 0
     text = ""
-    while true
+    while is_present?("'//*[@id="'+path+i.to_s+'"]/span'")
       label= '//*[@id="'+path+i.to_s+'"]/span'
       text = page.get_text(label)
-      break if text == town || i==10
+      break if text == town
       i += 1
     end
 
-    if i==10
+    if text != town
       label = '//*[@id="'+path+'1"]/span'
     end
 
