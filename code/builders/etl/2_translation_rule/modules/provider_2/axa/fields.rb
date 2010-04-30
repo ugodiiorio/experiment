@@ -5,7 +5,7 @@ module Provider2Axa
     @target_values = {}
 
     @target_values = {
-      
+
       {'own_owner_sex_str' => 'F'} => 'Femmina',
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'pol_client_type_str' => 'persona fisica'} => '//input[@name="PFIS" and @value="1"]',

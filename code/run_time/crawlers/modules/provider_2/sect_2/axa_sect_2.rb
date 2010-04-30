@@ -126,21 +126,16 @@ class AxaSect2 < Test::Unit::TestCase
     select_option "PPCLAV", get("@vehicle_type")
     page_wait
 
-#    click_option(get('@client_type'))
-#    if (page.get_attribute("#{@last_element}@value") == "1")
-      type_text("ETASOG", get('@birth_date'))
-      select_option "SEX", get('@owner_sex')
-#      select_option "ATT", get('@job')
-#    end
+    type_text("ETASOG", get('@birth_date'))
+    select_option "SEX", get('@owner_sex')
+
     type_text("CAPRES", get('@owner_zip_code'))
     select_option "_RCA21", get('@second_driver')
 
     select_option "DPRCA", get('@insurance_situation')
     select_option "ALIM", get('@fuel')
-#    click_option(get('@tow_hook'))
-#    select_option "PPUSOV", get('@vehicle_use')
 
-     type_text("NSIN", get('@claims_total_number'))
+    type_text("NSIN", get('@claims_total_number'))
     
     if get('@insurance_situation') =~ /attestato/i
       type_text("NSIN2", get('@nr_of_paid_claims_2_yr'))
@@ -150,7 +145,6 @@ class AxaSect2 < Test::Unit::TestCase
 
     type_text("ETAVEI", get('@matriculation_date'))
     select_option "MARCA", get("@make")
-#   select_option "TIPTGA", get('@number_plate_type')
 
     click_button '//input[@value="Avanti"]'
 
@@ -169,7 +163,6 @@ class AxaSect2 < Test::Unit::TestCase
      select_option "ALLES2", get("@model")
     end
 
-
     select_option "PPFRAZ", get("@instalment")
     select_option "*FRCA", get("@public_liability_exemption")
     select_option "CBM", get("@bm_assigned") #TODO risolvere per bm<3
@@ -181,10 +174,9 @@ class AxaSect2 < Test::Unit::TestCase
     click_option(get('@public_liability_young_exemption'))
     select_option "*MRCA", get('@public_liability_indemnity_limit')
 
-#    click_option(get('@renounce_compensation'))
-#    click_option(get('@exclusive_drive'))
-#    click_option(get('@defined_drive'))
-
+    click_option(get('@renounce_compensation'))
+    click_option(get('@exclusive_drive'))
+    click_option(get('@defined_drive'))
 
     click_button 'btnCalcolaPremio'
     page_wait
