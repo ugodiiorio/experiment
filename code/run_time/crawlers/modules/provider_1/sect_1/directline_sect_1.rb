@@ -1,11 +1,11 @@
-#############################################
-#   	Created by Kubepartners		    #
-#                                           #
-#				19/03/2010  #
-#					    #
-#     modified: 26/04/2010                  #
-#                         	            #
-#############################################
+###################################
+#   	Created by Kubepartners     #
+#                                 #
+#				19/03/2010                #
+#                                 #
+#     modified: 26/04/2010        #
+#                         	      #
+###################################
 
 class DirectlineSect1 < Test::Unit::TestCase
   attr_reader :selenium_driver, :suite_test
@@ -536,6 +536,10 @@ class DirectlineSect1 < Test::Unit::TestCase
       i += 1
     end
 
+    if i==10
+      label = label= '//*[@id="'+path+'1"]/span'
+    end
+    
     page_click label
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on residence combo"}

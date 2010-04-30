@@ -6,7 +6,7 @@ module Provider1Directline
 
     @rule_values = {
 
-#      'driv_birth_place_str' => 'copy_field',
+#      'driv_birth_place_str' => 'res = profilefield[:driv_birth_place_str].upcase.strip;res = res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA");res = res.gsub("PORTO SANT ELPIDIO","PORTO SANT\'ELPIDIO"); res.gsub("VILLA D ALME", "VILLA D\'ALME"); res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res.gsub("DOLCE","DOLCE\'");',
 #      'driv_birth_province_str' => 'copy_field',
 #      'driv_birth_state_str' => 'copy_field',
 #      'driv_citizenship_str' => 'copy_field',

@@ -127,7 +127,7 @@ module Provider2Axa
       'veh_capacity_num' => 'copy_field',
       'veh_corrosive_oily_gas_liquid_transportation_str' => 'copy_field',
       'veh_cv_num' => 'copy_field',
-      'veh_fuel_str' => 'copy_field',
+      'veh_fuel_str' => 'translate_field',
       'veh_full_load_total_weight_num' => 'copy_field',
       'veh_gas_methane_supply_str' => 'copy_field',
       'veh_gprs_str' => 'copy_field',
