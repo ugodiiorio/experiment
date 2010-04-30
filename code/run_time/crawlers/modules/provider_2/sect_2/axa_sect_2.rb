@@ -174,9 +174,16 @@ class AxaSect2 < Test::Unit::TestCase
     click_option(get('@public_liability_young_exemption'))
     select_option "*MRCA", get('@public_liability_indemnity_limit')
 
-    click_option(get('@renounce_compensation'))
-    click_option(get('@exclusive_drive'))
-    click_option(get('@defined_drive'))
+ #   click_option(get('@renounce_compensation'))
+ #   click_option(get('@defined_drive'))
+
+    if is_present?("_RCA18")
+      click_option(get('@exclusive_drive'))
+    end
+
+    if is_present?("_RCA20")
+      click_option('//input[@name="_RCA20" and @value="0"]')
+    end
 
     click_button 'btnCalcolaPremio'
     page_wait
