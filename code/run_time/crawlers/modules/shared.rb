@@ -19,7 +19,7 @@ module Shared
 
       item = "//span/ul/li"
       @last_value.split("|").each do |regex|
-        model_set_up = find_text_element(item, regex)
+        model_set_up = find_array_element(item, regex, 1)
         @last_value = regex
         @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{item}]"} if @matched
         click_button_item(model_set_up, @last_value) if @matched
