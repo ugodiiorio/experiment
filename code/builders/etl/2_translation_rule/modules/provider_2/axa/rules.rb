@@ -127,7 +127,7 @@ module Provider2Axa
       'veh_capacity_num' => 'copy_field',
       'veh_corrosive_oily_gas_liquid_transportation_str' => 'copy_field',
       'veh_cv_num' => 'copy_field',
-      'veh_fuel_str' => 'copy_field',
+      'veh_fuel_str' => 'translate_field',
       'veh_full_load_total_weight_num' => 'copy_field',
       'veh_gas_methane_supply_str' => 'copy_field',
       'veh_gprs_str' => 'copy_field',
@@ -310,7 +310,7 @@ module Provider2Axa
       'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
       'pol_quotation_str' => 'translate_field',
       'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
-      'veh_model_str' => 'kw=profilefield[:veh_kw_str];make=profilefield[:veh_model_str]; make= make.gsub(/tddi/i, "TD DI");  make= make.gsub(/tdci/i, "TD CI");  make= make.gsub(/turbodiesel/i, "TD"); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',
+      'veh_set_up_str' => 'kw=profilefield[:veh_kw_str];make=profilefield[:veh_set_up_str]; make= make.gsub(/tddi/i, "TD DI");  make= make.gsub(/tdci/i, "TD CI");  make= make.gsub(/turbodiesel/i, "TD"); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',
 
     }
 

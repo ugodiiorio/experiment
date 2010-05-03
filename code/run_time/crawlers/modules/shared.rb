@@ -114,9 +114,9 @@ module Shared
     end
   end
 
-  def find_text_element(e, regex)
+  def find_array_element(e, regex, base)
 
-    i = 1
+    i = base
     item = "#{e}[#{i}]"
     while page.is_element_present(item) == true
       text = page.get_text(item)
@@ -124,6 +124,21 @@ module Shared
       break if text =~ /#{regex}/i
       i += 1
       item = "#{e}[#{i}]"
+    end
+    return item
+
+  end
+
+  def find_span_element(e, regex, base)
+
+    i = base
+    item = "#{e.gsub('?',i.to_s)}"
+    while page.is_element_present(item) == true
+      text = page.get_text(item)
+      @matched = true if text =~ /#{regex}/i
+      break if text =~ /#{regex}/i
+      i += 1
+      item = "#{e.gsub('?',i.to_s)}"
     end
     return item
 

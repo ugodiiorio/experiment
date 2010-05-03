@@ -131,7 +131,7 @@ end
       #faccio la insert sulla translated_fields
       begin
         stmt_ins = @dbh.prepare(@stmt_ins_tr_field)
-#        puts "#{@field_name}"; puts "#{@field_value}"
+       # puts "#{@field_name}"; puts "#{@field_value}"
         stmt_ins.execute(@provider_id, @sector_id, @company_id, @field_name, @field_value)
       rescue Mysql::Error => e
       case e.errno.to_s

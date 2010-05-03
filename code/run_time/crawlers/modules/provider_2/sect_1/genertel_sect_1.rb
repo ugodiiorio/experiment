@@ -416,15 +416,15 @@ class GenertelSect1 < Test::Unit::TestCase
 
     item = "//body/div[9]/div/div" unless is_present?(item)
     @last_value.split("|").each do |regex|
-      model_set_up = find_text_element(item, regex)
+      model_set_up = find_array_element(item, regex, 1)
       @last_value = regex
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{item}]"} if @matched
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{model_set_up}]"} if @matched
       click_button_item(model_set_up, @last_value) if @matched
       break if @matched
       @alternate_car = true
       @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => First Model or Set-up not matched for profile [#{@kte.profile}] and record [#{@record}]! Using secondary regex value [#{@last_value}]"}
     end
-    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_value(id)} with [#{@last_value}]"} : assert(page.get_value(id) =~ /#{@last_value}/i, page.get_value(id).inspect)
+    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_value(id)} for [#{@last_value}]"} : assert(page.get_value(id) =~ /#{@last_value}/i, page.get_value(id).inspect)
     page.key_press(id, "\\9")
 
   end

@@ -9,6 +9,8 @@ gem 'text'
 require 'text'
 
 
+
+
 def similar (str1 , str2)
 str1.downcase!
 pairs1 = (0..str1.length-2).collect {|i| str1[i,2]}.reject {
@@ -257,7 +259,7 @@ comboConte =["Focus 1.6i 16V cat SW Ambiente",
 "Focus 2.0i 16V cat 5p. Zetec"]
 
 
-match(comboConte,"Focs 1.1  TDCi 105CV cat 5p. Ambiente").sort {|a, b|
+match(comboConte,"Focs 1.8  TDCi 100CV cat 5p. Ambiente").sort {|a, b|
   if a[1] == b[1]
     (a[2] <=> b[2])
   else

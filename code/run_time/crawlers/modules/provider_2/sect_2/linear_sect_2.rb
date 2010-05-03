@@ -112,7 +112,7 @@ class LinearSect2 < Test::Unit::TestCase
   def page_1
     
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
+#    select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
     select_option 'cond_ass_cb', get("@insurance_situation")
     if get("@insurance_situation")=~ /bonus malus/i
       #      select_option 'cond_ass_cb', get("@insurance_situation")
@@ -153,10 +153,7 @@ class LinearSect2 < Test::Unit::TestCase
     sleep @sleep*2
     select_option "modello_moto", get("@model")
     sleep @sleep*2
-  #  select_option "allestimento_auto", get("@set_up")
 
-   # (is_present?(get('@gas_methane_supply'))) ? click_option(get('@gas_methane_supply')) : nil
-   # click_option(get('@alarm'))
 
     select_option "ricovero_moto", get("@vehicle_shelter")
    # select_option "utilizzo_auto", get("@habitual_vehicle_use")
@@ -212,7 +209,9 @@ class LinearSect2 < Test::Unit::TestCase
     end
 
     type_text("comune_residenza", get('@owner_residence'))
-    #page.fire_event 'comune_residenza', 'blur'
+    page.fire_event "comune_residenza" , "blur"
+    sleep @sleep*3
+    is_present?("localita") ? select_option("localita", "index=1") : nil
 
     click_button 'nextStep'
     page_wait

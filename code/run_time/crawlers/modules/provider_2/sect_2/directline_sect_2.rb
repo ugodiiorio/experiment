@@ -80,9 +80,6 @@ class DirectlineSect2 < Test::Unit::TestCase
       page_2
       page_3
       page_4
-      page_5
-      page_6
-#      page_7
       page_premium
 
       @kte.test_result = "Test OK => New RCA price for profile [#{@kte.profile}] and record [#{@record}]: € #{@kte.rc_premium}"
@@ -107,25 +104,53 @@ class DirectlineSect2 < Test::Unit::TestCase
   include Shared
 
   def page_intro
-
     open_page(@url)
-    click_button "//img[@src='/images/bottone_lancio_preventivo-moto.gif']"
+    click_button "//img[@alt='Per la tua moto']"
    	page_wait
-
   end
   
   def page_1
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     sleep @sleep*2
-    click_option(get('@insurance_situation'))
-    (page.get_attribute("#{@last_element}@value") == "XX") ? click_option(get('@already_benefit_from_bersani')) : nil
-    type_text("dataInizioValidita", @rate_date)
-   # type_text("Targa", get('@bersani_ref_vehicle_number_plate'))
-    select_option "riskType", get("@vehicle_type")
-    select_option "ConoscenzaAllState", get("@how_do_you_know_the_company")
 
-    click_button "SUBMIT"
+    is_present?("optinPrivacy")? click_option( "//input[@id='optinPrivacy' and @value='1']" )  :nil
+
+    click_button "//img[@src='/iw-runtime/it_IT/static/images/btn_continua_on.jpg']"
+    click_button(get("@vehicle_type"))
+    click_button(get('@insurance_situation'))
+
+#    click_option("//input[@id='usaAgevolazioneBersani_FALSE' and @value='FALSE']")
+
+    sleep @sleep*2
+    my_click_option(get('@bersani'))
+    #b
+ 
+    if get('@insurance_situation') == '//div[@id="bg_radio1"]/p/label/span/span/img'
+      my_page_click('classeBMProvenienza_link')
+      my_page_click('//*[@id="classeBMProvenienza_list"]/li[@rel="'+get("@coming_from_bm")+'"]')
+      my_page_click('classeBMAssegnazione_link')
+      my_page_click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
+      if get('@bersani') == 'usaAgevolazioneBersani_FALSE'
+        click_option(get('@claims_total_number'))
+        click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
+      end
+    else
+#      wait_for_elm('//input[@id="targaConosciuta_" and @name="motorQuoteModel.targaConosciuta" and @value="FALSE"]')
+      # il campo ricordi la targa del veicolo da assicurara va valorizzata sempre a no
+      click_option('//input[@id="targaConosciuta_FALSE" and @name="motorQuoteModel.targaConosciuta" and @value="FALSE"]')
+      if get('@bersani') == 'usaAgevolazioneBersani_TRUE'
+        my_click_option(get('@bersani_ref_vehicle_insured_with_company'))
+        page.click('classeBMAssegnazione_link')
+        page.click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
+      end
+    end
+
+    type_text("giornoDecorrenzaPolizza", @rate_date.slice(0,2))
+    type_text("meseDecorrenzaPolizza", @rate_date.slice(3,2))
+    type_text("annoDecorrenzaPolizza", @rate_date.slice(6,4))
+
+    click_button('btnContinua')
    	page_wait
 
   end
@@ -133,17 +158,36 @@ class DirectlineSect2 < Test::Unit::TestCase
   def page_2
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    type_text("datadinascita", get('@birth_date'))
-    click_option(get('@owner_sex'))
-    select_option "/qol/application/beans/vo/VoContraente.strCodStatoCivile", get("@civil_status")
-    select_option "/qol/application/beans/vo/VoContraente.strCodProfessione", get("@job")
-    store_parameter(:job, page.get_selected_label(@last_element)) if @store_params
-    type_text("CAP", get('@owner_zip_code'))
-    select_option "/qol/application/beans/vo/VoContraente.strAnniPatente", get("@driving_license_yrs")
+    type_text("policyHolder_bornDay", get('@birth_date_day'))
+    type_text("policyHolder_bornMonth", get('@birth_date_month'))
+    type_text("policyHolder_bornYear", get('@birth_date_year'))
+
+    click_option('policyHolder_sex_'+get("@owner_sex")+'')
+
+    my_page_click('policyHolder_maritalStatus_link')
+    my_page_click('//*[@id="policyHolder_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
+
+    my_page_click('policyHolder_profession_link')
+    my_page_click('//*[@id="policyHolder_profession_list"]/li[@rel="'+get("@job")+'"]')
+
+    type_text("policyHolder_zipCode", get('@owner_zip_code'))
+
+    enhanced_town_select('policyHolder_town_link',get("@residence"), "//*[@id='policyHolder_town_li_?']/span")
+
+    my_page_click('policyHolder_drivingLicencePossess_link')
+    my_page_click('//*[@id="policyHolder_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
+
     click_option(get('@subscriber_is_driver'))
     click_option(get('@subscriber_is_owner'))
 
-    click_button "SUBMIT"
+    my_page_click('numeroConducentiMinori26Anni_link')
+    my_page_click(get("@driver_less_than_26_yrs"))
+
+    if get("@driver_less_than_26_yrs") == 'numeroConducentiMinori26Anni_li_2'
+      page_more_drivers
+    end
+
+    click_button "btnContinua"
    	page_wait
 
   end
@@ -151,12 +195,34 @@ class DirectlineSect2 < Test::Unit::TestCase
   def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    select_option "numConducentiU26Dich", get("@driver_less_than_26_yrs")
-    @last_value =~ /un conducente/i ? @one_driver_young = true : @one_driver_young = false
-    type_text("Numauto", get('@family_car'))
-    click_option(get('@family_members_insured_with_company'))
+    type_text("mesePrimaImmatricolazioneVeicolo", get("@matriculation_date_month"))
+    type_text("annoPrimaImmatricolazioneVeicolo", get("@matriculation_date_year"))
+    
+    type_text("annoAcquistoVeicolo", get("@purchase_date_year"))
 
-    click_button "SUBMIT"
+    enhanced_make_select('marcaVeicolo_link', get("@make"), "//*[@id='marcaVeicolo_li_?']/span")
+
+    type_text("modelloVeicolo", get("@model"))
+
+    type_text("Cilindrata", get("@capacity"))
+
+    my_page_click('usoAbitualeVeicolo_link')
+    my_page_click('//*[@id="usoAbitualeVeicolo_list"]/li[@rel="'+get("@habitual_vehicle_use")+'"]')
+
+    type_text("kmAnnuiPercorsiVeicolo", get('@km_per_yr'))
+
+    click_option(get('@vehicle_use'))
+
+    my_page_click('ricoveroVeicolo_link')
+    my_page_click('//*[@id="ricoveroVeicolo_list"]/li[@rel="'+get("@vehicle_shelter")+'"]')
+
+
+    type_text("valoreVeicolo", get('@vehicle_value'))
+    
+    my_page_click('numeroVeicoliFamiliariPosseduti_link')
+    my_page_click('//*[@id="numeroVeicoliFamiliariPosseduti_list"]/li[@rel="'+get("@family_car")+'"]')
+
+    click_button "btnContinua"
    	page_wait
 
     page_more_drivers if @one_driver_young
@@ -165,117 +231,82 @@ class DirectlineSect2 < Test::Unit::TestCase
 
   def page_more_drivers
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    driver_birth_date = format_date(Chronic.parse("25 year ago tomorrow"))
-    type_text("dataNascitaConducenteUno", driver_birth_date)
-    click_option "//input[@name='sessoConducenteUno' and @value='#{get("@owner_specification")}']"
-    select_option "/qol/application/beans/vo/VoConducenteUno.strCodStatoCivile", get("@civil_status")
-    select_option "/qol/application/beans/vo/VoConducenteUno.strCodProfessione", get("@job")
-    type_text("CAP", get('@owner_zip_code'))
-    select_option "/qol/application/beans/vo/VoConducenteUno.strAnniPatente", "index=5"
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
-    click_button "SUBMIT"
-   	page_wait
+    type_text("under26First_bornDay", Chronic.parse("25 year ago tomorrow").strftime("%d"))
+    type_text("under26First_bornMonth", Chronic.parse("25 year ago tomorrow").strftime("%m"))
+    type_text("under26First_bornYear", Chronic.parse("25 year ago tomorrow").strftime("%Y"))
+
+    my_click_option('under26First_sex_'+get("@owner_sex")+'')
+
+    my_page_click('under26First_maritalStatus_link')
+    my_page_click('//*[@id="under26First_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
+
+    my_page_click('under26First_profession_link')
+    my_page_click('//*[@id="under26First_profession_list"]/li[@rel="'+get("@job")+'"]')
+
+    type_text("under26First_zipCode", get('@owner_zip_code'))
+
+    enhanced_town_select('under26First_town_link',get("@residence"), "//*[@id='under26First_town_li_?']/span")
+
+    my_page_click('under26First_drivingLicencePossess_link')
+    my_page_click('//*[@id="under26First_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
 
   end
 
   def page_4
+     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+#    click_button "//img[@alt='Vedi il premio']"
 
+#    page.click('fonti_link')
+#    page.click(get("@how_do_you_know_the_company"))
     
-    if get('@insurance_situation') == 'id_radio_bm'
-      select_option "classeProvenienzaMoto", get("@coming_from_bm")
-      select_option "classeAssegnazioneMoto", get("@bm_assigned")
-      click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
-      click_option(get('@claims_total_number'))
-      #      type_text("dataacquistoauto", get('@purchase_date_year'))
-    elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="MU"]'
-      click_option(get('@bersani'))
-      if page.get_attribute("#{@last_element}@value") != "0"
-        #      type_text("dataacquistoauto", get('@purchase_date_year'))
-        type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
-        select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
-        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
-      end
-    elsif get('@insurance_situation') == '//input[@name="tipoPolizza" and @value="MN"]'
-      click_option(get('@bersani'))
-      if page.get_attribute("#{@last_element}@value") != "0"
-        #      type_text("dataacquistoauto", get('@purchase_date_year'))
-        type_text("id_scadenzaPolizzaMadre", get('@bersani_policy_expiring_date'))
-        select_option "sinistriRCA12MesiBMAge", get("@nr_of_paid_claims_this_yr")
-        select_option "/qol/application/beans/vo/VoBMAgevolata.strClasseProvPolizzaMadre", get("@coming_from_bm")
-      end
-    end
+    click_button "//input[@alt='Vedi il premio']"
 
-    type_text("annoprimaimmatricolazione_m", get('@matriculation_date'))
-    is_present?("dataacquistoauto") ? type_text("dataacquistoauto", get('@purchase_date_year')) : nil
-    select_option "/qol/application/beans/vo/VoAuto.strCodMarca", get("@make")
-    type_text("modelloautomobile", get('@model'))
-#    store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
-#    page_click @last_element
-#    select_model_set_up "select_modelli", get("@model")
-#    store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
+#    prova =  page.get_select_options("motorQuoteModel.conoscenza")
 
-
-    click_button "PROSEGUI"
+    #if is_present?("fonti") then  select_option("motorQuoteModel.conoscenza","INTERNET") else puts "fonti non è presente" end
+    click_button "btnContinua"
+  
     page_wait
-
   end
-
-  def page_5
-
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-#    page_click "allestimentoAuto"
-#    #    select_option "allestimentoAuto", get("@set_up")
-#    select_model_set_up "allestimentoAuto", get("@set_up")
-#    store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
-
-    type_text("cilindrata", get('@capacity'))
-    select_option "UsoPra", get("@habitual_vehicle_use")
-    type_text("KMPercorsi", get('@km_per_yr'))
-    click_option(get('@vehicle_use'))
-
-    click_button "PROSEGUI"
-    page_wait
-
-  end
-
-  def page_6
-
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-#    select_option "iCodAntifurto", get("@alarm")
-    select_option "iCodRicoveroNotturno", get("@vehicle_shelter")
-    /^,00/.match(get_value("valoreauto")) ? type_text("valoreauto", get('@vehicle_value')) : nil
-    
-    click_button "SUBMIT"
-    page_wait
-
-  end
-
-#  def page_7
-#
-#    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-#    click_button "AVANTI"
-#    page_wait
-#
-#  end
+  
 
   def page_premium
 
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
     when 'on'
-      select_max("SelM_RCA", get('@public_liability_indemnity_limit'))
-      select_option("SelRateizzazione", get('@instalment')) #ATTENTION! Always use 1 year split
-      select_option("SelFSM_RCA", get('@public_liability_exemption'))
 
-      click_button "RICALCOLA"
-      sleep @sleep*3
+      my_page_click('RCA_DEDUCTIBLE_0_link')
+      my_page_click('//*[@id="RCA_DEDUCTIBLE_0_list"]/li[@rel="'+get("@public_liability_exemption")+'"]')
 
-      @last_element, @last_value = "@rca_premium_id", get("@rca_premium_id")
-      wait_for_elm @last_value
+      my_page_click('RCA_LIMIT_0_link')
+      my_page_click('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
+
+      my_page_click('frazionamento_link')
+      my_page_click('//*[@id="frazionamento_list"]/li[@rel="'+get("@instalment")+'"]')
+
+#      uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+#      uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+      click_button(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+      uncheck_checkbox(get('@legal_assistance_web_id'))
+
+      click_button(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+      uncheck_checkbox(get('@assistance_web_id'))
+
+#      uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+      click_button(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+      uncheck_checkbox(get('@driver_accident_coverage_web_id'))
+
+      click_button(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+      uncheck_checkbox(get('@theft_fire_coverage_web_id'))
+      sleep @sleep*2
       get_premium(get("@rca_premium_id"))
     else
       raise RangeError, "RC cover cannot be off"
@@ -288,7 +319,7 @@ class DirectlineSect2 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    #assert_match(/#{@url.split("?")[0]}/i, page.get_location)
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
   end
 
@@ -318,6 +349,13 @@ class DirectlineSect2 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked option button element: [#{@last_element}]"}
     page_click @last_element
     assert_equal page.get_value(@last_element), "on"
+  end
+
+  def my_click_option(id, value = nil)
+    @last_element, @last_value = id, value
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked option button element: [#{@last_element}]"}
+    wait_for_elm(id)
+    page.click id
   end
 
   def click_checkbox(id, value = nil)
@@ -361,6 +399,13 @@ class DirectlineSect2 < Test::Unit::TestCase
     wait_for_elm(element)
     page.click element
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
+  end
+
+  def my_page_click(element)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on element = #{element}"}
+    wait_for_elm(element)
+    page.click element
+    #@logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
   end
 
   def page_uncheck(element)
@@ -422,13 +467,13 @@ class DirectlineSect2 < Test::Unit::TestCase
     assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
-  def get_premium(p)
+def get_premium(p)
 
     @last_element = p
     premium = page.get_text(@last_element)
-    assert premium.split("€")[1] != nil, @last_element.inspect
-    assert premium.split("€")[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
-    premium = premium.split("€")[1].gsub(".","")
+    assert premium.split[1] != nil, @last_element.inspect
+    assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
+    premium = premium.split("€")[0].gsub(".","")
     premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
@@ -436,5 +481,57 @@ class DirectlineSect2 < Test::Unit::TestCase
     @kte.rc_premium = premium
 
   end
+
+  def enhanced_make_select(id, value, item)
+
+    @last_element, @last_value, @matched = id, value, false
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
+
+    my_page_click(@last_element)
+    span = find_span_element(item, @last_value.gsub("regexpi:",""), 0)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{span.gsub("regexpi:","")}]"} if @matched
+    my_page_click(span) if @matched
+
+    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_text(id)} for [#{@last_value.gsub("regexpi:","")}]"} : assert(page.get_text(id) =~ /#{@last_value.gsub("regexpi:","")}/i, page.get_text(id).inspect)
+    page.key_press(id, "\\9")
+
+  end
+
+  def enhanced_town_select(id, value, item)
+
+    @last_element, @last_value, @matched = id, value, false
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
+
+    my_page_click(@last_element)
+
+    span = find_span_element(item, @last_value, 0)
+    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{span}]"} if @matched
+    my_page_click(span) if @matched
+
+    @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_text(id)} for [#{@last_value}]"} : assert(page.get_text(id) =~ /#{@last_value}/i, page.get_text(id).inspect)
+    page.key_press(id, "\\9")
+
+  end
+
+#  def enhanced_town_select(path, town)
+#
+#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from residence combo the element #{town}"}
+#
+#    span = find_span_element(path, town)
+#
+#    unless @matched
+#      if page.is_element_present('//*[@id="policyHolder_town_li_1"]/span')
+#          my_page_click '//*[@id="policyHolder_town_li_1"]/span'
+#      else if page.is_element_present('//*[@id="policyHolder_town_li_0"]/span')
+#          my_page_click '//*[@id="policyHolder_town_li_0"]/span'
+#            else
+#              raise RangeError, "Town not coherent with zip code"
+#            end
+#      end
+#    end
+#
+#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on residence combo"}
+#
+#  end
 
 end
