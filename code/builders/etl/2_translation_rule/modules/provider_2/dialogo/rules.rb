@@ -287,7 +287,7 @@ module Provider2Dialogo
     @rule_values = {
 
       'driv_citizenship_str' => 'copy_field',
-      'driv_driving_license_yrs_str' => 'x = "" ; if profilefield[:driv_driving_license_yrs_str].to_i < 1; x="meno di un anno"; elsif profilefield[:driv_driving_license_yrs_str].to_i <= 2; x="da uno a due anni"; elsif profilefield[:driv_driving_license_yrs_str].to_i <= 10; x="da due a dieci anni"; else  x="da oltre dieci anni" end;',
+      'driv_driving_license_yrs_str' => 'x = "" ; if profilefield[:driv_driving_license_yrs_str].to_i <= 1; x="meno di un anno"; elsif profilefield[:driv_driving_license_yrs_str].to_i <= 2; x="da uno a due anni"; elsif profilefield[:driv_driving_license_yrs_str].to_i <= 10; x="da due a dieci anni"; else  x="da oltre dieci anni" end;',
       'driv_job_str' => 'job=profilefield[:driv_job_str];jregexp_mod = "regexpi:([A-Za-z0-9])*";jregexpi_mod_array = job.split("/");jregexpi_mod_array.each do |el| ; el.split("/"); el.each do |el2|;jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end; end ;jregexp_mod = jregexp_mod + "(impiegato)\\\\b" ;' ,
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str'  => 'copy_field',
