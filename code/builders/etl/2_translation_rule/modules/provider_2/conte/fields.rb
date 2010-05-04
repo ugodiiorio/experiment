@@ -422,7 +422,7 @@ module Provider2Conte
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'page:situazione_1:1',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'page:situazione_1:0',
       {'pol_driving_license_suspension_str' => 'no'} => 'page:sospensione_patente_contraente:1',
-      {'driv_civil_status_str' => 'Coniugato con figli'} => 'Coniugato/Coniugata',
+      {'driv_civil_status_str' => 'Coniugato senza figli'} => 'Coniugato/Coniugata',
       {'pol_client_type_str' => 'persona fisica'} => 'page:relazione_contraente_proprietario_passo1:0',
       {'pol_client_type_str' => 'persona giuridica'} => 'page:relazione_contraente_proprietario_passo1:1',
       {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'Tragitto Casa-Lavoro',
