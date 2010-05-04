@@ -9,7 +9,7 @@ all_provider_1#genialloyd#url="http://www.genialloyd.it"
 axa_provider_2#axa#url="http://www.axa-italia.it/java/ApplicazioneDiPreventivazione/rcAutoHome.jsp"
 conte_provider_2#conte#case sector; when "sect_1"; url="https://preventivo.conte.it/calculator/calculatorAuto.htm"; when "sect_2"; url="https://preventivo.conte.it/calculator/calculatorMoto.htm"; else; url=nil; end; url
 dialogo_provider_2#dialogo#url="http://www.dialogo.it/DialogoInternet/home.faces"
-directline_provider_2#directline#url="http://www.directline.it/preventivi-assicurazioni-rca/calcola-preventivo-assicurazione.jhtml"
+directline_provider_2#directline#url="http://www.directline.it/iw-runtime/preventivi/"
 fonsai_provider_2#fonsai#url="http://preventivazionerc.gruppofondiariasai.it/jprevevo/Initial.do?isvap=A111S"
 genertel_provider_2#genertel#case sector; when "sect_1"; url="http://www.genertel.it/assicurazioni/auto/genertel_web_classic.jhtml"; when "sect_2"; url="http://www.genertel.it/assicurazioni/moto/assicurazione_moto_classic.jhtml"; else; url=nil; end; url
 generali_provider_2#generali#url="http://www.preventivi.generali.it/PreWeb/DatiIniziali?S_SERVLET=DATIINIZIALI&INIZIO=S&S_TIPO_PREV=PRVPLUS"
