@@ -28,14 +28,14 @@ module Provider2Conte
       {'driv_job_str' => 'Commerciante'} => 'Commerciante',
       {'driv_job_str' => 'dipendente/impiegato/funzionario/dirigente'} => 'Impiegato Azienda',
       {'driv_job_str' => 'disoccupato'} => 'Disoccupato',
-       {'driv_job_str' => 'ecclesiastico'} => 'Ecclesiastico Arcidiacono',
-        {'driv_job_str' => 'Insegnante'} => 'Insegnante',
+      {'driv_job_str' => 'ecclesiastico'} => 'Ecclesiastico Arcidiacono',
+      {'driv_job_str' => 'Insegnante'} => 'Insegnante',
 
       {'driv_job_str' => 'libero professionista'} => 'Imprenditore generico',
       {'driv_job_str' => 'Giudice/magistrato'} => 'Magistrato',
       {'driv_job_str' => 'militare'} => 'Militare Esercito',
       {'driv_job_str' => 'operaio'} => 'Operaio generico',
-       {'driv_job_str' => 'notaio'} => 'Notaio',
+      {'driv_job_str' => 'notaio'} => 'Notaio',
      
       {'driv_job_str' => 'pensionato da lavoro'} => 'Pensionato',
       {'driv_job_str' => 'medico'} => 'Medico entomologo',
