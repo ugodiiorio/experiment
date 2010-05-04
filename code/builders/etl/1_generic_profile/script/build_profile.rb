@@ -1,4 +1,3 @@
-#!/usr/bin/ruby -w
 #!/usr/bin/env ruby
 $LOAD_PATH << './builders/etl/1_generic_profile'
 
