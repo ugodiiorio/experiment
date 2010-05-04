@@ -163,7 +163,7 @@ module Provider1Quixa
       {'pol_residence_province_str' => 'LU'} => 'LUCCA',
       {'pol_residence_province_str' => 'MC'} => 'MACERATA',
       {'pol_residence_province_str' => 'MN'} => 'MANTOVA',
-      {'pol_residence_province_str' => 'MS'} => 'MASSA CARRARA',
+      {'pol_residence_province_str' => 'MS'} => 'MASSA',
       {'pol_residence_province_str' => 'MT'} => 'MATERA',
       {'pol_residence_province_str' => 'ME'} => 'MESSINA',
       {'pol_residence_province_str' => 'MI'} => 'MILANO',

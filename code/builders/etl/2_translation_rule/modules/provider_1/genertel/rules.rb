@@ -67,7 +67,7 @@ module Provider1Genertel
       'pol_blukasko_on_off_str' => 'copy_field',
       'pol_blukasko_premium_id_str' => 'copy_field',
       'pol_blukasko_web_id_str' => 'copy_field',
-      'pol_BM_assigned_str' => '( profilefield[:pol_bersani_str] =~ /(veicolo|convivente)/i  && profilefield[:pol_BM_assigned_str]== "-1" ? "CLASSE01" : translate_field',
+      'pol_BM_assigned_str' => '(profilefield[:pol_bersani_str] =~ /(veicolo|convivente)/i  && profilefield[:pol_BM_assigned_str]== "-1") ? "1" : translate_field',
       'pol_BM_1_more_than_1_year_str' => 'translate_field',
       'pol_BM_in_risk_certificate_str' => 'copy_field',
       'pol_BM_particular_cases_str' => 'copy_field',
