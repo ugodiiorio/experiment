@@ -182,7 +182,7 @@ module Provider1Directline
       'pol_record_id_str' => 'copy_field',
 #      'pol_renounce_compensation_str' => 'copy_field',
 #      'pol_residence_province_str' => 'translate_field',
-      'pol_residence_str' => 'res=profilefield[:pol_residence_str]; res.gsub("VILLA", "VILLA D\'ALME"); res.gsub("SANT ANNA ARRESI","SANT\'ANNA ARRESI"); res.gsub("ROMANO D EZZELINO","ROMANO D\'EZZELINO"); res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res.gsub("PORTO SANT ELPIDIO","PORTO SANT\'ELPIDIO"); res.gsub("DOLCE","DOLCE\'");',
+      'pol_residence_str' => 'res=profilefield[:pol_residence_str];res=res.gsub("SANT ANNA ARRESI","SANT\'ANNA ARRESI");res=res.gsub("ROMANO D EZZELINO","ROMANO D\'EZZELINO");res=res.gsub("VILLA D ALME", "VILLA D\'ALME");res=res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI");res=res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA");res=res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA");res=res.gsub("PORTO SANT ELPIDIO","PORTO SANT\'ELPIDIO");res=res.gsub("DOLCE","DOLCE\'");',
 #      'pol_residence_str' => 'copy_field',
 #      'pol_risk_certificate_str' => 'copy_field',
 #      'pol_road_assistance_code_str' => 'copy_field',
