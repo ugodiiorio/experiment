@@ -176,7 +176,7 @@ module Provider1ZurichConnect
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'translate_field',
-      'pol_residence_str' => 'res=profilefield[:pol_residence_str].gsub("SAN GIOVANNI IN PERSICETO","SAN GIOVANNI IN PERSICET").gsub("TREVISAGO","TERVISAGO").gsub("DOLCE","DOLCE\'").gsub("PORTO SANT ELPIDIO","PORTO SANT\'ELPIDIO").gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA");res.gsub("FOSSO","FOSSO\'");res.gsub("SANT ANNA ARRESI","SANT\'ANNA ARRESI");res.gsub("ROMANO D EZZELINO","ROMANO D\'EZZELINO");res.gsub("SEZZE SCALO","SEZZE");res.gsub("GUIDONIA MONTECELIO","GUIDONIA");',
+      'pol_residence_str' => 'res=profilefield[:pol_residence_str].gsub("SAN GIOVANNI IN PERSICETO","SAN GIOVANNI IN PERSICET").gsub("TREVISAGO","TERVISAGO").gsub("DOLCE","DOLCE\'").gsub("PORTO SANT ELPIDIO","PORTO SANT\'ELPIDIO").gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA").gsub("FOSSO","FOSSO\'").gsub("SANT ANNA ARRESI","SANT\'ANNA ARRESI").gsub("ROMANO D EZZELINO","ROMANO D\'EZZELINO").gsub("SEZZE SCALO","SEZZE").gsub("GUIDONIA MONTECELIO","GUIDONIA");',
       'pol_risk_certificate_str' => 'copy_field',
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_indemnity_limit_str' => 'copy_field',
