@@ -218,7 +218,7 @@ module Provider1Genertel
       {'pol_residence_province_str' => 'PT'} => 'PISTOIA',
       {'pol_residence_province_str' => 'PN'} => 'PORDENONE',
       {'pol_residence_province_str' => 'PZ'} => 'POTENZA',
-      {'pol_residence_province_str' => 'PO'} => 'PRATO',
+      {'pol_residence_province_str' => 'PO'} => 'PRATO (PO)',
       {'pol_residence_province_str' => 'RG'} => 'RAGUSA',
       {'pol_residence_province_str' => 'RA'} => 'RAVENNA',
       {'pol_residence_province_str' => 'RC'} => 'REGGIO DI CALABRIA',

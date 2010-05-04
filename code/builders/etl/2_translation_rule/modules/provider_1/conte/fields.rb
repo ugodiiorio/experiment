@@ -59,7 +59,7 @@ module Provider1Conte
       {'own_owner_residence_province_str' => 'CA'} => 'CAGLIARI',
       {'own_owner_residence_province_str' => 'CL'} => 'CALTANISSETTA',
       {'own_owner_residence_province_str' => 'CB'} => 'CAMPOBASSO',
-      {'own_owner_residence_province_str' => 'CI'} => 'CARBONIA IGLESIAS',
+      {'own_owner_residence_province_str' => 'CI'} => 'CARBONIA-IGLESIAS',
       {'own_owner_residence_province_str' => 'CE'} => 'CASERTA',
       {'own_owner_residence_province_str' => 'CT'} => 'CATANIA',
       {'own_owner_residence_province_str' => 'CZ'} => 'CATANZARO',
