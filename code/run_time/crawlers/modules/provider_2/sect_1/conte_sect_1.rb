@@ -191,6 +191,7 @@ class ConteSect1 < Test::Unit::TestCase
       type_keys("page:comune_di_nascita", get('@birth_place').to_s[0,1])
       wait_for_elm("//div[@id='risultatiSrchComNas']/ul/span/li")
       type_keys("page:comune_di_nascita", get('@birth_place').to_s[1..-1])
+      sleep @sleep*2
       page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
     else #ESTERO
       select_option "page:conducente_principale_nazione_estera", get("@birth_state")
@@ -207,7 +208,7 @@ class ConteSect1 < Test::Unit::TestCase
     type_keys("page:comune_di_residenza", get('@residence').to_s[1..-1])
     page.click "//ul[@id='ulResult']/span[1]/li"
     assert_equal page.get_value(@last_element).upcase, get('@residence').upcase
-    
+
     type_text("page:toponimo_residenza", get('@toponym'))
     type_text("page:indirizzo_residenza", get('@address_street'))
     type_text("page:numero_residenza", get('@address_num'))
@@ -348,7 +349,7 @@ class ConteSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-    #assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
   end
 
   def select_option(id, value, option = "label")
