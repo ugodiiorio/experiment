@@ -172,7 +172,7 @@ class DirectlineSect2 < Test::Unit::TestCase
 
     type_text("policyHolder_zipCode", get('@owner_zip_code'))
 
-    enhanced_town_select('policyHolder_town_link',get("@residence"), "//*[@id='policyHolder_town_li_?']/span")
+    enhanced_town_select('policyHolder_town_link', get("@residence"), "//*[@id='policyHolder_town_li_?']/span")
 
     my_page_click('policyHolder_drivingLicencePossess_link')
     my_page_click('//*[@id="policyHolder_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
