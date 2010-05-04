@@ -26,7 +26,7 @@ module Provider1Conte
       'pol_birth_date_month_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
       'pol_birth_date_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_birth_date_year_num' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'pol_BM_assigned_str' => 'translate_field',
+      'pol_BM_assigned_str' => 'profilefield[:pol_bersani_str] == "no" ? translate_field : ( profilefield[:pol_BM_assigned_str].to_i == -1 ? "1" : translate_field)',
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
       'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str] == 10 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
