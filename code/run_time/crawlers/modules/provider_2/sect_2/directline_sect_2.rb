@@ -513,25 +513,4 @@ def get_premium(p)
 
   end
 
-#  def enhanced_town_select(path, town)
-#
-#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Select from residence combo the element #{town}"}
-#
-#    span = find_span_element(path, town)
-#
-#    unless @matched
-#      if page.is_element_present('//*[@id="policyHolder_town_li_1"]/span')
-#          my_page_click '//*[@id="policyHolder_town_li_1"]/span'
-#      else if page.is_element_present('//*[@id="policyHolder_town_li_0"]/span')
-#          my_page_click '//*[@id="policyHolder_town_li_0"]/span'
-#            else
-#              raise RangeError, "Town not coherent with zip code"
-#            end
-#      end
-#    end
-#
-#    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{label} selected on residence combo"}
-#
-#  end
-
 end
