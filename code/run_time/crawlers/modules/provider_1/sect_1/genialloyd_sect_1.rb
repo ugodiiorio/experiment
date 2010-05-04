@@ -112,7 +112,9 @@ class GenialloydSect1 < Test::Unit::TestCase
   def page_intro
 
     open_page(@url)
-    click_button "//a[@class='home_btn carP']"
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+    click_button "//div[@id='autodiv']/form/input"
    	page_wait
 
   end
@@ -120,6 +122,7 @@ class GenialloydSect1 < Test::Unit::TestCase
   def page_1
 
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     click_option(get('@insurance_situation'))
     if page.get_attribute("#{@last_element}@id") == "situazione3"
@@ -162,6 +165,7 @@ class GenialloydSect1 < Test::Unit::TestCase
   def page_2
 
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     select_option "month", get("@matriculation_date_month")
     select_option "year", get("@matriculation_date_year")
@@ -185,6 +189,7 @@ class GenialloydSect1 < Test::Unit::TestCase
   def page_3
 
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     select_option "percorrenza", get("@km_per_yr")
     click_option(get('@vehicle_shelter'))
@@ -206,6 +211,8 @@ class GenialloydSect1 < Test::Unit::TestCase
   def page_premium
 
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
+
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
       when 'on'
