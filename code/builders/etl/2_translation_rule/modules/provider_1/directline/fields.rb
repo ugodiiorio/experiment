@@ -334,7 +334,7 @@ module Provider1Directline
       {'veh_alarm_str' => 'immobilizer'} => 'IMMOBILIZER_SATELLITARE',
       {'veh_fuel_str' => 'B'} => 'BENZINA',
       {'veh_fuel_str' => 'D'} => 'DIESEL',
-      {'veh_fuel_str' => 'G'} => 'GPL',
+      {'veh_fuel_str' => 'G'} => 'GAS',
       {'veh_fuel_str' => 'M'} => 'METANO',
       {'veh_habitual_vehicle_use_str' => 'affari'} => 'LAVORO',
       {'veh_habitual_vehicle_use_str' => 'casa-lavoro tempo libero'} => 'MISTO',
