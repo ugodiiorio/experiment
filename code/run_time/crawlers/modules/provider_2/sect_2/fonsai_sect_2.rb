@@ -153,7 +153,7 @@ class FonsaiSect2 < Test::Unit::TestCase
     page.fire_event("cap", "blur")
     sleep @sleep
     page.key_up("city","\\115")
-    select_option "city", get('@owner_residence')
+    select_option "city", get('@residence')
 
     click_button "//div[@id='indietroD']/input"
     page_wait

@@ -280,6 +280,7 @@ module Provider2Fonsai
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
       'pol_BM_assigned_str' => 'translate_field',
+      'pol_BM_particular_cases_str' => 'translate_field',
       'pol_client_type_str' => 'translate_field',
       'pol_coming_from_BM_str' => 'translate_field',
       'pol_bersani_str' => 'translate_field',
@@ -351,6 +352,7 @@ module Provider2Fonsai
       'pol_nr_of_paid_claims_this_yr_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_record_id_str' => 'copy_field',
 
       'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
       'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
@@ -397,6 +399,7 @@ module Provider2Fonsai
       'pol_nr_of_paid_claims_this_yr_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_record_id_str' => 'copy_field',
       'veh_full_load_total_weight_num' => 'copy_field',
 
     }
