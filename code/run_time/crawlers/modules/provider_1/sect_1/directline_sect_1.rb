@@ -175,6 +175,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     page_click('policyHolder_profession_link')
     page_click('//*[@id="policyHolder_profession_list"]/li[@rel="'+get("@job")+'"]')
+    store_parameter(:job, page.get_text('policyHolder_profession_link')) if @store_params
 
     type_text("policyHolder_zipCode", get('@owner_zip_code'))
 
@@ -235,13 +236,16 @@ class DirectlineSect1 < Test::Unit::TestCase
     type_text("annoAcquistoVeicolo", get("@purchase_date_year"))
 
     enhanced_make_select('marcaVeicolo_link', get("@make"), "//*[@id='marcaVeicolo_li_?']/span")
+    store_parameter(:make, page.get_text('marcaVeicolo_link')) if @store_params
 
     enhanced_model_set_up_select('modelloVeicolo_link',get("@model"), "//*[@id='modelloVeicolo_li_?']/span")
+    store_parameter(:model, page.get_text('modelloVeicolo_link')) if @store_params
 
     page_click('alimentazioneVeicolo_link')
     page_click('//*[@id="alimentazioneVeicolo_list"]/li[@rel="'+get("@fuel")+'"]')
 
     enhanced_model_set_up_select('allestimentoVeicolo_link', get("@set_up"), "//*[@id='allestimentoVeicolo_li_?']/span")
+    store_parameter(:preparation, page.get_text('allestimentoVeicolo_link')) if @store_params
 
     page_click('tipoAntifurtoVeicolo_link')
     page_click('//*[@id="tipoAntifurtoVeicolo_list"]/li[@rel="'+get("@alarm")+'"]')

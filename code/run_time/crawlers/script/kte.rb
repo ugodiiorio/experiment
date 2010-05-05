@@ -194,9 +194,7 @@ class KTE
 
           @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
           break unless @kte.profile.to_i.between?(1, profiles)
-    #      case @kte.company
           @not_free = not_free_profile?
-    #      end
           if @not_free
             @logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
             break
