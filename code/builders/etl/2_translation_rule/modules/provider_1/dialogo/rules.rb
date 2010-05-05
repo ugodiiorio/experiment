@@ -67,7 +67,7 @@ module Provider1Dialogo
       'veh_vehicle_use_str' => 'translate_field',
       'own_owner_zip_code_str' => 'copy_field',
       'pol_public_liability_exemption_str' => 'translate_field',
-      'pol_nr_of_paid_claims_3_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str]; y= profilefield[:pol_nr_of_paid_claims_1_yr_str]; z= profilefield[:pol_nr_of_paid_claims_2_yr_str]; t= profilefield[:pol_nr_of_paid_claims_3_yr_str];  z == "N/A" ? sin= x.to_i+y.to_i+z.to_i : (t == "N/A" ? sin= x.to_i+y.to_i : sin= x.to_i+y.to_i+z.to_i+t.to_i); sin == 3 ? x = "3 o più" : x = sin_to_s',
+      'pol_nr_of_paid_claims_3_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str]; y= profilefield[:pol_nr_of_paid_claims_1_yr_str]; z= profilefield[:pol_nr_of_paid_claims_2_yr_str]; t= profilefield[:pol_nr_of_paid_claims_3_yr_str];  z == "N/A" ? sin= x.to_i+y.to_i+z.to_i : (t == "N/A" ? sin= x.to_i+y.to_i : sin= x.to_i+y.to_i+z.to_i+t.to_i); sin == 3 ? x = "3 o più" : x = sin.to_s',
       'pol_driving_type_str' => 'profilefield[:pol_birth_date_str].to_i < 26 ? "//input[@name=\"contentSubView:contentForm:chooseAuto:casoAss\" and @value=\"HNE\"]" : translate_field',
       'pol_number_plate_type_str' => 'translate_field',
       'veh_tow_hook_str' => 'translate_field',
