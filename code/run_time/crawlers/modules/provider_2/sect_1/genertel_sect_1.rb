@@ -213,11 +213,14 @@ class GenertelSect1 < Test::Unit::TestCase
         type_text("TBXXDP1XCognome", get('@surname'))
         click_option(get('@owner_sex'))
         type_text("DBXXDP1XDataNascita", get('@birth_date'))
-        type_text("TBXXDP1XLuogoNascita", get('@birth_place'))
+        type_text("TBXXDP1XLuogoNascita", get('@birth_place').split("|")[0])
         click_button_item "LBLXDP1XCalcCodFisc"
-        assert !60.times{ break if (page.get_value("TBXXDP1XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
+        sleep @sleep*2
+        is_present?("CBXXDP1XLuoghiNascita") ? fake_select_option("CBXXDP1XLuoghiNascita", get('@birth_place').split("|")[1], "//body/div[8]/div/div") : nil
+        click_button_item "LBLXDP1XCalcCodFisc" if is_present?("CBXXDP1XLuoghiNascita")
         assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique Hometown"
         assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing Hometown"
+        assert !60.times{ break if (page.get_value("TBXXDP1XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
         @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Codice Fiscale: #{page.get_value("TBXXDP1XCodFisc")}"}
         fake_select_option("CBXXDP1XProfPrimoLiv", get('@job'), "//body/div[8]/div/div")
         sleep @sleep*2
