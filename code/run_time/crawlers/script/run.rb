@@ -1,4 +1,3 @@
-#!/usr/bin/ruby -w
 #!/usr/bin/env ruby
 $LOAD_PATH << File.join(File.dirname(__FILE__))
 

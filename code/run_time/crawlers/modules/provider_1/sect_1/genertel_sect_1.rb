@@ -44,15 +44,15 @@ class GenertelSect1 < Test::Unit::TestCase
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
 
-#      vehicle_age = 1
-#      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
-
       @url = site.url
       @sleep = @kte.sleep_typing
       @log_level = @kte.log_level
 
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium host: #{site.host}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{site.port}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium timeout: #{site.timeout_in_secs}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium browser: #{site.browser}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium url: #{@url}"}
       @selenium_driver = Selenium::Client::Driver.new \
         :host => site.host,
         :port => site.port,
@@ -61,13 +61,12 @@ class GenertelSect1 < Test::Unit::TestCase
         :url => @url
 
       @selenium_driver.start_new_browser_session
-#      @selenium.set_context("test_new")
+      @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page for profile [#{@kte.profile}] and record [#{@record}]"}
 
     rescue Errno::ECONNREFUSED => ex
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
-#      @verification_errors[@verification_errors.size] = ex.message
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
@@ -218,7 +217,8 @@ class GenertelSect1 < Test::Unit::TestCase
         sleep @sleep*2
         is_present?("CBXXDP1XLuoghiNascita") ? fake_select_option("CBXXDP1XLuoghiNascita", get('@birth_place').split("|")[1], "//body/div[8]/div/div") : nil
         click_button_item "LBLXDP1XCalcCodFisc" if is_present?("CBXXDP1XLuoghiNascita")
-        sleep @sleep*2
+        page.wait_for_no_text("Seleziona il tuo luogo di nascita")
+        page.wait_for_no_text("Inserisci il tuo luogo di nascita")
         assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique Hometown"
         assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing Hometown"
         assert !60.times{ break if (page.get_value("TBXXDP1XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
