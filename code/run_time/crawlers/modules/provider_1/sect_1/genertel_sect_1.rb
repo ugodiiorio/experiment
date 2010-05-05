@@ -218,6 +218,7 @@ class GenertelSect1 < Test::Unit::TestCase
         sleep @sleep*2
         is_present?("CBXXDP1XLuoghiNascita") ? fake_select_option("CBXXDP1XLuoghiNascita", get('@birth_place').split("|")[1], "//body/div[8]/div/div") : nil
         click_button_item "LBLXDP1XCalcCodFisc" if is_present?("CBXXDP1XLuoghiNascita")
+        sleep @sleep*2
         assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique Hometown"
         assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing Hometown"
         assert !60.times{ break if (page.get_value("TBXXDP1XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
