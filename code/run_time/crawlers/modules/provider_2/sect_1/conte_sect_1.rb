@@ -193,6 +193,7 @@ class ConteSect1 < Test::Unit::TestCase
       type_keys("page:comune_di_nascita", get('@birth_place').to_s[1..-1])
       sleep @sleep*2
       page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
+      assert_equal page.get_value(@last_element).upcase, get('@birth_place').upcase
     else #ESTERO
       select_option "page:conducente_principale_nazione_estera", get("@birth_state")
       type_text("page:anno_residenza_italia", get('@italian_residence_starting_yrs'))
@@ -206,6 +207,7 @@ class ConteSect1 < Test::Unit::TestCase
     type_keys("page:comune_di_residenza", get('@residence').to_s[0,1])
     wait_for_elm("//ul[@id='ulResult']/span[1]/li")
     type_keys("page:comune_di_residenza", get('@residence').to_s[1..-1])
+    sleep @sleep*2
     page.click "//ul[@id='ulResult']/span[1]/li"
     assert_equal page.get_value(@last_element).upcase, get('@residence').upcase
 
@@ -226,8 +228,8 @@ class ConteSect1 < Test::Unit::TestCase
     click_option(get('@cohabiting_children'))
     type_text("page:eta_conseguimento_patente", get('@driving_license_yrs'))
     page.focus @last_element
-    sleep @sleep*2
     page.fire_event(@last_element, 'blur')
+    sleep @sleep*3
 
     if page.is_visible("page:anno_conseguimento_patente")
 #      type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
@@ -349,7 +351,7 @@ class ConteSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+#    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
   end
 
   def select_option(id, value, option = "label")

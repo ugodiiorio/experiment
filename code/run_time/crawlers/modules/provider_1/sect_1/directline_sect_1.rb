@@ -340,7 +340,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+#    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
   end
