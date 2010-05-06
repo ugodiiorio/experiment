@@ -41,16 +41,15 @@ class GenialloydSect1 < Test::Unit::TestCase
       @rc_cover_code, @kte.rc_cover_code = get('@rca_code'), get('@rca_code')
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
-
-#      vehicle_age = 1
-#      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
-
+      
       @url = site.url
       @sleep = @kte.sleep_typing
-#      @verification_errors = []
 
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page ..."}
-      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{@kte.port}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium host: #{site.host}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium port: #{site.port}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium timeout: #{site.timeout_in_secs}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium browser: #{site.browser}"}
+      @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Selenium url: #{@url}"}
       @selenium_driver = Selenium::Client::Driver.new \
         :host => site.host,
         :port => site.port,
@@ -59,13 +58,12 @@ class GenialloydSect1 < Test::Unit::TestCase
         :url => @url
 
       @selenium_driver.start_new_browser_session
-#      @selenium.set_context("test_new")
+      @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => Setting up Selenium Page for profile [#{@kte.profile}] and record [#{@record}]"}
 
     rescue Errno::ECONNREFUSED => ex
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s} Selenium not started: #{ex.message.to_s}"} if @logger
       raise ex
     rescue Exception => ex
-#      @verification_errors[@verification_errors.size] = ex.message
       @logger.error("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex.class.to_s}: #{ex.message.to_s}"} if @logger
       raise ex
     end
@@ -73,7 +71,6 @@ class GenialloydSect1 < Test::Unit::TestCase
 
   def teardown
 	  @selenium_driver.close_current_browser_session if @selenium_driver
-#    assert_equal [], @verification_errors
   end
 
   def test_site

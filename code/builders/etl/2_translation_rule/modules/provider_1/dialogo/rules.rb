@@ -74,7 +74,7 @@ module Provider1Dialogo
       'veh_num_of_owners_str' => 'translate_field',
       'veh_alarm_str' => 'copy_field',
       'veh_habitual_vehicle_use_str' => 'copy_field',
-      'pol_residence_str' => 'res=profilefield[:own_owner_residence_str];res=res.gsub("VILLA D ALME","VILLA D\'ALME\'");res=res.gsub("PONTE SAN NICOLO","PONTE SAN NICOLO\'");res=res.gsub("DOLCE","DOLCE\'");res=res.gsub("FOSSO","FOSSO\'");res=res.gsub("ROMANO D EZZELINO","ROMANO D\'EZZELINO");res=res.gsub("SANT ANNA ARRESI","SANT\'ANNA ARRESI")',
+      'pol_residence_str' => 'res=profilefield[:pol_residence_str];res=res.gsub("VILLA D ALME","VILLA D\'ALME\'");res=res.gsub("PONTE SAN NICOLO","PONTE SAN NICOLO\'");res=res.gsub("DOLCE","DOLCE\'");res=res.gsub("FOSSO","FOSSO\'");res=res.gsub("ROMANO D EZZELINO","ROMANO D\'EZZELINO");res=res.gsub("SANT ANNA ARRESI","SANT\'ANNA ARRESI")',
       'driv_birth_state_str' => 'copy_field',
       'pol_minikasko_code_str' => 'copy_field',
       'driv_civil_status_str' => 'copy_field',
