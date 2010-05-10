@@ -346,8 +346,8 @@ module Provider2Genertel
 
     @target_values = {
 
-      {'driv_driver_sex_str' => 'F'} => 'RBTXDABXSessoMF1|RBTXDP3XSessoMF1',
-      {'driv_driver_sex_str' => 'M'} => 'RBTXDABXSessoMF0|RBTXDP3XSessoMF0',
+      {'driv_driver_sex_str' => 'F'} => '1',
+      {'driv_driver_sex_str' => 'M'} => '0',
       {'driv_job_2_str' => 'campo tecnico per genertel'} => 'Altro',
       {'driv_job_str' => 'agente/rappresentante'} => 'Agente/rappresentante',
       {'driv_job_str' => 'agricoltore/allevatore'} => 'Impiegato/a',
@@ -438,6 +438,15 @@ module Provider2Genertel
       {'pol_privacy_1_str' => 'id elemento web1'} => 'RBTXPRIXConsensoA0',
       {'pol_privacy_2_str' => 'id elemento web2'} => 'RBTXPRIXConsensoB0',
       {'pol_privacy_3_str' => 'id elemento web3'} => 'RBTXPRIXConsensoC0',
+      {'pol_public_liability_exemption_str' => '0'} => '€ 0,00',
+      {'pol_public_liability_exemption_str' => '150'} => '€ 150,00',
+      {'pol_public_liability_exemption_str' => '200'} => '€ 200,00',
+      {'pol_public_liability_exemption_str' => '250'} => '€ 250,00',
+      {'pol_public_liability_exemption_str' => '300'} => '€ 300,00',
+      {'pol_public_liability_exemption_str' => '350'} => '€ 350,00',
+      {'pol_public_liability_exemption_str' => '400'} => '€ 400,00',
+      {'pol_public_liability_exemption_str' => '450'} => '€ 450,00',
+      {'pol_public_liability_exemption_str' => '500'} => '€ 500,00',
       {'pol_public_liability_indemnity_limit_str' => '10,000,000'} => '€ 10.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '€ 10.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '18,000,000'} => '€ 10.000.000,00',
