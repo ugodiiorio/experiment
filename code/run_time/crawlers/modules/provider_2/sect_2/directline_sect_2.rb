@@ -120,11 +120,8 @@ class DirectlineSect2 < Test::Unit::TestCase
     click_button(get("@vehicle_type"))
     click_button(get('@insurance_situation'))
 
-#    click_option("//input[@id='usaAgevolazioneBersani_FALSE' and @value='FALSE']")
-
     sleep @sleep*2
     my_click_option(get('@bersani'))
-    #b
  
     if get('@insurance_situation') == '//div[@id="bg_radio1"]/p/label/span/span/img'
       my_page_click('classeBMProvenienza_link')
@@ -136,8 +133,6 @@ class DirectlineSect2 < Test::Unit::TestCase
         click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
       end
     else
-#      wait_for_elm('//input[@id="targaConosciuta_" and @name="motorQuoteModel.targaConosciuta" and @value="FALSE"]')
-      # il campo ricordi la targa del veicolo da assicurara va valorizzata sempre a no
       click_option('//input[@id="targaConosciuta_FALSE" and @name="motorQuoteModel.targaConosciuta" and @value="FALSE"]')
       if get('@bersani') == 'usaAgevolazioneBersani_TRUE'
         my_click_option(get('@bersani_ref_vehicle_insured_with_company'))
@@ -162,7 +157,7 @@ class DirectlineSect2 < Test::Unit::TestCase
     type_text("policyHolder_bornMonth", get('@birth_date_month'))
     type_text("policyHolder_bornYear", get('@birth_date_year'))
 
-    click_option('policyHolder_sex_'+get("@owner_sex")+'')
+    click_option('policyHolder_sex_'+get("@owner_sex"))
 
     my_page_click('policyHolder_maritalStatus_link')
     my_page_click('//*[@id="policyHolder_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
