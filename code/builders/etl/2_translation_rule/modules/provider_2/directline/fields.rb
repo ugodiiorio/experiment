@@ -107,7 +107,7 @@ module Provider2Directline
       {'pol_subscriber_is_driver_str' => 'si'} => 'policyHolder_isOwner_TRUE',
       {'pol_subscriber_is_owner_str' => 'si'} => 'policyHolder_isMainDriver_TRUE',
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'INCENDIO',
-      {'veh_alarm_str' => 'immobilizer'} => 'IMMOBILIZER_SATELLITARE',
+      {'veh_alarm_str' => 'nessuno'} => 'SOLO_ALLARME',
       {'veh_fuel_str' => 'benzina'} => 'BENZINA',
       {'veh_fuel_str' => 'diesel'} => 'DIESEL',
       {'veh_fuel_str' => 'G'} => 'GAS',
