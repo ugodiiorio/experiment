@@ -74,7 +74,7 @@ module Provider1Conte
       {'own_owner_residence_province_str' => 'FE'} => 'FERRARA',
       {'own_owner_residence_province_str' => 'FI'} => 'FIRENZE',
       {'own_owner_residence_province_str' => 'FG'} => 'FOGGIA',
-      {'own_owner_residence_province_str' => 'FC'} => 'FORLI\' CESENA',
+      {'own_owner_residence_province_str' => 'FC'} => 'FORLI\' E CESENA',
       {'own_owner_residence_province_str' => 'FR'} => 'FROSINONE',
       {'own_owner_residence_province_str' => 'GE'} => 'GENOVA',
       {'own_owner_residence_province_str' => 'GO'} => 'GORIZIA',
