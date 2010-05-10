@@ -132,12 +132,6 @@ class GenertelSect2 < Test::Unit::TestCase
         select_fake_option("CBXXDPOXSinistri", get('@nr_of_paid_claims_3_yr'), "//body/div[8]/div/div", "LBLXCBXXDPOXSinistriVal")
         select_fake_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXCUGenertel")
 
-#       non ho trovato il super bonus genertel
-#        if get('@nr_of_paid_claims_3_yr') == "0" && get('@bm_assigned') == "1"
-#          click_option(get('@bm_1_more_than_1_year'))
-#          sleep @sleep*2
-#          assert is_present?("HLPXDPOXClasseUnoXNota"), "Super Bonus Genertel must to be present" if @last_element =~ /ClasseUnoDomanda0/i
-#        end
         click_option(get('@current_policy_guarantee'))
       else
         # da testare
@@ -170,7 +164,7 @@ class GenertelSect2 < Test::Unit::TestCase
     select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
     click_option(get('@vehicle_shelter'))
 
-    select_fake_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
+#    select_fake_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div") commentec because default value is "privato"
     type_text("NBXXDVEXKmAnnui", get('@km_per_yr'))
 
     click_button_item "LBLXDVEXAvanti"
@@ -191,7 +185,7 @@ class GenertelSect2 < Test::Unit::TestCase
       else
         type_text("TBXXDP1XNome", get('@name'))
         type_text("TBXXDP1XCognome", get('@surname'))
-        click_option(get('@owner_sex'))
+        click_option('RBTXDP1XSessoMF'+get('@driver_sex'))
         type_text("DBXXDP1XDataNascita", get('@birth_date'))
         type_text("TBXXDP1XLuogoNascita", get('@birth_place'))
         click_button_item "LBLXDP1XCalcCodFisc"
@@ -282,11 +276,22 @@ class GenertelSect2 < Test::Unit::TestCase
         sleep @sleep*2
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
-        select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
-        sleep @sleep
+        
         click_button_item(get('@road_assistance_web_id'))
         is_present?(get('@legal_assistance_web_id').split[0]) ? click_button_item(get('@legal_assistance_web_id').split[0]) : nil
         is_present?(get('@legal_assistance_web_id').split[1]) ? click_button_item(get('@legal_assistance_web_id').split[1]) : nil
+
+        if get('@public_liability_exemption')!= '€ 3.000.000,00'
+          select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
+
+          page.key_up(@last_element, '\\13')
+        end
+
+        if get('@public_liability_exemption')!= '€ 0,00'
+          select_fake_option("GRDXGARXGaranzieX1X4", get('@public_liability_exemption'), "//div[9]/div/div")
+
+          page.key_up(@last_element, '\\13')
+        end
 
         page.wait_for_element("LBLXAZIXRicalcolaTot")
         page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
@@ -516,7 +521,7 @@ class GenertelSect2 < Test::Unit::TestCase
 
     type_text("TBXXDABXNome", get('@name'))
     type_text("TBXXDABXCognome", get('@surname'))
-    click_option(get('@driver_sex').split("|")[0])
+    click_option('RBTXDABXSessoMF'+get('@driver_sex'))
     type_text("DBXXDABXDataNascita", get('@birth_date'))
     type_text("TBXXDABXLuogoNascita", get('@birth_place'))
     click_button_item "LBLXDABXCalcCodFisc"
@@ -530,7 +535,7 @@ class GenertelSect2 < Test::Unit::TestCase
 
     type_text("TBXXDP3XNome", get('@name'))
     type_text("TBXXDP3XCognome", get('@surname'))
-    get('@driver_sex').split("|").size < 2 ? raise(RangeError, "Missing or invalid driver sex!") : click_option(get('@driver_sex').split("|")[1])
+    click_option('RBTXDP3XSessoMF'+get('@driver_sex'))
     type_text("DBXXDP3XDataNascita", get('@birth_date'))
     type_text("TBXXDP3XLuogoNascita", get('@birth_place'))
     click_button_item "LBLXDP3XCalcCodFisc"

@@ -171,7 +171,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     type_text("policyHolder_bornMonth", get('@birth_date_month'))
     type_text("policyHolder_bornYear", get('@birth_date_year'))
 
-    click_option('policyHolder_sex_'+get("@owner_sex"))
+    click_option('policyHolder_sex_'+get("@owner_sex")+'')
 
     page_click('policyHolder_maritalStatus_link')
     page_click('//*[@id="policyHolder_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')

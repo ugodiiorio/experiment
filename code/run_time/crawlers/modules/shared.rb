@@ -14,7 +14,7 @@ module Shared
     when PROVIDER1, PROVIDER2
       click_button_item "contentSubView:vehicleForm:chooseAuto:downbox_f"
       sleep @sleep*2
-      @last_element, @last_value = "preparations", get("@set_up")
+      @last_element, @last_value = "preparations", get("@set_up").gsub("regexpi:","")
       page.focus(@last_element)
 
       item = "//span/ul/li"

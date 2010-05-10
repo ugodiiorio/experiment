@@ -27,7 +27,7 @@ class KTE
   attr_reader :log_device, :log_level
   attr_reader :use_case, :store_params
   attr_reader :port, :selenium_host, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
-  attr_reader :db_host, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
+  attr_reader :db_host, :db_socket, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
   attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result
   attr_accessor :car_make, :car_model, :car_preparation, :job
   attr_accessor :max_profiles, :sleep_typing, :sleep_between_profiles
@@ -82,7 +82,7 @@ class KTE
                                :ss_timeout_in_seconds =>nil, :ss_io_device =>nil,
                                :ss_output_level =>nil, :ss_browser_type =>nil} unless selenium_settings
           database_settings = {:ds_engine_type =>nil, :ds_conn_user =>nil,
-                               :ds_conn_pwd =>nil, :ds_db_host =>nil, 
+                               :ds_conn_pwd =>nil, :ds_db_host =>nil, :ds_db_socket => nil,
                                :ds_db_driver =>nil, :ds_db_monitor =>nil, :ds_db_target =>nil} unless database_settings
           app_settings = {:as_rate_date =>nil, :as_company_id =>nil, :as_company_group_id =>nil,
                           :as_rate_id =>nil, :as_provider_id =>nil, :as_sector_id =>nil,
@@ -120,6 +120,7 @@ class KTE
       @browser_type 			          = ARGV[24] || selenium_settings['ss_browser_type'] || "*chrome"
 
       @db_host						          = ARGV[5]  || database_settings['ds_db_host'] || "localhost"
+      @db_socket						        = ARGV[31]  || database_settings['ds_db_socket'] || ""
       @db_conn_user                 = ARGV[17] || database_settings['ds_conn_user'] || 'kte'
       @db_conn_pwd                  = ARGV[18] || database_settings['ds_conn_pwd'] || ''
 

@@ -1,7 +1,7 @@
 #############################################
-#   	Created by Kubepartners		    #
+#   	Created by Kubepartners		            #
 #                                           #
-#				22/03/2010  #
+#				22/03/2010                          #
 #############################################
 
 class GenertelSect1 < Test::Unit::TestCase
@@ -165,14 +165,14 @@ class GenertelSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     type_text("NBXXDVEXAnnoImmat", get('@matriculation_date_year'))
 
-    fake_select_option("CBXXDVEXMarca", get('@make'), "//td[2]")
+    fake_select_option("CBXXDVEXMarca", get('@make').gsub("regexpi:",""), "//td[2]")
     store_parameter(:make, page.get_value("CBXXDVEXMarca")) if @store_params
     sleep @sleep*2
-    type_model_set_up("CBXXDVEXModello", get('@model'), "//body/div[8]/div/div")
+    type_model_set_up("CBXXDVEXModello", get('@model').gsub("regexpi:",""), "//body/div[8]/div/div")
     store_parameter(:model, page.get_value("CBXXDVEXModello")) if @store_params
 #    fake_select_option("CBXXDVEXModello", @last_value, "//body/div[8]/div/div")
     sleep @sleep*2
-    type_model_set_up("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
+    type_model_set_up("CBXXDVEXAllestimento", get('@set_up').gsub("regexpi:",""), "//body/div[8]/div/div")
     store_parameter(:preparation, page.get_value("CBXXDVEXAllestimento")) if @store_params
 #    fake_select_option("CBXXDVEXAllestimento", get('@set_up'), "//body/div[8]/div/div")
     sleep @sleep
