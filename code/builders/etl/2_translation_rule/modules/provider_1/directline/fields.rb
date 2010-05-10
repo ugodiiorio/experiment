@@ -211,7 +211,7 @@ module Provider1Directline
       {'pol_public_liability_indemnity_limit_str' => '1600000'} => '3', #2.500.000/1.000.000
       {'pol_public_liability_indemnity_limit_str' => '2500000'} => '3', #2.500.000/1.000.000
       {'pol_public_liability_indemnity_limit_str' => '3000000'} => '5', #3.600.000/1.000.000
-      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '---', #5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '6', #5.000.000/1.000.000',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '---', #5.000.000/1.000.000',
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '---', #5.000.000/1.000.000',
       {'pol_public_liability_indemnity_limit_str' => '18000000'} => '---', #5.000.000/1.000.000',
