@@ -383,7 +383,7 @@ module Provider2Genertel
       {'pol_bersani_str' => 'veicolo'} => 'RBTXDPOXBersani0',
       {'pol_BM_1_more_than_1_year_str' => 'no'} => 'RBTXDPOXClasseUnoDomanda1',
       {'pol_BM_1_more_than_1_year_str' => 'si'} => 'RBTXDPOXClasseUnoDomanda0',
-      {'pol_BM_assigned_str' => '-1'} => '1',
+      {'pol_BM_assigned_str' => '0'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '10'} => '10',
       {'pol_BM_assigned_str' => '11'} => '11',
