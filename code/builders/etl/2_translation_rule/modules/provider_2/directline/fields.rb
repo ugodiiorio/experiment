@@ -141,7 +141,7 @@ module Provider2Directline
       {'driv_job_str' => 'dipendente pubblico'} => 'DIPENDENTE_PUBBLICO',
       {'driv_job_str' => 'dirigente/funzionario'} => 'DIRIGENTE_FUNZIONARIO',
       {'driv_job_str' => 'ecclesiastico'} => 'ECCLESIASTICO',
-      {'driv_job_str' => 'forze armate/altri corpi'} => 'FORZA_ARMATE',
+      {'driv_job_str' => 'forze armate/altri corpi'} => 'FORZE_ARMATE',
       {'driv_job_str' => 'giornalista'} => 'GIORNALISTA',
       {'driv_job_str' => 'impiegato'} => 'IMPIEGATO',
       {'driv_job_str' => 'imprenditore'} => 'IMPRENDITORE',

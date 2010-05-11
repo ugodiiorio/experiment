@@ -12,7 +12,9 @@ module Shared
     case @kte.provider
 
     when PROVIDER1, PROVIDER2
-      click_button_item "contentSubView:vehicleForm:chooseAuto:downbox_f"
+#      click_button_item "contentSubView:vehicleForm:chooseAuto:downbox_f"
+      kw = "#{get("@kw")}"
+      type_keys("preparations", kw) if kw
       sleep @sleep*2
       @last_element, @last_value = "preparations", get("@set_up").gsub("regexpi:","")
       page.focus(@last_element)
