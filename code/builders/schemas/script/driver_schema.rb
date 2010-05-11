@@ -314,7 +314,7 @@ class BuildDriverSchema
         pol_theft_fire_coverage_premium_id_str     VARCHAR(256),
         pol_theft_fire_coverage_web_id_str     VARCHAR(256),
         pol_theft_fire_minimum_uncoverage_exemption_str     VARCHAR(256),
-        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         PRIMARY KEY (key_insurance_profiles_id_num, key_provider_id_str, key_sector_id_str, key_companies_group_id_str, key_working_set_id_str)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
@@ -602,7 +602,7 @@ class BuildDriverSchema
         pol_theft_fire_coverage_premium_id_str     VARCHAR(256),
         pol_theft_fire_coverage_web_id_str     VARCHAR(256),
         pol_theft_fire_minimum_uncoverage_exemption_str     VARCHAR(256),
-        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         PRIMARY KEY (key_insurance_profiles_id_num, key_provider_id_str, key_sector_id_str, key_company_id_str, key_working_set_id_str)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
@@ -695,7 +695,9 @@ class BuildDriverSchema
         pol_instalment_str   VARCHAR(128),
         pol_public_liability_indemnity_limit_str   VARCHAR(128),
         policy   VARCHAR(32),
-        pol_provider_company_id_str   VARCHAR(128)
+        pol_provider_company_id_str   VARCHAR(128),
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (pol_record_id_str, Profilo_tecnico, contatore)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
 
@@ -740,7 +742,9 @@ class BuildDriverSchema
         pol_claims_total_number_str VARCHAR(128),
         pol_driving_type_str VARCHAR(128),
         pol_public_liability_exemption_str VARCHAR(128),
-        pol_public_liability_indemnity_limit_str VARCHAR(128)
+        pol_public_liability_indemnity_limit_str VARCHAR(128),
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (pol_provider_company_id_str, pol_record_id_str)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
     mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_2_input_file (
@@ -781,7 +785,9 @@ class BuildDriverSchema
         pol_nr_of_paid_claims_5_yr_str VARCHAR(128),
         pol_claims_total_number_str VARCHAR(128),
         pol_public_liability_exemption_str VARCHAR(128),
-        pol_public_liability_indemnity_limit_str VARCHAR(128)
+        pol_public_liability_indemnity_limit_str VARCHAR(128),
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (pol_provider_company_id_str, pol_record_id_str)
  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
     mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_3_input_file (
@@ -815,7 +821,9 @@ class BuildDriverSchema
         pol_nr_of_paid_claims_5_yr_str VARCHAR(128),
         pol_claims_total_number_str VARCHAR(128),
         pol_public_liability_exemption_str VARCHAR(128),
-        pol_public_liability_indemnity_limit_str VARCHAR(128)
+        pol_public_liability_indemnity_limit_str VARCHAR(128),
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (pol_provider_company_id_str, pol_record_id_str)
       ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
     mysql.query("CREATE TABLE " + @db_default_driver + ".provider_2_sect_4_input_file (
@@ -839,7 +847,9 @@ class BuildDriverSchema
         pol_nr_of_paid_claims_5_yr_str VARCHAR(128),
         pol_claims_total_number_str VARCHAR(128),
         pol_public_liability_exemption_str VARCHAR(128),
-        pol_public_liability_indemnity_limit_str VARCHAR(128)
+        pol_public_liability_indemnity_limit_str VARCHAR(128),
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (pol_provider_company_id_str, pol_record_id_str)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")
 
 

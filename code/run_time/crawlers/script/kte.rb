@@ -146,24 +146,25 @@ class KTE
       @logger.level = @log_level.to_i
       @logger.datetime_format = @datetime_format
 
-      @logger.info(__FILE__) {"#{@company} => #{"*"*80}"}
-      @logger.info(__FILE__) {"#{@company} => #{"@"*20} STARTED AT #{Time.now()}"}
-      @logger.info(__FILE__) {"#{@company} => #{"@"*20} #{@company.upcase} WEB SITE"}
-      @logger.info(__FILE__) {"#{@company} => #{"@"*20} PROFILE #{@profile}"}
-      @logger.info(__FILE__) {"#{@company} => #{"*"*80}"}
-
       @logger.debug(__FILE__) {"#{@company} => config file #{@config_file} succesfully open"} if @config_file
       @logger.debug(__FILE__) {"#{@company} => Starting process ..."}
 
-      @logger.info(__FILE__) {"#{@company} => chronic start date: #{@start_date}"}
-      @logger.info(__FILE__) {"#{@company} => rate date: #{@rate_date.to_s}"}
+      @logger.info(__FILE__) {"#{@company} => #{"*"*80}"}
+
+      @logger.warn(__FILE__) {"#{@company} => #{"@"*20} STARTED AT #{Time.now()}"}
+      @logger.warn(__FILE__) {"#{@company} => #{"@"*20} #{@company.upcase} WEB SITE"}
+      @logger.warn(__FILE__) {"#{@company} => #{"@"*20} PROFILE #{@profile}"}
+      @logger.warn(__FILE__) {"#{@company} => MAX RUNNING PROFILES => [#{@max_profiles.to_s()}]"}
+      @logger.warn(__FILE__) {"#{@company} => chronic start date: #{@start_date}"}
+      @logger.warn(__FILE__) {"#{@company} => rate date: #{@rate_date.to_s}"}
+
       @logger.info(__FILE__) {"#{@company} => company: #{@company}"}
-      @logger.info(__FILE__) {"#{@company} => insurance profile: #{@profile}"}
       @logger.info(__FILE__) {"#{@company} => selenium port: #{@port}"}
       @logger.info(__FILE__) {"#{@company} => db host: #{@db_host.to_s()}"}
       @logger.info(__FILE__) {"#{@company} => element sleep time: #{@sleep_typing.to_s()}"}
       @logger.info(__FILE__) {"#{@company} => sleep between profiles: #{@sleep_between_profiles.to_s()}"}
-      @logger.info(__FILE__) {"#{@company} => max_profiles: #{@max_profiles.to_s()}"}
+
+      @logger.info(__FILE__) {"#{@company} => #{"*"*80}"}
     rescue Exception => ex
       puts ex.message
       raise ex
@@ -183,6 +184,7 @@ class KTE
       db_disconnect(db_profile)
 
       @kte.max_profiles = profiles if @kte.max_profiles.to_i() == 0
+      @logger.warn(__FILE__) {"#{@kte.company} => #{"@"*20} RUNNING PROFILES => [#{@kte.max_profiles}]"}
 
       profiles_count = 0
       while true
@@ -196,15 +198,15 @@ class KTE
           break unless @kte.profile.to_i.between?(1, profiles)
           @not_free = not_free_profile?
           if @not_free
-            @logger.info(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
+            @logger.warn(__FILE__) {"#{@kte.company} => No profile/company pair available !!!"}
             break
           else
-            @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
+            @logger.warn(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
             test_suite = RunTest.new(@kte)
             test_suite.run()
             test_suite = nil
             profiles_count = profiles_count + 1
-            @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
+            @logger.warn(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
             @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
           end
         else #il profilo assicurativo non è fissato
@@ -217,12 +219,12 @@ class KTE
             @not_free = not_free_profile?
       #      end
             unless @not_free
-              @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
+              @logger.warn(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
               test_suite = RunTest.new(@kte)
               test_suite.run()
               test_suite = nil
               profiles_count = profiles_count + 1
-              @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
+              @logger.warn(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
               @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
             end
             break if profiles_count.to_i() == @kte.max_profiles.to_i()
@@ -243,7 +245,7 @@ class KTE
     ensure
       if @logger
         @logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
-        @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} FINISHED AT #{Time.now()}"}
+        @logger.warn(__FILE__) {"#{@kte.company} => #{"@"*20} FINISHED AT #{Time.now()}"}
         @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} #{@kte.company.upcase} WEB SITE"}
         @logger.info(__FILE__) {"#{@kte.company} => #{"*"*80}"}
         @logger.close unless @kte.log_device == STDOUT
