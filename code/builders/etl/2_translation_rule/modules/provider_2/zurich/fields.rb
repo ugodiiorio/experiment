@@ -9,7 +9,7 @@ module Provider2Zurich
       {'veh_fuel_str' => 'benzina'} => 'COD_TCMB_B',
       {'veh_fuel_str' => 'diesel'} => 'COD_TCMB_D',
       {'pol_risk_certificate_str' => 'si'} => 'CODPRO71_1',
-      {'pol_BM_assigned_str' => '-1'} => '01',
+      {'pol_BM_assigned_str' => '0'} => '01',
       {'pol_BM_assigned_str' => '1'} => '02',
       {'pol_BM_assigned_str' => '2'} => '03',
       {'pol_BM_assigned_str' => '3'} => '04',

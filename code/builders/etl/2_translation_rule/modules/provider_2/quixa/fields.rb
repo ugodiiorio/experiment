@@ -310,7 +310,7 @@ module Provider2Quixa
       {'pol_bersani_str' => 'convivente'} => 'si, parente/convivente',
       {'pol_bersani_str' => 'veicolo'} => 'si, 2º veicolo del medesimo proprietario',
       {'pol_bersani_str' => 'no'} => 'no',
-      {'pol_BM_assigned_str' => '-1'} => '1 da più di un anno',
+      {'pol_BM_assigned_str' => '0'} => '1 da più di un anno',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
       {'pol_BM_assigned_str' => '3'} => '3',
