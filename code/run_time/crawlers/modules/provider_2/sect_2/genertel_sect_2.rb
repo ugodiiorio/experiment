@@ -277,10 +277,6 @@ class GenertelSect2 < Test::Unit::TestCase
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
         
-        click_button_item(get('@road_assistance_web_id'))
-        is_present?(get('@legal_assistance_web_id').split[0]) ? click_button_item(get('@legal_assistance_web_id').split[0]) : nil
-        is_present?(get('@legal_assistance_web_id').split[1]) ? click_button_item(get('@legal_assistance_web_id').split[1]) : nil
-
         if get('@public_liability_exemption')!= '€ 3.000.000,00'
           select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
 
@@ -290,12 +286,14 @@ class GenertelSect2 < Test::Unit::TestCase
         if get('@public_liability_exemption')!= '€ 0,00'
           select_fake_option("GRDXGARXGaranzieX1X4", get('@public_liability_exemption'), "//div[9]/div/div")
 
-          page.key_up(@last_element, '\\13')
+          page.wait_for_element("LBLXAZIXRicalcolaTot")
+          page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
+          assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
         end
 
-        page.wait_for_element("LBLXAZIXRicalcolaTot")
-        page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
-        assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
+        click_button_item(get('@road_assistance_web_id'))
+        is_present?(get('@legal_assistance_web_id').split[0]) ? click_button_item(get('@legal_assistance_web_id').split[0]) : nil
+        is_present?(get('@legal_assistance_web_id').split[1]) ? click_button_item(get('@legal_assistance_web_id').split[1]) : nil
 
         page.wait_for_element("LBLXAZIXAvanti")
         page.is_element_present("LBLXAZIXAvanti") ? click_button_item("LBLXAZIXAvanti") : nil
