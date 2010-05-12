@@ -16,7 +16,7 @@ module Provider2Directline
       {'driv_job_str' => 'casalinga'} => 'CASALINGA',
       {'driv_job_str' => 'commerciante'} => 'COMMERCIANTE',
       {'driv_job_str' => 'impiegato'} => 'IMPIEGATO',
-      {'driv_job_str' => 'dipendente/funzionario'} => 'IMPIEGATO',
+      {'driv_job_str' => 'dirigente/funzionario'} => 'IMPIEGATO',
       {'driv_job_str' => 'senza occupazione'} => 'DISOCCUPATO',
       {'driv_job_str' => 'ecclesiastico'} => 'ECCLESIASTICO',
       {'driv_job_str' => 'libero professionista'} => 'LIBERO_PROFESSIONISTA',
@@ -92,16 +92,16 @@ module Provider2Directline
       {'pol_natural_events_web_id_str' => 'id elemento'} => 'EVENTI_NATURALI',
       {'pol_privacy_1_str' => 'id elemento web1'} => 'optinPrivacy',
       {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'BONUS_PROTETTO',
-      {'pol_public_liability_exemption_str' => 'no'} => '1',
-      {'pol_public_liability_indemnity_limit_str' => '800000'} => '3', #2.500.000/1.000.000
-      {'pol_public_liability_indemnity_limit_str' => '1600000'} => '3', #2.500.000/1.000.000
-      {'pol_public_liability_indemnity_limit_str' => '2500000'} => '3', #2.500.000/1.000.000
-      {'pol_public_liability_indemnity_limit_str' => '3000000'} => '5', #3.600.000/1.000.000
-      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '6', #5.000.000/1.000.000',
-      {'pol_public_liability_indemnity_limit_str' => '6000000'} => '---', #5.000.000/1.000.000',
-      {'pol_public_liability_indemnity_limit_str' => '12000000'} => '---', #5.000.000/1.000.000',
-      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '---', #5.000.000/1.000.000',
-      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '---', #5.000.000/1.000.000',
+      {'pol_public_liability_exemption_str' => '0'} => '1',
+      {'pol_public_liability_indemnity_limit_str' => '800,000'} => '3', #2.500.000/1.000.000
+      {'pol_public_liability_indemnity_limit_str' => '1,600,000'} => '3', #2.500.000/1.000.000
+      {'pol_public_liability_indemnity_limit_str' => '2,500,000'} => '3', #2.500.000/1.000.000
+      {'pol_public_liability_indemnity_limit_str' => '3,000,000'} => '5', #3.600.000/1.000.000
+      {'pol_public_liability_indemnity_limit_str' => '5,000,000'} => '6', #5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '6,000,000'} => '6', #5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '12,000,000'} => '6', #5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '18,000,000'} => '6', #5.000.000/1.000.000',
+      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '6', #5.000.000/1.000.000',
       {'pol_RCA_premium_id_str' => 'id elemento'} => 'totale_premio_annuo_promozione',
       {'pol_subscriber_is_driver_str' => 'no'} => 'policyHolder_isOwner_TRUE',
       {'pol_subscriber_is_driver_str' => 'si'} => 'policyHolder_isOwner_TRUE',
@@ -141,7 +141,7 @@ module Provider2Directline
       {'driv_job_str' => 'dipendente pubblico'} => 'DIPENDENTE_PUBBLICO',
       {'driv_job_str' => 'dirigente/funzionario'} => 'DIRIGENTE_FUNZIONARIO',
       {'driv_job_str' => 'ecclesiastico'} => 'ECCLESIASTICO',
-      {'driv_job_str' => 'forze armate/altri corpi'} => 'FORZA_ARMATE',
+      {'driv_job_str' => 'forze armate/altri corpi'} => 'FORZE_ARMATE',
       {'driv_job_str' => 'giornalista'} => 'GIORNALISTA',
       {'driv_job_str' => 'impiegato'} => 'IMPIEGATO',
       {'driv_job_str' => 'imprenditore'} => 'IMPRENDITORE',

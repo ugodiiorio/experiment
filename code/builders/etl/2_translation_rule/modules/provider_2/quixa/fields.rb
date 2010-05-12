@@ -318,7 +318,7 @@ module Provider2Quixa
       {'own_owner_sex_str' => 'F'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_1',
       {'pol_bersani_str' => 'si'} => 'si, parente/convivente',
       {'pol_bersani_str' => 'no'} => 'no',
-      {'pol_BM_assigned_str' => '-1'} => '1 da più di un anno',
+      {'pol_BM_assigned_str' => '0'} => '1 da più di un anno',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
       {'pol_BM_assigned_str' => '3'} => '3',

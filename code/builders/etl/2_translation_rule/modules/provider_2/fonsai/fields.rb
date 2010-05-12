@@ -11,7 +11,7 @@ module Provider2Fonsai
       {'pol_risk_certificate_str' => 'si'} => 'attRiskY',
       {'pol_bersani_str' => 'no'} => 'bersaniN',
       {'pol_bersani_str' => 'si'} => 'bersaniY',
-      {'pol_BM_assigned_str' => '-1'} => '1',
+      {'pol_BM_assigned_str' => '0'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
       {'pol_BM_assigned_str' => '3'} => '3',

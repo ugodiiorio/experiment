@@ -253,18 +253,9 @@ class DirectlineSect2 < Test::Unit::TestCase
   def page_4
      @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
-#    click_button "//img[@alt='Vedi il premio']"
-
-#    page.click('fonti_link')
-#    page.click(get("@how_do_you_know_the_company"))
-    
     click_button "//input[@alt='Vedi il premio']"
 
-#    prova =  page.get_select_options("motorQuoteModel.conoscenza")
-
-    #if is_present?("fonti") then  select_option("motorQuoteModel.conoscenza","INTERNET") else puts "fonti non è presente" end
-    click_button "btnContinua"
-  
+    click_button "btnContinua"  
     page_wait
   end
   
@@ -287,20 +278,26 @@ class DirectlineSect2 < Test::Unit::TestCase
       my_page_click('frazionamento_link')
       my_page_click('//*[@id="frazionamento_list"]/li[@rel="'+get("@instalment")+'"]')
 
-#      uncheck_checkbox(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-#      uncheck_checkbox(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-      click_button(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
-      uncheck_checkbox(get('@legal_assistance_web_id'))
+      if is_present?(get('@legal_assistance_web_id'))
+        click_button(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+        uncheck_checkbox(get('@legal_assistance_web_id'))
+      end
 
-      click_button(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
-      uncheck_checkbox(get('@assistance_web_id'))
+      if is_present?(get('@assistance_web_id'))
+        click_button(get('@assistance_web_id')) if is_checked?(get('@assistance_web_id'))
+        uncheck_checkbox(get('@assistance_web_id'))
+      end
 
-#      uncheck_checkbox(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-      click_button(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
-      uncheck_checkbox(get('@driver_accident_coverage_web_id'))
+      if is_present?(get('@driver_accident_coverage_web_id'))
+        click_button(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+        uncheck_checkbox(get('@driver_accident_coverage_web_id'))
+      end
 
-      click_button(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
-      uncheck_checkbox(get('@theft_fire_coverage_web_id'))
+      if is_present?(get('@theft_fire_coverage_web_id'))
+        click_button(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
+        uncheck_checkbox(get('@theft_fire_coverage_web_id'))
+      end
+      
       sleep @sleep*2
       get_premium(get("@rca_premium_id"))
     else

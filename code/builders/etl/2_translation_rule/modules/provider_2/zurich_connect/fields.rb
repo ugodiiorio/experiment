@@ -105,7 +105,7 @@ module Provider2ZurichConnect
       {'pol_bersani_str' => 'convivente'} => 'SI',
       {'pol_bersani_str' => 'veicolo'} => 'SI',
       {'pol_bersani_str' => 'no'} => 'NO',
-      {'pol_BM_assigned_str' => '-1'} => '1',
+      {'pol_BM_assigned_str' => '0'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
       {'pol_BM_assigned_str' => '3'} => '3',
