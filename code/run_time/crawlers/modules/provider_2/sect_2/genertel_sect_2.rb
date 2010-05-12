@@ -1,7 +1,7 @@
 #############################################
-#   	Created by Kubepartners		    #
+#   	Created by Kubepartners               #
 #                                           #
-#				22/03/2010  #
+#				22/03/2010                          #
 #############################################
 
 class GenertelSect2 < Test::Unit::TestCase
@@ -159,7 +159,8 @@ class GenertelSect2 < Test::Unit::TestCase
     select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
     click_option(get('@vehicle_shelter'))
 
-#    select_fake_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div") commentec because default value is "privato"
+    # following option has been commented because our default value is equal to the site default
+#    select_fake_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
     type_text("NBXXDVEXKmAnnui", get('@km_per_yr'))
 
     click_button_item "LBLXDVEXAvanti"
@@ -232,10 +233,6 @@ class GenertelSect2 < Test::Unit::TestCase
     sleep @sleep
     click_button_item get('@driving_license_yrs')
     sleep @sleep
-#    if @last_element =~ /div\[1\]/i
-#      click_button_item get('@driver_less_25_yrs_license_less_2_yrs')
-#    end
-#    sleep @sleep
 
     customary_driver_data if get('@owner_specification') == NotIndividual
 
@@ -271,24 +268,22 @@ class GenertelSect2 < Test::Unit::TestCase
         sleep @sleep*2
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
-        
-        if get('@public_liability_exemption')!= '€ 3.000.000,00'
-          select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[8]/div/div")
-
-          page.key_up(@last_element, '\\13')
-        end
-
-        if get('@public_liability_exemption')!= '€ 0,00'
-          select_fake_option("GRDXGARXGaranzieX1X4", get('@public_liability_exemption'), "//div[9]/div/div")
-
-          page.wait_for_element("LBLXAZIXRicalcolaTot")
-          page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
-          assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
-        end
 
         click_button_item(get('@road_assistance_web_id'))
         is_present?(get('@legal_assistance_web_id').split[0]) ? click_button_item(get('@legal_assistance_web_id').split[0]) : nil
         is_present?(get('@legal_assistance_web_id').split[1]) ? click_button_item(get('@legal_assistance_web_id').split[1]) : nil
+
+        if get('@public_liability_indemnity_limit')!= '€ 3.000.000,00'
+          select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[9]/div/div")
+        end
+
+        if get('@public_liability_exemption')!= '€ 0,00'
+          select_fake_option("GRDXGARXGaranzieX1X4", get('@public_liability_exemption'), "//div[9]/div/div")
+        end
+
+        page.wait_for_element("LBLXAZIXRicalcolaTot")
+        page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
+        assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
 
         page.wait_for_element("LBLXAZIXAvanti")
         page.is_element_present("LBLXAZIXAvanti") ? click_button_item("LBLXAZIXAvanti") : nil
@@ -306,7 +301,6 @@ class GenertelSect2 < Test::Unit::TestCase
 
     @last_element = "LBLXRGAXNomePacchetto" # get("@rca_premium_id") # ATTENTION!!!!!!!!!!!!!!!!!!!!!!
     wait_for_elm @last_element
-#        assert is_present?("LBLXRGAXNomePacchetto"), "LBLXRGAXNomePacchetto Price element is not present on the Buy page"
     get_premium(@last_element)
 
   end
@@ -421,6 +415,7 @@ class GenertelSect2 < Test::Unit::TestCase
           click_button_item(item, @last_value) if is_present?(item)
         else
       end
+      sleep @sleep*2
       if assert_item
         @last_element = assert_item
         wait_for_elm(@last_element)
