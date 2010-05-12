@@ -11,7 +11,9 @@ module Provider2Quixa
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P04',
       {'pol_legal_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P30',
-      {'pol_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13',
+      {'pol_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P11',
+      {'pol_kasko_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P14',
+
       {'pol_bersani_str' => 'si'} => 'si, parente/convivente',
       {'pol_bersani_str' => 'no'} => 'no',
       {'pol_BM_assigned_str' => '0'} => '1 da più di un anno',
@@ -304,11 +306,17 @@ module Provider2Quixa
     @target_values = {}
 
     @target_values = {
-
+      {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P31',
+      {'pol_glasses_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P05',
+      {'pol_natural_events_act_of_vandalism_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P25',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P04',
+      {'pol_legal_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P13',
+      {'pol_driver_accident_coverage_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P30',
+      {'pol_assistance_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P11',
+      {'pol_kasko_web_id_str' => 'id elemento' } => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPrizeValue_chkbx_P14',
       {'own_owner_sex_str' => 'M'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_0',
       {'own_owner_sex_str' => 'F'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_rdSexo_1',
-      {'pol_bersani_str' => 'convivente'} => 'si, parente/convivente',
-      {'pol_bersani_str' => 'veicolo'} => 'si, 2º veicolo del medesimo proprietario',
+      {'pol_bersani_str' => 'si'} => 'si, parente/convivente',
       {'pol_bersani_str' => 'no'} => 'no',
       {'pol_BM_assigned_str' => '-1'} => '1 da più di un anno',
       {'pol_BM_assigned_str' => '1'} => '1',
@@ -488,6 +496,8 @@ module Provider2Quixa
       {'pol_residence_province_str' => 'VT'} => 'VITERBO',
       {'veh_alarm_str' => 'nessuno'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtSatelliteLocationNo',
       {'veh_km_per_yr_str' => '10000'} => 'Tra 10.000 - 20.000',
+      {'veh_km_per_yr_str' => '5000'} => 'Fino a 5.000',
+      {'veh_vehicle_value_str' => '5000'} => '5000',
       {'veh_passenger_transportation_str' => 'si'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtPassengerYes',
       {'veh_passenger_transportation_str' => 'no'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_rbtPassengerNo',
       {'veh_vehicle_type_str' => 'motociclo'} => 'ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucNewSimulation_rblSimulationTypes_2',
