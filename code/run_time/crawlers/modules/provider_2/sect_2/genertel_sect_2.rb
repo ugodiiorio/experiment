@@ -124,8 +124,8 @@ class GenertelSect2 < Test::Unit::TestCase
 
     case is_present?("LBLXDPOXCUGenNoBersani")
       when false
-        select_fake_option("CBXXDPOXSinistri", get('@nr_of_paid_claims_3_yr'), "//body/div[8]/div/div", "LBLXCBXXDPOXSinistriVal")
-        select_fake_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXCUGenertel")
+        fake_select_option("CBXXDPOXSinistri", get('@nr_of_paid_claims_3_yr'), "//body/div[8]/div/div", "LBLXCBXXDPOXSinistriVal")
+        fake_select_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXCUGenertel")
 
         click_option(get('@current_policy_guarantee'))
       else
@@ -135,7 +135,7 @@ class GenertelSect2 < Test::Unit::TestCase
         if @last_element =~ /Bersani0/i
           @bersani = true
           type_text("TBXXDPOXTargaVeicoloFam", get('@bersani_ref_vehicle_number_plate'))
-          select_fake_option("CBXXDPOXCUAssegnataFam", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXClasseGenBersani")
+          fake_select_option("CBXXDPOXCUAssegnataFam", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXClasseGenBersani")
           click_option(get('@bersani_ref_vehicle_insured_with_company'))
         end
     end
@@ -156,11 +156,11 @@ class GenertelSect2 < Test::Unit::TestCase
     type_text("NBXXDVEXPotenza", get('@capacity'))
 
     type_text("NBXXDVEXValoreVeicolo", get('@vehicle_value'))
-    select_fake_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
+    fake_select_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
     click_option(get('@vehicle_shelter'))
 
     # following option has been commented because our default value is equal to the site default
-#    select_fake_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
+#    fake_select_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
     type_text("NBXXDVEXKmAnnui", get('@km_per_yr'))
 
     click_button_item "LBLXDVEXAvanti"
@@ -176,7 +176,7 @@ class GenertelSect2 < Test::Unit::TestCase
     case get('@owner_specification')
       when NotIndividual
         type_text("TBXXDP1XRagSociale", "#{get('@surname')} #{get('@name')}")
-        select_fake_option("CBXXDP1XNaturaGiuridica", CompanyType, "//body/div[8]/div/div")
+        fake_select_option("CBXXDP1XNaturaGiuridica", CompanyType, "//body/div[8]/div/div")
         type_text("TBXXDP1XPartitaIva", get('@vat_number'))
       else
         type_text("TBXXDP1XNome", get('@name'))
@@ -189,18 +189,18 @@ class GenertelSect2 < Test::Unit::TestCase
         assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique Hometown"
         assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing Hometown"
         @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Codice Fiscale: #{page.get_value("TBXXDP1XCodFisc")}"}
-        select_fake_option("CBXXDP1XProfPrimoLiv", get('@job'), "//body/div[8]/div/div")
+        fake_select_option("CBXXDP1XProfPrimoLiv", get('@job'), "//body/div[8]/div/div")
         sleep @sleep*2
-        select_fake_option("CBXXDP1XProfSecondoLiv", get('@job_2'), "//body/div[8]/div/div") if is_present?("CBXXDP1XProfSecondoLiv")
+        fake_select_option("CBXXDP1XProfSecondoLiv", get('@job_2'), "//body/div[8]/div/div") if is_present?("CBXXDP1XProfSecondoLiv")
     end
 
     click_button_item get('@subscriber_is_owner')
 
-    select_fake_option("CBXXRSDXCodTopo", get('@toponym'), "//body/div[8]/div/div")
+    fake_select_option("CBXXRSDXCodTopo", get('@toponym'), "//body/div[8]/div/div")
     type_text("TBXXRSDXIndirizzo", get('@address_street'))
     type_text("TBXXRSDXNCiv", get('@address_num'))
     type_text("TBXXRSDXComune", get('@residence'))
-    select_fake_option("CBXXRSDXProv", get('@residence_province'), "//body/div[9]/div/div")
+    fake_select_option("CBXXRSDXProv", get('@residence_province'), "//body/div[9]/div/div")
     type_text("TBXXRSDXCAP", get('@owner_zip_code'))
 
     type_text("TBXXRECXPrefisso1", get('@mobile_prefix'))
@@ -250,7 +250,7 @@ class GenertelSect2 < Test::Unit::TestCase
     sleep @sleep
     click_button_item get('@privacy_3')
 
-    select_fake_option("CBXXINFXComeGenertel", get('@how_do_you_know_the_company'), "//div[8]/div/div") 
+    fake_select_option("CBXXINFXComeGenertel", get('@how_do_you_know_the_company'), "//div[8]/div/div")
     sleep @sleep
     click_button_item "LBLXINFXConfermaDati"
     page_wait
@@ -269,23 +269,23 @@ class GenertelSect2 < Test::Unit::TestCase
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
 
-        click_button_item(get('@road_assistance_web_id'))
-        is_present?(get('@legal_assistance_web_id').split[0]) ? click_button_item(get('@legal_assistance_web_id').split[0]) : nil
-        is_present?(get('@legal_assistance_web_id').split[1]) ? click_button_item(get('@legal_assistance_web_id').split[1]) : nil
+        fake_select_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//body/div[8]/div/div") #if get('@public_liability_indemnity_limit') != '€ 3.000.000,00'
+        fake_select_option("GRDXGARXGaranzieX1X4", get('@public_liability_exemption'), "//body/div[9]/div/div") #if get('@public_liability_exemption') != '€ 0,00'
 
-        if get('@public_liability_indemnity_limit')!= '€ 3.000.000,00'
-          select_fake_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//div[9]/div/div")
-        end
+        click_button_item(get('@road_assistance_web_id')) if is_present?(get('@road_assistance_web_id'))
+        uncheck_checkbox(get('@road_assistance_web_id'))
+        click_button_item(get('@legal_assistance_web_id').split[0]) if is_present?(get('@legal_assistance_web_id').split[0])
+        uncheck_checkbox(get('@legal_assistance_web_id').split[0])
+        click_button_item(get('@legal_assistance_web_id').split[1]) if is_present?(get('@legal_assistance_web_id').split[1])
+        uncheck_checkbox(get('@legal_assistance_web_id').split[1])
 
-        if get('@public_liability_exemption')!= '€ 0,00'
-          select_fake_option("GRDXGARXGaranzieX1X4", get('@public_liability_exemption'), "//div[9]/div/div")
-        end
-
+        @last_element, @last_value = "LBLXAZIXRicalcolaTot", nil
         page.wait_for_element("LBLXAZIXRicalcolaTot")
         page.is_element_present("LBLXAZIXRicalcolaTot") ? click_button_item("LBLXAZIXRicalcolaTot") : nil
         assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
 
         page.wait_for_element("LBLXAZIXAvanti")
+        assert_equal page.get_value("GRDXGARXGaranzieX1X3"), get('@public_liability_indemnity_limit')
         page.is_element_present("LBLXAZIXAvanti") ? click_button_item("LBLXAZIXAvanti") : nil
         page_wait
       else
@@ -354,10 +354,8 @@ class GenertelSect2 < Test::Unit::TestCase
   def uncheck_checkbox(id, value = nil)
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's unchecked checkbox element: [#{@last_element}]"}
-    page_uncheck @last_element
+    page_uncheck @last_element if is_present? @last_element
     sleep @sleep*2
-    is_checked? @last_element
-    assert_equal page.get_value(@last_element), "off"
   end
 
   def click_button_item(id, value = nil)
@@ -392,11 +390,11 @@ class GenertelSect2 < Test::Unit::TestCase
       end
       break if @matched
     end
-    @matched ? select_fake_option(@last_element, @last_value, item) : assert(page.get_value(@last_element) =~ /#{@last_value}/i, page.get_value(id).inspect)
+    @matched ? fake_select_option(@last_element, @last_value, item) : assert(page.get_value(@last_element) =~ /#{@last_value}/i, page.get_value(id).inspect)
 
   end
 
-  def select_fake_option(id, value, item, assert_item = nil)
+  def fake_select_option(id, value, item, assert_item = nil)
 
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
@@ -445,7 +443,6 @@ class GenertelSect2 < Test::Unit::TestCase
 
 	def page_uncheck(element)
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Uncheck element = #{element}"}
-	  wait_for_elm(element)
 	  page.uncheck element
 	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
 	end
