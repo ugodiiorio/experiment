@@ -80,7 +80,7 @@ module Provider2Generali
       {'pol_driving_type_str' => 'definita'} => 'Conducente \"coniugi\"',
       {'pol_quotation_str' => 'bm'} => '//*[@id="CLAUSOLA_TARIFFA_0"]',
       {'pol_quotation_str' => 'franchigia'} => '//*[@id="CLAUSOLA_TARIFFA_0"]',
-      {'pol_RCA_premium_id_str' => 'id elemento'} => 'TOTALE_PI_CL_10',
+      {'pol_RCA_premium_id_str' => 'id elemento'} => 'TOTALE_PI',
       {'pol_residence_province_str' => 'AG'} => 'AG - AGRIGENTO',
       {'pol_residence_province_str' => 'AL'} => 'AL - ALESSANDRIA',
       {'pol_residence_province_str' => 'AN'} => 'AN - ANCONA',

@@ -5,7 +5,7 @@ module Provider2Zurich
     @rule_values ={}
 
     @rule_values = {
-
+      'pol_record_id_str' => 'copy_field',
       'driv_birth_place_str' => 'copy_field',
       'driv_birth_province_str' => 'copy_field',
       'driv_birth_state_str' => 'copy_field',
@@ -275,7 +275,7 @@ module Provider2Zurich
     @rule_values ={}
 
     @rule_values = {
-
+      'pol_record_id_str' => 'copy_field',
       'driv_heir_str' => 'translate_field',
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
@@ -313,7 +313,7 @@ module Provider2Zurich
     @rule_values ={}
 
     @rule_values = {
-
+      'pol_record_id_str' => 'copy_field',
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
       'pol_BM_assigned_str' => 'translate_field',
@@ -350,7 +350,7 @@ module Provider2Zurich
     @rule_values ={}
 
     @rule_values = {
-
+      'pol_record_id_str' => 'copy_field',
       'driv_heir_str' => 'translate_field',
       'own_owner_zip_code_str' => 'translate_field',
       'pol_BM_assigned_str' => 'translate_field',
