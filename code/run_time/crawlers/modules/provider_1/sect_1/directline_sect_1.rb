@@ -512,7 +512,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
 
     page_click(@last_element)
-
+    sleep @sleep*2
     span = find_span_element(item, @last_value, 0)
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's clicked item element: [#{span}]"} if @matched
     page_click(span) if @matched

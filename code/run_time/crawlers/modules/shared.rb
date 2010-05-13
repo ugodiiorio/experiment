@@ -13,7 +13,7 @@ module Shared
 
     when PROVIDER1, PROVIDER2
 #      click_button_item "contentSubView:vehicleForm:chooseAuto:downbox_f"
-      kw = "#{get("@kw")}"
+      kw = "#{get("@kw")} KW"
       kw ? type_keys("preparations", kw) : click_button_item("contentSubView:vehicleForm:chooseAuto:downbox_f")
       sleep @sleep*2
       @last_element, @last_value = "preparations", get("@set_up").gsub("regexpi:","")
