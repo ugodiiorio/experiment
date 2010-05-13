@@ -105,30 +105,24 @@ class LinearSect2 < Test::Unit::TestCase
 
     open_page(@url)
     click_button '//img[@alt="Preventivo motociclo"]'
-   	page_wait
+#   	page_wait
 
   end
 
   def page_1
     
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-#    select_option "contentSubView:contentForm:knowledgeSelect", get("@how_do_you_know_the_company")
     select_option 'cond_ass_cb', get("@insurance_situation")
     if get("@insurance_situation")=~ /bonus malus/i
-      #      select_option 'cond_ass_cb', get("@insurance_situation")
       select_option "frazionamento_cb", get("@instalment")
       select_option "anni_continuita_ass", get("@nr_of_yrs_insured_in_the_last_5_yrs")
       type_text("sinistri15anno_mese", get('@claims_total_number'))
       type_text("sinistri15anno_anno", get('@nr_of_paid_claims_this_yr'))
     elsif get("@insurance_situation")=~ /bersani/i
-      #      select_option "cond_ass_cb", get("@insurance_situation")
       if page.is_element_present('//img[@alt="prosegui"]')
         click_button '//img[@alt="prosegui"]'
-        #        page_wait
-      
-
-      select_option "tipoattestato_bersani", get("@bersani_ref_vehicle_insured_with_company")
-      type_text("targa_bersani", get('@bersani_ref_vehicle_number_plate'))
+        select_option "tipoattestato_bersani", get("@bersani_ref_vehicle_insured_with_company")
+        type_text("targa_bersani", get('@bersani_ref_vehicle_number_plate'))
       end
     end
 
@@ -150,17 +144,14 @@ class LinearSect2 < Test::Unit::TestCase
     select_option "imm_mese", get("@matriculation_date_month")
     select_option "imm_anno", get("@matriculation_date_year")
     select_option "marca_moto", get("@make")
-    sleep @sleep*2
+    sleep @sleep*3
     select_option "modello_moto", get("@model")
-    sleep @sleep*2
+    sleep @sleep*3
 
 
     select_option "ricovero_moto", get("@vehicle_shelter")
-   # select_option "utilizzo_auto", get("@habitual_vehicle_use")
-   # type_text("km_anno", get('@km_per_yr'))
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => PAOLO vehicle_value: #{is_editable?("valore_commerciale")}"}
      is_editable?("valore_commerciale") ? type_text("valore_commerciale", get('@vehicle_value')): nil
-  # non capisco questo  is_editable?("valore_commerciale") ? ((get_value("valore_commerciale")).gsub(".", "").to_i < 5000 ? nil : type_text("valore_commerciale", get('@vehicle_value'))) : nil
      
     click_option(get('@leasing'))
 
@@ -204,8 +195,6 @@ class LinearSect2 < Test::Unit::TestCase
       select_option "nascita_anno", get("@birth_date_year")
       select_option "stato_nascita_istat", get("@citizenship")
       click_option(get('@owner_sex'))
-     # select_option "patente_mese", get("@driving_license_month_of_issue")
-     # select_option "patente_anno", get("@driving_license_year_of_issue")
     end
 
     type_text("comune_residenza", get('@owner_residence'))
