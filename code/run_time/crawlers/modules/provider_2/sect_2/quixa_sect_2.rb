@@ -124,7 +124,7 @@ class QuixaSect2 < Test::Unit::TestCase
 
     select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlModel", get('@model')) 
 
-    select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlVersion", get('@set_up'))
+    select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlVersion", get('@set_up')) if page.get_select_options("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlVersion").size > 1
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucMotoData_ddlKmPerYear", get('@km_per_yr'))
  
@@ -134,7 +134,9 @@ class QuixaSect2 < Test::Unit::TestCase
 
     click_button("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward")
 
-  sleep @sleep*3
+    wait_for_alert()
+
+  sleep @sleep*2
 
   end
 
@@ -160,8 +162,6 @@ class QuixaSect2 < Test::Unit::TestCase
     end
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", get('@insurance_situation'))
-    sleep @sleep*2
-    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
     case get('@insurance_situation') =~ /prima polizza/i
       when FirstPolicy
         if Individual === (page.get_text("//label[@for='#{get('@client_type')}']") =~ /fisica/i)
@@ -173,7 +173,7 @@ class QuixaSect2 < Test::Unit::TestCase
         select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
         select_last_years_claims
       end
-
+    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
     click_button "ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_btnForward"
     sleep @sleep*5
 
@@ -379,8 +379,8 @@ class QuixaSect2 < Test::Unit::TestCase
 	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
-#	def wait_for_alert()
-#		!8.times{ break if (page.alert?); sleep 1; puts "Waiting alert ..."; }
-#		page.alert() if page.alert?
-#	end
+	def wait_for_alert()
+		!4.times{ break if (page.alert?); sleep 1; puts "Waiting alert ..."; }
+		page.alert() if page.alert?
+	end
 end
