@@ -141,7 +141,8 @@ class GenertelSect2 < Test::Unit::TestCase
     end
 
     type_text("DBXXDPOXDataDecorrenza", @rate_date)
-    click_option(get('@leasing'))
+    page.check(get('@leasing')) if is_present?(get('@leasing'))
+    click_checkbox(get('@leasing'))
     click_button_item "LBLXDPOXAvanti"
     page_wait
 
@@ -157,7 +158,8 @@ class GenertelSect2 < Test::Unit::TestCase
 
     type_text("NBXXDVEXValoreVeicolo", get('@vehicle_value'))
     fake_select_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
-    click_option(get('@vehicle_shelter'))
+    page.check(get('@vehicle_shelter')) if is_present?(get('@vehicle_shelter'))
+    click_checkbox(get('@vehicle_shelter'))
 
     # following option has been commented because our default value is equal to the site default
 #    fake_select_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
@@ -269,8 +271,8 @@ class GenertelSect2 < Test::Unit::TestCase
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
 
-        fake_select_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//body/div[8]/div/div") #if get('@public_liability_indemnity_limit') != '€ 3.000.000,00'
-        fake_select_option("GRDXGARXGaranzieX1X4", get('@public_liability_exemption'), "//body/div[9]/div/div") #if get('@public_liability_exemption') != '€ 0,00'
+        fake_select_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//body/div[8]/div/div")
+        fake_select_option("GRDXGARXGaranzieX1X4", get('@public_liability_exemption'), "//body/div[9]/div/div") if get('@public_liability_exemption') != '€ 0,00'
 
         click_button_item(get('@road_assistance_web_id')) if is_present?(get('@road_assistance_web_id'))
         uncheck_checkbox(get('@road_assistance_web_id'))
@@ -348,7 +350,6 @@ class GenertelSect2 < Test::Unit::TestCase
     @last_element, @last_value = id, value
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's checked checkbox element: [#{@last_element}]"}
     page_click @last_element
-    assert_equal page.get_value(@last_element), "on"
   end
 
   def uncheck_checkbox(id, value = nil)
