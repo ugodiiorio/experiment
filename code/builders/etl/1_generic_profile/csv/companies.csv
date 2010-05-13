@@ -14,7 +14,7 @@ fonsai_provider_2#fonsai#url="http://preventivazionerc.gruppofondiariasai.it/jpr
 genertel_provider_2#genertel#case sector; when "sect_1"; url="http://www.genertel.it/assicurazioni/auto/genertel_web_classic.jhtml"; when "sect_2"; url="http://www.genertel.it/assicurazioni/moto/assicurazione_moto_classic.jhtml"; else; url=nil; end; url
 generali_provider_2#generali#url="http://www.preventivi.generali.it/PreWeb/DatiIniziali?S_SERVLET=DATIINIZIALI&INIZIO=S&S_TIPO_PREV=PRVPLUS"
 genialloyd_provider_2#genialloyd#url="http://www.genialloyd.it"
-linear_provider_2#linear#url="http://www.linear.it/default.asp"
+linear_provider_2#linear#url="http://www.linear.it/Contenuti/Preventivo_home.asp"
 quixa_provider_2#quixa#case sector; when "sect_1"; url="http://www.quixa.it/simulator.aspx?SimObject=CAR"; when "sect_2"; url="http://www.quixa.it/simulator.aspx?SimObject=MOTORCYCLE"; else; url=nil; end; url
 zurich_connect_provider_2#zurich_connect#case sector; when "sect_1"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneAuto"; when "sect_2"; url="http://www.zurich-connect.it/default.aspx?Target=AssicurazioneMoto"; else; url=nil; end; url
 zurich_provider_2#zurich#url="http://webquoting.zurich.it/IndexAction.do"

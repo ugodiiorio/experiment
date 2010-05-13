@@ -328,7 +328,7 @@ module Provider2Linear
       'pol_nr_of_paid_claims_4_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_5_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_this_yr_str' => 'copy_field',
-      'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => 'profilefield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]== 5 ? "Sì" : "No"',
+      'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => 'profilefield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str].to_i== 5 ? "Sì" : "No"',
       'pol_policy_starting_date_day_str'=> 'copy_field' ,
       'pol_policy_starting_date_month_str'=> 'copy_field' ,
       'pol_policy_starting_date_str' => 'copy_field',
