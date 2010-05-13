@@ -185,8 +185,13 @@ class GenertelSect2 < Test::Unit::TestCase
         type_text("TBXXDP1XCognome", get('@surname'))
         click_option('RBTXDP1XSessoMF'+get('@driver_sex'))
         type_text("DBXXDP1XDataNascita", get('@birth_date'))
-        type_text("TBXXDP1XLuogoNascita", get('@birth_place'))
+        type_text("TBXXDP1XLuogoNascita", get('@birth_place').split("|")[0])
         click_button_item "LBLXDP1XCalcCodFisc"
+        sleep @sleep*2
+        is_present?("CBXXDP1XLuoghiNascita") ? fake_select_option("CBXXDP1XLuoghiNascita", get('@birth_place').split("|")[1], "//body/div[8]/div/div") : nil
+        click_button_item "LBLXDP1XCalcCodFisc" if is_present?("CBXXDP1XLuoghiNascita")
+        page.wait_for_no_text("Seleziona il tuo luogo di nascita")
+        page.wait_for_no_text("Inserisci il tuo luogo di nascita")
         assert !60.times{ break if (page.get_value("TBXXDP1XCodFisc").length == 16 rescue false); sleep 1 }, "Missing or invalid Codice Fiscale"
         assert !page.is_text_present("Seleziona il tuo luogo di nascita"), "Attention! Not unique Hometown"
         assert !page.is_text_present("Inserisci il tuo luogo di nascita"), "Attention! Missing Hometown"
