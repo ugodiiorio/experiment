@@ -191,6 +191,7 @@ class ConteSect1 < Test::Unit::TestCase
       select_option "page:provincia_di_nascita", get("@birth_province")
       type_keys("page:comune_di_nascita", get('@birth_place').to_s[0,1])
       wait_for_elm("//div[@id='risultatiSrchComNas']/ul/span/li")
+      sleep @sleep*2
       type_keys("page:comune_di_nascita", get('@birth_place').to_s[1..-1])
       sleep @sleep*2
       page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
@@ -207,6 +208,7 @@ class ConteSect1 < Test::Unit::TestCase
 
     type_keys("page:comune_di_residenza", get('@residence').to_s[0,1])
     wait_for_elm("//ul[@id='ulResult']/span[1]/li")
+    sleep @sleep*2
     type_keys("page:comune_di_residenza", get('@residence').to_s[1..-1])
     sleep @sleep*2
     page.click "//ul[@id='ulResult']/span[1]/li"
