@@ -105,7 +105,7 @@ module FieldMappingProvider2Sect2
       'veh_fuel_str' => "'benzina'",
       'veh_habitual_vehicle_use_str' => "'tempo libero/ casa - lavoro'",
       'veh_home_delivery_str' => "'no'",
-      'veh_km_per_yr_str' => "'15000'",
+      'veh_km_per_yr_str' => "'10000'",
       'veh_make_previous_vehicle_str' => 'a=infield[:veh_make_str].strip; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); f= h.gsub(/ª/,"a" );',
       'veh_make_str' => 'a=infield[:veh_make_str].strip; b= a.gsub(/à/,"a" );c= b.gsub(/è/,"e" );d= c.gsub(/é/,"e" );e= d.gsub(/ì/,"i" );f= e.gsub(/ò/,"o" );g= f.gsub(/ù/,"u" ); h= g.gsub(/°/,"a" ); f= h.gsub(/ª/,"a" );',
       'veh_max_capacity_ever_driven_num' => 'infield[:veh_max_capacity_ever_driven_num].strip.downcase',

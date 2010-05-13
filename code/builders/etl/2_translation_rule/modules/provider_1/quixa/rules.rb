@@ -276,6 +276,4 @@ module Provider1Quixa
 
   end
 
- 
-
 end
