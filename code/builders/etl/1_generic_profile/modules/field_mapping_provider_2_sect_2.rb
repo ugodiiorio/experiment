@@ -128,7 +128,7 @@ module FieldMappingProvider2Sect2
       'veh_vehicle_value_str' => "'5000'",
 
       'pol_act_of_vandalism_premium_id_str' => '"id elemento"',
-      'pol_act_of_vandalisme_web_id_str' => '"id elemento"',
+      'pol_act_of_vandalism_web_id_str' => '"id elemento"',
       'pol_assistance_code_str'  => nil ,
       'pol_assistance_on_off_str'  => nil ,
       'pol_assistance_premium_id_str' => '"id elemento"',

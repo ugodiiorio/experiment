@@ -186,7 +186,8 @@ class ZurichSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    if get('@insurance_situation') =~ /proveniente/i
+    if get('@insurance_situation') != 'Prima Immatricolazione'
+
       click_option(get('@risk_certificate'))
 
       page.click 'buttonCIP_CLAS'
@@ -196,9 +197,13 @@ class ZurichSect1 < Test::Unit::TestCase
       page.click 'buttonCIP_CLAS'
       page.select_window(nil)
 
-      type_text("NUM_SINI", get('@claims_total_number'))
-      type_text("SINANN86", get('@nr_of_paid_claims_1_yr'))
       type_text("COD_LIM1", get('@number_of_ni_na_yrs_during_5_yrs'))
+
+      if get('@insurance_situation') =~ /proveniente/i
+        type_text("NUM_SINI", get('@claims_total_number'))
+        type_text("SINANN86", get('@nr_of_paid_claims_1_yr'))
+      end
+      
     end
 
     if page.get_value("DES_MODE").match('')
@@ -229,12 +234,21 @@ class ZurichSect1 < Test::Unit::TestCase
       type_text("KG0_MASS", get("@full_load_total_weight"))
     end
 
-    page.click 'buttonCODNAZ74'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "CODNAZ74Domini", get("@citizenship")
-    page.click 'buttonCODNAZ74'
-    page.select_window(nil)
+    if (get('@client_type') =~ /TIP_PERS_F/i)
+      page.click 'buttonCODNAZ74'
+      page.wait_for_pop_up('DominiPopup', 30000)
+      page.select_window('DominiPopup')
+      select_option "CODNAZ74Domini", get("@citizenship")
+      page.click 'buttonCODNAZ74'
+      page.select_window(nil)
+    else
+      page.click 'buttonCODNAZ83'
+      page.wait_for_pop_up('DominiPopup', 30000)
+      page.select_window('DominiPopup')
+      select_option "CODNAZ83Domini", get("@citizenship")
+      page.click 'buttonCODNAZ83'
+      page.select_window(nil)
+    end
     
     select_option "gg_DATDIN87", get("@birth_date_day")
     select_option "mm_DATDIN87", get("@birth_date_month")

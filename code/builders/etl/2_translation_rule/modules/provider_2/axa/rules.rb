@@ -176,7 +176,7 @@ module Provider2Axa
       'pol_act_of_vandalism_minimum_uncoverage_str' => 'copy_field',
       'pol_act_of_vandalism_on_off_str' => 'copy_field',
       'pol_act_of_vandalism_premium_id_str' => 'copy_field',
-      'pol_act_of_vandalisme_web_id_str' => 'copy_field',
+      'pol_act_of_vandalism_web_id_str' => 'copy_field',
       'pol_assistance_code_str' => 'copy_field',
       'pol_assistance_on_off_str' => 'copy_field',
       'pol_assistance_premium_id_str' => 'copy_field',

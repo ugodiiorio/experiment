@@ -180,7 +180,7 @@ module Provider2Conte
       'pol_other_policies_with_company_str' => 'copy_field',
       'pol_BM_particular_cases_str' => 'copy_field',
       'pol_act_of_vandalism_minimum_uncoverage_str' => 'copy_field',
-      'pol_act_of_vandalisme_web_id_str' => 'copy_field',
+      'pol_act_of_vandalism_web_id_str' => 'copy_field',
       'pol_act_of_vandalism_premium_id_str' => 'copy_field',
       'pol_assistance_on_off_str' => 'copy_field',
       'pol_assistance_web_id_str' => 'copy_field',
