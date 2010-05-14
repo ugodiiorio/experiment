@@ -173,10 +173,10 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     click_option('policyHolder_sex_'+get("@owner_sex")+'')
 
-    page_click('policyHolder_maritalStatus_link')
+    click_button('policyHolder_maritalStatus_link')
     page_click('//*[@id="policyHolder_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
 
-    page_click('policyHolder_profession_link')
+    click_button('policyHolder_profession_link')
     page_click('//*[@id="policyHolder_profession_list"]/li[@rel="'+get("@job")+'"]')
     store_parameter(:job, page.get_text('policyHolder_profession_link')) if @store_params
 
@@ -184,13 +184,13 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     enhanced_town_select('policyHolder_town_link',get("@residence"), "//*[@id='policyHolder_town_li_?']/span")
 
-    page_click('policyHolder_drivingLicencePossess_link')
+    click_button('policyHolder_drivingLicencePossess_link')
     page_click('//*[@id="policyHolder_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
     
     click_option(get('@subscriber_is_driver'))
     click_option(get('@subscriber_is_owner'))
 
-    page_click('numeroConducentiMinori26Anni_link')
+    click_button('numeroConducentiMinori26Anni_link')
     page_click('//*[@id="numeroConducentiMinori26Anni_list"]/li[@rel="'+get("@driver_less_than_26_yrs")+'"]')
     
     if get("@driver_less_than_26_yrs") == '1'
@@ -213,17 +213,17 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     click_option('under26First_sex_'+get("@owner_sex")+'')
 
-    page_click('under26First_maritalStatus_link')
+    click_button('under26First_maritalStatus_link')
     page_click('//*[@id="under26First_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
 
-    page_click('under26First_profession_link')
+    click_button('under26First_profession_link')
     page_click('//*[@id="under26First_profession_list"]/li[@rel="'+get("@job")+'"]')
 
     type_text("under26First_zipCode", get('@owner_zip_code'))
 
     enhanced_town_select('under26First_town_link',get("@residence"), "//*[@id='under26First_town_li_?']/span")
     
-    page_click('under26First_drivingLicencePossess_link')
+    click_button('under26First_drivingLicencePossess_link')
     page_click('//*[@id="under26First_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
 
   end
@@ -244,30 +244,30 @@ class DirectlineSect1 < Test::Unit::TestCase
     enhanced_model_set_up_select('modelloVeicolo_link',get("@model"), "//*[@id='modelloVeicolo_li_?']/span")
     store_parameter(:model, page.get_text('modelloVeicolo_link')) if @store_params
 
-    page_click('alimentazioneVeicolo_link')
+    click_button('alimentazioneVeicolo_link')
     page_click('//*[@id="alimentazioneVeicolo_list"]/li[@rel="'+get("@fuel")+'"]')
 
     enhanced_model_set_up_select('allestimentoVeicolo_link', get("@set_up"), "//*[@id='allestimentoVeicolo_li_?']/span")
     store_parameter(:preparation, page.get_text('allestimentoVeicolo_link')) if @store_params
 
-    page_click('tipoAntifurtoVeicolo_link')
+    click_button('tipoAntifurtoVeicolo_link')
     page_click('//*[@id="tipoAntifurtoVeicolo_list"]/li[@rel="'+get("@alarm")+'"]')
 
-    page_click('usoAbitualeVeicolo_link')
+    click_button('usoAbitualeVeicolo_link')
     page_click('//*[@id="usoAbitualeVeicolo_list"]/li[@rel="'+get("@habitual_vehicle_use")+'"]')
 
     type_text("kmAnnuiPercorsiVeicolo", get('@km_per_yr'))
 
     click_option(get('@vehicle_use'))
 
-    page_click('ricoveroVeicolo_link')
+    click_button('ricoveroVeicolo_link')
     page_click('//*[@id="ricoveroVeicolo_list"]/li[@rel="'+get("@vehicle_shelter")+'"]')
 
     if (page.get_value('valoreVeicolo') == "")
       type_text("valoreVeicolo", get('@vehicle_value'))
     end
 
-    page_click('numeroVeicoliFamiliariPosseduti_link')
+    click_button('numeroVeicoliFamiliariPosseduti_link')
     page_click('//*[@id="numeroVeicoliFamiliariPosseduti_list"]/li[@rel="'+get("@family_car")+'"]')
 
     click_button "btnContinua"
@@ -282,7 +282,7 @@ class DirectlineSect1 < Test::Unit::TestCase
 
     click_button "btnContinua"
 
-    page_click('fonti_link')
+    click_button('fonti_link')
     page_click('//*[@id="fonti_list"]/li[@rel="'+get("@how_do_you_know_the_company")+'"]')
     
     click_button "//img[@alt='Vedi il premio']"
@@ -299,17 +299,17 @@ class DirectlineSect1 < Test::Unit::TestCase
     case @last_value
     when 'on'
 
-      page_click('RCA_LIMIT_0_link')
+      click_button('RCA_LIMIT_0_link')
       if is_present?('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
         page_click('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
       else
         page_click('//*[@id="RCA_LIMIT_0_list"]/li[last()]')
       end
 
-      page_click('RCA_DEDUCTIBLE_0_link')
+      click_button('RCA_DEDUCTIBLE_0_link')
       page_click('//*[@id="RCA_DEDUCTIBLE_0_list"]/li[@rel="'+get("@public_liability_exemption")+'"]')
 
-      page_click('frazionamento_link')
+      click_button('frazionamento_link')
       page_click('//*[@id="frazionamento_list"]/li[@rel="'+get("@instalment")+'"]')
 
       click_button(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
@@ -344,6 +344,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     page.open @last_element
     sleep @sleep
 #    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    page.window_maximize
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
   end
