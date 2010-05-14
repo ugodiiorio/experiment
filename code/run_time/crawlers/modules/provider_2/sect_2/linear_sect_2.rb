@@ -105,7 +105,6 @@ class LinearSect2 < Test::Unit::TestCase
 
     open_page(@url)
     click_button '//img[@alt="Preventivo motociclo"]'
-#   	page_wait
 
   end
 
@@ -187,20 +186,25 @@ class LinearSect2 < Test::Unit::TestCase
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
 
-    click_option(get('@client_type'))
+    if (page.get_attribute("#{get('@client_type')}@value") == "0")
+      #commented because driver is ALWAYS owner, so the following fields are pre-compiled
+#      select_option "nascita_giorno", get("@birth_date_day")
+#      select_option "nascita_mese", get("@birth_date_month")
+#      select_option "nascita_anno", get("@birth_date_year")
+#      select_option "stato_nascita_istat", get("@citizenship")
+#      click_option(get('@owner_sex'))
 
-    if (page.get_attribute("#{@last_element}@value") == "0")
-      select_option "nascita_giorno", get("@birth_date_day")
-      select_option "nascita_mese", get("@birth_date_month")
-      select_option "nascita_anno", get("@birth_date_year")
-      select_option "stato_nascita_istat", get("@citizenship")
-      click_option(get('@owner_sex'))
+#      type_text("comune_residenza", get('@owner_residence'))
+#      page.fire_event "comune_residenza" , "blur"
+#      sleep @sleep*3
+#      is_present?("localita") ? select_option("localita", "index=1") : nil
+    else
+      click_option(get('@client_type'))
+      type_text("comune_residenza", get('@owner_residence'))
+      page.fire_event "comune_residenza" , "blur"
+      sleep @sleep*3
+      is_present?("localita") ? select_option("localita", "index=1") : nil
     end
-
-    type_text("comune_residenza", get('@owner_residence'))
-    page.fire_event "comune_residenza" , "blur"
-    sleep @sleep*3
-    is_present?("localita") ? select_option("localita", "index=1") : nil
 
     click_button 'nextStep'
     page_wait
@@ -223,8 +227,8 @@ class LinearSect2 < Test::Unit::TestCase
     @last_element, @last_value = "@rca_on_off", get("@rca_on_off")
     case @last_value
     when 'on'
-      sleep @sleep*2
       select_option("massimale_1", get('@public_liability_indemnity_limit'))
+      sleep @sleep*5
 
       # all guarantees appears to be unchecked and anyway we take simple RCA premium value
 
