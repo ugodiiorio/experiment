@@ -22,7 +22,7 @@ module Provider1Genertel
       {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX7X5',
       {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
       {'pol_natural_events_act_of_vandalism_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX9X5',
-       {'pol_protection_24_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
+      {'pol_protection_24_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
       {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
 
       {'driv_job_str' => 'dipendente/impiegato/funzionario/dirigente'} => 'Impiegato/a',
