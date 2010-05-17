@@ -201,11 +201,11 @@ module Provider2Genertel
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
       {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX6X5',
-      {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX7X5',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX7X5',
       {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
       {'pol_natural_events_act_of_vandalism_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX9X5',
-      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
-      {'pol_protection_24_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
+      {'pol_protection_24_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
+      {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
 #      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//tr[5]/td[4]/div/div/div/input //tr[7]/td[4]/div/div/div/input',
       {'pol_nr_of_paid_claims_3_yr_str' => '1'} => '1',
       {'pol_nr_of_paid_claims_3_yr_str' => '2'} => '2',
@@ -354,15 +354,15 @@ module Provider2Genertel
     @target_values = {}
 
     @target_values = {
-       {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
+      {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
       {'pol_protected_bonus_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX6X5',
-      {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX7X5',
+      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX7X5',
       {'pol_contingency_protection_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX8X5',
       {'pol_natural_events_act_of_vandalism_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX9X5',
-      {'pol_theft_fire_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
-      {'pol_protection_24_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
+      {'pol_protection_24_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX10X5',
+      {'pol_minikasko_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX11X5',
 #
 
       {'driv_driver_sex_str' => 'F'} => '1',
