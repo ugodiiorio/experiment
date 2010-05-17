@@ -229,7 +229,7 @@ module Provider1Quixa
       'veh_make_previous_vehicle_str' => 'copy_field',
       'veh_make_str' => 'make=profilefield[:veh_make_str]; make= make.gsub(/---->/,"" ); make= make.gsub(/--->/,"" );make= make.gsub(/Â/,"" ); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";',
       'veh_marble_blocks_str' => 'copy_field',
-      'veh_model_str' => 'make=profilefield[:veh_model_str]; make= make.gsub(/\\(/,"\\\\(" ); make= make.gsub(/\\)/,"\\\\)" ); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^(" + make + ")+|regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "$";',
+      'veh_model_str' => 'make=profilefield[:veh_model_str]; make= make.gsub(/\\(/,"\\\\(" ); make= make.gsub(/\\)/,"\\\\)" ); make= make.gsub(/X6 \\(E71\\)/,"X6 \\(E71-E72\\)" ); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^(" + make + ")+|regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "$";',
       'veh_modification_made_str' => 'copy_field',
       'veh_new_used_vehicle_str' => 'copy_field',
       'veh_num_of_owners_str' => 'copy_field',
