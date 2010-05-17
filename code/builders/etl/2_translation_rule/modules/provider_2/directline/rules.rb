@@ -124,7 +124,9 @@ module Provider2Directline
       'pol_legal_assistance_web_id_str' => 'translate_field',
       'pol_matriculation_date_day_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
       'pol_matriculation_date_month_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-      'pol_matriculation_date_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str].slice(3,7) : copy_field )  :  x= "01/" + (Chronic.parse(@setup_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+
+#      'pol_matriculation_date_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
       'pol_matriculation_date_year_num' => '(Chronic.parse(@setup_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
 #      'pol_minikasko_code_str' => 'copy_field',
 #      'pol_minikasko_premium_id_str' => 'copy_field',
