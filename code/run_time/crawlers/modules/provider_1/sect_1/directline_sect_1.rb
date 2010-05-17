@@ -263,9 +263,8 @@ class DirectlineSect1 < Test::Unit::TestCase
     click_button('ricoveroVeicolo_link')
     page_click('//*[@id="ricoveroVeicolo_list"]/li[@rel="'+get("@vehicle_shelter")+'"]')
 
-    if (page.get_value('valoreVeicolo') == "")
-      type_text("valoreVeicolo", get('@vehicle_value'))
-    end
+    /^0/.match(get_value("valoreVeicolo")) ? type_text("valoreVeicolo", get('@vehicle_value')) : nil
+    page.get_value('valoreVeicolo') == "" ? type_text("valoreVeicolo", get('@vehicle_value')) : nil
 
     click_button('numeroVeicoliFamiliariPosseduti_link')
     page_click('//*[@id="numeroVeicoliFamiliariPosseduti_list"]/li[@rel="'+get("@family_car")+'"]')

@@ -279,12 +279,22 @@ class GenertelSect2 < Test::Unit::TestCase
         fake_select_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//body/div[8]/div/div")
         fake_select_option("GRDXGARXGaranzieX1X4", get('@public_liability_exemption'), "//body/div[9]/div/div") if get('@public_liability_exemption') != '€ 0,00'
 
-        click_button_item(get('@road_assistance_web_id')) if is_present?(get('@road_assistance_web_id'))
+        click_button_item(get('@road_assistance_web_id')) if is_checked?(get('@road_assistance_web_id'))
         uncheck_checkbox(get('@road_assistance_web_id'))
-        click_button_item(get('@legal_assistance_web_id').split[0]) if is_present?(get('@legal_assistance_web_id').split[0])
-        uncheck_checkbox(get('@legal_assistance_web_id').split[0])
-        click_button_item(get('@legal_assistance_web_id').split[1]) if is_present?(get('@legal_assistance_web_id').split[1])
-        uncheck_checkbox(get('@legal_assistance_web_id').split[1])
+        click_button_item(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
+        uncheck_checkbox(get('@legal_assistance_web_id'))
+        click_button_item(get('@driver_accident_coverage_web_id')) if is_checked?(get('@driver_accident_coverage_web_id'))
+        uncheck_checkbox(get('@driver_accident_coverage_web_id'))
+        click_button_item(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
+        uncheck_checkbox(get('@protected_bonus_web_id'))
+        click_button_item(get('@theft_fire_coverage_web_id')) if is_present?(get('@theft_fire_coverage_web_id'))
+        uncheck_checkbox(get('@theft_fire_coverage_web_id'))
+        click_button_item(get('@contingency_protection_web_id')) if is_checked?(get('@contingency_protection_web_id'))
+        uncheck_checkbox(get('@contingency_protection_web_id'))
+        click_button_item(get('@protection_24_web_id')) if is_checked?(get('@protection_24_web_id'))
+        uncheck_checkbox(get('@protection_24_web_id'))
+        click_button_item(get('@natural_events_act_of_vandalism_web_id')) if is_present?(get('@natural_events_act_of_vandalism_web_id'))
+        uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id'))
 
         @last_element, @last_value = "LBLXAZIXRicalcolaTot", nil
         page.wait_for_element("LBLXAZIXRicalcolaTot")
@@ -317,8 +327,9 @@ class GenertelSect2 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
-    @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+#    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
+    page.window_maximize
+    @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
   end
 
@@ -357,10 +368,10 @@ class GenertelSect2 < Test::Unit::TestCase
     page_click @last_element
   end
 
-  def uncheck_checkbox(id, value = nil)
-    @last_element, @last_value = id, value
+  def uncheck_checkbox(id)
+    @last_element, @last_value = id, nil
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's unchecked checkbox element: [#{@last_element}]"}
-    page_uncheck @last_element if is_present? @last_element
+    page_uncheck @last_element if @checked
     sleep @sleep*2
   end
 
@@ -370,11 +381,21 @@ class GenertelSect2 < Test::Unit::TestCase
     page_click_button_item @last_element if is_present?(@last_element)
   end
 
-  def is_checked?(id, value = nil)
-    @last_element, @last_value = id, value
+  def is_checked?(id)
+    @last_element, @last_value, @checked = id, nil, nil
     present = is_present?(@last_element)
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked? - #{page.is_checked(@last_element)}"} if present
-  	return present ? page.is_checked(@last_element) : nil
+    if present
+      begin
+        @checked = page.get_value("//input[@id='#{@last_element}' and @checked='']")
+        @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => [#{@last_element}] checked attribute - #{@checked}"}
+        return true
+      rescue Exception => ex
+        return false
+      end
+    else
+      return false
+    end
+
   end
 
   def type_model_set_up(id, value, item)
