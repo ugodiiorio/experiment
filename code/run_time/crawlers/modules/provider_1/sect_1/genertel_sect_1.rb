@@ -314,7 +314,7 @@ class GenertelSect1 < Test::Unit::TestCase
         uncheck_checkbox(get('@driver_accident_coverage_web_id'))
         click_button_item(get('@protected_bonus_web_id')) if is_checked?(get('@protected_bonus_web_id'))
         uncheck_checkbox(get('@protected_bonus_web_id'))
-        click_button_item(get('@theft_fire_coverage_web_id')) if is_present?(get('@theft_fire_coverage_web_id'))
+        click_button_item(get('@theft_fire_coverage_web_id')) if is_checked?(get('@theft_fire_coverage_web_id'))
         uncheck_checkbox(get('@theft_fire_coverage_web_id'))
         click_button_item(get('@minikasko_web_id')) if is_checked?(get('@minikasko_web_id'))
         uncheck_checkbox(get('@minikasko_web_id'))
@@ -322,7 +322,7 @@ class GenertelSect1 < Test::Unit::TestCase
         uncheck_checkbox(get('@contingency_protection_web_id'))
         click_button_item(get('@protection_24_web_id')) if is_checked?(get('@protection_24_web_id'))
         uncheck_checkbox(get('@protection_24_web_id'))
-        click_button_item(get('@natural_events_act_of_vandalism_web_id')) if is_present?(get('@natural_events_act_of_vandalism_web_id'))
+        click_button_item(get('@natural_events_act_of_vandalism_web_id')) if is_checked?(get('@natural_events_act_of_vandalism_web_id'))
         uncheck_checkbox(get('@natural_events_act_of_vandalism_web_id'))
 
         @last_element, @last_value = "LBLXAZIXRicalcolaTot", nil
