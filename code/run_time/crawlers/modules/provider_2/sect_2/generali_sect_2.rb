@@ -182,7 +182,7 @@ class GeneraliSect2 < Test::Unit::TestCase
     if (get('@insurance_situation') =~ /assicurato/i || (get('@insurance_situation') =~ /prima/i &&  get('@bersani') =~ /si/i))
       select_option "VAL_PARAMETRO_CT_1_1", get("@bm_assigned")
     end
-    select_option "VAL_PARAMETRO_UEP_1_1", get("@public_liability_indemnity_limit")
+    select_option "VAL_PARAMETRO_UEP_1_2", get("@public_liability_indemnity_limit")
 
     page.click '//img[@alt="prosegui"]'
     page_wait
