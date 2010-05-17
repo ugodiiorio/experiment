@@ -128,13 +128,13 @@ module Provider2Genertel
       'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? ( if  profilefield[:pol_matriculation_date_str].length == 10 ;  x= profilefield[:pol_matriculation_date_str].slice(6,4) ; else  x = profilefield[:pol_matriculation_date_str].slice(3,4) end )  :  x = (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'pol_minikasko_code_str' => 'copy_field',
       'pol_minikasko_premium_id_str' => 'copy_field',
-      'pol_minikasko_web_id_str' => 'copy_field',
+      'pol_minikasko_web_id_str' => 'translate_field',
       'pol_motorcycle_driving_ability_str'=> 'copy_field',
       'pol_natural_events_act_of_vandalism_code_str' => 'copy_field',
       'pol_natural_events_act_of_vandalism_minimum_uncoverage_str' => 'copy_field',
       'pol_natural_events_act_of_vandalism_on_off_str' => 'copy_field',
       'pol_natural_events_act_of_vandalism_premium_id_str' => 'copy_field',
-      'pol_natural_events_act_of_vandalism_web_id_str' => 'copy_field',
+      'pol_natural_events_act_of_vandalism_web_id_str' => 'translate_field',
       'pol_natural_events_code_str' => 'copy_field',
       'pol_natural_events_on_off_str' => 'copy_field',
       'pol_natural_events_premium_id_str' => 'copy_field',
@@ -211,7 +211,7 @@ module Provider2Genertel
       'pol_theft_fire_coverage_code_str'=> 'copy_field',
       'pol_theft_fire_coverage_on_off_str'=> 'copy_field',
       'pol_theft_fire_coverage_premium_id_str'=> 'copy_field',
-      'pol_theft_fire_coverage_web_id_str'=> 'copy_field',
+      'pol_theft_fire_coverage_web_id_str'=> 'translate_field',
       'pol_theft_fire_minimum_uncoverage_exemption_str' => 'copy_field',
       'pol_type_of_contract_str' => 'copy_field',
       'pol_vehicle_continuous_use_no_of_mths_str'=> 'copy_field',
@@ -347,7 +347,7 @@ module Provider2Genertel
       'pol_contingency_protection_code_str' => 'copy_field',
       'pol_contingency_protection_on_off_str' => 'copy_field',
       'pol_contingency_protection_premium_id_str' => 'copy_field',
-      'pol_contingency_protection_web_id_str' => 'copy_field',
+      'pol_contingency_protection_web_id_str' => 'translate_field',
 
       'pol_legal_assistance_code_str' => 'copy_field',
       'pol_legal_assistance_on_off_str' => 'copy_field',
@@ -357,7 +357,37 @@ module Provider2Genertel
       'pol_driver_accident_coverage_code_str' => 'copy_field',
       'pol_driver_accident_coverage_on_off_str' => 'copy_field',
       'pol_driver_accident_coverage_premium_id_str' => 'copy_field',
-      'pol_driver_accident_coverage_web_id_str' => 'copy_field',
+      'pol_driver_accident_coverage_web_id_str' => 'translate_field',
+
+      'pol_protection_24_code_str' => 'copy_field',
+      'pol_protection_24_on_off_str' => 'copy_field',
+      'pol_protection_24_premium_id_str' => 'copy_field',
+      'pol_protection_24_web_id_str' => 'translate_field',
+
+      'pol_protected_bonus_code_str' => 'copy_field',
+      'pol_protected_bonus_on_off_str' => 'copy_field',
+      'pol_protected_bonus_premium_id_str' => 'copy_field',
+      'pol_protected_bonus_web_id_str' => 'translate_field',
+
+      
+
+      'pol_natural_events_act_of_vandalism_code_str' => 'copy_field',
+      'pol_natural_events_act_of_vandalism_minimum_uncoverage_str' => 'copy_field',
+      'pol_natural_events_act_of_vandalism_on_off_str' => 'copy_field',
+      'pol_natural_events_act_of_vandalism_premium_id_str' => 'copy_field',
+      'pol_natural_events_act_of_vandalism_web_id_str' => 'translate_field',
+
+      'pol_theft_fire_coverage_code_str'=> 'copy_field',
+      'pol_theft_fire_coverage_on_off_str'=> 'copy_field',
+      'pol_theft_fire_coverage_premium_id_str'=> 'copy_field',
+      'pol_theft_fire_coverage_web_id_str'=> 'translate_field',
+
+      'pol_minikasko_code_str' => 'copy_field',
+      'pol_minikasko_premium_id_str' => 'copy_field',
+      'pol_minikasko_web_id_str' => 'translate_field',
+     
+
+
 
     }
 
