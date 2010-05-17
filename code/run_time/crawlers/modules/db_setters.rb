@@ -215,4 +215,23 @@ module DbSetters
     return person_arr
   end
 
+  def check_state(db,state)
+
+    @result = nil
+    db.run "START TRANSACTION;"
+    ds = db['select result_str from scheduler where key_insurance_profiles_id_num = ? AND
+                                              key_provider_id_str = ? AND
+                                              key_sector_id_str = ? AND
+                                              key_company_id_str = ? AND
+                                              key_working_set_id_str = ? AND
+                                              key_rate_id_str = ? AND
+                                              state_str = ? for UPDATE',
+                                              @kte.profile, @kte.provider, @kte.sector, @kte.company, @kte.working_set, @kte.rate, state]
+    count = ds.count
+    ds.first.each {|r| @result = r[0]}  if existing_profile?(count)
+    db.run "COMMIT;"
+    return count
+
+  end
+
 end

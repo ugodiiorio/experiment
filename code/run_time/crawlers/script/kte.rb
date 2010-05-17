@@ -15,6 +15,8 @@ DB_SETTERS = 'db_setters.rb'
 EXTENSIONS = 'kte_ext.rb'
 TEST_SUITE = 'run_test.rb'
 DLN_LIBRARY_PATH = File.join(File.dirname(__FILE__), '..', MODULE_FOLDER)
+KO = 'FREE'
+NOT_KO = 'NOT_FREE'
 
 require("#{File.join(DLN_LIBRARY_PATH)}/#{DB_SETTERS}")
 require("#{File.join(DLN_LIBRARY_PATH)}/#{EXTENSIONS}")
@@ -25,7 +27,7 @@ include KteExt
 class KTE
   attr_reader :logger, :company_group, :company, :provider, :sector, :working_set, :rate, :rate_date
   attr_reader :log_device, :log_level
-  attr_reader :use_case, :store_params
+  attr_reader :use_case, :store_params, :filter_state
   attr_reader :port, :selenium_host, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
   attr_reader :db_host, :db_socket, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
   attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result
@@ -73,7 +75,7 @@ class KTE
       ensure
           config = {:general_settings => nil, :logger_settings => nil, :selenium_settings => nil} unless config
           general_settings = {:gs_profile_sleep_in_seconds =>nil, :gs_profile_id =>nil, 
-                              :gs_use_case =>nil, :gs_store_params =>nil,
+                              :gs_use_case =>nil, :gs_store_params =>nil, :gs_filter_state =>nil,
                               :gs_typing_sleep_in_seconds =>nil, :gs_max_number_of_profiles =>nil} unless general_settings
           logger_settings = {:ls_device =>nil, :ls_level =>nil,
                              :ls_shift_age =>nil, :ls_shift_size =>nil,
@@ -96,6 +98,7 @@ class KTE
       @profile                    	= ARGV[0]  || general_settings['gs_profile_id'] || "100"
       @use_case                     = ARGV[28] || general_settings['gs_use_case'] || ''
       @store_params                 = ARGV[29] || general_settings['gs_store_params'] || false
+      @filter_state                 = ARGV[32] || general_settings['gs_filter_state'] || ''
 
       @company_group     			      = ARGV[23] || app_settings['as_company_group_id'] || "all_provider_1"
       @company 	        			      = ARGV[1]  || app_settings['as_company_id'] || "quixa"
@@ -190,7 +193,7 @@ class KTE
       while true
         break if profiles_count.to_i() == @kte.max_profiles.to_i()
 
-        @not_free = nil
+        @not_free, @filtered_out = nil, nil
 
         if is_numeric?(@kte.profile)
 
@@ -216,7 +219,19 @@ class KTE
       #      case @kte.company
             @profile_array.size > 1 ? @kte.profile = @profile_array[from_profile] : @kte.profile = from_profile
             @logger.warn(__FILE__) {"#{@kte.company} => profile id number outside table limits !!!"} unless @kte.profile.to_i.between?(1, profiles)
-            @not_free = not_free_profile?
+
+            case @filter_state.empty?
+              when true
+                @filtered_out = false
+              when false
+                db_profile = db_connect(@kte.db_monitor)
+                (check_state(db_profile, 'FREE') > 0 ? @filtered_out = false : @filtered_out = true; @not_free = true) if @filter_state == KO
+                (check_state(db_profile, 'FREE') == 0 ? @filtered_out = false : @filtered_out = true; @not_free = true) if @filter_state == NOT_KO
+                db_disconnect(db_profile)
+              else
+            end
+
+            @not_free = not_free_profile? unless @filtered_out
       #      end
             unless @not_free
               @logger.warn(__FILE__) {"#{@kte.company} => #{"@"*20} PROFILE N. #{@kte.profile}"}
