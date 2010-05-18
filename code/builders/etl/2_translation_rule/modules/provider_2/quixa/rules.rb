@@ -26,7 +26,7 @@ module Provider2Quixa
       'driv_heir_str' => 'copy_field',
       'driv_italian_residence_starting_yrs_num' => 'copy_field',
       'driv_job_2_str' => 'copy_field',
-      'driv_job_str' => 'job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
+       'driv_job_str' => 'job=profilefield[:driv_job_str]; job=job.gsub("professionjista", "professionista" );jregexp_mod = "regexpi:([A-Za-z0-9])*(";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length < 3 ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(niente))\\\\b"',
       'driv_residence_same_as_home_address_str' => 'translate_field',
       'driv_studies_str' => 'copy_field',
       'own_owner_sex_str' => 'translate_field',
