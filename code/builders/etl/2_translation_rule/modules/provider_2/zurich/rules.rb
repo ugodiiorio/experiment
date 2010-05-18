@@ -160,7 +160,7 @@ module Provider2Zurich
       'veh_rent_str' => 'copy_field',
       'veh_rent_with_driver_str' => 'copy_field',
       'veh_set_up_previous_vehicle_str' => 'copy_field',
-      'veh_set_up_str' => 'make=profilefield[:veh_set_up_str]; regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";',
+      'veh_set_up_str' => 'make=profilefield[:veh_set_up_str]; regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "";',
       'veh_stabilizer_str' => 'copy_field',
       'veh_third_party_str' => 'copy_field',
       'veh_tow_hook_str' => 'translate_field',
