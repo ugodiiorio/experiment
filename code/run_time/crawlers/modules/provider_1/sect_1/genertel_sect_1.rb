@@ -234,7 +234,7 @@ class GenertelSect1 < Test::Unit::TestCase
     fake_select_option("CBXXRSDXCodTopo", get('@toponym'), "//body/div[8]/div/div")
     type_text("TBXXRSDXIndirizzo", get('@address_street'))
     type_text("TBXXRSDXNCiv", get('@address_num'))
-    type_text("TBXXRSDXComune", get('@residence'))
+    type_text("TBXXRSDXComune", get('@residence').split("|")[0])
     fake_select_option("CBXXRSDXProv", get('@residence_province'), "//body/div[9]/div/div")
     type_text("TBXXRSDXCAP", get('@owner_zip_code'))
 
@@ -246,13 +246,13 @@ class GenertelSect1 < Test::Unit::TestCase
 
     click_button_item "LBLXAN1XAvanti"
     sleep @sleep*5
-    assert !is_present?("ERRXRSDXComuni"), "Attention! Wrong or Missing Residence"
-    if is_present?("TBXXRSDXComune")
-      if page.get_value("TBXXRSDXComune") != get('@residence')
+    if is_present?("CBXXRSDXComuni")
+        fake_select_option("CBXXRSDXComuni", get('@residence').split("|")[1], "//body/div[8]/div/div")
         click_button_item("LBLXAN1XAvanti")      
         page_wait
-      end
     end
+    page.wait_for_no_text("Seleziona un comune di residenza")
+    assert !is_present?("ERRXRSDXComuni"), "Attention! Wrong or Missing Residence"
     
   end
 

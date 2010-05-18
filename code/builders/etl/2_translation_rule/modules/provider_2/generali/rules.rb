@@ -398,6 +398,7 @@ module Provider2Generali
       'veh_vehicle_type_str' => 'translate_field',
 
       'pol_birth_date_str' => 'copy_field',
+      'pol_public_liability_exemption_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
       'pol_record_id_str' => 'copy_field',
@@ -409,7 +410,7 @@ module Provider2Generali
       'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
       'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
-      'veh_vehicle_use_str' => '(profilefield[:veh_third_party_str]== "Conto proprio") ? " Cose conto proprio" : " Cose conto terzi"',
+      'veh_vehicle_use_str' => '(profilefield[:veh_third_party_str]=~ /proprio/i) ? " Cose conto proprio" : " Cose conto terzi"',
 
     }
 
