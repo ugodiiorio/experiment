@@ -167,9 +167,9 @@ class GeneraliSect4 < Test::Unit::TestCase
     type_text("VAL_PARAMETRO_INPUT_0", get("@matriculation_date"))
     select_option "VAL_PARAMETRO_SELECT_1", get("@vehicle_use")
     select_option "VAL_PARAMETRO_SELECT_2", get("@fuel")
-    type_keys("VAL_PARAMETRO_INPUT_3", (get('@full_load_total_weight').to_i*100).to_s)
+    type_keys("VAL_PARAMETRO_INPUT_3", (get('@full_load_total_weight').to_i*10).to_s)
     click_option(get('@hook'))
-    type_keys("VAL_PARAMETRO_INPUT_5", (get('@full_load_total_weight').to_i*100).to_s)
+    type_keys("VAL_PARAMETRO_INPUT_5", (get('@full_load_total_weight').to_i*10).to_s)
     select_option "VAL_PARAMETRO_SELECT_6", get("@alarm")
     click_option(get('@quotation'))
 
@@ -184,8 +184,10 @@ class GeneraliSect4 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     if is_present?('VAL_PARAMETRO_CT_1_1')
-      select_option "VAL_PARAMETRO_CT_1_1", get("@bm_assigned")
+      select_option "VAL_PARAMETRO_CT_1_1", get("@public_liability_exemption")
     end
+
+
     select_option "VAL_PARAMETRO_UEP_1_1", get("@public_liability_indemnity_limit")
 
     page.click '//img[@alt="prosegui"]'
