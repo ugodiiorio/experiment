@@ -114,17 +114,18 @@ class QuixaSect1 < Test::Unit::TestCase
     store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
 
     type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_txt1stPlate", get('@matriculation_date'))
-    sleep @sleep*2
 
     select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlModel", get('@model'))
     store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
-    sleep @sleep*2
 
     select_model_set_up("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlVersion", get('@set_up'))
     store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
-    sleep @sleep*2
-
-    select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlFuelType", get('@fuel'))
+    
+    begin
+      select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlFuelType", get('@fuel'))
+    rescue Exception => ex
+      ex.to_s =~ /unexpected Alert/i ? @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{ex}"} : raise(ex.class, ex.inspect)
+    end
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucVehicleData_ddlKmPerYear", get('@km_per_yr'))
 
@@ -379,7 +380,7 @@ class QuixaSect1 < Test::Unit::TestCase
   end
 
   def assert_is_element_present(element)
-		assert !30.times{ break if (! page.is_visible("ctl00_UpdateProgress1")); sleep 1; @logger.debug("#{__FILE__} => #{method_name}") \
+		assert !120.times{ break if (! page.is_visible("ctl00_LoadingPopupMessage_pnlLoading")); sleep 1; @logger.debug("#{__FILE__} => #{method_name}") \
                                {"#{@kte.company} => Waiting combo "+ name;} } \
                                 if page.is_visible("ctl00_UpdateProgress1") \
                                 if page.element? "ctl00_UpdateProgress1"

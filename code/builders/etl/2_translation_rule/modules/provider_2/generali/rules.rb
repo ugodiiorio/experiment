@@ -350,6 +350,7 @@ module Provider2Generali
       'pol_motorcycle_driving_ability_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_record_id_str' => 'copy_field',
       'pol_residence_str' => 'copy_field',
       'veh_capacity_num' => 'copy_field',
 
@@ -399,6 +400,7 @@ module Provider2Generali
       'pol_birth_date_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_record_id_str' => 'copy_field',
       'pol_residence_str' => 'copy_field',
       'veh_full_load_total_weight_num' => 'copy_field',
       'veh_weight_to_be_towed_num' => 'copy_field',
