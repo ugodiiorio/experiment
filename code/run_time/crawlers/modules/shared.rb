@@ -13,13 +13,21 @@ module Shared
 
     when PROVIDER1, PROVIDER2
 #      click_button_item "contentSubView:vehicleForm:chooseAuto:downbox_f"
+      page.window_focus
+      page.window_maximize
+      page.focus("preparations")
       kw = "#{get("@kw")} KW"
       kw ? type_keys("preparations", kw) : click_button_item("contentSubView:vehicleForm:chooseAuto:downbox_f")
-      sleep @sleep*2
-      @last_element, @last_value = "preparations", get("@set_up").gsub("regexpi:","")
-      page.focus(@last_element)
+      sleep @sleep
 
       item = "//span/ul/li"
+      unless is_present?(item)
+        page.window_focus
+        click_button_item("contentSubView:vehicleForm:chooseAuto:downbox_f")
+        sleep @sleep
+      end
+      @last_element, @last_value = "preparations", get("@set_up").gsub("regexpi:","")
+
       @last_value.split("|").each do |regex|
         model_set_up = find_array_element(item, regex, 1)
         @last_value = regex
@@ -31,28 +39,17 @@ module Shared
       end
       @matched ? @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value: [#{page.get_value("preparations")} with [#{@last_value}]"} : assert(page.get_value(id) =~ /#{@last_value}/i, page.get_value("preparations").inspect)
       
-#      kw = "#{get("@kw")} KW"
+    else
+#      cv_kw = "#{get("@cv")} CV - #{get("@kw")} KW"
 #      type_keys("preparations", get("@set_up"))
 #      sleep @sleep*2
-#      @last_element, @last_value = "//span/ul/li", "#{kw}"
+#      @last_element, @last_value = "//span/ul/li", "#{cv_kw}"
 #      unless is_present?(@last_element)
 #        get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
 #        type_keys("preparations", @last_value)
+#        sleep @sleep
 #      end
 #      click_button_item "//span/ul/li"
-#      type_keys(@last_element, " ")
-
-    else
-      cv_kw = "#{get("@cv")} CV - #{get("@kw")} KW"
-      type_keys("preparations", get("@set_up"))
-      sleep @sleep*2
-      @last_element, @last_value = "//span/ul/li", "#{cv_kw}"
-      unless is_present?(@last_element)
-        get("@set_up").size.times { |i| page.key_press("preparations","\\8" ) }
-        type_keys("preparations", @last_value)
-        sleep @sleep
-      end
-      click_button_item "//span/ul/li"
 
     end
 
