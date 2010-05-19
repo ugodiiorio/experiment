@@ -11,10 +11,10 @@ module Provider1Genertel
     @target_values = Hash.new
 
     @target_values = {
-#      {'pol_collision_premium_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX2X5',
-#      {'pol_road_assistance_web_id_str' => 'id elemento'} => '//td[4]/div/div/div/input',
-#      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//tr[5]/td[4]/div/div/div/input //tr[7]/td[4]/div/div/div/input',
-#      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => '//tr[6]/td[4]/div/div/div/input //tr[8]/td[4]/div/div/div/input',
+      #      {'pol_collision_premium_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX2X5',
+      #      {'pol_road_assistance_web_id_str' => 'id elemento'} => '//td[4]/div/div/div/input',
+      #      {'pol_legal_assistance_web_id_str' => 'id elemento'} => '//tr[5]/td[4]/div/div/div/input //tr[7]/td[4]/div/div/div/input',
+      #      {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => '//tr[6]/td[4]/div/div/div/input //tr[8]/td[4]/div/div/div/input',
       {'pol_road_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX3X5',
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX4X5',
       {'pol_driver_accident_coverage_web_id_str' => 'id elemento'} => 'GRDXGARXGaranzieX5X5',
@@ -97,6 +97,10 @@ module Provider1Genertel
       {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 10.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '18000000'} => '€ 10.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '€ 10,000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '5000000'} => '€ 6.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '2500000'} => '€ 3.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '800000'} => '€ 3.000.000,00',
+
       {'veh_airbag_str' => 'si'} => 'RBTXDVEXAirbag0',  #
       {'veh_abs_str' => 'si'} => 'RBTXDVEXAbs0',   #
      

@@ -25,7 +25,7 @@ module Provider1Directline
       {'driv_job_str' => 'libero professionista'} => 'LIBERO_PROFESSIONISTA',
       {'driv_job_str' => 'medico'} => 'PERSONALE_MEDICO',
       {'driv_job_str' => 'militare'} => 'FORZE_ARMATE',
-      {'driv_job_str' => 'na'} => 'NON_CLASSIFICATO',
+#      {'driv_job_str' => 'na'} => 'NON_CLASSIFICATO',
       {'driv_job_str' => 'operaio'} => 'OPERAIO',
       {'driv_job_str' => 'pensionato da lavoro'} => 'PENSIONATO',
       {'driv_job_str' => 'studente'} => 'STUDENTE',
