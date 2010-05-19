@@ -16,6 +16,7 @@ module Provider1Directline
       {'driv_job_str' => 'casalinga'} => 'CASALINGA',
       {'driv_job_str' => 'commerciante'} => 'COMMERCIANTE',
       {'driv_job_str' => 'dipendente/impiegato/funzionario/dirigente'} => 'IMPIEGATO',
+      {'driv_job_str' => 'na'} => 'IMPIEGATO',
       {'driv_job_str' => 'disoccupato'} => 'DISOCCUPATO',
       {'driv_job_str' => 'ecclesiastico'} => 'ECCLESIASTICO',
       {'driv_job_str' => 'ingegnere'} => 'LIBERO_PROFESSIONISTA',

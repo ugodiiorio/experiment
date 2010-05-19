@@ -143,7 +143,7 @@ module FieldMappingProvider1Sect1
       'pol_nr_of_paid_claims_3_yr_str' => 'yearscert= infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]; claimscert=infield[:pol_claims_total_number_str]; claimslastyr = infield[:pol_nr_of_paid_claims_this_yr_str]; if yearscert.to_i < 3; x="N/A" else if claimscert.to_i == 2 && claimslastyr.to_i==0; x="1" else x="0" end end',
       'pol_nr_of_paid_claims_4_yr_str' => 'yearscert= infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]; if yearscert.to_i== 5 or yearscert.to_i == 4 ; x=  "0"   else   x="N/A"   end',
       'pol_nr_of_paid_claims_5_yr_str' => 'yearscert= infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str]; if yearscert.to_i== 5 ;  x=  "0"   else   x="N/A"   end',
-      'pol_nr_of_paid_claims_this_yr_str' => 'infield[:pol_nr_of_paid_claims_this_yr_str].strip',
+      'pol_nr_of_paid_claims_this_yr_str' => 'infield[:pol_nr_of_paid_claims_this_yr_str].to_i == 2 ? x= "1" : infield[:pol_nr_of_paid_claims_this_yr_str].strip',
       'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => 'infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str].strip',
       'pol_nr_of_yrs_without_claims_str' => 'infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str].to_i - infield[:pol_claims_total_number_str].to_i',
       'pol_number_of_NI_NA_yrs_during_5_yrs_str' => '(5 - infield[:pol_nr_of_yrs_insured_in_the_last_5_yrs_str].to_i).to_s',
