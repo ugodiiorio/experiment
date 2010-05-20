@@ -1,0 +1,9 @@
+00 14 * * * /home/test/kte/start/conte.sh day >> /home/test/kte/cronlogs/run.log
+01 14 * * * /home/test/kte/start/dialogo.sh day >> /home/test/kte/cronlogs/run.log
+02 14 * * * /home/test/kte/start/directline.sh day >> /home/test/kte/cronlogs/run.log
+03 14 * * * /home/test/kte/start/genertel.sh day >> /home/test/kte/cronlogs/run.log
+00 22 * * * /home/test/kte/start/conte.sh night >> /home/test/kte/cronlogs/run.log
+01 22 * * * /home/test/kte/start/dialogo.sh night >> /home/test/kte/cronlogs/run.log
+02 22 * * * /home/test/kte/start/directline.sh night >> /home/test/kte/cronlogs/run.log
+03 22 * * * /home/test/kte/start/genertel.sh night >> /home/test/kte/cronlogs/run.log
+

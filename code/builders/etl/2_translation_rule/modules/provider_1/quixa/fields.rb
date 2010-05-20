@@ -154,7 +154,7 @@ module Provider1Quixa
       {'pol_residence_province_str' => 'IM'} => 'IMPERIA',
       {'pol_residence_province_str' => 'IS'} => 'ISERNIA',
       {'pol_residence_province_str' => 'SP'} => 'LA SPEZIA',
-      {'pol_residence_province_str' => 'AQ'} => 'L\'AQUILA',
+      {'pol_residence_province_str' => 'AQ'} => 'L AQUILA',
       {'pol_residence_province_str' => 'LT'} => 'LATINA',
       {'pol_residence_province_str' => 'LE'} => 'LECCE',
       {'pol_residence_province_str' => 'LC'} => 'LECCO',
