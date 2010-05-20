@@ -235,8 +235,6 @@ class ConteSect1 < Test::Unit::TestCase
     sleep @sleep*3
 
     if page.is_visible("page:anno_conseguimento_patente")
-#      type_text("page:anno_conseguimento_patente", get('@driving_license_year_of_issue'))
-#      select_option "page:mese_conseguimento_patente", get("@driving_license_month_of_issue")
       @last_element = "page:anno_conseguimento_patente"
   	  @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => #{@last_element} value for profile [#{@kte.profile}] = #{page.get_value(@last_element)}"}
       if page.get_value(@last_element).to_i >= Time.now.year
@@ -265,7 +263,6 @@ class ConteSect1 < Test::Unit::TestCase
     click_option(get('@driving_license_suspension'))
     click_option(get('@other_vehicle_use'))
 
-#    click_button '//*[@class="continua_button"]/table/tbody/tr/td/a/img'#'page:buttonContinua6'
     is_present?("page:buttonContinua6") ? click_button("page:buttonContinua6") : click_button("page:buttonContinua198")
     sleep @sleep
 
