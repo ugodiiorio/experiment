@@ -96,6 +96,8 @@ module Provider1Genertel
       {'pol_coming_from_BM_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
       {'pol_coming_from_BM_str' => '18'} => '18',
+      {'pol_public_liability_indemnity_limit_str' => '1600000'} => '€ 3.000.000,00',
+
       {'pol_public_liability_indemnity_limit_str' => '3000000'} => '€ 3.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '€ 6.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 10.000.000,00',
