@@ -3,7 +3,7 @@ general_settings:
   gs_typing_sleep_in_seconds: 2
   gs_profile_sleep_in_seconds: 5
   gs_profile_id: '1068,1070'
-  gs_max_number_of_profiles: 2
+  gs_max_number_of_profiles: 1
   gs_use_case: ''
   gs_store_params: true
   gs_filter_state: '' # possible value: missing or empty ('') for all profiles - NOT_FREE for not KO profiles - FREE for KO profiles
