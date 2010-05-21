@@ -1,0 +1,9 @@
+# Ignore all dotfiles...
+.*
+*.yml
+*~
+*.log
+*.jar
+# except for .gitignore
+!.gitignore
+
