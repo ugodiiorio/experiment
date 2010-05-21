@@ -1,7 +1,7 @@
 --- 
 app_settings:
-  as_building_schema: "all"
-  #driver, monitor, target
+  as_building_schema: "target"
+  #driver, monitor, target, all
 
 
 logger_settings: 

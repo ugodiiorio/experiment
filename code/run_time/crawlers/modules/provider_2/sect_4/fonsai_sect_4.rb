@@ -410,6 +410,8 @@ class FonsaiSect4 < Test::Unit::TestCase
 
   def decode_captcha
 
+    page.window_focus
+    page.focus("captcha")
     page.context_menu "//div[@id='captchaDataDom']/img"
     sleep 1
     page.key_press_native(40)
