@@ -1,0 +1,24 @@
+--- 
+app_settings:
+  as_select_stmt_profile: "SELECT * FROM insurance_profiles"
+  as_insert_stmt_tr_rule: "INSERT INTO translation_rules (key_provider_id_str, key_sector_id_str, key_company_id_str, key_field_name_str) VALUES (?,?,?,?)"
+  as_update_stmt_tr_rule: "UPDATE translation_rules SET rule_str = ? WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND key_field_name_str = ?"
+  as_select_stmt_company: "SELECT DISTINCT key_companies_group_id_str  FROM companies WHERE   key_company_id_str= ?"
+  as_provider_id: "provider_2"
+  as_sector_id: "sect_2"
+  as_company_id: "quixa"
+  as_working_set_id: "prov_2_20100501"
+  as_module_filename: "rules.rb"
+
+logger_settings: 
+  ls_device: "/home/notroot/git/KTE/code/builders/log/build_translation_rules.log"
+  ls_level: 0
+  ls_shift_age: "weekly"
+  ls_shift_size: 1024000
+  ls_datetime_format: "%Y-%m-%d %H:%M:%S"
+database_settings:
+  ds_engine_type: "MYSQL"
+  ds_db_host: "localhost"
+  ds_conn_user: "kte"
+  ds_conn_pwd: "t0p$ecret"
+  ds_db_default: "kte_driver"

@@ -1,0 +1,27 @@
+--- 
+app_settings:
+  as_select_stmt_profile: "SELECT * FROM insurance_profiles"
+  as_select_stmt_filtered_profile: "SELECT * FROM insurance_profiles WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_companies_group_id_str = ? AND key_working_set_id_str = ?"
+  as_select_stmt_company: "SELECT key_company_id_str FROM companies WHERE key_companies_group_id_str = ? AND key_company_id_str LIKE ?"
+  as_select_stmt_translated: "SELECT target_value_str FROM translated_fields WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND key_field_name_str = ? AND key_field_value_str = ?"
+  as_select_stmt_rules: "SELECT rule_str FROM translation_rules WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND key_field_name_str = ?"
+  as_insert_stmt_profile: "INSERT INTO company_insurance_profiles (key_insurance_profiles_id_num, key_provider_id_str, key_sector_id_str, key_company_id_str, key_working_set_id_str) VALUES (?,?,?,?,?)"
+  as_update_stmt_profile: "UPDATE company_insurance_profiles SET @@profile_field@@ = ? WHERE key_insurance_profiles_id_num = ? AND key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND key_working_set_id_str = ?"
+  as_provider_id: "provider_2"
+  as_sector_id: "sector_placeholder"
+  as_company_group_id: "company_group_placeholder"
+  as_company_id: "company_placeholder"
+  as_working_set_id: "prov_2_20100501"
+  as_rate_date: "21st day next month"
+  as_setup_date: "2 May 2010"
+
+logger_settings: 
+  ls_device: "/home/notroot/git/KTE/code/builders/log/build_specific_profile.log"
+  ls_level: 1
+  ls_datetime_format: "%Y-%m-%d %H:%M:%S"
+database_settings:
+  ds_engine_type: "MYSQL"
+  ds_db_host: "localhost"
+  ds_conn_user: "kte"
+  ds_conn_pwd: "t0p$ecret"
+  ds_db_default: "kte_driver"

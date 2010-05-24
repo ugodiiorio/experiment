@@ -30,6 +30,6 @@ app_settings:
   as_company_group_id: 'all_provider_1'
   as_company_id: 'zurich_connect'
   as_sector_id: 'sect_1'
-  as_working_set_id: 'prov_1_20100301'
-  as_rate_id: '20100410'
+  as_working_set_id: 'prov_2_20100501'
+  as_rate_id: '20100621'
   as_rate_date: '10th day next month'

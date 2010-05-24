@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/test/kte/setup
+cd /home/notroot/git/KTE/code/setup
 echo "Starting ALL ..."
 ./etl_2.sh conte
 ./etl_2.sh dialogo

@@ -4,7 +4,7 @@ if [ $1 -eq  ]; then
 else 
 	echo @@@ $1 @@@
 	echo "Starting ..."
-	yml="/home/notroot/git/KTE/code/yamls/prov_1_sect_1_"$1
+	yml="/home/notroot/git/KTE/code/yamls_TW/prov_1_sect_1_"$1
 	cd /home/notroot/git/KTE/code/run_time/rake/tasks
 	rake rc:restart
 	cd /home/notroot/git/KTE/code/run_time/crawlers/script

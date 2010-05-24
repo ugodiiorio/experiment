@@ -1,6 +1,5 @@
 # Ignore all dotfiles...
 .*
-*.yml
 *~
 *.log
 *.jar
