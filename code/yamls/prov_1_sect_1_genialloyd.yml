@@ -2,9 +2,8 @@
 general_settings:
   gs_typing_sleep_in_seconds: 2
   gs_profile_sleep_in_seconds: 5
-  gs_profile_id: '450'
-  gs_max_number_of_profiles: 1
-  gs_use_case: ''
+  gs_profile_id: '3,6,9,12'
+  gs_max_number_of_profiles: 4
 logger_settings:
   ls_device: '/home/notroot/git/KTE/code/run_time/log/'
   ls_level: 0
@@ -14,9 +13,9 @@ logger_settings:
 selenium_settings:
   ss_selenium_port: '4444'
   ss_wait_for_page_to_load: 60000
-  ss_timeout_in_seconds: 60
+  ss_timeout_in_seconds: 30
   ss_io_device: '/home/notroot/git/KTE/code/run_time/log/'
-  ss_output_level: 3
+  ss_output_level: 0
   ss_browser_type: '*chrome'
 database_settings:
   ds_engine_type: 'MYSQL'
@@ -29,9 +28,8 @@ database_settings:
 app_settings:
   as_provider_id: 'provider_1'
   as_company_group_id: 'all_provider_1'
-  as_company_id: 'genertel'
+  as_company_id: 'genialloyd'
   as_sector_id: 'sect_1'
-  as_working_set_id: 'prov_1_20100501'
-  as_rate_id: '20100510'
+  as_working_set_id: 'prov_1_20100301'
+  as_rate_id: '20100410'
   as_rate_date: '10th day next month'
-  

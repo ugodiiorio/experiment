@@ -1,0 +1,20 @@
+--- 
+app_settings:
+  as_building_schema: "monitor"
+  #driver, monitor, target, all
+
+
+logger_settings: 
+  ls_device: "/home/notroot/git/KTE/code/builders/log/schemas.log"
+  ls_level: 0
+  ls_shift_age: = "weekly"
+  ls_shift_size: = 1024000
+  ls_datetime_format: = "%Y-%m-%d %H:%M:%S"
+database_settings:
+  ds_engine_type: "MYSQL"
+  ds_db_host: "localhost"
+  ds_conn_user: "root"
+  ds_conn_pwd: "kub01d"
+  ds_db_default_target: "kte_target"
+  ds_db_default_driver: "kte_driver"
+  ds_db_default_monitor: "kte_monitor"
