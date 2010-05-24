@@ -262,24 +262,26 @@ class ConteSect1 < Test::Unit::TestCase
     click_option(get('@driving_license_suspension'))
     click_option(get('@other_vehicle_use'))
 
-    is_present?("page:buttonContinua6") ? click_button("page:buttonContinua6") : click_button("page:buttonContinua198")
-    sleep @sleep
+    is_present?("page:buttonContinua6") ? click_button("page:buttonContinua6") : click_button("page:buttonContinua198") if is_present?("page:buttonContinua198")
+    sleep @sleep*2
 
-    click_option(get('@claims_total_number'))
+    if page.is_visible(get('@claims_total_number'))
+      click_option(get('@claims_total_number'))
 
-    if (page.get_attribute("#{@last_element}@value") == "1")
-      select_option "page:numero_sinistri_cc", get("@nr_of_paid_claims_2_yr")
-      select_option "page:MeseSinistroConColpa1", get("@first_claim_month")
-      select_option "page:AnnoSinistroConColpa1", get("@first_claim_year")
+      if (page.get_attribute("#{@last_element}@value") == "1")
+        select_option "page:numero_sinistri_cc", get("@nr_of_paid_claims_2_yr")
+        select_option "page:MeseSinistroConColpa1", get("@first_claim_month")
+        select_option "page:AnnoSinistroConColpa1", get("@first_claim_year")
 
-      if get("@nr_of_paid_claims_2_yr") == '2'
-        select_option "page:MeseSinistroConColpa2", get("@second_claim_month")
-        select_option "page:AnnoSinistroConColpa2", get("@second_claim_year")
+        if get("@nr_of_paid_claims_2_yr") == '2'
+          select_option "page:MeseSinistroConColpa2", get("@second_claim_month")
+          select_option "page:AnnoSinistroConColpa2", get("@second_claim_year")
+        end
+
       end
-
     end
 
-    click_button 'page:buttonContinua14'
+    click_button 'page:buttonContinua14' if is_present?("page:buttonContinua14")
     sleep @sleep
 
     type_text("page:cognome_contraente",get('@surname'))
@@ -287,6 +289,9 @@ class ConteSect1 < Test::Unit::TestCase
     type_text("page:email_contraente", get('@e_mail'))
     type_text("page:prefisso_cellulare_contraente", get('@mobile_prefix'))
     type_text("page:cellulare_contraente", get('@mobile_number'))
+
+    click_button 'page:buttonContinua18' if is_present?("page:buttonContinua18")
+    sleep @sleep
 
     click_option(get('@privacy_1'))
 
