@@ -1,7 +1,7 @@
 --- 
 app_settings:
   as_select_stmt_profile: "SELECT * FROM insurance_profiles"
-  as_select_stmt_filtered_profile: "SELECT * FROM insurance_profiles WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_companies_group_id_str = ? AND key_working_set_id_str = ? LIMIT 630,10"
+  as_select_stmt_filtered_profile: "SELECT * FROM insurance_profiles WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_companies_group_id_str = ? AND key_working_set_id_str = ? limit 700,100"
   as_select_stmt_company: "SELECT key_company_id_str FROM companies WHERE key_companies_group_id_str = ? AND key_company_id_str LIKE ?"
   as_select_stmt_translated: "SELECT target_value_str FROM translated_fields WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND key_field_name_str = ? AND key_field_value_str = ?"
   as_select_stmt_rules: "SELECT rule_str FROM translation_rules WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND key_field_name_str = ?"
