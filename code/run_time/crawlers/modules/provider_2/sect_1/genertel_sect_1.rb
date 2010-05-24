@@ -262,7 +262,7 @@ class GenertelSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
     click_button_item get('@num_of_owners')
-    click_button_item get('@subscriber_is_driver')
+    click_button_item get('@subscriber_is_driver') if get('@owner_specification') != NotIndividual
     click_button_item get('@cohabiting_children')
     click_button_item get('@driving_license_yrs')
     if @last_element =~ /div\[1\]/i

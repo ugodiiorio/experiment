@@ -126,7 +126,6 @@ class ConteSect2 < Test::Unit::TestCase
       click_option(get('@new_used_vehicle'))
     end
     select_option "page:cosa_vuoi",get("@vehicle_type")
-    click_option(get('@privacy_1'))
     click_button 'page:buttonContinua'
    	page_wait
     
@@ -271,8 +270,9 @@ class ConteSect2 < Test::Unit::TestCase
     type_text("page:email_contraente", get('@e_mail'))
     type_text("page:prefisso_cellulare_contraente", get('@mobile_prefix'))
     type_text("page:cellulare_contraente", get('@mobile_number'))
+    click_option(get('@privacy_1'))
 
-    click_button 'page:buttonContinua3'
+    click_button 'page:buttonContinua7_2'
     page_wait
 
   end
