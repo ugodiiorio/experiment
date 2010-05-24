@@ -216,8 +216,8 @@ class FonsaiSect1 < Test::Unit::TestCase
 
     type_captcha
 
-    click_button "//div[@id='avantiD']/input"
-    page_wait
+#    click_button "//div[@id='avantiD']/input"
+#    page_wait
 
   end
 
@@ -411,7 +411,9 @@ class FonsaiSect1 < Test::Unit::TestCase
     captcha_error, i = true, 0
     sleep @sleep*2
     while captcha_error
-      if page.is_text_present("Rilevati i seguenti errori") && page.is_text_present("Captcha non validato")
+      click_button "//div[@id='avantiD']/input"
+      page_wait
+      if page.is_text_present("Captcha non validato")
         i+= 1
         @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => DeCaptcher Error tentative n. #{i.to_s}"}
         decode_captcha
@@ -427,6 +429,10 @@ class FonsaiSect1 < Test::Unit::TestCase
 
   def decode_captcha
 
+    page.window_focus
+    page.focus("captcha")
+    sleep @sleep
+    page.window_focus
     page.context_menu "//div[@id='captchaDataDom']/img"
     sleep 1
     page.key_press_native(40)

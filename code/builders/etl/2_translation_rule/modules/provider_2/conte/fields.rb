@@ -426,7 +426,9 @@ module Provider2Conte
       {'pol_payment_str' => 'carta di credito'} => 'page:metodoDiPagamento:0',
       {'veh_modification_made_str' => 'no'} => 'page:modifiche_scelta:1',
       {'pol_drunkenness_fine_str' => 'no'} => 'page:multe_ebrezza_contraente:1',
-      {'pol_privacy_1_str' => 'id elemento web1'} => 'page:privacy_contr',
+      #      {'pol_privacy_1_str' => 'id elemento web1'} => 'page:privacy_contr',
+      {'pol_privacy_1_str' => 'id elemento web1'} => 'page:privacy_contr_totale',
+    
       {'driv_driving_license_points_str' => '20'} => 'Più di 20',
       {'driv_residence_same_as_home_address_str' => 'si'} => 'page:conducente_principale_recapito:0',
       {'veh_vehicle_shelter_str' => 'box privato'} => 'Box',
@@ -622,7 +624,9 @@ module Provider2Conte
       {'pol_legal_assistance_web_id_str' => 'id elemento'} => 'page:quota_info:3:garanziaChecked',
       {'pol_payment_str' => 'carta di credito'} => 'page:metodoDiPagamento:0',
       {'pol_other_vehicle_use_str' => 'no'} => 'page:altro_veicolo:1',
-      {'pol_privacy_1_str' => 'id elemento web1'} => 'page:privacy_contr',
+      #      {'pol_privacy_1_str' => 'id elemento web1'} => 'page:privacy_contr',
+      {'pol_privacy_1_str' => 'id elemento web1'} => 'page:privacy_contr_totale',
+    
       {'pol_public_liability_indemnity_limit_str' => '2,500,000'} => '2.500.000',
       {'pol_public_liability_indemnity_limit_str' => '50,000,000'} => '50.000.000',
       {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '25.000.000',

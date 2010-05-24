@@ -34,7 +34,7 @@ class KTE
   attr_accessor :car_make, :car_model, :car_preparation, :job
   attr_accessor :max_profiles, :sleep_typing, :sleep_between_profiles
 
-  def initialize
+  def initialize(yaml = nil)
     begin
       @logger = nil
       @rc_premium, @rc_cover_code, @record, @test_result = 0, nil, nil, nil
@@ -43,8 +43,12 @@ class KTE
 
         case ARGV.size()
         when 0, 1
-          @config_file = ARGV[0]
-          @config_file = __FILE__+'.yml' unless ARGV[0]
+          if yaml
+            @config_file = yaml
+          else
+            @config_file = ARGV[0]
+            @config_file = __FILE__+'.yml' unless ARGV[0]
+          end
           puts @config_file
           File.open(@config_file)
           config = YAML::load(File.open(@config_file))

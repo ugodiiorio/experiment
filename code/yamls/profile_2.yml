@@ -1,0 +1,27 @@
+--- 
+app_settings:
+  as_select_stmt_mapping: "SELECT * FROM field_mapping"
+  as_select_stmt_input: "SELECT * FROM @@input_file@@ where pol_provider_company_id_str = @@provider_company_id@@ order by 2,3"
+  as_select_stmt_filtered_mapping: "SELECT * FROM field_mapping WHERE key_provider_id_str = ? AND key_sector_id_str = ?"
+  as_insert_stmt_profile: "INSERT INTO insurance_profiles (key_insurance_profiles_id_num, key_provider_id_str, key_sector_id_str, key_companies_group_id_str, key_working_set_id_str) VALUES (?,?,?,?,?)"
+  as_update_stmt_profile: "UPDATE insurance_profiles SET @@profile_field@@ = ? WHERE key_insurance_profiles_id_num = ? AND  key_provider_id_str = ? AND key_sector_id_str = ? AND key_companies_group_id_str = ? AND key_working_set_id_str = ?"
+  as_provider_id: "provider_2"
+  as_sector_id: "sect_1"
+  as_provider_company_id: "all"
+  #as_provider_company_id : nome della compagnia nel file di provider 2, all per provider_1
+  as_company_group_id: "all_provider_2"
+  as_working_set_id: "extra201005"
+  
+logger_settings: 
+  ls_device: "/home/notroot/git/KTE/code/builders/log/build_profile.log"
+  ls_level: 0
+  ls_shift_age: = "weekly"
+  ls_shift_size: = 1024000
+  ls_datetime_format: = "%Y-%m-%d %H:%M:%S"
+database_settings:
+  ds_engine_type: "MYSQL"
+  ds_db_host: "localhost"
+  ds_conn_user: "kte"
+  ds_conn_pwd: "t0p$ecret"
+  ds_db_default: "kte_driver"
+  

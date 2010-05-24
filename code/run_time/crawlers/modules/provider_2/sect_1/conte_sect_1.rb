@@ -127,7 +127,6 @@ class ConteSect1 < Test::Unit::TestCase
     if (page.get_attribute("#{@last_element}@value") == "-1")
       click_option(get('@new_used_vehicle'))
     end
-    click_option(get('@privacy_1'))
 
     click_button 'page:buttonContinua'
    	page_wait
@@ -289,7 +288,9 @@ class ConteSect1 < Test::Unit::TestCase
     type_text("page:prefisso_cellulare_contraente", get('@mobile_prefix'))
     type_text("page:cellulare_contraente", get('@mobile_number'))
 
-    click_button 'page:buttonContinua3'
+    click_option(get('@privacy_1'))
+
+    click_button 'page:buttonContinua7_2'
     page_wait
 
   end
