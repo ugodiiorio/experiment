@@ -210,6 +210,20 @@ class ZurichSect1 < Test::Unit::TestCase
       type_text("DES_MODE", get("@model"))
     end
 
+    page.click 'buttonCODIDE82'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "CODIDE82Domini", get("@residence_province")
+    page.click 'buttonCODIDE82'
+    page.select_window(nil)
+
+    page.click 'buttonCODIDE81'
+    page.wait_for_pop_up('DominiPopup', 30000)
+    page.select_window('DominiPopup')
+    select_option "CODIDE81Domini", get("@residence")
+    page.click 'buttonCODIDE81'
+    page.select_window(nil)
+    
     click_option(get('@fuel'))
     type_text("POT_FISC", get('@cv'))
     type_text("KW0_POTE", get('@kw'))
@@ -253,20 +267,6 @@ class ZurichSect1 < Test::Unit::TestCase
     select_option "gg_DATDIN87", get("@birth_date_day")
     select_option "mm_DATDIN87", get("@birth_date_month")
     select_option "aaaa_DATDIN87", get("@birth_date_year")
-
-    page.click 'buttonCODIDE82'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "CODIDE82Domini", get("@residence_province")
-    page.click 'buttonCODIDE82'
-    page.select_window(nil)
-    
-    page.click 'buttonCODIDE81'
-    page.wait_for_pop_up('DominiPopup', 30000)
-    page.select_window('DominiPopup')
-    select_option "CODIDE81Domini", get("@residence")
-    page.click 'buttonCODIDE81'
-    page.select_window(nil)
 
     click_button 'step1'
    	page_wait

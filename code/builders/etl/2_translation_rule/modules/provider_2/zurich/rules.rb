@@ -73,7 +73,7 @@ module Provider2Zurich
 #
 #      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
 #      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-       'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : x="01"',
+      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : x="01"',
       'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,6) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
       'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'pol_motorcycle_driving_ability_str' => 'copy_field',
@@ -112,7 +112,7 @@ module Provider2Zurich
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'copy_field',
-      'pol_residence_str' => 'copy_field',
+      'pol_residence_str' => 'if profilefield[:pol_residence_str]== "BOLZANO"; "BOLZANO .BOZEN."; else;  copy_field; end',
       'pol_risk_certificate_str' => 'translate_field',
       'pol_second_claim_month_str' => 'copy_field',
       'pol_second_claim_year_str' => 'copy_field',
