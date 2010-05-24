@@ -9,7 +9,7 @@ else
 			echo @@@ $1 @@@
 			echo @@@ $2 @@@
 			echo "Starting ..."
-			yml="/home/notroot/git/KTE/code/yamls/prov_1_sect_1_"$1".yml"
+			yml="/home/notroot/git/KTE/code/yamls_TW/prov_1_sect_1_"$1".yml"
 			cd /home/notroot/git/KTE/code/rake/tasks
 			selenium="rc"$2":restart"
 			echo $selenium

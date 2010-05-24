@@ -13,7 +13,7 @@ else
 				echo @@@ $2 @@@
 				echo @@@ $3 @@@
 				echo "Starting ..."
-				yml="/home/notroot/git/KTE/code/yamls/prov_2_sect_"$2"_"$1".yml"
+				yml="/home/notroot/git/KTE/code/yamls_TW/prov_2_sect_"$2"_"$1".yml"
 				cd /home/notroot/git/KTE/code/rake/tasks
 				selenium="rc"$3":restart"
 				echo $selenium

@@ -11,35 +11,35 @@ else
 			echo "Starting ..."
 			echo "delete table field_mapping"
 			mysql -u root -pkub01d --database=kte_driver -e "delete from field_mapping"
-			ruby build_field_mapping.rb /home/notroot/git/KTE/code/yamls/field_mapping.yml
+			ruby build_field_mapping.rb /home/notroot/git/KTE/code/yamls_TW/field_mapping.yml
 			if [ "$2" = "y" ]; then
 				echo @@@ $2 @@@
 				echo "Starting ..."
 				echo "delete table insurance_profiles"
 				mysql -u root -pkub01d --database=kte_driver -e "delete from insurance_profiles"
-				ruby build_profile.rb /home/notroot/git/KTE/code/yamls/profile.yml
+				ruby build_profile.rb /home/notroot/git/KTE/code/yamls_TW/profile.yml
 			else
 				echo @@@ $2 @@@
 				echo "Starting ..."
 				echo "NOT delete table insurance_profiles"
-				ruby build_profile.rb /home/notroot/git/KTE/code/yamls/profile.yml
+				ruby build_profile.rb /home/notroot/git/KTE/code/yamls_TW/profile.yml
 			fi
 		else
 			echo @@@ $1 @@@
 			echo "Starting ..."
 			echo "NOT delete table field mapping"
-			ruby build_field_mapping.rb /home/notroot/git/KTE/code/yamls/field_mapping.yml
+			ruby build_field_mapping.rb /home/notroot/git/KTE/code/yamls_TW/field_mapping.yml
 			if [ "$2" = "y" ]; then
 				echo @@@ $2 @@@
 				echo "Starting ..."
 				echo "delete table insurance_profiles"
 				mysql -u root -pkub01d --database=kte_driver -e "delete from insurance_profiles"
-				ruby build_profile.rb /home/notroot/git/KTE/code/yamls/profile.yml
+				ruby build_profile.rb /home/notroot/git/KTE/code/yamls_TW/profile.yml
 			else
 				echo @@@ $2 @@@
 				echo "Starting ..."
 				echo "NOT delete table insurance_profiles"
-				ruby build_profile.rb /home/notroot/git/KTE/code/yamls/profile.yml
+				ruby build_profile.rb /home/notroot/git/KTE/code/yamls_TW/profile.yml
 			fi
 		fi
 	fi

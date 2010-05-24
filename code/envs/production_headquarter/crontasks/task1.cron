@@ -1,9 +1,9 @@
-00 14 * * * /home/test/kte/start/conte.sh day >> /home/test/kte/cronlogs/run.log
-01 14 * * * /home/test/kte/start/dialogo.sh day >> /home/test/kte/cronlogs/run.log
-02 14 * * * /home/test/kte/start/directline.sh day >> /home/test/kte/cronlogs/run.log
-03 14 * * * /home/test/kte/start/genertel.sh day >> /home/test/kte/cronlogs/run.log
-00 22 * * * /home/test/kte/start/conte.sh night >> /home/test/kte/cronlogs/run.log
-01 22 * * * /home/test/kte/start/dialogo.sh night >> /home/test/kte/cronlogs/run.log
-02 22 * * * /home/test/kte/start/directline.sh night >> /home/test/kte/cronlogs/run.log
-03 22 * * * /home/test/kte/start/genertel.sh night >> /home/test/kte/cronlogs/run.log
+00 14 * * * /home/notroot/git/KTE/code/start/conte.sh day >> /home/notroot/git/KTE/code/cronlogs/run.log
+01 14 * * * /home/notroot/git/KTE/code/start/dialogo.sh day >> /home/notroot/git/KTE/code/cronlogs/run.log
+02 14 * * * /home/notroot/git/KTE/code/start/directline.sh day >> /home/notroot/git/KTE/code/cronlogs/run.log
+03 14 * * * /home/notroot/git/KTE/code/start/genertel.sh day >> /home/notroot/git/KTE/code/cronlogs/run.log
+00 22 * * * /home/notroot/git/KTE/code/start/conte.sh night >> /home/notroot/git/KTE/code/cronlogs/run.log
+01 22 * * * /home/notroot/git/KTE/code/start/dialogo.sh night >> /home/notroot/git/KTE/code/cronlogs/run.log
+02 22 * * * /home/notroot/git/KTE/code/start/directline.sh night >> /home/notroot/git/KTE/code/cronlogs/run.log
+03 22 * * * /home/notroot/git/KTE/code/start/genertel.sh night >> /home/notroot/git/KTE/code/cronlogs/run.log
 

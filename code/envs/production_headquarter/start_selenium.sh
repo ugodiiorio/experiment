@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/test/kte/run_time/rake/tasks
+cd /home/notroot/git/KTE/code/run_time/rake/tasks
 if [ "$1" = "all" ]; then
 	rake rc:start
 	rake rcquixacase:start

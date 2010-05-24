@@ -4,9 +4,9 @@ if [ $1 -eq  ]; then
 else 
 	echo @@@ $1 @@@
 	echo "Starting ..."
-	yml="/home/test/kte/yamls/specific_profile_"$1".yml"
+	yml="/home/notroot/git/KTE/code/yamls_TW/specific_profile_"$1".yml"
 	echo @@@ $yml @@@
-	cd /home/test/kte/builders/etl/3_specific_profile/script
+	cd /home/notroot/git/KTE/code/builders/etl/3_specific_profile/script
 	ruby build_specific_profile.rb $yml
 	echo "Finished!"
 fi 
