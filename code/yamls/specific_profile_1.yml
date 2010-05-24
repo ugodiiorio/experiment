@@ -1,7 +1,7 @@
 --- 
 app_settings:
   as_select_stmt_profile: "SELECT * FROM insurance_profiles"
-  as_select_stmt_filtered_profile: "SELECT * FROM insurance_profiles WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_companies_group_id_str = ? AND key_working_set_id_str = ? LIMIT 630,10"
+  as_select_stmt_filtered_profile: "SELECT * FROM insurance_profiles WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_companies_group_id_str = ? AND key_working_set_id_str = ? limit 1370,10"
   as_select_stmt_company: "SELECT key_company_id_str FROM companies WHERE key_companies_group_id_str = ? AND key_company_id_str LIKE ?"
   as_select_stmt_translated: "SELECT target_value_str FROM translated_fields WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND key_field_name_str = ? AND key_field_value_str = ?"
   as_select_stmt_rules: "SELECT rule_str FROM translation_rules WHERE key_provider_id_str = ? AND key_sector_id_str = ? AND key_company_id_str = ? AND key_field_name_str = ?"
@@ -10,7 +10,7 @@ app_settings:
   as_provider_id: "provider_1"
   as_sector_id: "sect_1"
   as_company_group_id: "all_provider_1"
-  as_company_id: "conte"
+  as_company_id: "dialogo"
   as_working_set_id: "prov_1_20100501"
   as_rate_date: "10th day next month"
   as_setup_date: "May 1 2010"
