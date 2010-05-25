@@ -124,10 +124,10 @@ class DirectlineSect2 < Test::Unit::TestCase
     my_click_option(get('@bersani'))
  
     if get('@insurance_situation') == '//div[@id="bg_radio1"]/p/label/span/span/img'
-      my_page_click('classeBMProvenienza_link')
-      my_page_click('//*[@id="classeBMProvenienza_list"]/li[@rel="'+get("@coming_from_bm")+'"]')
-      my_page_click('classeBMAssegnazione_link')
-      my_page_click('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
+      click_item('classeBMProvenienza_link')
+      click_item('//*[@id="classeBMProvenienza_list"]/li[@rel="'+get("@coming_from_bm")+'"]')
+      click_item('classeBMAssegnazione_link')
+      click_item('//*[@id="classeBMAssegnazione_list"]/li[@rel="'+get("@bm_assigned")+'"]')
       if get('@bersani') == 'usaAgevolazioneBersani_FALSE'
         click_option(get('@claims_total_number'))
         click_option(get('@nr_of_yrs_insured_in_the_last_5_yrs'))
@@ -159,24 +159,24 @@ class DirectlineSect2 < Test::Unit::TestCase
 
     click_option('policyHolder_sex_'+get("@owner_sex"))
 
-    my_page_click('policyHolder_maritalStatus_link')
-    my_page_click('//*[@id="policyHolder_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
+    click_item('policyHolder_maritalStatus_link')
+    click_item('//*[@id="policyHolder_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
 
-    my_page_click('policyHolder_profession_link')
-    my_page_click('//*[@id="policyHolder_profession_list"]/li[@rel="'+get("@job")+'"]')
+    click_item('policyHolder_profession_link')
+    click_item('//*[@id="policyHolder_profession_list"]/li[@rel="'+get("@job")+'"]')
 
     type_text("policyHolder_zipCode", get('@owner_zip_code'))
 
     enhanced_town_select('policyHolder_town_link', get("@residence"), "//*[@id='policyHolder_town_li_?']/span")
 
-    my_page_click('policyHolder_drivingLicencePossess_link')
-    my_page_click('//*[@id="policyHolder_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
+    click_item('policyHolder_drivingLicencePossess_link')
+    click_item('//*[@id="policyHolder_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
 
     click_option(get('@subscriber_is_driver'))
     click_option(get('@subscriber_is_owner'))
 
-    my_page_click('numeroConducentiMinori26Anni_link')
-    my_page_click(get("@driver_less_than_26_yrs"))
+    click_item('numeroConducentiMinori26Anni_link')
+    click_item(get("@driver_less_than_26_yrs"))
 
     if get("@driver_less_than_26_yrs") == 'numeroConducentiMinori26Anni_li_2'
       page_more_drivers
@@ -201,21 +201,21 @@ class DirectlineSect2 < Test::Unit::TestCase
 
     type_text("Cilindrata", get("@capacity"))
 
-    my_page_click('usoAbitualeVeicolo_link')
-    my_page_click('//*[@id="usoAbitualeVeicolo_list"]/li[@rel="'+get("@habitual_vehicle_use")+'"]')
+    click_item('usoAbitualeVeicolo_link')
+    click_item('//*[@id="usoAbitualeVeicolo_list"]/li[@rel="'+get("@habitual_vehicle_use")+'"]')
 
     type_text("kmAnnuiPercorsiVeicolo", get('@km_per_yr'))
 
     click_option(get('@vehicle_use'))
 
-    my_page_click('ricoveroVeicolo_link')
-    my_page_click('//*[@id="ricoveroVeicolo_list"]/li[@rel="'+get("@vehicle_shelter")+'"]')
+    click_item('ricoveroVeicolo_link')
+    click_item('//*[@id="ricoveroVeicolo_list"]/li[@rel="'+get("@vehicle_shelter")+'"]')
 
 
     type_text("valoreVeicolo", get('@vehicle_value'))
     
-    my_page_click('numeroVeicoliFamiliariPosseduti_link')
-    my_page_click('//*[@id="numeroVeicoliFamiliariPosseduti_list"]/li[@rel="'+get("@family_car")+'"]')
+    click_item('numeroVeicoliFamiliariPosseduti_link')
+    click_item('//*[@id="numeroVeicoliFamiliariPosseduti_list"]/li[@rel="'+get("@family_car")+'"]')
 
     click_button "btnContinua"
    	page_wait
@@ -235,18 +235,18 @@ class DirectlineSect2 < Test::Unit::TestCase
 
     my_click_option('under26First_sex_'+get("@owner_sex")+'')
 
-    my_page_click('under26First_maritalStatus_link')
-    my_page_click('//*[@id="under26First_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
+    click_item('under26First_maritalStatus_link')
+    click_item('//*[@id="under26First_maritalStatus_list"]/li[@rel="'+get("@civil_status")+'"]')
 
-    my_page_click('under26First_profession_link')
-    my_page_click('//*[@id="under26First_profession_list"]/li[@rel="'+get("@job")+'"]')
+    click_item('under26First_profession_link')
+    click_item('//*[@id="under26First_profession_list"]/li[@rel="'+get("@job")+'"]')
 
     type_text("under26First_zipCode", get('@owner_zip_code'))
 
     enhanced_town_select('under26First_town_link',get("@residence"), "//*[@id='under26First_town_li_?']/span")
 
-    my_page_click('under26First_drivingLicencePossess_link')
-    my_page_click('//*[@id="under26First_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
+    click_item('under26First_drivingLicencePossess_link')
+    click_item('//*[@id="under26First_drivingLicencePossess_list"]/li[@rel="'+get("@driving_license_yrs")+'"]')
 
   end
 
@@ -269,14 +269,14 @@ class DirectlineSect2 < Test::Unit::TestCase
     case @last_value
     when 'on'
 
-      my_page_click('RCA_DEDUCTIBLE_0_link')
-      my_page_click('//*[@id="RCA_DEDUCTIBLE_0_list"]/li[@rel="'+get("@public_liability_exemption")+'"]')
+      click_item('RCA_DEDUCTIBLE_0_link')
+      click_item('//*[@id="RCA_DEDUCTIBLE_0_list"]/li[@rel="'+get("@public_liability_exemption")+'"]')
 
-      my_page_click('RCA_LIMIT_0_link')
-      my_page_click('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
+      click_item('RCA_LIMIT_0_link')
+      click_item('//*[@id="RCA_LIMIT_0_list"]/li[@rel="'+get("@public_liability_indemnity_limit")+'"]')
 
-      my_page_click('frazionamento_link')
-      my_page_click('//*[@id="frazionamento_list"]/li[@rel="'+get("@instalment")+'"]')
+      click_item('frazionamento_link')
+      click_item('//*[@id="frazionamento_list"]/li[@rel="'+get("@instalment")+'"]')
 
       if is_present?(get('@legal_assistance_web_id'))
         click_button(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
@@ -372,6 +372,11 @@ class DirectlineSect2 < Test::Unit::TestCase
     page_click_button @last_element
   end
 
+  def click_item(id)
+    @last_element, @last_value = id, nil
+    my_page_click(@last_element)
+  end
+
   def is_checked?(id, value = nil)
     @last_element, @last_value = id, value
     present = is_present?(@last_element)
@@ -399,7 +404,6 @@ class DirectlineSect2 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Click on element = #{element}"}
     wait_for_elm(element)
     page.click element
-    #@logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
   end
 
   def page_uncheck(element)

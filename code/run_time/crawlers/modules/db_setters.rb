@@ -67,7 +67,7 @@ module DbSetters
 
   def db_connect(db)
     return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :socket => @kte.db_socket, :loggers => @logger) unless @kte.db_socket.empty?
-    return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :loggers => @logger) if @kte.db_socket.empty?
+    return Sequel.mysql(:database => db, :user => @kte.db_conn_user, :password => @kte.db_conn_pwd, :host => @kte.db_host, :port => @kte.db_port, :loggers => @logger) if @kte.db_socket.empty?
   end
 
   def db_disconnect(db)

@@ -29,7 +29,7 @@ class KTE
   attr_reader :log_device, :log_level
   attr_reader :use_case, :store_params, :filter_state
   attr_reader :port, :selenium_host, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
-  attr_reader :db_host, :db_socket, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
+  attr_reader :db_host, :db_port, :db_socket, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
   attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result
   attr_accessor :car_make, :car_model, :car_preparation, :job
   attr_accessor :max_profiles, :sleep_typing, :sleep_between_profiles
@@ -87,7 +87,7 @@ class KTE
           selenium_settings = {:ss_selenium_port =>nil, :ss_selenium_host =>nil, :ss_wait_for_page_to_load =>nil,
                                :ss_timeout_in_seconds =>nil, :ss_io_device =>nil,
                                :ss_output_level =>nil, :ss_browser_type =>nil} unless selenium_settings
-          database_settings = {:ds_engine_type =>nil, :ds_conn_user =>nil,
+          database_settings = {:ds_engine_type =>nil, :ds_conn_user =>nil, :ds_db_port =>nil,
                                :ds_conn_pwd =>nil, :ds_db_host =>nil, :ds_db_socket => nil,
                                :ds_db_driver =>nil, :ds_db_monitor =>nil, :ds_db_target =>nil} unless database_settings
           app_settings = {:as_rate_date =>nil, :as_company_id =>nil, :as_company_group_id =>nil,
@@ -119,7 +119,7 @@ class KTE
     #  shift_age = logger_settings['ls_shift_age'] || 'daily'
     #  shift_size = logger_settings['ls_shift_size'] || 1048576
       @port 				                = ARGV[2]  || selenium_settings['ss_selenium_port'] || "4444"
-      @selenium_host                = ARGV[30]  || selenium_settings['ss_selenium_host'] || "localhost"
+      @selenium_host                = ARGV[30] || selenium_settings['ss_selenium_host'] || "localhost"
       @selenium_io                  = ARGV[15] || selenium_settings['ss_io_device'] || STDOUT
       @selenium_out_level           = ARGV[16] || selenium_settings['ss_output_level'] || 3
       @timeout_in_sec               = ARGV[10] || selenium_settings['ss_timeout_in_seconds'] || 30
@@ -127,7 +127,8 @@ class KTE
       @browser_type 			          = ARGV[24] || selenium_settings['ss_browser_type'] || "*chrome"
 
       @db_host						          = ARGV[5]  || database_settings['ds_db_host'] || "localhost"
-      @db_socket						        = ARGV[31]  || database_settings['ds_db_socket'] || ""
+      @db_port  						        = ARGV[32] || database_settings['ds_db_port'] || 3306
+      @db_socket						        = ARGV[31] || database_settings['ds_db_socket'] || ""
       @db_conn_user                 = ARGV[17] || database_settings['ds_conn_user'] || 'kte'
       @db_conn_pwd                  = ARGV[18] || database_settings['ds_conn_pwd'] || ''
 
