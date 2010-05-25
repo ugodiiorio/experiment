@@ -6,7 +6,7 @@ module Provider2Conte
 
     @rule_values = {
 
-      'driv_birth_place_str' => 'res=profilefield[:driv_birth_place_str]; res=res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA"); res=res.gsub("VILLA D ALME", "VILLA D\'ALME"); res=res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res=res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA");',
+      'driv_birth_place_str' => 'res=profilefield[:driv_birth_place_str]; res=res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA"); res=res.gsub("REGGIO DI CALABRIA","REGGIO CALABRIA"); res=res.gsub("VILLA D ALME", "VILLA D\'ALME"); res=res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res=res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res=res.gsub("AGLIANO","AGLIANO TERME");',
       'driv_birth_province_str' => 'profilefield[:driv_birth_province_str].length > 2 ? copy_field : translate_field',
       'driv_birth_state_str' => 'stato=profilefield[:driv_birth_state_str]; stato=stato.gsub("CINA","CINA REPUBBLICA POPOLARE"); stato=stato.gsub("PERU","PERU SURINAME");',
       'driv_citizenship_str' => 'profilefield[:driv_citizenship_str]== "ITALIA" ?  "page:conducente_nazione:0" : "page:conducente_nazione:1"',
@@ -195,7 +195,7 @@ module Provider2Conte
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'profilefield[:pol_residence_province_str].length > 2 ? copy_field : translate_field',
-      'pol_residence_str' => 'res=profilefield[:pol_residence_str]; res=res.gsub("VILLA D ALME", "VILLA D\'ALME"); res=res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res=res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res=res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA");',
+      'pol_residence_str' => 'res=profilefield[:pol_residence_str]; res=res.gsub("VILLA D ALME", "VILLA D\'ALME"); res=res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res=res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res=res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA"); res=res.gsub("REGGIO DI CALABRIA","REGGIO CALABRIA"); res=res.gsub("AGLIANO","AGLIANO TERME");',
       'pol_risk_certificate_str' => 'copy_field',
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_indemnity_limit_str' => 'copy_field',
