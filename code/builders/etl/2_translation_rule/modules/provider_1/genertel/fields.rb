@@ -100,8 +100,8 @@ module Provider1Genertel
 
       {'pol_public_liability_indemnity_limit_str' => '3000000'} => '€ 3.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '6000000'} => '€ 6.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 10.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '€ 10.000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '25000000'} => '€ 10,000.000,00',
+      {'pol_public_liability_indemnity_limit_str' => '18000000'} => '€ 10,000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '12000000'} => '€ 10,000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '5000000'} => '€ 6.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '2500000'} => '€ 3.000.000,00',
