@@ -354,7 +354,7 @@ module Provider2Conte
       'pol_residence_province_str' => 'profilefield[:pol_residence_province_str].length > 2 ? copy_field : translate_field',
       'pol_road_assistance_web_id_str' =>  'translate_field',
       'pol_subscriber_is_driver_str' => 'translate_field',
-      'pol_subscriber_is_owner_str' => 'translate_field',
+      'pol_subscriber_is_owner_str' => 'profilefield[:own_owner_specification_str] == "C" ? "page:contraente_proprietario:1" : "page:contraente_proprietario:0"',
       'pol_theft_fire_coverage_web_id_str'=> 'translate_field',
       'pol_vehicle_continuous_use_no_of_mths_str'=> 'translate_field',
       'veh_fuel_str'  => 'translate_field',
