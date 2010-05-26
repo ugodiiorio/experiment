@@ -6,7 +6,7 @@ module Provider2Genertel
 
     @rule_values = {
 
-      'driv_birth_place_str' => 'copy_field',
+      'driv_birth_place_str' => 'res= profilefield[:driv_birth_place_str]; res=res.gsub("ANNONE DI BRIANZA","ANNONE");res=res.gsub("DUINO AURISINA","DUINO" );',
       'driv_birth_province_str' => 'copy_field',
       'driv_birth_state_str' => 'copy_field',
       'driv_citizenship_str' => 'copy_field',
@@ -181,8 +181,8 @@ module Provider2Genertel
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
-      'pol_residence_province_str' => 'profilefield[:pol_residence_province_str].length > 2 ? copy_field : translate_field',
-      'pol_residence_str' => 'copy_field',
+      'pol_residence_province_str' => 'if profilefield[:pol_residence_province_str].length > 2; res = profilefield[:pol_residence_province_str]; res=res.gsub("L\'AQUILA","L\' AQUILA" );res=res.gsub("REGGIO NELL\'EMILIA","REGGIO NELL\' EMILIA" );else translate_field end',
+      'pol_residence_str' => 'res = profilefield[:pol_residence_str]; res=res.gsub("AGLIANO","AGLIANO TERME");res=res.gsub("DUINO AURISINA","DUINO" );',
       'pol_risk_certificate_str' => 'copy_field',
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_indemnity_limit_str' => 'copy_field',
@@ -281,7 +281,7 @@ module Provider2Genertel
 
     @rule_values = {
 
-      'driv_birth_place_str' => 'copy_field',
+      'driv_birth_place_str' => 'res= profilefield[:driv_birth_place_str]; res=res.gsub("ANNONE DI BRIANZA","ANNONE");res=res.gsub("DUINO AURISINA","DUINO" );',
       'driv_birth_province_str' => 'copy_field',
       'driv_birth_state_str' => 'copy_field',
       'driv_driver_sex_str' => 'translate_field',
@@ -328,8 +328,8 @@ module Provider2Genertel
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_RCA_on_off_str' => 'copy_field',
       'pol_record_id_str' => 'copy_field',
-      'pol_residence_province_str' => 'copy_field',
-      'pol_residence_str' => 'copy_field',
+      'pol_residence_province_str' => 'if profilefield[:pol_residence_province_str].length > 2; res = profilefield[:pol_residence_province_str]; res=res.gsub("L\'AQUILA","L\' AQUILA" );res=res.gsub("REGGIO NELL\'EMILIA","REGGIO NELL\' EMILIA" ); else translate_field end',
+      'pol_residence_str' => 'res = profilefield[:pol_residence_str]; res=res.gsub("AGLIANO","AGLIANO TERME");res=res.gsub("DUINO AURISINA","DUINO" );',
       'pol_subscriber_is_driver_str' => 'translate_field',
       'pol_subscriber_is_owner_str' => 'translate_field',
       'veh_alarm_str' => 'translate_field',
