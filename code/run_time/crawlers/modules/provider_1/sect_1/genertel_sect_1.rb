@@ -305,7 +305,13 @@ class GenertelSect1 < Test::Unit::TestCase
         page.wait_for_element("LBLXCNAXChiudi")
         page.is_visible("LBLXCNAXChiudi") ? click_button_item("LBLXCNAXChiudi") : nil
         
-        fake_select_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit'), "//body/div[8]/div/div")
+        fake_select_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit').split("|")[0], "//body/div[8]/div/div")
+        unless page.get_value("GRDXGARXGaranzieX1X3") == get('@public_liability_indemnity_limit').split("|")[0]
+          fake_select_option("GRDXGARXGaranzieX1X3", get('@public_liability_indemnity_limit').split("|")[1], "//body/div[8]/div/div")
+          sleep @sleep
+          assert_equal page.get_value("GRDXGARXGaranzieX1X3"), get('@public_liability_indemnity_limit').split("|")[1]
+        end
+
         click_button_item(get('@road_assistance_web_id')) if is_checked?(get('@road_assistance_web_id'))
         uncheck_checkbox(get('@road_assistance_web_id'))
         click_button_item(get('@legal_assistance_web_id')) if is_checked?(get('@legal_assistance_web_id'))
@@ -331,7 +337,6 @@ class GenertelSect1 < Test::Unit::TestCase
         assert !90.times{ break if (page.is_element_present("CVWXAZIXTotaleImp") rescue false); sleep 1 }, "CVWXAZIXTotaleImp Price element is not visible on the Final page"
 
         page.wait_for_element("LBLXAZIXAvanti")
-        assert_equal page.get_value("GRDXGARXGaranzieX1X3"), get('@public_liability_indemnity_limit')
         page.is_element_present("LBLXAZIXAvanti") ? click_button_item("LBLXAZIXAvanti") : nil
         page_wait
       else
