@@ -28,7 +28,7 @@ module Provider1Directline
 #      'own_owner_residence_str' =>  'copy_field',
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
-      'own_owner_zip_code_str' => 'res=profilefield[:own_owner_zip_code_str].gsub("50037","50036").gsub("16030","16031")',
+      'own_owner_zip_code_str' => 'res=profilefield[:own_owner_zip_code_str].gsub("50037","50036")',
       'pol_act_of_vandalism_code_str' => 'copy_field',
       'pol_act_of_vandalism_minimum_uncoverage_str' => 'copy_field',
       'pol_act_of_vandalism_on_off_str' => 'copy_field',
