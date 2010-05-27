@@ -279,7 +279,7 @@ module Provider1Genialloyd
       {'veh_alarm_str' => 'immobilizer'} => 'Immobilizer/Elettronico',
       {'pol_claims_total_number_str' => '0'} => 'Nessuno',
       {'pol_how_do_you_know_the_company_str' => 'passaparola'} => 'Passaparola',
-      {'veh_vehicle_use_str' => 'privato'} => 'radio5',
+      {'veh_vehicle_use_str' => 'privato'} => 'lradio5',
       {'pol_instalment_str' => 'annuale'} => 'radioAnnuale',
       {'veh_gas_methane_supply_str' => 'no'} => 'radiogpl2',
       {'pol_instalment_str' => 'semestrale'} => 'radioSemestrale',
