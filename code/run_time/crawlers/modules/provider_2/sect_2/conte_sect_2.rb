@@ -188,7 +188,6 @@ class ConteSect2 < Test::Unit::TestCase
       type_keys("page:comune_di_nascita", get('@birth_place'))
       sleep @sleep
      page.click "//div[@id='risultatiSrchComNas']/ul/span/li"
-      # page.click "//div[@id='risultatiSrchClose']/ul/span/li"
     else #ESTERO
       select_option "page:conducente_principale_nazione_estera", get("@birth_state")
       type_text("page:anno_residenza_italia", get('@italian_residence_starting_yrs'))
@@ -202,14 +201,12 @@ class ConteSect2 < Test::Unit::TestCase
     type_keys("page:comune_di_residenza", get('@residence'))
     wait_for_elm("//ul[@id='ulResult']/span[1]/li")
     page.click "//ul[@id='ulResult']/span[1]/li"
-   # assert_equal page.get_value(@last_element).upcase, @last_value.upcase
 
     type_text("page:toponimo_residenza", get('@toponym'))
     type_text("page:indirizzo_residenza", get('@address_street'))
     type_text("page:numero_residenza", get('@address_num'))
     select_option "page:cap_di_residenza", get("@owner_zip_code"), "value"
-    #click_option(get('@residence_same_as_home_address'))
-
+    
     click_button 'page:buttonContinua2'
     sleep @sleep
 
@@ -323,7 +320,6 @@ class ConteSect2 < Test::Unit::TestCase
           click_button 'page:ricalcola_but'
           page_wait
         end
-
 
         wait_for_elm  get("@rca_premium_id")
         get_premium(get("@rca_premium_id"))
