@@ -254,7 +254,7 @@ module Provider1Genialloyd
 #      'veh_vehicle_for_disabled_str' => 'copy_field',
       'veh_vehicle_shelter_str' => 'translate_field',
 #      'veh_vehicle_type_str' => 'copy_field',
-#      'veh_vehicle_use_str' => 'translate_field',
+      'veh_vehicle_use_str' => 'translate_field',
 #      'veh_vehicle_value_str' => 'copy_field',
 #      'veh_weight_to_be_towed_num'=> 'copy_field' ,
       'pol_collision_code_str' => 'copy_field' ,
