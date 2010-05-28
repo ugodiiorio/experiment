@@ -42,6 +42,7 @@ AS
         pol_nr_of_paid_claims_5_yr_str,
         pol_nr_of_paid_claims_this_yr_str,
         pol_nr_of_yrs_without_claims_str,
+        pol_number_of_NI_NA_yrs_during_5_yrs_str,
         pol_policy_starting_date_str,
         pol_privacy_1_str,
         pol_property_type_to_be_insured_str,
