@@ -130,7 +130,7 @@ class FonsaiSect1 < Test::Unit::TestCase
 
     select_option "marca", get('@make')
     select_option "modello", get('@model')
-    select_option "allestimento", get('@set_up') #TODO smartellata "1.2 3 PORTE ACTIVE (immatr:01/2007)". Aggiustare regexpi
+    select_option "allestimento", get('@set_up') 
     type_text "percorrenza", get('@km_per_yr')
     click_option(get('@tow_hook'))
     click_option(get('@gprs'))
