@@ -39,6 +39,7 @@ module FieldMappingProvider2Sect3
       'pol_nr_of_paid_claims_5_yr_str' => 'infield[:pol_nr_of_paid_claims_5_yr_str].strip.downcase',
       'pol_nr_of_paid_claims_this_yr_str' => 'infield[:pol_nr_of_paid_claims_this_yr_str].strip.downcase',
       'pol_nr_of_yrs_without_claims_str' => 'infield[:pol_claims_total_number_str].to_i == 1 ? x=4 : x=5;',
+      'pol_number_of_NI_NA_yrs_during_5_yrs_str' => 'sitass=infield[:pol_insurance_situation_str];  if sitass=~/1a*\\s*[(A-Za-z0-9)*(\\s)*]*/ ; x= 5; else x=0 end;',
       'pol_policy_starting_date_day_str'  => '"si calcola runtime"' ,
       'pol_policy_starting_date_month_str'  => '"si calcola runtime"' ,
       'pol_policy_starting_date_str'  => '"si calcola runtime"' ,

@@ -155,7 +155,8 @@ class ZurichSect3 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_location.upcase}"}
 
-    if get('@insurance_situation') =~ /proveniente/i
+    if get('@insurance_situation') != 'Prima Immatricolazione'
+
       click_option(get('@risk_certificate'))
 
       page.click 'buttonCIP_CLAS'
@@ -165,8 +166,13 @@ class ZurichSect3 < Test::Unit::TestCase
       page.click 'buttonCIP_CLAS'
       page.select_window(nil)
 
-      type_text("NUM_SINI", get('@claims_total_number'))
-      type_text("SINANN86", get('@nr_of_paid_claims_2_yr'))
+      type_text("COD_LIM1", get('@number_of_ni_na_yrs_during_5_yrs'))
+
+      if get('@insurance_situation') =~ /proveniente/i
+        type_text("NUM_SINI", get('@claims_total_number'))
+        type_text("SINANN86", get('@nr_of_paid_claims_2_yr'))
+      end
+
     end
 
     click_option(get('@fuel'))
