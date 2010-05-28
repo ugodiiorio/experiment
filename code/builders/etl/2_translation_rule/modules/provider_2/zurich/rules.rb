@@ -21,7 +21,7 @@ module Provider2Zurich
       'driv_heir_str' => 'translate_field',
       'driv_italian_residence_starting_yrs_num' => 'copy_field',
       'driv_job_2_str' => 'copy_field',
-      'driv_job_str' => 'job=profilefield[:driv_job_str]; job=job.gsub("ecclesiastico", "religioso"); jregexp_mod = "regexpi:([A-Za-z0-9])*(";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length < 3 ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(niente))\\\\b"',
+      'driv_job_str' => 'job=profilefield[:driv_job_str]; job=job.gsub("ecclesiastico", "religioso"); job=job.gsub("casalinga", "casaling"); job=job.gsub("insegnante", "docente"); job=job.gsub("professionista", "professionist"); jregexp_mod = "regexpi:([A-Za-z0-9])*(";jregexpi_mod_array = job.split("/"); jregexpi_mod_array.each do |el| ;el_array= el.split(" "); el_array.each do |el2|; el2.length < 3 ? nil : jregexp_mod = jregexp_mod + "(" + el2.to_s + ".*)|" end;end ;jregexp_mod = jregexp_mod + "(niente))\\\\b"',
       'driv_residence_same_as_home_address_str' => 'copy_field',
       'driv_studies_str' => 'copy_field',
       'own_owner_residence_province_str' => 'copy_field',
@@ -70,9 +70,6 @@ module Provider2Zurich
       'pol_insurance_situation_str' => 'if profilefield[:pol_insurance_situation_str] == "proveniente da altra compagnia"; "Proveniente da altra Compagnia"; elsif profilefield[:pol_bersani_str] == "no"; "Prima Immatricolazione"; else; "Miglior classe b/m altra Compagnia (CU) del nucleo familiare per acquisto veicolo - Legge n.40 del 2 aprile 2007"; end;',
       'pol_leasing_str' => 'copy_field',
       'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : x="01"',
-#
-#      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-#      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
       'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : x="01"',
       'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,6) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
       'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
@@ -112,7 +109,7 @@ module Provider2Zurich
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'copy_field',
-      'pol_residence_str' => 'if profilefield[:pol_residence_str]== "BOLZANO"; "BOLZANO .BOZEN."; else;  copy_field; end',
+      'pol_residence_str' => 'copy_field',
       'pol_risk_certificate_str' => 'translate_field',
       'pol_second_claim_month_str' => 'copy_field',
       'pol_second_claim_year_str' => 'copy_field',
@@ -280,6 +277,7 @@ module Provider2Zurich
     @rule_values ={}
 
     @rule_values = {
+      
       'pol_record_id_str' => 'copy_field',
       'driv_heir_str' => 'translate_field',
       'own_owner_sex_str' => 'translate_field',
@@ -296,16 +294,18 @@ module Provider2Zurich
       'veh_fuel_str' => 'translate_field',
 
       'pol_claims_total_number_str' => 'copy_field',
+      'pol_number_of_NI_NA_yrs_during_5_yrs_str' => 'copy_field',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_residence_str' => 'copy_field',
       'pol_residence_province_str' => 'copy_field',
       'veh_capacity_num' => 'copy_field',
 
-      'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
-      'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
-      'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
+      'pol_birth_date_day_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
+      'pol_birth_date_month_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
+      'pol_birth_date_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
+      'pol_birth_date_year_num' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
       'pol_insurance_situation_str' => 'if profilefield[:pol_insurance_situation_str] == "proveniente da altra compagnia"; "Proveniente da altra Compagnia"; elsif profilefield[:pol_bersani_str] == "no"; "Prima Immatricolazione"; else; "Miglior classe b/m altra Compagnia (CU) del nucleo familiare per acquisto veicolo - Legge n.40 del 2 aprile 2007"; end;',
       'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
 
@@ -337,12 +337,13 @@ module Provider2Zurich
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_residence_str' => 'copy_field',
       'pol_residence_province_str' => 'copy_field',
 
-      'pol_birth_date_day_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
-      'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
-      'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
+      'pol_birth_date_day_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d")',
+      'pol_birth_date_month_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
+      'pol_birth_date_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
+      'pol_birth_date_year_num' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
       'pol_insurance_situation_str' => 'if profilefield[:pol_insurance_situation_str] == "proveniente da altra compagnia"; "Proveniente da altra Compagnia"; elsif profilefield[:pol_bersani_str] == "no"; "Prima Immatricolazione"; else; "Miglior classe b/m altra Compagnia (CU) del nucleo familiare per acquisto veicolo - Legge n.40 del 2 aprile 2007"; end;',
       'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
       
@@ -363,7 +364,7 @@ module Provider2Zurich
       'pol_privacy_1_str' => 'translate_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
-      'pol_residence_str' => 'translate_field',
+      'pol_residence_str' => 'copy_field',
       'pol_residence_province_str' => 'translate_field',
       'pol_type_of_contract_str' => 'translate_field',
       'veh_fuel_str' => 'translate_field',

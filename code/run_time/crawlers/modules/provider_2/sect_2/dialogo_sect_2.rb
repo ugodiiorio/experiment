@@ -143,11 +143,8 @@ class DialogoSect2 < Test::Unit::TestCase
   def page_2
     
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
-    #click_option(get('@driving_type'))
     sleep @sleep*2
-    #click_option(get('@subscriber_is_driver'))
     click_option(get('@subscriber_is_owner'))
-    #click_option(get('@num_of_owners'))
     click_option(get('@car_already_insured_with_company'))
     click_option(get('@owner_sex'))
     sleep @sleep*2
