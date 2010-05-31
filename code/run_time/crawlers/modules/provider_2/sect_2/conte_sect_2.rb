@@ -479,7 +479,7 @@ class ConteSect2 < Test::Unit::TestCase
     assert premium != nil, @last_element.inspect
     assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
     premium = premium.split[1]
-    premium.count(",") > 0 ? premium.gsub(".","") : nil
+    premium.count(",") > 0 ? premium = premium.gsub(".","") : nil
     premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
