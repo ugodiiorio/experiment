@@ -280,6 +280,8 @@ module Provider2Quixa
 
       'driv_citizenship_str' => 'copy_field' ,
       'driv_job_str'  => 'job=profilefield[:driv_job_str];  regexpi_mod_array = job.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";' ,
+      'own_owner_residence_province_str' => 'copy_field' ,
+      'own_owner_residence_str' => 'copy_field' ,
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str'  => 'copy_field',
       'pol_bersani_str' => 'translate_field',
@@ -314,8 +316,6 @@ module Provider2Quixa
       'pol_RCA_on_off_str' => 'copy_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_record_id_str'  => 'copy_field',
-      'pol_residence_province_str' => 'copy_field' ,
-      'pol_residence_str' => 'copy_field' ,
       'pol_contingency_protection_web_id_str' => 'translate_field',
       'pol_glasses_web_id_str' => 'translate_field',
       'pol_natural_events_act_of_vandalism_web_id_str' => 'translate_field',
