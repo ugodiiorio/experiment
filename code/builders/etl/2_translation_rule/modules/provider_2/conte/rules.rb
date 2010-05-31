@@ -6,7 +6,7 @@ module Provider2Conte
 
     @rule_values = {
 
-      'driv_birth_place_str' => 'res=profilefield[:driv_birth_place_str]; res=res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA"); res=res.gsub("REGGIO DI CALABRIA","REGGIO CALABRIA"); res=res.gsub("VILLA D ALME", "VILLA D\'ALME"); res=res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res=res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res=res.gsub("AGLIANO","AGLIANO TERME");',
+      'driv_birth_place_str' => 'res=profilefield[:driv_birth_place_str]; res=res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA"); res=res.gsub("REGGIO DI CALABRIA","REGGIO CALABRIA"); res=res.gsub("VILLA D ALME", "VILLA D\'ALME"); res=res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res=res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res=res.gsub("AGLIANO","AGLIANO TERME").gsub("DUINO ","DUINO-");',
       'driv_birth_province_str' => 'profilefield[:driv_birth_province_str].length > 2 ? copy_field : translate_field',
       'driv_birth_state_str' => 'stato=profilefield[:driv_birth_state_str]; stato=stato.gsub("CINA","CINA REPUBBLICA POPOLARE"); stato=stato.gsub("PERU","PERU SURINAME");',
       'driv_citizenship_str' => 'profilefield[:driv_citizenship_str]== "ITALIA" ?  "page:conducente_nazione:0" : "page:conducente_nazione:1"',
@@ -27,10 +27,12 @@ module Provider2Conte
       'own_company_title_str' => 'copy_field',
       'own_company_type_str' => 'copy_field',
       'own_owner_residence_province_str' =>  'copy_field'   ,
-      'own_owner_residence_str' =>  'copy_field',
+#      'own_owner_residence_str' =>  'copy_field',
+       'own_owner_residence_str' => 'res=profilefield[:own_owner_residence_str]; res=res.gsub("VILLA D ALME", "VILLA D\'ALME"); res=res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res=res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res=res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA"); res=res.gsub("REGGIO DI CALABRIA","REGGIO CALABRIA"); res=res.gsub("AGLIANO","AGLIANO TERME").gsub("DUINO ","DUINO-");',
+
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
-      'own_owner_zip_code_str' => 'copy_field',
+      'own_owner_zip_code_str' => 'profilefield[:own_owner_zip_code_str].gsub("09100","09121")',
       'pol_act_of_vandalism_code_str' => 'copy_field',
       'pol_act_of_vandalism_code_str' => 'copy_field',
       'pol_act_of_vandalism_minimum_uncoverage_str' => 'copy_field',
@@ -90,7 +92,7 @@ module Provider2Conte
       'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'copy_field',
       'pol_driver_less_than_26_yrs_str' => 'copy_field',
       'pol_driver_less_than_26_yrs_str'=> 'copy_field',
-      'pol_driver_zip_code_str' => 'copy_field',
+      'pol_driver_zip_code_str' => 'profilefield[:pol_driver_zip_code_str].gsub("09100","09121")',
       'pol_driving_licence_withdrawal_guarantee_code_str' => 'copy_field',
       'pol_driving_licence_withdrawal_guarantee_on_off_str' => 'copy_field',
       'pol_driving_licence_withdrawal_guarantee_premium_id_str' => 'copy_field',
@@ -195,7 +197,7 @@ module Provider2Conte
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'profilefield[:pol_residence_province_str].length > 2 ? copy_field : translate_field',
-      'pol_residence_str' => 'res=profilefield[:pol_residence_str]; res=res.gsub("VILLA D ALME", "VILLA D\'ALME"); res=res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res=res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res=res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA"); res=res.gsub("REGGIO DI CALABRIA","REGGIO CALABRIA"); res=res.gsub("AGLIANO","AGLIANO TERME");',
+      'pol_residence_str' => 'res=profilefield[:pol_residence_str]; res=res.gsub("VILLA D ALME", "VILLA D\'ALME"); res=res.gsub("TORRE DE PASSERI", "TORRE DE\' PASSERI"); res=res.gsub("S CASCIANO IN VAL DI PESA", "SAN CASCIANO IN VAL DI PESA"); res=res.gsub("REGGIO NELL\'EMILIA","REGGIO EMILIA"); res=res.gsub("REGGIO DI CALABRIA","REGGIO CALABRIA"); res=res.gsub("AGLIANO","AGLIANO TERME").gsub("DUINO ","DUINO-");',
       'pol_risk_certificate_str' => 'copy_field',
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_indemnity_limit_str' => 'copy_field',
