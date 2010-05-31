@@ -64,7 +64,7 @@ module Provider1Quixa
       'pol_blukasko_on_off_str' => 'copy_field',
       'pol_blukasko_premium_id_str' => 'copy_field',
       'pol_blukasko_web_id_str' => 'copy_field',
-      'pol_BM_assigned_str' => 'translate_field',
+      'pol_BM_assigned_str' => 'profilefield[:pol_bersani_str] == "no" ? translate_field : ( profilefield[:pol_BM_assigned_str].to_i == -1 ? "1" : translate_field)',
       'pol_BM_in_risk_certificate_str' => 'copy_field',
       'pol_BM_particular_cases_str' => 'copy_field',
       'pol_car_already_insured_with_company_str' => 'copy_field',

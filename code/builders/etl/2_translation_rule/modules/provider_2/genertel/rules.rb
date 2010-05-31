@@ -6,7 +6,8 @@ module Provider2Genertel
 
     @rule_values = {
 
-      'driv_birth_place_str' => 'res= profilefield[:driv_birth_place_str]; res=res.gsub("ANNONE DI BRIANZA","ANNONE");res=res.gsub("DUINO AURISINA","DUINO" );',
+#      'driv_birth_place_str' => 'res= profilefield[:driv_birth_place_str]; res=res.gsub("ANNONE DI BRIANZA","ANNONE");res=res.gsub("DUINO AURISINA","DUINO" );',
+       'driv_birth_place_str' => '"milano"',
       'driv_birth_province_str' => 'copy_field',
       'driv_birth_state_str' => 'copy_field',
       'driv_citizenship_str' => 'copy_field',
@@ -239,7 +240,7 @@ module Provider2Genertel
       'veh_make_previous_vehicle_str' => 'copy_field',
       'veh_make_str' => 'make=profilefield[:veh_make_str]; make= make.gsub(/---->/,"" ); make= make.gsub(/--->/,"" );make= make.gsub(/Â/,"" );',
       'veh_marble_blocks_str'=> 'copy_field',
-      'veh_model_str' => 'make=profilefield[:veh_model_str];make= make.gsub(/Â/,"" ) ; make= make.gsub(/°/,"a" ); make= make.gsub(/\\(/,"\\\\(" ); make= make.gsub(")","\\\\)" );regexpi_mod_array = make.split(" "); regexp_mod = "^(" + make + ")+|([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "$";',
+      'veh_model_str' => 'make=profilefield[:veh_model_str];make= make.gsub(/Â/,"" ) ; make= make.gsub(/°/,"a" );make= make.gsub(/coupè/i, "coupé"); make= make.gsub(/\\(/,"\\\\(" ); make= make.gsub(")","\\\\)" );regexpi_mod_array = make.split(" "); regexp_mod = "^(" + make + ")+|([A-Za-z0-9])*";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "$";',
       'veh_new_used_vehicle_str' => 'copy_field',
       'veh_num_of_owners_str' => '"RBTXDCOXCondAbituale0"',
       'veh_passenger_transportation_str'=> 'copy_field',
@@ -253,7 +254,7 @@ module Provider2Genertel
       'veh_rent_with_driver_str'=> 'copy_field',
       'veh_set_up_previous_vehicle_str' => 'copy_field',
 #      'veh_set_up_str' => 'make=profilefield[:veh_set_up_str]; make= make.gsub(/à/,"a" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" );  make= make.gsub(/(\\\\s)+ie(\\\\s)+/i, " i.e. "); make= make.gsub(/\\(/,"\\\\(" ); make= make.gsub(")","\\\\)" ); make= make.gsub(/\\./,"\\\\." );regexp_mod = "([A-Za-z0-9])*(" + make + ")+|([A-Za-z0-9])*"; regexpi_mod_array = make.split(" "); regexpi_mod_array.each do |el|;el_array = el.scan(/\d+/);el_array.each do |num|; num = "(?=.*(" + num.to_s + ".*)+)(\\\\s)*"; regexp_mod = regexp_mod + num; end;el_array = el.scan(/\D+/); el_array.each do |char|;(char =~ /jt.*/i || char =~ /td.*/i || char =~ /cd.*/i || char =~ /sw|station|wagon/i )? char2 = "(?=.*(" + char.to_s + ".*)+)(\\\\s)*" : char2 = "(?=.*(" + char.to_s + ".*)*)(\\\\s)*";regexp_mod = regexp_mod + char2;end;end;regexp_mod = regexp_mod + "";',
-       'veh_set_up_str' => 'make=profilefield[:veh_set_up_str]; make= make.gsub(/à/,"a" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" ); make= make.gsub(/TDI\\//i,"tdi " ); make= make.gsub(/(\\\\s)+ie(\\\\s)+/i, " i.e. "); make= make.gsub(/\\(/,"\\\\(" ); make= make.gsub(/\\)/,"\\\\)" ); make= make.gsub(/\\./,"\\\\." ); regexp_mod = "regexpi:([A-Za-z0-9])*" ; regexpi_mod_array = make.split(" "); regexpi_mod_array.each do |el|; regexp_mod= regexp_mod + "(" + el + ".*)+(\\\\s)*"; end ; regexp_mod = regexp_mod + "|regexpi:([A-Za-z0-9])*"; regexpi_mod_array = make.split(" "); make.scan(/([0-9])+(\s)*(porte|pt|p(\.)*)+/i)[0].to_s == "" ? porte = "" : porte = "(?=.*(" + make.scan(/([0-9])+(\\s)*(porte|pt|p(\\.)*)+/i)[0].to_s + ".*)+)(\\\\s)*"; make = make.gsub(/([0-9])+(\\s)*(porte|pt|p(\\.)*)+/i, "");regexpi_mod_array = make.split(" ");regexpi_mod_array.each do |el|;if el =~ /([0-9]\\\\.[0-9])[a-z]{0,1}/i;( el = el.gsub(/([0-9]\\\\.[0-9])[a-z]{0,1}/, "\\\\1"); num = "(?=.*(" + el.to_s + ".*)+)(\\\\s)*" ; regexp_mod = regexp_mod + num;); elsif el =~ /([0-9]{1,3})(\\\\s)*(cv|v)/i; num = "(?=.*(" + el.to_s + ".*)+)(\\\\s)*" ; regexp_mod = regexp_mod + num; elsif el_array = el.scan(/\d+/); el_array  ? (el_array.each do |num|; num = "(?=.*(" + num.to_s + ".*)+)(\\\\s)*";regexp_mod = regexp_mod + num;end;el_array = el.scan(/\D+/);el_array.each do |char|;(char =~ /jt.*/i || char =~ /td.*/i || char =~ /cd.*/i || char =~ /sw|station|wagon/i )?char2 = "(?=.*(" + char.to_s + ".*)+)(\\\\s)*" : char2 = "(?=.*(" + char.to_s + ".*)*)(\\\\s)*";regexp_mod = regexp_mod + char2;end; ) : nil ;end; end;regexp_mod = regexp_mod + porte + "";',
+       'veh_set_up_str' => 'make=profilefield[:veh_set_up_str]; make= make.gsub(/à/,"a" );make= make.gsub(/ì/,"i" );make= make.gsub(/ò/,"o" );make= make.gsub(/ù/,"u" ); make= make.gsub(/°/,"a" );  make= make.gsub(/TDI\\//i,"tdi " ); make= make.gsub(/(\\\\s)+ie(\\\\s)+/i, " i.e. "); make= make.gsub(/\\(/,"\\\\(" ); make= make.gsub(/\\)/,"\\\\)" ); make= make.gsub(/\\./,"\\\\." ); regexp_mod = "regexpi:([A-Za-z0-9])*" ; regexpi_mod_array = make.split(" "); regexpi_mod_array.each do |el|; regexp_mod= regexp_mod + "(" + el + ".*)+(\\\\s)*"; end ; regexp_mod = regexp_mod + "|regexpi:([A-Za-z0-9])*"; regexpi_mod_array = make.split(" "); make.scan(/([0-9])+(\s)*(porte|pt|p(\.)*)+/i)[0].to_s == "" ? porte = "" : porte = "(?=.*(" + make.scan(/([0-9])+(\\s)*(porte|pt|p(\\.)*)+/i)[0].to_s + ".*)+)(\\\\s)*"; make = make.gsub(/([0-9])+(\\s)*(porte|pt|p(\\.)*)+/i, "");regexpi_mod_array = make.split(" ");regexpi_mod_array.each do |el|;if el =~ /([0-9]\\\\.[0-9])[a-z]{0,1}/i;( el = el.gsub(/([0-9]\\\\.[0-9])[a-z]{0,1}/, "\\\\1"); num = "(?=.*(" + el.to_s + ".*)+)(\\\\s)*" ; regexp_mod = regexp_mod + num;); elsif el =~ /([0-9]{1,3})(\\\\s)*(cv|v)/i; num = "(?=.*(" + el.to_s + ".*)+)(\\\\s)*" ; regexp_mod = regexp_mod + num; elsif el_array = el.scan(/\d+/); el_array  ? (el_array.each do |num|; num = "(?=.*(" + num.to_s + ".*)+)(\\\\s)*";regexp_mod = regexp_mod + num;end;el_array = el.scan(/\D+/);el_array.each do |char|;(char =~ /jt.*/i || char =~ /td.*/i || char =~ /cd.*/i || char =~ /sw|station|wagon/i )?char2 = "(?=.*(" + char.to_s + ".*)+)(\\\\s)*" : char2 = "(?=.*(" + char.to_s + ".*)*)(\\\\s)*";regexp_mod = regexp_mod + char2;end; ) : nil ;end; end;regexp_mod = regexp_mod + porte + "";',
       
       'veh_stabilizer_str' => 'copy_field',
       'veh_third_party_str'=> 'copy_field',
@@ -300,7 +301,7 @@ module Provider2Genertel
       'pol_birth_date_str' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_birth_date_year_num' => '(Chronic.parse(@setup_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
       'pol_BM_1_more_than_1_year_str' => 'translate_field',
-      'pol_BM_assigned_str' => 'translate_field',
+      'pol_BM_assigned_str' => 'profilefield[:pol_bersani_str] == "no" ? translate_field : ( profilefield[:pol_BM_assigned_str].to_i == 0 ? "1" : translate_field)',
       'pol_client_type_str' => 'translate_field',
       'pol_cohabiting_children_str' => 'translate_field',
       'pol_current_policy_guarantee_str' => 'translate_field',
