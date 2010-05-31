@@ -181,7 +181,7 @@ module Provider2ZurichConnect
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'copy_field',
-      'pol_residence_str' => 'copy_field',
+      'pol_residence_str' => 'profilefield[:pol_residence_str].gsub(/^agliano$/, "agliano terme")',
       'pol_risk_certificate_str' => 'copy_field',
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_indemnity_limit_str' => 'copy_field',
