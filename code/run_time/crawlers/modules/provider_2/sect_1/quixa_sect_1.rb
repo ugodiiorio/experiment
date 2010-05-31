@@ -368,6 +368,7 @@ class QuixaSect1 < Test::Unit::TestCase
   end
 
   def select_bersani
+    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBersaniPlate", get('@bersani_ref_vehicle_number_plate'))
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
     sleep @sleep*2
     /(medesimo proprietario)+/.match(get('@bersani')) ? select_last_years_claims : nil
