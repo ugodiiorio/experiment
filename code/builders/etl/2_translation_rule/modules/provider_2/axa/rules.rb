@@ -72,8 +72,6 @@ module Provider2Axa
       'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
       'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
       'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str] : copy_field )  :  x= "01/01/" + (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
-
-#       'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'pol_motorcycle_driving_ability_str' => 'copy_field',
       'pol_nr_of_paid_claims_1_yr_str' => 'copy_field',
