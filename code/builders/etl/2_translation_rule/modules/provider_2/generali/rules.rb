@@ -30,7 +30,7 @@ module Provider2Generali
       'own_owner_specification_str' => 'copy_field',
       'own_owner_zip_code_str' => 'copy_field',
       'pol_already_benefit_from_bersani_str' => 'copy_field',
-      'pol_bersani_policy_expiring_date_str' => 'Chronic.parse(profilefield[:pol_bersani_policy_expiring_date_str]).strftime("%d%m%Y");',
+      'pol_bersani_policy_expiring_date_str' => 'Chronic.parse(profilefield[:pol_bersani_policy_expiring_date_str]).strftime("%d/%m/%Y");',
       'pol_bersani_ref_vehicle_insured_with_company_str' => 'copy_field',
       'pol_bersani_ref_vehicle_number_plate_str' => 'copy_field',
       'pol_bersani_str' => 'translate_field',
