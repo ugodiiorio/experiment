@@ -310,14 +310,8 @@ module Provider2Quixa
       'pol_RCA_on_off_str' => 'copy_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_record_id_str'  => 'copy_field',
-      'pol_contingency_protection_web_id_str' => 'translate_field',
-      'pol_glasses_web_id_str' => 'translate_field',
-      'pol_natural_events_act_of_vandalism_web_id_str' => 'translate_field',
-      'pol_theft_fire_coverage_web_id_str'  => 'translate_field',
-      'pol_legal_assistance_web_id_str'  => 'translate_field',
-      'pol_driver_accident_coverage_web_id_str'  => 'translate_field',
-      'pol_assistance_web_id_str' => 'translate_field' ,
-      'pol_kasko_web_id_str'  => 'translate_field' ,
+      'pol_residence_province_str' => 'copy_field' ,
+      'pol_residence_str' => 'copy_field' ,
       'veh_alarm_str' => 'translate_field',
       'veh_km_per_yr_str' => 'translate_field',
       'veh_make_str'  => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
@@ -326,6 +320,15 @@ module Provider2Quixa
       'veh_set_up_str'  => 'make=profilefield[:veh_set_up_str]; regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";' ,
       'veh_vehicle_type_str'  => 'translate_field',
       'veh_vehicle_value_str' => 'copy_field',
+
+      'pol_contingency_protection_web_id_str' => 'translate_field',
+      'pol_glasses_web_id_str' => 'translate_field',
+      'pol_natural_events_act_of_vandalism_web_id_str' => 'translate_field',
+      'pol_theft_fire_coverage_web_id_str'  => 'translate_field',
+      'pol_legal_assistance_web_id_str'  => 'translate_field',
+      'pol_driver_accident_coverage_web_id_str'  => 'translate_field',
+      'pol_assistance_web_id_str' => 'translate_field' ,
+      'pol_kasko_web_id_str'  => 'translate_field' ,
 
     }
 
