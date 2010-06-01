@@ -293,7 +293,7 @@ module Provider2Generali
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_residence_province_str' => 'translate_field',
-      'pol_risk_certificate_str' => 'translate_field',
+      'pol_risk_certificate_str' => 'profilefield[:pol_bersani_str]== "si" ? "ZZ - Altre forme" : "BM - Bonus Malus"',
       'veh_fuel_str' => 'translate_field',
       'veh_vehicle_use_str' => 'translate_field',
 
@@ -338,7 +338,7 @@ module Provider2Generali
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_residence_province_str' => 'translate_field',
-      'pol_risk_certificate_str' => 'translate_field',
+      'pol_risk_certificate_str' => 'profilefield[:pol_bersani_str]== "si" ? "ZZ - Altre forme" : "BM - Bonus Malus"',
       'veh_fuel_str' => 'translate_field',
       'veh_vehicle_use_str' => 'translate_field',
 
@@ -384,7 +384,9 @@ module Provider2Generali
       'pol_quotation_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_residence_province_str' => 'translate_field',
-      'pol_risk_certificate_str' => 'translate_field',
+#      'pol_risk_certificate_str' => 'translate_field',
+      'pol_risk_certificate_str' => 'profilefield[:pol_quotation_str]== "franchigia" ? "FR - Franchigia" : "BM - Bonus Malus"',
+
       'veh_alarm_str' => 'translate_field',
       'veh_fuel_str' => 'translate_field',
       'veh_hook_str' => 'translate_field',
