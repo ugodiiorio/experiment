@@ -74,7 +74,7 @@ module Provider2Generali
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'C - Già assicurato altra compagnia',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'A - Prima Immatricolazione',
       {'pol_instalment_str' => 'annuale'} => '//*[@id="RB_POLIZZA_ANNUALE"]',
-      {'pol_property_type_to_be_insured_str' => 'autovettura'} => 'Autovettura',
+      {'veh_vehicle_type_str' => 'autovettura'} => 'Autovettura',
       {'pol_driving_type_str' => 'esclusiva'} => 'Conducente esclusivo',
       {'pol_driving_type_str' => 'libera'} => 'Conducente qualsiasi',
       {'pol_driving_type_str' => 'definita'} => 'Conducente \"coniugi\"',
