@@ -114,9 +114,12 @@ class GeneraliSect1 < Test::Unit::TestCase
     type_text("DATA_EFFETTO", @rate_date)
     select_option "COD_OGG_ASSICURABILE", get("@property_type_to_be_insured")
     select_option "STATO_ASSICURATIVO", get("@insurance_situation")
-
+    
     if get('@insurance_situation') =~ /immatricolazione/i
       select_option "LEGGE_BERSANI", get("@bersani")
+      type_text("DATA_ATTESTAZIONE_BERSANI", get("@bersani_policy_expiring_date")) if get('@bersani') =~ /si/i
+    else
+      type_text("DATA_DICHIARAZIONE_ATTESTAZIONE", @rate_date)
     end
 
     select_option "TIPOLOGIA_CLIENTE", get("@client_type")
@@ -151,14 +154,43 @@ class GeneraliSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
-    click_option(get('@risk_certificate'))
     if (get('@insurance_situation') =~ /assicurato/i || (get('@insurance_situation') =~ /prima/i &&  get('@bersani') =~ /si/i))
-      select_option "NUM_SIN_PAGATI_1", get("@nr_of_paid_claims_5_yr")
-      select_option "NUM_SIN_PAGATI_2", get("@nr_of_paid_claims_4_yr")
-      select_option "NUM_SIN_PAGATI_3", get("@nr_of_paid_claims_3_yr")
-      select_option "NUM_SIN_PAGATI_4", get("@nr_of_paid_claims_2_yr")
-      select_option "NUM_SIN_PAGATI_5", get("@nr_of_paid_claims_1_yr")
-      select_option "NUM_SIN_PAGATI_CORR", get("@nr_of_paid_claims_this_yr")
+      select_option "FORMA_TARIFFARIA_PREC", get('@risk_certificate')
+      select_option "CLASSE_UNIVERSALE_ASSEGNAZIONE", get("@bm_assigned")
+      select_option "SIN_PRINC_1", get("@nr_of_paid_claims_5_yr")
+      select_option "SIN_PRINC_2", get("@nr_of_paid_claims_4_yr")
+      select_option "SIN_PRINC_3", get("@nr_of_paid_claims_3_yr")
+      select_option "SIN_PRINC_4", get("@nr_of_paid_claims_2_yr")
+      select_option "SIN_PRINC_5", get("@nr_of_paid_claims_1_yr")
+      select_option "SIN_PRINC_CORR", get("@nr_of_paid_claims_this_yr")
+
+      select_option "SIN_PARIT_1", "0"
+      select_option "SIN_PARIT_2", "0"
+      select_option "SIN_PARIT_3", "0"
+      select_option "SIN_PARIT_4", "0"
+      select_option "SIN_PARIT_5", "0"
+      select_option "SIN_PARIT_CORR", "0"
+
+      select_option "SIN_PAGATI_1", "0"
+      select_option "SIN_PAGATI_2", "0"
+      select_option "SIN_PAGATI_3", "0"
+      select_option "SIN_PAGATI_4", "0"
+      select_option "SIN_PAGATI_5", "0"
+      select_option "SIN_PAGATI_CORR", "0"
+
+      select_option "SIN_RIS_PERS_1", "0"
+      select_option "SIN_RIS_PERS_2", "0"
+      select_option "SIN_RIS_PERS_3", "0"
+      select_option "SIN_RIS_PERS_4", "0"
+      select_option "SIN_RIS_PERS_5", "0"
+      select_option "SIN_RIS_PERS_CORR", "0"
+
+      select_option "SIN_RIS_COSE_1", "0"
+      select_option "SIN_RIS_COSE_2", "0"
+      select_option "SIN_RIS_COSE_3", "0"
+      select_option "SIN_RIS_COSE_4", "0"
+      select_option "SIN_RIS_COSE_5", "0"
+      select_option "SIN_RIS_COSE_CORR", "0"
 
       page.click '//img[@alt="prosegui"]'
       page_wait
@@ -218,9 +250,6 @@ class GeneraliSect1 < Test::Unit::TestCase
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
 
-    if (get('@insurance_situation') =~ /assicurato/i || (get('@insurance_situation') =~ /prima/i &&  get('@bersani') =~ /si/i))
-      select_option "VAL_PARAMETRO_CT_1_1", get("@bm_assigned")
-    end
     select_option "VAL_PARAMETRO_UEP_1_1", get("@public_liability_indemnity_limit")
 
     page.click '//img[@alt="prosegui"]'
