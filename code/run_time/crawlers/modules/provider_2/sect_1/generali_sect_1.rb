@@ -112,7 +112,7 @@ class GeneraliSect1 < Test::Unit::TestCase
     open_page(@url)
 
     type_text("DATA_EFFETTO", @rate_date)
-    select_option "COD_OGG_ASSICURABILE", get("@property_type_to_be_insured")
+    select_option "COD_OGG_ASSICURABILE", get("@vehicle_type")
     select_option "STATO_ASSICURATIVO", get("@insurance_situation")
     
     if get('@insurance_situation') =~ /immatricolazione/i
@@ -156,16 +156,16 @@ class GeneraliSect1 < Test::Unit::TestCase
 
     if (get('@insurance_situation') =~ /assicurato/i || (get('@insurance_situation') =~ /prima/i &&  get('@bersani') =~ /si/i))
       select_option "FORMA_TARIFFARIA_PREC", get('@risk_certificate')
-      select_option "CLASSE_UNIVERSALE_ASSEGNAZIONE", get("@bm_assigned")
-      select_option "SIN_PRINC_1", get("@nr_of_paid_claims_5_yr")
-      select_option "SIN_PRINC_2", get("@nr_of_paid_claims_4_yr")
+      select_option "CLASSE_UNIVERSALE_ASSEGNAZIONE", get("@bm_assigned") unless get('@risk_certificate') =~ /franchigia/i
+      select_option "SIN_PRINC_1", get("@nr_of_paid_claims_5_yr") if page.is_editable("SIN_PRINC_1")
+      select_option "SIN_PRINC_2", get("@nr_of_paid_claims_4_yr") if page.is_editable("SIN_PRINC_2")
       select_option "SIN_PRINC_3", get("@nr_of_paid_claims_3_yr")
       select_option "SIN_PRINC_4", get("@nr_of_paid_claims_2_yr")
       select_option "SIN_PRINC_5", get("@nr_of_paid_claims_1_yr")
       select_option "SIN_PRINC_CORR", get("@nr_of_paid_claims_this_yr")
 
-      select_option "SIN_PARIT_1", "0"
-      select_option "SIN_PARIT_2", "0"
+      select_option "SIN_PARIT_1", "0" if page.is_editable("SIN_PARIT_1")
+      select_option "SIN_PARIT_2", "0" if page.is_editable("SIN_PARIT_2")
       select_option "SIN_PARIT_3", "0"
       select_option "SIN_PARIT_4", "0"
       select_option "SIN_PARIT_5", "0"
@@ -174,23 +174,23 @@ class GeneraliSect1 < Test::Unit::TestCase
       select_option "SIN_PAGATI_1", "0"
       select_option "SIN_PAGATI_2", "0"
       select_option "SIN_PAGATI_3", "0"
-      select_option "SIN_PAGATI_4", "0"
-      select_option "SIN_PAGATI_5", "0"
-      select_option "SIN_PAGATI_CORR", "0"
+      select_option "SIN_PAGATI_4", "0" if page.is_editable("SIN_PAGATI_4")
+      select_option "SIN_PAGATI_5", "0" if page.is_editable("SIN_PAGATI_5")
+      select_option "SIN_PAGATI_CORR", "0" if page.is_editable("SIN_PAGATI_CORR")
 
       select_option "SIN_RIS_PERS_1", "0"
       select_option "SIN_RIS_PERS_2", "0"
       select_option "SIN_RIS_PERS_3", "0"
-      select_option "SIN_RIS_PERS_4", "0"
-      select_option "SIN_RIS_PERS_5", "0"
-      select_option "SIN_RIS_PERS_CORR", "0"
+      select_option "SIN_RIS_PERS_4", "0" if page.is_editable("SIN_RIS_PERS_4")
+      select_option "SIN_RIS_PERS_5", "0" if page.is_editable("SIN_RIS_PERS_5")
+      select_option "SIN_RIS_PERS_CORR", "0" if page.is_editable("SIN_RIS_PERS_CORR")
 
       select_option "SIN_RIS_COSE_1", "0"
       select_option "SIN_RIS_COSE_2", "0"
       select_option "SIN_RIS_COSE_3", "0"
-      select_option "SIN_RIS_COSE_4", "0"
-      select_option "SIN_RIS_COSE_5", "0"
-      select_option "SIN_RIS_COSE_CORR", "0"
+      select_option "SIN_RIS_COSE_4", "0" if page.is_editable("SIN_RIS_COSE_4")
+      select_option "SIN_RIS_COSE_5", "0" if page.is_editable("SIN_RIS_COSE_5")
+      select_option "SIN_RIS_COSE_CORR", "0" if page.is_editable("SIN_RIS_COSE_CORR")
 
       page.click '//img[@alt="prosegui"]'
       page_wait
@@ -199,7 +199,6 @@ class GeneraliSect1 < Test::Unit::TestCase
     type_text("ANNO", get("@matriculation_date_year"))
     select_option "MARCA", get("@make")
     page_wait
-
     select_option "MODELLO", get("@model")
     page_wait
 
@@ -225,12 +224,12 @@ class GeneraliSect1 < Test::Unit::TestCase
     select_option "VAL_PARAMETRO_SELECT_5", get("@vehicle_use")
     click_option(get('@tow_hook'))
     select_option "VAL_PARAMETRO_SELECT_7", get("@gas_methane_supply")
-    type_keys("VAL_PARAMETRO_INPUT_8", get("@capacity"))
-    type_text("VAL_PARAMETRO_INPUT_9", get("@cv"))
-    type_text("VAL_PARAMETRO_INPUT_10", get("@kw"))
-    type_keys("VAL_PARAMETRO_INPUT_11", get("@km_per_yr"))
-    select_option "VAL_PARAMETRO_SELECT_12", get("@alarm")
-    select_option "VAL_PARAMETRO_SELECT_14", get("@driving_type")
+    type_keys("VAL_PARAMETRO_INPUT_8", get("@capacity")) if page.is_editable("VAL_PARAMETRO_INPUT_8")
+    type_text("VAL_PARAMETRO_INPUT_9", get("@cv")) if page.is_editable("VAL_PARAMETRO_INPUT_8")
+    type_text("VAL_PARAMETRO_INPUT_10", get("@kw")) if page.is_editable("VAL_PARAMETRO_INPUT_8")
+    type_keys("VAL_PARAMETRO_INPUT_11", get("@km_per_yr")) if page.is_editable("VAL_PARAMETRO_INPUT_8")
+    select_option "VAL_PARAMETRO_SELECT_12", get("@alarm") if page.is_editable("VAL_PARAMETRO_SELECT_12")
+    select_option "VAL_PARAMETRO_SELECT_14", get("@driving_type") if page.is_editable("VAL_PARAMETRO_SELECT_14")
 
     if get("@driving_type")=~ /coniugi/i
       type_text("VAL_PARAMETRO_INPUT_15", get("@birth_date"))
