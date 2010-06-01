@@ -70,8 +70,7 @@ module Provider2Zurich
       'pol_insurance_situation_str' => 'if profilefield[:pol_insurance_situation_str] == "proveniente da altra compagnia"; "Proveniente da altra Compagnia"; elsif profilefield[:pol_bersani_str] == "no"; "Prima Immatricolazione"; else; "Miglior classe b/m altra Compagnia (CU) del nucleo familiare per acquisto veicolo - Legge n.40 del 2 aprile 2007"; end;',
       'pol_leasing_str' => 'copy_field',
       'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str].slice(3,7) : (x= (profilefield[:pol_matriculation_date_str] == "0" ? (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m") : "01") +"/"+ (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y") )',
+      'pol_matriculation_date_month_str' =>'profilefield[:pol_matriculation_date_str].length == 10 ? x= profilefield[:pol_matriculation_date_str].slice(3,2) : (profilefield[:pol_matriculation_date_str].to_i == 0 ? x = (Chronic.parse(@rate_date)).strftime("%m") : x="01"); y= "index=" + x;',
       'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'pol_motorcycle_driving_ability_str' => 'copy_field',
       'pol_nr_of_paid_claims_1_yr_str' => 'copy_field',
@@ -318,6 +317,7 @@ module Provider2Zurich
     @rule_values ={}
 
     @rule_values = {
+
       'pol_record_id_str' => 'copy_field',
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
@@ -358,6 +358,7 @@ module Provider2Zurich
     @rule_values ={}
 
     @rule_values = {
+      
       'pol_record_id_str' => 'copy_field',
       'driv_heir_str' => 'translate_field',
       'own_owner_zip_code_str' => 'translate_field',
