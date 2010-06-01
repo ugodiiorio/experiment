@@ -167,7 +167,7 @@ module Provider2Quixa
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'res = profilefield[:pol_residence_province_str].gsub("\'"," ").gsub(/valentia/i, "VALENZIA").gsub(/forli/i, "FORLI CESENA").gsub(/PESARO/i, "PESARO E URBINO").gsub(/reggio nell/i, "REGGIO").gsub(/reggio di/i, "REGGIO").gsub(/verbania/i, "VERBANO CUSIO OSSOLA")',
-      'pol_residence_str' => 'res = profilefield[:pol_residence_str].gsub("\'"," ").gsub(/^agliano/i, "AGLIANO TERME").gsub(/valentia/i, "VALENZIA").gsub(/PESARO/i, "PESARO E URBINO").gsub(/reggio nell/i, "REGGIO").gsub(/reggio di/i, "REGGIO")',
+      'pol_residence_str' => 'res = profilefield[:pol_residence_str].gsub("\'"," ").gsub(/^agliano/i, "AGLIANO TERME").gsub(/PESARO/i, "PESARO E URBINO").gsub(/reggio nell/i, "REGGIO").gsub(/reggio di/i, "REGGIO")',
       'pol_risk_certificate_str' => 'copy_field',
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_indemnity_limit_str' => 'copy_field',

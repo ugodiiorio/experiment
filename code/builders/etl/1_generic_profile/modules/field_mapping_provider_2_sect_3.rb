@@ -7,7 +7,7 @@ module FieldMappingProvider2Sect3
     @field_rule_values = {}
 
     @field_rule_values = {
-
+      'pol_bersani_policy_expiring_date_str' => '"3 months from now"',
       'driv_birth_place_str' => 'infield[:pol_residence_str].strip.upcase',
       'driv_driver_sex_str' => 'infield[:driv_driver_sex_str].strip.upcase',
       'driv_heir_str' => "'no'",
