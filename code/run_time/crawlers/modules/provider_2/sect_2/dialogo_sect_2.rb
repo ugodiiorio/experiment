@@ -41,9 +41,6 @@ class DialogoSect2 < Test::Unit::TestCase
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
 
-      #      vehicle_age = 1
-      #      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
-
       @url = site.url
       @sleep = @kte.sleep_typing
       #      @verification_errors = []
@@ -177,11 +174,9 @@ class DialogoSect2 < Test::Unit::TestCase
     mms = get('@make')+ " "+get('@model')+ " "+get('@set_up')
 
     type_text("contentSubView:vehicleForm:chooseMoto:motoDescription", mms)
-    #type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
     type_text("contentSubView:vehicleForm:chooseMoto:capacity", get('@capacity'))
     select_option("contentSubView:vehicleForm:chooseMoto:power", get('@fuel'))
     type_text("contentSubView:vehicleForm:chooseMoto:insurableValue", get('@vehicle_value'))
-    #click_option(get('@tow_hook'))
     click_option(get('@vehicle_shelter'))
     click_option(get('@number_plate_type'))
     
