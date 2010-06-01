@@ -28,12 +28,8 @@ module Provider2ZurichConnect
       'own_owner_residence_str' => 'copy_field',
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
-<<<<<<< HEAD:code/builders/etl/2_translation_rule/modules/provider_2/zurich_connect/rules.rb
 #      'own_owner_zip_code_str' => 'cap = infield[:own_owner_zip_code_str].strip.downcase ; cap = cap.gsub("40100","40121"); cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
        'own_owner_zip_code_str' => 'copy_field',
-=======
-      'own_owner_zip_code_str' => 'cap = profilefield[:own_owner_zip_code_str].strip.downcase ; cap = cap.gsub("40100","40121"); cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
->>>>>>> 1d4ab51cef9bdff5f8b592b6607cfb8afee2fb41:code/builders/etl/2_translation_rule/modules/provider_2/zurich_connect/rules.rb
       'pol_act_of_vandalism_code_str' => 'copy_field',
       'pol_act_of_vandalism_minimum_uncoverage_str' => 'copy_field',
       'pol_act_of_vandalism_on_off_str' => 'copy_field',
@@ -89,12 +85,8 @@ module Provider2ZurichConnect
       'pol_driver_is_owner_str' => 'copy_field',
       'pol_driver_less_25_yrs_license_less_2_yrs_str' => 'copy_field',
       'pol_driver_less_than_26_yrs_str' => 'copy_field',
-<<<<<<< HEAD:code/builders/etl/2_translation_rule/modules/provider_2/zurich_connect/rules.rb
-      'pol_driver_zip_code_str' => 'cap = infield[:pol_driver_zip_code_str].strip; cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
+#      'pol_driver_zip_code_str' => 'cap = infield[:pol_driver_zip_code_str].strip; cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
       'pol_driver_zip_code_str' => 'copy_field',
-=======
-      'pol_driver_zip_code_str' => 'cap = profilefield[:pol_driver_zip_code_str].strip; cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
->>>>>>> 1d4ab51cef9bdff5f8b592b6607cfb8afee2fb41:code/builders/etl/2_translation_rule/modules/provider_2/zurich_connect/rules.rb
       'pol_driving_licence_withdrawal_guarantee_code_str' => 'copy_field',
       'pol_driving_licence_withdrawal_guarantee_on_off_str' => 'copy_field',
       'pol_driving_licence_withdrawal_guarantee_premium_id_str' => 'copy_field',
