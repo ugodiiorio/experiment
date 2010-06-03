@@ -162,8 +162,8 @@ class QuixaSect1 < Test::Unit::TestCase
     end
 
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlInsuranceSituation", get('@insurance_situation'))
-    sleep @sleep*3
-    type_keys("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
+    sleep @sleep*2
+    type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtDateEffect", @rate_date)
     page.focus @last_element
     page.fire_event(@last_element, 'blur')
     case get('@insurance_situation') =~ /prima polizza/i
@@ -349,24 +349,6 @@ class QuixaSect1 < Test::Unit::TestCase
     return present
   end
 
-  def page_keys(element, label)
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => Type on element = #{element} a string = #{label}"}
-	  wait_for_elm(element)
-    page.focus element
-    page.key_up element, "\\115"
-    sleep @sleep*2
-	  page.type_keys element, label
-	  page.type_keys element, " "
-    page.key_press element, "\\8"
-	  @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => element value = #{page.get_value(element)}"}
-	end
-  
-  def type_keys(id, value = nil)
-    @last_element, @last_value = id, value
-    @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed text element: [#{@last_element}] with string value: [#{@last_value}]"}
-    page_keys @last_element, @last_value
-  end
-
   def select_bersani
     type_text("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_txtBersaniPlate", get('@bersani_ref_vehicle_number_plate'))
     select_option("ctl00_ContentPlaceHolderMainArea_SimulatorContentPlaceHolderMainArea1_ucPersonalData_ddlClassBonus", get('@bm_assigned'))
@@ -406,4 +388,8 @@ class QuixaSect1 < Test::Unit::TestCase
 	  assert page.element?(element) == true, "Wait for element failed! Element #{element} not present"
   end
 
+#	def wait_for_alert()
+#		!8.times{ break if (page.alert?); sleep 1; puts "Waiting alert ..."; }
+#		page.alert() if page.alert?
+#	end
 end
