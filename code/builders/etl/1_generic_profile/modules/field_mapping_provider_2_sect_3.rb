@@ -7,14 +7,14 @@ module FieldMappingProvider2Sect3
     @field_rule_values = {}
 
     @field_rule_values = {
-
+      'pol_bersani_policy_expiring_date_str' => '"3 months from now"',
       'driv_birth_place_str' => 'infield[:pol_residence_str].strip.upcase',
       'driv_driver_sex_str' => 'infield[:driv_driver_sex_str].strip.upcase',
       'driv_heir_str' => "'no'",
       'driv_residence_str' => 'infield[:driv_residence_str].strip.downcase',
       'own_owner_sex_str' => 'infield[:own_owner_sex_str].strip.upcase == "" ? "C" : infield[:own_owner_sex_str].strip.upcase',
       'own_owner_specification_str' => 'if infield[:own_owner_sex_str].strip.upcase == "M"; infield[:own_owner_sex_str].strip.upcase; elsif infield[:own_owner_sex_str].strip.upcase == "F"; infield[:own_owner_sex_str].strip.upcase; else "C"; end',
-      'own_owner_zip_code_str' => 'cap = infield[:own_owner_zip_code_str].strip.downcase; cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
+      'own_owner_zip_code_str' => 'infield[:own_owner_zip_code_str].strip.downcase',
       'pol_bersani_str' => 'infield[:pol_bersani_str].strip.downcase',
       'pol_birth_date_day_str' => 'infield[:pol_birth_date_str]',
       'pol_birth_date_month_str' => 'infield[:pol_birth_date_str]',
@@ -25,7 +25,7 @@ module FieldMappingProvider2Sect3
       'pol_claims_total_number_str' => 'infield[:pol_claims_total_number_str].strip.downcase',
       'pol_client_type_str' => 'infield[:pol_client_type_str].strip.downcase',
       'pol_coming_from_BM_str' =>  'bm=infield[:pol_BM_assigned_str]; claimsyear=infield[:pol_nr_of_paid_claims_this_yr_str]; bm.to_i == -1 ? bm ="-1" : if claimsyear.to_i > 0 && bm.to_i > 3 ;  bm= bm.to_i - 2;  else  bm = bm.to_i + 1 end',
-      'pol_driver_zip_code_str' => 'cap = infield[:pol_driver_zip_code_str].strip.downcase; cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
+      'pol_driver_zip_code_str' => 'infield[:pol_driver_zip_code_str].strip.downcase',
       'pol_instalment_str' => '"annuale"',
       'pol_insurance_situation_str' => 'sitass=infield[:pol_insurance_situation_str].strip.downcase;  if sitass=~/1a*\\s*[(A-Za-z0-9)*(\\s)*]*/ ; x= "1a immatricolazione"; else x="proveniente da altra compagnia" end;',
       'pol_matriculation_date_day_str' => 'infield[:pol_matriculation_date_str].strip',

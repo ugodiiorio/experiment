@@ -41,9 +41,6 @@ class DialogoSect2 < Test::Unit::TestCase
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
 
-      #      vehicle_age = 1
-      #      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
-
       @url = site.url
       @sleep = @kte.sleep_typing
       #      @verification_errors = []
@@ -177,11 +174,9 @@ class DialogoSect2 < Test::Unit::TestCase
     mms = get('@make')+ " "+get('@model')+ " "+get('@set_up')
 
     type_text("contentSubView:vehicleForm:chooseMoto:motoDescription", mms)
-    #type_text("contentSubView:vehicleForm:chooseAuto:kms", get('@km_per_yr'))
     type_text("contentSubView:vehicleForm:chooseMoto:capacity", get('@capacity'))
     select_option("contentSubView:vehicleForm:chooseMoto:power", get('@fuel'))
     type_text("contentSubView:vehicleForm:chooseMoto:insurableValue", get('@vehicle_value'))
-    #click_option(get('@tow_hook'))
     click_option(get('@vehicle_shelter'))
     click_option(get('@number_plate_type'))
     
@@ -231,7 +226,7 @@ class DialogoSect2 < Test::Unit::TestCase
     page.open @last_element
     sleep @sleep
 #    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
-    page.window_maximize
+#    page.window_maximize
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
   end

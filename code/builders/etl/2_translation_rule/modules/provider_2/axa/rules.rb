@@ -69,13 +69,7 @@ module Provider2Axa
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
       'pol_leasing_str' => 'copy_field',
-      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str] : copy_field )  :  x= "01/01/" + (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
-
-#       'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
-      'pol_motorcycle_driving_ability_str' => 'copy_field',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length == 10 ? copy_field : (x= "01/"+(profilefield[:pol_matriculation_date_str] == "0" ? (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m") : "01") +"/"+ (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y") )',
       'pol_nr_of_paid_claims_1_yr_str' => 'copy_field',
       'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
       'pol_nr_of_paid_claims_3_yr_str' => 'copy_field',
@@ -175,6 +169,7 @@ module Provider2Axa
       'veh_vehicle_use_str' => 'translate_field',
       'veh_vehicle_value_str' => 'translate_field',
       'veh_weight_to_be_towed_num' => 'copy_field',
+      
       'pol_act_of_vandalism_code_str' => 'copy_field',
       'pol_act_of_vandalism_minimum_uncoverage_str' => 'copy_field',
       'pol_act_of_vandalism_on_off_str' => 'copy_field',
@@ -290,6 +285,7 @@ module Provider2Axa
       'pol_public_liability_exemption_str' => 'translate_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_public_liability_young_exemption_str' => 'translate_field',
+      'pol_quotation_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_second_driver_str' => 'translate_field',
       'veh_fuel_str' => 'translate_field',
@@ -305,15 +301,9 @@ module Provider2Axa
       'pol_record_id_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
-      'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-#      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str] : copy_field )  :  x= "01/01/" + (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
 
-      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
-      'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
-      'pol_quotation_str' => 'translate_field',
+      'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length == 10 ? copy_field : (x= "01/"+(profilefield[:pol_matriculation_date_str] == "0" ? (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m") : "01") +"/"+ (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y") )',      'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
       'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
       'veh_set_up_str' => 'kw=profilefield[:veh_kw_str];make=profilefield[:veh_set_up_str]; make= make.gsub(/tddi/i, "TD DI");  make= make.gsub(/tdci/i, "TD CI");  make= make.gsub(/turbodiesel/i, "TD"); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',
 
@@ -354,14 +344,7 @@ module Provider2Axa
       'pol_birth_date_month_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%m")',
       'pol_birth_date_str' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%d/%m/%Y")',
       'pol_birth_date_year_num' => '(Chronic.parse(@rate_date) - profilefield[:pol_birth_date_str].to_i.years).strftime("%Y")',
-      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-#      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str] : copy_field )  :  x= "01/01/" + (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
-
-      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
-
-      'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length == 10 ? copy_field : (x= "01/"+(profilefield[:pol_matriculation_date_str] == "0" ? (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m") : "01") +"/"+ (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y") )',      'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
       'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^";regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end;regexp_mod = regexp_mod + "\\\\b";',
       'veh_model_str' => 'kw=profilefield[:veh_kw_str];make=profilefield[:veh_model_str]; make= make.gsub(/tddi/i, "TD DI");  make= make.gsub(/tdci/i, "TD CI");  make= make.gsub(/turbodiesel/i, "TD"); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',
 
@@ -410,14 +393,7 @@ module Provider2Axa
       'veh_full_load_total_weight_num' => 'copy_field',
       'veh_product_sector_str' => 'copy_field',
 
-      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m")',
-      'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
-#      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? copy_field : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d/%m/%Y")',
-#      'pol_matriculation_date_str' => '"01/01/2000"', #TODO
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? (profilefield[:pol_matriculation_date_str].length == 10 ? profilefield[:pol_matriculation_date_str] : copy_field )  :  x= "01/01/" + (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
-
-      'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
+      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length == 10 ? copy_field : (x= "01/"+(profilefield[:pol_matriculation_date_str] == "0" ? (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m") : "01") +"/"+ (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y") )',      'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
       'pol_nr_of_paid_claims_3_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; z= profilefield[:pol_nr_of_paid_claims_2_yr_str].to_i; sin= x+y+z',
       'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";',
       'veh_model_str' => 'kw=profilefield[:veh_kw_str];make=profilefield[:veh_model_str]; make= make.gsub(/tddi/i, "TD DI");  make= make.gsub(/tdci/i, "TD CI");  make= make.gsub(/turbodiesel/i, "TD"); regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*(\\\\s)*(?=.*?\\\\b" + regexpi_mod_array[0].to_s + "+" ; index=0 ;for index in (1..regexpi_mod_array.length-1);regexp_mod = regexp_mod + "((?=.*?\\\\b" + regexpi_mod_array[index].to_s + "\\\\b))*" end; regexp_mod = regexp_mod + ").+";',

@@ -41,9 +41,6 @@ class QuixaSect2 < Test::Unit::TestCase
       @record, @kte.record = get('@record_id'), get('@record_id')
       @rate_date = format_date(@kte.rate_date)
 
-#      vehicle_age = 1
-#      @matriculation_date = Chronic.parse("#{vehicle_age} years before today")
-
       @url = site.url
       @sleep = @kte.sleep_typing
 #      @verification_errors = []
@@ -225,7 +222,7 @@ class QuixaSect2 < Test::Unit::TestCase
     page.open @last_element
     sleep @sleep
 #    assert_match(/#{@url.split("?")[0]}/i, page.get_location)
-    page.window_maximize
+#    page.window_maximize
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
   end

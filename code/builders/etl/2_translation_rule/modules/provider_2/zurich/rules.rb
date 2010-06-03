@@ -69,9 +69,8 @@ module Provider2Zurich
       'pol_instalment_str' => 'copy_field',
       'pol_insurance_situation_str' => 'if profilefield[:pol_insurance_situation_str] == "proveniente da altra compagnia"; "Proveniente da altra Compagnia"; elsif profilefield[:pol_bersani_str] == "no"; "Prima Immatricolazione"; else; "Miglior classe b/m altra Compagnia (CU) del nucleo familiare per acquisto veicolo - Legge n.40 del 2 aprile 2007"; end;',
       'pol_leasing_str' => 'copy_field',
-      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : x="01"',
-      'pol_matriculation_date_month_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,2) : x="01"',
-      'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(3,6) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m/%Y")',
+      'pol_matriculation_date_day_str' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(0,2) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%d")',
+      'pol_matriculation_date_month_str' =>'profilefield[:pol_matriculation_date_str].length == 10 ? x= profilefield[:pol_matriculation_date_str].slice(3,2) : (profilefield[:pol_matriculation_date_str].to_i == 0 ? x = (Chronic.parse(@rate_date)).strftime("%m") : x="01"); y= "index=" + x;',
       'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
       'pol_motorcycle_driving_ability_str' => 'copy_field',
       'pol_nr_of_paid_claims_1_yr_str' => 'copy_field',
@@ -141,7 +140,7 @@ module Provider2Zurich
       'veh_liquid_fuel_transportation_str' => 'copy_field',
       'veh_loading_unloading_str' => 'copy_field',
       'veh_make_previous_vehicle_str' => 'copy_field',
-      'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:([A-Za-z0-9])*"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";',
+      'veh_make_str' => 'make=profilefield[:veh_make_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";',
       'veh_marble_blocks_str' => 'copy_field',
       'veh_model_str' => 'make=profilefield[:veh_model_str];  regexpi_mod_array = make.split(" "); regexp_mod = "regexpi:^"; regexpi_mod_array.each do |el|; regexp_mod = regexp_mod + "(" + el.to_s + ".*)+(\\\\s)*" end; regexp_mod = regexp_mod + "\\\\b";',
       'veh_modification_made_str' => 'copy_field',
@@ -318,6 +317,7 @@ module Provider2Zurich
     @rule_values ={}
 
     @rule_values = {
+
       'pol_record_id_str' => 'copy_field',
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
@@ -358,12 +358,14 @@ module Provider2Zurich
     @rule_values ={}
 
     @rule_values = {
+      
       'pol_record_id_str' => 'copy_field',
       'driv_heir_str' => 'translate_field',
       'own_owner_zip_code_str' => 'translate_field',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_pejus_cu_str' => 'translate_field',
       'pol_privacy_1_str' => 'translate_field',
+      'pol_public_liability_exemption_str' => 'translate_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_residence_str' => 'copy_field',
@@ -386,7 +388,8 @@ module Provider2Zurich
 
       'pol_insurance_situation_str' => 'if profilefield[:pol_insurance_situation_str] == "proveniente da altra compagnia"; "Proveniente da altra Compagnia"; elsif profilefield[:pol_bersani_str] == "no"; "Prima Immatricolazione"; else; "Miglior classe b/m altra Compagnia (CU) del nucleo familiare per acquisto veicolo - Legge n.40 del 2 aprile 2007"; end;',
       'pol_property_type_to_be_insured_str' => '(profilefield[:veh_third_party_str]== "conto proprio") ? " AUTOCARRO TRASP.COSE CONTO PROPRIO" : " AUTOCARRO TRASP.COSE CONTO TERZI"',
-      'pol_quotation_str' => '(profilefield[:veh_full_load_total_weight_num].to_i<60) ?  "NO CLAIMS DISCOUNT" : "TARIFFA FISSA"',
+      'pol_quotation_str' => 'if profilefield[:pol_quotation_str] == "bm"; (profilefield[:veh_full_load_total_weight_num].to_i<60) ?  "NO CLAIMS DISCOUNT" : "TARIFFA FISSA"; else; "FRANCHIGIA"; end;',
+      'pol_nr_of_paid_claims_2_yr_str' => 'x= profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i; y= profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i; sin= x+y',
       'pol_risk_certificate_str' => '(profilefield[:pol_insurance_situation_str]== "1a immatricolazione") ? "//*[@id=\"CODPRO71_9\"]" : "//*[@id=\"CODPRO71_1\"]"',
 
     }

@@ -7,7 +7,7 @@ module FieldMappingProvider2Sect2
     @field_rule_values = {}
 
     @field_rule_values = {
-
+      'pol_bersani_policy_expiring_date_str' => '"3 months from now"',
       'driv_birth_place_str' => 'infield[:pol_residence_str].strip.upcase',
       'driv_birth_province_str' => 'infield[:pol_residence_province_str].strip.upcase',
       'driv_birth_state_str' => '"ITALIA"',
@@ -25,9 +25,10 @@ module FieldMappingProvider2Sect2
       'driv_residence_str' => 'infield[:driv_residence_str].strip.downcase',
       'driv_studies_str' => "'diploma'",
       'own_owner_residence_str' => 'infield[:own_owner_residence_str].strip.upcase',
+      'own_owner_residence_province_str' => 'infield[:own_owner_residence_province_str].strip.upcase',
       'own_owner_sex_str' => 'infield[:own_owner_sex_str].strip.upcase',
       'own_owner_specification_str' => 'if infield[:own_owner_sex_str].strip.upcase == "M"; infield[:own_owner_sex_str].strip.upcase; elsif infield[:own_owner_sex_str].strip.upcase == "F"; infield[:own_owner_sex_str].strip.upcase; else "C"; end',
-      'own_owner_zip_code_str' => 'cap = infield[:own_owner_zip_code_str].strip.downcase ; cap = cap.gsub("40100","40121"); cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
+      'own_owner_zip_code_str' => 'infield[:own_owner_zip_code_str].strip.downcase',
       'pol_already_benefit_from_bersani_str' => "'no'",
       'pol_bersani_ref_vehicle_insured_with_company_str' => "'no'",
       'pol_bersani_ref_vehicle_number_plate_str' => "'ab123cd'",
@@ -47,7 +48,7 @@ module FieldMappingProvider2Sect2
       'pol_defined_drive_str' => '"no"',
       'pol_driver_is_owner_str' => 'if infield[:pol_client_type_str].strip.downcase == "persona fisica"; "si"; else "no"; end',
       'pol_driver_less_than_26_yrs_str' => 'infield[:pol_driver_less_than_26_yrs_str].strip.downcase',
-      'pol_driver_zip_code_str' => 'cap = infield[:pol_driver_zip_code_str].strip.downcase; cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
+      'pol_driver_zip_code_str' => 'infield[:pol_driver_zip_code_str].strip.downcase',
       'pol_driving_license_suspension_str' => "'no'",
       'pol_driving_type_str' => "'libera'",
       'pol_drunkenness_fine_str' => "'no'",
@@ -70,7 +71,7 @@ module FieldMappingProvider2Sect2
       'pol_nr_of_paid_claims_5_yr_str' => 'infield[:pol_nr_of_paid_claims_5_yr_str].strip.downcase',
       'pol_nr_of_paid_claims_this_yr_str' => 'infield[:pol_nr_of_paid_claims_this_yr_str].strip.downcase',
       'pol_nr_of_yrs_insured_in_the_last_5_yrs_str' => 'sitass=infield[:pol_insurance_situation_str];  if sitass=~/1a*\\s*[(A-Za-z0-9)*(\\s)*]*/ ; x= 0; else x=5 end;',
-      'pol_nr_of_yrs_without_claims_str' => 'infield[:pol_claims_total_number_str].to_i == 1 ? X=4 : x=5;',
+      'pol_nr_of_yrs_without_claims_str' => 'infield[:pol_claims_total_number_str].to_i == 1 ? x=4 : x=5;',
       'pol_number_of_NI_NA_yrs_during_5_yrs_str' => 'sitass=infield[:pol_insurance_situation_str];  if sitass=~/1a*\\s*[(A-Za-z0-9)*(\\s)*]*/ ; x= 5; else x=0 end;',
       'pol_number_plate_type_str' => '"definitiva"',
       'pol_other_vehicle_use_str' => "'no'",

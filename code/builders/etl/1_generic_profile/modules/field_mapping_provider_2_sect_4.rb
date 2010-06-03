@@ -13,7 +13,7 @@ module FieldMappingProvider2Sect4
       'driv_heir_str' => "'no'",
       'own_owner_sex_str' => "'C'",
       'own_owner_specification_str' => '"C"',
-      'own_owner_zip_code_str' => 'cap = infield[:own_owner_zip_code_str].strip.downcase; cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
+      'own_owner_zip_code_str' => 'infield[:own_owner_zip_code_str].strip.downcase',
       'pol_bersani_str' => '"no"',
       'pol_BM_assigned_str' => 'infield[:pol_BM_assigned_str]==""  ? "14" : infield[:pol_BM_assigned_str].strip.downcase',
       'pol_BM_in_risk_certificate_str' =>  '"si"',

@@ -335,7 +335,7 @@ class ConteSect2 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's opened page element: [#{@last_element}]"}
     page.open @last_element
     sleep @sleep
-    page.window_maximize
+#    page.window_maximize
     @logger.warn("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE URL: #{page.get_location}"}
     #assert_match(/#{@url.split("?")[0]}/i, page.get_location)
@@ -479,7 +479,7 @@ class ConteSect2 < Test::Unit::TestCase
     assert premium != nil, @last_element.inspect
     assert premium.split[1].to_s.match(/[a-zA-Z]/) == nil, @last_element.inspect
     premium = premium.split[1]
-    premium.count(",") > 0 ? premium.gsub(".","") : nil
+    premium.count(",") > 0 ? premium = premium.gsub(".","") : nil
     premium = premium.gsub(",",".")
 
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => PREMIUM = € #{premium.to_s}"}
