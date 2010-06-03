@@ -1,40 +1,83 @@
 #!/bin/bash
-
-EXPECTED_ARGS=2
-E_BADARGS=65
+cd /home/notroot/git/KTE/code/setup_TW
 
 
+sectors_all=("sect_1" "sect_2")
+sectors_traditional=("sect_3" "sect_4")
+companies=("conte" "dialogo" "directline" "genertel" "linear" "quixa" "zurich_connect" "axa" "fonsai" "generali" "zurich")
+traditional_companies=("axa" "fonsai" "generali" "zurich")
 
 
-while getopts d:h flag 
+#function which receive a set A and a set B and perform A-B
+function set_sub() {
+local a=( `echo "$1"` )
+local b=( `echo "$2"` )
+
+for i in ${b[@]} ; do
+	a=( ${a[@]#$i} )
+	done
+echo "${a[@]}"
+}
+
+#we manage only four sectors
+
+sectors_input=()
+while getopts s: flag
 do
-case "$flag" in 
-	d)	
-		echo @@@ Deleting $OPTARG @@@
-		DELETE="delete from provider_2_sector_placeholder_input_file;"
-		STATEMENT=`echo "$DELETE"|sed -e s/"sector_placeholder"/"$OPTARG"/g`
-		mysql -u root -pkub01d --database=kte_driver -e "$STATEMENT"
-	;;
-
-	h) 	echo "Usage:"
-		echo "Use the script in two possible way" 
-		echo "1) to delete all the input for one or more sectors ( ex for sect_1: ./load_single_input.sh -d sect_1)"
-		echo "2) to load a company input for a given sector ( ex quixa input for sect_1: ./load_single_input.sh sect_1 quixa)"
-		exit 0	
-	;;
-	*) 	
-		echo "$#"
-		echo "Option not supported please check help page"
-		echo "./load_single_input.sh -h " 
-		exit 0
-	
-	;;
-esac
-done	
+	 if ! [[ $OPTARG =~ sect_[1-4] ]]
+		then
+			echo " not supported sector ("$OPTARG")"
+			echo "use one or more of the following -s sect_1 -s sect_2 -s sect_3 -s sect_4"
+			exit 1
+		fi
+	sectors_input=( "${sectors_input[@]}" "$OPTARG" )
+done
 
 
+#Intersection is calculated by making two differences: Intersection(A,B)= A - (A - B)
+if [ "$sectors_input" ]
+then
+	diff=`set_sub "\`echo ${sectors_all[@]}\`" "\`echo ${sectors_input[@]}\`"`
+	result=`set_sub "\`echo ${sectors_all[@]}\`" "\`echo ${diff[@]}\`"`
+	sectors_all=( ${result[@]} )
 
+	diff=`set_sub "\`echo ${sectors_traditional[@]}\`" "\`echo ${sectors_input[@]}\`"`
+	result=`set_sub "\`echo ${sectors_traditional[@]}\`" "\`echo ${diff[@]}\`"`
+	sectors_traditional=( ${result[@]} )
+fi
 
+shift $(($OPTIND -1))
 
+if [ $# -ne 0 ]
+	then
+		companies=( $* )
 
+		#the traditional_companies are intersected with the companies inserted by the user
+		#Intersection is calculated by making two following differences Intersection(A,B)= A - (A - B)
+		diff=`set_sub "\`echo ${traditional_companies[@]}\`" "$*"`
+		result=`set_sub "\`echo ${traditional_companies[@]}\`" "\`echo ${diff[@]}\`"`
 
+		traditional_companies=( ${result[@]} )
+fi
+
+if [ ${#sectors_all[*]} -ne 0 ]
+then
+	echo "@@@@@@@@@@@ Starting to load (${sectors_all[*]}) for the following companies: (${companies[*]}) @@@@@@@@@@@"
+	for sector in ${sectors_all[@]}; do
+		for company in ${companies[@]}; do
+		./load_single_input.sh "$sector" "$company"
+		done
+	done
+	echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Finished  (${sectors_all[*]})... @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+fi
+
+if [ ${#sectors_traditional[*]} -ne 0 ]
+then
+	echo "@@@@@@@@@@@ Starting to load (${sectors_traditional[*]}) for the following companies: (${traditional_companies[*]}) @@@@@@@@@@@"
+	for sector in ${sectors_traditional[@]}; do
+		for company in ${traditional_companies[@]}; do
+		./load_single_input.sh "$sector" "$company"
+		done
+	done
+	echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Finished  (${sectors_traditional[*]})! @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+fi
