@@ -165,10 +165,9 @@ class ZurichConnectSect2 < Test::Unit::TestCase
   def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    wait_for_elm("txtMarcaModello")
     type_text("txtMarcaModello",  get('@make') +" " + get('@model'))
     sleep @sleep*2
-#    select_option("ddlAlimentazione", get('@fuel'))
-#    sleep @sleep*2
     select_option("ddlMeseImm", get('@matriculation_date_month'))
     sleep @sleep*2
     type_text("txtAnno",  get('@matriculation_date_year') )
