@@ -28,7 +28,7 @@ class KTE
   attr_reader :logger, :company_group, :company, :provider, :sector, :working_set, :rate, :rate_date
   attr_reader :log_device, :log_level
   attr_reader :use_case, :store_params, :filter_state
-  attr_reader :port, :selenium_host, :selenium_io, :wait_for_page_to_load, :timeout_in_sec, :browser_type
+  attr_reader :port, :selenium_host, :wait_for_page_to_load, :timeout_in_sec, :browser_type
   attr_reader :db_host, :db_port, :db_socket, :db_conn_user, :db_conn_pwd, :db_driver, :db_monitor, :db_target
   attr_accessor :profile, :record, :rc_cover_code, :rc_premium, :test_result
   attr_accessor :car_make, :car_model, :car_preparation, :job
@@ -59,7 +59,7 @@ class KTE
           app_settings = config['app_settings']
 
           logger_settings['ls_device'] = STDOUT if logger_settings['ls_device'] == 'STDOUT'
-          selenium_settings['ss_io_device'] = STDOUT if selenium_settings['ss_io_device'] == 'STDOUT'
+#          selenium_settings['ss_io_device'] = STDOUT if selenium_settings['ss_io_device'] == 'STDOUT'
           ARGV[0] = nil
         end
       rescue Errno::ENOENT => ex
@@ -96,34 +96,32 @@ class KTE
       end
 
       @car_make, @car_model, @car_preparation, @job = '', '', '', ''
-      @sleep_typing					        = ARGV[6]  || general_settings['gs_typing_sleep_in_seconds'] || 1
-      @sleep_between_profiles       = ARGV[8]  || general_settings['gs_profile_sleep_in_seconds'] || "10" # sleep in seconds between one profile execution and the next
+      @sleep_typing					        = ARGV[6]  || general_settings['gs_typing_sleep_in_seconds'] || 2
+      @sleep_between_profiles       = ARGV[8]  || general_settings['gs_profile_sleep_in_seconds'] || "60" # sleep in seconds between one profile execution and the next
       @max_profiles                 = ARGV[9]  || general_settings['gs_max_number_of_profiles'] || "1" # max number of profiles to execute in the running task
-      @profile                    	= ARGV[0]  || general_settings['gs_profile_id'] || "100"
+      @profile                    	= ARGV[0]  || general_settings['gs_profile_id'] || "1"
       @use_case                     = ARGV[28] || general_settings['gs_use_case'] || ''
-      @store_params                 = ARGV[29] || general_settings['gs_store_params'] || false
+      @store_params                 = ARGV[29] || general_settings['gs_store_params'] || true
       @filter_state                 = ARGV[32] || general_settings['gs_filter_state'] || ''
 
-      @company_group     			      = ARGV[23] || app_settings['as_company_group_id'] || "all_provider_1"
-      @company 	        			      = ARGV[1]  || app_settings['as_company_id'] || "quixa"
-      @provider 	        			    = ARGV[20] || app_settings['as_provider_id'] || "quixa"
-      @sector 				              = ARGV[21] || app_settings['as_sector_id'] || "sect_1"
-      @working_set 	         			  = ARGV[22] || app_settings['as_working_set_id'] || "prov_1_20100201"
-      @rate	                        = ARGV[7]  || app_settings['as_rate_id'] || "today"
-      @start_date                   = ARGV[19] || app_settings['as_rate_date'] || 'tomorrow'
+      @company_group     			      = ARGV[23] || app_settings['as_company_group_id']
+      @company 	        			      = ARGV[1]  || app_settings['as_company_id']
+      @provider 	        			    = ARGV[20] || app_settings['as_provider_id']
+      @sector 				              = ARGV[21] || app_settings['as_sector_id']
+      @working_set 	         			  = ARGV[22] || app_settings['as_working_set_id']
+      @rate	                        = ARGV[7]  || app_settings['as_rate_id']
+      @start_date                   = ARGV[19] || app_settings['as_rate_date']
       @rate_date                    = Chronic.parse(@start_date)
 
-      @log_device                   = ARGV[12] || logger_settings['ls_device'] || "/home/notroot/git/KTE/code/run_time/log/"
+      @log_device                   = ARGV[12] || logger_settings['ls_device']
       @log_level                    = ARGV[13] || logger_settings['ls_level'] || 2
       @datetime_format              = ARGV[14] || logger_settings['ls_datetime_format'] || "%Y-%m-%d %H:%M:%S"
-    #  shift_age = logger_settings['ls_shift_age'] || 'daily'
-    #  shift_size = logger_settings['ls_shift_size'] || 1048576
       @port 				                = ARGV[2]  || selenium_settings['ss_selenium_port'] || "4444"
       @selenium_host                = ARGV[30] || selenium_settings['ss_selenium_host'] || "localhost"
-      @selenium_io                  = ARGV[15] || selenium_settings['ss_io_device'] || STDOUT
+#      @selenium_io                  = ARGV[15] || selenium_settings['ss_io_device'] || STDOUT
       @selenium_out_level           = ARGV[16] || selenium_settings['ss_output_level'] || 3
-      @timeout_in_sec               = ARGV[10] || selenium_settings['ss_timeout_in_seconds'] || 30
-      @wait_for_page_to_load        = ARGV[11] || selenium_settings['ss_wait_for_page_to_load'] || 30000
+      @timeout_in_sec               = ARGV[10] || selenium_settings['ss_timeout_in_seconds'] || 60
+      @wait_for_page_to_load        = ARGV[11] || selenium_settings['ss_wait_for_page_to_load'] || 120000
       @browser_type 			          = ARGV[24] || selenium_settings['ss_browser_type'] || "*chrome"
 
       @db_host						          = ARGV[5]  || database_settings['ds_db_host'] || "localhost"
@@ -149,7 +147,7 @@ class KTE
   def start_logger
 
     begin
-      @logger = Logger.new(@log_device) # shift_age, shift_size
+      @logger = Logger.new(@log_device) 
 
       @logger.level = @log_level.to_i
       @logger.datetime_format = @datetime_format
@@ -217,7 +215,7 @@ class KTE
             @logger.warn(__FILE__) {"#{@kte.company} => #{"@"*20} EXECUTED PROFILES: #{profiles_count.to_s()}"}
             @logger.info(__FILE__) {"#{@kte.company} => #{"@"*20} RECORD ID N. #{@kte.record}"}
           end
-        else #il profilo assicurativo non è fissato
+        else # not predefined profile
           from_profile = start_range(profiles)
           to_profile = end_range(profiles)
           while from_profile <= to_profile do
