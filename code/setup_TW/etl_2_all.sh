@@ -4,7 +4,7 @@ cd /home/notroot/git/KTE/code/setup_TW
 
 sectors_all=("sect_1" "sect_2")
 sectors_traditional=("sect_3" "sect_4")
-companies=("conte" "dialogo" "directline" "genertel" "genialloyd" "linear" "quixa" "zurich_connect" "axa" "fonsai" "generali" "zurich")
+companies=("conte" "dialogo" "directline" "genertel" "linear" "quixa" "zurich_connect" "axa" "fonsai" "generali" "zurich")
 traditional_companies=("axa" "fonsai" "generali" "zurich")
 
 

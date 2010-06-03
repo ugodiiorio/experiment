@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/notroot/git/KTE/code/setup
+cd /home/notroot/git/KTE/code/setup_TW
 
 
 sectors_all=("sect_1" "sect_2")
@@ -16,27 +16,27 @@ local b=( `echo "$2"` )
 for i in ${b[@]} ; do
 	a=( ${a[@]#$i} )
 	done
-echo "${a[@]}" 
+echo "${a[@]}"
 }
 
 #we manage only four sectors
 
-sectors_input=() 
-while getopts s: flag 
-do 
+sectors_input=()
+while getopts s: flag
+do
 	 if ! [[ $OPTARG =~ sect_[1-4] ]]
 		then
-			echo " not supported sector ("$OPTARG")" 
+			echo " not supported sector ("$OPTARG")"
 			echo "use one or more of the following -s sect_1 -s sect_2 -s sect_3 -s sect_4"
 			exit 1
 		fi
-	sectors_input=( "${sectors_input[@]}" "$OPTARG" ) 
+	sectors_input=( "${sectors_input[@]}" "$OPTARG" )
 done
 
 
-#Intersection is calculated by making two differences: Intersection(A,B)= A - (A - B) 
-if [ "$sectors_input" ]   
-then 
+#Intersection is calculated by making two differences: Intersection(A,B)= A - (A - B)
+if [ "$sectors_input" ]
+then
 	diff=`set_sub "\`echo ${sectors_all[@]}\`" "\`echo ${sectors_input[@]}\`"`
 	result=`set_sub "\`echo ${sectors_all[@]}\`" "\`echo ${diff[@]}\`"`
 	sectors_all=( ${result[@]} )
@@ -48,35 +48,35 @@ fi
 
 shift $(($OPTIND -1))
 
-if [ $# -ne 0 ]   
-	then 
+if [ $# -ne 0 ]
+	then
 		companies=( $* )
 
 		#the traditional_companies are intersected with the companies inserted by the user
-		#Intersection is calculated by making two following differences Intersection(A,B)= A - (A - B) 
+		#Intersection is calculated by making two following differences Intersection(A,B)= A - (A - B)
 		diff=`set_sub "\`echo ${traditional_companies[@]}\`" "$*"`
 		result=`set_sub "\`echo ${traditional_companies[@]}\`" "\`echo ${diff[@]}\`"`
 
 		traditional_companies=( ${result[@]} )
 fi
 
-if [ ${#sectors_all[*]} -ne 0 ]   
-then  
+if [ ${#sectors_all[*]} -ne 0 ]
+then
 	echo "@@@@@@@@@@@ Starting to load (${sectors_all[*]}) for the following companies: (${companies[*]}) @@@@@@@@@@@"
 	for sector in ${sectors_all[@]}; do
 		for company in ${companies[@]}; do
-		./etl_3.sh "$sector" "$company"
+		./etl_1.sh "$sector" "$company"
 		done
 	done
 	echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Finished  (${sectors_all[*]})... @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 fi
 
-if [ ${#sectors_traditional[*]} -ne 0 ]   
+if [ ${#sectors_traditional[*]} -ne 0 ]
 then
 	echo "@@@@@@@@@@@ Starting to load (${sectors_traditional[*]}) for the following companies: (${traditional_companies[*]}) @@@@@@@@@@@"
 	for sector in ${sectors_traditional[@]}; do
 		for company in ${traditional_companies[@]}; do
-		./etl_3.sh "$sector" "$company"
+		./etl_1.sh "$sector" "$company"
 		done
 	done
 	echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Finished  (${sectors_traditional[*]})! @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"

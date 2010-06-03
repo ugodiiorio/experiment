@@ -13,7 +13,7 @@ else
     cd /home/notroot/git/KTE/code/builders/etl/1_generic_profile/script
 
     # fieldmapping
-    mysql -u root -pkub01d --database=kte_driver -e "delete from field_mapping"
+    mysql -u root -pkub01d --database=kte_driver -e "delete from field_mapping where key_sector_id_str=\""$1"\""
     sed s/"sector_placeholder"/$1/g /home/notroot/git/KTE/code/yamls_TW/field_mapping.yml >field_mapping_"$1"
     ruby build_field_mapping.rb field_mapping_"$1"
     rm field_mapping_"$1"
