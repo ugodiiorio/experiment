@@ -303,7 +303,7 @@ module Provider2Conte
       'driv_driving_license_yrs_str' => 'profilefield[:pol_birth_date_str].to_i - profilefield[:driv_driving_license_yrs_str].to_i',
       'driv_driving_license_month_of_issue_str' => 'x= (Chronic.parse(@setup_date) - profilefield[:driv_driving_license_yrs_str].to_i.years).strftime("%m");y= "index=" + x',
       'driv_driving_license_year_of_issue_str'=> 'x= (Chronic.parse(@setup_date) - profilefield[:driv_driving_license_yrs_str].to_i.years).strftime("%Y")',
-      'driv_job_str' => 'copy_field',
+      'driv_job_str' => 'translate_field',
       'driv_driving_experience_str' => 'translate_field',
       'driv_residence_same_as_home_address_str'  => 'translate_field',
       'own_owner_specification_str'  => 'copy_field',
