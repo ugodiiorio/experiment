@@ -163,7 +163,7 @@ module Provider2Fonsai
       {'pol_public_liability_indemnity_limit_str' => '10,000,000'} => '€ 10.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '10,329,138'} => '€ 10.329.137,98',
       {'pol_public_liability_indemnity_limit_str' => '15,000,000'} => '€ 15.000.000,00',
-      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 25.000.000,96',
+      {'pol_public_liability_indemnity_limit_str' => '25,000,000'} => '€ 25.000.000,00',
       {'pol_public_liability_indemnity_limit_str' => '25,822,844'} => '€ 25.822.844,95',
       {'pol_RCA_premium_id_str' => 'id elemento'} => '//*[@id="premio"]',
       {'veh_passenger_transportation_str' => 'si'} => 'passegY',
