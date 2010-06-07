@@ -165,10 +165,9 @@ class ZurichConnectSect2 < Test::Unit::TestCase
   def page_3
 
     @logger.info("#{__FILE__} => #{method_name}") {"#{@kte.company} => CURRENT PAGE TITLE: #{page.get_title.upcase}"}
+    wait_for_elm("txtMarcaModello")
     type_text("txtMarcaModello",  get('@make') +" " + get('@model'))
     sleep @sleep*2
-#    select_option("ddlAlimentazione", get('@fuel'))
-#    sleep @sleep*2
     select_option("ddlMeseImm", get('@matriculation_date_month'))
     sleep @sleep*2
     type_text("txtAnno",  get('@matriculation_date_year') )
@@ -190,7 +189,9 @@ class ZurichConnectSect2 < Test::Unit::TestCase
         select_option("ddlClasseUniversale", get('@bm_assigned'))
       else
         select_option("ddlClasseUniversale", get('@bm_assigned'))
+        wait_for_elm("ddlNSinistriPen5anni")
         select_option("ddlNSinistriPen5anni", get('@claims_total_number'))
+        sleep @sleep
         page.get_selected_label(@last_element) =~ /1/i ? select_option("ddlUltimoBiennio", get('@first_claim_year')) : nil
         select_option("ddlAnniAssicurazione", get('@nr_of_yrs_insured_in_the_last_5_yrs'))
     end

@@ -132,7 +132,7 @@ class GenertelSect1 < Test::Unit::TestCase
       when false
         fake_select_option("CBXXDPOXSinistri", get('@nr_of_paid_claims_2_yr'), "//body/div[8]/div/div", "LBLXCBXXDPOXSinistriVal")
         sleep @sleep
-        fake_select_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXCUGenertel")
+        fake_select_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXCBXXDPOXCUAssegnataVal")
         sleep @sleep
         if get('@nr_of_paid_claims_2_yr') == "0" && get('@bm_assigned') == "1"
           click_option(get('@bm_1_more_than_1_year'))

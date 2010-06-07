@@ -125,7 +125,9 @@ class GenertelSect2 < Test::Unit::TestCase
     case is_present?("LBLXDPOXCUGenNoBersani")
       when false
         fake_select_option("CBXXDPOXSinistri", get('@nr_of_paid_claims_3_yr'), "//body/div[8]/div/div", "LBLXCBXXDPOXSinistriVal")
-        fake_select_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXDPOXCUGenertel")
+        sleep @sleep
+        fake_select_option("CBXXDPOXCUAssegnata", get('@bm_assigned'), "//body/div[8]/div/div", "LBLXCBXXDPOXCUAssegnataVal")
+        sleep @sleep
 
         click_option(get('@current_policy_guarantee'))
       else
