@@ -278,7 +278,6 @@ module Provider2Axa
       'driv_driving_experience_str' => 'translate_field',
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
-      'pol_BM_assigned_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
       'pol_instalment_str' => 'translate_field',
       'pol_property_type_to_be_insured_str' => 'translate_field',
@@ -292,6 +291,7 @@ module Provider2Axa
       'veh_vehicle_type_str' => 'translate_field',
 
       'own_owner_zip_code_str' => 'copy_field',
+      'pol_BM_assigned_str' => 'copy_field',
       'pol_claims_total_number_str' => 'copy_field',
       'pol_claims_total_number_malus_str' => 'copy_field',
       'pol_defined_drive_str' => 'translate_field',
@@ -319,7 +319,6 @@ module Provider2Axa
 
       'own_owner_sex_str' => 'translate_field',
       'own_owner_specification_str' => 'copy_field',
-      'pol_BM_assigned_str' => 'translate_field',
       'pol_instalment_str' => 'translate_field',
       'pol_insurance_situation_str' => 'translate_field',
       'pol_property_type_to_be_insured_str' => 'translate_field',
@@ -333,6 +332,7 @@ module Provider2Axa
 
       'own_owner_zip_code_str' => 'copy_field',
       'pol_birth_date_str' => 'copy_field',
+      'pol_BM_assigned_str' => 'copy_field',
       'pol_claims_total_number_str' => 'copy_field',
       'pol_nr_of_paid_claims_this_yr_str' => 'copy_field',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
