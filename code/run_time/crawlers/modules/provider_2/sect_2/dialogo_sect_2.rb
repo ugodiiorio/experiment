@@ -148,6 +148,8 @@ class DialogoSect2 < Test::Unit::TestCase
     select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
     type_text("contentSubView:contentForm:ZipCodeProprietario", get('@owner_zip_code'))
     page.fire_event "contentSubView:contentForm:ZipCodeProprietario", "blur"
+    sleep @sleep*2
+    page.is_visible("contentSubView:contentForm:CityProprietario") ? select_option("contentSubView:contentForm:CityProprietario", get('@residence')) : nil
 
     if (get('@owner_specification')!= "C")
       data_di_nascita =  get('@birth_date_day') +"/"+get('@birth_date_month') +"/"+get('@birth_date_year')
@@ -156,10 +158,6 @@ class DialogoSect2 < Test::Unit::TestCase
       select_option("contentSubView:contentForm:ProfessioneProprietario", get('@job'))
       select_option("contentSubView:contentForm:NazionalitaProprietario", get('@citizenship'))
     end
-    
-
-   # Nel caso il valore di already insured sia Y si apre Il contraente del motociclo è contraente di una Polizza Auto Dialogo?
-   # dove lo trovo?
 
     click_button_item "contentSubView:contentForm:buttonNext"
     page_wait

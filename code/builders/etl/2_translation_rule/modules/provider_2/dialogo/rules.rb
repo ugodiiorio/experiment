@@ -325,6 +325,7 @@ module Provider2Dialogo
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
       'pol_record_id_str' => 'copy_field',
+      'pol_residence_str' => 'if profilefield[:pol_residence_str]== "0"; "index=1"; else; copy_field; end;',
       'pol_road_assistance_code_str' => 'copy_field',
       'pol_road_assistance_on_off_str' => 'copy_field',
       'pol_road_assistance_web_id_str' => 'translate_field',
