@@ -318,12 +318,10 @@ module Provider2Zurich
 
     @rule_values = {
 
-      'pol_record_id_str' => 'copy_field',
+      'driv_heir_str' => 'translate_field',
       'own_owner_sex_str' => 'translate_field',
-      'own_owner_specification_str' => 'copy_field',
       'pol_BM_assigned_str' => 'translate_field',
       'pol_client_type_str' => 'translate_field',
-      'driv_heir_str' => 'translate_field',
       'pol_privacy_1_str' => 'translate_field',
       'pol_property_type_to_be_insured_str' => 'translate_field',
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
@@ -334,11 +332,13 @@ module Provider2Zurich
       'veh_fuel_str' => 'translate_field',
 
       'own_owner_birth_date_str' => 'copy_field',
+      'own_owner_specification_str' => 'copy_field',
       'pol_claims_total_number_str' => 'copy_field',
       'pol_nr_of_yrs_without_claims_str' => 'copy_field',
       'pol_number_of_NI_NA_yrs_during_5_yrs_str' => 'copy_field',
       'pol_RCA_code_str' => 'copy_field',
       'pol_RCA_on_off_str' => 'copy_field',
+      'pol_record_id_str' => 'copy_field',
       'pol_residence_str' => 'copy_field',
       'pol_residence_province_str' => 'copy_field',
 
