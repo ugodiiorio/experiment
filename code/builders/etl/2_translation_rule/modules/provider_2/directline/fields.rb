@@ -179,7 +179,7 @@ module Provider2Directline
       {'pol_BM_assigned_str' => '7'} => 'CLASSE07',
       {'pol_BM_assigned_str' => '8'} => 'CLASSE08',
       {'pol_BM_assigned_str' => '9'} => 'CLASSE09',
-      {'pol_coming_from_BM_str' => '-1'} => 'CLASSE01',
+      {'pol_coming_from_BM_str' => '0'} => 'CLASSE01',
       {'pol_coming_from_BM_str' => '1'} => 'CLASSE01',
       {'pol_coming_from_BM_str' => '10'} => 'CLASSE10',
       {'pol_coming_from_BM_str' => '11'} => 'CLASSE11',

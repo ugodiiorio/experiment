@@ -46,7 +46,7 @@ module Provider2Axa
       {'driv_driving_experience_str' => 'no'} => 'No',
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
-      {'pol_BM_assigned_str' => '1 da almeno 1 anno'} => '1',
+      {'pol_BM_assigned_str' => '0'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
       {'pol_BM_assigned_str' => '3'} => '3',
@@ -97,7 +97,7 @@ module Provider2Axa
 
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
-      {'pol_BM_assigned_str' => '1 da almeno 1 anno'} => '1',
+      {'pol_BM_assigned_str' => '0'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
       {'pol_BM_assigned_str' => '3'} => '3',
