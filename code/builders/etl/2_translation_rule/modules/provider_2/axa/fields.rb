@@ -97,7 +97,6 @@ module Provider2Axa
 
       {'own_owner_sex_str' => 'M'} => 'Maschio',
       {'own_owner_sex_str' => 'F'} => 'Femmina',
-<<<<<<< HEAD:code/builders/etl/2_translation_rule/modules/provider_2/axa/fields.rb
       {'pol_BM_assigned_str' => '0'} => '1',
       {'pol_BM_assigned_str' => '1'} => '1',
       {'pol_BM_assigned_str' => '2'} => '2',
@@ -117,8 +116,6 @@ module Provider2Axa
       {'pol_BM_assigned_str' => '16'} => '16',
       {'pol_BM_assigned_str' => '17'} => '17',
       {'pol_BM_assigned_str' => '18'} => '18',
-=======
->>>>>>> df74d8c9ba35194d3a40717a119e2aaa8853bedb:code/builders/etl/2_translation_rule/modules/provider_2/axa/fields.rb
       {'pol_instalment_str' => 'annuale'} => 'Annuale',
       {'pol_insurance_situation_str' => 'proveniente da altra compagnia'} => 'Il contraente presenta l\'attestato di rischio',
       {'pol_insurance_situation_str' => '1a immatricolazione'} => 'Veicolo immatricolato per 1^ volta al P.R.A.',
