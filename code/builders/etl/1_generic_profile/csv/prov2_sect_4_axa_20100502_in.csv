@@ -1,0 +1,453 @@
+#Numero profilo#Data decorrenza polizza#Conto proprio / Conto Terzi#Età veicolo (anni)#Peso totale#CAP Residenza contraente#Provincia residenza contraente#Comune di Residenza contraente#Situazione assicurativa#Tipo Tariffa#B/M#numero sinistri anno corrente#numero sinistri anno corrente - 1#numero sinistri anno corrente - 2 #numero sinistri anno corrente - 3#numero sinistri anno corrente - 4#numero sinistri anno corrente - 5 #numero sinistri totali#Franchigia#Massimale
+AXA - PROTEZIONE VAN##2010-04-01#Conto proprio#01/01/2001#10#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#1#2010-04-01#Conto proprio#01/01/2001#10#92100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#2#2010-04-01#Conto proprio#01/01/2001#10#15100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#3#2010-04-01#Conto proprio#01/01/2001#10#60100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#4#2010-04-01#Conto proprio#01/01/2001#10#11100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#5#2010-04-01#Conto proprio#01/01/2001#10#63100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#6#2010-04-01#Conto proprio#01/01/2001#10#67100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#7#2010-04-01#Conto proprio#01/01/2001#10#52100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#8#2010-04-01#Conto proprio#01/01/2001#10#14100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#9#2010-04-01#Conto proprio#01/01/2001#10#83100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#10#2010-04-01#Conto proprio#01/01/2001#10#70100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#11#2010-04-01#Conto proprio#01/01/2001#10#24100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#12#2010-04-01#Conto proprio#01/01/2001#10#13900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#13#2010-04-01#Conto proprio#01/01/2001#10#32100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#14#2010-04-01#Conto proprio#01/01/2001#10#82100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#15#2010-04-01#Conto proprio#01/01/2001#10#40100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#16#2010-04-01#Conto proprio#01/01/2001#10#72100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#17#2010-04-01#Conto proprio#01/01/2001#10#25100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#18#2010-04-01#Conto proprio#01/01/2001#10#39100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#19#2010-04-01#Conto proprio#01/01/2001#10#09100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#20#2010-04-01#Conto proprio#01/01/2001#10#86100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#21#2010-04-01#Conto proprio#01/01/2001#10#81100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#22#2010-04-01#Conto proprio#01/01/2001#10#66100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#23#2010-04-01#Conto proprio#01/01/2001#10#93100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#24#2010-04-01#Conto proprio#01/01/2001#10#12100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#25#2010-04-01#Conto proprio#01/01/2001#10#22100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#26#2010-04-01#Conto proprio#01/01/2001#10#26100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#27#2010-04-01#Conto proprio#01/01/2001#10#87100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#28#2010-04-01#Conto proprio#01/01/2001#10#95100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#29#2010-04-01#Conto proprio#01/01/2001#10#88100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#30#2010-04-01#Conto proprio#01/01/2001#10#94100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#31#2010-04-01#Conto proprio#01/01/2001#10#44100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#32#2010-04-01#Conto proprio#01/01/2001#10#71100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#33#2010-04-01#Conto proprio#01/01/2001#10#50100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#34#2010-04-01#Conto proprio#01/01/2001#10#47100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#35#2010-04-01#Conto proprio#01/01/2001#10#03100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#36#2010-04-01#Conto proprio#01/01/2001#10#16100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#37#2010-04-01#Conto proprio#01/01/2001#10#34170#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#38#2010-04-01#Conto proprio#01/01/2001#10#58100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#39#2010-04-01#Conto proprio#01/01/2001#10#18100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#40#2010-04-01#Conto proprio#01/01/2001#10#86170#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#41#2010-04-01#Conto proprio#01/01/2001#10#88900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#42#2010-04-01#Conto proprio#01/01/2001#10#23900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#43#2010-04-01#Conto proprio#01/01/2001#10#73100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#44#2010-04-01#Conto proprio#01/01/2001#10#57100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#45#2010-04-01#Conto proprio#01/01/2001#10#26900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#46#2010-04-01#Conto proprio#01/01/2001#10#04100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#47#2010-04-01#Conto proprio#01/01/2001#10#55100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#48#2010-04-01#Conto proprio#01/01/2001#10#62100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#49#2010-04-01#Conto proprio#01/01/2001#10#98100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#50#2010-04-01#Conto proprio#01/01/2001#10#20100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#51#2010-04-01#Conto proprio#01/01/2001#10#46100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#52#2010-04-01#Conto proprio#01/01/2001#10#41100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#53#2010-04-01#Conto proprio#01/01/2001#10#54100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#54#2010-04-01#Conto proprio#01/01/2001#10#75100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#55#2010-04-01#Conto proprio#01/01/2001#10#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#56#2010-04-01#Conto proprio#01/01/2001#10#28100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#57#2010-04-01#Conto proprio#01/01/2001#10#08100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#58#2010-04-01#Conto proprio#01/01/2001#10#09170#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#59#2010-04-01#Conto proprio#01/01/2001#10#90100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#60#2010-04-01#Conto proprio#01/01/2001#10#29100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#61#2010-04-01#Conto proprio#01/01/2001#10#35100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#62#2010-04-01#Conto proprio#01/01/2001#10#65100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#63#2010-04-01#Conto proprio#01/01/2001#10#06100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#64#2010-04-01#Conto proprio#01/01/2001#10#56100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#65#2010-04-01#Conto proprio#01/01/2001#10#33170#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#66#2010-04-01#Conto proprio#01/01/2001#10#59100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#67#2010-04-01#Conto proprio#01/01/2001#10#43100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#68#2010-04-01#Conto proprio#01/01/2001#10#61100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#69#2010-04-01#Conto proprio#01/01/2001#10#51100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#70#2010-04-01#Conto proprio#01/01/2001#10#27100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#71#2010-04-01#Conto proprio#01/01/2001#10#85100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#72#2010-04-01#Conto proprio#01/01/2001#10#48100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#73#2010-04-01#Conto proprio#01/01/2001#10#89100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#74#2010-04-01#Conto proprio#01/01/2001#10#42100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#75#2010-04-01#Conto proprio#01/01/2001#10#97100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#76#2010-04-01#Conto proprio#01/01/2001#10#02100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#77#2010-04-01#Conto proprio#01/01/2001#10#00100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#78#2010-04-01#Conto proprio#01/01/2001#10#47900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#79#2010-04-01#Conto proprio#01/01/2001#10#45100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#80#2010-04-01#Conto proprio#01/01/2001#10#84100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#81#2010-04-01#Conto proprio#01/01/2001#10#53100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#82#2010-04-01#Conto proprio#01/01/2001#10#23100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#83#2010-04-01#Conto proprio#01/01/2001#10#19100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#84#2010-04-01#Conto proprio#01/01/2001#10#96100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#85#2010-04-01#Conto proprio#01/01/2001#10#07100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#86#2010-04-01#Conto proprio#01/01/2001#10#17100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#87#2010-04-01#Conto proprio#01/01/2001#10#74100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#88#2010-04-01#Conto proprio#01/01/2001#10#64100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#89#2010-04-01#Conto proprio#01/01/2001#10#38100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#90#2010-04-01#Conto proprio#01/01/2001#10#10100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#91#2010-04-01#Conto proprio#01/01/2001#10#91100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#92#2010-04-01#Conto proprio#01/01/2001#10#05100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#93#2010-04-01#Conto proprio#01/01/2001#10#34100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#94#2010-04-01#Conto proprio#01/01/2001#10#31100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#95#2010-04-01#Conto proprio#01/01/2001#10#33100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#96#2010-04-01#Conto proprio#01/01/2001#10#21100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#97#2010-04-01#Conto proprio#01/01/2001#10#28900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#98#2010-04-01#Conto proprio#01/01/2001#10#13100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#99#2010-04-01#Conto proprio#01/01/2001#10#30100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#100#2010-04-01#Conto proprio#01/01/2001#10#36100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#101#2010-04-01#Conto proprio#01/01/2001#10#37100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#102#2010-04-01#Conto proprio#01/01/2001#10#01100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#103#2010-04-01#Conto proprio#01/01/2001#10#89900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#116#2010-04-01#Conto proprio#01/01/2001#90#92100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#117#2010-04-01#Conto proprio#01/01/2001#90#15100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#118#2010-04-01#Conto proprio#01/01/2001#90#60100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#119#2010-04-01#Conto proprio#01/01/2001#90#11100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#120#2010-04-01#Conto proprio#01/01/2001#90#63100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#121#2010-04-01#Conto proprio#01/01/2001#90#67100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#122#2010-04-01#Conto proprio#01/01/2001#90#52100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#123#2010-04-01#Conto proprio#01/01/2001#90#14100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#124#2010-04-01#Conto proprio#01/01/2001#90#83100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#125#2010-04-01#Conto proprio#01/01/2001#90#70100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#126#2010-04-01#Conto proprio#01/01/2001#90#24100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#127#2010-04-01#Conto proprio#01/01/2001#90#13900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#128#2010-04-01#Conto proprio#01/01/2001#90#32100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#129#2010-04-01#Conto proprio#01/01/2001#90#82100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#130#2010-04-01#Conto proprio#01/01/2001#90#40100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#131#2010-04-01#Conto proprio#01/01/2001#90#72100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#132#2010-04-01#Conto proprio#01/01/2001#90#25100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#133#2010-04-01#Conto proprio#01/01/2001#90#39100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#134#2010-04-01#Conto proprio#01/01/2001#90#09100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#135#2010-04-01#Conto proprio#01/01/2001#90#86100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#136#2010-04-01#Conto proprio#01/01/2001#90#81100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#137#2010-04-01#Conto proprio#01/01/2001#90#66100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#138#2010-04-01#Conto proprio#01/01/2001#90#93100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#139#2010-04-01#Conto proprio#01/01/2001#90#12100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#140#2010-04-01#Conto proprio#01/01/2001#90#22100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#141#2010-04-01#Conto proprio#01/01/2001#90#26100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#142#2010-04-01#Conto proprio#01/01/2001#90#87100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#143#2010-04-01#Conto proprio#01/01/2001#90#95100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#144#2010-04-01#Conto proprio#01/01/2001#90#88100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#145#2010-04-01#Conto proprio#01/01/2001#90#94100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#146#2010-04-01#Conto proprio#01/01/2001#90#44100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#147#2010-04-01#Conto proprio#01/01/2001#90#71100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#148#2010-04-01#Conto proprio#01/01/2001#90#50100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#149#2010-04-01#Conto proprio#01/01/2001#90#47100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#150#2010-04-01#Conto proprio#01/01/2001#90#03100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#151#2010-04-01#Conto proprio#01/01/2001#90#16100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#152#2010-04-01#Conto proprio#01/01/2001#90#34170#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#153#2010-04-01#Conto proprio#01/01/2001#90#58100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#154#2010-04-01#Conto proprio#01/01/2001#90#18100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#155#2010-04-01#Conto proprio#01/01/2001#90#86170#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#156#2010-04-01#Conto proprio#01/01/2001#90#88900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#157#2010-04-01#Conto proprio#01/01/2001#90#23900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#158#2010-04-01#Conto proprio#01/01/2001#90#73100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#159#2010-04-01#Conto proprio#01/01/2001#90#57100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#160#2010-04-01#Conto proprio#01/01/2001#90#26900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#161#2010-04-01#Conto proprio#01/01/2001#90#04100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#162#2010-04-01#Conto proprio#01/01/2001#90#55100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#163#2010-04-01#Conto proprio#01/01/2001#90#62100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#164#2010-04-01#Conto proprio#01/01/2001#90#98100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#165#2010-04-01#Conto proprio#01/01/2001#90#20100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#166#2010-04-01#Conto proprio#01/01/2001#90#46100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#167#2010-04-01#Conto proprio#01/01/2001#90#41100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#168#2010-04-01#Conto proprio#01/01/2001#90#54100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#169#2010-04-01#Conto proprio#01/01/2001#90#75100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#170#2010-04-01#Conto proprio#01/01/2001#90#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#171#2010-04-01#Conto proprio#01/01/2001#90#28100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#172#2010-04-01#Conto proprio#01/01/2001#90#08100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#173#2010-04-01#Conto proprio#01/01/2001#90#09170#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#174#2010-04-01#Conto proprio#01/01/2001#90#90100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#175#2010-04-01#Conto proprio#01/01/2001#90#29100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#176#2010-04-01#Conto proprio#01/01/2001#90#35100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#177#2010-04-01#Conto proprio#01/01/2001#90#65100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#178#2010-04-01#Conto proprio#01/01/2001#90#06100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#179#2010-04-01#Conto proprio#01/01/2001#90#56100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#180#2010-04-01#Conto proprio#01/01/2001#90#33170#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#181#2010-04-01#Conto proprio#01/01/2001#90#59100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#182#2010-04-01#Conto proprio#01/01/2001#90#43100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#183#2010-04-01#Conto proprio#01/01/2001#90#61100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#184#2010-04-01#Conto proprio#01/01/2001#90#51100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#185#2010-04-01#Conto proprio#01/01/2001#90#27100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#186#2010-04-01#Conto proprio#01/01/2001#90#85100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#187#2010-04-01#Conto proprio#01/01/2001#90#48100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#188#2010-04-01#Conto proprio#01/01/2001#90#89100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#189#2010-04-01#Conto proprio#01/01/2001#90#42100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#190#2010-04-01#Conto proprio#01/01/2001#90#97100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#191#2010-04-01#Conto proprio#01/01/2001#90#02100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#192#2010-04-01#Conto proprio#01/01/2001#90#00100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#193#2010-04-01#Conto proprio#01/01/2001#90#47900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#194#2010-04-01#Conto proprio#01/01/2001#90#45100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#195#2010-04-01#Conto proprio#01/01/2001#90#84100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#196#2010-04-01#Conto proprio#01/01/2001#90#53100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#197#2010-04-01#Conto proprio#01/01/2001#90#23100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#198#2010-04-01#Conto proprio#01/01/2001#90#19100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#199#2010-04-01#Conto proprio#01/01/2001#90#96100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#200#2010-04-01#Conto proprio#01/01/2001#90#07100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#201#2010-04-01#Conto proprio#01/01/2001#90#17100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#202#2010-04-01#Conto proprio#01/01/2001#90#74100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#203#2010-04-01#Conto proprio#01/01/2001#90#64100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#204#2010-04-01#Conto proprio#01/01/2001#90#38100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#205#2010-04-01#Conto proprio#01/01/2001#90#10100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#206#2010-04-01#Conto proprio#01/01/2001#90#91100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#207#2010-04-01#Conto proprio#01/01/2001#90#05100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#208#2010-04-01#Conto proprio#01/01/2001#90#34100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#209#2010-04-01#Conto proprio#01/01/2001#90#31100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#210#2010-04-01#Conto proprio#01/01/2001#90#33100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#211#2010-04-01#Conto proprio#01/01/2001#90#21100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#212#2010-04-01#Conto proprio#01/01/2001#90#28900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#213#2010-04-01#Conto proprio#01/01/2001#90#13100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#214#2010-04-01#Conto proprio#01/01/2001#90#30100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#215#2010-04-01#Conto proprio#01/01/2001#90#36100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#216#2010-04-01#Conto proprio#01/01/2001#90#37100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#217#2010-04-01#Conto proprio#01/01/2001#90#01100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#218#2010-04-01#Conto proprio#01/01/2001#90#89900#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#219#2010-04-01#Conto proprio#01/01/2001#10#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#220#2010-04-01#Conto proprio#01/01/2001#25#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#221#2010-04-01#Conto proprio#01/01/2001#30#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#222#2010-04-01#Conto proprio#01/01/2001#60#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#223#2010-04-01#Conto proprio#01/01/2001#90#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#224#2010-04-01#Conto proprio#01/01/2001#220#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#225#2010-04-01#Conto proprio#01/01/2001#500#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#226#2010-04-01#Conto proprio#01/01/2001#10#80100#NA#Napoli#1a immatricolazione dopo l’acquisto del veicolo#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#227#2010-04-01#Conto proprio#01/01/2001#90#80100#NA#Napoli#1a immatricolazione dopo l’acquisto del veicolo#FISSA##0#0#0#0#0#0#0#0#3,000,000
+AXA - PROTEZIONE VAN#228#2010-04-01#Conto proprio#01/01/2001#10#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##1#0#0#0#0#0#1#0#3,000,000
+AXA - PROTEZIONE VAN#229#2010-04-01#Conto proprio#01/01/2001#10#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#1#0#0#0#0#1#0#3,000,000
+AXA - PROTEZIONE VAN#230#2010-04-01#Conto proprio#01/01/2001#10#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#1#0#0#0#1#0#3,000,000
+AXA - PROTEZIONE VAN#231#2010-04-01#Conto proprio#01/01/2001#10#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#1#0#0#1#0#3,000,000
+AXA - PROTEZIONE VAN#232#2010-04-01#Conto proprio#01/01/2001#10#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#1#0#1#0#3,000,000
+AXA - PROTEZIONE VAN#233#2010-04-01#Conto proprio#01/01/2001#10#80100#NA#Napoli#veicolo già assicurato con atr#FISSA##0#0#0#0#0#1#1#0#3,000,000
+AUTO PROTEZIONE#234#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#235#2010-04-01#Conto Terzi#01/01/2001#10#92100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#236#2010-04-01#Conto Terzi#01/01/2001#10#15100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#237#2010-04-01#Conto Terzi#01/01/2001#10#60100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#238#2010-04-01#Conto Terzi#01/01/2001#10#11100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#239#2010-04-01#Conto Terzi#01/01/2001#10#63100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#240#2010-04-01#Conto Terzi#01/01/2001#10#67100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#241#2010-04-01#Conto Terzi#01/01/2001#10#52100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#242#2010-04-01#Conto Terzi#01/01/2001#10#14100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#243#2010-04-01#Conto Terzi#01/01/2001#10#83100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#244#2010-04-01#Conto Terzi#01/01/2001#10#70100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#245#2010-04-01#Conto Terzi#01/01/2001#10#24100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#246#2010-04-01#Conto Terzi#01/01/2001#10#13900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#247#2010-04-01#Conto Terzi#01/01/2001#10#32100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#248#2010-04-01#Conto Terzi#01/01/2001#10#82100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#249#2010-04-01#Conto Terzi#01/01/2001#10#40100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#250#2010-04-01#Conto Terzi#01/01/2001#10#72100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#251#2010-04-01#Conto Terzi#01/01/2001#10#25100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#252#2010-04-01#Conto Terzi#01/01/2001#10#39100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#253#2010-04-01#Conto Terzi#01/01/2001#10#09100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#254#2010-04-01#Conto Terzi#01/01/2001#10#86100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#255#2010-04-01#Conto Terzi#01/01/2001#10#81100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#256#2010-04-01#Conto Terzi#01/01/2001#10#66100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#257#2010-04-01#Conto Terzi#01/01/2001#10#93100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#258#2010-04-01#Conto Terzi#01/01/2001#10#12100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#259#2010-04-01#Conto Terzi#01/01/2001#10#22100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#260#2010-04-01#Conto Terzi#01/01/2001#10#26100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#261#2010-04-01#Conto Terzi#01/01/2001#10#87100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#262#2010-04-01#Conto Terzi#01/01/2001#10#95100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#263#2010-04-01#Conto Terzi#01/01/2001#10#88100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#264#2010-04-01#Conto Terzi#01/01/2001#10#94100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#265#2010-04-01#Conto Terzi#01/01/2001#10#44100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#266#2010-04-01#Conto Terzi#01/01/2001#10#71100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#267#2010-04-01#Conto Terzi#01/01/2001#10#50100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#268#2010-04-01#Conto Terzi#01/01/2001#10#47100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#269#2010-04-01#Conto Terzi#01/01/2001#10#03100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#270#2010-04-01#Conto Terzi#01/01/2001#10#16100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#271#2010-04-01#Conto Terzi#01/01/2001#10#34170###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#272#2010-04-01#Conto Terzi#01/01/2001#10#58100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#273#2010-04-01#Conto Terzi#01/01/2001#10#18100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#274#2010-04-01#Conto Terzi#01/01/2001#10#86170###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#275#2010-04-01#Conto Terzi#01/01/2001#10#88900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#276#2010-04-01#Conto Terzi#01/01/2001#10#23900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#277#2010-04-01#Conto Terzi#01/01/2001#10#73100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#278#2010-04-01#Conto Terzi#01/01/2001#10#57100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#279#2010-04-01#Conto Terzi#01/01/2001#10#26900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#280#2010-04-01#Conto Terzi#01/01/2001#10#04100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#281#2010-04-01#Conto Terzi#01/01/2001#10#55100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#282#2010-04-01#Conto Terzi#01/01/2001#10#62100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#283#2010-04-01#Conto Terzi#01/01/2001#10#98100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#284#2010-04-01#Conto Terzi#01/01/2001#10#20100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#285#2010-04-01#Conto Terzi#01/01/2001#10#46100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#286#2010-04-01#Conto Terzi#01/01/2001#10#41100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#287#2010-04-01#Conto Terzi#01/01/2001#10#54100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#288#2010-04-01#Conto Terzi#01/01/2001#10#75100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#289#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#290#2010-04-01#Conto Terzi#01/01/2001#10#28100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#291#2010-04-01#Conto Terzi#01/01/2001#10#08100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#292#2010-04-01#Conto Terzi#01/01/2001#10#09170###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#293#2010-04-01#Conto Terzi#01/01/2001#10#90100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#294#2010-04-01#Conto Terzi#01/01/2001#10#29100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#295#2010-04-01#Conto Terzi#01/01/2001#10#35100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#296#2010-04-01#Conto Terzi#01/01/2001#10#65100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#297#2010-04-01#Conto Terzi#01/01/2001#10#06100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#298#2010-04-01#Conto Terzi#01/01/2001#10#56100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#299#2010-04-01#Conto Terzi#01/01/2001#10#33170###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#300#2010-04-01#Conto Terzi#01/01/2001#10#59100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#301#2010-04-01#Conto Terzi#01/01/2001#10#43100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#302#2010-04-01#Conto Terzi#01/01/2001#10#61100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#303#2010-04-01#Conto Terzi#01/01/2001#10#51100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#304#2010-04-01#Conto Terzi#01/01/2001#10#27100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#305#2010-04-01#Conto Terzi#01/01/2001#10#85100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#306#2010-04-01#Conto Terzi#01/01/2001#10#48100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#307#2010-04-01#Conto Terzi#01/01/2001#10#89100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#308#2010-04-01#Conto Terzi#01/01/2001#10#42100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#309#2010-04-01#Conto Terzi#01/01/2001#10#97100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#310#2010-04-01#Conto Terzi#01/01/2001#10#02100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#311#2010-04-01#Conto Terzi#01/01/2001#10#00100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#312#2010-04-01#Conto Terzi#01/01/2001#10#47900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#313#2010-04-01#Conto Terzi#01/01/2001#10#45100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#314#2010-04-01#Conto Terzi#01/01/2001#10#84100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#315#2010-04-01#Conto Terzi#01/01/2001#10#53100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#316#2010-04-01#Conto Terzi#01/01/2001#10#23100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#317#2010-04-01#Conto Terzi#01/01/2001#10#19100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#318#2010-04-01#Conto Terzi#01/01/2001#10#96100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#319#2010-04-01#Conto Terzi#01/01/2001#10#07100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#320#2010-04-01#Conto Terzi#01/01/2001#10#17100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#321#2010-04-01#Conto Terzi#01/01/2001#10#74100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#322#2010-04-01#Conto Terzi#01/01/2001#10#64100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#323#2010-04-01#Conto Terzi#01/01/2001#10#38100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#324#2010-04-01#Conto Terzi#01/01/2001#10#10100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#325#2010-04-01#Conto Terzi#01/01/2001#10#91100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#326#2010-04-01#Conto Terzi#01/01/2001#10#05100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#327#2010-04-01#Conto Terzi#01/01/2001#10#34100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#328#2010-04-01#Conto Terzi#01/01/2001#10#31100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#329#2010-04-01#Conto Terzi#01/01/2001#10#33100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#330#2010-04-01#Conto Terzi#01/01/2001#10#21100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#331#2010-04-01#Conto Terzi#01/01/2001#10#28900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#332#2010-04-01#Conto Terzi#01/01/2001#10#13100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#333#2010-04-01#Conto Terzi#01/01/2001#10#30100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#334#2010-04-01#Conto Terzi#01/01/2001#10#36100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#335#2010-04-01#Conto Terzi#01/01/2001#10#37100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#336#2010-04-01#Conto Terzi#01/01/2001#10#01100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#337#2010-04-01#Conto Terzi#01/01/2001#10#89900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#338#2010-04-01#Conto Terzi#01/01/2001#90#92100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#339#2010-04-01#Conto Terzi#01/01/2001#90#15100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#340#2010-04-01#Conto Terzi#01/01/2001#90#60100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#341#2010-04-01#Conto Terzi#01/01/2001#90#11100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#342#2010-04-01#Conto Terzi#01/01/2001#90#63100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#343#2010-04-01#Conto Terzi#01/01/2001#90#67100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#344#2010-04-01#Conto Terzi#01/01/2001#90#52100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#345#2010-04-01#Conto Terzi#01/01/2001#90#14100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#346#2010-04-01#Conto Terzi#01/01/2001#90#83100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#347#2010-04-01#Conto Terzi#01/01/2001#90#70100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#348#2010-04-01#Conto Terzi#01/01/2001#90#24100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#349#2010-04-01#Conto Terzi#01/01/2001#90#13900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#350#2010-04-01#Conto Terzi#01/01/2001#90#32100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#351#2010-04-01#Conto Terzi#01/01/2001#90#82100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#352#2010-04-01#Conto Terzi#01/01/2001#90#40100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#353#2010-04-01#Conto Terzi#01/01/2001#90#72100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#354#2010-04-01#Conto Terzi#01/01/2001#90#25100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#355#2010-04-01#Conto Terzi#01/01/2001#90#39100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#356#2010-04-01#Conto Terzi#01/01/2001#90#09100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#357#2010-04-01#Conto Terzi#01/01/2001#90#86100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#358#2010-04-01#Conto Terzi#01/01/2001#90#81100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#359#2010-04-01#Conto Terzi#01/01/2001#90#66100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#360#2010-04-01#Conto Terzi#01/01/2001#90#93100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#361#2010-04-01#Conto Terzi#01/01/2001#90#12100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#362#2010-04-01#Conto Terzi#01/01/2001#90#22100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#363#2010-04-01#Conto Terzi#01/01/2001#90#26100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#364#2010-04-01#Conto Terzi#01/01/2001#90#87100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#365#2010-04-01#Conto Terzi#01/01/2001#90#95100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#366#2010-04-01#Conto Terzi#01/01/2001#90#88100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#367#2010-04-01#Conto Terzi#01/01/2001#90#94100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#368#2010-04-01#Conto Terzi#01/01/2001#90#44100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#369#2010-04-01#Conto Terzi#01/01/2001#90#71100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#370#2010-04-01#Conto Terzi#01/01/2001#90#50100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#371#2010-04-01#Conto Terzi#01/01/2001#90#47100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#372#2010-04-01#Conto Terzi#01/01/2001#90#03100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#373#2010-04-01#Conto Terzi#01/01/2001#90#16100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#374#2010-04-01#Conto Terzi#01/01/2001#90#34170###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#375#2010-04-01#Conto Terzi#01/01/2001#90#58100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#376#2010-04-01#Conto Terzi#01/01/2001#90#18100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#377#2010-04-01#Conto Terzi#01/01/2001#90#86170###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#378#2010-04-01#Conto Terzi#01/01/2001#90#88900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#379#2010-04-01#Conto Terzi#01/01/2001#90#23900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#380#2010-04-01#Conto Terzi#01/01/2001#90#73100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#381#2010-04-01#Conto Terzi#01/01/2001#90#57100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#382#2010-04-01#Conto Terzi#01/01/2001#90#26900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#383#2010-04-01#Conto Terzi#01/01/2001#90#04100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#384#2010-04-01#Conto Terzi#01/01/2001#90#55100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#385#2010-04-01#Conto Terzi#01/01/2001#90#62100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#386#2010-04-01#Conto Terzi#01/01/2001#90#98100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#387#2010-04-01#Conto Terzi#01/01/2001#90#20100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#388#2010-04-01#Conto Terzi#01/01/2001#90#46100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#389#2010-04-01#Conto Terzi#01/01/2001#90#41100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#390#2010-04-01#Conto Terzi#01/01/2001#90#54100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#391#2010-04-01#Conto Terzi#01/01/2001#90#75100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#392#2010-04-01#Conto Terzi#01/01/2001#90#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#393#2010-04-01#Conto Terzi#01/01/2001#90#28100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#394#2010-04-01#Conto Terzi#01/01/2001#90#08100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#395#2010-04-01#Conto Terzi#01/01/2001#90#09170###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#396#2010-04-01#Conto Terzi#01/01/2001#90#90100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#397#2010-04-01#Conto Terzi#01/01/2001#90#29100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#398#2010-04-01#Conto Terzi#01/01/2001#90#35100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#399#2010-04-01#Conto Terzi#01/01/2001#90#65100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#400#2010-04-01#Conto Terzi#01/01/2001#90#06100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#401#2010-04-01#Conto Terzi#01/01/2001#90#56100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#402#2010-04-01#Conto Terzi#01/01/2001#90#33170###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#403#2010-04-01#Conto Terzi#01/01/2001#90#59100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#404#2010-04-01#Conto Terzi#01/01/2001#90#43100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#405#2010-04-01#Conto Terzi#01/01/2001#90#61100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#406#2010-04-01#Conto Terzi#01/01/2001#90#51100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#407#2010-04-01#Conto Terzi#01/01/2001#90#27100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#408#2010-04-01#Conto Terzi#01/01/2001#90#85100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#409#2010-04-01#Conto Terzi#01/01/2001#90#48100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#410#2010-04-01#Conto Terzi#01/01/2001#90#89100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#411#2010-04-01#Conto Terzi#01/01/2001#90#42100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#412#2010-04-01#Conto Terzi#01/01/2001#90#97100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#413#2010-04-01#Conto Terzi#01/01/2001#90#02100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#414#2010-04-01#Conto Terzi#01/01/2001#90#00100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#415#2010-04-01#Conto Terzi#01/01/2001#90#47900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#416#2010-04-01#Conto Terzi#01/01/2001#90#45100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#417#2010-04-01#Conto Terzi#01/01/2001#90#84100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#418#2010-04-01#Conto Terzi#01/01/2001#90#53100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#419#2010-04-01#Conto Terzi#01/01/2001#90#23100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#420#2010-04-01#Conto Terzi#01/01/2001#90#19100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#421#2010-04-01#Conto Terzi#01/01/2001#90#96100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#422#2010-04-01#Conto Terzi#01/01/2001#90#07100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#423#2010-04-01#Conto Terzi#01/01/2001#90#17100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#424#2010-04-01#Conto Terzi#01/01/2001#90#74100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#425#2010-04-01#Conto Terzi#01/01/2001#90#64100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#426#2010-04-01#Conto Terzi#01/01/2001#90#38100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#427#2010-04-01#Conto Terzi#01/01/2001#90#10100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#428#2010-04-01#Conto Terzi#01/01/2001#90#91100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#429#2010-04-01#Conto Terzi#01/01/2001#90#05100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#430#2010-04-01#Conto Terzi#01/01/2001#90#34100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#431#2010-04-01#Conto Terzi#01/01/2001#90#31100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#432#2010-04-01#Conto Terzi#01/01/2001#90#33100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#433#2010-04-01#Conto Terzi#01/01/2001#90#21100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#434#2010-04-01#Conto Terzi#01/01/2001#90#28900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#435#2010-04-01#Conto Terzi#01/01/2001#90#13100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#436#2010-04-01#Conto Terzi#01/01/2001#90#30100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#437#2010-04-01#Conto Terzi#01/01/2001#90#36100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#438#2010-04-01#Conto Terzi#01/01/2001#90#37100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#439#2010-04-01#Conto Terzi#01/01/2001#90#01100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#440#2010-04-01#Conto Terzi#01/01/2001#90#89900###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#441#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#442#2010-04-01#Conto Terzi#01/01/2001#30#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#443#2010-04-01#Conto Terzi#01/01/2001#60#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#444#2010-04-01#Conto Terzi#01/01/2001#90#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#445#2010-04-01#Conto Terzi#01/01/2001#220#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#446#2010-04-01#Conto Terzi#01/01/2001#500#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#447#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#448#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#5,200,000
+AUTO PROTEZIONE#449#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#6,000,000
+AUTO PROTEZIONE#450#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#10,000,000
+AUTO PROTEZIONE#451#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#15,000,000
+AUTO PROTEZIONE#452#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#20,000,000
+AUTO PROTEZIONE#453#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#0#0#0#25,000,000
+AUTO PROTEZIONE#454#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Franchigia##0#0#0#0#0#0#0#500#3,000,000
+AUTO PROTEZIONE#455#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Franchigia##0#0#0#0#0#0#0#1000#3,000,000
+AUTO PROTEZIONE#456#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##1#0#0#0#0#0#1#0#3,000,000
+AUTO PROTEZIONE#457#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#1#0#0#0#0#1#0#3,000,000
+AUTO PROTEZIONE#458#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#1#0#0#0#1#0#3,000,000
+AUTO PROTEZIONE#459#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#1#0#0#1#0#3,000,000
+AUTO PROTEZIONE#460#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#1#0#1#0#3,000,000
+AUTO PROTEZIONE#461#2010-04-01#Conto Terzi#01/01/2001#10#80100###veicolo già assicurato con atr#Fissa##0#0#0#0#0#1#1#0#3,000,000
+AUTO PROTEZIONE#462#2010-04-01#Conto Terzi#01/01/2001#10#80100###1a immatricolazione dopo l’acquisto del veicolo#Fissa##0#0#0#0#0#0#0#0#3,000,000
+AUTO PROTEZIONE#463#2010-04-01#Conto Terzi#01/01/2001#90#80100###1a immatricolazione dopo l’acquisto del veicolo#Fissa##0#0#0#0#0#0#0#0#3,000,000
