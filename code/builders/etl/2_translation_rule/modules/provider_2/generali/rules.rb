@@ -108,7 +108,7 @@ module Provider2Generali
       'pol_record_id_str' => 'copy_field',
       'pol_renounce_compensation_str' => 'copy_field',
       'pol_residence_province_str' => 'if profilefield[:pol_residence_str] =~ /(CONCOREZZO)|(camparada)/i ; "MB - MONZA BRIANZA"; elsif profilefield[:pol_residence_str] =~ /(canosa di puglia)|(minervino murge)|(spinazzola)/i ; "BT - BARLETTA ANDRIA TRANI"; else translate_field end',
-      'pol_residence_str' => 'profilefield[:pol_residence_str].gsub("à","A\'").gsub("è","E\'").gsub("ì","I\'").gsub("ò","O\'").gsub("ù","U\'").gsub(/VIBOVALENTIA/i, "VIBO VALENTIA").gsub(/forl.*/i, "FORLI\'")',
+      'pol_residence_str' => 'profilefield[:pol_residence_str].gsub("à","A\'").gsub("è","E\'").gsub("ì","I\'").gsub("ò","O\'").gsub("ù","U\'").gsub(/forl.*/i, "FORLI\'")',
       'pol_risk_certificate_str' => 'translate_field',
       'pol_second_claim_month_str' => 'copy_field',
       'pol_second_claim_year_str' => 'copy_field',
@@ -386,8 +386,6 @@ module Provider2Generali
       'pol_quotation_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_residence_province_str' => 'translate_field',
-      #      'pol_risk_certificate_str' => 'translate_field',
-      'pol_risk_certificate_str' => 'profilefield[:pol_quotation_str]== "franchigia" ? "FR - Franchigia" : "BM - Bonus Malus"',
 
       'veh_alarm_str' => 'translate_field',
       'veh_fuel_str' => 'translate_field',
@@ -404,6 +402,7 @@ module Provider2Generali
 
       'pol_matriculation_date_str' => 'profilefield[:pol_matriculation_date_str].length == 10 ? copy_field : (x= "01/"+(profilefield[:pol_matriculation_date_str] == "0" ? (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%m") : "01") +"/"+ (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y") )',
       'pol_matriculation_date_year_num' => 'profilefield[:pol_matriculation_date_str].length > 2 ? profilefield[:pol_matriculation_date_str].slice(6,4) : (Chronic.parse(@rate_date) - profilefield[:pol_matriculation_date_str].to_i.years).strftime("%Y")',
+      'pol_risk_certificate_str' => 'profilefield[:pol_quotation_str]== "franchigia" ? "FR - Franchigia" : "BM - Bonus Malus"',
       'veh_vehicle_use_str' => '(profilefield[:veh_third_party_str]=~ /proprio/i) ? " Cose conto proprio" : " Cose conto terzi"',
 
     }
