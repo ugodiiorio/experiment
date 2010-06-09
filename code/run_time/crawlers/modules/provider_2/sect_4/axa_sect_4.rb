@@ -135,7 +135,7 @@ class AxaSect4 < Test::Unit::TestCase
 
     select_option "DPRCA", get('@insurance_situation')
 
-    if (get('@full_load_total_weight').to_i) >= 70
+    if !(get('@full_load_total_weight').to_i < 70  && get('@third_party') =~ /proprio/i)
       select_option "SETMER", get('@product_sector')
       select_option "ALIM", get('@fuel')
       
@@ -148,7 +148,7 @@ class AxaSect4 < Test::Unit::TestCase
     if get('@insurance_situation') =~ /attestato/i
       type_text("ANSPAG", get('@nr_of_yrs_without_claims'))
 
-      if (get('@full_load_total_weight').to_i) >= 70
+      if !(get('@full_load_total_weight').to_i < 70  && get('@third_party') =~ /proprio/i)
         type_text("NSIN2", get('@nr_of_paid_claims_2_yr'))
         type_text("NSINM3", get('@nr_of_paid_claims_2_yr'))
       else
@@ -157,7 +157,7 @@ class AxaSect4 < Test::Unit::TestCase
 
     end
 
-    if (get('@full_load_total_weight').to_i) < 70
+    if (get('@full_load_total_weight').to_i < 70  && get('@third_party') =~ /proprio/i)
       type_text("ETAVEI", get('@matriculation_date'))
 
       select_option "MARCA", get("@make")
@@ -182,7 +182,7 @@ class AxaSect4 < Test::Unit::TestCase
     click_button 'clausole'
     page_wait
 
-    if (get('@full_load_total_weight').to_i) < 70
+    if (get('@full_load_total_weight').to_i < 70  && get('@third_party') =~ /proprio/i)
       select_option "SETMER", get('@product_sector')
     end
 
