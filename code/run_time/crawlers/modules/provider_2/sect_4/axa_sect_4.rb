@@ -104,7 +104,7 @@ class AxaSect4 < Test::Unit::TestCase
     
     open_page(@url)
 
-    if (get('@full_load_total_weight').to_i) < 70
+    if (get('@full_load_total_weight').to_i < 70  && get('@third_party') =~ /proprio/i)
       click_button '//img[@src="immagini/rcAutoImmagini/protezionevan_new.gif"]'
       page_wait
     else
