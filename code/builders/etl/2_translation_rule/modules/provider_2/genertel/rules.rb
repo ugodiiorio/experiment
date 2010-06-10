@@ -277,7 +277,8 @@ module Provider2Genertel
 
     @rule_values = {
 
-      'driv_birth_place_str' => 'res= profilefield[:driv_birth_place_str]; res=res.gsub("PRATO","PRATO|PRATO (PO)"); res=res.gsub("ANNONE DI BRIANZA","ANNONE"); res=res.gsub("DUINO AURISINA","DUINO" );',
+#      'driv_birth_place_str' => 'res= profilefield[:driv_birth_place_str]; res=res.gsub("PRATO","PRATO|PRATO (PO)"); res=res.gsub("ANNONE DI BRIANZA","ANNONE"); res=res.gsub("DUINO AURISINA","DUINO" );',
+      'driv_birth_place_str' => '"milano"',
       'driv_birth_province_str' => 'copy_field',
       'driv_birth_state_str' => 'copy_field',
       'driv_driver_sex_str' => 'translate_field',
