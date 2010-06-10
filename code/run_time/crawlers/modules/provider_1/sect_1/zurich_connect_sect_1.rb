@@ -180,9 +180,10 @@ class ZurichConnectSect1 < Test::Unit::TestCase
     select_option("ddlMarca", get('@make'))
     store_parameter(:make, page.get_selected_label(@last_element)) if @store_params
     sleep @sleep*2
+    wait_for_elm("ddlModello")
     select_model_set_up("ddlModello", get('@model'))
     store_parameter(:model, page.get_selected_label(@last_element)) if @store_params
-    sleep @sleep*2
+    wait_for_elm("ddlAllestimento")
     select_model_set_up("ddlAllestimento", get('@set_up'))
     store_parameter(:preparation, page.get_selected_label(@last_element)) if @store_params
 

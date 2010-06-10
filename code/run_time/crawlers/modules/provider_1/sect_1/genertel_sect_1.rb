@@ -286,7 +286,7 @@ class GenertelSect1 < Test::Unit::TestCase
     sleep @sleep
     click_button_item get('@privacy_3')
 
-    fake_select_option("CBXXINFXComeGenertel", get('@how_do_you_know_the_company'), "//div[8]/div/div")
+    fake_select_option("CBXXINFXComeGenertel", get('@how_do_you_know_the_company'), "//div[8]/div/div") if is_present?("CBXXINFXComeGenertel")
     sleep @sleep
     click_button_item "LBLXINFXConfermaDati"
     page_wait

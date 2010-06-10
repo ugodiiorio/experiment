@@ -496,6 +496,7 @@ class DirectlineSect1 < Test::Unit::TestCase
     @logger.debug("#{__FILE__} => #{method_name}") {"#{@kte.company} => now's typed input element: [#{@last_element}] with value: [#{@last_value}]"}
 
     page_click(@last_element)
+    wait_for_elm("#{item.gsub('?',0.to_s)}")
 
     @last_value.split("|").each do |regex|
       span = find_span_element(item, regex.gsub("regexpi:",""), 0)
