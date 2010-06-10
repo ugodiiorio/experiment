@@ -293,7 +293,7 @@ module Provider2ZurichConnect
       'pol_BM_assigned_str' => 'translate_field',
       'pol_claims_total_number_malus_str' => 'copy_field',
       'pol_claims_total_number_str' => 'translate_field',
-      'pol_driver_zip_code_str' => 'cap = profilefield[:pol_driver_zip_code_str].strip; cap = cap.gsub("15100","15121"); cap = cap.gsub("47023","47521");cap = cap.gsub("44100","44121");cap = cap.gsub("41100","41121");cap = cap.gsub("43100","43121");cap = cap.gsub("61100","61121");cap = cap.gsub("29100","29121");cap = cap.gsub("48100","48121");cap = cap.gsub("42100","42121");cap = cap.gsub("47900","47921");cap = cap.gsub("38100","38121");cap = cap.gsub("71100","71121");cap = cap.gsub("47100","47121");cap = cap.gsub("74100","74121");',
+      'pol_driver_zip_code_str' => 'copy_field',
       'pol_family_members_insured_with_company_str' => 'translate_field',
       'pol_first_claim_year_str' => '(profilefield[:pol_nr_of_paid_claims_this_yr_str].to_i > 0 || profilefield[:pol_nr_of_paid_claims_1_yr_str].to_i > 0 ) ? "SI" : "NO" ',
       'pol_how_do_you_know_the_company_str' => 'translate_field',
