@@ -293,7 +293,7 @@ module Provider2Generali
       'pol_public_liability_indemnity_limit_str' => 'translate_field',
       'pol_RCA_premium_id_str' => 'translate_field',
       'pol_residence_province_str' => 'translate_field',
-      'pol_risk_certificate_str' => 'profilefield[:pol_bersani_str]== "si" ? "ZZ - Altre forme" : "BM - Bonus Malus"',
+      'pol_risk_certificate_str' => 'profilefield[:pol_bersani_str]== "si" ? "BV - Bonus Malus Generali (Cl. 54)" : "BM - Bonus Malus"',
       'veh_fuel_str' => 'translate_field',
       'veh_vehicle_use_str' => 'translate_field',
       'pol_bersani_policy_expiring_date_str' => 'Chronic.parse(profilefield[:pol_bersani_policy_expiring_date_str]).strftime("%d/%m/%Y");',

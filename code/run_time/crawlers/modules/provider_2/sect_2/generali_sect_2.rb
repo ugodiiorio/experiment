@@ -156,6 +156,7 @@ class GeneraliSect2 < Test::Unit::TestCase
     if (get('@insurance_situation') =~ /assicurato/i || (get('@insurance_situation') =~ /prima/i &&  get('@bersani') =~ /si/i))
       select_option "FORMA_TARIFFARIA_PREC", get('@risk_certificate')
       select_option "CLASSE_UNIVERSALE_ASSEGNAZIONE", get("@bm_assigned") unless get('@risk_certificate') =~ /franchigia/i
+      select_option "CLASSE_GENERALI_ASSEGNAZIONE", get("@bm_assigned") unless get('@risk_certificate') =~ /franchigia/i
       select_option "SIN_PRINC_1", get("@nr_of_paid_claims_5_yr") if page.is_editable("SIN_PRINC_1")
       select_option "SIN_PRINC_2", get("@nr_of_paid_claims_4_yr") if page.is_editable("SIN_PRINC_2")
       select_option "SIN_PRINC_3", get("@nr_of_paid_claims_3_yr")
