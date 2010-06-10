@@ -46,7 +46,8 @@ class BuildTargetSchema
 		        car_make_str varchar(128)  NOT NULL,
 		        car_model_str varchar(128)  NOT NULL,
 		        car_preparation_str varchar(128)  NOT NULL,
-		        job_str varchar(128)  NOT NULL,
+		        job_str varchar(128)  DEFAULT NULL,
+		        car_value_str varchar(32)  DEFAULT NULL,
             last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 			      PRIMARY KEY (key_insurance_profiles_id_num,key_provider_id_str,key_sector_id_str,key_company_id_str,key_working_set_id_str,key_rate_id_str,key_cover_id_str)
             ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ;")

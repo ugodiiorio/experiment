@@ -143,7 +143,9 @@ class ZurichSect1 < Test::Unit::TestCase
       page.select_window(nil)
     end
 
+    sleep @sleep
     click_option(get('@client_type'))
+    sleep @sleep
     if (page.get_attribute("#{@last_element}@id") == "TIP_PERS_F")
       click_option(get('@owner_sex'))
       select_option "gg_DAT_NASC", get("@birth_date_day")
@@ -165,6 +167,7 @@ class ZurichSect1 < Test::Unit::TestCase
       page.select_window(nil)
     end
 
+    sleep @sleep
     click_option(get('@type_of_contract'))
 
     page.click 'buttonFLG_RISC'
