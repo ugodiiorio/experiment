@@ -182,11 +182,11 @@ class ZurichSect3 < Test::Unit::TestCase
     page.select_window('DominiPopup')
     select_option "MAX_SINIDomini", get("@public_liability_indemnity_limit")
     page.click 'buttonMAX_SINI'
-    page.select_window(nil)
+    page.select_window("null")
 
+    sleep @sleep
     click_button 'step1'
-   	page_wait
-
+   	page_wait    
   end
   
   def page_premium
