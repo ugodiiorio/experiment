@@ -160,11 +160,16 @@ class GenertelSect2 < Test::Unit::TestCase
 
     type_text("NBXXDVEXValoreVeicolo", get('@vehicle_value'))
     fake_select_option("CBXXDVEXAntifurto", get('@alarm'), "//body/div[8]/div/div")
-    page.check(get('@vehicle_shelter')) if is_present?(get('@vehicle_shelter'))
-    click_checkbox(get('@vehicle_shelter'))
+    if @bersani
+      page.check("RBTXDVEXCustodia1") if is_present?("RBTXDVEXCustodia1")
+      click_checkbox("RBTXDVEXCustodia1")
+    else
+      click_checkbox(get('@vehicle_shelter'))
+      page.check(get('@vehicle_shelter')) if is_present?(get('@vehicle_shelter'))
+    end
 
     # following option has been commented because our default value is equal to the site default
-#    fake_select_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
+    #fake_select_option("CBXXDVEXUso", get('@vehicle_use'), "//body/div[10]/div/div")
     type_text("NBXXDVEXKmAnnui", get('@km_per_yr'))
 
     click_button_item "LBLXDVEXAvanti"
